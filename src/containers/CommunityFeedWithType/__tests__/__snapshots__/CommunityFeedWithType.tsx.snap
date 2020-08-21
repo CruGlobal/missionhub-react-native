@@ -225,6 +225,8 @@ exports[`renders correctly 1`] = `
               "fontWeight": "300",
               "lineHeight": 30,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -242,6 +244,8 @@ exports[`renders correctly 1`] = `
               "paddingHorizontal": 35,
               "paddingTop": 10,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >

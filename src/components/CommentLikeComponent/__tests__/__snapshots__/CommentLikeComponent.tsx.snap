@@ -31,6 +31,8 @@ exports[`renders nothing with no subject person 1`] = `
           "lineHeight": 20,
           "paddingRight": 10,
           "textAlign": "right",
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 30,
         }
       }
@@ -104,6 +106,8 @@ exports[`renders nothing with no subject person 1`] = `
           "lineHeight": 20,
           "paddingRight": 10,
           "textAlign": "right",
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 30,
         }
       }
@@ -159,7 +163,7 @@ exports[`with subject person onPress like button like -> unlike renders disabled
 - First value
 + Second value
 
-@@ -63,11 +63,13 @@
+@@ -65,11 +65,13 @@
           style={
             Array [
               Object {
@@ -181,7 +185,7 @@ exports[`with subject person onPress like button unlike -> like renders disabled
 - First value
 + Second value
 
-@@ -63,11 +63,13 @@
+@@ -65,11 +65,13 @@
           style={
             Array [
               Object {
@@ -229,6 +233,8 @@ exports[`with subject person renders 0 comments_count 1`] = `
           "lineHeight": 20,
           "paddingRight": 10,
           "textAlign": "right",
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 30,
         }
       }
@@ -302,6 +308,8 @@ exports[`with subject person renders 0 comments_count 1`] = `
           "lineHeight": 20,
           "paddingRight": 10,
           "textAlign": "right",
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 30,
         }
       }
@@ -381,6 +389,8 @@ exports[`with subject person renders 0 likes_count 1`] = `
           "lineHeight": 20,
           "paddingRight": 10,
           "textAlign": "right",
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 30,
         }
       }
@@ -454,6 +464,8 @@ exports[`with subject person renders 0 likes_count 1`] = `
           "lineHeight": 20,
           "paddingRight": 10,
           "textAlign": "right",
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 30,
         }
       }
@@ -535,6 +547,8 @@ exports[`with subject person renders for me 1`] = `
           "lineHeight": 20,
           "paddingRight": 10,
           "textAlign": "right",
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 30,
         }
       }
@@ -610,6 +624,8 @@ exports[`with subject person renders for me 1`] = `
           "lineHeight": 20,
           "paddingRight": 10,
           "textAlign": "right",
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 30,
         }
       }
@@ -691,6 +707,8 @@ exports[`with subject person renders for someone else 1`] = `
           "lineHeight": 20,
           "paddingRight": 10,
           "textAlign": "right",
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 30,
         }
       }
@@ -764,6 +782,8 @@ exports[`with subject person renders for someone else 1`] = `
           "lineHeight": 20,
           "paddingRight": 10,
           "textAlign": "right",
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 30,
         }
       }
@@ -845,6 +865,8 @@ exports[`with subject person renders prayer request liked 1`] = `
           "lineHeight": 20,
           "paddingRight": 10,
           "textAlign": "right",
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 30,
         }
       }
@@ -917,6 +939,8 @@ exports[`with subject person renders prayer request liked 1`] = `
           "lineHeight": 20,
           "paddingRight": 10,
           "textAlign": "right",
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 30,
         }
       }
@@ -998,6 +1022,8 @@ exports[`with subject person renders prayer request not liked 1`] = `
           "lineHeight": 20,
           "paddingRight": 10,
           "textAlign": "right",
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 30,
         }
       }
@@ -1070,6 +1096,8 @@ exports[`with subject person renders prayer request not liked 1`] = `
           "lineHeight": 20,
           "paddingRight": 10,
           "textAlign": "right",
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 30,
         }
       }
@@ -1151,6 +1179,8 @@ exports[`with subject person renders when not liked 1`] = `
           "lineHeight": 20,
           "paddingRight": 10,
           "textAlign": "right",
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 30,
         }
       }
@@ -1223,6 +1253,8 @@ exports[`with subject person renders when not liked 1`] = `
           "lineHeight": 20,
           "paddingRight": 10,
           "textAlign": "right",
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 30,
         }
       }

@@ -65,6 +65,8 @@ exports[`PendingFeedItem renders failed post 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -96,6 +98,8 @@ exports[`PendingFeedItem renders failed post 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -192,6 +196,8 @@ exports[`PendingFeedItem renders pending post 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >

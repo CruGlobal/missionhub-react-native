@@ -190,6 +190,7 @@ exports[`should render correctly 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Object {},

@@ -157,6 +157,7 @@ exports[`renders correctly 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -181,6 +182,8 @@ exports[`renders correctly 1`] = `
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -232,6 +235,8 @@ exports[`renders correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -308,6 +313,7 @@ exports[`renders correctly 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -481,6 +487,7 @@ exports[`renders correctly for me 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -505,6 +512,8 @@ exports[`renders correctly for me 1`] = `
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -556,6 +565,8 @@ exports[`renders correctly for me 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -632,6 +643,7 @@ exports[`renders correctly for me 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -805,6 +817,7 @@ exports[`renders correctly in onboarding 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -829,6 +842,8 @@ exports[`renders correctly in onboarding 1`] = `
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -880,6 +895,8 @@ exports[`renders correctly in onboarding 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -956,6 +973,7 @@ exports[`renders correctly in onboarding 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [

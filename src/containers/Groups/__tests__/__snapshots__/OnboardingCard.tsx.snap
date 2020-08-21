@@ -77,6 +77,8 @@ exports[`OnboardingCard render celebrate card 1`] = `
           "lineHeight": 30,
           "paddingTop": 5,
           "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -94,6 +96,8 @@ exports[`OnboardingCard render celebrate card 1`] = `
           "paddingHorizontal": 50,
           "paddingVertical": 5,
           "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -200,6 +204,8 @@ exports[`OnboardingCard render challenges card | Admin 1`] = `
           "lineHeight": 30,
           "paddingTop": 5,
           "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -217,6 +223,8 @@ exports[`OnboardingCard render challenges card | Admin 1`] = `
           "paddingHorizontal": 50,
           "paddingVertical": 5,
           "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -321,6 +329,8 @@ exports[`OnboardingCard render challenges card | Member 1`] = `
           "lineHeight": 30,
           "paddingTop": 5,
           "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -338,6 +348,8 @@ exports[`OnboardingCard render challenges card | Member 1`] = `
           "paddingHorizontal": 50,
           "paddingVertical": 5,
           "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -442,6 +454,8 @@ exports[`OnboardingCard render challenges card hidden 1`] = `
           "lineHeight": 30,
           "paddingTop": 5,
           "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -459,6 +473,8 @@ exports[`OnboardingCard render challenges card hidden 1`] = `
           "paddingHorizontal": 50,
           "paddingVertical": 5,
           "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -563,6 +579,8 @@ exports[`OnboardingCard render impact card 1`] = `
           "lineHeight": 30,
           "paddingTop": 5,
           "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -580,6 +598,8 @@ exports[`OnboardingCard render impact card 1`] = `
           "paddingHorizontal": 50,
           "paddingVertical": 5,
           "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -686,6 +706,8 @@ exports[`OnboardingCard render steps card 1`] = `
           "lineHeight": 30,
           "paddingTop": 5,
           "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -703,6 +725,8 @@ exports[`OnboardingCard render steps card 1`] = `
           "paddingHorizontal": 50,
           "paddingVertical": 5,
           "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -809,6 +833,8 @@ exports[`handles press event from the close button 1`] = `
           "lineHeight": 30,
           "paddingTop": 5,
           "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -826,6 +852,8 @@ exports[`handles press event from the close button 1`] = `
           "paddingHorizontal": 50,
           "paddingVertical": 5,
           "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >

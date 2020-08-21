@@ -149,6 +149,8 @@ exports[`should render correctly for basic member 1`] = `
                 "fontWeight": "normal",
                 "lineHeight": 16,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -260,6 +262,8 @@ exports[`should render correctly for basic member 1`] = `
                         "fontWeight": "normal",
                         "lineHeight": 24,
                         "marginBottom": 3,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       }
                     }
                   >
@@ -299,6 +303,8 @@ exports[`should render correctly for basic member 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "normal",
                             "lineHeight": 16,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           }
                         }
                       >
@@ -313,6 +319,8 @@ exports[`should render correctly for basic member 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           }
                         }
                       >
@@ -340,6 +348,8 @@ exports[`should render correctly for basic member 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "normal",
                             "lineHeight": 16,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           }
                         }
                       >
@@ -356,6 +366,8 @@ exports[`should render correctly for basic member 1`] = `
                               "fontStyle": "normal",
                               "fontWeight": "300",
                               "lineHeight": 30,
+                              "textAlignVertical": "center",
+                              "textTransform": "none",
                             },
                             null,
                           ]
@@ -386,6 +398,8 @@ exports[`should render correctly for basic member 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "normal",
                             "lineHeight": 16,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           }
                         }
                       >
@@ -402,6 +416,8 @@ exports[`should render correctly for basic member 1`] = `
                               "fontStyle": "normal",
                               "fontWeight": "300",
                               "lineHeight": 30,
+                              "textAlignVertical": "center",
+                              "textTransform": "none",
                             },
                             null,
                           ]
@@ -483,6 +499,7 @@ exports[`should render correctly for basic member 1`] = `
                       "letterSpacing": 1,
                       "lineHeight": 18,
                       "textAlign": "center",
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                     Object {
@@ -493,6 +510,7 @@ exports[`should render correctly for basic member 1`] = `
                       "fontWeight": "bold",
                       "letterSpacing": 1,
                       "lineHeight": 18,
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                   ]
@@ -532,6 +550,8 @@ exports[`should render correctly for basic member 1`] = `
                 "fontWeight": "normal",
                 "lineHeight": 16,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -643,6 +663,8 @@ exports[`should render correctly for basic member 1`] = `
                         "fontWeight": "normal",
                         "lineHeight": 24,
                         "marginBottom": 3,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       }
                     }
                   >
@@ -682,6 +704,8 @@ exports[`should render correctly for basic member 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "normal",
                             "lineHeight": 16,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           }
                         }
                       >
@@ -696,6 +720,8 @@ exports[`should render correctly for basic member 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           }
                         }
                       >
@@ -723,6 +749,8 @@ exports[`should render correctly for basic member 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "normal",
                             "lineHeight": 16,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           }
                         }
                       >
@@ -739,6 +767,8 @@ exports[`should render correctly for basic member 1`] = `
                               "fontStyle": "normal",
                               "fontWeight": "300",
                               "lineHeight": 30,
+                              "textAlignVertical": "center",
+                              "textTransform": "none",
                             },
                             null,
                           ]
@@ -769,6 +799,8 @@ exports[`should render correctly for basic member 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "normal",
                             "lineHeight": 16,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           }
                         }
                       >
@@ -785,6 +817,8 @@ exports[`should render correctly for basic member 1`] = `
                               "fontStyle": "normal",
                               "fontWeight": "300",
                               "lineHeight": 30,
+                              "textAlignVertical": "center",
+                              "textTransform": "none",
                             },
                             null,
                           ]
@@ -928,6 +962,8 @@ exports[`should render empty correctly 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "paddingTop": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -945,6 +981,8 @@ exports[`should render empty correctly 1`] = `
               "paddingHorizontal": 80,
               "paddingVertical": 10,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >

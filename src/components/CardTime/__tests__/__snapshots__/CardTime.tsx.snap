@@ -11,6 +11,8 @@ exports[`renders correctly 1`] = `
         "fontStyle": "normal",
         "fontWeight": "normal",
         "lineHeight": 16,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       },
       Object {},
     ]
@@ -32,6 +34,8 @@ exports[`renders correctly with custom styling 1`] = `
         "fontStyle": "normal",
         "fontWeight": "normal",
         "lineHeight": 16,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       },
       Object {
         "color": "blue",

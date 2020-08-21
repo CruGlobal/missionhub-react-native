@@ -107,6 +107,7 @@ exports[`renders correctly 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Object {
@@ -118,6 +119,7 @@ exports[`renders correctly 1`] = `
                   "letterSpacing": 1.5,
                   "lineHeight": 18,
                   "paddingTop": 2,
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
               ]
@@ -185,6 +187,7 @@ exports[`renders correctly 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Object {
@@ -196,6 +199,7 @@ exports[`renders correctly 1`] = `
                   "letterSpacing": 1.5,
                   "lineHeight": 18,
                   "paddingTop": 2,
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
               ]
@@ -228,6 +232,7 @@ exports[`renders correctly 1`] = `
             "marginBottom": 20,
             "marginRight": 10,
             "paddingTop": 2,
+            "textAlignVertical": "center",
             "textTransform": "uppercase",
           }
         }
@@ -275,6 +280,7 @@ exports[`renders correctly 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -287,6 +293,7 @@ exports[`renders correctly 1`] = `
                     "letterSpacing": 1.5,
                     "lineHeight": 18,
                     "paddingTop": 2,
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {

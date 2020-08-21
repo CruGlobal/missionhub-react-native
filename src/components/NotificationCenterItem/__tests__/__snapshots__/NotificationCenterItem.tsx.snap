@@ -77,6 +77,8 @@ exports[`ReportedNotificationItem renders correctly | Reported Comment 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -92,6 +94,8 @@ exports[`ReportedNotificationItem renders correctly | Reported Comment 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -109,6 +113,8 @@ exports[`ReportedNotificationItem renders correctly | Reported Comment 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -124,6 +130,8 @@ exports[`ReportedNotificationItem renders correctly | Reported Comment 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="Text"
@@ -212,6 +220,8 @@ exports[`ReportedNotificationItem renders correctly | Reported Post 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -227,6 +237,8 @@ exports[`ReportedNotificationItem renders correctly | Reported Post 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -244,6 +256,8 @@ exports[`ReportedNotificationItem renders correctly | Reported Post 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -259,6 +273,8 @@ exports[`ReportedNotificationItem renders correctly | Reported Post 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="Text"
@@ -333,6 +349,8 @@ exports[`ReportedNotificationItem renders correctly | without community photo 1`
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -348,6 +366,8 @@ exports[`ReportedNotificationItem renders correctly | without community photo 1`
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -365,6 +385,8 @@ exports[`ReportedNotificationItem renders correctly | without community photo 1`
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -380,6 +402,8 @@ exports[`ReportedNotificationItem renders correctly | without community photo 1`
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="Text"
@@ -497,6 +521,8 @@ exports[`different notification types Announcement renders correctly | Announcem
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -509,6 +535,8 @@ exports[`different notification types Announcement renders correctly | Announcem
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -527,6 +555,8 @@ exports[`different notification types Announcement renders correctly | Announcem
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="Text"
@@ -658,6 +688,8 @@ exports[`different notification types Announcement renders global community avat
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -670,6 +702,8 @@ exports[`different notification types Announcement renders global community avat
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -688,6 +722,8 @@ exports[`different notification types Announcement renders global community avat
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="Text"
@@ -805,6 +841,8 @@ exports[`different notification types Announcement renders with default communit
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -817,6 +855,8 @@ exports[`different notification types Announcement renders with default communit
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -835,6 +875,8 @@ exports[`different notification types Announcement renders with default communit
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="Text"
@@ -972,6 +1014,8 @@ exports[`different notification types Comunity Challenge renders completed chall
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -984,6 +1028,8 @@ exports[`different notification types Comunity Challenge renders completed chall
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1001,6 +1047,8 @@ exports[`different notification types Comunity Challenge renders completed chall
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1019,6 +1067,8 @@ exports[`different notification types Comunity Challenge renders completed chall
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="Text"
@@ -1136,6 +1186,8 @@ exports[`different notification types Comunity Challenge renders correctly | Com
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1151,6 +1203,8 @@ exports[`different notification types Comunity Challenge renders correctly | Com
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1166,6 +1220,8 @@ exports[`different notification types Comunity Challenge renders correctly | Com
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="Text"
@@ -1297,6 +1353,8 @@ exports[`different notification types Comunity Challenge renders global communit
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1312,6 +1370,8 @@ exports[`different notification types Comunity Challenge renders global communit
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1327,6 +1387,8 @@ exports[`different notification types Comunity Challenge renders global communit
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="Text"
@@ -1444,6 +1506,8 @@ exports[`different notification types Comunity Challenge renders with default co
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1459,6 +1523,8 @@ exports[`different notification types Comunity Challenge renders with default co
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1474,6 +1540,8 @@ exports[`different notification types Comunity Challenge renders with default co
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="Text"
@@ -1611,6 +1679,8 @@ exports[`different notification types Prayed For You Notification renders correc
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1623,6 +1693,8 @@ exports[`different notification types Prayed For You Notification renders correc
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1640,6 +1712,8 @@ exports[`different notification types Prayed For You Notification renders correc
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1658,6 +1732,8 @@ exports[`different notification types Prayed For You Notification renders correc
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="Text"
@@ -1749,6 +1825,8 @@ exports[`different notification types renders correctly | Comment 1 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1761,6 +1839,8 @@ exports[`different notification types renders correctly | Comment 1 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1778,6 +1858,8 @@ exports[`different notification types renders correctly | Comment 1 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1795,6 +1877,8 @@ exports[`different notification types renders correctly | Comment 1 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1812,6 +1896,8 @@ exports[`different notification types renders correctly | Comment 1 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1830,6 +1916,8 @@ exports[`different notification types renders correctly | Comment 1 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="Text"
@@ -1967,6 +2055,8 @@ exports[`different notification types renders correctly | Community Need 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1979,6 +2069,8 @@ exports[`different notification types renders correctly | Community Need 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1996,6 +2088,8 @@ exports[`different notification types renders correctly | Community Need 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2013,6 +2107,8 @@ exports[`different notification types renders correctly | Community Need 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2028,6 +2124,8 @@ exports[`different notification types renders correctly | Community Need 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="Text"
@@ -2165,6 +2263,8 @@ exports[`different notification types renders correctly | God Story 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -2177,6 +2277,8 @@ exports[`different notification types renders correctly | God Story 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2194,6 +2296,8 @@ exports[`different notification types renders correctly | God Story 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2211,6 +2315,8 @@ exports[`different notification types renders correctly | God Story 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2226,6 +2332,8 @@ exports[`different notification types renders correctly | God Story 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="Text"
@@ -2363,6 +2471,8 @@ exports[`different notification types renders correctly | Prayer Request 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -2375,6 +2485,8 @@ exports[`different notification types renders correctly | Prayer Request 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2392,6 +2504,8 @@ exports[`different notification types renders correctly | Prayer Request 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2409,6 +2523,8 @@ exports[`different notification types renders correctly | Prayer Request 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2424,6 +2540,8 @@ exports[`different notification types renders correctly | Prayer Request 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="Text"
@@ -2561,6 +2679,8 @@ exports[`different notification types renders correctly | Spiritual Question 1`]
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -2573,6 +2693,8 @@ exports[`different notification types renders correctly | Spiritual Question 1`]
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2590,6 +2712,8 @@ exports[`different notification types renders correctly | Spiritual Question 1`]
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2607,6 +2731,8 @@ exports[`different notification types renders correctly | Spiritual Question 1`]
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2622,6 +2748,8 @@ exports[`different notification types renders correctly | Spiritual Question 1`]
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="Text"
@@ -2759,6 +2887,8 @@ exports[`different notification types renders correctly | Thought 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -2771,6 +2901,8 @@ exports[`different notification types renders correctly | Thought 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2788,6 +2920,8 @@ exports[`different notification types renders correctly | Thought 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2805,6 +2939,8 @@ exports[`different notification types renders correctly | Thought 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2820,6 +2956,8 @@ exports[`different notification types renders correctly | Thought 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="Text"
@@ -2951,6 +3089,8 @@ exports[`different notification types renders global community post 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -2963,6 +3103,8 @@ exports[`different notification types renders global community post 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2980,6 +3122,8 @@ exports[`different notification types renders global community post 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2997,6 +3141,8 @@ exports[`different notification types renders global community post 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -3012,6 +3158,8 @@ exports[`different notification types renders global community post 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="Text"
@@ -3103,6 +3251,8 @@ exports[`renders correctly | Comment 2 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -3115,6 +3265,8 @@ exports[`renders correctly | Comment 2 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -3132,6 +3284,8 @@ exports[`renders correctly | Comment 2 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -3149,6 +3303,8 @@ exports[`renders correctly | Comment 2 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -3167,6 +3323,8 @@ exports[`renders correctly | Comment 2 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="Text"
@@ -3258,6 +3416,8 @@ exports[`renders correctly | Comment 3 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -3270,6 +3430,8 @@ exports[`renders correctly | Comment 3 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -3287,6 +3449,8 @@ exports[`renders correctly | Comment 3 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -3304,6 +3468,8 @@ exports[`renders correctly | Comment 3 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -3321,6 +3487,8 @@ exports[`renders correctly | Comment 3 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -3339,6 +3507,8 @@ exports[`renders correctly | Comment 3 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="Text"
@@ -3430,6 +3600,8 @@ exports[`renders correctly | Comment 4 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -3442,6 +3614,8 @@ exports[`renders correctly | Comment 4 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -3459,6 +3633,8 @@ exports[`renders correctly | Comment 4 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -3476,6 +3652,8 @@ exports[`renders correctly | Comment 4 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -3494,6 +3672,8 @@ exports[`renders correctly | Comment 4 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="Text"
@@ -3585,6 +3765,8 @@ exports[`renders correctly | Comment 5 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -3597,6 +3779,8 @@ exports[`renders correctly | Comment 5 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -3614,6 +3798,8 @@ exports[`renders correctly | Comment 5 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -3631,6 +3817,8 @@ exports[`renders correctly | Comment 5 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -3649,6 +3837,8 @@ exports[`renders correctly | Comment 5 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="Text"
@@ -3786,6 +3976,8 @@ exports[`renders correctly 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -3801,6 +3993,8 @@ exports[`renders correctly 1`] = `
               "fontStyle": "normal",
               "fontWeight": "bold",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         />
@@ -3814,6 +4008,8 @@ exports[`renders correctly 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="Text"

@@ -129,6 +129,8 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
             "fontWeight": "300",
             "lineHeight": 30,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -144,6 +146,8 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
             "fontWeight": "normal",
             "lineHeight": 24,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -208,6 +212,7 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Object {},
@@ -350,6 +355,8 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
             "fontWeight": "300",
             "lineHeight": 30,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -365,6 +372,8 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
             "fontWeight": "normal",
             "lineHeight": 24,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -429,6 +438,7 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Object {},
@@ -571,6 +581,8 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
             "fontWeight": "300",
             "lineHeight": 30,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -586,6 +598,8 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
             "fontWeight": "normal",
             "lineHeight": 24,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -650,6 +664,7 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Object {},
@@ -792,6 +807,8 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUNCEMENT
             "fontWeight": "300",
             "lineHeight": 30,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -807,6 +824,8 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUNCEMENT
             "fontWeight": "normal",
             "lineHeight": 24,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -871,6 +890,7 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUNCEMENT
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Object {},

@@ -23,6 +23,7 @@ exports[`StepTypeBadge should hide "step" 1`] = `
           "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
+          "textAlignVertical": "center",
           "textTransform": "uppercase",
         },
         Object {
@@ -61,6 +62,7 @@ exports[`StepTypeBadge should hide icon 1`] = `
           "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
+          "textAlignVertical": "center",
           "textTransform": "uppercase",
         },
         Object {
@@ -122,6 +124,7 @@ exports[`StepTypeBadge should render icon props 1`] = `
           "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
+          "textAlignVertical": "center",
           "textTransform": "uppercase",
         },
         Object {
@@ -164,6 +167,7 @@ exports[`StepTypeBadge should render large icons 1`] = `
           "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
+          "textAlignVertical": "center",
           "textTransform": "uppercase",
         },
         Object {
@@ -205,6 +209,8 @@ exports[`StepTypeBadge should render text not uppercase 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         },
         Object {
           "color": "#B4B6BA",
@@ -246,6 +252,7 @@ exports[`StepTypeBadge should render text style 1`] = `
           "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
+          "textAlignVertical": "center",
           "textTransform": "uppercase",
         },
         Object {
@@ -290,6 +297,7 @@ exports[`StepTypeBadge should render the care step type 1`] = `
           "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
+          "textAlignVertical": "center",
           "textTransform": "uppercase",
         },
         Object {
@@ -332,6 +340,7 @@ exports[`StepTypeBadge should render the generic step type 1`] = `
           "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
+          "textAlignVertical": "center",
           "textTransform": "uppercase",
         },
         Object {
@@ -374,6 +383,7 @@ exports[`StepTypeBadge should render the pray step type 1`] = `
           "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
+          "textAlignVertical": "center",
           "textTransform": "uppercase",
         },
         Object {
@@ -416,6 +426,7 @@ exports[`StepTypeBadge should render the relate step type 1`] = `
           "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
+          "textAlignVertical": "center",
           "textTransform": "uppercase",
         },
         Object {
@@ -458,6 +469,7 @@ exports[`StepTypeBadge should render the share step type 1`] = `
           "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
+          "textAlignVertical": "center",
           "textTransform": "uppercase",
         },
         Object {
@@ -500,6 +512,7 @@ exports[`StepTypeBadge should render vertically 1`] = `
           "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
+          "textAlignVertical": "center",
           "textTransform": "uppercase",
         },
         Object {
@@ -545,6 +558,7 @@ exports[`StepTypeBadge should render view style 1`] = `
           "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
+          "textAlignVertical": "center",
           "textTransform": "uppercase",
         },
         Object {

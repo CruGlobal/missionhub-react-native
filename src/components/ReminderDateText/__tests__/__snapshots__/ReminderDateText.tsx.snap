@@ -11,6 +11,8 @@ exports[`renders daily 1`] = `
         "fontStyle": "normal",
         "fontWeight": "normal",
         "lineHeight": 20,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       },
       undefined,
     ]
@@ -31,6 +33,8 @@ exports[`renders monthly 1`] = `
         "fontStyle": "normal",
         "fontWeight": "normal",
         "lineHeight": 20,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       },
       undefined,
     ]
@@ -51,6 +55,8 @@ exports[`renders once next month 1`] = `
         "fontStyle": "normal",
         "fontWeight": "normal",
         "lineHeight": 20,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       },
       undefined,
     ]
@@ -71,6 +77,8 @@ exports[`renders once next week 1`] = `
         "fontStyle": "normal",
         "fontWeight": "normal",
         "lineHeight": 20,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       },
       undefined,
     ]
@@ -91,6 +99,8 @@ exports[`renders once this week 1`] = `
         "fontStyle": "normal",
         "fontWeight": "normal",
         "lineHeight": 20,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       },
       undefined,
     ]
@@ -111,6 +121,8 @@ exports[`renders once today 1`] = `
         "fontStyle": "normal",
         "fontWeight": "normal",
         "lineHeight": 20,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       },
       undefined,
     ]
@@ -131,6 +143,8 @@ exports[`renders once tomorrow 1`] = `
         "fontStyle": "normal",
         "fontWeight": "normal",
         "lineHeight": 20,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       },
       undefined,
     ]
@@ -151,6 +165,8 @@ exports[`renders weekly 1`] = `
         "fontStyle": "normal",
         "fontWeight": "normal",
         "lineHeight": 20,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       },
       undefined,
     ]
@@ -171,6 +187,8 @@ exports[`renders with placeholder correctly 1`] = `
         "fontStyle": "normal",
         "fontWeight": "normal",
         "lineHeight": 20,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       },
       undefined,
     ]
@@ -191,6 +209,8 @@ exports[`renders with reminder correctly 1`] = `
         "fontStyle": "normal",
         "fontWeight": "normal",
         "lineHeight": 20,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       },
       undefined,
     ]
@@ -211,6 +231,8 @@ exports[`renders without reminder or placeholder correctly 1`] = `
         "fontStyle": "normal",
         "fontWeight": "normal",
         "lineHeight": 20,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       },
       undefined,
     ]

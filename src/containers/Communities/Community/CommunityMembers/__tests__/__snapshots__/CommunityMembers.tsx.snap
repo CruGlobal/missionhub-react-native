@@ -87,6 +87,8 @@ exports[`CommunityMembers renders with content 1`] = `
               "lineHeight": 30,
               "marginBottom": 20,
               "marginTop": 15,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -184,6 +186,8 @@ exports[`CommunityMembers renders with content 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -209,6 +213,8 @@ exports[`CommunityMembers renders with content 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -223,6 +229,8 @@ exports[`CommunityMembers renders with content 1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 16,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       }
                     }
                     testID="Text"
@@ -305,6 +313,7 @@ exports[`CommunityMembers renders with content 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -478,9 +487,9 @@ exports[`CommunityMembers should load next page 1`] = `
       disableVirtualization={false}
       getItem={[Function anonymous]}
       getItemCount={[Function anonymous]}
-@@ -103,11 +139,11 @@
-                \\"marginBottom\\": 20,
-                \\"marginTop\\": 15,
+@@ -105,11 +141,11 @@
+                \\"textAlignVertical\\": \\"center\\",
+                \\"textTransform\\": \\"none\\",
               }
             }
           >
@@ -491,7 +500,7 @@ exports[`CommunityMembers should load next page 1`] = `
         <View
           onLayout={[Function onLayout]}
           style={null}
-@@ -383,10 +419,294 @@
+@@ -397,10 +433,306 @@
                         }
                       }
                       testID=\\"Text\\"
@@ -595,6 +604,8 @@ exports[`CommunityMembers should load next page 1`] = `
 +                     \\"fontStyle\\": \\"normal\\",
 +                     \\"fontWeight\\": \\"normal\\",
 +                     \\"lineHeight\\": 24,
++                     \\"textAlignVertical\\": \\"center\\",
++                     \\"textTransform\\": \\"none\\",
 +                   }
 +                 }
 +               >
@@ -620,6 +631,8 @@ exports[`CommunityMembers should load next page 1`] = `
 +                       \\"fontStyle\\": \\"normal\\",
 +                       \\"fontWeight\\": \\"normal\\",
 +                       \\"lineHeight\\": 16,
++                       \\"textAlignVertical\\": \\"center\\",
++                       \\"textTransform\\": \\"none\\",
 +                     }
 +                   }
 +                 >
@@ -634,6 +647,8 @@ exports[`CommunityMembers should load next page 1`] = `
 +                         \\"fontStyle\\": \\"normal\\",
 +                         \\"fontWeight\\": \\"normal\\",
 +                         \\"lineHeight\\": 16,
++                         \\"textAlignVertical\\": \\"center\\",
++                         \\"textTransform\\": \\"none\\",
 +                       }
 +                     }
 +                     testID=\\"Text\\"
@@ -737,6 +752,8 @@ exports[`CommunityMembers should load next page 1`] = `
 +                     \\"fontStyle\\": \\"normal\\",
 +                     \\"fontWeight\\": \\"normal\\",
 +                     \\"lineHeight\\": 24,
++                     \\"textAlignVertical\\": \\"center\\",
++                     \\"textTransform\\": \\"none\\",
 +                   }
 +                 }
 +               >
@@ -762,6 +779,8 @@ exports[`CommunityMembers should load next page 1`] = `
 +                       \\"fontStyle\\": \\"normal\\",
 +                       \\"fontWeight\\": \\"normal\\",
 +                       \\"lineHeight\\": 16,
++                       \\"textAlignVertical\\": \\"center\\",
++                       \\"textTransform\\": \\"none\\",
 +                     }
 +                   }
 +                 >
@@ -776,6 +795,8 @@ exports[`CommunityMembers should load next page 1`] = `
 +                         \\"fontStyle\\": \\"normal\\",
 +                         \\"fontWeight\\": \\"normal\\",
 +                         \\"lineHeight\\": 16,
++                         \\"textAlignVertical\\": \\"center\\",
++                         \\"textTransform\\": \\"none\\",
 +                       }
 +                     }
 +                     testID=\\"Text\\"
@@ -854,6 +875,8 @@ exports[`CommunityMembers should render empty state 1`] = `
               "lineHeight": 30,
               "marginBottom": 20,
               "marginTop": 15,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -954,6 +977,7 @@ exports[`CommunityMembers should render empty state 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -1141,6 +1165,8 @@ exports[`CommunityMembers should render loading state 1`] = `
               "lineHeight": 30,
               "marginBottom": 20,
               "marginTop": 15,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1241,6 +1267,7 @@ exports[`CommunityMembers should render loading state 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [

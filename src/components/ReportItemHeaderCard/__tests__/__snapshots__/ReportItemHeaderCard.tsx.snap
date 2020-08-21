@@ -74,6 +74,8 @@ exports[`renders correctly 1`] = `
         "fontWeight": "normal",
         "lineHeight": 20,
         "marginLeft": 15,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       }
     }
   >

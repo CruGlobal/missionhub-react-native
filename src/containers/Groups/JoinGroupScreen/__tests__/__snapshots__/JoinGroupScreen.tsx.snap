@@ -147,6 +147,8 @@ exports[`JoinGroupScreen onSearch should set community after entering 6th digit 
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               undefined,
             ]
@@ -224,6 +226,8 @@ exports[`JoinGroupScreen onSearch should set community after entering 6th digit 
                 "lineHeight": 24,
                 "padding": 4,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -268,6 +272,8 @@ exports[`JoinGroupScreen onSearch should set community after entering 6th digit 
                 "letterSpacing": 0.25,
                 "lineHeight": 24,
                 "paddingVertical": 5,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#ffffff",
@@ -278,6 +284,8 @@ exports[`JoinGroupScreen onSearch should set community after entering 6th digit 
                 "lineHeight": 24,
                 "padding": 8,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -446,6 +454,8 @@ exports[`JoinGroupScreen onSearch should set input without calling serach has < 
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               undefined,
             ]
@@ -523,6 +533,8 @@ exports[`JoinGroupScreen onSearch should set input without calling serach has < 
                 "lineHeight": 24,
                 "padding": 4,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -567,6 +579,8 @@ exports[`JoinGroupScreen onSearch should set input without calling serach has < 
                 "letterSpacing": 0.25,
                 "lineHeight": 24,
                 "paddingVertical": 5,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#ffffff",
@@ -577,6 +591,8 @@ exports[`JoinGroupScreen onSearch should set input without calling serach has < 
                 "lineHeight": 24,
                 "padding": 8,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -666,6 +682,8 @@ exports[`JoinGroupScreen renders error correctly 1`] = `
               "lineHeight": 24,
               "padding": 4,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -698,6 +716,8 @@ exports[`JoinGroupScreen renders error correctly 1`] = `
             "lineHeight": 24,
             "padding": 8,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="joinInput"
@@ -812,6 +832,8 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
             "lineHeight": 24,
             "padding": 8,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="joinInput"
@@ -899,6 +921,8 @@ exports[`JoinGroupScreen renders start correctly 1`] = `
               "lineHeight": 24,
               "padding": 4,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -931,6 +955,8 @@ exports[`JoinGroupScreen renders start correctly 1`] = `
             "lineHeight": 24,
             "padding": 8,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="joinInput"

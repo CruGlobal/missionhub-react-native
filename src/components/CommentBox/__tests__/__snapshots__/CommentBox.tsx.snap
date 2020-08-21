@@ -5,8 +5,8 @@ exports[`click submit button calls onSubmit prop 1`] = `
 - First value
 + Second value
 
-@@ -97,11 +97,11 @@
-              \\"paddingVertical\\": 6,
+@@ -101,11 +101,11 @@
+              \\"textTransform\\": \\"none\\",
             },
           ]
         }
@@ -18,7 +18,7 @@ exports[`click submit button calls onSubmit prop 1`] = `
     <View
       accessible={true}
       focusable={true}
-@@ -118,9 +118,9 @@
+@@ -122,9 +122,9 @@
         }
       }
       testID=\\"SubmitButton\\"
@@ -139,8 +139,8 @@ exports[`handles start edit 1`] = `
       style={
         Object {
           \\"backgroundColor\\": \\"#ECEEF2\\",
-@@ -97,11 +135,11 @@
-              \\"paddingVertical\\": 6,
+@@ -101,11 +139,11 @@
+              \\"textTransform\\": \\"none\\",
             },
           ]
         }
@@ -152,7 +152,7 @@ exports[`handles start edit 1`] = `
     <View
       accessible={true}
       focusable={true}
-@@ -118,9 +156,9 @@
+@@ -122,9 +160,9 @@
         }
       }
       testID=\\"SubmitButton\\"
@@ -170,8 +170,8 @@ exports[`renders with disabled submit button 1`] = `
 - First value
 + Second value
 
-@@ -97,11 +97,11 @@
-              \\"paddingVertical\\": 6,
+@@ -101,11 +101,11 @@
+              \\"textTransform\\": \\"none\\",
             },
           ]
         }
@@ -183,7 +183,7 @@ exports[`renders with disabled submit button 1`] = `
     <View
       accessible={true}
       focusable={true}
-@@ -118,9 +118,9 @@
+@@ -122,9 +122,9 @@
         }
       }
       testID=\\"SubmitButton\\"
@@ -201,8 +201,8 @@ exports[`renders with text entered 1`] = `
 - First value
 + Second value
 
-@@ -97,11 +97,11 @@
-              \\"paddingVertical\\": 6,
+@@ -101,11 +101,11 @@
+              \\"textTransform\\": \\"none\\",
             },
           ]
         }
@@ -214,7 +214,7 @@ exports[`renders with text entered 1`] = `
     <View
       accessible={true}
       focusable={true}
-@@ -118,9 +118,9 @@
+@@ -122,9 +122,9 @@
         }
       }
       testID=\\"SubmitButton\\"
@@ -313,6 +313,8 @@ exports[`renders without actions 1`] = `
             "letterSpacing": 0.25,
             "lineHeight": 24,
             "paddingVertical": 5,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
           Object {
             "borderBottomWidth": 0,
@@ -325,6 +327,8 @@ exports[`renders without actions 1`] = `
             "lineHeight": 20,
             "paddingHorizontal": 12,
             "paddingVertical": 6,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
         ]
       }

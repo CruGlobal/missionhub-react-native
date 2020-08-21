@@ -12,6 +12,8 @@ exports[`renders correctly not pressable 1`] = `
         "fontStyle": "normal",
         "fontWeight": "normal",
         "lineHeight": 24,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       },
       Object {
         "color": "#505256",
@@ -21,7 +23,8 @@ exports[`renders correctly not pressable 1`] = `
         "fontWeight": "bold",
         "letterSpacing": 1,
         "lineHeight": 20,
-        "textTransform": "uppercase",
+        "textAlignVertical": "center",
+        "textTransform": "none",
       },
     ]
   }
@@ -71,6 +74,8 @@ exports[`renders correctly with name 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
           Object {
             "color": "#505256",
@@ -80,7 +85,8 @@ exports[`renders correctly with name 1`] = `
             "fontWeight": "bold",
             "letterSpacing": 1,
             "lineHeight": 20,
-            "textTransform": "uppercase",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
         ]
       }
@@ -103,6 +109,8 @@ exports[`renders correctly without name 1`] = `
         "fontStyle": "normal",
         "fontWeight": "normal",
         "lineHeight": 24,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       },
       Object {
         "color": "#505256",
@@ -112,7 +120,8 @@ exports[`renders correctly without name 1`] = `
         "fontWeight": "bold",
         "letterSpacing": 1,
         "lineHeight": 20,
-        "textTransform": "uppercase",
+        "textAlignVertical": "center",
+        "textTransform": "none",
       },
     ]
   }

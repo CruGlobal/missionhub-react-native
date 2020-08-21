@@ -113,6 +113,8 @@ exports[`renders correctly 1`] = `
             "lineHeight": 20,
             "paddingBottom": 20,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -205,6 +207,8 @@ exports[`renders correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -300,6 +304,8 @@ exports[`renders correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -395,6 +401,8 @@ exports[`renders correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -490,6 +498,8 @@ exports[`renders correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -585,6 +595,8 @@ exports[`renders correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -711,6 +723,8 @@ exports[`renders correctly for admin 1`] = `
             "lineHeight": 20,
             "paddingBottom": 20,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -741,6 +755,8 @@ exports[`renders correctly for admin 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -837,6 +853,8 @@ exports[`renders correctly for admin 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -932,6 +950,8 @@ exports[`renders correctly for admin 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -1027,6 +1047,8 @@ exports[`renders correctly for admin 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -1122,6 +1144,8 @@ exports[`renders correctly for admin 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -1217,6 +1241,8 @@ exports[`renders correctly for admin 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -1253,6 +1279,8 @@ exports[`renders correctly for admin 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1350,6 +1378,8 @@ exports[`renders correctly for admin 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -1476,6 +1506,8 @@ exports[`renders correctly for owner 1`] = `
             "lineHeight": 20,
             "paddingBottom": 20,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1506,6 +1538,8 @@ exports[`renders correctly for owner 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1602,6 +1636,8 @@ exports[`renders correctly for owner 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -1697,6 +1733,8 @@ exports[`renders correctly for owner 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -1792,6 +1830,8 @@ exports[`renders correctly for owner 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -1887,6 +1927,8 @@ exports[`renders correctly for owner 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -1982,6 +2024,8 @@ exports[`renders correctly for owner 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -2018,6 +2062,8 @@ exports[`renders correctly for owner 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2115,6 +2161,8 @@ exports[`renders correctly for owner 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >

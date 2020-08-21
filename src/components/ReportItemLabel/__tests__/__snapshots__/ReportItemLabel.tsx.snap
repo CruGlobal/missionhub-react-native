@@ -20,6 +20,8 @@ exports[`render label 1`] = `
         "fontStyle": "normal",
         "fontWeight": "normal",
         "lineHeight": 20,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       }
     }
   >
@@ -36,6 +38,8 @@ exports[`render label 1`] = `
         "fontStyle": "normal",
         "fontWeight": "normal",
         "lineHeight": 24,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       }
     }
   >
@@ -51,6 +55,8 @@ exports[`render label 1`] = `
         "fontStyle": "normal",
         "fontWeight": "normal",
         "lineHeight": 24,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       }
     }
   >

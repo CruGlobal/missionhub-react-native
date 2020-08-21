@@ -141,6 +141,8 @@ exports[`renders correctly for completed members 1`] = `
             "fontWeight": "300",
             "lineHeight": 30,
             "paddingHorizontal": 20,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -344,6 +346,8 @@ exports[`renders correctly for completed members 1`] = `
                               "fontStyle": "normal",
                               "fontWeight": "normal",
                               "lineHeight": 24,
+                              "textAlignVertical": "center",
+                              "textTransform": "none",
                             }
                           }
                         >
@@ -359,6 +363,8 @@ exports[`renders correctly for completed members 1`] = `
                                 "fontStyle": "normal",
                                 "fontWeight": "normal",
                                 "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
                               },
                             ]
                           }
@@ -373,6 +379,8 @@ exports[`renders correctly for completed members 1`] = `
                                 "fontStyle": "normal",
                                 "fontWeight": "normal",
                                 "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
                               }
                             }
                             testID="Text"
@@ -530,6 +538,8 @@ exports[`renders correctly for completed members 1`] = `
                               "fontStyle": "normal",
                               "fontWeight": "normal",
                               "lineHeight": 24,
+                              "textAlignVertical": "center",
+                              "textTransform": "none",
                             }
                           }
                         >
@@ -545,6 +555,8 @@ exports[`renders correctly for completed members 1`] = `
                                 "fontStyle": "normal",
                                 "fontWeight": "normal",
                                 "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
                               },
                             ]
                           }
@@ -559,6 +571,8 @@ exports[`renders correctly for completed members 1`] = `
                                 "fontStyle": "normal",
                                 "fontWeight": "normal",
                                 "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
                               }
                             }
                             testID="Text"
@@ -729,6 +743,8 @@ exports[`renders correctly for joined members 1`] = `
             "fontWeight": "300",
             "lineHeight": 30,
             "paddingHorizontal": 20,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -924,6 +940,8 @@ exports[`renders correctly for joined members 1`] = `
                               "fontStyle": "normal",
                               "fontWeight": "normal",
                               "lineHeight": 24,
+                              "textAlignVertical": "center",
+                              "textTransform": "none",
                             }
                           }
                         >
@@ -939,6 +957,8 @@ exports[`renders correctly for joined members 1`] = `
                                 "fontStyle": "normal",
                                 "fontWeight": "normal",
                                 "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
                               },
                             ]
                           }
@@ -953,6 +973,8 @@ exports[`renders correctly for joined members 1`] = `
                                 "fontStyle": "normal",
                                 "fontWeight": "normal",
                                 "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
                               }
                             }
                             testID="Text"
@@ -1123,6 +1145,8 @@ exports[`renders plural sentence for joined members 1`] = `
             "fontWeight": "300",
             "lineHeight": 30,
             "paddingHorizontal": 20,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1326,6 +1350,8 @@ exports[`renders plural sentence for joined members 1`] = `
                               "fontStyle": "normal",
                               "fontWeight": "normal",
                               "lineHeight": 24,
+                              "textAlignVertical": "center",
+                              "textTransform": "none",
                             }
                           }
                         >
@@ -1341,6 +1367,8 @@ exports[`renders plural sentence for joined members 1`] = `
                                 "fontStyle": "normal",
                                 "fontWeight": "normal",
                                 "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
                               },
                             ]
                           }
@@ -1355,6 +1383,8 @@ exports[`renders plural sentence for joined members 1`] = `
                                 "fontStyle": "normal",
                                 "fontWeight": "normal",
                                 "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
                               }
                             }
                             testID="Text"
@@ -1512,6 +1542,8 @@ exports[`renders plural sentence for joined members 1`] = `
                               "fontStyle": "normal",
                               "fontWeight": "normal",
                               "lineHeight": 24,
+                              "textAlignVertical": "center",
+                              "textTransform": "none",
                             }
                           }
                         >
@@ -1527,6 +1559,8 @@ exports[`renders plural sentence for joined members 1`] = `
                                 "fontStyle": "normal",
                                 "fontWeight": "normal",
                                 "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
                               },
                             ]
                           }
@@ -1541,6 +1575,8 @@ exports[`renders plural sentence for joined members 1`] = `
                                 "fontStyle": "normal",
                                 "fontWeight": "normal",
                                 "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
                               }
                             }
                             testID="Text"
@@ -1711,6 +1747,8 @@ exports[`renders singular sentence for completed members 1`] = `
             "fontWeight": "300",
             "lineHeight": 30,
             "paddingHorizontal": 20,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1906,6 +1944,8 @@ exports[`renders singular sentence for completed members 1`] = `
                               "fontStyle": "normal",
                               "fontWeight": "normal",
                               "lineHeight": 24,
+                              "textAlignVertical": "center",
+                              "textTransform": "none",
                             }
                           }
                         >
@@ -1921,6 +1961,8 @@ exports[`renders singular sentence for completed members 1`] = `
                                 "fontStyle": "normal",
                                 "fontWeight": "normal",
                                 "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
                               },
                             ]
                           }
@@ -1935,6 +1977,8 @@ exports[`renders singular sentence for completed members 1`] = `
                                 "fontStyle": "normal",
                                 "fontWeight": "normal",
                                 "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
                               }
                             }
                             testID="Text"

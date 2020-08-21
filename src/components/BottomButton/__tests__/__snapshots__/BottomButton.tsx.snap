@@ -66,6 +66,7 @@ exports[`BottomButton disabled renders disabled correctly 1`] = `
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
+              "textAlignVertical": "center",
               "textTransform": "uppercase",
             },
             Array [
@@ -145,6 +146,7 @@ exports[`BottomButton renders correctly 1`] = `
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
+              "textAlignVertical": "center",
               "textTransform": "uppercase",
             },
             Array [

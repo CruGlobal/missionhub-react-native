@@ -22,9 +22,9 @@ exports[`CommunityHeader should render community details 1`] = `
               Object {
                 \\"bottom\\": 0,
                 \\"left\\": 0,
-@@ -235,11 +239,11 @@
-                \\"fontWeight\\": \\"300\\",
-                \\"lineHeight\\": 30,
+@@ -237,11 +241,11 @@
+                \\"textAlignVertical\\": \\"center\\",
+                \\"textTransform\\": \\"none\\",
               }
             }
           >
@@ -35,8 +35,8 @@ exports[`CommunityHeader should render community details 1`] = `
             style={
               Array [
                 Object {},
-@@ -311,11 +315,11 @@
-                        \\"lineHeight\\": 20,
+@@ -316,11 +320,11 @@
+                        \\"textTransform\\": \\"none\\",
                       },
                     ]
                   }
@@ -55,8 +55,8 @@ exports[`CommunityHeader should render global community details 1`] = `
 - First value
 + Second value
 
-@@ -272,11 +272,11 @@
-                        \\"lineHeight\\": 20,
+@@ -277,11 +277,11 @@
+                        \\"textTransform\\": \\"none\\",
                       },
                     ]
                   }
@@ -268,6 +268,8 @@ exports[`CommunityHeader should render global community loading 1`] = `
               "fontStyle": "normal",
               "fontWeight": "300",
               "lineHeight": 30,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -334,6 +336,7 @@ exports[`CommunityHeader should render global community loading 1`] = `
                       "letterSpacing": 1,
                       "lineHeight": 18,
                       "textAlign": "center",
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                     Object {
@@ -343,6 +346,8 @@ exports[`CommunityHeader should render global community loading 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 20,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                   ]
                 }
@@ -398,6 +403,8 @@ exports[`CommunityHeader should render global community loading 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -435,6 +442,8 @@ exports[`CommunityHeader should render global community loading 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -472,6 +481,8 @@ exports[`CommunityHeader should render global community loading 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -721,6 +732,8 @@ exports[`CommunityHeader should render loading state 1`] = `
               "fontStyle": "normal",
               "fontWeight": "300",
               "lineHeight": 30,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -787,6 +800,7 @@ exports[`CommunityHeader should render loading state 1`] = `
                       "letterSpacing": 1,
                       "lineHeight": 18,
                       "textAlign": "center",
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                     Object {
@@ -796,6 +810,8 @@ exports[`CommunityHeader should render loading state 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 20,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                   ]
                 }
@@ -851,6 +867,8 @@ exports[`CommunityHeader should render loading state 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -888,6 +906,8 @@ exports[`CommunityHeader should render loading state 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -925,6 +945,8 @@ exports[`CommunityHeader should render loading state 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >

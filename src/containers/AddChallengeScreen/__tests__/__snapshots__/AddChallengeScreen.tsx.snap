@@ -169,6 +169,8 @@ exports[`create methods calls onComplete 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
@@ -180,6 +182,8 @@ exports[`create methods calls onComplete 1`] = `
               "lineHeight": 30,
               "marginBottom": 16,
               "paddingHorizontal": 32,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -214,6 +218,8 @@ exports[`create methods calls onComplete 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -228,6 +234,8 @@ exports[`create methods calls onComplete 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -254,6 +262,8 @@ exports[`create methods calls onComplete 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -286,6 +296,8 @@ exports[`create methods calls onComplete 1`] = `
                 "letterSpacing": 0.25,
                 "lineHeight": 24,
                 "paddingVertical": 5,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "borderBottomWidth": 0,
@@ -297,6 +309,8 @@ exports[`create methods calls onComplete 1`] = `
                 "lineHeight": 24,
                 "marginBottom": 26,
                 "paddingBottom": 70,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -385,6 +399,7 @@ exports[`create methods calls onComplete 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -406,7 +421,7 @@ exports[`create methods changes date 1`] = `
 - First value
 + Second value
 
-@@ -183,11 +183,11 @@
+@@ -187,11 +187,11 @@
           testID=\\"titleInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
@@ -419,9 +434,9 @@ exports[`create methods changes date 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -226,11 +226,11 @@
-                  \\"fontWeight\\": \\"normal\\",
-                  \\"lineHeight\\": 24,
+@@ -234,11 +234,11 @@
+                  \\"textAlignVertical\\": \\"center\\",
+                  \\"textTransform\\": \\"none\\",
                 }
               }
             >
@@ -439,7 +454,7 @@ exports[`create methods changes detail 1`] = `
 - First value
 + Second value
 
-@@ -297,11 +297,11 @@
+@@ -311,11 +311,11 @@
                 },
               ]
             }
@@ -459,7 +474,7 @@ exports[`create methods changes title 1`] = `
 - First value
 + Second value
 
-@@ -180,11 +180,11 @@
+@@ -184,11 +184,11 @@
               },
             ]
           }
@@ -479,7 +494,7 @@ exports[`create methods clears date 1`] = `
 - First value
 + Second value
 
-@@ -183,11 +183,11 @@
+@@ -187,11 +187,11 @@
           testID=\\"titleInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
@@ -492,9 +507,9 @@ exports[`create methods clears date 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -226,11 +226,11 @@
-                  \\"fontWeight\\": \\"normal\\",
-                  \\"lineHeight\\": 24,
+@@ -234,11 +234,11 @@
+                  \\"textAlignVertical\\": \\"center\\",
+                  \\"textTransform\\": \\"none\\",
                 }
               }
             >
@@ -512,7 +527,7 @@ exports[`create methods fires onBlur | detailInput 1`] = `
 - First value
 + Second value
 
-@@ -263,11 +263,11 @@
+@@ -273,11 +273,11 @@
             multiline={true}
             onBlur={[Function onBlur]}
             onChangeText={[Function onChangeText]}
@@ -552,7 +567,7 @@ exports[`create methods focuses on press | detailInput 1`] = `
 - First value
 + Second value
 
-@@ -263,11 +263,11 @@
+@@ -273,11 +273,11 @@
             multiline={true}
             onBlur={[Function onBlur]}
             onChangeText={[Function onChangeText]}
@@ -592,7 +607,7 @@ exports[`create methods sets disable false 1`] = `
 - First value
 + Second value
 
-@@ -180,14 +180,14 @@
+@@ -184,14 +184,14 @@
               },
             ]
           }
@@ -609,9 +624,9 @@ exports[`create methods sets disable false 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -226,11 +226,11 @@
-                  \\"fontWeight\\": \\"normal\\",
-                  \\"lineHeight\\": 24,
+@@ -234,11 +234,11 @@
+                  \\"textAlignVertical\\": \\"center\\",
+                  \\"textTransform\\": \\"none\\",
                 }
               }
             >
@@ -622,7 +637,7 @@ exports[`create methods sets disable false 1`] = `
         </DatePicker>
         <View
           style={
-@@ -353,22 +353,18 @@
+@@ -367,22 +367,18 @@
                 \\"alignItems\\": \\"center\\",
                 \\"backgroundColor\\": \\"#3CC8E6\\",
                 \\"height\\": 60,
@@ -647,9 +662,9 @@ exports[`create methods sets disable false 1`] = `
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -387,13 +383,11 @@
-                  \\"lineHeight\\": 18,
+@@ -402,13 +398,11 @@
                   \\"textAlign\\": \\"center\\",
+                  \\"textAlignVertical\\": \\"center\\",
                   \\"textTransform\\": \\"uppercase\\",
                 },
                 Array [
@@ -669,7 +684,7 @@ exports[`edit methods Saves challenge when user updates detail 1`] = `
 - First value
 + Second value
 
-@@ -374,11 +374,11 @@
+@@ -389,11 +389,11 @@
                 },
               ]
             }
@@ -866,6 +881,7 @@ exports[`edit methods calls onComplete 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -930,6 +946,8 @@ exports[`edit methods calls onComplete 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
@@ -941,6 +959,8 @@ exports[`edit methods calls onComplete 1`] = `
               "lineHeight": 30,
               "marginBottom": 16,
               "paddingHorizontal": 32,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -975,6 +995,8 @@ exports[`edit methods calls onComplete 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -989,6 +1011,8 @@ exports[`edit methods calls onComplete 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1015,6 +1039,8 @@ exports[`edit methods calls onComplete 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1047,6 +1073,8 @@ exports[`edit methods calls onComplete 1`] = `
                 "letterSpacing": 0.25,
                 "lineHeight": 24,
                 "paddingVertical": 5,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "borderBottomWidth": 0,
@@ -1058,6 +1086,8 @@ exports[`edit methods calls onComplete 1`] = `
                 "lineHeight": 24,
                 "marginBottom": 26,
                 "paddingBottom": 70,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -1091,7 +1121,7 @@ exports[`edit methods disables button if user deletes title 1`] = `
 - First value
 + Second value
 
-@@ -257,11 +257,11 @@
+@@ -262,11 +262,11 @@
               },
             ]
           }
@@ -1275,6 +1305,8 @@ exports[`renders correctly 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
@@ -1286,6 +1318,8 @@ exports[`renders correctly 1`] = `
               "lineHeight": 30,
               "marginBottom": 16,
               "paddingHorizontal": 32,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -1320,6 +1354,8 @@ exports[`renders correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1334,6 +1370,8 @@ exports[`renders correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1360,6 +1398,8 @@ exports[`renders correctly 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1392,6 +1432,8 @@ exports[`renders correctly 1`] = `
                 "letterSpacing": 0.25,
                 "lineHeight": 24,
                 "paddingVertical": 5,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "borderBottomWidth": 0,
@@ -1403,6 +1445,8 @@ exports[`renders correctly 1`] = `
                 "lineHeight": 24,
                 "marginBottom": 26,
                 "paddingBottom": 70,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -1495,6 +1539,7 @@ exports[`renders correctly 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -1682,6 +1727,8 @@ exports[`renders correctly on android 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
@@ -1693,6 +1740,8 @@ exports[`renders correctly on android 1`] = `
               "lineHeight": 30,
               "marginBottom": 16,
               "paddingHorizontal": 32,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -1727,6 +1776,8 @@ exports[`renders correctly on android 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1741,6 +1792,8 @@ exports[`renders correctly on android 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1767,6 +1820,8 @@ exports[`renders correctly on android 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1799,6 +1854,8 @@ exports[`renders correctly on android 1`] = `
                 "letterSpacing": 0.25,
                 "lineHeight": 24,
                 "paddingVertical": 5,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "borderBottomWidth": 0,
@@ -1810,6 +1867,8 @@ exports[`renders correctly on android 1`] = `
                 "lineHeight": 24,
                 "marginBottom": 26,
                 "paddingBottom": 70,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -1902,6 +1961,7 @@ exports[`renders correctly on android 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -2102,6 +2162,7 @@ exports[`renders edit challenge correctly 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -2166,6 +2227,8 @@ exports[`renders edit challenge correctly 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
@@ -2177,6 +2240,8 @@ exports[`renders edit challenge correctly 1`] = `
               "lineHeight": 30,
               "marginBottom": 16,
               "paddingHorizontal": 32,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -2211,6 +2276,8 @@ exports[`renders edit challenge correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -2225,6 +2292,8 @@ exports[`renders edit challenge correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -2251,6 +2320,8 @@ exports[`renders edit challenge correctly 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2283,6 +2354,8 @@ exports[`renders edit challenge correctly 1`] = `
                 "letterSpacing": 0.25,
                 "lineHeight": 24,
                 "paddingVertical": 5,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "borderBottomWidth": 0,
@@ -2294,6 +2367,8 @@ exports[`renders edit challenge correctly 1`] = `
                 "lineHeight": 24,
                 "marginBottom": 26,
                 "paddingBottom": 70,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }

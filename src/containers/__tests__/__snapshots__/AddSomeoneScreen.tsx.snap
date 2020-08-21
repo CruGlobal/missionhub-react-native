@@ -182,6 +182,7 @@ exports[`renders correctly 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Array [
@@ -192,6 +193,8 @@ exports[`renders correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 20,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     undefined,
                   ],
@@ -259,6 +262,8 @@ exports[`renders correctly 1`] = `
             "lineHeight": 32,
             "paddingVertical": 10,
             "textAlign": "left",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -330,6 +335,7 @@ Take a moment and pray. Who do you want to take steps of faith with?
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -451,6 +457,7 @@ exports[`renders without back button correctly 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Array [
@@ -461,6 +468,8 @@ exports[`renders without back button correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 20,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     undefined,
                   ],
@@ -528,6 +537,8 @@ exports[`renders without back button correctly 1`] = `
             "lineHeight": 32,
             "paddingVertical": 10,
             "textAlign": "left",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -599,6 +610,7 @@ Take a moment and pray. Who do you want to take steps of faith with?
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -808,6 +820,8 @@ exports[`renders without skip button correctly 1`] = `
             "lineHeight": 32,
             "paddingVertical": 10,
             "textAlign": "left",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -879,6 +893,7 @@ Take a moment and pray. Who do you want to take steps of faith with?
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [

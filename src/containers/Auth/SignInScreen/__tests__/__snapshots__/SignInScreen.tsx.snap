@@ -5,7 +5,7 @@ exports[`facebook login button is pressed facebook button calls facebook login l
 - First value
 + Second value
 
-@@ -191,6 +191,7 @@
+@@ -202,6 +202,7 @@
             SIGN IN WITH FACEBOOK
           </Text>
         </Flex>
@@ -20,7 +20,7 @@ exports[`forgot password button is pressed should call forgot password logic 1`]
 - First value
 + Second value
 
-@@ -191,6 +191,7 @@
+@@ -202,6 +202,7 @@
             SIGN IN WITH FACEBOOK
           </Text>
         </Flex>
@@ -35,7 +35,7 @@ exports[`key login button is pressed key login is called 1`] = `
 - First value
 + Second value
 
-@@ -61,11 +61,11 @@
+@@ -66,11 +66,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -48,7 +48,7 @@ exports[`key login button is pressed key login is called 1`] = `
       <View
         style={
           Object {
-@@ -93,11 +93,11 @@
+@@ -100,11 +100,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -61,7 +61,7 @@ exports[`key login button is pressed key login is called 1`] = `
           buttonTextStyle={
             Object {
               \\"color\\": \\"#3CC8E6\\",
-@@ -120,77 +120,45 @@
+@@ -129,79 +129,45 @@
           text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
@@ -95,6 +95,7 @@ exports[`key login button is pressed key login is called 1`] = `
 -           \\"letterSpacing\\": 1,
 -           \\"lineHeight\\": 20,
 -           \\"paddingTop\\": 2,
+-           \\"textAlignVertical\\": \\"center\\",
 -           \\"textTransform\\": \\"uppercase\\",
 +           Array [
 +             undefined,
@@ -149,6 +150,7 @@ exports[`key login button is pressed key login is called 1`] = `
 -               \\"letterSpacing\\": 1,
 -               \\"lineHeight\\": 20,
 -               \\"paddingTop\\": 2,
+-               \\"textAlignVertical\\": \\"center\\",
 -               \\"textTransform\\": \\"uppercase\\",
 -             }
 -           }
@@ -173,7 +175,7 @@ exports[`key login button is pressed should fire login actions when inputs are s
 - First value
 + Second value
 
-@@ -158,6 +158,7 @@
+@@ -167,6 +167,7 @@
           text=\\"LOGIN\\"
           type=\\"secondary\\"
         />
@@ -188,7 +190,7 @@ exports[`key login button is pressed shows email verification required message a
 - First value
 + Second value
 
-@@ -6,10 +6,36 @@
+@@ -6,10 +6,38 @@
         \\"flexDirection\\": \\"column\\",
         \\"justifyContent\\": \\"space-between\\",
       }
@@ -214,6 +216,8 @@ exports[`key login button is pressed shows email verification required message a
 +           \\"fontStyle\\": \\"normal\\",
 +           \\"fontWeight\\": \\"normal\\",
 +           \\"lineHeight\\": 24,
++           \\"textAlignVertical\\": \\"center\\",
++           \\"textTransform\\": \\"none\\",
 +         }
 +       }
 +     >
@@ -225,7 +229,7 @@ exports[`key login button is pressed shows email verification required message a
     />
     <Flex
       align=\\"center\\"
-@@ -61,11 +87,11 @@
+@@ -66,11 +94,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -238,7 +242,7 @@ exports[`key login button is pressed shows email verification required message a
       <View
         style={
           Object {
-@@ -93,11 +119,11 @@
+@@ -100,11 +128,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -251,7 +255,7 @@ exports[`key login button is pressed shows email verification required message a
           buttonTextStyle={
             Object {
               \\"color\\": \\"#3CC8E6\\",
-@@ -120,77 +146,44 @@
+@@ -129,79 +157,44 @@
           text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
@@ -285,6 +289,7 @@ exports[`key login button is pressed shows email verification required message a
 -           \\"letterSpacing\\": 1,
 -           \\"lineHeight\\": 20,
 -           \\"paddingTop\\": 2,
+-           \\"textAlignVertical\\": \\"center\\",
 -           \\"textTransform\\": \\"uppercase\\",
 -         }
 +           Array [
@@ -304,12 +309,12 @@ exports[`key login button is pressed shows email verification required message a
                 \\"height\\": 48,
 -           \\"margin\\": 8,
 -           \\"width\\": 670,
+-         }
 +               \\"width\\": 650,
 +             },
 +             undefined,
 +           ]
           }
--       }
 -       testID=\\"facebookButton\\"
 -     >
 -       <Flex
@@ -339,6 +344,7 @@ exports[`key login button is pressed shows email verification required message a
 -               \\"letterSpacing\\": 1,
 -               \\"lineHeight\\": 20,
 -               \\"paddingTop\\": 2,
+-               \\"textAlignVertical\\": \\"center\\",
 -               \\"textTransform\\": \\"uppercase\\",
 -             }
 -           }
@@ -357,7 +363,7 @@ exports[`key login button is pressed shows invalid credentials message and track
 - First value
 + Second value
 
-@@ -6,10 +6,36 @@
+@@ -6,10 +6,38 @@
         \\"flexDirection\\": \\"column\\",
         \\"justifyContent\\": \\"space-between\\",
       }
@@ -383,6 +389,8 @@ exports[`key login button is pressed shows invalid credentials message and track
 +           \\"fontStyle\\": \\"normal\\",
 +           \\"fontWeight\\": \\"normal\\",
 +           \\"lineHeight\\": 24,
++           \\"textAlignVertical\\": \\"center\\",
++           \\"textTransform\\": \\"none\\",
 +         }
 +       }
 +     >
@@ -394,7 +402,7 @@ exports[`key login button is pressed shows invalid credentials message and track
     />
     <Flex
       align=\\"center\\"
-@@ -61,11 +87,11 @@
+@@ -66,11 +94,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -407,7 +415,7 @@ exports[`key login button is pressed shows invalid credentials message and track
       <View
         style={
           Object {
-@@ -93,11 +119,11 @@
+@@ -100,11 +128,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -420,7 +428,7 @@ exports[`key login button is pressed shows invalid credentials message and track
           buttonTextStyle={
             Object {
               \\"color\\": \\"#3CC8E6\\",
-@@ -120,77 +146,44 @@
+@@ -129,79 +157,44 @@
           text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
@@ -454,6 +462,7 @@ exports[`key login button is pressed shows invalid credentials message and track
 -           \\"letterSpacing\\": 1,
 -           \\"lineHeight\\": 20,
 -           \\"paddingTop\\": 2,
+-           \\"textAlignVertical\\": \\"center\\",
 -           \\"textTransform\\": \\"uppercase\\",
 -         }
 +           Array [
@@ -473,12 +482,12 @@ exports[`key login button is pressed shows invalid credentials message and track
                 \\"height\\": 48,
 -           \\"margin\\": 8,
 -           \\"width\\": 670,
+-         }
 +               \\"width\\": 650,
 +             },
 +             undefined,
 +           ]
           }
--       }
 -       testID=\\"facebookButton\\"
 -     >
 -       <Flex
@@ -508,6 +517,7 @@ exports[`key login button is pressed shows invalid credentials message and track
 -               \\"letterSpacing\\": 1,
 -               \\"lineHeight\\": 20,
 -               \\"paddingTop\\": 2,
+-               \\"textAlignVertical\\": \\"center\\",
 -               \\"textTransform\\": \\"uppercase\\",
 -             }
 -           }
@@ -526,7 +536,7 @@ exports[`key login button is pressed shows invalid credentials message and track
 - First value
 + Second value
 
-@@ -6,10 +6,36 @@
+@@ -6,10 +6,38 @@
         \\"flexDirection\\": \\"column\\",
         \\"justifyContent\\": \\"space-between\\",
       }
@@ -552,6 +562,8 @@ exports[`key login button is pressed shows invalid credentials message and track
 +           \\"fontStyle\\": \\"normal\\",
 +           \\"fontWeight\\": \\"normal\\",
 +           \\"lineHeight\\": 24,
++           \\"textAlignVertical\\": \\"center\\",
++           \\"textTransform\\": \\"none\\",
 +         }
 +       }
 +     >
@@ -563,7 +575,7 @@ exports[`key login button is pressed shows invalid credentials message and track
     />
     <Flex
       align=\\"center\\"
-@@ -61,11 +87,11 @@
+@@ -66,11 +94,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -576,7 +588,7 @@ exports[`key login button is pressed shows invalid credentials message and track
       <View
         style={
           Object {
-@@ -93,11 +119,11 @@
+@@ -100,11 +128,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -589,7 +601,7 @@ exports[`key login button is pressed shows invalid credentials message and track
           buttonTextStyle={
             Object {
               \\"color\\": \\"#3CC8E6\\",
-@@ -120,77 +146,44 @@
+@@ -129,79 +157,44 @@
           text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
@@ -623,6 +635,7 @@ exports[`key login button is pressed shows invalid credentials message and track
 -           \\"letterSpacing\\": 1,
 -           \\"lineHeight\\": 20,
 -           \\"paddingTop\\": 2,
+-           \\"textAlignVertical\\": \\"center\\",
 -           \\"textTransform\\": \\"uppercase\\",
 -         }
 +           Array [
@@ -642,12 +655,12 @@ exports[`key login button is pressed shows invalid credentials message and track
                 \\"height\\": 48,
 -           \\"margin\\": 8,
 -           \\"width\\": 670,
+-         }
 +               \\"width\\": 650,
 +             },
 +             undefined,
 +           ]
           }
--       }
 -       testID=\\"facebookButton\\"
 -     >
 -       <Flex
@@ -677,6 +690,7 @@ exports[`key login button is pressed shows invalid credentials message and track
 -               \\"letterSpacing\\": 1,
 -               \\"lineHeight\\": 20,
 -               \\"paddingTop\\": 2,
+-               \\"textAlignVertical\\": \\"center\\",
 -               \\"textTransform\\": \\"uppercase\\",
 -             }
 -           }
@@ -695,7 +709,7 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
 - First value
 + Second value
 
-@@ -61,11 +61,11 @@
+@@ -66,11 +66,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -708,7 +722,7 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
       <View
         style={
           Object {
-@@ -93,11 +93,11 @@
+@@ -100,11 +100,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -721,7 +735,7 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
           buttonTextStyle={
             Object {
               \\"color\\": \\"#3CC8E6\\",
-@@ -120,77 +120,44 @@
+@@ -129,79 +129,44 @@
           text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
@@ -755,6 +769,7 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
 -           \\"letterSpacing\\": 1,
 -           \\"lineHeight\\": 20,
 -           \\"paddingTop\\": 2,
+-           \\"textAlignVertical\\": \\"center\\",
 -           \\"textTransform\\": \\"uppercase\\",
 -         }
 +           Array [
@@ -787,12 +802,12 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
 -           style={
 -             Object {
 -               \\"marginRight\\": 10,
+-             }
 +               \\"width\\": 650,
 +             },
 +             undefined,
 +           ]
           }
--           }
 -           type=\\"MissionHub\\"
 +         testID=\\"bottomButton\\"
 +         text=\\"LOGIN\\"
@@ -809,6 +824,7 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
 -               \\"letterSpacing\\": 1,
 -               \\"lineHeight\\": 20,
 -               \\"paddingTop\\": 2,
+-               \\"textAlignVertical\\": \\"center\\",
 -               \\"textTransform\\": \\"uppercase\\",
 -             }
 -           }
@@ -827,7 +843,7 @@ exports[`keyboard listeners should hide sign in logo when the keyboard is shown 
 - First value
 + Second value
 
-@@ -10,29 +10,10 @@
+@@ -10,32 +10,10 @@
   >
     <Header
       left={<DeprecatedBackButton />}
@@ -840,11 +856,14 @@ exports[`keyboard listeners should hide sign in logo when the keyboard is shown 
 -       style={
 -         Object {
 -           \\"color\\": \\"#3CC8E6\\",
--           \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-           \\"fontFamily\\": \\"AmaticSC-Bold\\",
 -           \\"fontSize\\": 48,
 -           \\"fontStyle\\": \\"normal\\",
--           \\"fontWeight\\": \\"normal\\",
+-           \\"fontWeight\\": \\"bold\\",
+-           \\"letterSpacing\\": 2,
 -           \\"lineHeight\\": 48,
+-           \\"textAlignVertical\\": \\"center\\",
+-           \\"textTransform\\": \\"lowercase\\",
 -         }
 -       }
 -     >
@@ -864,7 +883,7 @@ exports[`keyboard listeners should show sign in logo when the keyboard is hidden
 - First value
 + Second value
 
-@@ -10,10 +10,29 @@
+@@ -10,10 +10,32 @@
   >
     <Header
       left={<DeprecatedBackButton />}
@@ -877,11 +896,14 @@ exports[`keyboard listeners should show sign in logo when the keyboard is hidden
 +       style={
 +         Object {
 +           \\"color\\": \\"#3CC8E6\\",
-+           \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++           \\"fontFamily\\": \\"AmaticSC-Bold\\",
 +           \\"fontSize\\": 48,
 +           \\"fontStyle\\": \\"normal\\",
-+           \\"fontWeight\\": \\"normal\\",
++           \\"fontWeight\\": \\"bold\\",
++           \\"letterSpacing\\": 2,
 +           \\"lineHeight\\": 48,
++           \\"textAlignVertical\\": \\"center\\",
++           \\"textTransform\\": \\"lowercase\\",
 +         }
 +       }
 +     >
@@ -918,11 +940,14 @@ exports[`renders correctly 1`] = `
       style={
         Object {
           "color": "#3CC8E6",
-          "fontFamily": "SourceSansPro-Regular",
+          "fontFamily": "AmaticSC-Bold",
           "fontSize": 48,
           "fontStyle": "normal",
-          "fontWeight": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 2,
           "lineHeight": 48,
+          "textAlignVertical": "center",
+          "textTransform": "lowercase",
         }
       }
     >
@@ -948,6 +973,8 @@ exports[`renders correctly 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -981,6 +1008,8 @@ exports[`renders correctly 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1007,6 +1036,8 @@ exports[`renders correctly 1`] = `
             "lineHeight": 24,
             "paddingVertical": 10,
             "textAlign": "left",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         onPress={[Function]}
@@ -1042,6 +1073,7 @@ exports[`renders correctly 1`] = `
           "letterSpacing": 1,
           "lineHeight": 20,
           "paddingTop": 2,
+          "textAlignVertical": "center",
           "textTransform": "uppercase",
         }
       }
@@ -1083,6 +1115,7 @@ exports[`renders correctly 1`] = `
               "letterSpacing": 1,
               "lineHeight": 20,
               "paddingTop": 2,
+              "textAlignVertical": "center",
               "textTransform": "uppercase",
             }
           }
@@ -1125,6 +1158,8 @@ exports[`renders correctly for forced logout 1`] = `
           "paddingLeft": 30,
           "paddingRight": 80,
           "textAlign": "left",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -1151,6 +1186,8 @@ Please sign in so we know it's you.
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1184,6 +1221,8 @@ Please sign in so we know it's you.
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1210,6 +1249,8 @@ Please sign in so we know it's you.
             "lineHeight": 24,
             "paddingVertical": 10,
             "textAlign": "left",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         onPress={[Function]}
@@ -1245,6 +1286,7 @@ Please sign in so we know it's you.
           "letterSpacing": 1,
           "lineHeight": 20,
           "paddingTop": 2,
+          "textAlignVertical": "center",
           "textTransform": "uppercase",
         }
       }
@@ -1286,6 +1328,7 @@ Please sign in so we know it's you.
               "letterSpacing": 1,
               "lineHeight": 20,
               "paddingTop": 2,
+              "textAlignVertical": "center",
               "textTransform": "uppercase",
             }
           }

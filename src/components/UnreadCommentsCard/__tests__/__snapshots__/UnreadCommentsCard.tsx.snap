@@ -58,6 +58,8 @@ exports[`renders correctly 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 48,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -72,6 +74,8 @@ exports[`renders correctly 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 20,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -115,6 +119,7 @@ exports[`renders correctly 1`] = `
             "fontWeight": "bold",
             "letterSpacing": 1,
             "lineHeight": 16,
+            "textAlignVertical": "center",
             "textTransform": "uppercase",
           }
         }
@@ -294,6 +299,8 @@ exports[`renders correctly singular 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 48,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -308,6 +315,8 @@ exports[`renders correctly singular 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 20,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -351,6 +360,7 @@ exports[`renders correctly singular 1`] = `
             "fontWeight": "bold",
             "letterSpacing": 1,
             "lineHeight": 16,
+            "textAlignVertical": "center",
             "textTransform": "uppercase",
           }
         }

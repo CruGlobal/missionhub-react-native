@@ -68,6 +68,8 @@ exports[`reported comment screen render correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#ffffff",
@@ -76,6 +78,8 @@ exports[`reported comment screen render correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -235,6 +239,8 @@ exports[`reported post screen render correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#ffffff",
@@ -243,6 +249,8 @@ exports[`reported post screen render correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }

@@ -65,6 +65,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -74,7 +76,8 @@ Array [
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
-                "textTransform": "uppercase",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -91,6 +94,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -99,6 +104,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -127,6 +134,7 @@ Array [
           "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
+          "textAlignVertical": "center",
           "textTransform": "uppercase",
         }
       }
@@ -144,6 +152,8 @@ Array [
           "justifyContent": "flex-start",
           "lineHeight": 24,
           "paddingBottom": 8,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -222,6 +232,8 @@ Array [
             "fontWeight": "normal",
             "lineHeight": 20,
             "paddingLeft": 12,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -266,6 +278,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -338,6 +352,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -456,6 +472,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -465,7 +483,8 @@ Array [
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
-                "textTransform": "uppercase",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -482,6 +501,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -490,6 +511,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -518,6 +541,7 @@ Array [
           "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
+          "textAlignVertical": "center",
           "textTransform": "uppercase",
         }
       }
@@ -535,6 +559,8 @@ Array [
           "justifyContent": "flex-start",
           "lineHeight": 24,
           "paddingBottom": 8,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -613,6 +639,8 @@ Array [
             "fontWeight": "normal",
             "lineHeight": 20,
             "paddingLeft": 12,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -657,6 +685,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -729,6 +759,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -826,6 +858,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -835,7 +869,8 @@ Array [
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
-                "textTransform": "uppercase",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -852,6 +887,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -860,6 +897,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -888,6 +927,7 @@ Array [
           "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
+          "textAlignVertical": "center",
           "textTransform": "uppercase",
         }
       }
@@ -905,6 +945,8 @@ Array [
           "justifyContent": "flex-start",
           "lineHeight": 24,
           "paddingBottom": 8,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -983,6 +1025,8 @@ Array [
             "fontWeight": "normal",
             "lineHeight": 20,
             "paddingLeft": 12,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1027,6 +1071,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -1099,6 +1145,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -1196,6 +1244,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -1205,7 +1255,8 @@ Array [
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
-                "textTransform": "uppercase",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -1222,6 +1273,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -1230,6 +1283,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -1258,6 +1313,7 @@ Array [
           "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
+          "textAlignVertical": "center",
           "textTransform": "uppercase",
         }
       }
@@ -1275,6 +1331,8 @@ Array [
           "justifyContent": "flex-start",
           "lineHeight": 24,
           "paddingBottom": 8,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -1353,6 +1411,8 @@ Array [
             "fontWeight": "normal",
             "lineHeight": 20,
             "paddingLeft": 12,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1397,6 +1457,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -1469,6 +1531,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -1587,6 +1651,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -1596,7 +1662,8 @@ Array [
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
-                "textTransform": "uppercase",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -1613,6 +1680,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -1621,6 +1690,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -1649,6 +1720,7 @@ Array [
           "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
+          "textAlignVertical": "center",
           "textTransform": "uppercase",
         }
       }
@@ -1666,6 +1738,8 @@ Array [
           "justifyContent": "flex-start",
           "lineHeight": 24,
           "paddingBottom": 8,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -1741,6 +1815,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -1814,6 +1890,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -1964,6 +2042,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -2027,6 +2107,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -2036,7 +2118,8 @@ Array [
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
-                "textTransform": "uppercase",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -2053,6 +2136,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -2061,6 +2146,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -2109,6 +2196,8 @@ Array [
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 18,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {},
               ]
@@ -2189,6 +2278,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -2261,6 +2352,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -2411,6 +2504,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -2474,6 +2569,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -2483,7 +2580,8 @@ Array [
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
-                "textTransform": "uppercase",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -2500,6 +2598,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -2508,6 +2608,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -2556,6 +2658,8 @@ Array [
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 18,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {},
               ]
@@ -2651,6 +2755,8 @@ Array [
             "fontWeight": "normal",
             "lineHeight": 20,
             "paddingLeft": 12,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -2695,6 +2801,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -2767,6 +2875,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -2917,6 +3027,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -2980,6 +3092,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -2989,7 +3103,8 @@ Array [
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
-                "textTransform": "uppercase",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -3006,6 +3121,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -3014,6 +3131,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -3062,6 +3181,8 @@ Array [
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 18,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {},
               ]
@@ -3142,6 +3263,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -3214,6 +3337,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -3364,6 +3489,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -3427,6 +3554,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -3436,7 +3565,8 @@ Array [
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
-                "textTransform": "uppercase",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -3453,6 +3583,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -3461,6 +3593,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -3509,6 +3643,8 @@ Array [
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 18,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {},
               ]
@@ -3620,6 +3756,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -3683,6 +3821,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -3692,7 +3832,8 @@ Array [
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
-                "textTransform": "uppercase",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -3709,6 +3850,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -3717,6 +3860,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -3746,6 +3891,8 @@ Array [
           "justifyContent": "flex-start",
           "lineHeight": 24,
           "paddingBottom": 8,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -3821,6 +3968,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -3894,6 +4043,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -4044,6 +4195,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -4107,6 +4260,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -4116,7 +4271,8 @@ Array [
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
-                "textTransform": "uppercase",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -4133,6 +4289,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -4141,6 +4299,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -4170,6 +4330,8 @@ Array [
           "justifyContent": "flex-start",
           "lineHeight": 24,
           "paddingBottom": 8,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -4245,6 +4407,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -4318,6 +4482,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -4468,6 +4634,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -4531,6 +4699,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -4540,7 +4710,8 @@ Array [
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
-                "textTransform": "uppercase",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -4557,6 +4728,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -4565,6 +4738,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -4594,6 +4769,8 @@ Array [
           "justifyContent": "flex-start",
           "lineHeight": 24,
           "paddingBottom": 8,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -4669,6 +4846,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -4742,6 +4921,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -4892,6 +5073,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -4955,6 +5138,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -4964,7 +5149,8 @@ Array [
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
-                "textTransform": "uppercase",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -4981,6 +5167,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -4989,6 +5177,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -5018,6 +5208,8 @@ Array [
           "justifyContent": "flex-start",
           "lineHeight": 24,
           "paddingBottom": 8,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -5093,6 +5285,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -5166,6 +5360,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -5316,6 +5512,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -5379,6 +5577,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -5388,7 +5588,8 @@ Array [
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
-                "textTransform": "uppercase",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -5405,6 +5606,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -5413,6 +5616,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -5442,6 +5647,8 @@ Array [
           "justifyContent": "flex-start",
           "lineHeight": 24,
           "paddingBottom": 8,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -5517,6 +5724,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -5590,6 +5799,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -5740,6 +5951,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -5803,6 +6016,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -5812,7 +6027,8 @@ Array [
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
-                "textTransform": "uppercase",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -5829,6 +6045,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -5837,6 +6055,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -5866,6 +6086,8 @@ Array [
           "justifyContent": "flex-start",
           "lineHeight": 24,
           "paddingBottom": 8,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -5941,6 +6163,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -6014,6 +6238,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -6164,6 +6390,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -6227,6 +6455,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -6236,7 +6466,8 @@ Array [
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
-                "textTransform": "uppercase",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -6253,6 +6484,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -6261,6 +6494,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -6290,6 +6525,8 @@ Array [
           "justifyContent": "flex-start",
           "lineHeight": 24,
           "paddingBottom": 8,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -6365,6 +6602,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -6438,6 +6677,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -6588,6 +6829,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -6630,6 +6873,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -6639,7 +6884,8 @@ Array [
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
-                "textTransform": "uppercase",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -6656,6 +6902,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -6664,6 +6912,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -6693,6 +6943,8 @@ Array [
           "justifyContent": "flex-start",
           "lineHeight": 24,
           "paddingBottom": 8,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -6768,6 +7020,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -6840,6 +7094,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -6990,6 +7246,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -7032,6 +7290,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -7041,7 +7301,8 @@ Array [
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
-                "textTransform": "uppercase",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -7058,6 +7319,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -7066,6 +7329,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -7095,6 +7360,8 @@ Array [
           "justifyContent": "flex-start",
           "lineHeight": 24,
           "paddingBottom": 8,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -7170,6 +7437,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -7242,6 +7511,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -7392,6 +7663,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -7448,6 +7721,7 @@ Array [
               "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 20,
+              "textAlignVertical": "center",
               "textTransform": "uppercase",
             }
           }
@@ -7464,6 +7738,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -7472,6 +7748,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -7520,6 +7798,8 @@ Array [
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 18,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {},
               ]
@@ -7600,6 +7880,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -7672,6 +7954,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -7822,6 +8106,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -7864,6 +8150,7 @@ Array [
               "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 20,
+              "textAlignVertical": "center",
               "textTransform": "uppercase",
             }
           }
@@ -7880,6 +8167,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -7888,6 +8177,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -7936,6 +8227,8 @@ Array [
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 18,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {},
               ]
@@ -8016,6 +8309,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -8089,6 +8384,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -8239,6 +8536,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -8302,6 +8601,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -8311,7 +8612,8 @@ Array [
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
-                "textTransform": "uppercase",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -8328,6 +8630,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -8336,6 +8640,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -8384,6 +8690,8 @@ Array [
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 18,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {},
               ]
@@ -8477,6 +8785,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -8549,6 +8859,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -8699,6 +9011,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -8796,6 +9110,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -8805,7 +9121,8 @@ Array [
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
-                "textTransform": "uppercase",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -8822,6 +9139,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -8830,6 +9149,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -8859,6 +9180,8 @@ Array [
           "justifyContent": "flex-start",
           "lineHeight": 24,
           "paddingBottom": 8,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -8934,6 +9257,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -9007,6 +9332,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -9157,6 +9484,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -9220,6 +9549,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -9229,7 +9560,8 @@ Array [
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
-                "textTransform": "uppercase",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -9246,6 +9578,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -9254,6 +9588,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -9302,6 +9638,8 @@ Array [
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 18,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {},
               ]
@@ -9469,6 +9807,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -9541,6 +9881,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -9691,6 +10033,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -9754,6 +10098,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -9763,7 +10109,8 @@ Array [
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
-                "textTransform": "uppercase",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -9780,6 +10127,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -9788,6 +10137,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -9817,6 +10168,8 @@ Array [
           "justifyContent": "flex-start",
           "lineHeight": 24,
           "paddingBottom": 8,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -9892,6 +10245,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -9965,6 +10320,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -10115,6 +10472,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -10178,6 +10537,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -10187,7 +10548,8 @@ Array [
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
-                "textTransform": "uppercase",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -10204,6 +10566,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#B4B6BA",
@@ -10212,6 +10576,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -10260,6 +10626,8 @@ Array [
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 18,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {},
               ]
@@ -10340,6 +10708,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }
@@ -10412,6 +10782,8 @@ Array [
                 "lineHeight": 20,
                 "paddingRight": 10,
                 "textAlign": "right",
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": 30,
               }
             }

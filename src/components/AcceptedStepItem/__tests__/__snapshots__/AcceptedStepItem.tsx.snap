@@ -108,6 +108,8 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               undefined,
             ]
@@ -145,7 +147,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
       <View
         style={
           Object {
-            "backgroundColor": "rgba(0,0,0,0.5)",
+            "backgroundColor": "#ffffff",
             "bottom": 0,
             "left": 0,
             "position": "absolute",
@@ -244,6 +246,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
                       "letterSpacing": 1,
                       "lineHeight": 18,
                       "textAlign": "center",
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                     Array [
@@ -255,6 +258,8 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
                         "fontWeight": "normal",
                         "letterSpacing": 1,
                         "lineHeight": 16,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {
                         "color": "#B4B6BA",
@@ -330,6 +335,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
                       "letterSpacing": 1,
                       "lineHeight": 18,
                       "textAlign": "center",
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                     Array [
@@ -341,6 +347,8 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
                         "fontWeight": "normal",
                         "letterSpacing": 1,
                         "lineHeight": 16,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {
                         "color": "#B4B6BA",
@@ -416,6 +424,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
                       "letterSpacing": 1,
                       "lineHeight": 18,
                       "textAlign": "center",
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                     Array [
@@ -427,6 +436,8 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
                         "fontWeight": "normal",
                         "letterSpacing": 1,
                         "lineHeight": 16,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {
                         "color": "#B4B6BA",
@@ -495,6 +506,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
                       "letterSpacing": 1,
                       "lineHeight": 18,
                       "textAlign": "center",
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                     Array [
@@ -505,6 +517,8 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 24,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {
                         "textAlign": "left",
@@ -528,6 +542,8 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
                 "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -574,6 +590,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
                       "letterSpacing": 1,
                       "lineHeight": 18,
                       "textAlign": "center",
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                     Object {
@@ -583,6 +600,8 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                   ]
                 }
@@ -606,6 +625,8 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
           "lineHeight": 20,
           "padding": 4,
           "paddingRight": 32,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -724,6 +745,8 @@ exports[`AcceptedStepItem renders completed correctly 1`] = `
             "lineHeight": 20,
             "padding": 4,
             "paddingRight": 32,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
           Object {
             "color": "#B4B6BA",

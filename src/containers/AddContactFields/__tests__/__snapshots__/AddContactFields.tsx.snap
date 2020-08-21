@@ -5,10 +5,10 @@ exports[`calls methods calls update firstName and changeFocusedField 1`] = `
 - First value
 + Second value
 
-@@ -72,11 +72,13 @@
-              \\"fontWeight\\": \\"normal\\",
-              \\"lineHeight\\": 16,
+@@ -76,11 +76,13 @@
               \\"marginTop\\": 15,
+              \\"textAlignVertical\\": \\"center\\",
+              \\"textTransform\\": \\"none\\",
             }
           }
 -       />
@@ -20,7 +20,7 @@ exports[`calls methods calls update firstName and changeFocusedField 1`] = `
           autoCorrect={false}
           autoFocus={true}
           blurOnSubmit={false}
-@@ -84,11 +86,11 @@
+@@ -88,11 +90,11 @@
           multiline={false}
           onBlur={[Function onBlur]}
           onChangeText={[Function onChangeText]}
@@ -40,10 +40,10 @@ exports[`calls methods calls update lastName and changeFocusedField 1`] = `
 - First value
 + Second value
 
-@@ -137,22 +137,24 @@
-              \\"fontWeight\\": \\"normal\\",
-              \\"lineHeight\\": 16,
+@@ -145,22 +145,24 @@
               \\"marginTop\\": 15,
+              \\"textAlignVertical\\": \\"center\\",
+              \\"textTransform\\": \\"none\\",
             }
           }
 -       />
@@ -201,6 +201,8 @@ exports[`render correctly | With Person | No Picture 1`] = `
             "fontWeight": "normal",
             "lineHeight": 16,
             "marginTop": 15,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -236,6 +238,8 @@ exports[`render correctly | With Person | No Picture 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomColor": "#ECEEF2",
@@ -268,6 +272,8 @@ exports[`render correctly | With Person | No Picture 1`] = `
             "fontWeight": "normal",
             "lineHeight": 16,
             "marginTop": 15,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -302,6 +308,8 @@ exports[`render correctly | With Person | No Picture 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomColor": "#ECEEF2",
@@ -334,6 +342,8 @@ exports[`render correctly | With Person | No Picture 1`] = `
             "fontWeight": "normal",
             "lineHeight": 16,
             "marginTop": 15,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -363,6 +373,8 @@ exports[`render correctly | With Person | No Picture 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "marginVertical": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
               "width": "100%",
             }
           }
@@ -482,6 +494,8 @@ exports[`render correctly | With Person | No Stage 1`] = `
             "fontWeight": "normal",
             "lineHeight": 16,
             "marginTop": 15,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -517,6 +531,8 @@ exports[`render correctly | With Person | No Stage 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomColor": "#ECEEF2",
@@ -549,6 +565,8 @@ exports[`render correctly | With Person | No Stage 1`] = `
             "fontWeight": "normal",
             "lineHeight": 16,
             "marginTop": 15,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -583,6 +601,8 @@ exports[`render correctly | With Person | No Stage 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomColor": "#ECEEF2",
@@ -615,6 +635,8 @@ exports[`render correctly | With Person | No Stage 1`] = `
             "fontWeight": "normal",
             "lineHeight": 16,
             "marginTop": 15,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -644,6 +666,8 @@ exports[`render correctly | With Person | No Stage 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "marginVertical": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
               "width": "100%",
             }
           }
@@ -704,6 +728,8 @@ exports[`render correctly | With Person | Not Me | No Person Category 1`] = `
             "fontWeight": "normal",
             "lineHeight": 16,
             "marginTop": 15,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -739,6 +765,8 @@ exports[`render correctly | With Person | Not Me | No Person Category 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomColor": "#ECEEF2",
@@ -771,6 +799,8 @@ exports[`render correctly | With Person | Not Me | No Person Category 1`] = `
             "fontWeight": "normal",
             "lineHeight": 16,
             "marginTop": 15,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -805,6 +835,8 @@ exports[`render correctly | With Person | Not Me | No Person Category 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomColor": "#ECEEF2",
@@ -837,6 +869,8 @@ exports[`render correctly | With Person | Not Me | No Person Category 1`] = `
             "fontWeight": "normal",
             "lineHeight": 16,
             "marginTop": 15,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -866,6 +900,8 @@ exports[`render correctly | With Person | Not Me | No Person Category 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "marginVertical": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
               "width": "100%",
             }
           }
@@ -895,6 +931,8 @@ exports[`render correctly | With Person | Not Me | No Person Category 1`] = `
             "fontWeight": "normal",
             "lineHeight": 16,
             "marginTop": 15,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -940,6 +978,8 @@ exports[`render correctly | With Person | Not Me | No Person Category 1`] = `
                 "fontWeight": "normal",
                 "lineHeight": 24,
                 "marginVertical": 10,
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": "100%",
               }
             }
@@ -1003,6 +1043,8 @@ exports[`render correctly | With Person | Not Me | With Person Category 1`] = `
             "fontWeight": "normal",
             "lineHeight": 16,
             "marginTop": 15,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1038,6 +1080,8 @@ exports[`render correctly | With Person | Not Me | With Person Category 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomColor": "#ECEEF2",
@@ -1070,6 +1114,8 @@ exports[`render correctly | With Person | Not Me | With Person Category 1`] = `
             "fontWeight": "normal",
             "lineHeight": 16,
             "marginTop": 15,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1104,6 +1150,8 @@ exports[`render correctly | With Person | Not Me | With Person Category 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomColor": "#ECEEF2",
@@ -1136,6 +1184,8 @@ exports[`render correctly | With Person | Not Me | With Person Category 1`] = `
             "fontWeight": "normal",
             "lineHeight": 16,
             "marginTop": 15,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1165,6 +1215,8 @@ exports[`render correctly | With Person | Not Me | With Person Category 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "marginVertical": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
               "width": "100%",
             }
           }
@@ -1194,6 +1246,8 @@ exports[`render correctly | With Person | Not Me | With Person Category 1`] = `
             "fontWeight": "normal",
             "lineHeight": 16,
             "marginTop": 15,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1239,6 +1293,8 @@ exports[`render correctly | With Person | Not Me | With Person Category 1`] = `
                 "fontWeight": "normal",
                 "lineHeight": 24,
                 "marginVertical": 10,
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": "100%",
               }
             }
@@ -1361,6 +1417,8 @@ exports[`render correctly | With Person | With Picture 1`] = `
             "fontWeight": "normal",
             "lineHeight": 16,
             "marginTop": 15,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1396,6 +1454,8 @@ exports[`render correctly | With Person | With Picture 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomColor": "#ECEEF2",
@@ -1428,6 +1488,8 @@ exports[`render correctly | With Person | With Picture 1`] = `
             "fontWeight": "normal",
             "lineHeight": 16,
             "marginTop": 15,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1462,6 +1524,8 @@ exports[`render correctly | With Person | With Picture 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomColor": "#ECEEF2",
@@ -1494,6 +1558,8 @@ exports[`render correctly | With Person | With Picture 1`] = `
             "fontWeight": "normal",
             "lineHeight": 16,
             "marginTop": 15,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1523,6 +1589,8 @@ exports[`render correctly | With Person | With Picture 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "marginVertical": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
               "width": "100%",
             }
           }
@@ -1594,6 +1662,8 @@ exports[`renders correctly | No Person 1`] = `
                 "lineHeight": 30,
                 "maxWidth": 230,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1611,6 +1681,8 @@ exports[`renders correctly | No Person 1`] = `
             "fontWeight": "normal",
             "lineHeight": 16,
             "marginTop": 15,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       />
@@ -1644,6 +1716,8 @@ exports[`renders correctly | No Person 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomColor": "#3CC8E6",
@@ -1676,6 +1750,8 @@ exports[`renders correctly | No Person 1`] = `
             "fontWeight": "normal",
             "lineHeight": 16,
             "marginTop": 15,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       />
@@ -1708,6 +1784,8 @@ exports[`renders correctly | No Person 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomColor": "#3CC8E6",

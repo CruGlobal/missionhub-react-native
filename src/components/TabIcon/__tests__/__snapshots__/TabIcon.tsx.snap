@@ -28,6 +28,8 @@ exports[`renders communities 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         },
         Object {
           "color": "blue",
@@ -68,6 +70,8 @@ exports[`renders correctly | Android 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         },
         Object {
           "color": "blue",
@@ -108,6 +112,8 @@ exports[`renders correctly | NonAndroid 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         },
         Object {
           "color": "blue",
@@ -148,6 +154,8 @@ exports[`renders notifications 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         },
         Object {
           "color": "blue",
@@ -217,6 +225,8 @@ exports[`renders notifications with notification dot 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         },
         Object {
           "color": "blue",
@@ -257,6 +267,8 @@ exports[`renders people 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         },
         Object {
           "color": "blue",
@@ -297,6 +309,8 @@ exports[`renders steps 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         },
         Object {
           "color": "blue",
@@ -337,6 +351,8 @@ exports[`renders steps different tint color 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         },
         Object {
           "color": "grey",

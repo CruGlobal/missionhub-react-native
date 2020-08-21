@@ -5,7 +5,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 - First value
 + Second value
 
-@@ -349,11 +349,11 @@
+@@ -357,11 +357,11 @@
               \\"nodes\\": Array [],
             },
             \\"report\\": Object {
@@ -18,7 +18,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
             \\"unreadCommentsCount\\": 0,
           },
           Object {
-@@ -633,11 +633,291 @@
+@@ -641,11 +641,291 @@
               \\"contactCount\\": 26992,
               \\"memberCount\\": 35653,
               \\"unassignedCount\\": 89588,
@@ -310,7 +310,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
       disableVirtualization={false}
       getItem={[Function anonymous]}
       getItemCount={[Function anonymous]}
-@@ -694,11 +974,11 @@
+@@ -702,11 +982,11 @@
                   \\"nodes\\": Array [],
                 },
                 \\"report\\": Object {
@@ -323,7 +323,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
                 \\"unreadCommentsCount\\": 0,
               }
             }
-@@ -1049,11 +1329,11 @@
+@@ -1057,11 +1337,11 @@
           />
         </View>
         <View
@@ -476,14 +476,18 @@ exports[`GroupsListScreen renders with communities 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
-                "color": "#505256",
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -583,6 +587,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Object {
@@ -593,6 +598,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
               ]
@@ -666,6 +672,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Object {
@@ -676,6 +683,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
               ]
@@ -1555,14 +1563,18 @@ exports[`GroupsListScreen renders with only global community 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
-                "color": "#505256",
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -1662,6 +1674,7 @@ exports[`GroupsListScreen renders with only global community 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Object {
@@ -1672,6 +1685,7 @@ exports[`GroupsListScreen renders with only global community 1`] = `
                   "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
               ]
@@ -1745,6 +1759,7 @@ exports[`GroupsListScreen renders with only global community 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Object {
@@ -1755,6 +1770,7 @@ exports[`GroupsListScreen renders with only global community 1`] = `
                   "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
               ]

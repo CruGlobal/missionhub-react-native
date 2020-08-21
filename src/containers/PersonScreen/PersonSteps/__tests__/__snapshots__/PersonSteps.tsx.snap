@@ -124,6 +124,8 @@ exports[`renders correctly when me and no steps 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "paddingTop": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -141,6 +143,8 @@ exports[`renders correctly when me and no steps 1`] = `
               "paddingHorizontal": 80,
               "paddingVertical": 10,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -212,6 +216,7 @@ exports[`renders correctly when me and no steps 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -352,6 +357,8 @@ exports[`renders correctly when no steps 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "paddingTop": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -369,6 +376,8 @@ exports[`renders correctly when no steps 1`] = `
               "paddingHorizontal": 80,
               "paddingVertical": 10,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -440,6 +449,7 @@ exports[`renders correctly when no steps 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -506,6 +516,7 @@ exports[`renders correctly with completed steps 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   }
                 }
@@ -756,6 +767,7 @@ exports[`renders correctly with completed steps 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   }
                 }
@@ -879,6 +891,7 @@ exports[`renders correctly with completed steps 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -1124,6 +1137,7 @@ exports[`renders correctly with steps 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [

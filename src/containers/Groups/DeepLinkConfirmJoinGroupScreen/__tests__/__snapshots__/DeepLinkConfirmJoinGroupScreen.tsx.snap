@@ -53,6 +53,8 @@ exports[`DeepLinkConfirmJoinGroupScreen renders error correctly 1`] = `
             "lineHeight": 24,
             "padding": 4,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -117,6 +119,8 @@ exports[`DeepLinkConfirmJoinGroupScreen renders group card correctly 1`] = `
             "lineHeight": 24,
             "padding": 4,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -181,6 +185,8 @@ exports[`DeepLinkConfirmJoinGroupScreen renders start correctly 1`] = `
             "lineHeight": 24,
             "padding": 4,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >

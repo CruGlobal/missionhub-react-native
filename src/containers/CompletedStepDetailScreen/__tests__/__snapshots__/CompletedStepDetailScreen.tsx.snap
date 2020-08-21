@@ -172,6 +172,7 @@ exports[`post renders with post 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -196,6 +197,8 @@ exports[`post renders with post 1`] = `
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -224,6 +227,8 @@ exports[`post renders with post 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -282,6 +287,8 @@ exports[`post renders with post 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -352,6 +359,7 @@ exports[`post renders with post 1`] = `
                   "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 }
               }
@@ -380,6 +388,8 @@ exports[`post renders with post 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -448,6 +458,8 @@ exports[`post renders with post 1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 24,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -659,6 +671,7 @@ exports[`post renders without post 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -683,6 +696,8 @@ exports[`post renders without post 1`] = `
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -711,6 +726,8 @@ exports[`post renders without post 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -769,6 +786,8 @@ exports[`post renders without post 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -946,6 +965,7 @@ exports[`renders loading state correctly 1`] = `
               "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 20,
+              "textAlignVertical": "center",
               "textTransform": "uppercase",
             },
             Object {
@@ -970,6 +990,8 @@ exports[`renders loading state correctly 1`] = `
           "lineHeight": 38,
           "marginHorizontal": 32,
           "marginVertical": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -998,6 +1020,8 @@ exports[`renders loading state correctly 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       />
@@ -1200,6 +1224,7 @@ exports[`with challenge suggestion renders correctly 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -1224,6 +1249,8 @@ exports[`with challenge suggestion renders correctly 1`] = `
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1252,6 +1279,8 @@ exports[`with challenge suggestion renders correctly 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1310,6 +1339,8 @@ exports[`with challenge suggestion renders correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -1498,6 +1529,7 @@ exports[`without challenge suggestion renders correctly 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -1522,6 +1554,8 @@ exports[`without challenge suggestion renders correctly 1`] = `
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1550,6 +1584,8 @@ exports[`without challenge suggestion renders correctly 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1608,6 +1644,8 @@ exports[`without challenge suggestion renders correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]

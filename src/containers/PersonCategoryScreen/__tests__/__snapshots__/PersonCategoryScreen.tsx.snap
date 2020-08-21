@@ -5,7 +5,7 @@ exports[`Edit Person fires onPress and updates person | no relationship_type 1`]
 - First value
 + Second value
 
-@@ -213,11 +213,13 @@
+@@ -215,11 +215,13 @@
                   \\"backgroundColor\\": \\"#005A7F\\",
                   \\"height\\": 72,
                   \\"marginVertical\\": 4,
@@ -20,7 +20,7 @@ exports[`Edit Person fires onPress and updates person | no relationship_type 1`]
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -252,11 +254,11 @@
+@@ -256,11 +258,11 @@
               }
             >
               Family
@@ -40,7 +40,7 @@ exports[`Edit Person fires onPress and updates person | relationship_type 1`] = 
 - First value
 + Second value
 
-@@ -213,13 +213,11 @@
+@@ -215,13 +215,11 @@
                   \\"backgroundColor\\": \\"#005A7F\\",
                   \\"height\\": 72,
                   \\"marginVertical\\": 4,
@@ -55,7 +55,7 @@ exports[`Edit Person fires onPress and updates person | relationship_type 1`] = 
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -254,11 +252,11 @@
+@@ -258,11 +256,11 @@
               }
             >
               Family
@@ -68,7 +68,7 @@ exports[`Edit Person fires onPress and updates person | relationship_type 1`] = 
         </View>
       </View>
       <View
-@@ -297,12 +295,14 @@
+@@ -301,12 +299,14 @@
                 Object {
                   \\"backgroundColor\\": \\"#005A7F\\",
                   \\"height\\": 72,
@@ -84,7 +84,7 @@ exports[`Edit Person fires onPress and updates person | relationship_type 1`] = 
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -337,11 +337,11 @@
+@@ -343,11 +343,11 @@
               }
             >
               Friend
@@ -104,7 +104,7 @@ exports[`Edit Person fires onPress and updates person with orgId | no relationsh
 - First value
 + Second value
 
-@@ -213,11 +213,13 @@
+@@ -215,11 +215,13 @@
                   \\"backgroundColor\\": \\"#005A7F\\",
                   \\"height\\": 72,
                   \\"marginVertical\\": 4,
@@ -119,7 +119,7 @@ exports[`Edit Person fires onPress and updates person with orgId | no relationsh
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -252,11 +254,11 @@
+@@ -256,11 +258,11 @@
               }
             >
               Family
@@ -139,7 +139,7 @@ exports[`Edit Person fires onPress and updates person with orgId | relationship_
 - First value
 + Second value
 
-@@ -213,13 +213,11 @@
+@@ -215,13 +215,11 @@
                   \\"backgroundColor\\": \\"#005A7F\\",
                   \\"height\\": 72,
                   \\"marginVertical\\": 4,
@@ -154,7 +154,7 @@ exports[`Edit Person fires onPress and updates person with orgId | relationship_
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -254,11 +252,11 @@
+@@ -258,11 +256,11 @@
               }
             >
               Family
@@ -167,7 +167,7 @@ exports[`Edit Person fires onPress and updates person with orgId | relationship_
         </View>
       </View>
       <View
-@@ -297,12 +295,14 @@
+@@ -301,12 +299,14 @@
                 Object {
                   \\"backgroundColor\\": \\"#005A7F\\",
                   \\"height\\": 72,
@@ -183,7 +183,7 @@ exports[`Edit Person fires onPress and updates person with orgId | relationship_
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -337,11 +337,11 @@
+@@ -343,11 +343,11 @@
               }
             >
               Friend
@@ -372,6 +372,8 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
               "lineHeight": 30,
               "maxWidth": 200,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "maxWidth": 280,
@@ -454,6 +456,8 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "300",
                 "lineHeight": 30,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -537,6 +541,8 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "300",
                 "lineHeight": 30,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -620,6 +626,8 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "300",
                 "lineHeight": 30,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -703,6 +711,8 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "300",
                 "lineHeight": 30,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -786,6 +796,8 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "300",
                 "lineHeight": 30,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -974,6 +986,8 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
             "lineHeight": 30,
             "maxWidth": 200,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1054,6 +1068,8 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "300",
                 "lineHeight": 30,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1137,6 +1153,8 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "300",
                 "lineHeight": 30,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1220,6 +1238,8 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "300",
                 "lineHeight": 30,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1303,6 +1323,8 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "300",
                 "lineHeight": 30,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1386,6 +1408,8 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "300",
                 "lineHeight": 30,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1406,7 +1430,7 @@ exports[`Onboarding fires onPress 1`] = `
 - First value
 + Second value
 
-@@ -218,11 +218,13 @@
+@@ -220,11 +220,13 @@
                   \\"backgroundColor\\": \\"#005A7F\\",
                   \\"height\\": 72,
                   \\"marginVertical\\": 4,
@@ -1421,7 +1445,7 @@ exports[`Onboarding fires onPress 1`] = `
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -257,11 +259,11 @@
+@@ -261,11 +263,11 @@
               }
             >
               Family
@@ -1610,6 +1634,8 @@ exports[`Onboarding renders correctly 1`] = `
               "lineHeight": 30,
               "maxWidth": 200,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "maxWidth": 280,
@@ -1692,6 +1718,8 @@ exports[`Onboarding renders correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "300",
                 "lineHeight": 30,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1775,6 +1803,8 @@ exports[`Onboarding renders correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "300",
                 "lineHeight": 30,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1858,6 +1888,8 @@ exports[`Onboarding renders correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "300",
                 "lineHeight": 30,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1941,6 +1973,8 @@ exports[`Onboarding renders correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "300",
                 "lineHeight": 30,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -2024,6 +2058,8 @@ exports[`Onboarding renders correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "300",
                 "lineHeight": 30,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >

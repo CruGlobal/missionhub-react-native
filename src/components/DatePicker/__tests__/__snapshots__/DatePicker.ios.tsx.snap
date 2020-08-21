@@ -66,7 +66,7 @@ Array [
     <View
       style={
         Object {
-          "backgroundColor": "rgba(0,0,0,0.5)",
+          "backgroundColor": "#ffffff",
           "bottom": 0,
           "left": 0,
           "position": "absolute",
@@ -148,6 +148,7 @@ Array [
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Array [
@@ -158,6 +159,8 @@ Array [
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "textAlign": "left",
@@ -181,6 +184,8 @@ Array [
               "fontWeight": "normal",
               "lineHeight": 24,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -227,6 +232,7 @@ Array [
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -236,6 +242,8 @@ Array [
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                 ]
               }
@@ -296,7 +304,7 @@ Array [
     <View
       style={
         Object {
-          "backgroundColor": "rgba(0,0,0,0.5)",
+          "backgroundColor": "#ffffff",
           "bottom": 0,
           "left": 0,
           "position": "absolute",
@@ -379,6 +387,7 @@ Array [
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Array [
@@ -389,6 +398,8 @@ Array [
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "textAlign": "left",
@@ -412,6 +423,8 @@ Array [
               "fontWeight": "normal",
               "lineHeight": 24,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -458,6 +471,7 @@ Array [
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -467,6 +481,8 @@ Array [
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                 ]
               }
@@ -527,7 +543,7 @@ Array [
     <View
       style={
         Object {
-          "backgroundColor": "rgba(0,0,0,0.5)",
+          "backgroundColor": "#ffffff",
           "bottom": 0,
           "left": 0,
           "position": "absolute",
@@ -609,6 +625,7 @@ Array [
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Array [
@@ -619,6 +636,8 @@ Array [
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "textAlign": "left",
@@ -642,6 +661,8 @@ Array [
               "fontWeight": "normal",
               "lineHeight": 24,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -688,6 +709,7 @@ Array [
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -697,6 +719,8 @@ Array [
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                 ]
               }
@@ -757,7 +781,7 @@ Array [
     <View
       style={
         Object {
-          "backgroundColor": "rgba(0,0,0,0.5)",
+          "backgroundColor": "#ffffff",
           "bottom": 0,
           "left": 0,
           "position": "absolute",
@@ -839,6 +863,7 @@ Array [
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Array [
@@ -849,6 +874,8 @@ Array [
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "textAlign": "left",
@@ -872,6 +899,8 @@ Array [
               "fontWeight": "normal",
               "lineHeight": 24,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -918,6 +947,7 @@ Array [
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -927,6 +957,8 @@ Array [
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                 ]
               }
@@ -987,7 +1019,7 @@ Array [
     <View
       style={
         Object {
-          "backgroundColor": "rgba(0,0,0,0.5)",
+          "backgroundColor": "#ffffff",
           "bottom": 0,
           "left": 0,
           "position": "absolute",
@@ -1069,6 +1101,7 @@ Array [
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Array [
@@ -1079,6 +1112,8 @@ Array [
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "textAlign": "left",
@@ -1102,6 +1137,8 @@ Array [
               "fontWeight": "normal",
               "lineHeight": 24,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1148,6 +1185,7 @@ Array [
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -1157,6 +1195,8 @@ Array [
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                 ]
               }
@@ -1217,7 +1257,7 @@ Array [
     <View
       style={
         Object {
-          "backgroundColor": "rgba(0,0,0,0.5)",
+          "backgroundColor": "#ffffff",
           "bottom": 0,
           "left": 0,
           "position": "absolute",
@@ -1302,6 +1342,7 @@ Array [
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Array [
@@ -1312,6 +1353,8 @@ Array [
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "textAlign": "left",
@@ -1335,6 +1378,8 @@ Array [
               "fontWeight": "normal",
               "lineHeight": 24,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1381,6 +1426,7 @@ Array [
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -1390,6 +1436,8 @@ Array [
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                 ]
               }
@@ -1454,7 +1502,7 @@ Array [
     <View
       style={
         Object {
-          "backgroundColor": "rgba(0,0,0,0.5)",
+          "backgroundColor": "#ffffff",
           "bottom": 0,
           "left": 0,
           "position": "absolute",
@@ -1536,6 +1584,7 @@ Array [
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Array [
@@ -1546,6 +1595,8 @@ Array [
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "textAlign": "left",
@@ -1569,6 +1620,8 @@ Array [
               "fontWeight": "normal",
               "lineHeight": 24,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1615,6 +1668,7 @@ Array [
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -1624,6 +1678,8 @@ Array [
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                 ]
               }

@@ -12,6 +12,7 @@ exports[`render dot 1`] = `
         "fontWeight": "bold",
         "letterSpacing": 1,
         "lineHeight": 18,
+        "textAlignVertical": "center",
         "textTransform": "uppercase",
       },
       undefined,
@@ -34,6 +35,7 @@ exports[`render dot with style 1`] = `
         "fontWeight": "bold",
         "letterSpacing": 1,
         "lineHeight": 18,
+        "textAlignVertical": "center",
         "textTransform": "uppercase",
       },
       Object {

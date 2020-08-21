@@ -130,6 +130,7 @@ exports[`WelcomeScreen should render correctly 1`] = `
             "fontWeight": "bold",
             "letterSpacing": 2,
             "lineHeight": 48,
+            "textAlignVertical": "center",
             "textTransform": "lowercase",
           }
         }
@@ -147,6 +148,8 @@ exports[`WelcomeScreen should render correctly 1`] = `
             "lineHeight": 30,
             "paddingVertical": 10,
             "textAlign": "left",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -292,6 +295,7 @@ exports[`WelcomeScreen should render correctly with sign in button 1`] = `
             "fontWeight": "bold",
             "letterSpacing": 2,
             "lineHeight": 48,
+            "textAlignVertical": "center",
             "textTransform": "lowercase",
           }
         }
@@ -309,6 +313,8 @@ exports[`WelcomeScreen should render correctly with sign in button 1`] = `
             "lineHeight": 30,
             "paddingVertical": 10,
             "textAlign": "left",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -331,6 +337,7 @@ exports[`WelcomeScreen should render correctly with sign in button 1`] = `
             "letterSpacing": 1.5,
             "lineHeight": 18,
             "paddingTop": 2,
+            "textAlignVertical": "center",
             "textTransform": "uppercase",
           }
         }
@@ -358,6 +365,7 @@ exports[`WelcomeScreen should render correctly with sign in button 1`] = `
             "letterSpacing": 1.5,
             "lineHeight": 18,
             "paddingTop": 2,
+            "textAlignVertical": "center",
             "textTransform": "uppercase",
           }
         }

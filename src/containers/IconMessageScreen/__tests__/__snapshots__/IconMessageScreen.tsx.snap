@@ -192,6 +192,8 @@ exports[`renders back button correctly 1`] = `
             "lineHeight": 32,
             "paddingVertical": 10,
             "textAlign": "left",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -261,6 +263,7 @@ exports[`renders back button correctly 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -392,6 +395,8 @@ exports[`renders correctly 1`] = `
             "lineHeight": 32,
             "paddingVertical": 10,
             "textAlign": "left",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -461,6 +466,7 @@ exports[`renders correctly 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -582,6 +588,7 @@ exports[`renders skip button correctly 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Array [
@@ -592,6 +599,8 @@ exports[`renders skip button correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 20,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     undefined,
                   ],
@@ -659,6 +668,8 @@ exports[`renders skip button correctly 1`] = `
             "lineHeight": 32,
             "paddingVertical": 10,
             "textAlign": "left",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -728,6 +739,7 @@ exports[`renders skip button correctly 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [

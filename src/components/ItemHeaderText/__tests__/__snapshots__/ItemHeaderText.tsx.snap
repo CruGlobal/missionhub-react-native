@@ -12,6 +12,8 @@ exports[`renders correctly 1`] = `
         "fontStyle": "normal",
         "fontWeight": "normal",
         "lineHeight": 24,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       },
       Object {
         "fontSize": 12,

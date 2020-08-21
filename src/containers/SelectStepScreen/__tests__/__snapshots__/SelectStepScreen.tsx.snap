@@ -200,6 +200,7 @@ exports[`in onboarding renders correctly 1`] = `
                       "letterSpacing": 1,
                       "lineHeight": 18,
                       "textAlign": "center",
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                     Array [
@@ -210,6 +211,8 @@ exports[`in onboarding renders correctly 1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 20,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       undefined,
                     ],
@@ -286,6 +289,8 @@ exports[`in onboarding renders correctly 1`] = `
           "marginHorizontal": 30,
           "marginVertical": 35,
           "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -347,6 +352,8 @@ exports[`in onboarding renders correctly 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#ffffff",
@@ -438,6 +445,8 @@ exports[`in onboarding renders correctly 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#3CC8E6",
@@ -501,6 +510,8 @@ exports[`in onboarding renders correctly 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#3CC8E6",
@@ -564,6 +575,8 @@ exports[`in onboarding renders correctly 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#3CC8E6",
@@ -698,6 +711,8 @@ exports[`in onboarding renders correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -744,7 +759,7 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 - First value
 + Second value
 
-@@ -286,299 +286,10 @@
+@@ -291,307 +291,10 @@
           }
         }
       >
@@ -806,6 +821,8 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 -                     \\"fontStyle\\": \\"normal\\",
 -                     \\"fontWeight\\": \\"normal\\",
 -                     \\"lineHeight\\": 20,
+-                     \\"textAlignVertical\\": \\"center\\",
+-                     \\"textTransform\\": \\"none\\",
 -                   },
 -                   Object {
 -                     \\"color\\": \\"#ffffff\\",
@@ -897,6 +914,8 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 -                     \\"fontStyle\\": \\"normal\\",
 -                     \\"fontWeight\\": \\"normal\\",
 -                     \\"lineHeight\\": 20,
+-                     \\"textAlignVertical\\": \\"center\\",
+-                     \\"textTransform\\": \\"none\\",
 -                   },
 -                   Object {
 -                     \\"color\\": \\"#3CC8E6\\",
@@ -960,6 +979,8 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 -                     \\"fontStyle\\": \\"normal\\",
 -                     \\"fontWeight\\": \\"normal\\",
 -                     \\"lineHeight\\": 20,
+-                     \\"textAlignVertical\\": \\"center\\",
+-                     \\"textTransform\\": \\"none\\",
 -                   },
 -                   Object {
 -                     \\"color\\": \\"#3CC8E6\\",
@@ -1023,6 +1044,8 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 -                     \\"fontStyle\\": \\"normal\\",
 -                     \\"fontWeight\\": \\"normal\\",
 -                     \\"lineHeight\\": 20,
+-                     \\"textAlignVertical\\": \\"center\\",
+-                     \\"textTransform\\": \\"none\\",
 -                   },
 -                   Object {
 -                     \\"color\\": \\"#3CC8E6\\",
@@ -1266,6 +1289,8 @@ exports[`loading should render correctly 1`] = `
           "marginHorizontal": 30,
           "marginVertical": 35,
           "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -1327,6 +1352,8 @@ exports[`loading should render correctly 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#ffffff",
@@ -1418,6 +1445,8 @@ exports[`loading should render correctly 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#3CC8E6",
@@ -1481,6 +1510,8 @@ exports[`loading should render correctly 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#3CC8E6",
@@ -1544,6 +1575,8 @@ exports[`loading should render correctly 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#3CC8E6",
@@ -1678,6 +1711,8 @@ exports[`loading should render correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1896,6 +1931,8 @@ exports[`loading should render for self steps correctly 1`] = `
           "marginHorizontal": 30,
           "marginVertical": 35,
           "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -2019,6 +2056,8 @@ exports[`loading should render for self steps correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -2260,6 +2299,7 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
                       "letterSpacing": 1,
                       "lineHeight": 18,
                       "textAlign": "center",
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                     Array [
@@ -2270,6 +2310,8 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 20,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       undefined,
                     ],
@@ -2346,6 +2388,8 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
           "marginHorizontal": 30,
           "marginVertical": 35,
           "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -2407,6 +2451,8 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#ffffff",
@@ -2498,6 +2544,8 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#3CC8E6",
@@ -2561,6 +2609,8 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#3CC8E6",
@@ -2624,6 +2674,8 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#3CC8E6",
@@ -2758,6 +2810,8 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -3012,6 +3066,7 @@ exports[`loading skip button should render skip button correctly 1`] = `
                       "letterSpacing": 1,
                       "lineHeight": 18,
                       "textAlign": "center",
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                     Array [
@@ -3022,6 +3077,8 @@ exports[`loading skip button should render skip button correctly 1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 20,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       undefined,
                     ],
@@ -3098,6 +3155,8 @@ exports[`loading skip button should render skip button correctly 1`] = `
           "marginHorizontal": 30,
           "marginVertical": 35,
           "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -3159,6 +3218,8 @@ exports[`loading skip button should render skip button correctly 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#ffffff",
@@ -3250,6 +3311,8 @@ exports[`loading skip button should render skip button correctly 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#3CC8E6",
@@ -3313,6 +3376,8 @@ exports[`loading skip button should render skip button correctly 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#3CC8E6",
@@ -3376,6 +3441,8 @@ exports[`loading skip button should render skip button correctly 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#3CC8E6",
@@ -3510,6 +3577,8 @@ exports[`loading skip button should render skip button correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -3771,6 +3840,8 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
           "marginHorizontal": 30,
           "marginVertical": 35,
           "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -3832,6 +3903,8 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#ffffff",
@@ -3923,6 +3996,8 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#3CC8E6",
@@ -3986,6 +4061,8 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#3CC8E6",
@@ -4049,6 +4126,8 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#3CC8E6",
@@ -4191,6 +4270,8 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -4244,6 +4325,8 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -4296,6 +4379,8 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -4327,9 +4412,9 @@ exports[`should load step suggestions 1`] = `
 - First value
 + Second value
 
-@@ -218,11 +218,11 @@
-            \\"marginVertical\\": 35,
-            \\"textAlign\\": \\"center\\",
+@@ -220,11 +220,11 @@
+            \\"textAlignVertical\\": \\"center\\",
+            \\"textTransform\\": \\"none\\",
           }
         }
       >
@@ -4340,7 +4425,7 @@ exports[`should load step suggestions 1`] = `
         style={
           Object {
             \\"flexDirection\\": \\"row\\",
-@@ -288,10 +288,41 @@
+@@ -292,10 +292,41 @@
                   ]
                 }
               >
@@ -4382,14 +4467,12 @@ exports[`should load step suggestions 1`] = `
               style={
                 Array [
                   Object {
-@@ -378,11 +409,42 @@
-                    undefined,
-                  ]
+@@ -386,12 +417,43 @@
                 }
               >
                 Pray
-+             </Text>
-+           </View>
+              </Text>
+            </View>
 +           <View
 +             style={
 +               Array [
@@ -4416,16 +4499,19 @@ exports[`should load step suggestions 1`] = `
 +               }
 +             >
 +               0
-              </Text>
++             </Text>
 +             <SvgMock
 +               color=\\"#007398\\"
 +             />
             </View>
           </View>
-        </View>
++       </View>
         <View
           accessible={true}
-@@ -443,12 +505,43 @@
+          focusable={true}
+          onClick={[Function onClick]}
+          onResponderGrant={[Function onResponderGrant]}
+@@ -451,12 +513,43 @@
                 }
               >
                 Care
@@ -4469,14 +4555,12 @@ exports[`should load step suggestions 1`] = `
           focusable={true}
           onClick={[Function onClick]}
           onResponderGrant={[Function onResponderGrant]}
-@@ -504,22 +597,49 @@
-                    undefined,
-                  ]
+@@ -516,20 +609,47 @@
                 }
               >
                 Share
-+             </Text>
-+           </View>
+              </Text>
+            </View>
 +           <View
 +             style={
 +               Array [
@@ -4503,7 +4587,7 @@ exports[`should load step suggestions 1`] = `
 +               }
 +             >
 +               0
-              </Text>
++             </Text>
 +             <SvgMock
 +               color=\\"#007398\\"
 +             />
@@ -4511,7 +4595,7 @@ exports[`should load step suggestions 1`] = `
           </View>
         </View>
       </View>
-    </View>
++   </View>
     <RCTScrollView
 -     ListFooterComponent={
 -       <ForwardRef(SafeAreaView)>
@@ -4524,7 +4608,7 @@ exports[`should load step suggestions 1`] = `
           message=\\"Error loading step suggestions\\"
           refetch={[Function anonymous]}
         />
-@@ -535,10 +655,22 @@
+@@ -545,10 +665,22 @@
           Object {
             \\"action\\": [Function action],
             \\"icon\\": true,
@@ -4547,7 +4631,7 @@ exports[`should load step suggestions 1`] = `
       }
       disableVirtualization={false}
       getItem={[Function anonymous]}
-@@ -556,11 +688,11 @@
+@@ -566,11 +698,11 @@
       onScrollBeginDrag={[Function anonymous]}
       onScrollEndDrag={[Function anonymous]}
       refreshControl={
@@ -4560,19 +4644,19 @@ exports[`should load step suggestions 1`] = `
       removeClippedSubviews={false}
       renderItem={[Function anonymous]}
       scrollEventThrottle={50}
-@@ -636,36 +768,126 @@
+@@ -648,36 +780,130 @@
             </Text>
             <SvgMock />
           </View>
         </View>
         <View
 -         onLayout={[Function anonymous]}
+-       >
+-         <RCTSafeAreaView
+-           emulateUnlessSupported={true}
 +         onLayout={[Function onLayout]}
 +         style={null}
         >
--         <RCTSafeAreaView
--           emulateUnlessSupported={true}
--         >
           <View
 +           accessible={true}
 +           focusable={true}
@@ -4616,6 +4700,8 @@ exports[`should load step suggestions 1`] = `
 +                 \\"fontStyle\\": \\"normal\\",
 +                 \\"fontWeight\\": \\"normal\\",
 +                 \\"lineHeight\\": 24,
++                 \\"textAlignVertical\\": \\"center\\",
++                 \\"textTransform\\": \\"none\\",
 +               }
 +             }
 +           >
@@ -4659,8 +4745,14 @@ exports[`should load step suggestions 1`] = `
 +               \\"shadowOpacity\\": 0.3,
 +               \\"shadowRadius\\": 2,
 +             }
-+           }
-+         >
+            }
+          >
+-             <ActivityIndicator
+-               animating={true}
+-               color=\\"rgba(0, 0, 0, 1)\\"
+-               hidesWhenStopped={true}
+-               size=\\"small\\"
+-             />
 +           <Text
 +             style={
 +               Object {
@@ -4670,15 +4762,11 @@ exports[`should load step suggestions 1`] = `
 +                 \\"fontStyle\\": \\"normal\\",
 +                 \\"fontWeight\\": \\"normal\\",
 +                 \\"lineHeight\\": 24,
++                 \\"textAlignVertical\\": \\"center\\",
++                 \\"textTransform\\": \\"none\\",
 +               }
-              }
-            >
--             <ActivityIndicator
--               animating={true}
--               color=\\"rgba(0, 0, 0, 1)\\"
--               hidesWhenStopped={true}
--               size=\\"small\\"
--             />
++             }
++           >
 +             recusandae ut nulla
 +           </Text>
           </View>
@@ -4709,9 +4797,9 @@ exports[`should paginate 1`] = `
 - First value
 + Second value
 
-@@ -218,11 +218,11 @@
-            \\"marginVertical\\": 35,
-            \\"textAlign\\": \\"center\\",
+@@ -220,11 +220,11 @@
+            \\"textAlignVertical\\": \\"center\\",
+            \\"textTransform\\": \\"none\\",
           }
         }
       >
@@ -4722,13 +4810,12 @@ exports[`should paginate 1`] = `
         style={
           Object {
             \\"flexDirection\\": \\"row\\",
-@@ -667,10 +667,22 @@
-          Object {
+@@ -678,10 +678,22 @@
             \\"action\\": [Function action],
             \\"icon\\": false,
             \\"key\\": \\"6\\",
             \\"text\\": \\"recusandae ut nulla\\",
-+         },
+          },
 +         Object {
 +           \\"action\\": [Function action],
 +           \\"icon\\": false,
@@ -4740,13 +4827,14 @@ exports[`should paginate 1`] = `
 +           \\"icon\\": false,
 +           \\"key\\": \\"9\\",
 +           \\"text\\": \\"sed libero repudiandae\\",
-          },
++         },
         ]
       }
       disableVirtualization={false}
       getItem={[Function anonymous]}
-@@ -868,10 +880,114 @@
-                  \\"lineHeight\\": 24,
+      getItemCount={[Function anonymous]}
+@@ -884,10 +896,118 @@
+                  \\"textTransform\\": \\"none\\",
                 }
               }
             >
@@ -4799,6 +4887,8 @@ exports[`should paginate 1`] = `
 +                 \\"fontStyle\\": \\"normal\\",
 +                 \\"fontWeight\\": \\"normal\\",
 +                 \\"lineHeight\\": 24,
++                 \\"textAlignVertical\\": \\"center\\",
++                 \\"textTransform\\": \\"none\\",
 +               }
 +             }
 +           >
@@ -4851,6 +4941,8 @@ exports[`should paginate 1`] = `
 +                 \\"fontStyle\\": \\"normal\\",
 +                 \\"fontWeight\\": \\"normal\\",
 +                 \\"lineHeight\\": 24,
++                 \\"textAlignVertical\\": \\"center\\",
++                 \\"textTransform\\": \\"none\\",
 +               }
 +             }
 +           >
@@ -4867,7 +4959,7 @@ exports[`with explainer open opens explainer modal 1`] = `
 - First value
 + Second value
 
-@@ -887,6 +887,9 @@
+@@ -903,6 +903,9 @@
             emulateUnlessSupported={true}
           />
         </View>

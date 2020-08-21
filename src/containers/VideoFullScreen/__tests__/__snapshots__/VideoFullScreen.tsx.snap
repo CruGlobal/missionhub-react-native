@@ -18,7 +18,7 @@ exports[`mutes video 1`] = `
       paused={false}
       resizeMode=\\"cover\\"
       source={
-@@ -169,11 +169,11 @@
+@@ -171,11 +171,11 @@
               }
             }
             testID=\\"MutedButton\\"
@@ -51,7 +51,7 @@ exports[`pauses video 1`] = `
         Object {
           \\"uri\\": \\"file:/video.mov\\",
         }
-@@ -135,24 +135,25 @@
+@@ -137,24 +137,25 @@
             onResponderTerminate={[Function onResponderTerminate]}
             onResponderTerminationRequest={[Function onResponderTerminationRequest]}
             onStartShouldSetResponder={[Function onStartShouldSetResponder]}
@@ -203,6 +203,8 @@ exports[`renders correctly 1`] = `
                 "fontWeight": "300",
                 "lineHeight": 30,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -269,9 +271,9 @@ exports[`sets video progress time 1`] = `
 - First value
 + Second value
 
-@@ -120,11 +120,11 @@
-                  \\"lineHeight\\": 30,
-                  \\"textAlign\\": \\"center\\",
+@@ -122,11 +122,11 @@
+                  \\"textAlignVertical\\": \\"center\\",
+                  \\"textTransform\\": \\"none\\",
                 }
               }
             >

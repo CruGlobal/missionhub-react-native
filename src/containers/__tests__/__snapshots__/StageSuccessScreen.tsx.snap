@@ -192,6 +192,8 @@ exports[`renders correctly 1`] = `
             "lineHeight": 32,
             "paddingVertical": 10,
             "textAlign": "left",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -261,6 +263,7 @@ exports[`renders correctly 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [

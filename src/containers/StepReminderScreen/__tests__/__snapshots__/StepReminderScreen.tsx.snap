@@ -145,6 +145,8 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -194,6 +196,7 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
               "fontWeight": "normal",
               "lineHeight": 16,
               "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "color": "#B4B6BA",
@@ -221,6 +224,8 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
@@ -234,6 +239,7 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
                     "lineHeight": 24,
                     "paddingBottom": 6,
                     "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#007398",
@@ -318,6 +324,7 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -329,6 +336,8 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -404,6 +413,7 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -415,6 +425,8 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -490,6 +502,7 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -501,6 +514,8 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -578,6 +593,7 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -739,6 +755,8 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -788,6 +806,7 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
               "fontWeight": "normal",
               "lineHeight": 16,
               "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "color": "#B4B6BA",
@@ -815,6 +834,8 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
@@ -828,6 +849,7 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
                     "lineHeight": 24,
                     "paddingBottom": 6,
                     "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#007398",
@@ -912,6 +934,7 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -923,6 +946,8 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -998,6 +1023,7 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -1009,6 +1035,8 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -1084,6 +1112,7 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -1095,6 +1124,8 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -1172,6 +1203,7 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -1333,6 +1365,8 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1382,6 +1416,7 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
               "fontWeight": "normal",
               "lineHeight": 16,
               "textAlignVertical": "center",
+              "textTransform": "none",
             },
             null,
           ]
@@ -1407,6 +1442,8 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
@@ -1420,6 +1457,7 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
                     "lineHeight": 24,
                     "paddingBottom": 6,
                     "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -1502,6 +1540,7 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -1513,6 +1552,8 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#ffffff",
@@ -1588,6 +1629,7 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -1599,6 +1641,8 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -1674,6 +1718,7 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -1685,6 +1730,8 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -1764,6 +1811,7 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -1925,6 +1973,8 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1974,6 +2024,7 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
               "fontWeight": "normal",
               "lineHeight": 16,
               "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "color": "#B4B6BA",
@@ -2001,6 +2052,8 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
@@ -2014,6 +2067,7 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
                     "lineHeight": 24,
                     "paddingBottom": 6,
                     "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#007398",
@@ -2096,6 +2150,7 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -2107,6 +2162,8 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#ffffff",
@@ -2182,6 +2239,7 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -2193,6 +2251,8 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -2268,6 +2328,7 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -2279,6 +2340,8 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -2356,6 +2419,7 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -2517,6 +2581,8 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2566,6 +2632,7 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
               "fontWeight": "normal",
               "lineHeight": 16,
               "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "color": "#B4B6BA",
@@ -2593,6 +2660,8 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
@@ -2606,6 +2675,7 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
                     "lineHeight": 24,
                     "paddingBottom": 6,
                     "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#007398",
@@ -2688,6 +2758,7 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -2699,6 +2770,8 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#ffffff",
@@ -2774,6 +2847,7 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -2785,6 +2859,8 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -2860,6 +2936,7 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -2871,6 +2948,8 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -2948,6 +3027,7 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -3109,6 +3189,8 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -3158,6 +3240,7 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
               "fontWeight": "normal",
               "lineHeight": 16,
               "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "color": "#B4B6BA",
@@ -3185,6 +3268,8 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
@@ -3198,6 +3283,7 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
                     "lineHeight": 24,
                     "paddingBottom": 6,
                     "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#007398",
@@ -3282,6 +3368,7 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -3293,6 +3380,8 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -3368,6 +3457,7 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -3379,6 +3469,8 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -3454,6 +3546,7 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -3465,6 +3558,8 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -3542,6 +3637,7 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -3703,6 +3799,8 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -3752,6 +3850,7 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
               "fontWeight": "normal",
               "lineHeight": 16,
               "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "color": "#B4B6BA",
@@ -3779,6 +3878,8 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
@@ -3792,6 +3893,7 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
                     "lineHeight": 24,
                     "paddingBottom": 6,
                     "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#007398",
@@ -3876,6 +3978,7 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -3887,6 +3990,8 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -3962,6 +4067,7 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -3973,6 +4079,8 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -4048,6 +4156,7 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -4059,6 +4168,8 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -4136,6 +4247,7 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -4297,6 +4409,8 @@ exports[`render no reminder in props renders correctly 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -4346,6 +4460,7 @@ exports[`render no reminder in props renders correctly 1`] = `
               "fontWeight": "normal",
               "lineHeight": 16,
               "textAlignVertical": "center",
+              "textTransform": "none",
             },
             null,
           ]
@@ -4371,6 +4486,8 @@ exports[`render no reminder in props renders correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
@@ -4384,6 +4501,7 @@ exports[`render no reminder in props renders correctly 1`] = `
                     "lineHeight": 24,
                     "paddingBottom": 6,
                     "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -4468,6 +4586,7 @@ exports[`render no reminder in props renders correctly 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -4479,6 +4598,8 @@ exports[`render no reminder in props renders correctly 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -4554,6 +4675,7 @@ exports[`render no reminder in props renders correctly 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -4565,6 +4687,8 @@ exports[`render no reminder in props renders correctly 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -4640,6 +4764,7 @@ exports[`render no reminder in props renders correctly 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -4651,6 +4776,8 @@ exports[`render no reminder in props renders correctly 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -4730,6 +4857,7 @@ exports[`render no reminder in props renders correctly 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -4891,6 +5019,8 @@ exports[`render reminder in props renders correctly 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -4940,6 +5070,7 @@ exports[`render reminder in props renders correctly 1`] = `
               "fontWeight": "normal",
               "lineHeight": 16,
               "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "color": "#B4B6BA",
@@ -4967,6 +5098,8 @@ exports[`render reminder in props renders correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
@@ -4980,6 +5113,7 @@ exports[`render reminder in props renders correctly 1`] = `
                     "lineHeight": 24,
                     "paddingBottom": 6,
                     "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#007398",
@@ -5064,6 +5198,7 @@ exports[`render reminder in props renders correctly 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -5075,6 +5210,8 @@ exports[`render reminder in props renders correctly 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -5150,6 +5287,7 @@ exports[`render reminder in props renders correctly 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -5161,6 +5299,8 @@ exports[`render reminder in props renders correctly 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -5236,6 +5376,7 @@ exports[`render reminder in props renders correctly 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
                 Array [
@@ -5247,6 +5388,8 @@ exports[`render reminder in props renders correctly 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 1,
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "color": "#B4B6BA",
@@ -5324,6 +5467,7 @@ exports[`render reminder in props renders correctly 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [

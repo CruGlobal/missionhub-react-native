@@ -133,6 +133,8 @@ exports[`render correctly | Me 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -148,6 +150,8 @@ exports[`render correctly | Me 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
               ]
             }
@@ -162,6 +166,8 @@ exports[`render correctly | Me 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
               testID="Text"
@@ -317,6 +323,8 @@ exports[`renders completed item correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -332,6 +340,8 @@ exports[`renders completed item correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
               ]
             }
@@ -346,6 +356,8 @@ exports[`renders completed item correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
               testID="Text"
@@ -505,6 +517,8 @@ exports[`renders correctly | Not Me 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -520,6 +534,8 @@ exports[`renders correctly | Not Me 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
               ]
             }
@@ -534,6 +550,8 @@ exports[`renders correctly | Not Me 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
               testID="Text"
@@ -689,6 +707,8 @@ exports[`renders full date if not in same week 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -704,6 +724,8 @@ exports[`renders full date if not in same week 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
               ]
             }
@@ -718,6 +740,8 @@ exports[`renders full date if not in same week 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
               testID="Text"

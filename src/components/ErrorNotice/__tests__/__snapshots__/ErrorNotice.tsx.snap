@@ -31,6 +31,8 @@ exports[`ErrorNotice should render a network error 1`] = `
         "fontStyle": "normal",
         "fontWeight": "normal",
         "lineHeight": 24,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       }
     }
   >
@@ -98,6 +100,8 @@ exports[`ErrorNotice should render an a specificError 1`] = `
         "fontStyle": "normal",
         "fontWeight": "normal",
         "lineHeight": 24,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       }
     }
   >
@@ -165,6 +169,8 @@ exports[`ErrorNotice should render an error 1`] = `
         "fontStyle": "normal",
         "fontWeight": "normal",
         "lineHeight": 24,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       }
     }
   >
@@ -234,6 +240,8 @@ exports[`ErrorNotice should show general error if no specific errors are matched
         "fontStyle": "normal",
         "fontWeight": "normal",
         "lineHeight": 24,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       }
     }
   >

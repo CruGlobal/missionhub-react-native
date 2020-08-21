@@ -83,6 +83,8 @@ exports[`renders me correctly 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
           undefined,
         ]
@@ -107,6 +109,8 @@ exports[`renders me correctly 1`] = `
             "fontWeight": "normal",
             "lineHeight": 16,
             "paddingTop": 6,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -181,6 +185,7 @@ exports[`renders me correctly 1`] = `
             "fontWeight": "bold",
             "letterSpacing": 1,
             "lineHeight": 18,
+            "textAlignVertical": "center",
             "textTransform": "uppercase",
           }
         }
@@ -275,6 +280,8 @@ exports[`renders person correctly 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
           undefined,
         ]
@@ -299,6 +306,8 @@ exports[`renders person correctly 1`] = `
             "fontWeight": "normal",
             "lineHeight": 16,
             "paddingTop": 6,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -373,6 +382,7 @@ exports[`renders person correctly 1`] = `
             "fontWeight": "bold",
             "letterSpacing": 1,
             "lineHeight": 18,
+            "textAlignVertical": "center",
             "textTransform": "uppercase",
           }
         }
@@ -454,6 +464,8 @@ exports[`renders person with no stage correctly 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
           undefined,
         ]
@@ -496,6 +508,8 @@ exports[`renders person with no stage correctly 1`] = `
                 "fontWeight": "normal",
                 "lineHeight": 16,
                 "paddingTop": 6,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#3CC8E6",
@@ -575,6 +589,7 @@ exports[`renders person with no stage correctly 1`] = `
             "fontWeight": "bold",
             "letterSpacing": 1,
             "lineHeight": 18,
+            "textAlignVertical": "center",
             "textTransform": "uppercase",
           }
         }
@@ -669,6 +684,8 @@ exports[`renders personal ministry with no steps correctly 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
           undefined,
         ]
@@ -693,6 +710,8 @@ exports[`renders personal ministry with no steps correctly 1`] = `
             "fontWeight": "normal",
             "lineHeight": 16,
             "paddingTop": 6,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >

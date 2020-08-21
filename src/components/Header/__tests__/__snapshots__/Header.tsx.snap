@@ -356,6 +356,8 @@ exports[`renders with styles 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "color": "red",
@@ -443,6 +445,8 @@ exports[`renders with title 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             undefined,
           ]

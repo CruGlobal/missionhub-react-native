@@ -45,6 +45,8 @@ exports[`HeaderTabBar should render active tab 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -84,6 +86,8 @@ exports[`HeaderTabBar should render active tab 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -141,6 +145,8 @@ exports[`HeaderTabBar should render tabs 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -178,6 +184,8 @@ exports[`HeaderTabBar should render tabs 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >

@@ -163,6 +163,7 @@ exports[`renders isMe version correctly 1`] = `
           "letterSpacing": 2,
           "lineHeight": 36,
           "marginBottom": 10,
+          "textAlignVertical": "center",
           "textTransform": "lowercase",
         }
       }
@@ -188,6 +189,8 @@ exports[`renders isMe version correctly 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -220,6 +223,8 @@ exports[`renders isMe version correctly 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {},
           ]
@@ -263,6 +268,8 @@ exports[`renders isMe version correctly 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {},
           ]
@@ -296,6 +303,8 @@ exports[`renders isMe version correctly 1`] = `
             "lineHeight": 16,
             "paddingHorizontal": 3,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -354,6 +363,7 @@ exports[`renders isMe version correctly 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -366,7 +376,9 @@ exports[`renders isMe version correctly 1`] = `
                     "lineHeight": 16,
                     "paddingHorizontal": 3,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textDecorationLine": "underline",
+                    "textTransform": "none",
                   },
                 ]
               }
@@ -386,6 +398,8 @@ exports[`renders isMe version correctly 1`] = `
               "lineHeight": 16,
               "paddingHorizontal": 3,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -432,6 +446,7 @@ exports[`renders isMe version correctly 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -444,7 +459,9 @@ exports[`renders isMe version correctly 1`] = `
                     "lineHeight": 16,
                     "paddingHorizontal": 3,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textDecorationLine": "underline",
+                    "textTransform": "none",
                   },
                 ]
               }
@@ -519,6 +536,7 @@ exports[`renders isMe version correctly 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -719,6 +737,7 @@ exports[`renders other person version correctly 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Array [
@@ -729,6 +748,8 @@ exports[`renders other person version correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 20,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     undefined,
                   ],
@@ -773,6 +794,8 @@ exports[`renders other person version correctly 1`] = `
             "lineHeight": 30,
             "maxWidth": 230,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -798,6 +821,8 @@ exports[`renders other person version correctly 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
             "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -830,6 +855,8 @@ exports[`renders other person version correctly 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {},
           ]
@@ -873,6 +900,8 @@ exports[`renders other person version correctly 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {},
           ]
@@ -946,6 +975,7 @@ exports[`renders other person version correctly 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -967,7 +997,7 @@ exports[`setup screen methods should update first name 1`] = `
 - First value
 + Second value
 
-@@ -296,11 +296,11 @@
+@@ -305,11 +305,11 @@
               Object {},
             ]
           }
@@ -987,7 +1017,7 @@ exports[`setup screen methods should update last name 1`] = `
 - First value
 + Second value
 
-@@ -339,11 +339,11 @@
+@@ -350,11 +350,11 @@
               Object {},
             ]
           }

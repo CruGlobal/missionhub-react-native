@@ -223,6 +223,7 @@ exports[`should render correctly post details 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -233,6 +234,7 @@ exports[`should render correctly post details 1`] = `
                     "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                 ]
@@ -292,6 +294,7 @@ exports[`should render correctly post details 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -316,6 +319,8 @@ exports[`should render correctly post details 1`] = `
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -472,6 +477,7 @@ exports[`should render correctly post details 1`] = `
                   "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 }
               }
@@ -500,6 +506,8 @@ exports[`should render correctly post details 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -568,6 +576,8 @@ exports[`should render correctly post details 1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 24,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -667,6 +677,7 @@ exports[`should render correctly post details 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -834,6 +845,7 @@ exports[`should render correctly while loading 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -844,6 +856,7 @@ exports[`should render correctly while loading 1`] = `
                     "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                 ]
@@ -892,6 +905,7 @@ exports[`should render correctly while loading 1`] = `
               "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 20,
+              "textAlignVertical": "center",
               "textTransform": "uppercase",
             },
             Object {
@@ -916,6 +930,8 @@ exports[`should render correctly while loading 1`] = `
           "lineHeight": 38,
           "marginHorizontal": 32,
           "marginVertical": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -993,6 +1009,7 @@ exports[`should render correctly while loading 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -1160,6 +1177,7 @@ exports[`should render correctly without description and without reminder for me
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -1170,6 +1188,7 @@ exports[`should render correctly without description and without reminder for me
                     "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                 ]
@@ -1218,6 +1237,7 @@ exports[`should render correctly without description and without reminder for me
               "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 20,
+              "textAlignVertical": "center",
               "textTransform": "uppercase",
             },
             Object {
@@ -1242,6 +1262,8 @@ exports[`should render correctly without description and without reminder for me
           "lineHeight": 38,
           "marginHorizontal": 32,
           "marginVertical": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -1403,6 +1425,7 @@ exports[`should render correctly without description and without reminder for me
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -1570,6 +1593,7 @@ exports[`should render correctly without description and without reminder for ot
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -1580,6 +1604,7 @@ exports[`should render correctly without description and without reminder for ot
                     "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                 ]
@@ -1628,6 +1653,7 @@ exports[`should render correctly without description and without reminder for ot
               "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 20,
+              "textAlignVertical": "center",
               "textTransform": "uppercase",
             },
             Object {
@@ -1652,6 +1678,8 @@ exports[`should render correctly without description and without reminder for ot
           "lineHeight": 38,
           "marginHorizontal": 32,
           "marginVertical": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -1813,6 +1841,7 @@ exports[`should render correctly without description and without reminder for ot
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -1980,6 +2009,7 @@ exports[`with description, with reminder should render correctly 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -1990,6 +2020,7 @@ exports[`with description, with reminder should render correctly 1`] = `
                     "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                 ]
@@ -2049,6 +2080,7 @@ exports[`with description, with reminder should render correctly 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -2073,6 +2105,8 @@ exports[`with description, with reminder should render correctly 1`] = `
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -2294,6 +2328,8 @@ exports[`with description, with reminder should render correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -2370,6 +2406,7 @@ exports[`with description, with reminder should render correctly 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -2537,6 +2574,7 @@ exports[`with description, without reminder should render correctly 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -2547,6 +2585,7 @@ exports[`with description, without reminder should render correctly 1`] = `
                     "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                 ]
@@ -2606,6 +2645,7 @@ exports[`with description, without reminder should render correctly 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -2630,6 +2670,8 @@ exports[`with description, without reminder should render correctly 1`] = `
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -2757,6 +2799,8 @@ exports[`with description, without reminder should render correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -2833,6 +2877,7 @@ exports[`with description, without reminder should render correctly 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [

@@ -143,6 +143,8 @@ exports[`renders empty correctly 1`] = `
               "fontWeight": "300",
               "lineHeight": 30,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -158,6 +160,8 @@ exports[`renders empty correctly 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -222,6 +226,7 @@ exports[`renders empty correctly 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {},
@@ -291,6 +296,7 @@ exports[`renders empty correctly 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {},
@@ -425,14 +431,18 @@ exports[`renders empty correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
-                "color": "#505256",
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -664,6 +674,7 @@ exports[`renders empty correctly 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -823,6 +834,8 @@ exports[`renders with people correctly 1`] = `
               "fontWeight": "300",
               "lineHeight": 30,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -838,6 +851,8 @@ exports[`renders with people correctly 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -902,6 +917,7 @@ exports[`renders with people correctly 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {},
@@ -971,6 +987,7 @@ exports[`renders with people correctly 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {},
@@ -1105,14 +1122,18 @@ exports[`renders with people correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
-                "color": "#505256",
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }

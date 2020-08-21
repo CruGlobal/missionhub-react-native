@@ -15,6 +15,8 @@ exports[`for person renders stage 1`] = `
       "fontWeight": "normal",
       "letterSpacing": 0.25,
       "lineHeight": 20,
+      "textAlignVertical": "center",
+      "textTransform": "none",
     }
   }
 >
@@ -35,6 +37,8 @@ exports[`for self renders stage 1`] = `
       "fontWeight": "normal",
       "letterSpacing": 0.25,
       "lineHeight": 20,
+      "textAlignVertical": "center",
+      "textTransform": "none",
     }
   }
 >

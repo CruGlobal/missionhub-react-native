@@ -5,7 +5,7 @@ exports[`Creating a post user types a post 1`] = `
 - First value
 + Second value
 
-@@ -132,12 +132,55 @@
+@@ -134,12 +134,55 @@
                 \\"flex\\": 1,
                 \\"justifyContent\\": \\"center\\",
               },
@@ -61,7 +61,7 @@ exports[`Creating a post user types a post 1`] = `
       style={
         Object {
           \\"backgroundColor\\": \\"#ECEEF2\\",
-@@ -262,11 +305,11 @@
+@@ -270,11 +313,11 @@
               },
             ]
           }
@@ -81,7 +81,7 @@ exports[`Select image should select an image 1`] = `
 - First value
 + Second value
 
-@@ -265,19 +265,10 @@
+@@ -273,19 +273,10 @@
           testID=\\"PostInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
@@ -101,7 +101,7 @@ exports[`Select image should select an image 1`] = `
           onClick={[Function onClick]}
           onResponderGrant={[Function onResponderGrant]}
           onResponderMove={[Function onResponderMove]}
-@@ -285,113 +276,28 @@
+@@ -293,117 +284,28 @@
           onResponderTerminate={[Function onResponderTerminate]}
           onResponderTerminationRequest={[Function onResponderTerminationRequest]}
           onStartShouldSetResponder={[Function onStartShouldSetResponder]}
@@ -139,6 +139,8 @@ exports[`Select image should select an image 1`] = `
 -               \\"fontWeight\\": \\"normal\\",
 -               \\"lineHeight\\": 24,
 -               \\"paddingHorizontal\\": 10,
+-               \\"textAlignVertical\\": \\"center\\",
+-               \\"textTransform\\": \\"none\\",
 +               \\"uri\\": \\"data:image/jpeg;base64,base64image.jpeg\\",
               }
             }
@@ -202,6 +204,8 @@ exports[`Select image should select an image 1`] = `
 -                 \\"fontWeight\\": \\"normal\\",
 -                 \\"lineHeight\\": 24,
 -                 \\"paddingHorizontal\\": 10,
+-                 \\"textAlignVertical\\": \\"center\\",
+-                 \\"textTransform\\": \\"none\\",
 -               }
 -             }
 -           >
@@ -228,7 +232,7 @@ exports[`Select video should select a video 1`] = `
 - First value
 + Second value
 
-@@ -264,134 +264,13 @@
+@@ -272,138 +272,13 @@
           }
           testID=\\"PostInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
@@ -283,6 +287,8 @@ exports[`Select video should select a video 1`] = `
 -               \\"fontWeight\\": \\"normal\\",
 -               \\"lineHeight\\": 24,
 -               \\"paddingHorizontal\\": 10,
+-               \\"textAlignVertical\\": \\"center\\",
+-               \\"textTransform\\": \\"none\\",
 -             }
 -           }
 -         >
@@ -344,6 +350,8 @@ exports[`Select video should select a video 1`] = `
 -                 \\"fontWeight\\": \\"normal\\",
 -                 \\"lineHeight\\": 24,
 -                 \\"paddingHorizontal\\": 10,
+-                 \\"textAlignVertical\\": \\"center\\",
+-                 \\"textTransform\\": \\"none\\",
 -               }
 -             }
 -           >
@@ -374,7 +382,7 @@ exports[`Updating a post user types a post 1`] = `
 - First value
 + Second value
 
-@@ -324,11 +324,11 @@
+@@ -335,11 +335,11 @@
               },
             ]
           }
@@ -507,6 +515,8 @@ exports[`renders correctly for new post 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -607,6 +617,8 @@ exports[`renders correctly for new post 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -639,6 +651,8 @@ exports[`renders correctly for new post 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
@@ -651,6 +665,8 @@ exports[`renders correctly for new post 1`] = `
               "paddingBottom": 28,
               "paddingHorizontal": 35,
               "paddingTop": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -707,6 +723,8 @@ exports[`renders correctly for new post 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -768,6 +786,8 @@ exports[`renders correctly for new post 1`] = `
                 "fontWeight": "normal",
                 "lineHeight": 24,
                 "paddingHorizontal": 10,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -907,6 +927,8 @@ exports[`renders correctly for new post and feature flag false 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1007,6 +1029,8 @@ exports[`renders correctly for new post and feature flag false 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1039,6 +1063,8 @@ exports[`renders correctly for new post and feature flag false 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
@@ -1051,6 +1077,8 @@ exports[`renders correctly for new post and feature flag false 1`] = `
               "paddingBottom": 28,
               "paddingHorizontal": 35,
               "paddingTop": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -1113,6 +1141,8 @@ exports[`renders correctly for new post and feature flag false 1`] = `
                 "fontWeight": "normal",
                 "lineHeight": 24,
                 "paddingHorizontal": 10,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1252,6 +1282,8 @@ exports[`renders correctly for update post with image 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1316,6 +1348,7 @@ exports[`renders correctly for update post with image 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -1325,6 +1358,8 @@ exports[`renders correctly for update post with image 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                 ]
               }
@@ -1414,6 +1449,8 @@ exports[`renders correctly for update post with image 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1446,6 +1483,8 @@ exports[`renders correctly for update post with image 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
@@ -1458,6 +1497,8 @@ exports[`renders correctly for update post with image 1`] = `
               "paddingBottom": 28,
               "paddingHorizontal": 35,
               "paddingTop": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -1620,6 +1661,8 @@ exports[`renders correctly for update post with video 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1684,6 +1727,7 @@ exports[`renders correctly for update post with video 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -1693,6 +1737,8 @@ exports[`renders correctly for update post with video 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                 ]
               }
@@ -1782,6 +1828,8 @@ exports[`renders correctly for update post with video 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1814,6 +1862,8 @@ exports[`renders correctly for update post with video 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
@@ -1826,6 +1876,8 @@ exports[`renders correctly for update post with video 1`] = `
               "paddingBottom": 28,
               "paddingHorizontal": 35,
               "paddingTop": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -1961,6 +2013,8 @@ exports[`renders correctly for update post without media 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2025,6 +2079,7 @@ exports[`renders correctly for update post without media 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -2034,6 +2089,8 @@ exports[`renders correctly for update post without media 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                 ]
               }
@@ -2123,6 +2180,8 @@ exports[`renders correctly for update post without media 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -2155,6 +2214,8 @@ exports[`renders correctly for update post without media 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
@@ -2167,6 +2228,8 @@ exports[`renders correctly for update post without media 1`] = `
               "paddingBottom": 28,
               "paddingHorizontal": 35,
               "paddingTop": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -2223,6 +2286,8 @@ exports[`renders correctly for update post without media 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2284,6 +2349,8 @@ exports[`renders correctly for update post without media 1`] = `
                 "fontWeight": "normal",
                 "lineHeight": 24,
                 "paddingHorizontal": 10,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -2423,6 +2490,8 @@ exports[`renders correctly for update post without media and feature flag false 
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2487,6 +2556,7 @@ exports[`renders correctly for update post without media and feature flag false 
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -2496,6 +2566,8 @@ exports[`renders correctly for update post without media and feature flag false 
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                 ]
               }
@@ -2585,6 +2657,8 @@ exports[`renders correctly for update post without media and feature flag false 
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -2617,6 +2691,8 @@ exports[`renders correctly for update post without media and feature flag false 
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
@@ -2629,6 +2705,8 @@ exports[`renders correctly for update post without media and feature flag false 
               "paddingBottom": 28,
               "paddingHorizontal": 35,
               "paddingTop": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -2691,6 +2769,8 @@ exports[`renders correctly for update post without media and feature flag false 
                 "fontWeight": "normal",
                 "lineHeight": 24,
                 "paddingHorizontal": 10,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -2830,6 +2910,8 @@ exports[`renders correctly for update post without video if feature flag is fals
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2894,6 +2976,7 @@ exports[`renders correctly for update post without video if feature flag is fals
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -2903,6 +2986,8 @@ exports[`renders correctly for update post without video if feature flag is fals
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                 ]
               }
@@ -2992,6 +3077,8 @@ exports[`renders correctly for update post without video if feature flag is fals
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -3024,6 +3111,8 @@ exports[`renders correctly for update post without video if feature flag is fals
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
@@ -3036,6 +3125,8 @@ exports[`renders correctly for update post without video if feature flag is fals
               "paddingBottom": 28,
               "paddingHorizontal": 35,
               "paddingTop": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -3098,6 +3189,8 @@ exports[`renders correctly for update post without video if feature flag is fals
                 "fontWeight": "normal",
                 "lineHeight": 24,
                 "paddingHorizontal": 10,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -3237,6 +3330,8 @@ exports[`renders for post types renders for announcement 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -3337,6 +3432,8 @@ exports[`renders for post types renders for announcement 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -3369,6 +3466,8 @@ exports[`renders for post types renders for announcement 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
@@ -3381,6 +3480,8 @@ exports[`renders for post types renders for announcement 1`] = `
               "paddingBottom": 28,
               "paddingHorizontal": 35,
               "paddingTop": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -3437,6 +3538,8 @@ exports[`renders for post types renders for announcement 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -3498,6 +3601,8 @@ exports[`renders for post types renders for announcement 1`] = `
                 "fontWeight": "normal",
                 "lineHeight": 24,
                 "paddingHorizontal": 10,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -3637,6 +3742,8 @@ exports[`renders for post types renders for help request 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -3737,6 +3844,8 @@ exports[`renders for post types renders for help request 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -3769,6 +3878,8 @@ exports[`renders for post types renders for help request 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
@@ -3781,6 +3892,8 @@ exports[`renders for post types renders for help request 1`] = `
               "paddingBottom": 28,
               "paddingHorizontal": 35,
               "paddingTop": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -3837,6 +3950,8 @@ exports[`renders for post types renders for help request 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -3898,6 +4013,8 @@ exports[`renders for post types renders for help request 1`] = `
                 "fontWeight": "normal",
                 "lineHeight": 24,
                 "paddingHorizontal": 10,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -4037,6 +4154,8 @@ exports[`renders for post types renders for prayer request 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -4137,6 +4256,8 @@ exports[`renders for post types renders for prayer request 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -4169,6 +4290,8 @@ exports[`renders for post types renders for prayer request 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
@@ -4181,6 +4304,8 @@ exports[`renders for post types renders for prayer request 1`] = `
               "paddingBottom": 28,
               "paddingHorizontal": 35,
               "paddingTop": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -4237,6 +4362,8 @@ exports[`renders for post types renders for prayer request 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -4298,6 +4425,8 @@ exports[`renders for post types renders for prayer request 1`] = `
                 "fontWeight": "normal",
                 "lineHeight": 24,
                 "paddingHorizontal": 10,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -4437,6 +4566,8 @@ exports[`renders for post types renders for spiritual question 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -4537,6 +4668,8 @@ exports[`renders for post types renders for spiritual question 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -4569,6 +4702,8 @@ exports[`renders for post types renders for spiritual question 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
@@ -4581,6 +4716,8 @@ exports[`renders for post types renders for spiritual question 1`] = `
               "paddingBottom": 28,
               "paddingHorizontal": 35,
               "paddingTop": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -4637,6 +4774,8 @@ exports[`renders for post types renders for spiritual question 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -4698,6 +4837,8 @@ exports[`renders for post types renders for spiritual question 1`] = `
                 "fontWeight": "normal",
                 "lineHeight": 24,
                 "paddingHorizontal": 10,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -4837,6 +4978,8 @@ exports[`renders for post types renders for story 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -4937,6 +5080,8 @@ exports[`renders for post types renders for story 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -4969,6 +5114,8 @@ exports[`renders for post types renders for story 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
@@ -4981,6 +5128,8 @@ exports[`renders for post types renders for story 1`] = `
               "paddingBottom": 28,
               "paddingHorizontal": 35,
               "paddingTop": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -5037,6 +5186,8 @@ exports[`renders for post types renders for story 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -5098,6 +5249,8 @@ exports[`renders for post types renders for story 1`] = `
                 "fontWeight": "normal",
                 "lineHeight": 24,
                 "paddingHorizontal": 10,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -5237,6 +5390,8 @@ exports[`renders for post types renders for thought 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
               "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -5337,6 +5492,8 @@ exports[`renders for post types renders for thought 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -5369,6 +5526,8 @@ exports[`renders for post types renders for thought 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
@@ -5381,6 +5540,8 @@ exports[`renders for post types renders for thought 1`] = `
               "paddingBottom": 28,
               "paddingHorizontal": 35,
               "paddingTop": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -5437,6 +5598,8 @@ exports[`renders for post types renders for thought 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -5498,6 +5661,8 @@ exports[`renders for post types renders for thought 1`] = `
                 "fontWeight": "normal",
                 "lineHeight": 24,
                 "paddingHorizontal": 10,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >

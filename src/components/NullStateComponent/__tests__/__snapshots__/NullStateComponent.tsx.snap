@@ -37,6 +37,8 @@ exports[`render assigned contact 1`] = `
         "fontWeight": "normal",
         "lineHeight": 24,
         "paddingTop": 10,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       }
     }
   >
@@ -54,6 +56,8 @@ exports[`render assigned contact 1`] = `
         "paddingHorizontal": 80,
         "paddingVertical": 10,
         "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
       }
     }
   >
@@ -99,6 +103,8 @@ exports[`render with content 1`] = `
         "fontWeight": "normal",
         "lineHeight": 24,
         "paddingTop": 10,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       }
     }
   >
@@ -116,6 +122,8 @@ exports[`render with content 1`] = `
         "paddingHorizontal": 80,
         "paddingVertical": 10,
         "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
       }
     }
   >

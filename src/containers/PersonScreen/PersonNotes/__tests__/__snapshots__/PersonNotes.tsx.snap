@@ -66,6 +66,8 @@ exports[`contact notes icon and prompt are shown if no notes 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "paddingTop": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -83,6 +85,8 @@ exports[`contact notes icon and prompt are shown if no notes 1`] = `
               "paddingHorizontal": 80,
               "paddingVertical": 10,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -154,6 +158,7 @@ exports[`contact notes icon and prompt are shown if no notes 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -236,6 +241,8 @@ exports[`contact notes icon and prompt are shown if no notes as me 1`] = `
               "fontWeight": "normal",
               "lineHeight": 24,
               "paddingTop": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -253,6 +260,8 @@ exports[`contact notes icon and prompt are shown if no notes as me 1`] = `
               "paddingHorizontal": 80,
               "paddingVertical": 10,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -324,6 +333,7 @@ exports[`contact notes icon and prompt are shown if no notes as me 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -378,6 +388,8 @@ exports[`contact notes notes are shown 1`] = `
               "marginTop": 30,
               "paddingHorizontal": 36,
               "textAlign": "left",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             null,
           ]
@@ -450,6 +462,7 @@ exports[`contact notes notes are shown 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -471,7 +484,7 @@ exports[`contact notes press bottom button saves and switches to not editing sta
 - First value
 + Second value
 
-@@ -19,38 +19,14 @@
+@@ -19,40 +19,14 @@
           \\"marginBottom\\": undefined,
         }
       }
@@ -504,6 +517,8 @@ exports[`contact notes press bottom button saves and switches to not editing sta
 -               \\"letterSpacing\\": 0.25,
 -               \\"lineHeight\\": 24,
 -               \\"paddingVertical\\": 5,
+-               \\"textAlignVertical\\": \\"center\\",
+-               \\"textTransform\\": \\"none\\",
 -             },
 -             Object {
                 \\"borderBottomWidth\\": 0,
@@ -511,11 +526,11 @@ exports[`contact notes press bottom button saves and switches to not editing sta
                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
                 \\"fontSize\\": 16,
                 \\"fontStyle\\": \\"normal\\",
-@@ -58,15 +34,16 @@
-                \\"lineHeight\\": 24,
-                \\"marginTop\\": 30,
+@@ -62,15 +36,16 @@
                 \\"paddingHorizontal\\": 36,
                 \\"textAlign\\": \\"left\\",
+                \\"textAlignVertical\\": \\"center\\",
+                \\"textTransform\\": \\"none\\",
               },
 +             null,
             ]
@@ -531,7 +546,7 @@ exports[`contact notes press bottom button saves and switches to not editing sta
     <RCTSafeAreaView
       emulateUnlessSupported={true}
       style={
-@@ -136,11 +113,11 @@
+@@ -141,11 +116,11 @@
                   undefined,
                 ],
               ]
@@ -551,7 +566,7 @@ exports[`contact notes press bottom button switches to editing state 1`] = `
 - First value
 + Second value
 
-@@ -19,14 +19,38 @@
+@@ -19,14 +19,40 @@
           \\"marginBottom\\": undefined,
         }
       }
@@ -584,6 +599,8 @@ exports[`contact notes press bottom button switches to editing state 1`] = `
 +               \\"letterSpacing\\": 0.25,
 +               \\"lineHeight\\": 24,
 +               \\"paddingVertical\\": 5,
++               \\"textAlignVertical\\": \\"center\\",
++               \\"textTransform\\": \\"none\\",
 +             },
 +             Object {
                 \\"borderBottomWidth\\": 0,
@@ -591,11 +608,11 @@ exports[`contact notes press bottom button switches to editing state 1`] = `
                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
                 \\"fontSize\\": 16,
                 \\"fontStyle\\": \\"normal\\",
-@@ -34,16 +58,15 @@
-                \\"lineHeight\\": 24,
-                \\"marginTop\\": 30,
+@@ -36,16 +62,15 @@
                 \\"paddingHorizontal\\": 36,
                 \\"textAlign\\": \\"left\\",
+                \\"textAlignVertical\\": \\"center\\",
+                \\"textTransform\\": \\"none\\",
               },
 -             null,
             ]
@@ -611,7 +628,7 @@ exports[`contact notes press bottom button switches to editing state 1`] = `
     <RCTSafeAreaView
       emulateUnlessSupported={true}
       style={
-@@ -113,11 +136,11 @@
+@@ -116,11 +141,11 @@
                   undefined,
                 ],
               ]
@@ -631,7 +648,7 @@ exports[`contact notes press bottom button switches to editing state on android 
 - First value
 + Second value
 
-@@ -14,19 +14,43 @@
+@@ -14,19 +14,45 @@
       }
       scrollEventThrottle={0.0001}
       style={
@@ -670,6 +687,8 @@ exports[`contact notes press bottom button switches to editing state on android 
 +               \\"letterSpacing\\": 0.25,
 +               \\"lineHeight\\": 24,
 +               \\"paddingVertical\\": 5,
++               \\"textAlignVertical\\": \\"center\\",
++               \\"textTransform\\": \\"none\\",
 +             },
 +             Object {
                 \\"borderBottomWidth\\": 0,
@@ -677,15 +696,16 @@ exports[`contact notes press bottom button switches to editing state on android 
                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
                 \\"fontSize\\": 16,
                 \\"fontStyle\\": \\"normal\\",
-@@ -34,18 +58,15 @@
-                \\"lineHeight\\": 24,
+@@ -35,19 +61,16 @@
                 \\"marginTop\\": 30,
                 \\"paddingHorizontal\\": 36,
                 \\"textAlign\\": \\"left\\",
-              },
+                \\"textAlignVertical\\": \\"center\\",
+                \\"textTransform\\": \\"none\\",
+-             },
 -             Object {
 -               \\"paddingBottom\\": 80,
--             },
+              },
             ]
           }
 -       >
@@ -699,7 +719,7 @@ exports[`contact notes press bottom button switches to editing state on android 
     <RCTSafeAreaView
       emulateUnlessSupported={true}
       style={
-@@ -115,11 +136,11 @@
+@@ -118,11 +141,11 @@
                   undefined,
                 ],
               ]

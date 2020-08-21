@@ -163,6 +163,8 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {},
                 ]
@@ -181,6 +183,8 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "paddingHorizontal": 2,
@@ -199,6 +203,8 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -345,6 +351,8 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {},
                 ]
@@ -363,6 +371,8 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "paddingHorizontal": 2,
@@ -381,6 +391,8 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -593,6 +605,8 @@ exports[`with comments with next page renders correctly 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {},
                 ]
@@ -611,6 +625,8 @@ exports[`with comments with next page renders correctly 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "paddingHorizontal": 2,
@@ -629,6 +645,8 @@ exports[`with comments with next page renders correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -775,6 +793,8 @@ exports[`with comments with next page renders correctly 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {},
                 ]
@@ -793,6 +813,8 @@ exports[`with comments with next page renders correctly 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "paddingHorizontal": 2,
@@ -811,6 +833,8 @@ exports[`with comments with next page renders correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -1023,6 +1047,8 @@ exports[`with comments with next page without next page renders correctly 1`] = 
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {},
                 ]
@@ -1041,6 +1067,8 @@ exports[`with comments with next page without next page renders correctly 1`] = 
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "paddingHorizontal": 2,
@@ -1059,6 +1087,8 @@ exports[`with comments with next page without next page renders correctly 1`] = 
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -1205,6 +1235,8 @@ exports[`with comments with next page without next page renders correctly 1`] = 
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {},
                 ]
@@ -1223,6 +1255,8 @@ exports[`with comments with next page without next page renders correctly 1`] = 
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "paddingHorizontal": 2,
@@ -1241,6 +1275,8 @@ exports[`with comments with next page without next page renders correctly 1`] = 
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >

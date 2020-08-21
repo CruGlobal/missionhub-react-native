@@ -5,7 +5,7 @@ exports[`a login button is clicked email signup button is pressed key sign in bu
 - First value
 + Second value
 
-@@ -347,6 +347,7 @@
+@@ -361,6 +361,7 @@
           text=\\"SIGN IN\\"
           type=\\"transparent\\"
         />
@@ -20,7 +20,7 @@ exports[`a login button is clicked facebook signup button is pressed facebook bu
 - First value
 + Second value
 
-@@ -347,6 +347,7 @@
+@@ -361,6 +361,7 @@
           text=\\"SIGN IN\\"
           type=\\"transparent\\"
         />
@@ -35,7 +35,7 @@ exports[`renders correctly for Create Community 1`] = `
 - First value
 + Second value
 
-@@ -60,17 +60,60 @@
+@@ -60,17 +60,63 @@
       <Flex
         align=\\"center\\"
         justify=\\"center\\"
@@ -69,6 +69,7 @@ exports[`renders correctly for Create Community 1`] = `
 +               \\"fontWeight\\": \\"bold\\",
 +               \\"letterSpacing\\": 2,
 +               \\"lineHeight\\": 36,
++               \\"textAlignVertical\\": \\"center\\",
 +               \\"textTransform\\": \\"lowercase\\",
 +             }
 +           }
@@ -86,6 +87,8 @@ exports[`renders correctly for Create Community 1`] = `
 +               \\"lineHeight\\": 24,
 +               \\"paddingVertical\\": 10,
 +               \\"textAlign\\": \\"center\\",
++               \\"textAlignVertical\\": \\"center\\",
++               \\"textTransform\\": \\"none\\",
 +             }
 +           }
 +         >
@@ -201,6 +204,7 @@ exports[`renders correctly with logo 1`] = `
               "letterSpacing": 1,
               "lineHeight": 20,
               "paddingTop": 2,
+              "textAlignVertical": "center",
               "textTransform": "uppercase",
             }
           }
@@ -242,6 +246,7 @@ exports[`renders correctly with logo 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 20,
                   "paddingTop": 2,
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 }
               }
@@ -261,6 +266,7 @@ exports[`renders correctly with logo 1`] = `
               "letterSpacing": 1,
               "lineHeight": 20,
               "paddingTop": 2,
+              "textAlignVertical": "center",
               "textTransform": "uppercase",
             }
           }
@@ -302,6 +308,7 @@ exports[`renders correctly with logo 1`] = `
                   "letterSpacing": 1,
                   "lineHeight": 20,
                   "paddingTop": 2,
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 }
               }
@@ -330,6 +337,8 @@ exports[`renders correctly with logo 1`] = `
                 "lineHeight": 16,
                 "paddingHorizontal": 3,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -352,7 +361,9 @@ exports[`renders correctly with logo 1`] = `
                   "lineHeight": 16,
                   "paddingHorizontal": 3,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textDecorationLine": "underline",
+                  "textTransform": "none",
                 }
               }
               onPress={[Function]}
@@ -371,6 +382,8 @@ exports[`renders correctly with logo 1`] = `
                   "lineHeight": 16,
                   "paddingHorizontal": 3,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -388,7 +401,9 @@ exports[`renders correctly with logo 1`] = `
                   "lineHeight": 16,
                   "paddingHorizontal": 3,
                   "textAlign": "center",
+                  "textAlignVertical": "center",
                   "textDecorationLine": "underline",
+                  "textTransform": "none",
                 }
               }
               onPress={[Function]}
@@ -423,6 +438,7 @@ exports[`renders correctly with logo 1`] = `
             "marginBottom": 20,
             "marginRight": 10,
             "paddingTop": 2,
+            "textAlignVertical": "center",
             "textTransform": "uppercase",
           }
         }
@@ -441,6 +457,7 @@ exports[`renders correctly with logo 1`] = `
             "lineHeight": 18,
             "marginBottom": 20,
             "paddingTop": 2,
+            "textAlignVertical": "center",
             "textTransform": "uppercase",
           }
         }

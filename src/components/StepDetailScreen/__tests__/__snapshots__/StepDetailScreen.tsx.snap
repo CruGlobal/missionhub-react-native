@@ -172,6 +172,7 @@ exports[`Post is not null renders correctly with post 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -196,6 +197,8 @@ exports[`Post is not null renders correctly with post 1`] = `
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -271,6 +274,7 @@ exports[`Post is not null renders correctly with post 1`] = `
                   "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 }
               }
@@ -299,6 +303,8 @@ exports[`Post is not null renders correctly with post 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -367,6 +373,8 @@ exports[`Post is not null renders correctly with post 1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 24,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -578,6 +586,7 @@ exports[`Post is not null renders correctly with post with image 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -602,6 +611,8 @@ exports[`Post is not null renders correctly with post with image 1`] = `
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -677,6 +688,7 @@ exports[`Post is not null renders correctly with post with image 1`] = `
                   "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 }
               }
@@ -705,6 +717,8 @@ exports[`Post is not null renders correctly with post with image 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -773,6 +787,8 @@ exports[`Post is not null renders correctly with post with image 1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 24,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -984,6 +1000,7 @@ exports[`Post is not null renders post without image 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -1008,6 +1025,8 @@ exports[`Post is not null renders post without image 1`] = `
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1083,6 +1102,7 @@ exports[`Post is not null renders post without image 1`] = `
                   "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 }
               }
@@ -1111,6 +1131,8 @@ exports[`Post is not null renders post without image 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -1179,6 +1201,8 @@ exports[`Post is not null renders post without image 1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 24,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -1368,6 +1392,7 @@ exports[`Post is not null renders with an input 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -1454,6 +1479,7 @@ exports[`Post is not null renders with an input 1`] = `
                   "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 }
               }
@@ -1482,6 +1508,8 @@ exports[`Post is not null renders with an input 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -1550,6 +1578,8 @@ exports[`Post is not null renders with an input 1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 24,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -1750,6 +1780,7 @@ exports[`markdown is empty string renders correctly 1`] = `
               "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 20,
+              "textAlignVertical": "center",
               "textTransform": "uppercase",
             },
             Object {
@@ -1774,6 +1805,8 @@ exports[`markdown is empty string renders correctly 1`] = `
           "lineHeight": 38,
           "marginHorizontal": 32,
           "marginVertical": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -1966,6 +1999,7 @@ exports[`markdown is not null renders correctly 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -1990,6 +2024,8 @@ exports[`markdown is not null renders correctly 1`] = `
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -2036,6 +2072,8 @@ exports[`markdown is not null renders correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -2224,6 +2262,7 @@ exports[`markdown is not null renders correctly on android 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -2248,6 +2287,8 @@ exports[`markdown is not null renders correctly on android 1`] = `
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -2294,6 +2335,8 @@ exports[`markdown is not null renders correctly on android 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -2482,6 +2525,7 @@ exports[`markdown is not null renders correctly on android with bottom button pr
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -2506,6 +2550,8 @@ exports[`markdown is not null renders correctly on android with bottom button pr
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -2552,6 +2598,8 @@ exports[`markdown is not null renders correctly on android with bottom button pr
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -2628,6 +2676,7 @@ exports[`markdown is not null renders correctly on android with bottom button pr
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -2816,6 +2865,7 @@ exports[`markdown is not null renders correctly with bottom button props 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -2840,6 +2890,8 @@ exports[`markdown is not null renders correctly with bottom button props 1`] = `
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -2886,6 +2938,8 @@ exports[`markdown is not null renders correctly with bottom button props 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -2962,6 +3016,7 @@ exports[`markdown is not null renders correctly with bottom button props 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -3139,6 +3194,7 @@ exports[`markdown is null bottomButtonProps are not null renders correctly 1`] =
               "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 20,
+              "textAlignVertical": "center",
               "textTransform": "uppercase",
             },
             Object {
@@ -3163,6 +3219,8 @@ exports[`markdown is null bottomButtonProps are not null renders correctly 1`] =
           "lineHeight": 38,
           "marginHorizontal": 32,
           "marginVertical": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -3243,6 +3301,7 @@ exports[`markdown is null bottomButtonProps are not null renders correctly 1`] =
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -3420,6 +3479,7 @@ exports[`markdown is null bottomButtonProps are null renders correctly 1`] = `
               "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 20,
+              "textAlignVertical": "center",
               "textTransform": "uppercase",
             },
             Object {
@@ -3444,6 +3504,8 @@ exports[`markdown is null bottomButtonProps are null renders correctly 1`] = `
           "lineHeight": 38,
           "marginHorizontal": 32,
           "marginVertical": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -3636,6 +3698,7 @@ exports[`markdown with <<name>> to change renders correctly 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -3660,6 +3723,8 @@ exports[`markdown with <<name>> to change renders correctly 1`] = `
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -3706,6 +3771,8 @@ exports[`markdown with <<name>> to change renders correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -3833,6 +3900,7 @@ exports[`renders with hideBackButton renders correctly 1`] = `
               "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 20,
+              "textAlignVertical": "center",
               "textTransform": "uppercase",
             },
             Object {
@@ -3857,6 +3925,8 @@ exports[`renders with hideBackButton renders correctly 1`] = `
           "lineHeight": 38,
           "marginHorizontal": 32,
           "marginVertical": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >

@@ -191,6 +191,7 @@ exports[`OnboardingAddPhotoScreen renders without image correctly 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Array [
@@ -201,6 +202,8 @@ exports[`OnboardingAddPhotoScreen renders without image correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 20,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "color": "#3CC8E6",
@@ -233,6 +236,8 @@ exports[`OnboardingAddPhotoScreen renders without image correctly 1`] = `
           "fontWeight": "300",
           "lineHeight": 30,
           "marginTop": 48,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -250,6 +255,8 @@ exports[`OnboardingAddPhotoScreen renders without image correctly 1`] = `
           "marginHorizontal": 40,
           "marginTop": 12,
           "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -309,6 +316,7 @@ exports[`OnboardingAddPhotoScreen renders without image correctly 1`] = `
               "letterSpacing": 1.5,
               "lineHeight": 18,
               "textAlign": "center",
+              "textAlignVertical": "center",
               "textTransform": "uppercase",
             }
           }
@@ -390,7 +398,7 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
       style={
         Object {
           \\"backgroundColor\\": \\"transparent\\",
-@@ -137,134 +104,91 @@
+@@ -137,141 +104,95 @@
                 \\"flex\\": 1,
                 \\"justifyContent\\": \\"center\\",
               },
@@ -419,24 +427,24 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
 -           testID=\\"skipButton\\"
     >
 -           <View
--             style={
++     <Image
++       resizeMode=\\"cover\\"
++       source={
++         Object {
++           \\"uri\\": \\"data:image/jpeg;base64,base64image.jpeg\\",
++         }
++       }
+        style={
 -               Array [
--                 Object {
+          Object {
 -                   \\"backgroundColor\\": \\"transparent\\",
 -                 },
 -                 null,
 -                 Array [
-+     <Image
-+       resizeMode=\\"cover\\"
-+       source={
-          Object {
+-                   Object {
 -                     \\"padding\\": 15,
 -                   },
-+           \\"uri\\": \\"data:image/jpeg;base64,base64image.jpeg\\",
-+         }
-+       }
-+       style={
-          Object {
+-                   Object {
 -                     \\"marginHorizontal\\": 4,
 -                   },
 -                 ],
@@ -446,9 +454,9 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
 +           \\"height\\": 110,
 +           \\"marginTop\\": 48,
 +           \\"width\\": 110,
-          }
++         }
+        }
 -           >
-+       }
 +     />
       <Text
         style={
@@ -464,6 +472,7 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
 -                     \\"letterSpacing\\": 1,
 -                     \\"lineHeight\\": 18,
 -                     \\"textAlign\\": \\"center\\",
+-                     \\"textAlignVertical\\": \\"center\\",
 -                     \\"textTransform\\": \\"uppercase\\",
 -                   },
 -                   Array [
@@ -474,15 +483,17 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
 -                       \\"fontStyle\\": \\"normal\\",
 -                       \\"fontWeight\\": \\"normal\\",
 -                       \\"lineHeight\\": 20,
++           \\"fontWeight\\": \\"300\\",
++           \\"lineHeight\\": 30,
++           \\"marginTop\\": 24,
+            \\"textAlignVertical\\": \\"center\\",
+            \\"textTransform\\": \\"none\\",
 -                     },
 -                     Object {
 -                       \\"color\\": \\"#3CC8E6\\",
 -                     },
 -                   ],
 -                 ]
-+           \\"fontWeight\\": \\"300\\",
-+           \\"lineHeight\\": 30,
-+           \\"marginTop\\": 24,
 +         }
         }
       >
@@ -523,6 +534,8 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
 -           \\"fontWeight\\": \\"300\\",
 -           \\"lineHeight\\": 30,
 -           \\"marginTop\\": 48,
+-           \\"textAlignVertical\\": \\"center\\",
+-           \\"textTransform\\": \\"none\\",
 +             \\"marginTop\\": 12,
             }
           }
@@ -542,6 +555,8 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
 -           \\"marginHorizontal\\": 40,
 -           \\"marginTop\\": 12,
 -           \\"textAlign\\": \\"center\\",
+                \\"textAlignVertical\\": \\"center\\",
+                \\"textTransform\\": \\"none\\",
               }
             }
           >
@@ -565,7 +580,7 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
         focusable={true}
         onClick={[Function onClick]}
         onResponderGrant={[Function onResponderGrant]}
-@@ -276,43 +200,69 @@
+@@ -283,29 +204,55 @@
         style={
           Object {
             \\"opacity\\": 1,
@@ -594,13 +609,13 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
                 \\"paddingHorizontal\\": 20,
                 \\"paddingVertical\\": 10,
                 \\"width\\": 650,
+-           }
 +             },
 +             Object {
 +               \\"borderRadius\\": 50,
 +             },
 +           ]
           }
--         }
         >
           <Text
             style={
@@ -614,6 +629,7 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
 +                 \\"letterSpacing\\": 1,
 +                 \\"lineHeight\\": 18,
 +                 \\"textAlign\\": \\"center\\",
++                 \\"textAlignVertical\\": \\"center\\",
 +                 \\"textTransform\\": \\"uppercase\\",
 +               },
 +               Object {
@@ -622,10 +638,11 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
                   \\"fontSize\\": 14,
                   \\"fontStyle\\": \\"normal\\",
-                  \\"fontWeight\\": \\"bold\\",
+@@ -313,14 +260,15 @@
                   \\"letterSpacing\\": 1.5,
                   \\"lineHeight\\": 18,
                   \\"textAlign\\": \\"center\\",
+                  \\"textAlignVertical\\": \\"center\\",
                   \\"textTransform\\": \\"uppercase\\",
 +               },
 +             ]

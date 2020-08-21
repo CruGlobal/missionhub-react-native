@@ -30,6 +30,8 @@ exports[`ImpactView ME person impact view for org renders empty state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -72,6 +74,8 @@ exports[`ImpactView ME person impact view for org renders empty state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -114,6 +118,8 @@ exports[`ImpactView ME person impact view for org renders plural state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -158,6 +164,8 @@ exports[`ImpactView ME person impact view for org renders plural state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -200,6 +208,8 @@ exports[`ImpactView ME person impact view for org renders singular state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -244,6 +254,8 @@ exports[`ImpactView ME person impact view for org renders singular state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -286,6 +298,8 @@ exports[`ImpactView ME person personal impact view renders empty state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -328,6 +342,8 @@ exports[`ImpactView ME person personal impact view renders empty state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -370,6 +386,8 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -414,6 +432,8 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -456,6 +476,8 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -500,6 +522,8 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -542,6 +566,8 @@ exports[`ImpactView global community impact renders empty state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -584,6 +610,8 @@ exports[`ImpactView global community impact renders empty state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -626,6 +654,8 @@ exports[`ImpactView global community impact renders plural state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -670,6 +700,8 @@ exports[`ImpactView global community impact renders plural state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -712,6 +744,8 @@ exports[`ImpactView global community impact renders singular state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -756,6 +790,8 @@ exports[`ImpactView global community impact renders singular state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -798,6 +834,8 @@ exports[`ImpactView member impact renders empty state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -840,6 +878,8 @@ exports[`ImpactView member impact renders empty state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -882,6 +922,8 @@ exports[`ImpactView member impact renders plural state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -926,6 +968,8 @@ exports[`ImpactView member impact renders plural state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -968,6 +1012,8 @@ exports[`ImpactView member impact renders singular state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -1012,6 +1058,8 @@ exports[`ImpactView member impact renders singular state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -1054,6 +1102,8 @@ exports[`ImpactView user-created community impact renders empty state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -1096,6 +1146,8 @@ exports[`ImpactView user-created community impact renders empty state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -1138,6 +1190,8 @@ exports[`ImpactView user-created community impact renders plural state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -1182,6 +1236,8 @@ exports[`ImpactView user-created community impact renders plural state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -1224,6 +1280,8 @@ exports[`ImpactView user-created community impact renders singular state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }
@@ -1268,6 +1326,8 @@ exports[`ImpactView user-created community impact renders singular state 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
           "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
           "width": 270,
         }
       }

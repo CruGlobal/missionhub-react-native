@@ -38,6 +38,8 @@ exports[`notification types renders for JOIN_CHALLENGE 1`] = `
         "lineHeight": 32,
         "paddingBottom": 10,
         "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
       }
     }
   >
@@ -53,6 +55,8 @@ exports[`notification types renders for JOIN_CHALLENGE 1`] = `
         "fontWeight": "normal",
         "lineHeight": 24,
         "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
       }
     }
   >
@@ -120,6 +124,7 @@ exports[`notification types renders for JOIN_CHALLENGE 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -130,6 +135,7 @@ exports[`notification types renders for JOIN_CHALLENGE 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1.5,
                 "lineHeight": 18,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
             ]
@@ -201,6 +207,7 @@ exports[`notification types renders for JOIN_CHALLENGE 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -211,6 +218,7 @@ exports[`notification types renders for JOIN_CHALLENGE 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1.5,
                 "lineHeight": 18,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
             ]
@@ -262,6 +270,8 @@ exports[`notification types renders for JOIN_COMMUNITY 1`] = `
         "lineHeight": 32,
         "paddingBottom": 10,
         "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
       }
     }
   >
@@ -277,6 +287,8 @@ exports[`notification types renders for JOIN_COMMUNITY 1`] = `
         "fontWeight": "normal",
         "lineHeight": 24,
         "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
       }
     }
   >
@@ -344,6 +356,7 @@ exports[`notification types renders for JOIN_COMMUNITY 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -354,6 +367,7 @@ exports[`notification types renders for JOIN_COMMUNITY 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1.5,
                 "lineHeight": 18,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
             ]
@@ -425,6 +439,7 @@ exports[`notification types renders for JOIN_COMMUNITY 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -435,6 +450,7 @@ exports[`notification types renders for JOIN_COMMUNITY 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1.5,
                 "lineHeight": 18,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
             ]
@@ -486,6 +502,8 @@ exports[`notification types renders for LOGIN 1`] = `
         "lineHeight": 32,
         "paddingBottom": 10,
         "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
       }
     }
   >
@@ -501,6 +519,8 @@ exports[`notification types renders for LOGIN 1`] = `
         "fontWeight": "normal",
         "lineHeight": 24,
         "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
       }
     }
   >
@@ -568,6 +588,7 @@ exports[`notification types renders for LOGIN 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -578,6 +599,7 @@ exports[`notification types renders for LOGIN 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1.5,
                 "lineHeight": 18,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
             ]
@@ -649,6 +671,7 @@ exports[`notification types renders for LOGIN 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -659,6 +682,7 @@ exports[`notification types renders for LOGIN 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1.5,
                 "lineHeight": 18,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
             ]
@@ -710,6 +734,8 @@ exports[`notification types renders for ONBOARDING 1`] = `
         "lineHeight": 32,
         "paddingBottom": 10,
         "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
       }
     }
   >
@@ -725,6 +751,8 @@ exports[`notification types renders for ONBOARDING 1`] = `
         "fontWeight": "normal",
         "lineHeight": 24,
         "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
       }
     }
   >
@@ -792,6 +820,7 @@ exports[`notification types renders for ONBOARDING 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -802,6 +831,7 @@ exports[`notification types renders for ONBOARDING 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1.5,
                 "lineHeight": 18,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
             ]
@@ -873,6 +903,7 @@ exports[`notification types renders for ONBOARDING 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -883,6 +914,7 @@ exports[`notification types renders for ONBOARDING 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1.5,
                 "lineHeight": 18,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
             ]
@@ -934,6 +966,8 @@ exports[`notification types renders for SET_REMINDER 1`] = `
         "lineHeight": 32,
         "paddingBottom": 10,
         "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
       }
     }
   >
@@ -949,6 +983,8 @@ exports[`notification types renders for SET_REMINDER 1`] = `
         "fontWeight": "normal",
         "lineHeight": 24,
         "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
       }
     }
   >
@@ -1016,6 +1052,7 @@ exports[`notification types renders for SET_REMINDER 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -1026,6 +1063,7 @@ exports[`notification types renders for SET_REMINDER 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1.5,
                 "lineHeight": 18,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
             ]
@@ -1097,6 +1135,7 @@ exports[`notification types renders for SET_REMINDER 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -1107,6 +1146,7 @@ exports[`notification types renders for SET_REMINDER 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1.5,
                 "lineHeight": 18,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
             ]

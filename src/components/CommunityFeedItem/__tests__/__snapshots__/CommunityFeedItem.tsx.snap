@@ -66,6 +66,8 @@ exports[`Community renders challenge correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
                   "color": "#505256",
@@ -75,7 +77,8 @@ exports[`Community renders challenge correctly 1`] = `
                   "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 20,
-                  "textTransform": "uppercase",
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
               ]
             }
@@ -92,6 +95,8 @@ exports[`Community renders challenge correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
                   "color": "#B4B6BA",
@@ -100,6 +105,8 @@ exports[`Community renders challenge correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
               ]
             }
@@ -128,6 +135,7 @@ exports[`Community renders challenge correctly 1`] = `
             "fontWeight": "bold",
             "letterSpacing": 1,
             "lineHeight": 20,
+            "textAlignVertical": "center",
             "textTransform": "uppercase",
           }
         }
@@ -145,6 +153,8 @@ exports[`Community renders challenge correctly 1`] = `
             "justifyContent": "flex-start",
             "lineHeight": 24,
             "paddingBottom": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -223,6 +233,8 @@ exports[`Community renders challenge correctly 1`] = `
               "fontWeight": "normal",
               "lineHeight": 20,
               "paddingLeft": 12,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -267,6 +279,8 @@ exports[`Community renders challenge correctly 1`] = `
                   "lineHeight": 20,
                   "paddingRight": 10,
                   "textAlign": "right",
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                   "width": 30,
                 }
               }
@@ -339,6 +353,8 @@ exports[`Community renders challenge correctly 1`] = `
                   "lineHeight": 20,
                   "paddingRight": 10,
                   "textAlign": "right",
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                   "width": 30,
                 }
               }
@@ -459,6 +475,8 @@ exports[`Community renders new member item correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
                   "color": "#505256",
@@ -468,7 +486,8 @@ exports[`Community renders new member item correctly 1`] = `
                   "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 20,
-                  "textTransform": "uppercase",
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
               ]
             }
@@ -485,6 +504,8 @@ exports[`Community renders new member item correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
                   "color": "#B4B6BA",
@@ -493,6 +514,8 @@ exports[`Community renders new member item correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
               ]
             }
@@ -521,6 +544,7 @@ exports[`Community renders new member item correctly 1`] = `
             "fontWeight": "bold",
             "letterSpacing": 1,
             "lineHeight": 20,
+            "textAlignVertical": "center",
             "textTransform": "uppercase",
           }
         }
@@ -538,6 +562,8 @@ exports[`Community renders new member item correctly 1`] = `
             "justifyContent": "flex-start",
             "lineHeight": 24,
             "paddingBottom": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -613,6 +639,8 @@ exports[`Community renders new member item correctly 1`] = `
                   "lineHeight": 20,
                   "paddingRight": 10,
                   "textAlign": "right",
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                   "width": 30,
                 }
               }
@@ -685,6 +713,8 @@ exports[`Community renders new member item correctly 1`] = `
                   "lineHeight": 20,
                   "paddingRight": 10,
                   "textAlign": "right",
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                   "width": 30,
                 }
               }
@@ -868,6 +898,8 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 20,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -922,6 +954,8 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "color": "#505256",
@@ -931,7 +965,8 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                       "fontWeight": "bold",
                       "letterSpacing": 1,
                       "lineHeight": 20,
-                      "textTransform": "uppercase",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                   ]
                 }
@@ -948,6 +983,8 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "color": "#B4B6BA",
@@ -956,6 +993,8 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                   ]
                 }
@@ -1004,6 +1043,8 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 18,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -1099,6 +1140,8 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                   "fontWeight": "normal",
                   "lineHeight": 20,
                   "paddingLeft": 12,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -1143,6 +1186,8 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": 30,
                     }
                   }
@@ -1215,6 +1260,8 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": 30,
                     }
                   }
@@ -1400,6 +1447,8 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 20,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -1454,6 +1503,8 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "color": "#505256",
@@ -1463,7 +1514,8 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                       "fontWeight": "bold",
                       "letterSpacing": 1,
                       "lineHeight": 20,
-                      "textTransform": "uppercase",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                   ]
                 }
@@ -1480,6 +1532,8 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "color": "#B4B6BA",
@@ -1488,6 +1542,8 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                   ]
                 }
@@ -1536,6 +1592,8 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 18,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -1616,6 +1674,8 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": 30,
                     }
                   }
@@ -1688,6 +1748,8 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": 30,
                     }
                   }
@@ -1873,6 +1935,8 @@ exports[`Community renders post correctly without image 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 20,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -1927,6 +1991,8 @@ exports[`Community renders post correctly without image 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "color": "#505256",
@@ -1936,7 +2002,8 @@ exports[`Community renders post correctly without image 1`] = `
                       "fontWeight": "bold",
                       "letterSpacing": 1,
                       "lineHeight": 20,
-                      "textTransform": "uppercase",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                   ]
                 }
@@ -1953,6 +2020,8 @@ exports[`Community renders post correctly without image 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "color": "#B4B6BA",
@@ -1961,6 +2030,8 @@ exports[`Community renders post correctly without image 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                   ]
                 }
@@ -2009,6 +2080,8 @@ exports[`Community renders post correctly without image 1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 18,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -2089,6 +2162,8 @@ exports[`Community renders post correctly without image 1`] = `
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": 30,
                     }
                   }
@@ -2161,6 +2236,8 @@ exports[`Community renders post correctly without image 1`] = `
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": 30,
                     }
                   }
@@ -2346,6 +2423,8 @@ exports[`Community renders post created by me correctly without add to steps but
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 20,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -2429,6 +2508,8 @@ exports[`Community renders post created by me correctly without add to steps but
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 24,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         },
                         Object {
                           "color": "#505256",
@@ -2438,7 +2519,8 @@ exports[`Community renders post created by me correctly without add to steps but
                           "fontWeight": "bold",
                           "letterSpacing": 1,
                           "lineHeight": 20,
-                          "textTransform": "uppercase",
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         },
                       ]
                     }
@@ -2457,6 +2539,8 @@ exports[`Community renders post created by me correctly without add to steps but
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "color": "#B4B6BA",
@@ -2465,6 +2549,8 @@ exports[`Community renders post created by me correctly without add to steps but
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                   ]
                 }
@@ -2513,6 +2599,8 @@ exports[`Community renders post created by me correctly without add to steps but
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 18,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -2593,6 +2681,8 @@ exports[`Community renders post created by me correctly without add to steps but
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": 30,
                     }
                   }
@@ -2667,6 +2757,8 @@ exports[`Community renders post created by me correctly without add to steps but
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": 30,
                     }
                   }
@@ -2830,6 +2922,8 @@ exports[`Community renders step correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -2884,6 +2978,8 @@ exports[`Community renders step correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
                   "color": "#505256",
@@ -2893,7 +2989,8 @@ exports[`Community renders step correctly 1`] = `
                   "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 20,
-                  "textTransform": "uppercase",
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
               ]
             }
@@ -2910,6 +3007,8 @@ exports[`Community renders step correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
                   "color": "#B4B6BA",
@@ -2918,6 +3017,8 @@ exports[`Community renders step correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
               ]
             }
@@ -2947,6 +3048,8 @@ exports[`Community renders step correctly 1`] = `
             "justifyContent": "flex-start",
             "lineHeight": 24,
             "paddingBottom": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -3022,6 +3125,8 @@ exports[`Community renders step correctly 1`] = `
                   "lineHeight": 20,
                   "paddingRight": 10,
                   "textAlign": "right",
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                   "width": 30,
                 }
               }
@@ -3095,6 +3200,8 @@ exports[`Community renders step correctly 1`] = `
                   "lineHeight": 20,
                   "paddingRight": 10,
                   "textAlign": "right",
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                   "width": 30,
                 }
               }
@@ -3278,6 +3385,8 @@ exports[`Community renders with clear notification button correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 20,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -3332,6 +3441,8 @@ exports[`Community renders with clear notification button correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "color": "#505256",
@@ -3341,7 +3452,8 @@ exports[`Community renders with clear notification button correctly 1`] = `
                       "fontWeight": "bold",
                       "letterSpacing": 1,
                       "lineHeight": 20,
-                      "textTransform": "uppercase",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                   ]
                 }
@@ -3358,6 +3470,8 @@ exports[`Community renders with clear notification button correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "color": "#B4B6BA",
@@ -3366,6 +3480,8 @@ exports[`Community renders with clear notification button correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                   ]
                 }
@@ -3414,6 +3530,8 @@ exports[`Community renders with clear notification button correctly 1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 18,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -3494,6 +3612,8 @@ exports[`Community renders with clear notification button correctly 1`] = `
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": 30,
                     }
                   }
@@ -3566,6 +3686,8 @@ exports[`Community renders with clear notification button correctly 1`] = `
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": 30,
                     }
                   }
@@ -3797,6 +3919,8 @@ exports[`global community renders correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -3841,6 +3965,8 @@ exports[`global community renders correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
                   "color": "#505256",
@@ -3850,7 +3976,8 @@ exports[`global community renders correctly 1`] = `
                   "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 20,
-                  "textTransform": "uppercase",
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
               ]
             }
@@ -3867,6 +3994,8 @@ exports[`global community renders correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
                   "color": "#B4B6BA",
@@ -3875,6 +4004,8 @@ exports[`global community renders correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
               ]
             }
@@ -3904,6 +4035,8 @@ exports[`global community renders correctly 1`] = `
             "justifyContent": "flex-start",
             "lineHeight": 24,
             "paddingBottom": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -3979,6 +4112,8 @@ exports[`global community renders correctly 1`] = `
                   "lineHeight": 20,
                   "paddingRight": 10,
                   "textAlign": "right",
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                   "width": 30,
                 }
               }
@@ -4143,6 +4278,8 @@ exports[`global community renders post item correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -4187,6 +4324,8 @@ exports[`global community renders post item correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
                   "color": "#505256",
@@ -4196,7 +4335,8 @@ exports[`global community renders post item correctly 1`] = `
                   "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 20,
-                  "textTransform": "uppercase",
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
               ]
             }
@@ -4213,6 +4353,8 @@ exports[`global community renders post item correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
                   "color": "#B4B6BA",
@@ -4221,6 +4363,8 @@ exports[`global community renders post item correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
               ]
             }
@@ -4269,6 +4413,8 @@ exports[`global community renders post item correctly 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 18,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {},
                 ]
@@ -4349,6 +4495,8 @@ exports[`global community renders post item correctly 1`] = `
                   "lineHeight": 20,
                   "paddingRight": 10,
                   "textAlign": "right",
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                   "width": 30,
                 }
               }
@@ -4512,6 +4660,8 @@ exports[`global community renders with clear notification button correctly 1`] =
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -4556,6 +4706,8 @@ exports[`global community renders with clear notification button correctly 1`] =
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
                   "color": "#505256",
@@ -4565,7 +4717,8 @@ exports[`global community renders with clear notification button correctly 1`] =
                   "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 20,
-                  "textTransform": "uppercase",
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
               ]
             }
@@ -4582,6 +4735,8 @@ exports[`global community renders with clear notification button correctly 1`] =
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
                   "color": "#B4B6BA",
@@ -4590,6 +4745,8 @@ exports[`global community renders with clear notification button correctly 1`] =
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
               ]
             }
@@ -4619,6 +4776,8 @@ exports[`global community renders with clear notification button correctly 1`] =
             "justifyContent": "flex-start",
             "lineHeight": 24,
             "paddingBottom": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -4694,6 +4853,8 @@ exports[`global community renders with clear notification button correctly 1`] =
                   "lineHeight": 20,
                   "paddingRight": 10,
                   "textAlign": "right",
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                   "width": 30,
                 }
               }
@@ -4950,6 +5111,8 @@ exports[`renders with name pressable correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 20,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -5033,6 +5196,8 @@ exports[`renders with name pressable correctly 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 24,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         },
                         Object {
                           "color": "#505256",
@@ -5042,7 +5207,8 @@ exports[`renders with name pressable correctly 1`] = `
                           "fontWeight": "bold",
                           "letterSpacing": 1,
                           "lineHeight": 20,
-                          "textTransform": "uppercase",
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         },
                       ]
                     }
@@ -5061,6 +5227,8 @@ exports[`renders with name pressable correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "color": "#B4B6BA",
@@ -5069,6 +5237,8 @@ exports[`renders with name pressable correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                   ]
                 }
@@ -5117,6 +5287,8 @@ exports[`renders with name pressable correctly 1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 18,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -5197,6 +5369,8 @@ exports[`renders with name pressable correctly 1`] = `
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": 30,
                     }
                   }
@@ -5269,6 +5443,8 @@ exports[`renders with name pressable correctly 1`] = `
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": 30,
                     }
                   }

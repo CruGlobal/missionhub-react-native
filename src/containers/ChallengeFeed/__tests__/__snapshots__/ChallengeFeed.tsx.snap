@@ -214,6 +214,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                 "lineHeight": 30,
                 "paddingTop": 5,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -231,6 +233,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                 "paddingHorizontal": 50,
                 "paddingVertical": 5,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -281,6 +285,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
               "fontWeight": "normal",
               "lineHeight": 16,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -384,6 +390,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginBottom": 3,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -423,6 +431,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -437,6 +447,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "300",
                           "lineHeight": 30,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -464,6 +476,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -480,6 +494,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -510,6 +526,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -526,6 +544,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -602,6 +622,7 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -612,6 +633,7 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                     "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                 ]
@@ -719,6 +741,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginBottom": 3,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -758,6 +782,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -772,6 +798,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "300",
                           "lineHeight": 30,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -799,6 +827,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -815,6 +845,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -845,6 +877,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -861,6 +895,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -961,6 +997,7 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                       "letterSpacing": 1,
                       "lineHeight": 18,
                       "textAlign": "center",
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                     Object {
@@ -971,6 +1008,7 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                       "fontWeight": "bold",
                       "letterSpacing": 1,
                       "lineHeight": 18,
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                   ]
@@ -1011,6 +1049,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
               "fontWeight": "normal",
               "lineHeight": 16,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1114,6 +1154,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginBottom": 3,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -1153,6 +1195,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -1167,6 +1211,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "300",
                           "lineHeight": 30,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -1194,6 +1240,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -1210,6 +1258,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -1240,6 +1290,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -1256,6 +1308,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           Object {
                             "color": "#B4B6BA",
@@ -1382,6 +1436,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginBottom": 3,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -1421,6 +1477,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -1435,6 +1493,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "300",
                           "lineHeight": 30,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -1462,6 +1522,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -1478,6 +1540,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -1508,6 +1572,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -1524,6 +1590,8 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -1774,6 +1842,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                 "lineHeight": 30,
                 "paddingTop": 5,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1791,6 +1861,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                 "paddingHorizontal": 50,
                 "paddingVertical": 5,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1841,6 +1913,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
               "fontWeight": "normal",
               "lineHeight": 16,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1944,6 +2018,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginBottom": 3,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -1983,6 +2059,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -1997,6 +2075,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "300",
                           "lineHeight": 30,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -2024,6 +2104,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -2040,6 +2122,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -2070,6 +2154,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -2086,6 +2172,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -2162,6 +2250,7 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -2172,6 +2261,7 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                     "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                 ]
@@ -2279,6 +2369,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginBottom": 3,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -2318,6 +2410,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -2332,6 +2426,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "300",
                           "lineHeight": 30,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -2359,6 +2455,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -2375,6 +2473,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -2405,6 +2505,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -2421,6 +2523,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -2521,6 +2625,7 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                       "letterSpacing": 1,
                       "lineHeight": 18,
                       "textAlign": "center",
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                     Object {
@@ -2531,6 +2636,7 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                       "fontWeight": "bold",
                       "letterSpacing": 1,
                       "lineHeight": 18,
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                   ]
@@ -2571,6 +2677,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
               "fontWeight": "normal",
               "lineHeight": 16,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -2674,6 +2782,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginBottom": 3,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -2713,6 +2823,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -2727,6 +2839,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "300",
                           "lineHeight": 30,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -2754,6 +2868,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -2770,6 +2886,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -2800,6 +2918,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -2816,6 +2936,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           Object {
                             "color": "#B4B6BA",
@@ -2942,6 +3064,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginBottom": 3,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -2981,6 +3105,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -2995,6 +3121,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "300",
                           "lineHeight": 30,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -3022,6 +3150,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -3038,6 +3168,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -3068,6 +3200,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -3084,6 +3218,8 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -3336,6 +3472,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                 "lineHeight": 30,
                 "paddingTop": 5,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -3353,6 +3491,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                 "paddingHorizontal": 50,
                 "paddingVertical": 5,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -3403,6 +3543,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
               "fontWeight": "normal",
               "lineHeight": 16,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -3506,6 +3648,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginBottom": 3,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -3545,6 +3689,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -3559,6 +3705,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "300",
                           "lineHeight": 30,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -3586,6 +3734,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -3602,6 +3752,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -3632,6 +3784,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -3648,6 +3802,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -3724,6 +3880,7 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -3734,6 +3891,7 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                     "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                 ]
@@ -3841,6 +3999,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginBottom": 3,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -3880,6 +4040,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -3894,6 +4056,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "300",
                           "lineHeight": 30,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -3921,6 +4085,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -3937,6 +4103,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -3967,6 +4135,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -3983,6 +4153,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -4083,6 +4255,7 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                       "letterSpacing": 1,
                       "lineHeight": 18,
                       "textAlign": "center",
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                     Object {
@@ -4093,6 +4266,7 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                       "fontWeight": "bold",
                       "letterSpacing": 1,
                       "lineHeight": 18,
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                   ]
@@ -4133,6 +4307,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
               "fontWeight": "normal",
               "lineHeight": 16,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -4236,6 +4412,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginBottom": 3,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -4275,6 +4453,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -4289,6 +4469,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "300",
                           "lineHeight": 30,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -4316,6 +4498,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -4332,6 +4516,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -4362,6 +4548,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -4378,6 +4566,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           Object {
                             "color": "#B4B6BA",
@@ -4504,6 +4694,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginBottom": 3,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -4543,6 +4735,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -4557,6 +4751,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "300",
                           "lineHeight": 30,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -4584,6 +4780,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -4600,6 +4798,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -4630,6 +4830,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -4646,6 +4848,8 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -4772,6 +4976,8 @@ exports[`Challenge Feed rendering renders null component | Admin 1`] = `
               "fontWeight": "normal",
               "lineHeight": 16,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -4877,6 +5083,8 @@ exports[`Challenge Feed rendering renders null component | Member 1`] = `
               "fontWeight": "normal",
               "lineHeight": 16,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -5034,6 +5242,8 @@ exports[`Challenge Feed rendering renders null with header 1`] = `
                 "lineHeight": 30,
                 "paddingTop": 5,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -5051,6 +5261,8 @@ exports[`Challenge Feed rendering renders null with header 1`] = `
                 "paddingHorizontal": 50,
                 "paddingVertical": 5,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -5101,6 +5313,8 @@ exports[`Challenge Feed rendering renders null with header 1`] = `
               "fontWeight": "normal",
               "lineHeight": 16,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -5206,6 +5420,8 @@ exports[`Challenge Feed rendering renders null without header 1`] = `
               "fontWeight": "normal",
               "lineHeight": 16,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -5435,6 +5651,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                 "lineHeight": 30,
                 "paddingTop": 5,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -5452,6 +5670,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                 "paddingHorizontal": 50,
                 "paddingVertical": 5,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -5502,6 +5722,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
               "fontWeight": "normal",
               "lineHeight": 16,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -5605,6 +5827,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginBottom": 3,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -5644,6 +5868,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -5658,6 +5884,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "300",
                           "lineHeight": 30,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -5685,6 +5913,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -5701,6 +5931,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -5731,6 +5963,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -5747,6 +5981,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -5823,6 +6059,7 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -5833,6 +6070,7 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                     "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                 ]
@@ -5940,6 +6178,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginBottom": 3,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -5979,6 +6219,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -5993,6 +6235,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "300",
                           "lineHeight": 30,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -6020,6 +6264,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -6036,6 +6282,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -6066,6 +6314,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -6082,6 +6332,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -6182,6 +6434,7 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                       "letterSpacing": 1,
                       "lineHeight": 18,
                       "textAlign": "center",
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                     Object {
@@ -6192,6 +6445,7 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                       "fontWeight": "bold",
                       "letterSpacing": 1,
                       "lineHeight": 18,
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                   ]
@@ -6232,6 +6486,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
               "fontWeight": "normal",
               "lineHeight": 16,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -6335,6 +6591,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginBottom": 3,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -6374,6 +6632,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -6388,6 +6648,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "300",
                           "lineHeight": 30,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -6415,6 +6677,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -6431,6 +6695,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -6461,6 +6727,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -6477,6 +6745,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           Object {
                             "color": "#B4B6BA",
@@ -6603,6 +6873,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginBottom": 3,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -6642,6 +6914,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -6656,6 +6930,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "300",
                           "lineHeight": 30,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -6683,6 +6959,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -6699,6 +6977,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -6729,6 +7009,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -6745,6 +7027,8 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -6997,6 +7281,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                 "lineHeight": 30,
                 "paddingTop": 5,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -7014,6 +7300,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                 "paddingHorizontal": 50,
                 "paddingVertical": 5,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -7064,6 +7352,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
               "fontWeight": "normal",
               "lineHeight": 16,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -7167,6 +7457,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginBottom": 3,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -7206,6 +7498,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -7220,6 +7514,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "300",
                           "lineHeight": 30,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -7247,6 +7543,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -7263,6 +7561,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -7293,6 +7593,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -7309,6 +7611,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -7385,6 +7689,7 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                   Object {
@@ -7395,6 +7700,7 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                     "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
+                    "textAlignVertical": "center",
                     "textTransform": "uppercase",
                   },
                 ]
@@ -7502,6 +7808,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginBottom": 3,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -7541,6 +7849,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -7555,6 +7865,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "300",
                           "lineHeight": 30,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -7582,6 +7894,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -7598,6 +7912,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -7628,6 +7944,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -7644,6 +7962,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -7744,6 +8064,7 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                       "letterSpacing": 1,
                       "lineHeight": 18,
                       "textAlign": "center",
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                     Object {
@@ -7754,6 +8075,7 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                       "fontWeight": "bold",
                       "letterSpacing": 1,
                       "lineHeight": 18,
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                   ]
@@ -7794,6 +8116,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
               "fontWeight": "normal",
               "lineHeight": 16,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -7897,6 +8221,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginBottom": 3,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -7936,6 +8262,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -7950,6 +8278,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "300",
                           "lineHeight": 30,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -7977,6 +8307,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -7993,6 +8325,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -8023,6 +8357,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -8039,6 +8375,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           Object {
                             "color": "#B4B6BA",
@@ -8165,6 +8503,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginBottom": 3,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -8204,6 +8544,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -8218,6 +8560,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "300",
                           "lineHeight": 30,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -8245,6 +8589,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -8261,6 +8607,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]
@@ -8291,6 +8639,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                           "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
                       }
                     >
@@ -8307,6 +8657,8 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                             "fontStyle": "normal",
                             "fontWeight": "300",
                             "lineHeight": 30,
+                            "textAlignVertical": "center",
+                            "textTransform": "none",
                           },
                           null,
                         ]

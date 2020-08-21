@@ -5,7 +5,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 - First value
 + Second value
 
-@@ -178,11 +178,11 @@
+@@ -180,11 +180,11 @@
                         \\"textTransform\\": \\"uppercase\\",
                       },
                     ]
@@ -18,7 +18,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
             </View>
           </View>
         </View>
-@@ -191,12 +191,29 @@
+@@ -193,12 +193,29 @@
     <View
       style={
         Object {
@@ -48,7 +48,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
           style={
             Array [
               Object {
-@@ -223,13 +240,37 @@
+@@ -225,13 +242,37 @@
             style={
               Object {
                 \\"borderRadius\\": 4,
@@ -86,7 +86,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
         keyboardShouldPersistTaps=\\"handled\\"
         style={
           Object {
-@@ -250,25 +291,136 @@
+@@ -252,27 +293,140 @@
                   \\"flexDirection\\": \\"row\\",
                 },
               ]
@@ -107,11 +107,11 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 +             selectionColor=\\"#ffffff\\"
               style={
 +               Array [
-                  Object {
++                 Object {
 +                   \\"backgroundColor\\": \\"transparent\\",
 +                   \\"borderBottomColor\\": \\"#3CC8E6\\",
 +                   \\"borderBottomWidth\\": 1,
-                    \\"color\\": \\"#ffffff\\",
++                   \\"color\\": \\"#ffffff\\",
 +                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                   \\"fontSize\\": 16,
 +                   \\"fontStyle\\": \\"normal\\",
@@ -119,10 +119,12 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 +                   \\"letterSpacing\\": 0.25,
 +                   \\"lineHeight\\": 24,
 +                   \\"paddingVertical\\": 5,
++                   \\"textAlignVertical\\": \\"center\\",
++                   \\"textTransform\\": \\"none\\",
 +                 },
-+                 Object {
+                  Object {
 +                   \\"borderBottomWidth\\": 0,
-+                   \\"color\\": \\"#ffffff\\",
+                    \\"color\\": \\"#ffffff\\",
 +                   \\"flex\\": 1,
                     \\"fontFamily\\": \\"SourceSansPro-Light\\",
                     \\"fontSize\\": 32,
@@ -131,6 +133,8 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
                     \\"lineHeight\\": 38,
 +                   \\"paddingVertical\\": 0,
 +                   \\"textAlign\\": \\"left\\",
+                    \\"textAlignVertical\\": \\"center\\",
+                    \\"textTransform\\": \\"none\\",
 +                 },
 +               ]
 +             }
@@ -225,7 +229,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
               Array [
                 Object {
                   \\"marginHorizontal\\": 20,
-@@ -497,25 +649,30 @@
+@@ -517,25 +671,30 @@
               style={
                 Object {
                   \\"opacity\\": 1,
@@ -257,7 +261,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
                 }
               >
                 <Text
-@@ -543,11 +700,11 @@
+@@ -565,11 +724,11 @@
                         \\"textTransform\\": \\"uppercase\\",
                       },
                     ]
@@ -270,7 +274,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
             </View>
           </View>
           <View
-@@ -631,25 +788,30 @@
+@@ -657,25 +816,30 @@
               style={
                 Object {
                   \\"opacity\\": 1,
@@ -302,7 +306,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
                 }
               >
                 <Text
-@@ -677,11 +839,11 @@
+@@ -705,11 +869,11 @@
                         \\"textTransform\\": \\"uppercase\\",
                       },
                     ]
@@ -322,7 +326,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 - First value
 + Second value
 
-@@ -178,11 +178,11 @@
+@@ -180,11 +180,11 @@
                         \\"textTransform\\": \\"uppercase\\",
                       },
                     ]
@@ -335,7 +339,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
             </View>
           </View>
         </View>
-@@ -191,29 +191,12 @@
+@@ -193,29 +193,12 @@
     <View
       style={
         Object {
@@ -365,7 +369,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
         style={
           Array [
             Object {
-@@ -240,37 +223,13 @@
+@@ -242,37 +225,13 @@
           style={
             Object {
               \\"borderRadius\\": 4,
@@ -403,7 +407,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
         keyboardShouldPersistTaps=\\"handled\\"
         style={
           Object {
-@@ -291,136 +250,25 @@
+@@ -293,140 +252,27 @@
                   \\"flexDirection\\": \\"row\\",
                 },
               ]
@@ -424,11 +428,11 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 +           <Text
               style={
 -               Array [
-                Object {
+-                 Object {
 -                   \\"backgroundColor\\": \\"transparent\\",
 -                   \\"borderBottomColor\\": \\"#3CC8E6\\",
 -                   \\"borderBottomWidth\\": 1,
-                  \\"color\\": \\"#ffffff\\",
+-                   \\"color\\": \\"#ffffff\\",
 -                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                   \\"fontSize\\": 16,
 -                   \\"fontStyle\\": \\"normal\\",
@@ -436,10 +440,12 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 -                   \\"letterSpacing\\": 0.25,
 -                   \\"lineHeight\\": 24,
 -                   \\"paddingVertical\\": 5,
+-                   \\"textAlignVertical\\": \\"center\\",
+-                   \\"textTransform\\": \\"none\\",
 -                 },
--                 Object {
+                Object {
 -                   \\"borderBottomWidth\\": 0,
--                   \\"color\\": \\"#ffffff\\",
+                  \\"color\\": \\"#ffffff\\",
 -                   \\"flex\\": 1,
                   \\"fontFamily\\": \\"SourceSansPro-Light\\",
                   \\"fontSize\\": 32,
@@ -448,6 +454,8 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
                   \\"lineHeight\\": 38,
 -                   \\"paddingVertical\\": 0,
 -                   \\"textAlign\\": \\"left\\",
+                  \\"textAlignVertical\\": \\"center\\",
+                  \\"textTransform\\": \\"none\\",
 -                 },
 -               ]
 -             }
@@ -542,7 +550,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
               Array [
                 Object {
                   \\"marginHorizontal\\": 20,
-@@ -649,30 +497,25 @@
+@@ -671,30 +517,25 @@
               style={
                 Object {
                   \\"opacity\\": 1,
@@ -574,7 +582,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
                 }
               >
                 <Text
-@@ -700,11 +543,11 @@
+@@ -724,11 +565,11 @@
                         \\"textTransform\\": \\"uppercase\\",
                       },
                     ]
@@ -587,7 +595,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
             </View>
           </View>
           <View
-@@ -788,30 +631,25 @@
+@@ -816,30 +657,25 @@
               style={
                 Object {
                   \\"opacity\\": 1,
@@ -619,7 +627,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
                 }
               >
                 <Text
-@@ -839,11 +677,11 @@
+@@ -869,11 +705,11 @@
                         \\"textTransform\\": \\"uppercase\\",
                       },
                     ]
@@ -667,10 +675,10 @@ exports[`CommunityProfile should render correctly 1`] = `
         style={
           Object {
             \\"flex\\": 1,
-@@ -182,11 +198,13 @@
-                  \\"fontStyle\\": \\"normal\\",
-                  \\"fontWeight\\": \\"300\\",
+@@ -184,11 +200,13 @@
                   \\"lineHeight\\": 38,
+                  \\"textAlignVertical\\": \\"center\\",
+                  \\"textTransform\\": \\"none\\",
                 }
               }
 -           />
@@ -682,10 +690,10 @@ exports[`CommunityProfile should render correctly 1`] = `
             style={
               Array [
                 Object {
-@@ -234,11 +252,13 @@
-                    \\"fontStyle\\": \\"normal\\",
-                    \\"fontWeight\\": \\"normal\\",
+@@ -240,11 +258,13 @@
                     \\"lineHeight\\": 16,
+                    \\"textAlignVertical\\": \\"center\\",
+                    \\"textTransform\\": \\"none\\",
                   }
                 }
 -             />
@@ -697,7 +705,7 @@ exports[`CommunityProfile should render correctly 1`] = `
               style={
                 Array [
                   Object {},
-@@ -261,10 +281,25 @@
+@@ -269,10 +289,27 @@
                   }
                 }
               >
@@ -712,6 +720,8 @@ exports[`CommunityProfile should render correctly 1`] = `
 +                   \\"fontStyle\\": \\"normal\\",
 +                   \\"fontWeight\\": \\"normal\\",
 +                   \\"lineHeight\\": 16,
++                   \\"textAlignVertical\\": \\"center\\",
++                   \\"textTransform\\": \\"none\\",
 +                 }
 +               }
 +               testID=\\"Text\\"
@@ -723,10 +733,10 @@ exports[`CommunityProfile should render correctly 1`] = `
           <View
             style={
               Array [
-@@ -312,11 +347,13 @@
-                    \\"fontStyle\\": \\"normal\\",
-                    \\"fontWeight\\": \\"normal\\",
+@@ -324,11 +361,13 @@
                     \\"lineHeight\\": 16,
+                    \\"textAlignVertical\\": \\"center\\",
+                    \\"textTransform\\": \\"none\\",
                   }
                 }
 -             />
@@ -738,10 +748,10 @@ exports[`CommunityProfile should render correctly 1`] = `
           <View
             style={
               Array [
-@@ -378,11 +415,13 @@
-                    \\"fontStyle\\": \\"normal\\",
-                    \\"fontWeight\\": \\"300\\",
+@@ -394,11 +433,13 @@
                     \\"lineHeight\\": 38,
+                    \\"textAlignVertical\\": \\"center\\",
+                    \\"textTransform\\": \\"none\\",
                   }
                 }
 -             />
@@ -753,9 +763,9 @@ exports[`CommunityProfile should render correctly 1`] = `
               accessible={true}
               focusable={true}
               onClick={[Function onClick]}
-@@ -511,11 +550,11 @@
-                    \\"lineHeight\\": 20,
-                    \\"marginRight\\": 5,
+@@ -533,11 +574,11 @@
+                    \\"textAlignVertical\\": \\"center\\",
+                    \\"textTransform\\": \\"none\\",
                   }
                 }
               >
@@ -953,6 +963,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "300",
                 "lineHeight": 38,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           />
@@ -991,6 +1003,8 @@ Array [
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -1005,6 +1019,8 @@ Array [
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             />
@@ -1029,6 +1045,8 @@ Array [
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -1069,6 +1087,8 @@ Array [
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -1083,6 +1103,8 @@ Array [
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             />
@@ -1135,6 +1157,8 @@ Array [
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -1149,6 +1173,8 @@ Array [
                   "fontStyle": "normal",
                   "fontWeight": "300",
                   "lineHeight": 38,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             />
@@ -1199,6 +1225,7 @@ Array [
                       "letterSpacing": 1,
                       "lineHeight": 18,
                       "textAlign": "center",
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                     Object {
@@ -1209,6 +1236,7 @@ Array [
                       "fontWeight": "bold",
                       "letterSpacing": 1,
                       "lineHeight": 18,
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                   ]
@@ -1266,6 +1294,8 @@ Array [
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -1281,6 +1311,8 @@ Array [
                   "fontWeight": "normal",
                   "lineHeight": 20,
                   "marginRight": 5,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -1333,6 +1365,7 @@ Array [
                       "letterSpacing": 1,
                       "lineHeight": 18,
                       "textAlign": "center",
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                     Object {
@@ -1343,6 +1376,7 @@ Array [
                       "fontWeight": "bold",
                       "letterSpacing": 1,
                       "lineHeight": 18,
+                      "textAlignVertical": "center",
                       "textTransform": "uppercase",
                     },
                   ]
@@ -1389,6 +1423,8 @@ Array [
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
                 "width": "75%",
               }
             }

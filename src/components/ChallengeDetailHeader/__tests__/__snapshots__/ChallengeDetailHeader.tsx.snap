@@ -51,6 +51,8 @@ exports[`render for active challenge 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "300",
                 "lineHeight": 30,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -94,6 +96,8 @@ exports[`render for active challenge 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -110,6 +114,8 @@ exports[`render for active challenge 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "300",
                     "lineHeight": 38,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   null,
                 ]
@@ -140,6 +146,8 @@ exports[`render for active challenge 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -156,6 +164,8 @@ exports[`render for active challenge 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "300",
                     "lineHeight": 38,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   null,
                 ]
@@ -200,6 +210,8 @@ exports[`render for active challenge 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -214,6 +226,8 @@ exports[`render for active challenge 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
             testID="Text"
@@ -241,6 +255,8 @@ exports[`render for active challenge 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -276,6 +292,8 @@ exports[`render for active challenge 1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 24,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -344,6 +362,8 @@ exports[`render for past challenge 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "300",
                 "lineHeight": 30,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -387,6 +407,8 @@ exports[`render for past challenge 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -403,6 +425,8 @@ exports[`render for past challenge 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "300",
                     "lineHeight": 38,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   null,
                 ]
@@ -433,6 +457,8 @@ exports[`render for past challenge 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -449,6 +475,8 @@ exports[`render for past challenge 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "300",
                     "lineHeight": 38,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   null,
                 ]
@@ -493,6 +521,8 @@ exports[`render for past challenge 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -507,6 +537,8 @@ exports[`render for past challenge 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
             testID="Text"
@@ -534,6 +566,8 @@ exports[`render for past challenge 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -569,6 +603,8 @@ exports[`render for past challenge 1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 24,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -637,6 +673,8 @@ exports[`renders no text when no details and not an admin 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "300",
                 "lineHeight": 30,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -680,6 +718,8 @@ exports[`renders no text when no details and not an admin 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -696,6 +736,8 @@ exports[`renders no text when no details and not an admin 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "300",
                     "lineHeight": 38,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   null,
                 ]
@@ -726,6 +768,8 @@ exports[`renders no text when no details and not an admin 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -742,6 +786,8 @@ exports[`renders no text when no details and not an admin 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "300",
                     "lineHeight": 38,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   null,
                 ]
@@ -786,6 +832,8 @@ exports[`renders no text when no details and not an admin 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -800,6 +848,8 @@ exports[`renders no text when no details and not an admin 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
             testID="Text"
@@ -827,6 +877,8 @@ exports[`renders no text when no details and not an admin 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -893,6 +945,8 @@ exports[`renders with details 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "300",
                 "lineHeight": 30,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -936,6 +990,8 @@ exports[`renders with details 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -952,6 +1008,8 @@ exports[`renders with details 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "300",
                     "lineHeight": 38,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   null,
                 ]
@@ -982,6 +1040,8 @@ exports[`renders with details 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -998,6 +1058,8 @@ exports[`renders with details 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "300",
                     "lineHeight": 38,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   null,
                 ]
@@ -1042,6 +1104,8 @@ exports[`renders with details 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1056,6 +1120,8 @@ exports[`renders with details 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
             testID="Text"
@@ -1083,6 +1149,8 @@ exports[`renders with details 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1118,6 +1186,8 @@ exports[`renders with details 1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 24,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]

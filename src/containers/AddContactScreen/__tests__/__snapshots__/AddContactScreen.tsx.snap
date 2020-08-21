@@ -67,6 +67,8 @@ exports[`handleUpdateData should update the state 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -75,6 +77,8 @@ exports[`handleUpdateData should update the state 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -202,6 +206,8 @@ exports[`handleUpdateData should update the state 1`] = `
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -237,6 +243,8 @@ exports[`handleUpdateData should update the state 1`] = `
                     "letterSpacing": 0.25,
                     "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -269,6 +277,8 @@ exports[`handleUpdateData should update the state 1`] = `
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             />
@@ -301,6 +311,8 @@ exports[`handleUpdateData should update the state 1`] = `
                     "letterSpacing": 0.25,
                     "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -333,6 +345,8 @@ exports[`handleUpdateData should update the state 1`] = `
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -362,6 +376,8 @@ exports[`handleUpdateData should update the state 1`] = `
                     "fontWeight": "normal",
                     "lineHeight": 24,
                     "marginVertical": 10,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                     "width": "100%",
                   }
                 }
@@ -391,6 +407,8 @@ exports[`handleUpdateData should update the state 1`] = `
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -436,6 +454,8 @@ exports[`handleUpdateData should update the state 1`] = `
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginVertical": 10,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": "100%",
                     }
                   }
@@ -515,6 +535,7 @@ exports[`handleUpdateData should update the state 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -706,6 +727,8 @@ exports[`renders correctly | No Person 1`] = `
                       "lineHeight": 30,
                       "maxWidth": 230,
                       "textAlign": "center",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -723,6 +746,8 @@ exports[`renders correctly | No Person 1`] = `
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             />
@@ -756,6 +781,8 @@ exports[`renders correctly | No Person 1`] = `
                     "letterSpacing": 0.25,
                     "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#3CC8E6",
@@ -788,6 +815,8 @@ exports[`renders correctly | No Person 1`] = `
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             />
@@ -820,6 +849,8 @@ exports[`renders correctly | No Person 1`] = `
                     "letterSpacing": 0.25,
                     "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#3CC8E6",
@@ -905,6 +936,7 @@ exports[`renders correctly | No Person 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -992,6 +1024,8 @@ exports[`renders correctly | With Person 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -1000,6 +1034,8 @@ exports[`renders correctly | With Person 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -1138,6 +1174,8 @@ exports[`renders correctly | With Person 1`] = `
                       "lineHeight": 30,
                       "maxWidth": 230,
                       "textAlign": "center",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     }
                   }
                 >
@@ -1155,6 +1193,8 @@ exports[`renders correctly | With Person 1`] = `
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             />
@@ -1188,6 +1228,8 @@ exports[`renders correctly | With Person 1`] = `
                     "letterSpacing": 0.25,
                     "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#3CC8E6",
@@ -1220,6 +1262,8 @@ exports[`renders correctly | With Person 1`] = `
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             />
@@ -1252,6 +1296,8 @@ exports[`renders correctly | With Person 1`] = `
                     "letterSpacing": 0.25,
                     "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#3CC8E6",
@@ -1337,6 +1383,7 @@ exports[`renders correctly | With Person 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -1521,6 +1568,8 @@ exports[`savePerson add new person with org should add a new person 1`] = `
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -1556,6 +1605,8 @@ exports[`savePerson add new person with org should add a new person 1`] = `
                     "letterSpacing": 0.25,
                     "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -1588,6 +1639,8 @@ exports[`savePerson add new person with org should add a new person 1`] = `
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             />
@@ -1620,6 +1673,8 @@ exports[`savePerson add new person with org should add a new person 1`] = `
                     "letterSpacing": 0.25,
                     "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -1652,6 +1707,8 @@ exports[`savePerson add new person with org should add a new person 1`] = `
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -1681,6 +1738,8 @@ exports[`savePerson add new person with org should add a new person 1`] = `
                     "fontWeight": "normal",
                     "lineHeight": 24,
                     "marginVertical": 10,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                     "width": "100%",
                   }
                 }
@@ -1710,6 +1769,8 @@ exports[`savePerson add new person with org should add a new person 1`] = `
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -1755,6 +1816,8 @@ exports[`savePerson add new person with org should add a new person 1`] = `
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginVertical": 10,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": "100%",
                     }
                   }
@@ -1834,6 +1897,7 @@ exports[`savePerson add new person with org should add a new person 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -1855,7 +1919,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 - First value
 + Second value
 
-@@ -145,55 +145,29 @@
+@@ -145,59 +145,31 @@
                 style={
                   Array [
                     Object {},
@@ -1865,7 +1929,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 -                     \\"justifyContent\\": \\"flex-end\\",
                     },
                   ]
-                }
+-               }
 -             >
 -               <View
 -                 style={
@@ -1875,10 +1939,9 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 -                   }
 -                 }
 -               >
-+             />
-              <Text
-                style={
-                  Object {
+-                 <Text
+-                   style={
+-                     Object {
 -                       \\"color\\": \\"#ffffff\\",
 -                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                       \\"fontSize\\": 24,
@@ -1887,16 +1950,19 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 -                       \\"lineHeight\\": 30,
 -                       \\"maxWidth\\": 230,
 -                       \\"textAlign\\": \\"center\\",
+-                       \\"textAlignVertical\\": \\"center\\",
+-                       \\"textTransform\\": \\"none\\",
 -                     }
--                   }
+                }
 -                 >
 -                   Who would you like to take steps of faith with this week?
 -                 </Text>
 -               </View>
 -             </View>
--             <Text
--               style={
--                 Object {
++             />
+              <Text
+                style={
+                  Object {
 -                   \\"color\\": \\"#3CC8E6\\",
 +                   \\"color\\": \\"#B4B6BA\\",
                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
@@ -1905,6 +1971,8 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                     \\"fontWeight\\": \\"normal\\",
                     \\"lineHeight\\": 16,
                     \\"marginTop\\": 15,
+                    \\"textAlignVertical\\": \\"center\\",
+                    \\"textTransform\\": \\"none\\",
                   }
                 }
 -             />
@@ -1916,7 +1984,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                 autoCorrect={false}
                 autoFocus={true}
                 blurOnSubmit={false}
-@@ -202,11 +176,11 @@
+@@ -206,11 +178,11 @@
                 onBlur={[Function onBlur]}
                 onChangeText={[Function onChangeText]}
                 onFocus={[Function onFocus]}
@@ -1929,10 +1997,10 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                 selectionColor=\\"#3CC8E6\\"
                 style={
                   Array [
-@@ -222,18 +196,18 @@
-                      \\"letterSpacing\\": 0.25,
-                      \\"lineHeight\\": 24,
+@@ -228,18 +200,18 @@
                       \\"paddingVertical\\": 5,
+                      \\"textAlignVertical\\": \\"center\\",
+                      \\"textTransform\\": \\"none\\",
                     },
                     Object {
 -                     \\"borderBottomColor\\": \\"#3CC8E6\\",
@@ -1951,7 +2019,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
             <View
               style={
                 Array [
-@@ -245,11 +219,11 @@
+@@ -251,11 +223,11 @@
               }
             >
               <Text
@@ -1964,7 +2032,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                     \\"fontStyle\\": \\"normal\\",
                     \\"fontWeight\\": \\"normal\\",
                     \\"lineHeight\\": 16,
-@@ -266,11 +240,11 @@
+@@ -274,11 +246,11 @@
                 multiline={false}
                 onBlur={[Function onBlur]}
                 onChangeText={[Function onChangeText]}
@@ -1977,10 +2045,10 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                 selectionColor=\\"#3CC8E6\\"
                 style={
                   Array [
-@@ -286,23 +260,158 @@
-                      \\"letterSpacing\\": 0.25,
-                      \\"lineHeight\\": 24,
+@@ -296,23 +268,166 @@
                       \\"paddingVertical\\": 5,
+                      \\"textAlignVertical\\": \\"center\\",
+                      \\"textTransform\\": \\"none\\",
                     },
                     Object {
 -                     \\"borderBottomColor\\": \\"#3CC8E6\\",
@@ -2015,6 +2083,8 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 +                   \\"fontWeight\\": \\"normal\\",
 +                   \\"lineHeight\\": 16,
 +                   \\"marginTop\\": 15,
++                   \\"textAlignVertical\\": \\"center\\",
++                   \\"textTransform\\": \\"none\\",
 +                 }
 +               }
 +             >
@@ -2044,6 +2114,8 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 +                     \\"fontWeight\\": \\"normal\\",
 +                     \\"lineHeight\\": 24,
 +                     \\"marginVertical\\": 10,
++                     \\"textAlignVertical\\": \\"center\\",
++                     \\"textTransform\\": \\"none\\",
 +                     \\"width\\": \\"100%\\",
 +                   }
 +                 }
@@ -2051,8 +2123,8 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 +               >
 +                 Choose a stage
 +               </Text>
-              </View>
-            </View>
++             </View>
++           </View>
 +           <View
 +             style={
 +               Array [
@@ -2073,6 +2145,8 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 +                   \\"fontWeight\\": \\"normal\\",
 +                   \\"lineHeight\\": 16,
 +                   \\"marginTop\\": 15,
++                   \\"textAlignVertical\\": \\"center\\",
++                   \\"textTransform\\": \\"none\\",
 +                 }
 +               }
 +             >
@@ -2118,6 +2192,8 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 +                       \\"fontWeight\\": \\"normal\\",
 +                       \\"lineHeight\\": 24,
 +                       \\"marginVertical\\": 10,
++                       \\"textAlignVertical\\": \\"center\\",
++                       \\"textTransform\\": \\"none\\",
 +                       \\"width\\": \\"100%\\",
 +                     }
 +                   }
@@ -2128,17 +2204,17 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 +                   color=\\"#B4B6BA\\"
 +                 />
 +               </View>
-+             </View>
-+           </View>
-+         </View>
-        </View>
+              </View>
+            </View>
+          </View>
++       </View>
 +     </View>
     </RCTScrollView>
     <RCTSafeAreaView
       emulateUnlessSupported={true}
       style={
         Object {
-@@ -336,24 +445,18 @@
+@@ -346,24 +461,18 @@
                 \\"alignItems\\": \\"center\\",
                 \\"backgroundColor\\": \\"#3CC8E6\\",
                 \\"height\\": 60,
@@ -2153,21 +2229,21 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                   \\"alignItems\\": \\"center\\",
                   \\"height\\": 48,
                   \\"width\\": 650,
--               },
+                },
 -               Object {
 -                 \\"backgroundColor\\": \\"#005A7F\\",
 -                 \\"color\\": \\"#ffffff\\",
 -                 \\"opacity\\": 1,
-                },
+-               },
 +               null,
               ],
               Object {
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -372,15 +475,11 @@
-                  \\"lineHeight\\": 18,
+@@ -383,15 +492,11 @@
                   \\"textAlign\\": \\"center\\",
+                  \\"textAlignVertical\\": \\"center\\",
                   \\"textTransform\\": \\"uppercase\\",
                 },
                 Array [
@@ -2251,6 +2327,8 @@ exports[`savePerson update existing person set last name to null should update p
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -2259,6 +2337,8 @@ exports[`savePerson update existing person set last name to null should update p
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -2386,6 +2466,8 @@ exports[`savePerson update existing person set last name to null should update p
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -2421,6 +2503,8 @@ exports[`savePerson update existing person set last name to null should update p
                     "letterSpacing": 0.25,
                     "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -2453,6 +2537,8 @@ exports[`savePerson update existing person set last name to null should update p
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             />
@@ -2485,6 +2571,8 @@ exports[`savePerson update existing person set last name to null should update p
                     "letterSpacing": 0.25,
                     "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -2517,6 +2605,8 @@ exports[`savePerson update existing person set last name to null should update p
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -2546,6 +2636,8 @@ exports[`savePerson update existing person set last name to null should update p
                     "fontWeight": "normal",
                     "lineHeight": 24,
                     "marginVertical": 10,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                     "width": "100%",
                   }
                 }
@@ -2575,6 +2667,8 @@ exports[`savePerson update existing person set last name to null should update p
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -2620,6 +2714,8 @@ exports[`savePerson update existing person set last name to null should update p
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginVertical": 10,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": "100%",
                     }
                   }
@@ -2699,6 +2795,7 @@ exports[`savePerson update existing person set last name to null should update p
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -2782,6 +2879,8 @@ exports[`savePerson update existing person with org should update person and nav
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -2790,6 +2889,8 @@ exports[`savePerson update existing person with org should update person and nav
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -2917,6 +3018,8 @@ exports[`savePerson update existing person with org should update person and nav
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -2952,6 +3055,8 @@ exports[`savePerson update existing person with org should update person and nav
                     "letterSpacing": 0.25,
                     "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -2984,6 +3089,8 @@ exports[`savePerson update existing person with org should update person and nav
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             />
@@ -3016,6 +3123,8 @@ exports[`savePerson update existing person with org should update person and nav
                     "letterSpacing": 0.25,
                     "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -3048,6 +3157,8 @@ exports[`savePerson update existing person with org should update person and nav
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -3077,6 +3188,8 @@ exports[`savePerson update existing person with org should update person and nav
                     "fontWeight": "normal",
                     "lineHeight": 24,
                     "marginVertical": 10,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                     "width": "100%",
                   }
                 }
@@ -3106,6 +3219,8 @@ exports[`savePerson update existing person with org should update person and nav
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -3151,6 +3266,8 @@ exports[`savePerson update existing person with org should update person and nav
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginVertical": 10,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": "100%",
                     }
                   }
@@ -3230,6 +3347,7 @@ exports[`savePerson update existing person with org should update person and nav
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -3313,6 +3431,8 @@ exports[`savePerson update existing person without org should update person and 
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -3321,6 +3441,8 @@ exports[`savePerson update existing person without org should update person and 
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -3448,6 +3570,8 @@ exports[`savePerson update existing person without org should update person and 
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -3483,6 +3607,8 @@ exports[`savePerson update existing person without org should update person and 
                     "letterSpacing": 0.25,
                     "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -3515,6 +3641,8 @@ exports[`savePerson update existing person without org should update person and 
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             />
@@ -3547,6 +3675,8 @@ exports[`savePerson update existing person without org should update person and 
                     "letterSpacing": 0.25,
                     "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -3579,6 +3709,8 @@ exports[`savePerson update existing person without org should update person and 
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -3608,6 +3740,8 @@ exports[`savePerson update existing person without org should update person and 
                     "fontWeight": "normal",
                     "lineHeight": 24,
                     "marginVertical": 10,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                     "width": "100%",
                   }
                 }
@@ -3637,6 +3771,8 @@ exports[`savePerson update existing person without org should update person and 
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -3682,6 +3818,8 @@ exports[`savePerson update existing person without org should update person and 
                       "fontWeight": "normal",
                       "lineHeight": 24,
                       "marginVertical": 10,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": "100%",
                     }
                   }
@@ -3761,6 +3899,7 @@ exports[`savePerson update existing person without org should update person and 
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [
@@ -3844,6 +3983,8 @@ exports[`savePerson update existing person without org updates users profile pic
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#505256",
@@ -3852,6 +3993,8 @@ exports[`savePerson update existing person without org updates users profile pic
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -4041,6 +4184,8 @@ exports[`savePerson update existing person without org updates users profile pic
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -4076,6 +4221,8 @@ exports[`savePerson update existing person without org updates users profile pic
                     "letterSpacing": 0.25,
                     "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -4108,6 +4255,8 @@ exports[`savePerson update existing person without org updates users profile pic
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             />
@@ -4140,6 +4289,8 @@ exports[`savePerson update existing person without org updates users profile pic
                     "letterSpacing": 0.25,
                     "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -4172,6 +4323,8 @@ exports[`savePerson update existing person without org updates users profile pic
                   "fontWeight": "normal",
                   "lineHeight": 16,
                   "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -4201,6 +4354,8 @@ exports[`savePerson update existing person without org updates users profile pic
                     "fontWeight": "normal",
                     "lineHeight": 24,
                     "marginVertical": 10,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                     "width": "100%",
                   }
                 }
@@ -4277,6 +4432,7 @@ exports[`savePerson update existing person without org updates users profile pic
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Array [

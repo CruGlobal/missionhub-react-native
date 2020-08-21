@@ -134,6 +134,8 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -310,6 +312,8 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -406,6 +410,8 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "color": "#505256",
@@ -415,7 +421,8 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                       "fontWeight": "bold",
                       "letterSpacing": 1,
                       "lineHeight": 20,
-                      "textTransform": "uppercase",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                   ]
                 }
@@ -432,6 +439,8 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "color": "#B4B6BA",
@@ -440,6 +449,8 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                   ]
                 }
@@ -488,6 +499,8 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 18,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -568,6 +581,8 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": 30,
                     }
                   }
@@ -641,6 +656,8 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": 30,
                     }
                   }
@@ -841,6 +858,8 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
@@ -853,6 +872,8 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
               "lineHeight": 20,
               "paddingHorizontal": 12,
               "paddingVertical": 6,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -1019,6 +1040,8 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -1195,6 +1218,8 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -1291,6 +1316,8 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "color": "#505256",
@@ -1300,7 +1327,8 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                       "fontWeight": "bold",
                       "letterSpacing": 1,
                       "lineHeight": 20,
-                      "textTransform": "uppercase",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                   ]
                 }
@@ -1317,6 +1345,8 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "color": "#B4B6BA",
@@ -1325,6 +1355,8 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                   ]
                 }
@@ -1373,6 +1405,8 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 18,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -1453,6 +1487,8 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": 30,
                     }
                   }
@@ -1528,6 +1564,8 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": 30,
                     }
                   }
@@ -1728,6 +1766,8 @@ exports[`edit/delete post edit and delete for my post 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
@@ -1740,6 +1780,8 @@ exports[`edit/delete post edit and delete for my post 1`] = `
               "lineHeight": 20,
               "paddingHorizontal": 12,
               "paddingVertical": 6,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -1906,6 +1948,8 @@ exports[`edit/delete post no options for not my post 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -2082,6 +2126,8 @@ exports[`edit/delete post no options for not my post 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -2144,6 +2190,8 @@ exports[`edit/delete post no options for not my post 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "color": "#505256",
@@ -2153,7 +2201,8 @@ exports[`edit/delete post no options for not my post 1`] = `
                       "fontWeight": "bold",
                       "letterSpacing": 1,
                       "lineHeight": 20,
-                      "textTransform": "uppercase",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                   ]
                 }
@@ -2170,6 +2219,8 @@ exports[`edit/delete post no options for not my post 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "color": "#B4B6BA",
@@ -2178,6 +2229,8 @@ exports[`edit/delete post no options for not my post 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                   ]
                 }
@@ -2226,6 +2279,8 @@ exports[`edit/delete post no options for not my post 1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 18,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -2306,6 +2361,8 @@ exports[`edit/delete post no options for not my post 1`] = `
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": 30,
                     }
                   }
@@ -2379,6 +2436,8 @@ exports[`edit/delete post no options for not my post 1`] = `
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": 30,
                     }
                   }
@@ -2579,6 +2638,8 @@ exports[`edit/delete post no options for not my post 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
@@ -2591,6 +2652,8 @@ exports[`edit/delete post no options for not my post 1`] = `
               "lineHeight": 20,
               "paddingHorizontal": 12,
               "paddingVertical": 6,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -2628,9 +2691,9 @@ exports[`refresh calls refreshComments 1`] = `
 - First value
 + Second value
 
-@@ -132,11 +132,11 @@
-                    \\"fontWeight\\": \\"normal\\",
-                    \\"lineHeight\\": 20,
+@@ -134,11 +134,11 @@
+                    \\"textAlignVertical\\": \\"center\\",
+                    \\"textTransform\\": \\"none\\",
                   }
                 }
               >
@@ -2641,7 +2704,7 @@ exports[`refresh calls refreshComments 1`] = `
           </View>
           <View
             style={
-@@ -177,32 +177,32 @@
+@@ -179,32 +179,32 @@
       }
       data={
         Array [
@@ -2688,7 +2751,7 @@ exports[`refresh calls refreshComments 1`] = `
         ]
       }
       disableVirtualization={false}
-@@ -264,22 +264,22 @@
+@@ -266,22 +266,22 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -2713,8 +2776,8 @@ exports[`refresh calls refreshComments 1`] = `
                   ]
                 }
               />
-@@ -320,11 +320,11 @@
-                        \\"textTransform\\": \\"uppercase\\",
+@@ -325,11 +325,11 @@
+                        \\"textTransform\\": \\"none\\",
                       },
                     ]
                   }
@@ -2726,7 +2789,7 @@ exports[`refresh calls refreshComments 1`] = `
                   style={
                     Array [
                       Object {
-@@ -345,11 +345,11 @@
+@@ -354,23 +354,40 @@
                       },
                     ]
                   }
@@ -2739,12 +2802,16 @@ exports[`refresh calls refreshComments 1`] = `
             </View>
           </View>
           <View
-@@ -361,10 +361,26 @@
-            }
-          >
-            <Text
-              style={
-                Object {
+            style={
+              Object {
+                \\"paddingHorizontal\\": 20,
+                \\"paddingVertical\\": 8,
++             }
++           }
++         >
++           <Text
++             style={
++               Object {
 +                 \\"color\\": \\"#3CC8E6\\",
 +                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                 \\"fontSize\\": 16,
@@ -2752,23 +2819,21 @@ exports[`refresh calls refreshComments 1`] = `
 +                 \\"fontWeight\\": \\"bold\\",
 +                 \\"letterSpacing\\": 1,
 +                 \\"lineHeight\\": 20,
++                 \\"textAlignVertical\\": \\"center\\",
 +                 \\"textTransform\\": \\"uppercase\\",
-+               }
-+             }
-+           >
+                }
+              }
+            >
 +             Completed a Challenge!
 +           </Text>
-+           <Text
-+             style={
-+               Object {
+            <Text
+              style={
+                Object {
                   \\"color\\": \\"#505256\\",
                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-                  \\"fontSize\\": 16,
-                  \\"fontStyle\\": \\"normal\\",
-                  \\"fontWeight\\": \\"normal\\",
-@@ -372,11 +388,11 @@
-                  \\"lineHeight\\": 24,
-                  \\"paddingBottom\\": 8,
+@@ -383,11 +400,11 @@
+                  \\"textAlignVertical\\": \\"center\\",
+                  \\"textTransform\\": \\"none\\",
                 }
               }
             >
@@ -2779,7 +2844,7 @@ exports[`refresh calls refreshComments 1`] = `
           <View
             style={
               Array [
-@@ -536,11 +552,12 @@
+@@ -551,11 +568,12 @@
                           null,
                         ]
                       }
@@ -2793,8 +2858,8 @@ exports[`refresh calls refreshComments 1`] = `
                   </View>
                 </View>
                 <View
-@@ -567,11 +584,11 @@
-                        \\"textAlign\\": \\"right\\",
+@@ -584,11 +602,11 @@
+                        \\"textTransform\\": \\"none\\",
                         \\"width\\": 30,
                       }
                     }
@@ -2806,7 +2871,7 @@ exports[`refresh calls refreshComments 1`] = `
                     accessible={true}
                     focusable={true}
                     onClick={[Function onClick]}
-@@ -635,28 +652,29 @@
+@@ -652,28 +670,29 @@
         >
           <CommentItem
             comment={
@@ -2844,7 +2909,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -667,28 +685,29 @@
+@@ -684,28 +703,29 @@
         >
           <CommentItem
             comment={
@@ -2882,7 +2947,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -708,22 +727,22 @@
+@@ -725,22 +745,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
@@ -3043,6 +3108,8 @@ exports[`renders correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -3219,6 +3286,8 @@ exports[`renders correctly 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -3281,6 +3350,8 @@ exports[`renders correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "color": "#505256",
@@ -3290,7 +3361,8 @@ exports[`renders correctly 1`] = `
                       "fontWeight": "bold",
                       "letterSpacing": 1,
                       "lineHeight": 20,
-                      "textTransform": "uppercase",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                   ]
                 }
@@ -3307,6 +3379,8 @@ exports[`renders correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "color": "#B4B6BA",
@@ -3315,6 +3389,8 @@ exports[`renders correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                   ]
                 }
@@ -3363,6 +3439,8 @@ exports[`renders correctly 1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 18,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -3443,6 +3521,8 @@ exports[`renders correctly 1`] = `
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": 30,
                     }
                   }
@@ -3516,6 +3596,8 @@ exports[`renders correctly 1`] = `
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": 30,
                     }
                   }
@@ -3716,6 +3798,8 @@ exports[`renders correctly 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
@@ -3728,6 +3812,8 @@ exports[`renders correctly 1`] = `
               "lineHeight": 20,
               "paddingHorizontal": 12,
               "paddingVertical": 6,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -3894,6 +3980,8 @@ exports[`renders correctly with communityId passed in 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >
@@ -4070,6 +4158,8 @@ exports[`renders correctly with communityId passed in 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -4132,6 +4222,8 @@ exports[`renders correctly with communityId passed in 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "color": "#505256",
@@ -4141,7 +4233,8 @@ exports[`renders correctly with communityId passed in 1`] = `
                       "fontWeight": "bold",
                       "letterSpacing": 1,
                       "lineHeight": 20,
-                      "textTransform": "uppercase",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                   ]
                 }
@@ -4158,6 +4251,8 @@ exports[`renders correctly with communityId passed in 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
                       "color": "#B4B6BA",
@@ -4166,6 +4261,8 @@ exports[`renders correctly with communityId passed in 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                       "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                   ]
                 }
@@ -4214,6 +4311,8 @@ exports[`renders correctly with communityId passed in 1`] = `
                         "fontStyle": "normal",
                         "fontWeight": "normal",
                         "lineHeight": 18,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -4294,6 +4393,8 @@ exports[`renders correctly with communityId passed in 1`] = `
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": 30,
                     }
                   }
@@ -4367,6 +4468,8 @@ exports[`renders correctly with communityId passed in 1`] = `
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                       "width": 30,
                     }
                   }
@@ -4567,6 +4670,8 @@ exports[`renders correctly with communityId passed in 1`] = `
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
@@ -4579,6 +4684,8 @@ exports[`renders correctly with communityId passed in 1`] = `
               "lineHeight": 20,
               "paddingHorizontal": 12,
               "paddingVertical": 6,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -4745,6 +4852,8 @@ exports[`renders loading 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                   "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 }
               }
             >

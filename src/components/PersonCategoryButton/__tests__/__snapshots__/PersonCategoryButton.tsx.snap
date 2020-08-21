@@ -73,6 +73,8 @@ exports[`Different Categories renders correctly | coworker 1`] = `
             "fontStyle": "normal",
             "fontWeight": "300",
             "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -159,6 +161,8 @@ exports[`Different Categories renders correctly | family 1`] = `
             "fontStyle": "normal",
             "fontWeight": "300",
             "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -245,6 +249,8 @@ exports[`Different Categories renders correctly | friend 1`] = `
             "fontStyle": "normal",
             "fontWeight": "300",
             "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -331,6 +337,8 @@ exports[`Different Categories renders correctly | neighbor 1`] = `
             "fontStyle": "normal",
             "fontWeight": "300",
             "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -417,6 +425,8 @@ exports[`Different Categories renders correctly | other 1`] = `
             "fontStyle": "normal",
             "fontWeight": "300",
             "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -503,6 +513,8 @@ exports[`onPress fires onPress when clicked 1`] = `
             "fontStyle": "normal",
             "fontWeight": "300",
             "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -591,6 +603,8 @@ exports[`render correctly | active 1`] = `
             "fontStyle": "normal",
             "fontWeight": "300",
             "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -677,6 +691,8 @@ exports[`render correctly | non-active 1`] = `
             "fontStyle": "normal",
             "fontWeight": "300",
             "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >

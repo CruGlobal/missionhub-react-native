@@ -93,6 +93,8 @@ exports[`render active and joined and completed challenge item 1`] = `
                 "fontWeight": "normal",
                 "lineHeight": 24,
                 "marginBottom": 3,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -132,6 +134,8 @@ exports[`render active and joined and completed challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -146,6 +150,8 @@ exports[`render active and joined and completed challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "300",
                     "lineHeight": 30,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -173,6 +179,8 @@ exports[`render active and joined and completed challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -189,6 +197,8 @@ exports[`render active and joined and completed challenge item 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "300",
                       "lineHeight": 30,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     null,
                   ]
@@ -219,6 +229,8 @@ exports[`render active and joined and completed challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -235,6 +247,8 @@ exports[`render active and joined and completed challenge item 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "300",
                       "lineHeight": 30,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     null,
                   ]
@@ -374,6 +388,8 @@ exports[`render active and joined challenge item 1`] = `
                 "fontWeight": "normal",
                 "lineHeight": 24,
                 "marginBottom": 3,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -413,6 +429,8 @@ exports[`render active and joined challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -427,6 +445,8 @@ exports[`render active and joined challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "300",
                     "lineHeight": 30,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -454,6 +474,8 @@ exports[`render active and joined challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -470,6 +492,8 @@ exports[`render active and joined challenge item 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "300",
                       "lineHeight": 30,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     null,
                   ]
@@ -500,6 +524,8 @@ exports[`render active and joined challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -516,6 +542,8 @@ exports[`render active and joined challenge item 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "300",
                       "lineHeight": 30,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     null,
                   ]
@@ -616,6 +644,7 @@ exports[`render active and joined challenge item 1`] = `
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
               Object {
@@ -626,6 +655,7 @@ exports[`render active and joined challenge item 1`] = `
                 "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 18,
+                "textAlignVertical": "center",
                 "textTransform": "uppercase",
               },
             ]
@@ -732,6 +762,8 @@ exports[`render active challenge item 1`] = `
                 "fontWeight": "normal",
                 "lineHeight": 24,
                 "marginBottom": 3,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -771,6 +803,8 @@ exports[`render active challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -785,6 +819,8 @@ exports[`render active challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "300",
                     "lineHeight": 30,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -812,6 +848,8 @@ exports[`render active challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -828,6 +866,8 @@ exports[`render active challenge item 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "300",
                       "lineHeight": 30,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     null,
                   ]
@@ -858,6 +898,8 @@ exports[`render active challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -874,6 +916,8 @@ exports[`render active challenge item 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "300",
                       "lineHeight": 30,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     null,
                   ]
@@ -950,6 +994,7 @@ exports[`render active challenge item 1`] = `
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
+              "textAlignVertical": "center",
               "textTransform": "uppercase",
             },
             Object {
@@ -960,6 +1005,7 @@ exports[`render active challenge item 1`] = `
               "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
+              "textAlignVertical": "center",
               "textTransform": "uppercase",
             },
           ]
@@ -1065,6 +1111,8 @@ exports[`render past and joined and completed challenge item 1`] = `
                 "fontWeight": "normal",
                 "lineHeight": 24,
                 "marginBottom": 3,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1104,6 +1152,8 @@ exports[`render past and joined and completed challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -1118,6 +1168,8 @@ exports[`render past and joined and completed challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "300",
                     "lineHeight": 30,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -1145,6 +1197,8 @@ exports[`render past and joined and completed challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -1161,6 +1215,8 @@ exports[`render past and joined and completed challenge item 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "300",
                       "lineHeight": 30,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     null,
                   ]
@@ -1191,6 +1247,8 @@ exports[`render past and joined and completed challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -1207,6 +1265,8 @@ exports[`render past and joined and completed challenge item 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "300",
                       "lineHeight": 30,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     null,
                   ]
@@ -1346,6 +1406,8 @@ exports[`render past and joined challenge item 1`] = `
                 "fontWeight": "normal",
                 "lineHeight": 24,
                 "marginBottom": 3,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1385,6 +1447,8 @@ exports[`render past and joined challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -1399,6 +1463,8 @@ exports[`render past and joined challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "300",
                     "lineHeight": 30,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -1426,6 +1492,8 @@ exports[`render past and joined challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -1442,6 +1510,8 @@ exports[`render past and joined challenge item 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "300",
                       "lineHeight": 30,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     null,
                   ]
@@ -1472,6 +1542,8 @@ exports[`render past and joined challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -1488,6 +1560,8 @@ exports[`render past and joined challenge item 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "300",
                       "lineHeight": 30,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     null,
                   ]
@@ -1610,6 +1684,8 @@ exports[`render past challenge item 1`] = `
                 "fontWeight": "normal",
                 "lineHeight": 24,
                 "marginBottom": 3,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               }
             }
           >
@@ -1649,6 +1725,8 @@ exports[`render past challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -1663,6 +1741,8 @@ exports[`render past challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "300",
                     "lineHeight": 30,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -1690,6 +1770,8 @@ exports[`render past challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -1706,6 +1788,8 @@ exports[`render past challenge item 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "300",
                       "lineHeight": 30,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     null,
                   ]
@@ -1736,6 +1820,8 @@ exports[`render past challenge item 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                     "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   }
                 }
               >
@@ -1752,6 +1838,8 @@ exports[`render past challenge item 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "300",
                       "lineHeight": 30,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     null,
                   ]
