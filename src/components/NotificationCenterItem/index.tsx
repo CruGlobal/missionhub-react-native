@@ -1,13 +1,13 @@
 /* eslint-disable max-lines */
 
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, Text } from 'react-native';
 import { useQuery } from '@apollo/react-hooks';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import Avatar from '../Avatar';
-import { Text, Touchable } from '../common';
+import { Touchable } from '../common';
 import DateComponent from '../DateComponent';
 import PostTypeLabel, { PostLabelSizeEnum } from '../PostTypeLabel';
 import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';

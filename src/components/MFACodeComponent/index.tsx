@@ -1,8 +1,8 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { Flex, Text, Input, Button } from '../../components/common';
+import { Flex, Input, Button } from '../../components/common';
 import LoadingWheel from '../../components/LoadingWheel';
 import DeprecatedBackButton from '../../containers/DeprecatedBackButton';
 import Header from '../Header';

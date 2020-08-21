@@ -1,7 +1,7 @@
 /* eslint-disable max-lines */
 
 import React, { useState, useCallback } from 'react';
-import { SafeAreaView, View, FlatList } from 'react-native';
+import { SafeAreaView, View, FlatList, Text } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
 import { useQuery } from '@apollo/react-hooks';
@@ -11,7 +11,6 @@ import i18next from 'i18next';
 import { AnyAction } from 'redux';
 
 import {
-  Text,
   Touchable,
   Card,
   RefreshControl,

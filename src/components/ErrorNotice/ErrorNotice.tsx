@@ -1,8 +1,9 @@
 import React, { ReactNode } from 'react';
+import { Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ApolloError } from 'apollo-client';
 
-import { Text, Touchable, Icon } from '../common';
+import { Touchable, Icon } from '../common';
 
 import { styles } from './styles';
 

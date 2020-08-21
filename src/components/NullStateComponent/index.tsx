@@ -1,7 +1,7 @@
 import React from 'react';
-import { Image, StyleProp, ViewStyle } from 'react-native';
+import { Image, StyleProp, ViewStyle, Text } from 'react-native';
 
-import { Flex, Text } from '../../components/common';
+import { Flex } from '../../components/common';
 
 import styles from './styles';
 

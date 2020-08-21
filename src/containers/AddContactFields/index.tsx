@@ -1,12 +1,12 @@
 import React, { useState, useRef } from 'react';
-import { KeyboardAvoidingView, View, TextInput } from 'react-native';
+import { KeyboardAvoidingView, View, TextInput, Text } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
 import { orgPermissionSelector } from '../../selectors/people';
-import { Flex, Text, Input } from '../../components/common';
+import { Flex, Input } from '../../components/common';
 import PopupMenu from '../../components/PopupMenu';
 import theme from '../../theme';
 import { hasOrgPermissions } from '../../utils/common';

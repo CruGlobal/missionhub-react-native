@@ -1,7 +1,14 @@
 /* eslint max-lines: 0 */
 
 import React, { useState } from 'react';
-import { View, Keyboard, ScrollView, Image, StatusBar } from 'react-native';
+import {
+  View,
+  Keyboard,
+  ScrollView,
+  Image,
+  StatusBar,
+  Text,
+} from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
@@ -21,7 +28,7 @@ import {
 } from '../../../constants';
 import { mapPostTypeToFeedType } from '../../../utils/common';
 import { getPostTypeAnalytics } from '../../../utils/analytics';
-import { Input, Text, Button, Touchable } from '../../../components/common';
+import { Input, Button, Touchable } from '../../../components/common';
 import Header from '../../../components/Header';
 import ImagePicker, {
   SelectImageParams,

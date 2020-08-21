@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, Text } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
 import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
 import BLUE_CHECKBOX from '../../../assets/images/checkIcon-blue.png';
-import { Text, Card, Button } from '../common';
+import { Card, Button } from '../common';
 import ReminderButton from '../ReminderButton';
 import ReminderDateText from '../ReminderDateText';
 import { completeStep } from '../../actions/steps';

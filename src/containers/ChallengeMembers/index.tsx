@@ -1,11 +1,11 @@
 import React from 'react';
-import { FlatList, View, ScrollView } from 'react-native';
+import { FlatList, View, ScrollView, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigationParam } from 'react-navigation-hooks';
 
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { Flex, Text } from '../../components/common';
+import { Flex } from '../../components/common';
 import Header from '../../components/Header';
 import DeprecatedBackButton from '../DeprecatedBackButton';
 import { acceptedChallengesSelector } from '../../selectors/challenges';

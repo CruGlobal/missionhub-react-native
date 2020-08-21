@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useDispatch } from 'react-redux';
@@ -8,7 +8,7 @@ import { AnyAction } from 'redux';
 import { ThunkAction } from 'redux-thunk';
 
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { Text, Flex } from '../../components/common';
+import { Flex } from '../../components/common';
 import PersonCategoryButton from '../../components/PersonCategoryButton';
 import Header from '../../components/Header';
 import DeprecatedBackButton from '../DeprecatedBackButton';

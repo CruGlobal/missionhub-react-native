@@ -1,10 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleProp, ViewStyle } from 'react-native';
+import { StyleProp, ViewStyle, Text } from 'react-native';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
 
-import { Text, Flex } from '../../components/common';
+import { Flex } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import { CHALLENGE_MEMBERS_SCREEN } from '../../containers/ChallengeMembers';
 import { Organization } from '../../reducers/organizations';

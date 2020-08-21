@@ -1,10 +1,10 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, Text } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { useNavigationState } from 'react-navigation-hooks';
 import { useDispatch } from 'react-redux';
 
-import { Touchable, Text } from '../common';
+import { Touchable } from '../common';
 
 import styles from './styles';
 

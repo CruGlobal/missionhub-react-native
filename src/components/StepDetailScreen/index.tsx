@@ -1,12 +1,12 @@
 import React from 'react';
-import { StatusBar, View, Image, ScrollView } from 'react-native';
+import { StatusBar, View, Image, ScrollView, Text } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import Markdown from 'react-native-markdown-display';
 
 import Header from '../Header/index';
 import BottomButton, { BottomButtonProps } from '../BottomButton/index';
-import { Text, Flex } from '../common';
+import { Flex } from '../common';
 import Avatar from '../Avatar';
 import markdownStyles from '../../markdownStyles';
 import theme from '../../theme';

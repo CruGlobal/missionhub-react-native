@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, Alert } from 'react-native';
+import { View, Alert, Text } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 
-import { Text, Button } from '../common';
+import { Button } from '../common';
 import BackButton from '../BackButton';
 import Header from '../Header';
 import theme from '../../theme';

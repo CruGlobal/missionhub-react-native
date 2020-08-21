@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { View, Keyboard, StatusBar, ScrollView, Image } from 'react-native';
+import {
+  View,
+  Keyboard,
+  StatusBar,
+  ScrollView,
+  Image,
+  Text,
+} from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import moment from 'moment';
 
-import { Text, Input, Button } from '../../components/common';
+import { Input, Button } from '../../components/common';
 import DatePicker from '../../components/DatePicker';
 import theme from '../../theme';
 import DeprecatedBackButton from '../DeprecatedBackButton';

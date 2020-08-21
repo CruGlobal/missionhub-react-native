@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 
-import { Text, Icon, Card, Touchable, Button } from '../common';
+import { Icon, Card, Touchable, Button } from '../common';
 import ItemHeaderText from '../ItemHeaderText';
 import ReminderButton from '../ReminderButton';
 import ReminderDateText from '../ReminderDateText';

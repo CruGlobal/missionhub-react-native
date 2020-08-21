@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 
@@ -10,7 +10,6 @@ import DatePicker from '../../components/DatePicker';
 import BottomButton from '../../components/BottomButton';
 import ReminderRepeatButtons from '../../components/ReminderRepeatButtons';
 import ReminderDateText from '../../components/ReminderDateText';
-import { Text } from '../../components/common';
 import { navigateBack } from '../../actions/navigation';
 import { createStepReminder } from '../../actions/stepReminders';
 import { ReminderTypeEnum } from '../../../__generated__/globalTypes';

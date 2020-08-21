@@ -1,8 +1,8 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { Text, Flex, Card, Button } from '../common';
+import { Flex, Card, Button } from '../common';
 import { getFirstNameAndLastInitial } from '../../utils/common';
 import { GetCommunities_communities_nodes } from '../../containers/Groups/__generated__/GetCommunities';
 import { useCommunityPhoto } from '../../containers/Communities/hooks/useCommunityPhoto';

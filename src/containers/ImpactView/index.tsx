@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useQuery } from '@apollo/react-hooks';
 
 import { getImpactSummary } from '../../actions/impact';
-import { Flex, Text } from '../../components/common';
+import { Flex } from '../../components/common';
 import { GLOBAL_COMMUNITY_ID } from '../../constants';
 import { impactSummarySelector } from '../../selectors/impact';
 import { organizationSelector } from '../../selectors/organizations';

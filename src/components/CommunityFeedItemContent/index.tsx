@@ -1,11 +1,11 @@
 /* eslint-disable max-lines */
 import React from 'react';
-import { View, Image, GestureResponderEvent } from 'react-native';
+import { View, Image, GestureResponderEvent, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import Markdown from 'react-native-markdown-display';
 
-import { Text, Touchable } from '../common';
+import { Touchable } from '../common';
 import { navigatePush } from '../../actions/navigation';
 import { reloadGroupChallengeFeed } from '../../actions/challenges';
 import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen';

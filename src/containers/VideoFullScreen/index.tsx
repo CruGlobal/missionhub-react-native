@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import Video, { OnProgressData } from 'react-native-video';
 import { SafeAreaView } from 'react-navigation';
 import { useNavigationParam } from 'react-navigation-hooks';
@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 
 import CloseButton from '../../../assets/images/closeIcon.svg';
 import { navigateBack } from '../../actions/navigation';
-import { Touchable, Text } from '../../components/common';
+import { Touchable } from '../../components/common';
 import theme from '../../theme';
 
 import PlayIconEmpty from './playIconEmpty.svg';

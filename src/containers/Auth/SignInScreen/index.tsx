@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { connect } from 'react-redux-legacy';
-import { SafeAreaView, Keyboard, View, TextInput } from 'react-native';
+import { SafeAreaView, Keyboard, View, TextInput, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import i18n from 'i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
@@ -9,7 +9,6 @@ import { AnyAction } from 'redux';
 
 import {
   Button,
-  Text,
   Flex,
   Icon,
   LoadingWheel,

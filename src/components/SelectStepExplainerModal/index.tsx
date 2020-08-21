@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { View, Image, ImageSourcePropType } from 'react-native';
+import { View, Image, ImageSourcePropType, Text } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
-import { Text, IconButton, Button } from '../../components/common';
+import { IconButton, Button } from '../../components/common';
 import theme from '../../theme';
 import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
 import { StepTypeEnum } from '../../../__generated__/globalTypes';

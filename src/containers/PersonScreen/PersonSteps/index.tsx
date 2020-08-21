@@ -1,12 +1,12 @@
 import React, { useState, useContext } from 'react';
-import { View, Animated, SectionListData } from 'react-native';
+import { View, Animated, SectionListData, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 import { useQuery, useLazyQuery } from '@apollo/react-hooks';
 import { FetchMoreOptions } from 'apollo-client';
 import { useNavigationParam } from 'react-navigation-hooks';
 
-import { Button, RefreshControl, Text } from '../../../components/common';
+import { Button, RefreshControl } from '../../../components/common';
 import BottomButton from '../../../components/BottomButton';
 import NULL from '../../../../assets/images/footprints.png';
 import { keyExtractorId } from '../../../utils/common';

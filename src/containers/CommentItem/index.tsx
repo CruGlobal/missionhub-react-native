@@ -1,8 +1,7 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { Text } from '../../components/common';
 import CardTime from '../../components/CardTime';
 import PopupMenu from '../../components/PopupMenu';
 import { CommunityFeedItemName } from '../../components/CommunityFeedItemName';

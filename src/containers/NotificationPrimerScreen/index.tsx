@@ -1,12 +1,12 @@
 import React from 'react';
 import { AnyAction } from 'redux';
 import { connect } from 'react-redux-legacy';
-import { Image, View } from 'react-native';
+import { Image, View, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
-import { Text, Button, Flex } from '../../components/common';
+import { Button, Flex } from '../../components/common';
 import { navigateBack } from '../../actions/navigation';
 import {
   hasShownPrompt,
