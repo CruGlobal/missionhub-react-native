@@ -158,9 +158,7 @@ const SignInScreen = ({
               {t('forcedLogout:message')}
             </Text>
           ) : (
-            <Text header={true} style={styles.header}>
-              {t('signIn')}
-            </Text>
+            <Text style={styles.header}>{t('signIn')}</Text>
           )}
         </Flex>
       ) : null}

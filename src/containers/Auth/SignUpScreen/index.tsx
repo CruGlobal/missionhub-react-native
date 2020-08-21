@@ -110,9 +110,7 @@ const SignUpScreen = ({
       style={styles.headerContainer}
     >
       <Image source={image} />
-      <Text header={true} style={styles.headerText}>
-        {title.toUpperCase()}
-      </Text>
+      <Text style={styles.headerText}>{title.toUpperCase()}</Text>
       <Text style={styles.descriptionText}>{description}</Text>
     </Flex>
   );

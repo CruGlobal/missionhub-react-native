@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { View, SafeAreaView, FlatList, StatusBar } from 'react-native';
+import { View, SafeAreaView, FlatList, StatusBar, Text } from 'react-native';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
@@ -11,7 +11,6 @@ import CommentsList from '../../../../CommentsList';
 import { CommunityFeedItemContent } from '../../../../../components/CommunityFeedItemContent';
 import {
   RefreshControl,
-  Text,
   Separator,
   Touchable,
 } from '../../../../../components/common';

@@ -33,7 +33,7 @@ describe('back button', () => {
 
   it('renders with different color', () => {
     renderWithContext(
-      <CloseButton iconColor={theme.parakeetBlue} />,
+      <CloseButton iconColor={theme.secondaryColor} />,
     ).snapshot();
   });
 
