@@ -221,7 +221,7 @@ const SideMenu = () => {
             <Button
               testID="updateButton"
               style={styles.updateButton}
-              buttonTextStyle={[styles.updateText]}
+              buttonTextStyle={styles.updateText}
               text={t('update')}
               onPress={onHandleOpenStore}
               pill={true}

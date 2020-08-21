@@ -14,7 +14,7 @@ export default StyleSheet.create({
   list: {
     paddingVertical: 8,
   },
-  headerTitle: theme.textRegular16,
+  headerTitle: { ...theme.textRegular16, color: theme.white },
   nullWrap: {
     flex: 1,
     alignItems: 'center',

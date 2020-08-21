@@ -79,6 +79,8 @@ export const COLORS = {
 const baseTextStyle: TextStyle = {
   color: COLORS.CAVERN_GREY,
   fontStyle: 'normal',
+  textAlignVertical: 'center',
+  textTransform: 'none',
 };
 
 export const TEXT_STYLES: { [key: string]: TextStyle } = {

@@ -23,10 +23,8 @@ export default StyleSheet.create({
     color: theme.white,
   },
   header: {
-    ...theme.textRegular16,
+    ...theme.textAmatic48,
     color: theme.secondaryColor,
-    fontSize: 48,
-    lineHeight: 48,
   },
   errorBar: {
     backgroundColor: theme.orange,

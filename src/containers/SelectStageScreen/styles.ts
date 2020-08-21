@@ -18,7 +18,7 @@ const landscapeHeight = 275;
 export default StyleSheet.create({
   backgroundWrapper: {
     flex: 1,
-    backgroundColor: theme.lightBlue,
+    backgroundColor: theme.secondaryColor,
   },
   container: { flex: 1 },
   content: {

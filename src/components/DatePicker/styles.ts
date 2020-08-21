@@ -10,7 +10,7 @@ export default StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   datePickerBox: {
-    backgroundColor: theme.fadedBlackBackgroundColor,
+    backgroundColor: theme.white,
     position: 'absolute',
     bottom: 0,
     left: 0,

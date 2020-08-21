@@ -76,6 +76,8 @@ export default StyleSheet.create({
     color: theme.white,
     backgroundColor: theme.secondaryColor,
     height: 30,
+    paddingVertical: 0,
+    paddingHorizontal: 10,
   },
   updateText: {
     ...theme.textRegular16,

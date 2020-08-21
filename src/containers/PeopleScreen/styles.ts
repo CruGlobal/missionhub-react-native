@@ -7,7 +7,7 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.primaryColor,
   },
-  headerTitle: theme.textRegular16,
+  headerTitle: { ...theme.textRegular16, color: theme.white },
   list: {
     flex: 1,
     backgroundColor: theme.white,

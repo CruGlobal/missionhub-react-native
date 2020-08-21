@@ -29,10 +29,6 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
   },
   stepText: theme.textRegular16,
-  createStepIcon: {
-    fontSize: 25,
-    color: theme.secondaryColor,
-  },
   completedCountBadge: {
     flexDirection: 'row',
     alignItems: 'center',

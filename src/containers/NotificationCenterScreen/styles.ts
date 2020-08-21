@@ -9,6 +9,7 @@ export default StyleSheet.create({
   },
   title: {
     ...theme.textRegular16,
+    color: theme.white,
   },
   sectionHeader: {
     backgroundColor: theme.extraLightGrey,

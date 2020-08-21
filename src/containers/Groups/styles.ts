@@ -28,7 +28,7 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.extraLightGrey,
   },
-  headerTitle: theme.textRegular16,
+  headerTitle: { ...theme.textRegular16, color: theme.white },
   cardSectionHeader: {
     ...theme.textRegular14,
     marginVertical: 8,
