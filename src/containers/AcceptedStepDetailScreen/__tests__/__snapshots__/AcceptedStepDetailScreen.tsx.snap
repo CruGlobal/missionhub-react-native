@@ -1,24 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should complete step 1`] = `
-Array [
-  Object {
-    "id": "1",
-    "organization": Object {
-      "__typename": "Community",
-      "id": "4",
-    },
-    "receiver": Object {
-      "__typename": "Person",
-      "firstName": "Grace",
-      "id": "3",
-    },
-  },
-  "Step Detail",
-  true,
-]
-`;
-
 exports[`should render correctly post details 1`] = `
 <View
   style={

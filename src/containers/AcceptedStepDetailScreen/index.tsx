@@ -6,7 +6,10 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 
 import { Button, Icon } from '../../components/common';
-import { completeStep, removeFromStepsList } from '../../actions/steps';
+import {
+  handleAfterCompleteStep,
+  removeFromStepsList,
+} from '../../actions/steps';
 import { removeStepReminder } from '../../actions/stepReminders';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { navigateBack } from '../../actions/navigation';
@@ -21,6 +24,7 @@ import {
   ACCEPTED_STEP_DETAIL_QUERY,
   DELETE_STEP_MUTATION,
   DELETE_STEP_REMINDER_MUTATION,
+  COMPLETE_STEP_MUTATION,
 } from './queries';
 import {
   AcceptedStepDetail,
@@ -31,6 +35,10 @@ import {
   DeleteReminder,
   DeleteReminderVariables,
 } from './__generated__/DeleteReminder';
+import {
+  CompleteStep,
+  CompleteStepVariables,
+} from './__generated__/CompleteStep';
 
 const AcceptedStepDetailScreen = () => {
   const { t } = useTranslation('acceptedStepDetail');
@@ -47,6 +55,26 @@ const AcceptedStepDetailScreen = () => {
   >(ACCEPTED_STEP_DETAIL_QUERY, {
     variables: { id: useNavigationParam('stepId') },
   });
+
+  const [completeStep] = useMutation<CompleteStep, CompleteStepVariables>(
+    COMPLETE_STEP_MUTATION,
+    {
+      onCompleted: data => {
+        data.markStepAsCompleted?.step &&
+          dispatch(
+            handleAfterCompleteStep(
+              {
+                id: data.markStepAsCompleted?.step?.id,
+                receiver: data.markStepAsCompleted?.step?.receiver,
+                community: data.markStepAsCompleted?.step?.community,
+              },
+              'Step Detail',
+              true,
+            ),
+          );
+      },
+    },
+  );
 
   const [deleteStep] = useMutation<DeleteStep, DeleteStepVariables>(
     DELETE_STEP_MUTATION,
@@ -71,17 +99,13 @@ const AcceptedStepDetailScreen = () => {
   const post = step?.post;
   const handleCompleteStep = () =>
     step &&
-    dispatch(
-      completeStep(
-        {
+    completeStep({
+      variables: {
+        input: {
           id: step.id,
-          receiver: step.receiver,
-          organization: step.community || undefined,
         },
-        'Step Detail',
-        true,
-      ),
-    );
+      },
+    });
 
   const handleRemoveStep = () => {
     step && deleteStep({ variables: { input: { id: step.id } } });
