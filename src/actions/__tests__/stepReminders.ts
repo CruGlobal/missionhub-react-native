@@ -1,13 +1,15 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
+import { apolloClient } from '../../apolloClient';
 import { DAYS_OF_THE_WEEK } from '../../constants';
-import { removeStepReminder, createStepReminder } from '../stepReminders';
+import { createStepReminder } from '../stepReminders';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
 import { ReminderTypeEnum } from '../../../__generated__/globalTypes';
 
 jest.mock('../api');
+apolloClient.query = jest.fn();
 
 const mockStore = configureStore([thunk]);
 
@@ -25,19 +27,6 @@ callApi.mockReturnValue(callApiResponse);
 
 beforeEach(() => {
   store = mockStore();
-});
-
-describe('removeStepReminder', () => {
-  beforeEach(() => {
-    // @ts-ignore
-    store.dispatch(removeStepReminder(challenge_id));
-  });
-
-  it('should remove reminder from step', () => {
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.DELETE_CHALLENGE_REMINDER, {
-      challenge_id,
-    });
-  });
 });
 
 // @ts-ignore
