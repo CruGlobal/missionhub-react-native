@@ -236,14 +236,15 @@ exports[`Select video should select a video 1`] = `
 - First value
 + Second value
 
-@@ -270,76 +270,48 @@
+@@ -268,142 +268,13 @@
+          }
+          testID=\\"PostInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
         />
-        <View
-          style={
-+           Array [
-              Object {
+-       <View
+-         style={
+-           Object {
 -             \\"backgroundColor\\": \\"#ECEEF2\\",
 -             \\"height\\": 1,
 -             \\"width\\": 750,
@@ -261,40 +262,29 @@ exports[`Select video should select a video 1`] = `
 -         onResponderTerminationRequest={[Function onResponderTerminationRequest]}
 -         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 -         style={
-+               \\"flex\\": 1,
-+             },
-              Object {
+-           Object {
 -             \\"flex\\": 1,
 -             \\"flexDirection\\": \\"row\\",
 -             \\"justifyContent\\": \\"flex-start\\",
 -             \\"opacity\\": 1,
 -             \\"paddingHorizontal\\": 35,
 -             \\"paddingVertical\\": 20,
-+               \\"height\\": 1333.3333333333333,
-+             },
-+             undefined,
-+           ]
-          }
+-           }
 -         }
 -         testID=\\"VideoButton\\"
-        >
+-       >
 -         <SvgMock
 -           style={
-+         <Video
-+           controls={true}
-+           paused={true}
-+           source={
-              Object {
+-             Object {
 -               \\"height\\": 24,
 -               \\"width\\": 24,
-+               \\"uri\\": \\"file:/video.mov\\",
-              }
-            }
+-             }
+-           }
 -         />
 -         <Text
-            style={
+-           style={
 -             Array [
-              Object {
+-               Object {
 -                 \\"color\\": \\"#505256\\",
 -               },
 -               Object {
@@ -306,51 +296,35 @@ exports[`Select video should select a video 1`] = `
 -                 \\"paddingHorizontal\\": 10,
 -               },
 -             ]
-+               \\"bottom\\": 0,
-+               \\"left\\": 0,
-+               \\"position\\": \\"absolute\\",
-+               \\"right\\": 0,
-+               \\"top\\": 0,
-              }
+-           }
 -         >
 -           Record a 15-Second Video
 -         </Text>
 -       </View>
-+           }
-+         />
-          <View
-            style={
-              Object {
+-       <View
+-         style={
+-           Object {
 -             \\"backgroundColor\\": \\"#ECEEF2\\",
 -             \\"height\\": 1,
-+               \\"alignItems\\": \\"flex-end\\",
-+               \\"justifyContent\\": \\"flex-end\\",
-                \\"width\\": 750,
-              }
-            }
+-             \\"width\\": 750,
+-           }
+-         }
 -       />
-+         >
-            <View
-              accessible={true}
-              focusable={true}
-              onClick={[Function onClick]}
-              onResponderGrant={[Function onResponderGrant]}
-@@ -348,62 +320,28 @@
-              onResponderTerminate={[Function onResponderTerminate]}
-              onResponderTerminationRequest={[Function onResponderTerminationRequest]}
-              onStartShouldSetResponder={[Function onStartShouldSetResponder]}
-              style={
-                Object {
-+                 \\"alignItems\\": \\"center\\",
-+                 \\"backgroundColor\\": \\"#FF5532\\",
-+                 \\"borderRadius\\": 18,
-+                 \\"height\\": 40,
-+                 \\"justifyContent\\": \\"center\\",
-+                 \\"margin\\": 16,
-                  \\"opacity\\": 1,
-+                 \\"width\\": 40,
-                }
-              }
+-       <View
+-         accessible={true}
+-         focusable={true}
+-         onClick={[Function onClick]}
+-         onResponderGrant={[Function onResponderGrant]}
+-         onResponderMove={[Function onResponderMove]}
+-         onResponderRelease={[Function onResponderRelease]}
+-         onResponderTerminate={[Function onResponderTerminate]}
+-         onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+-         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
+-         style={
+-           Object {
+-             \\"opacity\\": 1,
+-           }
+-         }
 -         testID=\\"popupMenuButton\\"
 -       >
 -         <View
@@ -363,19 +337,15 @@ exports[`Select video should select a video 1`] = `
 -               \\"paddingVertical\\": 20,
 -             }
 -           }
-+             testID=\\"DeleteButton\\"
-            >
-              <SvgMock
+-         >
+-           <SvgMock
 -             style={
 -               Object {
 -                 \\"height\\": 24,
 -                 \\"width\\": 24,
 -               }
 -             }
-+               color=\\"#ffffff\\"
-+               height={24}
-+               width={24}
-              />
+-           />
 -           <Text
 -             style={
 -               Array [
@@ -395,8 +365,8 @@ exports[`Select video should select a video 1`] = `
 -           >
 -             Add a Photo
 -           </Text>
-            </View>
-          </View>
+-         </View>
+-       </View>
 -       <View
 -         style={
 -           Object {
@@ -405,8 +375,11 @@ exports[`Select video should select a video 1`] = `
 -             \\"width\\": 750,
 -           }
 -         }
--       />
-+       </View>
++       <VideoPlayer
++         onDelete={[Function handleDeleteVideo]}
++         uri=\\"file:/video.mov\\"
++         width={750}
+        />
       </View>
     </RCTScrollView>
   </View>"
@@ -1910,78 +1883,11 @@ exports[`renders correctly for update post with video 1`] = `
         underlineColorAndroid="rgba(0,0,0,0)"
         value="alias consequuntur corporis"
       />
-      <View
-        style={
-          Array [
-            Object {
-              "flex": 1,
-            },
-            Object {
-              "height": 1333.3333333333333,
-            },
-            undefined,
-          ]
-        }
-      >
-        <Video
-          controls={true}
-          paused={true}
-          source={
-            Object {
-              "uri": "file:/video.mov",
-            }
-          }
-          style={
-            Object {
-              "bottom": 0,
-              "left": 0,
-              "position": "absolute",
-              "right": 0,
-              "top": 0,
-            }
-          }
-        />
-        <View
-          style={
-            Object {
-              "alignItems": "flex-end",
-              "justifyContent": "flex-end",
-              "width": 750,
-            }
-          }
-        >
-          <View
-            accessible={true}
-            focusable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#FF5532",
-                "borderRadius": 18,
-                "height": 40,
-                "justifyContent": "center",
-                "margin": 16,
-                "opacity": 1,
-                "width": 40,
-              }
-            }
-            testID="DeleteButton"
-          >
-            <SvgMock
-              color="#ffffff"
-              height={24}
-              width={24}
-            />
-          </View>
-        </View>
-      </View>
+      <VideoPlayer
+        onDelete={[Function]}
+        uri="file:/video.mov"
+        width={750}
+      />
     </View>
   </RCTScrollView>
 </View>
