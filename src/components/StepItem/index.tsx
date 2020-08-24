@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { useMutation } from '@apollo/react-hooks';
 import { useDispatch } from 'react-redux';
 
 import { Text, Icon, Card, Touchable, Button } from '../common';
@@ -14,9 +15,14 @@ import { navigatePush } from '../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../containers/AcceptedStepDetailScreen';
 import { COMPLETED_STEP_DETAIL_SCREEN } from '../../containers/CompletedStepDetailScreen';
 import { navToPersonScreen } from '../../actions/person';
-import { completeStep } from '../../actions/steps';
+import { handleAfterCompleteStep } from '../../actions/steps';
+import { COMPLETE_STEP_MUTATION } from '../../containers/AcceptedStepDetailScreen/queries';
 import { CONTACT_STEPS } from '../../constants';
 import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
+import {
+  CompleteStep,
+  CompleteStepVariables,
+} from '../../containers/AcceptedStepDetailScreen/__generated__/CompleteStep';
 
 import { StepItem as Step } from './__generated__/StepItem';
 import styles from './styles';
@@ -35,6 +41,25 @@ const StepItem = ({
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
+  const [completeStep] = useMutation<CompleteStep, CompleteStepVariables>(
+    COMPLETE_STEP_MUTATION,
+    {
+      onCompleted: data => {
+        data.markStepAsCompleted?.step &&
+          dispatch(
+            handleAfterCompleteStep(
+              {
+                id: data.markStepAsCompleted?.step?.id,
+                receiver: data.markStepAsCompleted?.step?.receiver,
+                community: data.markStepAsCompleted?.step?.community,
+              },
+              CONTACT_STEPS,
+            ),
+          );
+      },
+    },
+  );
+
   const onPressCard = () => {
     dispatch(
       navigatePush(
@@ -52,7 +77,7 @@ const StepItem = ({
   };
 
   const onPressCheckbox = async () => {
-    await dispatch(completeStep(step, CONTACT_STEPS));
+    step && (await completeStep({ variables: { input: { id: step.id } } }));
   };
 
   const isMe = useIsMe(step.receiver && step.receiver.id);

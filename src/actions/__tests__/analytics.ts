@@ -12,9 +12,9 @@ import {
   updateAnalyticsContext,
   logInAnalytics,
   trackActionWithoutData,
-  trackSearchFilter,
   ANALYTICS_CONTEXT_CHANGED,
   ScreenContext,
+  trackStepDeleted,
 } from '../analytics';
 import { STEP_ADDED_ANALYTICS_FRAGMENT } from '../analyticsQueries';
 import {
@@ -217,22 +217,6 @@ describe('trackActionWithoutData', () => {
   });
 });
 
-describe('trackSearchFilter', () => {
-  it('should track label and two keys', () => {
-    const label = 'hello label';
-
-    store.dispatch<any>(trackSearchFilter(label));
-
-    expect(RNOmniture.trackAction).toHaveBeenCalledWith(
-      ACTIONS.FILTER_ENGAGED.name,
-      {
-        [ACTIONS.SEARCH_FILTER.key]: label,
-        [ACTIONS.FILTER_ENGAGED.key]: '1',
-      },
-    );
-  });
-});
-
 describe('trackAction', () => {
   it('should track action', () => {
     const action = 'test action';
@@ -323,6 +307,19 @@ describe('trackStepAdded', () => {
       { [ACTIONS.STEPS_ADDED.key]: 1 },
     );
   });
+});
+
+it('should track step deletion', async () => {
+  await store.dispatch<any>(trackStepDeleted('Step Detail'));
+  expect(store.getActions()).toEqual([]);
+
+  expect(RNOmniture.trackAction).toHaveBeenCalledTimes(1);
+  expect(RNOmniture.trackAction).toHaveBeenCalledWith(
+    'Step Removed on Step Detail Screen',
+    {
+      [ACTIONS.STEP_REMOVED.key]: '1',
+    },
+  );
 });
 
 describe('logInAnalytics', () => {
