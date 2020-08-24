@@ -362,6 +362,7 @@ exports[`PersonJourney renders screen with steps correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "flex": 1,
               "opacity": 1,
             }
           }
@@ -584,6 +585,7 @@ exports[`PersonJourney renders screen with steps for me correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "flex": 1,
               "opacity": 1,
             }
           }
@@ -1042,6 +1044,7 @@ exports[`journey methods renders a step 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "flex": 1,
               "opacity": 1,
             }
           }
@@ -1284,6 +1287,7 @@ exports[`journey methods renders an interaction row 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "flex": 1,
               "opacity": 1,
             }
           }
