@@ -65,6 +65,7 @@ export const CLEAR_UPGRADE_TOKEN = 'app/CLEAR_UPGRADE_TOKEN';
 export const SAVE_PENDING_POST = 'app/SAVE_PENDING_POST';
 export const DELETE_PENDING_POST = 'app/DELETE_PENDING_POST';
 export const PENDING_POST_FAILED = 'app/PENDING_POST_FAILED';
+export const PENDING_POST_RETRY = 'app/PENDING_POST_RETRY';
 
 // Errors
 export const EXPIRED_ACCESS_TOKEN = 'Expired access token';

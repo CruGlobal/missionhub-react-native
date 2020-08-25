@@ -54,6 +54,7 @@ export const PendingFeedItem = ({
     media,
     mediaType: 'video',
     onComplete,
+    existingStorageId: pendingItemId,
   });
 
   const handleRetry = () => {
