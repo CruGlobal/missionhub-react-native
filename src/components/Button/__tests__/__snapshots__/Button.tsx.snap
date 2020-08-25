@@ -143,7 +143,7 @@ exports[`renders secondary correctly 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#52C5DC",
+          "backgroundColor": "#3CC8E6",
           "height": 60,
           "justifyContent": "center",
         },
@@ -251,22 +251,18 @@ exports[`renders with image correctly 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
-            },
-            Object {
+              "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            Array [
-              Object {
-                "backgroundColor": "rgba(0,0,0,0)",
-                "color": "#ffffff",
-                "fontSize": 14,
-                "fontWeight": "500",
-                "letterSpacing": 1.5,
-                "textAlign": "center",
-              },
-              Object {},
-            ],
+            Object {},
           ]
         }
       >
@@ -319,22 +315,18 @@ exports[`renders with text correctly 1`] = `
       style={
         Array [
           Object {
-            "color": "#505256",
-          },
-          Object {
+            "color": "#ffffff",
             "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "letterSpacing": 1,
+            "lineHeight": 18,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
           },
-          Array [
-            Object {
-              "backgroundColor": "rgba(0,0,0,0)",
-              "color": "#ffffff",
-              "fontSize": 14,
-              "fontWeight": "500",
-              "letterSpacing": 1.5,
-              "textAlign": "center",
-            },
-            Object {},
-          ],
+          Object {},
         ]
       }
     >

@@ -185,20 +185,20 @@ exports[`renders create step correctly 1`] = `
             Array [
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "color": "#B4B6BA",
+                "paddingLeft": 4,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "paddingLeft": 4,
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
@@ -223,13 +223,18 @@ exports[`renders create step correctly 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomColor": "transparent",
@@ -237,8 +242,13 @@ exports[`renders create step correctly 1`] = `
               "flex": 1,
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 32,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 38,
               "minHeight": 90.5,
               "paddingHorizontal": 45,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -281,7 +291,7 @@ exports[`renders create step correctly 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -304,23 +314,19 @@ exports[`renders create step correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -518,20 +524,20 @@ exports[`renders create step correctly on android 1`] = `
             Array [
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "color": "#B4B6BA",
+                "paddingLeft": 4,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "paddingLeft": 4,
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
@@ -556,13 +562,18 @@ exports[`renders create step correctly on android 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomColor": "transparent",
@@ -570,8 +581,13 @@ exports[`renders create step correctly on android 1`] = `
               "flex": 1,
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 32,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 38,
               "minHeight": 90.5,
               "paddingHorizontal": 45,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -614,7 +630,7 @@ exports[`renders create step correctly on android 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -637,23 +653,19 @@ exports[`renders create step correctly on android 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -851,20 +863,20 @@ exports[`renders create step in onboarding correctly 1`] = `
             Array [
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "color": "#B4B6BA",
+                "paddingLeft": 4,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "paddingLeft": 4,
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
@@ -889,13 +901,18 @@ exports[`renders create step in onboarding correctly 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomColor": "transparent",
@@ -903,8 +920,13 @@ exports[`renders create step in onboarding correctly 1`] = `
               "flex": 1,
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 32,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 38,
               "minHeight": 90.5,
               "paddingHorizontal": 45,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -947,7 +969,7 @@ exports[`renders create step in onboarding correctly 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -970,23 +992,19 @@ exports[`renders create step in onboarding correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -1178,13 +1196,18 @@ exports[`renders edit journey item correctly 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomColor": "transparent",
@@ -1192,8 +1215,13 @@ exports[`renders edit journey item correctly 1`] = `
               "flex": 1,
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 32,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 38,
               "minHeight": 90.5,
               "paddingHorizontal": 45,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -1236,7 +1264,7 @@ exports[`renders edit journey item correctly 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -1259,23 +1287,19 @@ exports[`renders edit journey item correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -1467,13 +1491,18 @@ exports[`renders edit journey item for me correctly 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomColor": "transparent",
@@ -1481,8 +1510,13 @@ exports[`renders edit journey item for me correctly 1`] = `
               "flex": 1,
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 32,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 38,
               "minHeight": 90.5,
               "paddingHorizontal": 45,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -1525,7 +1559,7 @@ exports[`renders edit journey item for me correctly 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -1548,23 +1582,19 @@ exports[`renders edit journey item for me correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -1756,13 +1786,18 @@ exports[`renders edit journey step correctly 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomColor": "transparent",
@@ -1770,8 +1805,13 @@ exports[`renders edit journey step correctly 1`] = `
               "flex": 1,
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 32,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 38,
               "minHeight": 90.5,
               "paddingHorizontal": 45,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -1814,7 +1854,7 @@ exports[`renders edit journey step correctly 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -1837,23 +1877,19 @@ exports[`renders edit journey step correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -2045,13 +2081,18 @@ exports[`renders edit journey step for me correctly 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomColor": "transparent",
@@ -2059,8 +2100,13 @@ exports[`renders edit journey step for me correctly 1`] = `
               "flex": 1,
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 32,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 38,
               "minHeight": 90.5,
               "paddingHorizontal": 45,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -2103,7 +2149,7 @@ exports[`renders edit journey step for me correctly 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -2126,23 +2172,19 @@ exports[`renders edit journey step for me correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -2333,30 +2375,39 @@ exports[`renders step note correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
-                  },
-                  Object {
+                    "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
                   Array [
                     Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "fontSize": 14,
-                        "fontWeight": "bold",
-                      },
-                    ],
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textAlignVertical": "center",
+                      "textTransform": "uppercase",
+                    },
                   ],
                 ]
               }
@@ -2405,13 +2456,18 @@ exports[`renders step note correctly 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomColor": "transparent",
@@ -2419,8 +2475,13 @@ exports[`renders step note correctly 1`] = `
               "flex": 1,
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 32,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 38,
               "minHeight": 90.5,
               "paddingHorizontal": 45,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -2463,7 +2524,7 @@ exports[`renders step note correctly 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -2486,23 +2547,19 @@ exports[`renders step note correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -2693,30 +2750,39 @@ exports[`renders step note correctly for me 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
-                  },
-                  Object {
+                    "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
                   Array [
                     Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "fontSize": 14,
-                        "fontWeight": "bold",
-                      },
-                    ],
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textAlignVertical": "center",
+                      "textTransform": "uppercase",
+                    },
                   ],
                 ]
               }
@@ -2765,13 +2831,18 @@ exports[`renders step note correctly for me 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomColor": "transparent",
@@ -2779,8 +2850,13 @@ exports[`renders step note correctly for me 1`] = `
               "flex": 1,
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 32,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 38,
               "minHeight": 90.5,
               "paddingHorizontal": 45,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -2823,7 +2899,7 @@ exports[`renders step note correctly for me 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -2846,23 +2922,19 @@ exports[`renders step note correctly for me 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -2895,10 +2967,10 @@ exports[`skips save step 1`] = `
                       \\"padding\\": 15,
                     },
                     undefined,
-@@ -306,12 +308,14 @@
+@@ -325,12 +327,14 @@
               Object {
                 \\"alignItems\\": \\"center\\",
-                \\"backgroundColor\\": \\"#52C5DC\\",
+                \\"backgroundColor\\": \\"#3CC8E6\\",
                 \\"height\\": 60,
                 \\"justifyContent\\": \\"center\\",
 +             },
@@ -2918,7 +2990,7 @@ exports[`updates text 1`] = `
 - First value
 + Second value
 
-@@ -267,11 +267,11 @@
+@@ -286,11 +286,11 @@
             ]
           }
           testID=\\"stepInput\\"

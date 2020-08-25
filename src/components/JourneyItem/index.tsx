@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import i18next from 'i18next';
 import { withTranslation } from 'react-i18next';
+import { Text } from 'react-native';
 
-import { Flex, Text, Icon, DateComponent } from '../common';
+import { Flex, Icon, DateComponent } from '../common';
 import { INTERACTION_TYPES, ACCEPTED_STEP } from '../../constants';
 import { getAssignedByName, getAssignedToName } from '../../utils/common';
 import { localizedStageSelector } from '../../selectors/stages';

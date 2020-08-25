@@ -125,9 +125,12 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
             "color": "#333333",
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 24,
+            "fontStyle": "normal",
             "fontWeight": "300",
             "lineHeight": 30,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -137,9 +140,14 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
         style={
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
-            "lineHeight": 22,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -196,22 +204,18 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {},
-                ],
+                Object {},
               ]
             }
           >
@@ -347,9 +351,12 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
             "color": "#333333",
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 24,
+            "fontStyle": "normal",
             "fontWeight": "300",
             "lineHeight": 30,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -359,9 +366,14 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
         style={
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
-            "lineHeight": 22,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -418,22 +430,18 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {},
-                ],
+                Object {},
               ]
             }
           >
@@ -569,9 +577,12 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
             "color": "#333333",
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 24,
+            "fontStyle": "normal",
             "fontWeight": "300",
             "lineHeight": 30,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -581,9 +592,14 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
         style={
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
-            "lineHeight": 22,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -640,22 +656,18 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {},
-                ],
+                Object {},
               ]
             }
           >
@@ -791,9 +803,12 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUNCEMENT
             "color": "#333333",
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 24,
+            "fontStyle": "normal",
             "fontWeight": "300",
             "lineHeight": 30,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -803,9 +818,14 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUNCEMENT
         style={
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
-            "lineHeight": 22,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -862,22 +882,18 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUNCEMENT
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {},
-                ],
+                Object {},
               ]
             }
           >

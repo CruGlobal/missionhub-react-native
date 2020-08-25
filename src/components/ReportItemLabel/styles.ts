@@ -4,9 +4,11 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   label: {
-    color: theme.inactiveColor,
+    ...theme.textRegular14,
+    color: theme.extraLightGrey,
   },
   user: {
-    color: theme.grey,
+    ...theme.textRegular16,
+    color: theme.white,
   },
 });

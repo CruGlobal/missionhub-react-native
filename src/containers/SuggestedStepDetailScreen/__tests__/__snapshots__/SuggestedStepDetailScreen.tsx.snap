@@ -151,20 +151,20 @@ exports[`renders correctly 1`] = `
             Array [
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "color": "#B4B6BA",
+                "paddingLeft": 4,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "paddingLeft": 4,
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
@@ -173,22 +173,18 @@ exports[`renders correctly 1`] = `
       </View>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 32,
-              "fontWeight": "300",
-              "lineHeight": 38,
-              "marginHorizontal": 32,
-              "marginVertical": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 38,
+            "marginHorizontal": 32,
+            "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         This step is for Zion
@@ -236,7 +232,11 @@ exports[`renders correctly 1`] = `
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -282,7 +282,7 @@ exports[`renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -305,23 +305,19 @@ exports[`renders correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -485,20 +481,20 @@ exports[`renders correctly for me 1`] = `
             Array [
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "color": "#B4B6BA",
+                "paddingLeft": 4,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "paddingLeft": 4,
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
@@ -507,22 +503,18 @@ exports[`renders correctly for me 1`] = `
       </View>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 32,
-              "fontWeight": "300",
-              "lineHeight": 38,
-              "marginHorizontal": 32,
-              "marginVertical": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 38,
+            "marginHorizontal": 32,
+            "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         esse repellat quisquam
@@ -570,7 +562,11 @@ exports[`renders correctly for me 1`] = `
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -616,7 +612,7 @@ exports[`renders correctly for me 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -639,23 +635,19 @@ exports[`renders correctly for me 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -819,20 +811,20 @@ exports[`renders correctly in onboarding 1`] = `
             Array [
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "color": "#B4B6BA",
+                "paddingLeft": 4,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "paddingLeft": 4,
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
@@ -841,22 +833,18 @@ exports[`renders correctly in onboarding 1`] = `
       </View>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 32,
-              "fontWeight": "300",
-              "lineHeight": 38,
-              "marginHorizontal": 32,
-              "marginVertical": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 38,
+            "marginHorizontal": 32,
+            "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         esse repellat quisquam
@@ -904,7 +892,11 @@ exports[`renders correctly in onboarding 1`] = `
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -950,7 +942,7 @@ exports[`renders correctly in onboarding 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -973,23 +965,19 @@ exports[`renders correctly in onboarding 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }

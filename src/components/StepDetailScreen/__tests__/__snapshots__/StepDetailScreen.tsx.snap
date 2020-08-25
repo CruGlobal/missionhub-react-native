@@ -166,20 +166,20 @@ exports[`Post is not null renders correctly with post 1`] = `
             Array [
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "color": "#B4B6BA",
+                "paddingLeft": 4,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "paddingLeft": 4,
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
@@ -188,22 +188,18 @@ exports[`Post is not null renders correctly with post 1`] = `
       </View>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 32,
-              "fontWeight": "300",
-              "lineHeight": 38,
-              "marginHorizontal": 32,
-              "marginVertical": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 38,
+            "marginHorizontal": 32,
+            "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Roge is well behaved
@@ -270,18 +266,17 @@ exports[`Post is not null renders correctly with post 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
+                }
               }
             >
               Mina Watsica
@@ -302,18 +297,16 @@ exports[`Post is not null renders correctly with post 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
-                    },
-                    Object {
+                      "color": "#B4B6BA",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
-                    Array [
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
-                      Object {},
-                    ],
+                    Object {},
                   ]
                 }
                 testID="Text"
@@ -323,19 +316,11 @@ exports[`Post is not null renders correctly with post 1`] = `
               <Text
                 onPress={[Function]}
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontSize": 12,
-                      "paddingLeft": 10,
-                    },
-                  ]
+                  Object {
+                    "color": "#3CC8E6",
+                    "fontSize": 12,
+                    "paddingLeft": 10,
+                  }
                 }
                 testID="openPostButton"
               >
@@ -385,7 +370,11 @@ exports[`Post is not null renders correctly with post 1`] = `
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
                         "lineHeight": 24,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -591,20 +580,20 @@ exports[`Post is not null renders correctly with post with image 1`] = `
             Array [
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "color": "#B4B6BA",
+                "paddingLeft": 4,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "paddingLeft": 4,
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
@@ -613,22 +602,18 @@ exports[`Post is not null renders correctly with post with image 1`] = `
       </View>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 32,
-              "fontWeight": "300",
-              "lineHeight": 38,
-              "marginHorizontal": 32,
-              "marginVertical": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 38,
+            "marginHorizontal": 32,
+            "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Roge is well behaved
@@ -695,18 +680,17 @@ exports[`Post is not null renders correctly with post with image 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
+                }
               }
             >
               Mina Watsica
@@ -727,18 +711,16 @@ exports[`Post is not null renders correctly with post with image 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
-                    },
-                    Object {
+                      "color": "#B4B6BA",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
-                    Array [
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
-                      Object {},
-                    ],
+                    Object {},
                   ]
                 }
                 testID="Text"
@@ -748,19 +730,11 @@ exports[`Post is not null renders correctly with post with image 1`] = `
               <Text
                 onPress={[Function]}
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontSize": 12,
-                      "paddingLeft": 10,
-                    },
-                  ]
+                  Object {
+                    "color": "#3CC8E6",
+                    "fontSize": 12,
+                    "paddingLeft": 10,
+                  }
                 }
                 testID="openPostButton"
               >
@@ -810,7 +784,11 @@ exports[`Post is not null renders correctly with post with image 1`] = `
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
                         "lineHeight": 24,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -1016,20 +994,20 @@ exports[`Post is not null renders post without image 1`] = `
             Array [
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "color": "#B4B6BA",
+                "paddingLeft": 4,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "paddingLeft": 4,
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
@@ -1038,22 +1016,18 @@ exports[`Post is not null renders post without image 1`] = `
       </View>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 32,
-              "fontWeight": "300",
-              "lineHeight": 38,
-              "marginHorizontal": 32,
-              "marginVertical": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 38,
+            "marginHorizontal": 32,
+            "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Roge is well behaved
@@ -1120,18 +1094,17 @@ exports[`Post is not null renders post without image 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
+                }
               }
             >
               Hayden Zieme
@@ -1152,18 +1125,16 @@ exports[`Post is not null renders post without image 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
-                    },
-                    Object {
+                      "color": "#B4B6BA",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
-                    Array [
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
-                      Object {},
-                    ],
+                    Object {},
                   ]
                 }
                 testID="Text"
@@ -1173,19 +1144,11 @@ exports[`Post is not null renders post without image 1`] = `
               <Text
                 onPress={[Function]}
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontSize": 12,
-                      "paddingLeft": 10,
-                    },
-                  ]
+                  Object {
+                    "color": "#3CC8E6",
+                    "fontSize": 12,
+                    "paddingLeft": 10,
+                  }
                 }
                 testID="openPostButton"
               >
@@ -1235,7 +1198,11 @@ exports[`Post is not null renders post without image 1`] = `
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
                         "lineHeight": 24,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -1419,20 +1386,20 @@ exports[`Post is not null renders with an input 1`] = `
             Array [
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "color": "#B4B6BA",
+                "paddingLeft": 4,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "paddingLeft": 4,
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
@@ -1504,18 +1471,17 @@ exports[`Post is not null renders with an input 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
+                }
               }
             >
               Mina Watsica
@@ -1536,18 +1502,16 @@ exports[`Post is not null renders with an input 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
-                    },
-                    Object {
+                      "color": "#B4B6BA",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
-                    Array [
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
-                      Object {},
-                    ],
+                    Object {},
                   ]
                 }
                 testID="Text"
@@ -1557,19 +1521,11 @@ exports[`Post is not null renders with an input 1`] = `
               <Text
                 onPress={[Function]}
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontSize": 12,
-                      "paddingLeft": 10,
-                    },
-                  ]
+                  Object {
+                    "color": "#3CC8E6",
+                    "fontSize": 12,
+                    "paddingLeft": 10,
+                  }
                 }
                 testID="openPostButton"
               >
@@ -1619,7 +1575,11 @@ exports[`Post is not null renders with an input 1`] = `
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
                         "lineHeight": 24,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -1814,20 +1774,20 @@ exports[`markdown is empty string renders correctly 1`] = `
           Array [
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "color": "#B4B6BA",
+              "paddingLeft": 4,
             },
-            Array [
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 16,
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "paddingLeft": 4,
-              },
-              undefined,
-            ],
+            undefined,
           ]
         }
       >
@@ -1836,22 +1796,18 @@ exports[`markdown is empty string renders correctly 1`] = `
     </View>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Light",
-            "fontSize": 32,
-            "fontWeight": "300",
-            "lineHeight": 38,
-            "marginHorizontal": 32,
-            "marginVertical": 16,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Light",
+          "fontSize": 32,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 38,
+          "marginHorizontal": 32,
+          "marginVertical": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Roge is well behaved
@@ -2037,20 +1993,20 @@ exports[`markdown is not null renders correctly 1`] = `
             Array [
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "color": "#B4B6BA",
+                "paddingLeft": 4,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "paddingLeft": 4,
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
@@ -2059,22 +2015,18 @@ exports[`markdown is not null renders correctly 1`] = `
       </View>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 32,
-              "fontWeight": "300",
-              "lineHeight": 38,
-              "marginHorizontal": 32,
-              "marginVertical": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 38,
+            "marginHorizontal": 32,
+            "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Roge is well behaved
@@ -2117,7 +2069,11 @@ exports[`markdown is not null renders correctly 1`] = `
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -2300,20 +2256,20 @@ exports[`markdown is not null renders correctly on android 1`] = `
             Array [
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "color": "#B4B6BA",
+                "paddingLeft": 4,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "paddingLeft": 4,
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
@@ -2322,22 +2278,18 @@ exports[`markdown is not null renders correctly on android 1`] = `
       </View>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 32,
-              "fontWeight": "300",
-              "lineHeight": 38,
-              "marginHorizontal": 32,
-              "marginVertical": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 38,
+            "marginHorizontal": 32,
+            "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Roge is well behaved
@@ -2380,7 +2332,11 @@ exports[`markdown is not null renders correctly on android 1`] = `
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -2563,20 +2519,20 @@ exports[`markdown is not null renders correctly on android with bottom button pr
             Array [
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "color": "#B4B6BA",
+                "paddingLeft": 4,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "paddingLeft": 4,
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
@@ -2585,22 +2541,18 @@ exports[`markdown is not null renders correctly on android with bottom button pr
       </View>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 32,
-              "fontWeight": "300",
-              "lineHeight": 38,
-              "marginHorizontal": 32,
-              "marginVertical": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 38,
+            "marginHorizontal": 32,
+            "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Roge is well behaved
@@ -2643,7 +2595,11 @@ exports[`markdown is not null renders correctly on android with bottom button pr
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -2689,7 +2645,7 @@ exports[`markdown is not null renders correctly on android with bottom button pr
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -2712,23 +2668,19 @@ exports[`markdown is not null renders correctly on android with bottom button pr
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -2907,20 +2859,20 @@ exports[`markdown is not null renders correctly with bottom button props 1`] = `
             Array [
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "color": "#B4B6BA",
+                "paddingLeft": 4,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "paddingLeft": 4,
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
@@ -2929,22 +2881,18 @@ exports[`markdown is not null renders correctly with bottom button props 1`] = `
       </View>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 32,
-              "fontWeight": "300",
-              "lineHeight": 38,
-              "marginHorizontal": 32,
-              "marginVertical": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 38,
+            "marginHorizontal": 32,
+            "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Roge is well behaved
@@ -2987,7 +2935,11 @@ exports[`markdown is not null renders correctly with bottom button props 1`] = `
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -3033,7 +2985,7 @@ exports[`markdown is not null renders correctly with bottom button props 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -3056,23 +3008,19 @@ exports[`markdown is not null renders correctly with bottom button props 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -3240,20 +3188,20 @@ exports[`markdown is null bottomButtonProps are not null renders correctly 1`] =
           Array [
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "color": "#B4B6BA",
+              "paddingLeft": 4,
             },
-            Array [
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 16,
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "paddingLeft": 4,
-              },
-              undefined,
-            ],
+            undefined,
           ]
         }
       >
@@ -3262,22 +3210,18 @@ exports[`markdown is null bottomButtonProps are not null renders correctly 1`] =
     </View>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Light",
-            "fontSize": 32,
-            "fontWeight": "300",
-            "lineHeight": 38,
-            "marginHorizontal": 32,
-            "marginVertical": 16,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Light",
+          "fontSize": 32,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 38,
+          "marginHorizontal": 32,
+          "marginVertical": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Roge is well behaved
@@ -3326,7 +3270,7 @@ exports[`markdown is null bottomButtonProps are not null renders correctly 1`] =
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -3349,23 +3293,19 @@ exports[`markdown is null bottomButtonProps are not null renders correctly 1`] =
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -3533,20 +3473,20 @@ exports[`markdown is null bottomButtonProps are null renders correctly 1`] = `
           Array [
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "color": "#B4B6BA",
+              "paddingLeft": 4,
             },
-            Array [
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 16,
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "paddingLeft": 4,
-              },
-              undefined,
-            ],
+            undefined,
           ]
         }
       >
@@ -3555,22 +3495,18 @@ exports[`markdown is null bottomButtonProps are null renders correctly 1`] = `
     </View>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Light",
-            "fontSize": 32,
-            "fontWeight": "300",
-            "lineHeight": 38,
-            "marginHorizontal": 32,
-            "marginVertical": 16,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Light",
+          "fontSize": 32,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 38,
+          "marginHorizontal": 32,
+          "marginVertical": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Roge is well behaved
@@ -3756,20 +3692,20 @@ exports[`markdown with <<name>> to change renders correctly 1`] = `
             Array [
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "color": "#B4B6BA",
+                "paddingLeft": 4,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "paddingLeft": 4,
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
@@ -3778,22 +3714,18 @@ exports[`markdown with <<name>> to change renders correctly 1`] = `
       </View>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 32,
-              "fontWeight": "300",
-              "lineHeight": 38,
-              "marginHorizontal": 32,
-              "marginVertical": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 38,
+            "marginHorizontal": 32,
+            "marginVertical": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Roge is well behaved
@@ -3836,7 +3768,11 @@ exports[`markdown with <<name>> to change renders correctly 1`] = `
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
                       "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {},
                   ]
@@ -3958,20 +3894,20 @@ exports[`renders with hideBackButton renders correctly 1`] = `
           Array [
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "color": "#B4B6BA",
+              "paddingLeft": 4,
             },
-            Array [
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 16,
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "paddingLeft": 4,
-              },
-              undefined,
-            ],
+            undefined,
           ]
         }
       >
@@ -3980,22 +3916,18 @@ exports[`renders with hideBackButton renders correctly 1`] = `
     </View>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Light",
-            "fontSize": 32,
-            "fontWeight": "300",
-            "lineHeight": 38,
-            "marginHorizontal": 32,
-            "marginVertical": 16,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Light",
+          "fontSize": 32,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 38,
+          "marginHorizontal": 32,
+          "marginVertical": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Roge is well behaved

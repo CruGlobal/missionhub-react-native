@@ -196,7 +196,7 @@ const MainTabBar = createBottomTabNavigator(tabs, {
       paddingTop: 4,
     },
     activeTintColor: theme.primaryColor,
-    inactiveTintColor: theme.inactiveColor,
+    inactiveTintColor: theme.lightGrey,
     // @ts-ignore
     indicatorStyle: { backgroundColor: 'transparent' },
     upperCaseLabel: false,

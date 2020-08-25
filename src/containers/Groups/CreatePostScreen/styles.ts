@@ -8,15 +8,10 @@ export default StyleSheet.create({
     backgroundColor: theme.white,
     flexDirection: 'column',
   },
-  headerText: {
-    fontSize: 14,
-    lineHeight: 20,
-  },
+  headerText: theme.textRegular14,
   createPostButtonText: {
-    color: theme.parakeetBlue,
-    fontWeight: 'normal',
-    fontSize: 16,
-    lineHeight: 24,
+    ...theme.textRegular16,
+    color: theme.secondaryColor,
   },
   icon: { height: 24, width: 24 },
   postLabelRow: {
@@ -38,8 +33,7 @@ export default StyleSheet.create({
     paddingVertical: 20,
   },
   addPhotoText: {
-    fontSize: 16,
-    lineHeight: 24,
+    ...theme.textRegular16,
     paddingHorizontal: 10,
   },
   image: {
@@ -50,10 +44,8 @@ export default StyleSheet.create({
     paddingTop: 0,
   },
   textInput: {
-    fontSize: 24,
-    fontWeight: '300',
-    lineHeight: 30,
-    color: theme.textColor,
+    ...theme.textLight24,
+    color: theme.lightGrey,
     borderBottomWidth: 0,
     paddingHorizontal: 35,
     paddingTop: 20,

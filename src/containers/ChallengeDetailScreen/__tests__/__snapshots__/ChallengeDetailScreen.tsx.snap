@@ -154,18 +154,10 @@ exports[`should call navigateBack from community name press 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "fontSize": 14,
+                "lineHeight": 20,
+              }
             }
           >
             Test
@@ -221,25 +213,21 @@ exports[`should call navigateBack from community name press 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
                   Object {
-                    "fontFamily": "SourceSansPro-Regular",
+                    "color": "#3CC8E6",
+                    "fontSize": 14,
                   },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontSize": 14,
-                    },
-                  ],
                 ]
               }
             >
@@ -293,20 +281,16 @@ exports[`should call navigateBack from community name press 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Light",
-                    "fontSize": 24,
-                    "lineHeight": 30,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Light",
+                  "fontSize": 24,
+                  "fontStyle": "normal",
+                  "fontWeight": "300",
+                  "lineHeight": 30,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Read "There and Back Again"
@@ -342,19 +326,16 @@ exports[`should call navigateBack from community name press 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 Joined
@@ -364,22 +345,18 @@ exports[`should call navigateBack from community name press 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 38,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
-                      "fontFamily": "SourceSansPro-Regular",
+                      "color": "#B4B6BA",
                     },
-                    Array [
-                      Object {
-                        "color": "#3CC8E6",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 32,
-                        "lineHeight": 38,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                      },
-                    ],
                   ]
                 }
                 testID="joinedCount"
@@ -399,19 +376,16 @@ exports[`should call navigateBack from community name press 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 Completed
@@ -421,22 +395,18 @@ exports[`should call navigateBack from community name press 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 38,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
-                      "fontFamily": "SourceSansPro-Regular",
+                      "color": "#B4B6BA",
                     },
-                    Array [
-                      Object {
-                        "color": "#3CC8E6",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 32,
-                        "lineHeight": 38,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                      },
-                    ],
                   ]
                 }
                 testID="completedCount"
@@ -470,36 +440,32 @@ exports[`should call navigateBack from community name press 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#A0A2A6",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Challenge Ends
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
               testID="Text"
             >
@@ -519,18 +485,16 @@ exports[`should call navigateBack from community name press 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#A0A2A6",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Details
@@ -562,7 +526,11 @@ exports[`should call navigateBack from community name press 1`] = `
                           "color": "#505256",
                           "fontFamily": "SourceSansPro-Regular",
                           "fontSize": 16,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
                           "lineHeight": 24,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         },
                         Object {},
                       ]
@@ -625,7 +593,7 @@ exports[`should call navigateBack from community name press 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -672,23 +640,19 @@ exports[`should call navigateBack from community name press 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    undefined,
-                  ],
+                  undefined,
                 ],
               ]
             }
@@ -875,25 +839,21 @@ exports[`should call navigateBack from press 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
                   Object {
-                    "fontFamily": "SourceSansPro-Regular",
+                    "color": "#3CC8E6",
+                    "fontSize": 14,
                   },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontSize": 14,
-                    },
-                  ],
                 ]
               }
             >
@@ -947,20 +907,16 @@ exports[`should call navigateBack from press 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Light",
-                    "fontSize": 24,
-                    "lineHeight": 30,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Light",
+                  "fontSize": 24,
+                  "fontStyle": "normal",
+                  "fontWeight": "300",
+                  "lineHeight": 30,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Read "There and Back Again"
@@ -996,19 +952,16 @@ exports[`should call navigateBack from press 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 Joined
@@ -1018,22 +971,18 @@ exports[`should call navigateBack from press 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 38,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
-                      "fontFamily": "SourceSansPro-Regular",
+                      "color": "#B4B6BA",
                     },
-                    Array [
-                      Object {
-                        "color": "#3CC8E6",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 32,
-                        "lineHeight": 38,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                      },
-                    ],
                   ]
                 }
                 testID="joinedCount"
@@ -1053,19 +1002,16 @@ exports[`should call navigateBack from press 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 Completed
@@ -1075,22 +1021,18 @@ exports[`should call navigateBack from press 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 38,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
-                      "fontFamily": "SourceSansPro-Regular",
+                      "color": "#B4B6BA",
                     },
-                    Array [
-                      Object {
-                        "color": "#3CC8E6",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 32,
-                        "lineHeight": 38,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                      },
-                    ],
                   ]
                 }
                 testID="completedCount"
@@ -1124,36 +1066,32 @@ exports[`should call navigateBack from press 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#A0A2A6",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Challenge Ends
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
               testID="Text"
             >
@@ -1173,18 +1111,16 @@ exports[`should call navigateBack from press 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#A0A2A6",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Details
@@ -1216,7 +1152,11 @@ exports[`should call navigateBack from press 1`] = `
                           "color": "#505256",
                           "fontFamily": "SourceSansPro-Regular",
                           "fontSize": 16,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
                           "lineHeight": 24,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         },
                         Object {},
                       ]
@@ -1279,7 +1219,7 @@ exports[`should call navigateBack from press 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -1326,23 +1266,19 @@ exports[`should call navigateBack from press 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    undefined,
-                  ],
+                  undefined,
                 ],
               ]
             }
@@ -1510,18 +1446,10 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "fontSize": 14,
+                "lineHeight": 20,
+              }
             }
           >
             Test
@@ -1577,25 +1505,21 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
                   Object {
-                    "fontFamily": "SourceSansPro-Regular",
+                    "color": "#3CC8E6",
+                    "fontSize": 14,
                   },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontSize": 14,
-                    },
-                  ],
                 ]
               }
             >
@@ -1649,20 +1573,16 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Light",
-                    "fontSize": 24,
-                    "lineHeight": 30,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Light",
+                  "fontSize": 24,
+                  "fontStyle": "normal",
+                  "fontWeight": "300",
+                  "lineHeight": 30,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Read "There and Back Again"
@@ -1698,19 +1618,16 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 Joined
@@ -1720,22 +1637,18 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 38,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
-                      "fontFamily": "SourceSansPro-Regular",
+                      "color": "#B4B6BA",
                     },
-                    Array [
-                      Object {
-                        "color": "#3CC8E6",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 32,
-                        "lineHeight": 38,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                      },
-                    ],
                   ]
                 }
                 testID="joinedCount"
@@ -1755,19 +1668,16 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 Completed
@@ -1777,22 +1687,18 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 38,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
-                      "fontFamily": "SourceSansPro-Regular",
+                      "color": "#B4B6BA",
                     },
-                    Array [
-                      Object {
-                        "color": "#3CC8E6",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 32,
-                        "lineHeight": 38,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                      },
-                    ],
                   ]
                 }
                 testID="completedCount"
@@ -1826,36 +1732,32 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#A0A2A6",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Challenge Ends
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
               testID="Text"
             >
@@ -1875,18 +1777,16 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#A0A2A6",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Details
@@ -1918,7 +1818,11 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
                           "color": "#505256",
                           "fontFamily": "SourceSansPro-Regular",
                           "fontSize": 16,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
                           "lineHeight": 24,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         },
                         Object {},
                       ]
@@ -1981,7 +1885,7 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -2028,23 +1932,19 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    undefined,
-                  ],
+                  undefined,
                 ],
               ]
             }
@@ -2231,25 +2131,21 @@ exports[`should render completed challenge correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
                   Object {
-                    "fontFamily": "SourceSansPro-Regular",
+                    "color": "#3CC8E6",
+                    "fontSize": 14,
                   },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontSize": 14,
-                    },
-                  ],
                 ]
               }
             >
@@ -2303,20 +2199,16 @@ exports[`should render completed challenge correctly 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Light",
-                    "fontSize": 24,
-                    "lineHeight": 30,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Light",
+                  "fontSize": 24,
+                  "fontStyle": "normal",
+                  "fontWeight": "300",
+                  "lineHeight": 30,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Read "There and Back Again"
@@ -2352,19 +2244,16 @@ exports[`should render completed challenge correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 Joined
@@ -2374,22 +2263,18 @@ exports[`should render completed challenge correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 38,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
-                      "fontFamily": "SourceSansPro-Regular",
+                      "color": "#B4B6BA",
                     },
-                    Array [
-                      Object {
-                        "color": "#3CC8E6",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 32,
-                        "lineHeight": 38,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                      },
-                    ],
                   ]
                 }
                 testID="joinedCount"
@@ -2409,19 +2294,16 @@ exports[`should render completed challenge correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 Completed
@@ -2431,22 +2313,18 @@ exports[`should render completed challenge correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 38,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
-                      "fontFamily": "SourceSansPro-Regular",
+                      "color": "#B4B6BA",
                     },
-                    Array [
-                      Object {
-                        "color": "#3CC8E6",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 32,
-                        "lineHeight": 38,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                      },
-                    ],
                   ]
                 }
                 testID="completedCount"
@@ -2480,36 +2358,32 @@ exports[`should render completed challenge correctly 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#A0A2A6",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Challenge Ends
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
               testID="Text"
             >
@@ -2529,18 +2403,16 @@ exports[`should render completed challenge correctly 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#A0A2A6",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Details
@@ -2572,7 +2444,11 @@ exports[`should render completed challenge correctly 1`] = `
                           "color": "#505256",
                           "fontFamily": "SourceSansPro-Regular",
                           "fontSize": 16,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
                           "lineHeight": 24,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         },
                         Object {},
                       ]
@@ -2779,25 +2655,21 @@ exports[`should render joined challenge correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
                   Object {
-                    "fontFamily": "SourceSansPro-Regular",
+                    "color": "#3CC8E6",
+                    "fontSize": 14,
                   },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontSize": 14,
-                    },
-                  ],
                 ]
               }
             >
@@ -2851,20 +2723,16 @@ exports[`should render joined challenge correctly 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Light",
-                    "fontSize": 24,
-                    "lineHeight": 30,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Light",
+                  "fontSize": 24,
+                  "fontStyle": "normal",
+                  "fontWeight": "300",
+                  "lineHeight": 30,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Read "There and Back Again"
@@ -2900,19 +2768,16 @@ exports[`should render joined challenge correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 Joined
@@ -2922,22 +2787,18 @@ exports[`should render joined challenge correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 38,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
-                      "fontFamily": "SourceSansPro-Regular",
+                      "color": "#B4B6BA",
                     },
-                    Array [
-                      Object {
-                        "color": "#3CC8E6",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 32,
-                        "lineHeight": 38,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                      },
-                    ],
                   ]
                 }
                 testID="joinedCount"
@@ -2957,19 +2818,16 @@ exports[`should render joined challenge correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 Completed
@@ -2979,22 +2837,18 @@ exports[`should render joined challenge correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 38,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
-                      "fontFamily": "SourceSansPro-Regular",
+                      "color": "#B4B6BA",
                     },
-                    Array [
-                      Object {
-                        "color": "#3CC8E6",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 32,
-                        "lineHeight": 38,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                      },
-                    ],
                   ]
                 }
                 testID="completedCount"
@@ -3028,36 +2882,32 @@ exports[`should render joined challenge correctly 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#A0A2A6",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Challenge Ends
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
               testID="Text"
             >
@@ -3077,18 +2927,16 @@ exports[`should render joined challenge correctly 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#A0A2A6",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Details
@@ -3120,7 +2968,11 @@ exports[`should render joined challenge correctly 1`] = `
                           "color": "#505256",
                           "fontFamily": "SourceSansPro-Regular",
                           "fontSize": 16,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
                           "lineHeight": 24,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         },
                         Object {},
                       ]
@@ -3183,7 +3035,7 @@ exports[`should render joined challenge correctly 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -3230,23 +3082,19 @@ exports[`should render joined challenge correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    undefined,
-                  ],
+                  undefined,
                 ],
               ]
             }
@@ -3433,25 +3281,21 @@ exports[`should render unjoined challenge correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
                   Object {
-                    "fontFamily": "SourceSansPro-Regular",
+                    "color": "#3CC8E6",
+                    "fontSize": 14,
                   },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontSize": 14,
-                    },
-                  ],
                 ]
               }
             >
@@ -3505,20 +3349,16 @@ exports[`should render unjoined challenge correctly 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Light",
-                    "fontSize": 24,
-                    "lineHeight": 30,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Light",
+                  "fontSize": 24,
+                  "fontStyle": "normal",
+                  "fontWeight": "300",
+                  "lineHeight": 30,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Read "There and Back Again"
@@ -3554,19 +3394,16 @@ exports[`should render unjoined challenge correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 Joined
@@ -3576,22 +3413,18 @@ exports[`should render unjoined challenge correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 38,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
-                      "fontFamily": "SourceSansPro-Regular",
+                      "color": "#B4B6BA",
                     },
-                    Array [
-                      Object {
-                        "color": "#3CC8E6",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 32,
-                        "lineHeight": 38,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                      },
-                    ],
                   ]
                 }
                 testID="joinedCount"
@@ -3611,19 +3444,16 @@ exports[`should render unjoined challenge correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 Completed
@@ -3633,22 +3463,18 @@ exports[`should render unjoined challenge correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 38,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
-                      "fontFamily": "SourceSansPro-Regular",
+                      "color": "#B4B6BA",
                     },
-                    Array [
-                      Object {
-                        "color": "#3CC8E6",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 32,
-                        "lineHeight": 38,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                      },
-                    ],
                   ]
                 }
                 testID="completedCount"
@@ -3682,36 +3508,32 @@ exports[`should render unjoined challenge correctly 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#A0A2A6",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Challenge Ends
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
               testID="Text"
             >
@@ -3731,18 +3553,16 @@ exports[`should render unjoined challenge correctly 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#A0A2A6",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Details
@@ -3774,7 +3594,11 @@ exports[`should render unjoined challenge correctly 1`] = `
                           "color": "#505256",
                           "fontFamily": "SourceSansPro-Regular",
                           "fontSize": 16,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
                           "lineHeight": 24,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         },
                         Object {},
                       ]
@@ -3837,7 +3661,7 @@ exports[`should render unjoined challenge correctly 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -3860,23 +3684,19 @@ exports[`should render unjoined challenge correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -4072,20 +3892,16 @@ exports[`should render without edit correctly 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Light",
-                    "fontSize": 24,
-                    "lineHeight": 30,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Light",
+                  "fontSize": 24,
+                  "fontStyle": "normal",
+                  "fontWeight": "300",
+                  "lineHeight": 30,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Read "There and Back Again"
@@ -4121,19 +3937,16 @@ exports[`should render without edit correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 Joined
@@ -4143,22 +3956,18 @@ exports[`should render without edit correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 38,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
-                      "fontFamily": "SourceSansPro-Regular",
+                      "color": "#B4B6BA",
                     },
-                    Array [
-                      Object {
-                        "color": "#3CC8E6",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 32,
-                        "lineHeight": 38,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                      },
-                    ],
                   ]
                 }
                 testID="joinedCount"
@@ -4178,19 +3987,16 @@ exports[`should render without edit correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 Completed
@@ -4200,22 +4006,18 @@ exports[`should render without edit correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 38,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
-                      "fontFamily": "SourceSansPro-Regular",
+                      "color": "#B4B6BA",
                     },
-                    Array [
-                      Object {
-                        "color": "#3CC8E6",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 32,
-                        "lineHeight": 38,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                      },
-                    ],
                   ]
                 }
                 testID="completedCount"
@@ -4249,36 +4051,32 @@ exports[`should render without edit correctly 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#A0A2A6",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Challenge Ends
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
               testID="Text"
             >
@@ -4298,18 +4096,16 @@ exports[`should render without edit correctly 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#A0A2A6",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Details
@@ -4369,7 +4165,7 @@ exports[`should render without edit correctly 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -4416,23 +4212,19 @@ exports[`should render without edit correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    undefined,
-                  ],
+                  undefined,
                 ],
               ]
             }

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux-legacy';
 import i18next from 'i18next';
 import PropTypes from 'prop-types';
+import { Text } from 'react-native';
 
-import { Text } from '../../components/common';
 import {
   contactAssignmentSelector,
   personSelector,

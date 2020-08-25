@@ -11,12 +11,9 @@ export default StyleSheet.create({
   },
   textWrap: { alignItems: 'center', marginBottom: 50 },
   chooseCategoryText: {
+    ...theme.textLight24,
     maxWidth: 200,
-    fontFamily: 'SourceSansPro-Light',
     color: theme.white,
-    fontSize: 24,
-    fontWeight: '300',
-    lineHeight: 30,
     textAlign: 'center',
   },
   chooseCategoryTextOnboarding: {

@@ -4,7 +4,7 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   wrap: {
-    backgroundColor: 'transparent',
+    backgroundColor: theme.transparent,
     paddingVertical: 10,
     marginBottom: 80,
   },
@@ -18,27 +18,10 @@ export default StyleSheet.create({
     paddingVertical: 14,
     paddingHorizontal: 40,
   },
-  editButtonText: {
-    color: theme.parakeetBlue,
-    fontSize: 14,
-    fontWeight: '300',
-    letterSpacing: 1,
-  },
-  title: {
-    color: theme.grey,
-    fontFamily: 'SourceSansPro-Light',
-    fontSize: 24,
-    lineHeight: 30,
-  },
+  title: theme.textLight24,
   subHeader: {
-    color: theme.inactiveColor,
-    fontSize: 12,
+    ...theme.textRegular12,
+    color: theme.lightGrey,
   },
-  dateText: {
-    color: theme.grey,
-    fontSize: 16,
-  },
-  detailText: {
-    fontSize: 16,
-  },
+  dateText: theme.textRegular16,
 });

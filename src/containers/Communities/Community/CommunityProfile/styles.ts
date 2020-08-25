@@ -6,7 +6,7 @@ export default StyleSheet.create({
   container: {
     backgroundColor: theme.primaryColor,
   },
-  content: { flex: 1, backgroundColor: theme.grey },
+  content: { flex: 1, backgroundColor: theme.darkGrey },
   flex: {
     flex: 1,
   },
@@ -35,38 +35,37 @@ export default StyleSheet.create({
     marginVertical: 5,
   },
   name: {
-    fontSize: 32,
+    ...theme.textLight32,
     color: theme.white,
-    letterSpacing: 0.25,
   },
   label: {
-    fontSize: 12,
-    color: theme.inactiveColor,
+    ...theme.textRegular12,
+    color: theme.extraLightGrey,
   },
   info: {
+    ...theme.textRegular12,
     width: '75%',
-    color: theme.inactiveColor,
+    color: theme.extraLightGrey,
   },
   text: {
-    fontSize: 12,
+    ...theme.textRegular12,
     color: theme.white,
   },
   codeText: {
-    fontSize: 32,
+    ...theme.textLight32,
     color: theme.white,
   },
   linkText: {
-    fontSize: 14,
+    ...theme.textRegular14,
     color: theme.white,
     marginRight: 5,
   },
   input: {
+    ...theme.textLight32,
     flex: 1,
-    fontSize: 32,
     color: theme.white,
     textAlign: 'left',
     borderBottomWidth: 0,
-    letterSpacing: 0.25,
     paddingVertical: 0,
   },
   menu: {
@@ -80,11 +79,10 @@ export default StyleSheet.create({
     backgroundColor: theme.secondaryColor,
   },
   newBtn: {
-    backgroundColor: theme.red,
+    backgroundColor: theme.orange,
   },
   btnText: {
-    fontSize: 14,
-    fontWeight: 'bold',
+    ...theme.textBold14,
     color: theme.white,
   },
   createButton: {

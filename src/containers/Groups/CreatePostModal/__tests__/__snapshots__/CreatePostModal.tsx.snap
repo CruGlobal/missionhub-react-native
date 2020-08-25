@@ -108,9 +108,13 @@ exports[`renders correctly 1`] = `
             "color": "#505256",
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
             "lineHeight": 20,
             "paddingBottom": 20,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -196,19 +200,16 @@ exports[`renders correctly 1`] = `
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               God Story
@@ -296,19 +297,16 @@ exports[`renders correctly 1`] = `
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Prayer Request
@@ -396,19 +394,16 @@ exports[`renders correctly 1`] = `
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Spiritual Question
@@ -496,19 +491,16 @@ exports[`renders correctly 1`] = `
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Community Need
@@ -596,19 +588,16 @@ exports[`renders correctly 1`] = `
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               What's on Your Mind
@@ -729,9 +718,13 @@ exports[`renders correctly for admin 1`] = `
             "color": "#505256",
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
             "lineHeight": 20,
             "paddingBottom": 20,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -758,8 +751,12 @@ exports[`renders correctly for admin 1`] = `
               "color": "#B4B6BA",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -849,19 +846,16 @@ exports[`renders correctly for admin 1`] = `
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               God Story
@@ -949,19 +943,16 @@ exports[`renders correctly for admin 1`] = `
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Prayer Request
@@ -1049,19 +1040,16 @@ exports[`renders correctly for admin 1`] = `
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Spiritual Question
@@ -1149,19 +1137,16 @@ exports[`renders correctly for admin 1`] = `
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Community Need
@@ -1249,19 +1234,16 @@ exports[`renders correctly for admin 1`] = `
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               What's on Your Mind
@@ -1284,7 +1266,7 @@ exports[`renders correctly for admin 1`] = `
         }
       >
         <SvgMock
-          color="#505256"
+          color="#ECEEF2"
           width="21"
         />
         <Text
@@ -1293,15 +1275,19 @@ exports[`renders correctly for admin 1`] = `
               "color": "#B4B6BA",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
           Post as Owner/Admin
         </Text>
         <SvgMock
-          color="#505256"
+          color="#ECEEF2"
           width="21"
         />
       </View>
@@ -1385,19 +1371,16 @@ exports[`renders correctly for admin 1`] = `
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Announcement
@@ -1518,9 +1501,13 @@ exports[`renders correctly for owner 1`] = `
             "color": "#505256",
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
             "lineHeight": 20,
             "paddingBottom": 20,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1547,8 +1534,12 @@ exports[`renders correctly for owner 1`] = `
               "color": "#B4B6BA",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1638,19 +1629,16 @@ exports[`renders correctly for owner 1`] = `
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               God Story
@@ -1738,19 +1726,16 @@ exports[`renders correctly for owner 1`] = `
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Prayer Request
@@ -1838,19 +1823,16 @@ exports[`renders correctly for owner 1`] = `
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Spiritual Question
@@ -1938,19 +1920,16 @@ exports[`renders correctly for owner 1`] = `
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Community Need
@@ -2038,19 +2017,16 @@ exports[`renders correctly for owner 1`] = `
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               What's on Your Mind
@@ -2073,7 +2049,7 @@ exports[`renders correctly for owner 1`] = `
         }
       >
         <SvgMock
-          color="#505256"
+          color="#ECEEF2"
           width="21"
         />
         <Text
@@ -2082,15 +2058,19 @@ exports[`renders correctly for owner 1`] = `
               "color": "#B4B6BA",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
           Post as Owner/Admin
         </Text>
         <SvgMock
-          color="#505256"
+          color="#ECEEF2"
           width="21"
         />
       </View>
@@ -2174,19 +2154,16 @@ exports[`renders correctly for owner 1`] = `
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Announcement

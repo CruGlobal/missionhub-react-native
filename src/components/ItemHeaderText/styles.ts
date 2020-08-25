@@ -4,7 +4,7 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   name: {
+    ...theme.textRegular16,
     color: theme.primaryColor,
-    fontSize: 16,
   },
 });

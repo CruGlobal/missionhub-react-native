@@ -217,42 +217,36 @@ exports[`renders correctly 1`] = `
         />
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 24,
-                "fontWeight": "300",
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Steps of Faith
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-                "lineHeight": 20,
-                "paddingHorizontal": 35,
-                "paddingTop": 10,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "paddingHorizontal": 35,
+              "paddingTop": 10,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Recognize your Community’s steps of faith.

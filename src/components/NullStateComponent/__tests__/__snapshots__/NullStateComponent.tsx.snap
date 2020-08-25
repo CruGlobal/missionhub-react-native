@@ -29,42 +29,36 @@ exports[`render assigned contact 1`] = `
   />
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#007398",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 24,
-          "fontWeight": "300",
-          "paddingTop": 10,
-        },
-      ]
+      Object {
+        "color": "#007398",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 24,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 24,
+        "paddingTop": 10,
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     some header
   </Text>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#505256",
-          "fontSize": 16,
-          "paddingHorizontal": 80,
-          "paddingVertical": 10,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#505256",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 16,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 24,
+        "paddingHorizontal": 80,
+        "paddingVertical": 10,
+        "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     some description
@@ -101,59 +95,41 @@ exports[`render with content 1`] = `
   />
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#007398",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 24,
-          "fontWeight": "300",
-          "paddingTop": 10,
-        },
-      ]
+      Object {
+        "color": "#007398",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 24,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 24,
+        "paddingTop": 10,
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     some header
   </Text>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#505256",
-          "fontSize": 16,
-          "paddingHorizontal": 80,
-          "paddingVertical": 10,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#505256",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 16,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 24,
+        "paddingHorizontal": 80,
+        "paddingVertical": 10,
+        "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     some description
   </Text>
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {},
-      ]
-    }
-  >
+  <Text>
     Content
   </Text>
 </View>

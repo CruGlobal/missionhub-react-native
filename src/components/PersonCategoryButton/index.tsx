@@ -1,7 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Text } from 'react-native';
 
-import { Button, Flex, Text } from '../../components/common';
+import { Button, Flex } from '../../components/common';
 import FamilyIcon from '../../../assets/images/categoryFamilyIcon.svg';
 import FriendIcon from '../../../assets/images/categoryFriendIcon.svg';
 import NeighborIcon from '../../../assets/images/categoryNeighborIcon.svg';
@@ -28,23 +29,27 @@ const PersonCategoryButton = ({
     switch (category) {
       case RelationshipTypeEnum.family:
         return (
-          <FamilyIcon color={isSelected ? theme.white : theme.parakeetBlue} />
+          <FamilyIcon color={isSelected ? theme.white : theme.secondaryColor} />
         );
       case RelationshipTypeEnum.friend:
         return (
-          <FriendIcon color={isSelected ? theme.white : theme.parakeetBlue} />
+          <FriendIcon color={isSelected ? theme.white : theme.secondaryColor} />
         );
       case RelationshipTypeEnum.neighbor:
         return (
-          <NeighborIcon color={isSelected ? theme.white : theme.parakeetBlue} />
+          <NeighborIcon
+            color={isSelected ? theme.white : theme.secondaryColor}
+          />
         );
       case RelationshipTypeEnum.coworker:
         return (
-          <CoworkerIcon color={isSelected ? theme.white : theme.parakeetBlue} />
+          <CoworkerIcon
+            color={isSelected ? theme.white : theme.secondaryColor}
+          />
         );
       case RelationshipTypeEnum.other:
         return (
-          <OtherIcon color={isSelected ? theme.white : theme.parakeetBlue} />
+          <OtherIcon color={isSelected ? theme.white : theme.secondaryColor} />
         );
     }
   };

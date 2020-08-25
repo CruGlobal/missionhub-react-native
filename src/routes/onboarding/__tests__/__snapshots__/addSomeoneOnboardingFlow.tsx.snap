@@ -96,26 +96,29 @@ exports[`AddSomeoneScreen next renders without back button correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
-                  },
-                  Object {
+                    "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
                   Array [
                     Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      undefined,
-                    ],
+                    undefined,
                   ],
                 ]
               }
@@ -172,21 +175,18 @@ exports[`AddSomeoneScreen next renders without back button correctly 1`] = `
       />
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 24,
-              "lineHeight": 32,
-              "paddingVertical": 10,
-              "textAlign": "left",
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 32,
+            "paddingVertical": 10,
+            "textAlign": "left",
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Growing closer to God involves helping others experience Him.
@@ -226,7 +226,7 @@ Take a moment and pray. Who do you want to take steps of faith with?
             Array [
               Object {
                 "alignItems": "center",
-                "backgroundColor": "#52C5DC",
+                "backgroundColor": "#3CC8E6",
                 "height": 60,
                 "justifyContent": "center",
               },
@@ -249,23 +249,19 @@ Take a moment and pray. Who do you want to take steps of faith with?
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    undefined,
-                  ],
+                  undefined,
                 ],
               ]
             }
@@ -464,20 +460,20 @@ exports[`AddStepScreen next renders correctly 1`] = `
             Array [
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "color": "#B4B6BA",
+                "paddingLeft": 4,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "paddingLeft": 4,
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
@@ -502,13 +498,18 @@ exports[`AddStepScreen next renders correctly 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomColor": "transparent",
@@ -516,8 +517,13 @@ exports[`AddStepScreen next renders correctly 1`] = `
               "flex": 1,
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 32,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 38,
               "minHeight": 90.5,
               "paddingHorizontal": 45,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -560,7 +566,7 @@ exports[`AddStepScreen next renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -583,23 +589,19 @@ exports[`AddStepScreen next renders correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -617,7 +619,7 @@ exports[`CelebrationScreen next renders correctly 1`] = `
   style={
     Array [
       Object {
-        "backgroundColor": "#52C5DC",
+        "backgroundColor": "#3CC8E6",
       },
       Object {
         "flex": 1,
@@ -856,23 +858,19 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
     <Text
       numberOfLines={2}
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 24,
-            "fontWeight": "300",
-            "lineHeight": 30,
-            "marginHorizontal": 30,
-            "marginVertical": 35,
-            "textAlign": "center",
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Light",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "marginHorizontal": 30,
+          "marginVertical": 35,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Choose a step to take with them this week...
@@ -928,20 +926,20 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
                 Array [
                   Object {
                     "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
-                    "fontFamily": "SourceSansPro-Regular",
+                    "color": "#ffffff",
+                    "marginTop": 7,
+                    "paddingLeft": 4,
                   },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "normal",
-                      "marginTop": 7,
-                      "paddingLeft": 4,
-                    },
-                    undefined,
-                  ],
+                  undefined,
                 ]
               }
             >
@@ -1013,7 +1011,7 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
             }
           >
             <SvgMock
-              color="#52C5DC"
+              color="#3CC8E6"
               height={32}
             />
             <Text
@@ -1021,20 +1019,20 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
                 Array [
                   Object {
                     "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
-                    "fontFamily": "SourceSansPro-Regular",
+                    "color": "#3CC8E6",
+                    "marginTop": 7,
+                    "paddingLeft": 4,
                   },
-                  Array [
-                    Object {
-                      "color": "#52C5DC",
-                      "fontSize": 14,
-                      "fontWeight": "normal",
-                      "marginTop": 7,
-                      "paddingLeft": 4,
-                    },
-                    undefined,
-                  ],
+                  undefined,
                 ]
               }
             >
@@ -1078,7 +1076,7 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
             }
           >
             <SvgMock
-              color="#52C5DC"
+              color="#3CC8E6"
               height={32}
             />
             <Text
@@ -1086,20 +1084,20 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
                 Array [
                   Object {
                     "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
-                    "fontFamily": "SourceSansPro-Regular",
+                    "color": "#3CC8E6",
+                    "marginTop": 7,
+                    "paddingLeft": 4,
                   },
-                  Array [
-                    Object {
-                      "color": "#52C5DC",
-                      "fontSize": 14,
-                      "fontWeight": "normal",
-                      "marginTop": 7,
-                      "paddingLeft": 4,
-                    },
-                    undefined,
-                  ],
+                  undefined,
                 ]
               }
             >
@@ -1143,7 +1141,7 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
             }
           >
             <SvgMock
-              color="#52C5DC"
+              color="#3CC8E6"
               height={32}
             />
             <Text
@@ -1151,20 +1149,20 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
                 Array [
                   Object {
                     "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
-                    "fontFamily": "SourceSansPro-Regular",
+                    "color": "#3CC8E6",
+                    "marginTop": 7,
+                    "paddingLeft": 4,
                   },
-                  Array [
-                    Object {
-                      "color": "#52C5DC",
-                      "fontSize": 14,
-                      "fontWeight": "normal",
-                      "marginTop": 7,
-                      "paddingLeft": 4,
-                    },
-                    undefined,
-                  ],
+                  undefined,
                 ]
               }
             >
@@ -1285,18 +1283,16 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 16,
-                  "lineHeight": 22,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
           >
             Create your own Relate Step
@@ -1344,7 +1340,7 @@ exports[`SelectStageScreen renders correctly 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#66D9F0",
+      "backgroundColor": "#3CC8E6",
       "flex": 1,
     }
   }
@@ -1516,25 +1512,22 @@ exports[`SelectStageScreen renders correctly 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#007398",
-              "fontFamily": "SourceSansPro-Regular",
-              "fontSize": 18,
-              "fontWeight": "500",
-              "paddingBottom": 25,
-              "paddingHorizontal": 30,
-              "paddingTop": 45,
-              "textAlign": "center",
-              "width": 650,
-            },
-          ]
+          Object {
+            "color": "#007398",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 18,
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "letterSpacing": 1,
+            "lineHeight": 24,
+            "paddingBottom": 25,
+            "paddingHorizontal": 30,
+            "paddingTop": 45,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
+            "width": 650,
+          }
         }
       >
         Which stage best describes where  is on their journey?
@@ -1782,20 +1775,20 @@ exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
           Array [
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "color": "#B4B6BA",
+              "paddingLeft": 4,
             },
-            Array [
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 16,
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "paddingLeft": 4,
-              },
-              undefined,
-            ],
+            undefined,
           ]
         }
       >
@@ -1804,22 +1797,18 @@ exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
     </View>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Light",
-            "fontSize": 32,
-            "fontWeight": "300",
-            "lineHeight": 38,
-            "marginHorizontal": 32,
-            "marginVertical": 16,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Light",
+          "fontSize": 32,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 38,
+          "marginHorizontal": 32,
+          "marginVertical": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       
@@ -1873,7 +1862,7 @@ exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -1896,23 +1885,19 @@ exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }

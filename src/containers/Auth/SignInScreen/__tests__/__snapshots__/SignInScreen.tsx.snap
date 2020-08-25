@@ -5,7 +5,7 @@ exports[`facebook login button is pressed facebook button calls facebook login l
 - First value
 + Second value
 
-@@ -170,6 +170,7 @@
+@@ -202,6 +202,7 @@
             SIGN IN WITH FACEBOOK
           </Text>
         </Flex>
@@ -20,7 +20,7 @@ exports[`forgot password button is pressed should call forgot password logic 1`]
 - First value
 + Second value
 
-@@ -170,6 +170,7 @@
+@@ -202,6 +202,7 @@
             SIGN IN WITH FACEBOOK
           </Text>
         </Flex>
@@ -35,7 +35,7 @@ exports[`key login button is pressed key login is called 1`] = `
 - First value
 + Second value
 
-@@ -54,11 +54,11 @@
+@@ -66,11 +66,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -48,7 +48,7 @@ exports[`key login button is pressed key login is called 1`] = `
       <View
         style={
           Object {
-@@ -82,11 +82,11 @@
+@@ -100,11 +100,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -60,8 +60,8 @@ exports[`key login button is pressed key login is called 1`] = `
         <Button
           buttonTextStyle={
             Object {
-              \\"color\\": \\"#52C5DC\\",
-@@ -107,69 +107,45 @@
+              \\"color\\": \\"#3CC8E6\\",
+@@ -129,79 +129,45 @@
           text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
@@ -88,15 +88,20 @@ exports[`key login button is pressed key login is called 1`] = `
           buttonTextStyle={
 -         Object {
 -           \\"color\\": \\"#ffffff\\",
--           \\"fontSize\\": 14,
--           \\"fontWeight\\": \\"500\\",
--           \\"letterSpacing\\": 1.5,
+-           \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-           \\"fontSize\\": 16,
+-           \\"fontStyle\\": \\"normal\\",
+-           \\"fontWeight\\": \\"bold\\",
+-           \\"letterSpacing\\": 1,
+-           \\"lineHeight\\": 20,
 -           \\"paddingTop\\": 2,
--         }
+-           \\"textAlignVertical\\": \\"center\\",
+-           \\"textTransform\\": \\"uppercase\\",
 +           Array [
 +             undefined,
 +           ]
           }
+-       }
 -       onPress={[Function facebookLogin]}
 +         onPress={[Function handlePress]}
           pill={true}
@@ -104,7 +109,7 @@ exports[`key login button is pressed key login is called 1`] = `
 +           Array [
               Object {
 -           \\"backgroundColor\\": \\"transparent\\",
--           \\"borderColor\\": \\"#52C5DC\\",
+-           \\"borderColor\\": \\"#3CC8E6\\",
 -           \\"borderWidth\\": 1,
 +               \\"alignItems\\": \\"center\\",
                 \\"height\\": 48,
@@ -138,10 +143,15 @@ exports[`key login button is pressed key login is called 1`] = `
 -           style={
 -             Object {
 -               \\"color\\": \\"#ffffff\\",
--               \\"fontSize\\": 14,
--               \\"fontWeight\\": \\"500\\",
--               \\"letterSpacing\\": 1.5,
+-               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-               \\"fontSize\\": 16,
+-               \\"fontStyle\\": \\"normal\\",
+-               \\"fontWeight\\": \\"bold\\",
+-               \\"letterSpacing\\": 1,
+-               \\"lineHeight\\": 20,
 -               \\"paddingTop\\": 2,
+-               \\"textAlignVertical\\": \\"center\\",
+-               \\"textTransform\\": \\"uppercase\\",
 -             }
 -           }
 -         >
@@ -165,7 +175,7 @@ exports[`key login button is pressed should fire login actions when inputs are s
 - First value
 + Second value
 
-@@ -145,6 +145,7 @@
+@@ -167,6 +167,7 @@
           text=\\"LOGIN\\"
           type=\\"secondary\\"
         />
@@ -180,7 +190,7 @@ exports[`key login button is pressed shows email verification required message a
 - First value
 + Second value
 
-@@ -6,10 +6,32 @@
+@@ -6,10 +6,38 @@
         \\"flexDirection\\": \\"column\\",
         \\"justifyContent\\": \\"space-between\\",
       }
@@ -201,7 +211,13 @@ exports[`key login button is pressed shows email verification required message a
 +       style={
 +         Object {
 +           \\"color\\": \\"#ffffff\\",
++           \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +           \\"fontSize\\": 16,
++           \\"fontStyle\\": \\"normal\\",
++           \\"fontWeight\\": \\"normal\\",
++           \\"lineHeight\\": 24,
++           \\"textAlignVertical\\": \\"center\\",
++           \\"textTransform\\": \\"none\\",
 +         }
 +       }
 +     >
@@ -213,7 +229,7 @@ exports[`key login button is pressed shows email verification required message a
     />
     <Flex
       align=\\"center\\"
-@@ -54,11 +76,11 @@
+@@ -66,11 +94,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -226,7 +242,7 @@ exports[`key login button is pressed shows email verification required message a
       <View
         style={
           Object {
-@@ -82,11 +104,11 @@
+@@ -100,11 +128,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -238,8 +254,8 @@ exports[`key login button is pressed shows email verification required message a
         <Button
           buttonTextStyle={
             Object {
-              \\"color\\": \\"#52C5DC\\",
-@@ -107,69 +129,44 @@
+              \\"color\\": \\"#3CC8E6\\",
+@@ -129,79 +157,44 @@
           text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
@@ -266,10 +282,15 @@ exports[`key login button is pressed shows email verification required message a
           buttonTextStyle={
 -         Object {
 -           \\"color\\": \\"#ffffff\\",
--           \\"fontSize\\": 14,
--           \\"fontWeight\\": \\"500\\",
--           \\"letterSpacing\\": 1.5,
+-           \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-           \\"fontSize\\": 16,
+-           \\"fontStyle\\": \\"normal\\",
+-           \\"fontWeight\\": \\"bold\\",
+-           \\"letterSpacing\\": 1,
+-           \\"lineHeight\\": 20,
 -           \\"paddingTop\\": 2,
+-           \\"textAlignVertical\\": \\"center\\",
+-           \\"textTransform\\": \\"uppercase\\",
 -         }
 +           Array [
 +             undefined,
@@ -282,7 +303,7 @@ exports[`key login button is pressed shows email verification required message a
 +           Array [
               Object {
 -           \\"backgroundColor\\": \\"transparent\\",
--           \\"borderColor\\": \\"#52C5DC\\",
+-           \\"borderColor\\": \\"#3CC8E6\\",
 -           \\"borderWidth\\": 1,
 +               \\"alignItems\\": \\"center\\",
                 \\"height\\": 48,
@@ -316,10 +337,15 @@ exports[`key login button is pressed shows email verification required message a
 -           style={
 -             Object {
 -               \\"color\\": \\"#ffffff\\",
--               \\"fontSize\\": 14,
--               \\"fontWeight\\": \\"500\\",
--               \\"letterSpacing\\": 1.5,
+-               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-               \\"fontSize\\": 16,
+-               \\"fontStyle\\": \\"normal\\",
+-               \\"fontWeight\\": \\"bold\\",
+-               \\"letterSpacing\\": 1,
+-               \\"lineHeight\\": 20,
 -               \\"paddingTop\\": 2,
+-               \\"textAlignVertical\\": \\"center\\",
+-               \\"textTransform\\": \\"uppercase\\",
 -             }
 -           }
 -         >
@@ -337,7 +363,7 @@ exports[`key login button is pressed shows invalid credentials message and track
 - First value
 + Second value
 
-@@ -6,10 +6,32 @@
+@@ -6,10 +6,38 @@
         \\"flexDirection\\": \\"column\\",
         \\"justifyContent\\": \\"space-between\\",
       }
@@ -358,7 +384,13 @@ exports[`key login button is pressed shows invalid credentials message and track
 +       style={
 +         Object {
 +           \\"color\\": \\"#ffffff\\",
++           \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +           \\"fontSize\\": 16,
++           \\"fontStyle\\": \\"normal\\",
++           \\"fontWeight\\": \\"normal\\",
++           \\"lineHeight\\": 24,
++           \\"textAlignVertical\\": \\"center\\",
++           \\"textTransform\\": \\"none\\",
 +         }
 +       }
 +     >
@@ -370,7 +402,7 @@ exports[`key login button is pressed shows invalid credentials message and track
     />
     <Flex
       align=\\"center\\"
-@@ -54,11 +76,11 @@
+@@ -66,11 +94,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -383,7 +415,7 @@ exports[`key login button is pressed shows invalid credentials message and track
       <View
         style={
           Object {
-@@ -82,11 +104,11 @@
+@@ -100,11 +128,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -395,8 +427,8 @@ exports[`key login button is pressed shows invalid credentials message and track
         <Button
           buttonTextStyle={
             Object {
-              \\"color\\": \\"#52C5DC\\",
-@@ -107,69 +129,44 @@
+              \\"color\\": \\"#3CC8E6\\",
+@@ -129,79 +157,44 @@
           text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
@@ -423,10 +455,15 @@ exports[`key login button is pressed shows invalid credentials message and track
           buttonTextStyle={
 -         Object {
 -           \\"color\\": \\"#ffffff\\",
--           \\"fontSize\\": 14,
--           \\"fontWeight\\": \\"500\\",
--           \\"letterSpacing\\": 1.5,
+-           \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-           \\"fontSize\\": 16,
+-           \\"fontStyle\\": \\"normal\\",
+-           \\"fontWeight\\": \\"bold\\",
+-           \\"letterSpacing\\": 1,
+-           \\"lineHeight\\": 20,
 -           \\"paddingTop\\": 2,
+-           \\"textAlignVertical\\": \\"center\\",
+-           \\"textTransform\\": \\"uppercase\\",
 -         }
 +           Array [
 +             undefined,
@@ -439,7 +476,7 @@ exports[`key login button is pressed shows invalid credentials message and track
 +           Array [
               Object {
 -           \\"backgroundColor\\": \\"transparent\\",
--           \\"borderColor\\": \\"#52C5DC\\",
+-           \\"borderColor\\": \\"#3CC8E6\\",
 -           \\"borderWidth\\": 1,
 +               \\"alignItems\\": \\"center\\",
                 \\"height\\": 48,
@@ -473,10 +510,15 @@ exports[`key login button is pressed shows invalid credentials message and track
 -           style={
 -             Object {
 -               \\"color\\": \\"#ffffff\\",
--               \\"fontSize\\": 14,
--               \\"fontWeight\\": \\"500\\",
--               \\"letterSpacing\\": 1.5,
+-               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-               \\"fontSize\\": 16,
+-               \\"fontStyle\\": \\"normal\\",
+-               \\"fontWeight\\": \\"bold\\",
+-               \\"letterSpacing\\": 1,
+-               \\"lineHeight\\": 20,
 -               \\"paddingTop\\": 2,
+-               \\"textAlignVertical\\": \\"center\\",
+-               \\"textTransform\\": \\"uppercase\\",
 -             }
 -           }
 -         >
@@ -494,7 +536,7 @@ exports[`key login button is pressed shows invalid credentials message and track
 - First value
 + Second value
 
-@@ -6,10 +6,32 @@
+@@ -6,10 +6,38 @@
         \\"flexDirection\\": \\"column\\",
         \\"justifyContent\\": \\"space-between\\",
       }
@@ -515,7 +557,13 @@ exports[`key login button is pressed shows invalid credentials message and track
 +       style={
 +         Object {
 +           \\"color\\": \\"#ffffff\\",
++           \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +           \\"fontSize\\": 16,
++           \\"fontStyle\\": \\"normal\\",
++           \\"fontWeight\\": \\"normal\\",
++           \\"lineHeight\\": 24,
++           \\"textAlignVertical\\": \\"center\\",
++           \\"textTransform\\": \\"none\\",
 +         }
 +       }
 +     >
@@ -527,7 +575,7 @@ exports[`key login button is pressed shows invalid credentials message and track
     />
     <Flex
       align=\\"center\\"
-@@ -54,11 +76,11 @@
+@@ -66,11 +94,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -540,7 +588,7 @@ exports[`key login button is pressed shows invalid credentials message and track
       <View
         style={
           Object {
-@@ -82,11 +104,11 @@
+@@ -100,11 +128,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -552,8 +600,8 @@ exports[`key login button is pressed shows invalid credentials message and track
         <Button
           buttonTextStyle={
             Object {
-              \\"color\\": \\"#52C5DC\\",
-@@ -107,69 +129,44 @@
+              \\"color\\": \\"#3CC8E6\\",
+@@ -129,79 +157,44 @@
           text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
@@ -580,10 +628,15 @@ exports[`key login button is pressed shows invalid credentials message and track
           buttonTextStyle={
 -         Object {
 -           \\"color\\": \\"#ffffff\\",
--           \\"fontSize\\": 14,
--           \\"fontWeight\\": \\"500\\",
--           \\"letterSpacing\\": 1.5,
+-           \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-           \\"fontSize\\": 16,
+-           \\"fontStyle\\": \\"normal\\",
+-           \\"fontWeight\\": \\"bold\\",
+-           \\"letterSpacing\\": 1,
+-           \\"lineHeight\\": 20,
 -           \\"paddingTop\\": 2,
+-           \\"textAlignVertical\\": \\"center\\",
+-           \\"textTransform\\": \\"uppercase\\",
 -         }
 +           Array [
 +             undefined,
@@ -596,7 +649,7 @@ exports[`key login button is pressed shows invalid credentials message and track
 +           Array [
               Object {
 -           \\"backgroundColor\\": \\"transparent\\",
--           \\"borderColor\\": \\"#52C5DC\\",
+-           \\"borderColor\\": \\"#3CC8E6\\",
 -           \\"borderWidth\\": 1,
 +               \\"alignItems\\": \\"center\\",
                 \\"height\\": 48,
@@ -630,10 +683,15 @@ exports[`key login button is pressed shows invalid credentials message and track
 -           style={
 -             Object {
 -               \\"color\\": \\"#ffffff\\",
--               \\"fontSize\\": 14,
--               \\"fontWeight\\": \\"500\\",
--               \\"letterSpacing\\": 1.5,
+-               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-               \\"fontSize\\": 16,
+-               \\"fontStyle\\": \\"normal\\",
+-               \\"fontWeight\\": \\"bold\\",
+-               \\"letterSpacing\\": 1,
+-               \\"lineHeight\\": 20,
 -               \\"paddingTop\\": 2,
+-               \\"textAlignVertical\\": \\"center\\",
+-               \\"textTransform\\": \\"uppercase\\",
 -             }
 -           }
 -         >
@@ -651,7 +709,7 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
 - First value
 + Second value
 
-@@ -54,11 +54,11 @@
+@@ -66,11 +66,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -664,7 +722,7 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
       <View
         style={
           Object {
-@@ -82,11 +82,11 @@
+@@ -100,11 +100,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -676,8 +734,8 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
         <Button
           buttonTextStyle={
             Object {
-              \\"color\\": \\"#52C5DC\\",
-@@ -107,69 +107,44 @@
+              \\"color\\": \\"#3CC8E6\\",
+@@ -129,79 +129,44 @@
           text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
@@ -704,15 +762,20 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
           buttonTextStyle={
 -         Object {
 -           \\"color\\": \\"#ffffff\\",
--           \\"fontSize\\": 14,
--           \\"fontWeight\\": \\"500\\",
--           \\"letterSpacing\\": 1.5,
+-           \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-           \\"fontSize\\": 16,
+-           \\"fontStyle\\": \\"normal\\",
+-           \\"fontWeight\\": \\"bold\\",
+-           \\"letterSpacing\\": 1,
+-           \\"lineHeight\\": 20,
 -           \\"paddingTop\\": 2,
+-           \\"textAlignVertical\\": \\"center\\",
+-           \\"textTransform\\": \\"uppercase\\",
+-         }
 +           Array [
 +             undefined,
 +           ]
           }
--       }
 -       onPress={[Function facebookLogin]}
 +         onPress={[Function handlePress]}
           pill={true}
@@ -720,7 +783,7 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
 +           Array [
               Object {
 -           \\"backgroundColor\\": \\"transparent\\",
--           \\"borderColor\\": \\"#52C5DC\\",
+-           \\"borderColor\\": \\"#3CC8E6\\",
 -           \\"borderWidth\\": 1,
 +               \\"alignItems\\": \\"center\\",
                 \\"height\\": 48,
@@ -754,10 +817,15 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
 -           style={
 -             Object {
 -               \\"color\\": \\"#ffffff\\",
--               \\"fontSize\\": 14,
--               \\"fontWeight\\": \\"500\\",
--               \\"letterSpacing\\": 1.5,
+-               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-               \\"fontSize\\": 16,
+-               \\"fontStyle\\": \\"normal\\",
+-               \\"fontWeight\\": \\"bold\\",
+-               \\"letterSpacing\\": 1,
+-               \\"lineHeight\\": 20,
 -               \\"paddingTop\\": 2,
+-               \\"textAlignVertical\\": \\"center\\",
+-               \\"textTransform\\": \\"uppercase\\",
 -             }
 -           }
 -         >
@@ -775,7 +843,7 @@ exports[`keyboard listeners should hide sign in logo when the keyboard is shown 
 - First value
 + Second value
 
-@@ -10,26 +10,10 @@
+@@ -10,32 +10,10 @@
   >
     <Header
       left={<DeprecatedBackButton />}
@@ -785,11 +853,17 @@ exports[`keyboard listeners should hide sign in logo when the keyboard is shown 
 -     justify=\\"center\\"
 -   >
 -     <Text
--       header={true}
 -       style={
 -         Object {
--           \\"color\\": \\"#52C5DC\\",
+-           \\"color\\": \\"#3CC8E6\\",
+-           \\"fontFamily\\": \\"AmaticSC-Bold\\",
 -           \\"fontSize\\": 48,
+-           \\"fontStyle\\": \\"normal\\",
+-           \\"fontWeight\\": \\"bold\\",
+-           \\"letterSpacing\\": 2,
+-           \\"lineHeight\\": 48,
+-           \\"textAlignVertical\\": \\"center\\",
+-           \\"textTransform\\": \\"lowercase\\",
 -         }
 -       }
 -     >
@@ -809,7 +883,7 @@ exports[`keyboard listeners should show sign in logo when the keyboard is hidden
 - First value
 + Second value
 
-@@ -10,10 +10,26 @@
+@@ -10,10 +10,32 @@
   >
     <Header
       left={<DeprecatedBackButton />}
@@ -819,11 +893,17 @@ exports[`keyboard listeners should show sign in logo when the keyboard is hidden
 +     justify=\\"center\\"
 +   >
 +     <Text
-+       header={true}
 +       style={
 +         Object {
-+           \\"color\\": \\"#52C5DC\\",
++           \\"color\\": \\"#3CC8E6\\",
++           \\"fontFamily\\": \\"AmaticSC-Bold\\",
 +           \\"fontSize\\": 48,
++           \\"fontStyle\\": \\"normal\\",
++           \\"fontWeight\\": \\"bold\\",
++           \\"letterSpacing\\": 2,
++           \\"lineHeight\\": 48,
++           \\"textAlignVertical\\": \\"center\\",
++           \\"textTransform\\": \\"lowercase\\",
 +         }
 +       }
 +     >
@@ -857,11 +937,17 @@ exports[`renders correctly 1`] = `
     justify="center"
   >
     <Text
-      header={true}
       style={
         Object {
-          "color": "#52C5DC",
+          "color": "#3CC8E6",
+          "fontFamily": "AmaticSC-Bold",
           "fontSize": 48,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 2,
+          "lineHeight": 48,
+          "textAlignVertical": "center",
+          "textTransform": "lowercase",
         }
       }
     >
@@ -881,8 +967,14 @@ exports[`renders correctly 1`] = `
       <Text
         style={
           Object {
-            "color": "#52C5DC",
+            "color": "#3CC8E6",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -910,8 +1002,14 @@ exports[`renders correctly 1`] = `
       <Text
         style={
           Object {
-            "color": "#52C5DC",
+            "color": "#3CC8E6",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -930,12 +1028,16 @@ exports[`renders correctly 1`] = `
       <Button
         buttonTextStyle={
           Object {
-            "color": "#52C5DC",
+            "color": "#3CC8E6",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
+            "fontStyle": "normal",
             "fontWeight": "normal",
-            "letterSpacing": 0,
+            "lineHeight": 24,
             "paddingVertical": 10,
             "textAlign": "left",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         onPress={[Function]}
@@ -964,10 +1066,15 @@ exports[`renders correctly 1`] = `
       buttonTextStyle={
         Object {
           "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "500",
-          "letterSpacing": 1.5,
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
           "paddingTop": 2,
+          "textAlignVertical": "center",
+          "textTransform": "uppercase",
         }
       }
       onPress={[Function]}
@@ -975,7 +1082,7 @@ exports[`renders correctly 1`] = `
       style={
         Object {
           "backgroundColor": "transparent",
-          "borderColor": "#52C5DC",
+          "borderColor": "#3CC8E6",
           "borderWidth": 1,
           "height": 48,
           "margin": 8,
@@ -1001,10 +1108,15 @@ exports[`renders correctly 1`] = `
           style={
             Object {
               "color": "#ffffff",
-              "fontSize": 14,
-              "fontWeight": "500",
-              "letterSpacing": 1.5,
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 20,
               "paddingTop": 2,
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             }
           }
         >
@@ -1038,11 +1150,16 @@ exports[`renders correctly for forced logout 1`] = `
       style={
         Object {
           "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
           "lineHeight": 32,
           "paddingLeft": 30,
           "paddingRight": 80,
           "textAlign": "left",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -1063,8 +1180,14 @@ Please sign in so we know it's you.
       <Text
         style={
           Object {
-            "color": "#52C5DC",
+            "color": "#3CC8E6",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1092,8 +1215,14 @@ Please sign in so we know it's you.
       <Text
         style={
           Object {
-            "color": "#52C5DC",
+            "color": "#3CC8E6",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1112,12 +1241,16 @@ Please sign in so we know it's you.
       <Button
         buttonTextStyle={
           Object {
-            "color": "#52C5DC",
+            "color": "#3CC8E6",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
+            "fontStyle": "normal",
             "fontWeight": "normal",
-            "letterSpacing": 0,
+            "lineHeight": 24,
             "paddingVertical": 10,
             "textAlign": "left",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         onPress={[Function]}
@@ -1146,10 +1279,15 @@ Please sign in so we know it's you.
       buttonTextStyle={
         Object {
           "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "500",
-          "letterSpacing": 1.5,
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
           "paddingTop": 2,
+          "textAlignVertical": "center",
+          "textTransform": "uppercase",
         }
       }
       onPress={[Function]}
@@ -1157,7 +1295,7 @@ Please sign in so we know it's you.
       style={
         Object {
           "backgroundColor": "transparent",
-          "borderColor": "#52C5DC",
+          "borderColor": "#3CC8E6",
           "borderWidth": 1,
           "height": 48,
           "margin": 8,
@@ -1183,10 +1321,15 @@ Please sign in so we know it's you.
           style={
             Object {
               "color": "#ffffff",
-              "fontSize": 14,
-              "fontWeight": "500",
-              "letterSpacing": 1.5,
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 20,
               "paddingTop": 2,
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             }
           }
         >

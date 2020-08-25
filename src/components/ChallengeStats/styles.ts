@@ -4,21 +4,17 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   subHeader: {
-    color: theme.inactiveColor,
-    fontSize: 12,
-    lineHeight: 16,
+    ...theme.textRegular12,
+    color: theme.lightGrey,
   },
   number: {
-    color: theme.parakeetBlue,
+    ...theme.textLight32,
+    color: theme.secondaryColor,
     fontFamily: 'SourceSansPro-ExtraLight',
-    fontSize: 32,
-    lineHeight: 38,
   },
   numberSmall: {
-    color: theme.textColor,
+    ...theme.textLight24,
     fontFamily: 'SourceSansPro-ExtraLight',
-    fontSize: 24,
-    lineHeight: 30,
   },
   numberNull: {
     color: theme.lightGrey,

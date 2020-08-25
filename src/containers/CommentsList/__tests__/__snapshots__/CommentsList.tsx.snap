@@ -144,17 +144,9 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "paddingRight": 6,
-                      },
-                    ]
+                    Object {
+                      "paddingRight": 6,
+                    }
                   }
                 >
                   Branson Gutkowski
@@ -165,18 +157,16 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
-                  },
-                  Object {
+                    "color": "#B4B6BA",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "color": "#B2B0B2",
-                      "fontSize": 12,
-                    },
-                    Object {},
-                  ],
+                  Object {},
                 ]
               }
               testID="Text"
@@ -187,20 +177,18 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
-                    "fontFamily": "SourceSansPro-Regular",
+                    "paddingHorizontal": 2,
                   },
-                  Array [
-                    Object {
-                      "color": "#B2B0B2",
-                      "fontSize": 12,
-                    },
-                    Object {
-                      "paddingHorizontal": 2,
-                    },
-                  ],
                 ]
               }
             >
@@ -208,18 +196,16 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B2B0B2",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Edited
@@ -257,19 +243,7 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
                 ]
               }
             >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {},
-                  ]
-                }
-              >
+              <Text>
                 esse repellat quisquam
               </Text>
             </View>
@@ -358,17 +332,9 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "paddingRight": 6,
-                      },
-                    ]
+                    Object {
+                      "paddingRight": 6,
+                    }
                   }
                 >
                   Marcellus Hyatt
@@ -379,18 +345,16 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
-                  },
-                  Object {
+                    "color": "#B4B6BA",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "color": "#B2B0B2",
-                      "fontSize": 12,
-                    },
-                    Object {},
-                  ],
+                  Object {},
                 ]
               }
               testID="Text"
@@ -401,20 +365,18 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
-                    "fontFamily": "SourceSansPro-Regular",
+                    "paddingHorizontal": 2,
                   },
-                  Array [
-                    Object {
-                      "color": "#B2B0B2",
-                      "fontSize": 12,
-                    },
-                    Object {
-                      "paddingHorizontal": 2,
-                    },
-                  ],
                 ]
               }
             >
@@ -422,18 +384,16 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B2B0B2",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Edited
@@ -471,19 +431,7 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
                 ]
               }
             >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {},
-                  ]
-                }
-              >
+              <Text>
                 sunt qui amet
               </Text>
             </View>
@@ -638,17 +586,9 @@ exports[`with comments with next page renders correctly 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "paddingRight": 6,
-                      },
-                    ]
+                    Object {
+                      "paddingRight": 6,
+                    }
                   }
                 >
                   Branson Gutkowski
@@ -659,18 +599,16 @@ exports[`with comments with next page renders correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
-                  },
-                  Object {
+                    "color": "#B4B6BA",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "color": "#B2B0B2",
-                      "fontSize": 12,
-                    },
-                    Object {},
-                  ],
+                  Object {},
                 ]
               }
               testID="Text"
@@ -681,20 +619,18 @@ exports[`with comments with next page renders correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
-                    "fontFamily": "SourceSansPro-Regular",
+                    "paddingHorizontal": 2,
                   },
-                  Array [
-                    Object {
-                      "color": "#B2B0B2",
-                      "fontSize": 12,
-                    },
-                    Object {
-                      "paddingHorizontal": 2,
-                    },
-                  ],
                 ]
               }
             >
@@ -702,18 +638,16 @@ exports[`with comments with next page renders correctly 1`] = `
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B2B0B2",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Edited
@@ -751,19 +685,7 @@ exports[`with comments with next page renders correctly 1`] = `
                 ]
               }
             >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {},
-                  ]
-                }
-              >
+              <Text>
                 esse repellat quisquam
               </Text>
             </View>
@@ -852,17 +774,9 @@ exports[`with comments with next page renders correctly 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "paddingRight": 6,
-                      },
-                    ]
+                    Object {
+                      "paddingRight": 6,
+                    }
                   }
                 >
                   Marcellus Hyatt
@@ -873,18 +787,16 @@ exports[`with comments with next page renders correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
-                  },
-                  Object {
+                    "color": "#B4B6BA",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "color": "#B2B0B2",
-                      "fontSize": 12,
-                    },
-                    Object {},
-                  ],
+                  Object {},
                 ]
               }
               testID="Text"
@@ -895,20 +807,18 @@ exports[`with comments with next page renders correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
-                    "fontFamily": "SourceSansPro-Regular",
+                    "paddingHorizontal": 2,
                   },
-                  Array [
-                    Object {
-                      "color": "#B2B0B2",
-                      "fontSize": 12,
-                    },
-                    Object {
-                      "paddingHorizontal": 2,
-                    },
-                  ],
                 ]
               }
             >
@@ -916,18 +826,16 @@ exports[`with comments with next page renders correctly 1`] = `
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B2B0B2",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Edited
@@ -965,19 +873,7 @@ exports[`with comments with next page renders correctly 1`] = `
                 ]
               }
             >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {},
-                  ]
-                }
-              >
+              <Text>
                 sunt qui amet
               </Text>
             </View>
@@ -1132,17 +1028,9 @@ exports[`with comments with next page without next page renders correctly 1`] = 
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "paddingRight": 6,
-                      },
-                    ]
+                    Object {
+                      "paddingRight": 6,
+                    }
                   }
                 >
                   Branson Gutkowski
@@ -1153,18 +1041,16 @@ exports[`with comments with next page without next page renders correctly 1`] = 
               style={
                 Array [
                   Object {
-                    "color": "#505256",
-                  },
-                  Object {
+                    "color": "#B4B6BA",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "color": "#B2B0B2",
-                      "fontSize": 12,
-                    },
-                    Object {},
-                  ],
+                  Object {},
                 ]
               }
               testID="Text"
@@ -1175,20 +1061,18 @@ exports[`with comments with next page without next page renders correctly 1`] = 
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
-                    "fontFamily": "SourceSansPro-Regular",
+                    "paddingHorizontal": 2,
                   },
-                  Array [
-                    Object {
-                      "color": "#B2B0B2",
-                      "fontSize": 12,
-                    },
-                    Object {
-                      "paddingHorizontal": 2,
-                    },
-                  ],
                 ]
               }
             >
@@ -1196,18 +1080,16 @@ exports[`with comments with next page without next page renders correctly 1`] = 
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B2B0B2",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Edited
@@ -1245,19 +1127,7 @@ exports[`with comments with next page without next page renders correctly 1`] = 
                 ]
               }
             >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {},
-                  ]
-                }
-              >
+              <Text>
                 esse repellat quisquam
               </Text>
             </View>
@@ -1346,17 +1216,9 @@ exports[`with comments with next page without next page renders correctly 1`] = 
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "paddingRight": 6,
-                      },
-                    ]
+                    Object {
+                      "paddingRight": 6,
+                    }
                   }
                 >
                   Marcellus Hyatt
@@ -1367,18 +1229,16 @@ exports[`with comments with next page without next page renders correctly 1`] = 
               style={
                 Array [
                   Object {
-                    "color": "#505256",
-                  },
-                  Object {
+                    "color": "#B4B6BA",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "color": "#B2B0B2",
-                      "fontSize": 12,
-                    },
-                    Object {},
-                  ],
+                  Object {},
                 ]
               }
               testID="Text"
@@ -1389,20 +1249,18 @@ exports[`with comments with next page without next page renders correctly 1`] = 
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
-                    "fontFamily": "SourceSansPro-Regular",
+                    "paddingHorizontal": 2,
                   },
-                  Array [
-                    Object {
-                      "color": "#B2B0B2",
-                      "fontSize": 12,
-                    },
-                    Object {
-                      "paddingHorizontal": 2,
-                    },
-                  ],
                 ]
               }
             >
@@ -1410,18 +1268,16 @@ exports[`with comments with next page without next page renders correctly 1`] = 
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B2B0B2",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Edited
@@ -1459,19 +1315,7 @@ exports[`with comments with next page without next page renders correctly 1`] = 
                 ]
               }
             >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {},
-                  ]
-                }
-              >
+              <Text>
                 sunt qui amet
               </Text>
             </View>

@@ -78,22 +78,18 @@ exports[`CommunityMembers renders with content 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 24,
-                "fontWeight": "300",
-                "lineHeight": 30,
-                "marginBottom": 20,
-                "marginTop": 15,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "marginBottom": 20,
+              "marginTop": 15,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           93255 Members
@@ -183,18 +179,16 @@ exports[`CommunityMembers renders with content 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 Elizabeth Zulauf
@@ -212,36 +206,32 @@ exports[`CommunityMembers renders with content 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "fontSize": 12,
-                      },
-                    ]
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
+                    }
                   }
                 >
                   Member since
                    
                   <Text
                     style={
-                      Array [
-                        Object {
-                          "color": "#505256",
-                        },
-                        Object {
-                          "fontFamily": "SourceSansPro-Regular",
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                          "fontSize": 12,
-                        },
-                      ]
+                      Object {
+                        "color": "#B4B6BA",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 12,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "lineHeight": 16,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
+                      }
                     }
                     testID="Text"
                   >
@@ -315,23 +305,19 @@ exports[`CommunityMembers renders with content 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -501,10 +487,10 @@ exports[`CommunityMembers should load next page 1`] = `
       disableVirtualization={false}
       getItem={[Function anonymous]}
       getItemCount={[Function anonymous]}
-@@ -109,11 +145,11 @@
-                  \\"marginTop\\": 15,
-                },
-              ]
+@@ -105,11 +141,11 @@
+                \\"textAlignVertical\\": \\"center\\",
+                \\"textTransform\\": \\"none\\",
+              }
             }
           >
 -           93255 Members
@@ -514,8 +500,8 @@ exports[`CommunityMembers should load next page 1`] = `
         <View
           onLayout={[Function onLayout]}
           style={null}
-@@ -413,10 +449,318 @@
-                        ]
+@@ -397,10 +433,306 @@
+                        }
                       }
                       testID=\\"Text\\"
                     >
@@ -611,18 +597,16 @@ exports[`CommunityMembers should load next page 1`] = `
 +             >
 +               <Text
 +                 style={
-+                   Array [
-+                     Object {
-+                       \\"color\\": \\"#505256\\",
-+                     },
-+                     Object {
-+                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                     },
-+                     Object {
-+                       \\"color\\": \\"#505256\\",
-+                       \\"fontSize\\": 16,
-+                     },
-+                   ]
++                   Object {
++                     \\"color\\": \\"#505256\\",
++                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                     \\"fontSize\\": 16,
++                     \\"fontStyle\\": \\"normal\\",
++                     \\"fontWeight\\": \\"normal\\",
++                     \\"lineHeight\\": 24,
++                     \\"textAlignVertical\\": \\"center\\",
++                     \\"textTransform\\": \\"none\\",
++                   }
 +                 }
 +               >
 +                 Shad Farrell
@@ -640,36 +624,32 @@ exports[`CommunityMembers should load next page 1`] = `
 +               >
 +                 <Text
 +                   style={
-+                     Array [
-+                       Object {
-+                         \\"color\\": \\"#505256\\",
-+                       },
-+                       Object {
-+                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                       },
-+                       Object {
-+                         \\"color\\": \\"#B4B6BA\\",
-+                         \\"fontSize\\": 12,
-+                       },
-+                     ]
++                     Object {
++                       \\"color\\": \\"#B4B6BA\\",
++                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                       \\"fontSize\\": 12,
++                       \\"fontStyle\\": \\"normal\\",
++                       \\"fontWeight\\": \\"normal\\",
++                       \\"lineHeight\\": 16,
++                       \\"textAlignVertical\\": \\"center\\",
++                       \\"textTransform\\": \\"none\\",
++                     }
 +                   }
 +                 >
 +                   Member since
 +                    
 +                   <Text
 +                     style={
-+                       Array [
-+                         Object {
-+                           \\"color\\": \\"#505256\\",
-+                         },
-+                         Object {
-+                           \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                         },
-+                         Object {
-+                           \\"color\\": \\"#B4B6BA\\",
-+                           \\"fontSize\\": 12,
-+                         },
-+                       ]
++                       Object {
++                         \\"color\\": \\"#B4B6BA\\",
++                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                         \\"fontSize\\": 12,
++                         \\"fontStyle\\": \\"normal\\",
++                         \\"fontWeight\\": \\"normal\\",
++                         \\"lineHeight\\": 16,
++                         \\"textAlignVertical\\": \\"center\\",
++                         \\"textTransform\\": \\"none\\",
++                       }
 +                     }
 +                     testID=\\"Text\\"
 +                   >
@@ -765,18 +745,16 @@ exports[`CommunityMembers should load next page 1`] = `
 +             >
 +               <Text
 +                 style={
-+                   Array [
-+                     Object {
-+                       \\"color\\": \\"#505256\\",
-+                     },
-+                     Object {
-+                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                     },
-+                     Object {
-+                       \\"color\\": \\"#505256\\",
-+                       \\"fontSize\\": 16,
-+                     },
-+                   ]
++                   Object {
++                     \\"color\\": \\"#505256\\",
++                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                     \\"fontSize\\": 16,
++                     \\"fontStyle\\": \\"normal\\",
++                     \\"fontWeight\\": \\"normal\\",
++                     \\"lineHeight\\": 24,
++                     \\"textAlignVertical\\": \\"center\\",
++                     \\"textTransform\\": \\"none\\",
++                   }
 +                 }
 +               >
 +                 Keaton Keeling
@@ -794,36 +772,32 @@ exports[`CommunityMembers should load next page 1`] = `
 +               >
 +                 <Text
 +                   style={
-+                     Array [
-+                       Object {
-+                         \\"color\\": \\"#505256\\",
-+                       },
-+                       Object {
-+                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                       },
-+                       Object {
-+                         \\"color\\": \\"#B4B6BA\\",
-+                         \\"fontSize\\": 12,
-+                       },
-+                     ]
++                     Object {
++                       \\"color\\": \\"#B4B6BA\\",
++                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                       \\"fontSize\\": 12,
++                       \\"fontStyle\\": \\"normal\\",
++                       \\"fontWeight\\": \\"normal\\",
++                       \\"lineHeight\\": 16,
++                       \\"textAlignVertical\\": \\"center\\",
++                       \\"textTransform\\": \\"none\\",
++                     }
 +                   }
 +                 >
 +                   Member since
 +                    
 +                   <Text
 +                     style={
-+                       Array [
-+                         Object {
-+                           \\"color\\": \\"#505256\\",
-+                         },
-+                         Object {
-+                           \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                         },
-+                         Object {
-+                           \\"color\\": \\"#B4B6BA\\",
-+                           \\"fontSize\\": 12,
-+                         },
-+                       ]
++                       Object {
++                         \\"color\\": \\"#B4B6BA\\",
++                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                         \\"fontSize\\": 12,
++                         \\"fontStyle\\": \\"normal\\",
++                         \\"fontWeight\\": \\"normal\\",
++                         \\"lineHeight\\": 16,
++                         \\"textAlignVertical\\": \\"center\\",
++                         \\"textTransform\\": \\"none\\",
++                       }
 +                     }
 +                     testID=\\"Text\\"
 +                   >
@@ -892,22 +866,18 @@ exports[`CommunityMembers should render empty state 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 24,
-                "fontWeight": "300",
-                "lineHeight": 30,
-                "marginBottom": 20,
-                "marginTop": 15,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "marginBottom": 20,
+              "marginTop": 15,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           0 Members
@@ -999,23 +969,19 @@ exports[`CommunityMembers should render empty state 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -1190,22 +1156,18 @@ exports[`CommunityMembers should render loading state 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 24,
-                "fontWeight": "300",
-                "lineHeight": 30,
-                "marginBottom": 20,
-                "marginTop": 15,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "marginBottom": 20,
+              "marginTop": 15,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           0 Members
@@ -1297,23 +1259,19 @@ exports[`CommunityMembers should render loading state 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }

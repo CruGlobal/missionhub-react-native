@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Linking, Image, View } from 'react-native';
+import { Linking, Image, View, Text } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
@@ -7,7 +7,7 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { useAppState } from 'react-native-hooks';
 import { AnyAction } from 'redux';
 
-import { Text, Button } from '../../components/common';
+import { Button } from '../../components/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { requestNativePermissions } from '../../actions/notifications';
 import { navigateBack } from '../../actions/navigation';

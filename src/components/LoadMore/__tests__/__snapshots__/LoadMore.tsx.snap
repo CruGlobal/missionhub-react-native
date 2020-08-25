@@ -27,7 +27,7 @@ exports[`render load more button 1`] = `
         null,
         Object {
           "alignSelf": "center",
-          "borderColor": "#B2B0B2",
+          "borderColor": "#B4B6BA",
           "borderRadius": 25,
           "borderWidth": 1,
           "marginVertical": 20,
@@ -42,25 +42,21 @@ exports[`render load more button 1`] = `
       style={
         Array [
           Object {
-            "color": "#505256",
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "letterSpacing": 1,
+            "lineHeight": 18,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
           },
           Object {
-            "fontFamily": "SourceSansPro-Regular",
+            "color": "#B4B6BA",
+            "fontSize": 18,
           },
-          Array [
-            Object {
-              "backgroundColor": "rgba(0,0,0,0)",
-              "color": "#ffffff",
-              "fontSize": 14,
-              "fontWeight": "500",
-              "letterSpacing": 1.5,
-              "textAlign": "center",
-            },
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 18,
-            },
-          ],
         ]
       }
     >

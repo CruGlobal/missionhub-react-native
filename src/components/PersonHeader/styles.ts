@@ -7,16 +7,13 @@ export default StyleSheet.create({
   content: { alignItems: 'center', marginBottom: 24 },
   avatar: { marginTop: -30 },
   personName: {
-    fontWeight: '300',
-    fontSize: 24,
+    ...theme.textLight24,
     color: theme.white,
     marginTop: 12,
   },
   stage: {
+    ...theme.textBold14,
     marginTop: 4,
     color: theme.white,
-    fontSize: 14,
-    fontWeight: 'bold',
-    letterSpacing: 1,
   },
 });

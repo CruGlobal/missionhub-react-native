@@ -1,7 +1,5 @@
 import React from 'react';
-import { TextStyle } from 'react-native';
-
-import { Text } from '../../components/common';
+import { TextStyle, Text } from 'react-native';
 
 import styles from './styles';
 

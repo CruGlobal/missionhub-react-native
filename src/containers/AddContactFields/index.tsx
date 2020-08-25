@@ -1,12 +1,12 @@
 import React, { useState, useRef } from 'react';
-import { KeyboardAvoidingView, View, TextInput } from 'react-native';
+import { KeyboardAvoidingView, View, TextInput, Text } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
 import { orgPermissionSelector } from '../../selectors/people';
-import { Flex, Text, Input } from '../../components/common';
+import { Flex, Input } from '../../components/common';
 import PopupMenu from '../../components/PopupMenu';
 import theme from '../../theme';
 import { hasOrgPermissions } from '../../utils/common';
@@ -138,13 +138,13 @@ const AddContactFields = ({
           testID="firstNameInput"
           ref={firstNameRef}
           style={{
-            color: isEdit ? theme.parakeetBlue : theme.white,
+            color: isEdit ? theme.secondaryColor : theme.white,
             borderBottomColor: isEdit
               ? theme.extraLightGrey
-              : theme.parakeetBlue,
+              : theme.secondaryColor,
           }}
           editable={!personHasOrgPermission}
-          selectionColor={theme.parakeetBlue}
+          selectionColor={theme.secondaryColor}
           onChangeText={(firstName: string) =>
             updateField('firstName', firstName)
           }
@@ -154,7 +154,7 @@ const AddContactFields = ({
               ? ''
               : t('profileLabels.firstNameRequired')
           }
-          placeholderTextColor={isEdit ? theme.parakeetBlue : theme.white}
+          placeholderTextColor={isEdit ? theme.secondaryColor : theme.white}
           returnKeyType="next"
           blurOnSubmit={false}
           autoFocus={true}
@@ -176,13 +176,13 @@ const AddContactFields = ({
           testID="lastNameInput"
           ref={lastNameRef}
           style={{
-            color: isEdit ? theme.parakeetBlue : theme.white,
+            color: isEdit ? theme.secondaryColor : theme.white,
             borderBottomColor: isEdit
               ? theme.extraLightGrey
-              : theme.parakeetBlue,
+              : theme.secondaryColor,
           }}
           editable={!personHasOrgPermission}
-          selectionColor={theme.parakeetBlue}
+          selectionColor={theme.secondaryColor}
           onChangeText={(lastName: string) => updateField('lastName', lastName)}
           value={person.lastName}
           placeholder={
@@ -190,7 +190,7 @@ const AddContactFields = ({
               ? ''
               : t('profileLabels.lastNameOptional')
           }
-          placeholderTextColor={isEdit ? theme.parakeetBlue : theme.white}
+          placeholderTextColor={isEdit ? theme.secondaryColor : theme.white}
           returnKeyType="done"
           blurOnSubmit={false}
           onFocus={() => changeCurrentInputField('lastName')}

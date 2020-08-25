@@ -4,7 +4,7 @@ import theme from '../../../../theme';
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: theme.grey3,
+    backgroundColor: theme.extraLightGrey,
   },
   image: { height: 210 },
   imageOverlay: {
@@ -13,9 +13,7 @@ export default StyleSheet.create({
     opacity: 0.15,
   },
   communityName: {
-    fontSize: 24,
-    fontWeight: '300',
-    lineHeight: 30,
+    ...theme.textLight24,
     color: theme.white,
   },
   communityMembersButton: {
@@ -27,9 +25,8 @@ export default StyleSheet.create({
     marginBottom: 10,
   },
   communityMembersText: {
+    ...theme.textRegular14,
     fontWeight: 'normal',
-    fontSize: 14,
-    lineHeight: 20,
     color: theme.white,
   },
 });

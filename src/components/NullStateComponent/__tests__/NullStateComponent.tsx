@@ -1,7 +1,7 @@
 import React from 'react';
+import { Text } from 'react-native';
 
 import { renderWithContext } from '../../../../testUtils';
-import { Text } from '../../common';
 import NullStateComponent from '..';
 
 it('render assigned contact', () => {

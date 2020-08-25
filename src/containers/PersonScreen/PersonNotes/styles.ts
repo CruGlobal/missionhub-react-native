@@ -8,15 +8,11 @@ export default StyleSheet.create({
     backgroundColor: theme.white,
   },
   notesText: {
-    fontSize: 16,
-    color: theme.textColor,
+    ...theme.textRegular16,
     textAlign: 'left',
     paddingHorizontal: 36,
     marginTop: 30,
     borderBottomWidth: 0,
-  },
-  list: {
-    backgroundColor: theme.transparent,
   },
   nullState: {
     marginTop: 20,

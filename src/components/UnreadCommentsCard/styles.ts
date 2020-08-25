@@ -8,7 +8,7 @@ export default StyleSheet.create({
     marginHorizontal: 0,
     marginVertical: 0,
     borderRadius: 8,
-    backgroundColor: theme.grey,
+    backgroundColor: theme.darkGrey,
   },
   content: {
     borderBottomColor: theme.white,
@@ -17,11 +17,13 @@ export default StyleSheet.create({
     overflow: 'hidden',
   },
   number: {
+    ...theme.textRegular16,
     fontSize: 48,
+    lineHeight: 48,
     color: theme.white,
   },
   description: {
-    fontSize: 14,
+    ...theme.textRegular14,
     color: theme.white,
   },
   viewWrap: {
@@ -30,8 +32,10 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   viewText: {
+    ...theme.textBold14,
     flex: 1,
     fontSize: 12,
+    lineHeight: 16,
     fontWeight: 'bold',
     color: theme.white,
   },

@@ -6,6 +6,7 @@ import {
   View,
   StatusBar,
   SafeAreaView,
+  Text,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
@@ -23,7 +24,6 @@ import { removeGroupInviteInfo } from '../../../../actions/swipe';
 import { trackActionWithoutData } from '../../../../actions/analytics';
 import { navigateBack } from '../../../../actions/navigation';
 import IconButton from '../../../../components/IconButton';
-import Text from '../../../../components/Text';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import { Organization } from '../../../../reducers/organizations';
 import theme from '../../../../theme';

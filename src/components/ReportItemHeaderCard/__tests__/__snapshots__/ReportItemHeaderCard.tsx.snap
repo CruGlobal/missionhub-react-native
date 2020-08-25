@@ -66,18 +66,17 @@ exports[`renders correctly 1`] = `
   </Text>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "marginLeft": 15,
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 14,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 20,
+        "marginLeft": 15,
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     12 New Reported Items

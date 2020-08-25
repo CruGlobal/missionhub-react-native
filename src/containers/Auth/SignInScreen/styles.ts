@@ -10,30 +10,31 @@ export default StyleSheet.create({
     flexDirection: 'column',
   },
   label: {
+    ...theme.textRegular12,
     color: theme.secondaryColor,
-    fontSize: 12,
   },
   forcedLogoutHeader: {
+    ...theme.textRegular16,
     fontSize: 24,
+    lineHeight: 32,
     textAlign: 'left',
     paddingRight: 80,
     paddingLeft: 30,
     color: theme.white,
-    lineHeight: 32,
   },
   header: {
+    ...theme.textAmatic48,
     color: theme.secondaryColor,
-    fontSize: 48,
   },
   errorBar: {
-    backgroundColor: '#FF5532',
+    backgroundColor: theme.orange,
     height: 48,
     justifyContent: 'center',
     alignItems: 'center',
   },
   errorMessage: {
+    ...theme.textRegular16,
     color: theme.white,
-    fontSize: 16,
   },
   facebookButton: {
     backgroundColor: theme.transparent,
@@ -44,11 +45,9 @@ export default StyleSheet.create({
     height: 48,
   },
   buttonText: {
+    ...theme.textBold16,
     color: theme.white,
-    fontWeight: '500',
-    fontSize: 14,
     paddingTop: 2,
-    letterSpacing: 1.5,
   },
   icon: {
     marginRight: 10,
@@ -57,11 +56,9 @@ export default StyleSheet.create({
     width: 130,
   },
   forgotPasswordText: {
+    ...theme.textRegular16,
     paddingVertical: 10,
     textAlign: 'left',
     color: theme.secondaryColor,
-    fontSize: 16,
-    fontWeight: 'normal',
-    letterSpacing: 0,
   },
 });

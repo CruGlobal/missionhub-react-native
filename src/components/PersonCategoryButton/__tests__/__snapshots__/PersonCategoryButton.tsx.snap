@@ -66,21 +66,16 @@ exports[`Different Categories renders correctly | coworker 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Coworker
@@ -159,21 +154,16 @@ exports[`Different Categories renders correctly | family 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Family
@@ -252,21 +242,16 @@ exports[`Different Categories renders correctly | friend 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Friend
@@ -345,21 +330,16 @@ exports[`Different Categories renders correctly | neighbor 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Neighbor
@@ -438,21 +418,16 @@ exports[`Different Categories renders correctly | other 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Other
@@ -531,21 +506,16 @@ exports[`onPress fires onPress when clicked 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Friend
@@ -626,21 +596,16 @@ exports[`render correctly | active 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Family
@@ -719,21 +684,16 @@ exports[`render correctly | non-active 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Friend

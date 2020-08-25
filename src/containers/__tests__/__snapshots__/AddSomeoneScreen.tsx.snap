@@ -174,26 +174,29 @@ exports[`renders correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
-                  },
-                  Object {
+                    "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
                   Array [
                     Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      undefined,
-                    ],
+                    undefined,
                   ],
                 ]
               }
@@ -250,21 +253,18 @@ exports[`renders correctly 1`] = `
       />
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 24,
-              "lineHeight": 32,
-              "paddingVertical": 10,
-              "textAlign": "left",
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 32,
+            "paddingVertical": 10,
+            "textAlign": "left",
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Growing closer to God involves helping others experience Him.
@@ -304,7 +304,7 @@ Take a moment and pray. Who do you want to take steps of faith with?
             Array [
               Object {
                 "alignItems": "center",
-                "backgroundColor": "#52C5DC",
+                "backgroundColor": "#3CC8E6",
                 "height": 60,
                 "justifyContent": "center",
               },
@@ -327,23 +327,19 @@ Take a moment and pray. Who do you want to take steps of faith with?
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    undefined,
-                  ],
+                  undefined,
                 ],
               ]
             }
@@ -453,26 +449,29 @@ exports[`renders without back button correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
-                  },
-                  Object {
+                    "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
                   Array [
                     Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      undefined,
-                    ],
+                    undefined,
                   ],
                 ]
               }
@@ -529,21 +528,18 @@ exports[`renders without back button correctly 1`] = `
       />
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 24,
-              "lineHeight": 32,
-              "paddingVertical": 10,
-              "textAlign": "left",
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 32,
+            "paddingVertical": 10,
+            "textAlign": "left",
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Growing closer to God involves helping others experience Him.
@@ -583,7 +579,7 @@ Take a moment and pray. Who do you want to take steps of faith with?
             Array [
               Object {
                 "alignItems": "center",
-                "backgroundColor": "#52C5DC",
+                "backgroundColor": "#3CC8E6",
                 "height": 60,
                 "justifyContent": "center",
               },
@@ -606,23 +602,19 @@ Take a moment and pray. Who do you want to take steps of faith with?
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    undefined,
-                  ],
+                  undefined,
                 ],
               ]
             }
@@ -819,21 +811,18 @@ exports[`renders without skip button correctly 1`] = `
       />
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 24,
-              "lineHeight": 32,
-              "paddingVertical": 10,
-              "textAlign": "left",
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 32,
+            "paddingVertical": 10,
+            "textAlign": "left",
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Growing closer to God involves helping others experience Him.
@@ -873,7 +862,7 @@ Take a moment and pray. Who do you want to take steps of faith with?
             Array [
               Object {
                 "alignItems": "center",
-                "backgroundColor": "#52C5DC",
+                "backgroundColor": "#3CC8E6",
                 "height": 60,
                 "justifyContent": "center",
               },
@@ -896,23 +885,19 @@ Take a moment and pray. Who do you want to take steps of faith with?
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    undefined,
-                  ],
+                  undefined,
                 ],
               ]
             }

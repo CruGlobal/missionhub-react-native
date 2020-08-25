@@ -1,9 +1,8 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, Text } from 'react-native';
 import i18next from 'i18next';
 
 import { Flex } from '../common';
-import Text from '../Text';
 
 import styles from './styles';
 
@@ -19,7 +18,7 @@ export default function LoadingGuy() {
         />
       </Flex>
       <Flex value={2}>
-        <Text header={true} style={styles.loadText}>
+        <Text style={styles.loadText}>
           {i18next.t('common:loading').toUpperCase()}
         </Text>
       </Flex>

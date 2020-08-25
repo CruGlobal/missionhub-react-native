@@ -138,18 +138,16 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Set a Reminder
@@ -192,20 +190,17 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
           Array [
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "color": "#B4B6BA",
             },
-            Array [
-              Object {
-                "fontSize": 12,
-                "lineHeight": 16,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "color": "#B4B6BA",
-              },
-            ],
           ]
         }
       >
@@ -223,30 +218,32 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#3CC8E6",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
+                    "borderBottomColor": "#B4B6BA",
+                    "borderBottomWidth": 1,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "paddingBottom": 6,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "borderBottomColor": "#B4B6BA",
-                      "borderBottomWidth": 1,
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                      "paddingBottom": 6,
-                      "textAlignVertical": "center",
-                    },
-                    Object {
-                      "color": "#007398",
-                    },
-                  ],
+                  Object {
+                    "color": "#007398",
+                  },
                 ],
               ]
             }
@@ -319,31 +316,32 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -407,31 +405,32 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -495,31 +494,32 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -562,7 +562,7 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -585,23 +585,19 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -752,18 +748,16 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Set a Reminder
@@ -806,20 +800,17 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
           Array [
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "color": "#B4B6BA",
             },
-            Array [
-              Object {
-                "fontSize": 12,
-                "lineHeight": 16,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "color": "#B4B6BA",
-              },
-            ],
           ]
         }
       >
@@ -837,30 +828,32 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#3CC8E6",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
+                    "borderBottomColor": "#B4B6BA",
+                    "borderBottomWidth": 1,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "paddingBottom": 6,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "borderBottomColor": "#B4B6BA",
-                      "borderBottomWidth": 1,
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                      "paddingBottom": 6,
-                      "textAlignVertical": "center",
-                    },
-                    Object {
-                      "color": "#007398",
-                    },
-                  ],
+                  Object {
+                    "color": "#007398",
+                  },
                 ],
               ]
             }
@@ -933,31 +926,32 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -1021,31 +1015,32 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -1109,31 +1104,32 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -1176,7 +1172,7 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -1199,23 +1195,19 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -1366,18 +1358,16 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Set a Reminder
@@ -1420,18 +1410,15 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
           Array [
             Object {
               "color": "#505256",
-            },
-            Object {
               "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
-            Array [
-              Object {
-                "fontSize": 12,
-                "lineHeight": 16,
-                "textAlignVertical": "center",
-              },
-              null,
-            ],
+            null,
           ]
         }
       >
@@ -1449,30 +1436,32 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#3CC8E6",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
+                    "borderBottomColor": "#B4B6BA",
+                    "borderBottomWidth": 1,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "paddingBottom": 6,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "borderBottomColor": "#B4B6BA",
-                      "borderBottomWidth": 1,
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                      "paddingBottom": 6,
-                      "textAlignVertical": "center",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -1532,7 +1521,7 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
                   "width": 70,
                 },
                 Object {
-                  "backgroundColor": "#52C5DC",
+                  "backgroundColor": "#3CC8E6",
                 },
               ],
               null,
@@ -1543,31 +1532,32 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#ffffff",
-                    },
-                  ],
+                  Object {
+                    "color": "#ffffff",
+                  },
                 ],
               ]
             }
@@ -1631,31 +1621,32 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -1719,31 +1710,32 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -1786,7 +1778,7 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -1811,23 +1803,19 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -1978,18 +1966,16 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Set a Reminder
@@ -2032,20 +2018,17 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
           Array [
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "color": "#B4B6BA",
             },
-            Array [
-              Object {
-                "fontSize": 12,
-                "lineHeight": 16,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "color": "#B4B6BA",
-              },
-            ],
           ]
         }
       >
@@ -2063,30 +2046,32 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#3CC8E6",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
+                    "borderBottomColor": "#B4B6BA",
+                    "borderBottomWidth": 1,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "paddingBottom": 6,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "borderBottomColor": "#B4B6BA",
-                      "borderBottomWidth": 1,
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                      "paddingBottom": 6,
-                      "textAlignVertical": "center",
-                    },
-                    Object {
-                      "color": "#007398",
-                    },
-                  ],
+                  Object {
+                    "color": "#007398",
+                  },
                 ],
               ]
             }
@@ -2146,7 +2131,7 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
                   "width": 70,
                 },
                 Object {
-                  "backgroundColor": "#52C5DC",
+                  "backgroundColor": "#3CC8E6",
                 },
               ],
               null,
@@ -2157,31 +2142,32 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#ffffff",
-                    },
-                  ],
+                  Object {
+                    "color": "#ffffff",
+                  },
                 ],
               ]
             }
@@ -2245,31 +2231,32 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -2333,31 +2320,32 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -2400,7 +2388,7 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -2423,23 +2411,19 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -2590,18 +2574,16 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Set a Reminder
@@ -2644,20 +2626,17 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
           Array [
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "color": "#B4B6BA",
             },
-            Array [
-              Object {
-                "fontSize": 12,
-                "lineHeight": 16,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "color": "#B4B6BA",
-              },
-            ],
           ]
         }
       >
@@ -2675,30 +2654,32 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#3CC8E6",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
+                    "borderBottomColor": "#B4B6BA",
+                    "borderBottomWidth": 1,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "paddingBottom": 6,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "borderBottomColor": "#B4B6BA",
-                      "borderBottomWidth": 1,
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                      "paddingBottom": 6,
-                      "textAlignVertical": "center",
-                    },
-                    Object {
-                      "color": "#007398",
-                    },
-                  ],
+                  Object {
+                    "color": "#007398",
+                  },
                 ],
               ]
             }
@@ -2758,7 +2739,7 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
                   "width": 70,
                 },
                 Object {
-                  "backgroundColor": "#52C5DC",
+                  "backgroundColor": "#3CC8E6",
                 },
               ],
               null,
@@ -2769,31 +2750,32 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#ffffff",
-                    },
-                  ],
+                  Object {
+                    "color": "#ffffff",
+                  },
                 ],
               ]
             }
@@ -2857,31 +2839,32 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -2945,31 +2928,32 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -3012,7 +2996,7 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -3035,23 +3019,19 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -3202,18 +3182,16 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Set a Reminder
@@ -3256,20 +3234,17 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
           Array [
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "color": "#B4B6BA",
             },
-            Array [
-              Object {
-                "fontSize": 12,
-                "lineHeight": 16,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "color": "#B4B6BA",
-              },
-            ],
           ]
         }
       >
@@ -3287,30 +3262,32 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#3CC8E6",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
+                    "borderBottomColor": "#B4B6BA",
+                    "borderBottomWidth": 1,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "paddingBottom": 6,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "borderBottomColor": "#B4B6BA",
-                      "borderBottomWidth": 1,
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                      "paddingBottom": 6,
-                      "textAlignVertical": "center",
-                    },
-                    Object {
-                      "color": "#007398",
-                    },
-                  ],
+                  Object {
+                    "color": "#007398",
+                  },
                 ],
               ]
             }
@@ -3383,31 +3360,32 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -3471,31 +3449,32 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -3559,31 +3538,32 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -3626,7 +3606,7 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -3649,23 +3629,19 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -3816,18 +3792,16 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Set a Reminder
@@ -3870,20 +3844,17 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
           Array [
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "color": "#B4B6BA",
             },
-            Array [
-              Object {
-                "fontSize": 12,
-                "lineHeight": 16,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "color": "#B4B6BA",
-              },
-            ],
           ]
         }
       >
@@ -3901,30 +3872,32 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#3CC8E6",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
+                    "borderBottomColor": "#B4B6BA",
+                    "borderBottomWidth": 1,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "paddingBottom": 6,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "borderBottomColor": "#B4B6BA",
-                      "borderBottomWidth": 1,
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                      "paddingBottom": 6,
-                      "textAlignVertical": "center",
-                    },
-                    Object {
-                      "color": "#007398",
-                    },
-                  ],
+                  Object {
+                    "color": "#007398",
+                  },
                 ],
               ]
             }
@@ -3997,31 +3970,32 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -4085,31 +4059,32 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -4173,31 +4148,32 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -4240,7 +4216,7 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -4263,23 +4239,19 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -4430,18 +4402,16 @@ exports[`render no reminder in props renders correctly 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Set a Reminder
@@ -4484,18 +4454,15 @@ exports[`render no reminder in props renders correctly 1`] = `
           Array [
             Object {
               "color": "#505256",
-            },
-            Object {
               "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
-            Array [
-              Object {
-                "fontSize": 12,
-                "lineHeight": 16,
-                "textAlignVertical": "center",
-              },
-              null,
-            ],
+            null,
           ]
         }
       >
@@ -4513,30 +4480,32 @@ exports[`render no reminder in props renders correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#3CC8E6",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
+                    "borderBottomColor": "#B4B6BA",
+                    "borderBottomWidth": 1,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "paddingBottom": 6,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "borderBottomColor": "#B4B6BA",
-                      "borderBottomWidth": 1,
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                      "paddingBottom": 6,
-                      "textAlignVertical": "center",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -4609,31 +4578,32 @@ exports[`render no reminder in props renders correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -4697,31 +4667,32 @@ exports[`render no reminder in props renders correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -4785,31 +4756,32 @@ exports[`render no reminder in props renders correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -4852,7 +4824,7 @@ exports[`render no reminder in props renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -4877,23 +4849,19 @@ exports[`render no reminder in props renders correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -5044,18 +5012,16 @@ exports[`render reminder in props renders correctly 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Set a Reminder
@@ -5098,20 +5064,17 @@ exports[`render reminder in props renders correctly 1`] = `
           Array [
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "color": "#B4B6BA",
             },
-            Array [
-              Object {
-                "fontSize": 12,
-                "lineHeight": 16,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "color": "#B4B6BA",
-              },
-            ],
           ]
         }
       >
@@ -5129,30 +5092,32 @@ exports[`render reminder in props renders correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#3CC8E6",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
+                    "borderBottomColor": "#B4B6BA",
+                    "borderBottomWidth": 1,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "paddingBottom": 6,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "borderBottomColor": "#B4B6BA",
-                      "borderBottomWidth": 1,
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                      "paddingBottom": 6,
-                      "textAlignVertical": "center",
-                    },
-                    Object {
-                      "color": "#007398",
-                    },
-                  ],
+                  Object {
+                    "color": "#007398",
+                  },
                 ],
               ]
             }
@@ -5225,31 +5190,32 @@ exports[`render reminder in props renders correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -5313,31 +5279,32 @@ exports[`render reminder in props renders correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -5401,31 +5368,32 @@ exports[`render reminder in props renders correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -5468,7 +5436,7 @@ exports[`render reminder in props renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -5491,23 +5459,19 @@ exports[`render reminder in props renders correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { Card, Text, Flex, Button } from '../../components/common';
+import { Card, Flex, Button } from '../../components/common';
 import ChallengeStats, {
   ChallengeItem as ChallengeItemType,
 } from '../ChallengeStats';

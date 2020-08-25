@@ -63,20 +63,12 @@ exports[`renders correctly 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
+              "color": "#ffffff",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 26,
+              "fontWeight": "300",
             },
-            Array [
-              Object {
-                "color": "#ffffff",
-              },
-              Object {
-                "fontSize": 26,
-                "fontWeight": "300",
-              },
-            ],
           ]
         }
       >

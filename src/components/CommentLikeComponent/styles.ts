@@ -1,13 +1,9 @@
 import { StyleSheet } from 'react-native';
 
+import theme from '../../theme';
+
 export default StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-  },
-  iconAndCountWrap: {
-    width: 60,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-end',
@@ -30,10 +26,9 @@ export default StyleSheet.create({
     width: 24,
   },
   likeCount: {
+    ...theme.textRegular14,
     width: 30,
     paddingRight: 10,
-    fontSize: 14,
-    lineHeight: 20,
     textAlign: 'right',
   },
 });

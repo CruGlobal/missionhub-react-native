@@ -15,6 +15,6 @@ export default StyleSheet.create({
   },
   unassigned: {
     fontSize: 13,
-    color: theme.red,
+    color: theme.orange,
   },
 });

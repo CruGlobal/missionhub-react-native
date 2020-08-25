@@ -4,7 +4,7 @@ exports[`renders for me renders correctly 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#66D9F0",
+      "backgroundColor": "#3CC8E6",
       "flex": 1,
     }
   }
@@ -54,11 +54,16 @@ exports[`renders for me renders correctly 1`] = `
             "color": "#007398",
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 18,
-            "fontWeight": "500",
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "letterSpacing": 1,
+            "lineHeight": 24,
             "paddingBottom": 25,
             "paddingHorizontal": 30,
             "paddingTop": 45,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
             "width": 650,
           }
         }
@@ -244,13 +249,19 @@ exports[`renders for me renders correctly 1`] = `
                     }
                   />
                   <Text
-                    header={true}
                     style={
                       Object {
                         "color": "#007398",
+                        "fontFamily": "AmaticSC-Bold",
                         "fontSize": 42,
+                        "fontStyle": "normal",
+                        "fontWeight": "bold",
+                        "letterSpacing": 2,
+                        "lineHeight": 42,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "lowercase",
                       }
                     }
                   >
@@ -260,9 +271,15 @@ exports[`renders for me renders correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "lineHeight": 24,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       }
                     }
                   >
@@ -330,13 +347,19 @@ exports[`renders for me renders correctly 1`] = `
                     }
                   />
                   <Text
-                    header={true}
                     style={
                       Object {
                         "color": "#007398",
+                        "fontFamily": "AmaticSC-Bold",
                         "fontSize": 42,
+                        "fontStyle": "normal",
+                        "fontWeight": "bold",
+                        "letterSpacing": 2,
+                        "lineHeight": 42,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "lowercase",
                       }
                     }
                   >
@@ -346,9 +369,15 @@ exports[`renders for me renders correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "lineHeight": 24,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       }
                     }
                   >
@@ -416,13 +445,19 @@ exports[`renders for me renders correctly 1`] = `
                     }
                   />
                   <Text
-                    header={true}
                     style={
                       Object {
                         "color": "#007398",
+                        "fontFamily": "AmaticSC-Bold",
                         "fontSize": 42,
+                        "fontStyle": "normal",
+                        "fontWeight": "bold",
+                        "letterSpacing": 2,
+                        "lineHeight": 42,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "lowercase",
                       }
                     }
                   >
@@ -432,9 +467,15 @@ exports[`renders for me renders correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "lineHeight": 24,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       }
                     }
                   >
@@ -461,7 +502,7 @@ exports[`renders for me renders firstItem correctly 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#66D9F0",
+      "backgroundColor": "#3CC8E6",
       "flex": 1,
     }
   }
@@ -511,11 +552,16 @@ exports[`renders for me renders firstItem correctly 1`] = `
             "color": "#007398",
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 18,
-            "fontWeight": "500",
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "letterSpacing": 1,
+            "lineHeight": 24,
             "paddingBottom": 25,
             "paddingHorizontal": 30,
             "paddingTop": 45,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
             "width": 650,
           }
         }
@@ -701,13 +747,19 @@ exports[`renders for me renders firstItem correctly 1`] = `
                     }
                   />
                   <Text
-                    header={true}
                     style={
                       Object {
                         "color": "#007398",
+                        "fontFamily": "AmaticSC-Bold",
                         "fontSize": 42,
+                        "fontStyle": "normal",
+                        "fontWeight": "bold",
+                        "letterSpacing": 2,
+                        "lineHeight": 42,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "lowercase",
                       }
                     }
                   >
@@ -717,9 +769,15 @@ exports[`renders for me renders firstItem correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "lineHeight": 24,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       }
                     }
                   >
@@ -787,13 +845,19 @@ exports[`renders for me renders firstItem correctly 1`] = `
                     }
                   />
                   <Text
-                    header={true}
                     style={
                       Object {
                         "color": "#007398",
+                        "fontFamily": "AmaticSC-Bold",
                         "fontSize": 42,
+                        "fontStyle": "normal",
+                        "fontWeight": "bold",
+                        "letterSpacing": 2,
+                        "lineHeight": 42,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "lowercase",
                       }
                     }
                   >
@@ -803,9 +867,15 @@ exports[`renders for me renders firstItem correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "lineHeight": 24,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       }
                     }
                   >
@@ -873,13 +943,19 @@ exports[`renders for me renders firstItem correctly 1`] = `
                     }
                   />
                   <Text
-                    header={true}
                     style={
                       Object {
                         "color": "#007398",
+                        "fontFamily": "AmaticSC-Bold",
                         "fontSize": 42,
+                        "fontStyle": "normal",
+                        "fontWeight": "bold",
+                        "letterSpacing": 2,
+                        "lineHeight": 42,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "lowercase",
                       }
                     }
                   >
@@ -889,9 +965,15 @@ exports[`renders for me renders firstItem correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "lineHeight": 24,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       }
                     }
                   >
@@ -918,7 +1000,7 @@ exports[`renders for other renders correctly 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#66D9F0",
+      "backgroundColor": "#3CC8E6",
       "flex": 1,
     }
   }
@@ -968,11 +1050,16 @@ exports[`renders for other renders correctly 1`] = `
             "color": "#007398",
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 18,
-            "fontWeight": "500",
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "letterSpacing": 1,
+            "lineHeight": 24,
             "paddingBottom": 25,
             "paddingHorizontal": 30,
             "paddingTop": 45,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
             "width": 650,
           }
         }
@@ -1158,13 +1245,19 @@ exports[`renders for other renders correctly 1`] = `
                     }
                   />
                   <Text
-                    header={true}
                     style={
                       Object {
                         "color": "#007398",
+                        "fontFamily": "AmaticSC-Bold",
                         "fontSize": 42,
+                        "fontStyle": "normal",
+                        "fontWeight": "bold",
+                        "letterSpacing": 2,
+                        "lineHeight": 42,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "lowercase",
                       }
                     }
                   >
@@ -1174,9 +1267,15 @@ exports[`renders for other renders correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "lineHeight": 24,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       }
                     }
                   >
@@ -1244,13 +1343,19 @@ exports[`renders for other renders correctly 1`] = `
                     }
                   />
                   <Text
-                    header={true}
                     style={
                       Object {
                         "color": "#007398",
+                        "fontFamily": "AmaticSC-Bold",
                         "fontSize": 42,
+                        "fontStyle": "normal",
+                        "fontWeight": "bold",
+                        "letterSpacing": 2,
+                        "lineHeight": 42,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "lowercase",
                       }
                     }
                   >
@@ -1260,9 +1365,15 @@ exports[`renders for other renders correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "lineHeight": 24,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       }
                     }
                   >
@@ -1330,13 +1441,19 @@ exports[`renders for other renders correctly 1`] = `
                     }
                   />
                   <Text
-                    header={true}
                     style={
                       Object {
                         "color": "#007398",
+                        "fontFamily": "AmaticSC-Bold",
                         "fontSize": 42,
+                        "fontStyle": "normal",
+                        "fontWeight": "bold",
+                        "letterSpacing": 2,
+                        "lineHeight": 42,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "lowercase",
                       }
                     }
                   >
@@ -1346,9 +1463,15 @@ exports[`renders for other renders correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "lineHeight": 24,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       }
                     }
                   >
@@ -1375,7 +1498,7 @@ exports[`renders for other renders firstItem correctly 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#66D9F0",
+      "backgroundColor": "#3CC8E6",
       "flex": 1,
     }
   }
@@ -1425,11 +1548,16 @@ exports[`renders for other renders firstItem correctly 1`] = `
             "color": "#007398",
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 18,
-            "fontWeight": "500",
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "letterSpacing": 1,
+            "lineHeight": 24,
             "paddingBottom": 25,
             "paddingHorizontal": 30,
             "paddingTop": 45,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
             "width": 650,
           }
         }
@@ -1615,13 +1743,19 @@ exports[`renders for other renders firstItem correctly 1`] = `
                     }
                   />
                   <Text
-                    header={true}
                     style={
                       Object {
                         "color": "#007398",
+                        "fontFamily": "AmaticSC-Bold",
                         "fontSize": 42,
+                        "fontStyle": "normal",
+                        "fontWeight": "bold",
+                        "letterSpacing": 2,
+                        "lineHeight": 42,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "lowercase",
                       }
                     }
                   >
@@ -1631,9 +1765,15 @@ exports[`renders for other renders firstItem correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "lineHeight": 24,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       }
                     }
                   >
@@ -1701,13 +1841,19 @@ exports[`renders for other renders firstItem correctly 1`] = `
                     }
                   />
                   <Text
-                    header={true}
                     style={
                       Object {
                         "color": "#007398",
+                        "fontFamily": "AmaticSC-Bold",
                         "fontSize": 42,
+                        "fontStyle": "normal",
+                        "fontWeight": "bold",
+                        "letterSpacing": 2,
+                        "lineHeight": 42,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "lowercase",
                       }
                     }
                   >
@@ -1717,9 +1863,15 @@ exports[`renders for other renders firstItem correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "lineHeight": 24,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       }
                     }
                   >
@@ -1787,13 +1939,19 @@ exports[`renders for other renders firstItem correctly 1`] = `
                     }
                   />
                   <Text
-                    header={true}
                     style={
                       Object {
                         "color": "#007398",
+                        "fontFamily": "AmaticSC-Bold",
                         "fontSize": 42,
+                        "fontStyle": "normal",
+                        "fontWeight": "bold",
+                        "letterSpacing": 2,
+                        "lineHeight": 42,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "lowercase",
                       }
                     }
                   >
@@ -1803,9 +1961,15 @@ exports[`renders for other renders firstItem correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "lineHeight": 24,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       }
                     }
                   >
@@ -1832,7 +1996,7 @@ exports[`renders renders correctly with question text 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#66D9F0",
+      "backgroundColor": "#3CC8E6",
       "flex": 1,
     }
   }
@@ -1882,11 +2046,16 @@ exports[`renders renders correctly with question text 1`] = `
             "color": "#007398",
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 18,
-            "fontWeight": "500",
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "letterSpacing": 1,
+            "lineHeight": 24,
             "paddingBottom": 25,
             "paddingHorizontal": 30,
             "paddingTop": 45,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
             "width": 650,
           }
         }
@@ -2072,13 +2241,19 @@ exports[`renders renders correctly with question text 1`] = `
                     }
                   />
                   <Text
-                    header={true}
                     style={
                       Object {
                         "color": "#007398",
+                        "fontFamily": "AmaticSC-Bold",
                         "fontSize": 42,
+                        "fontStyle": "normal",
+                        "fontWeight": "bold",
+                        "letterSpacing": 2,
+                        "lineHeight": 42,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "lowercase",
                       }
                     }
                   >
@@ -2088,9 +2263,15 @@ exports[`renders renders correctly with question text 1`] = `
                     style={
                       Object {
                         "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "lineHeight": 24,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       }
                     }
                   >
@@ -2158,13 +2339,19 @@ exports[`renders renders correctly with question text 1`] = `
                     }
                   />
                   <Text
-                    header={true}
                     style={
                       Object {
                         "color": "#007398",
+                        "fontFamily": "AmaticSC-Bold",
                         "fontSize": 42,
+                        "fontStyle": "normal",
+                        "fontWeight": "bold",
+                        "letterSpacing": 2,
+                        "lineHeight": 42,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "lowercase",
                       }
                     }
                   >
@@ -2174,9 +2361,15 @@ exports[`renders renders correctly with question text 1`] = `
                     style={
                       Object {
                         "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "lineHeight": 24,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       }
                     }
                   >
@@ -2244,13 +2437,19 @@ exports[`renders renders correctly with question text 1`] = `
                     }
                   />
                   <Text
-                    header={true}
                     style={
                       Object {
                         "color": "#007398",
+                        "fontFamily": "AmaticSC-Bold",
                         "fontSize": 42,
+                        "fontStyle": "normal",
+                        "fontWeight": "bold",
+                        "letterSpacing": 2,
+                        "lineHeight": 42,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "lowercase",
                       }
                     }
                   >
@@ -2260,9 +2459,15 @@ exports[`renders renders correctly with question text 1`] = `
                     style={
                       Object {
                         "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "lineHeight": 24,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       }
                     }
                   >
@@ -2289,7 +2494,7 @@ exports[`renders renders correctly without back button 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#66D9F0",
+      "backgroundColor": "#3CC8E6",
       "flex": 1,
     }
   }
@@ -2339,11 +2544,16 @@ exports[`renders renders correctly without back button 1`] = `
             "color": "#007398",
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 18,
-            "fontWeight": "500",
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "letterSpacing": 1,
+            "lineHeight": 24,
             "paddingBottom": 25,
             "paddingHorizontal": 30,
             "paddingTop": 45,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
             "width": 650,
           }
         }
@@ -2529,13 +2739,19 @@ exports[`renders renders correctly without back button 1`] = `
                     }
                   />
                   <Text
-                    header={true}
                     style={
                       Object {
                         "color": "#007398",
+                        "fontFamily": "AmaticSC-Bold",
                         "fontSize": 42,
+                        "fontStyle": "normal",
+                        "fontWeight": "bold",
+                        "letterSpacing": 2,
+                        "lineHeight": 42,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "lowercase",
                       }
                     }
                   >
@@ -2545,9 +2761,15 @@ exports[`renders renders correctly without back button 1`] = `
                     style={
                       Object {
                         "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "lineHeight": 24,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       }
                     }
                   >
@@ -2615,13 +2837,19 @@ exports[`renders renders correctly without back button 1`] = `
                     }
                   />
                   <Text
-                    header={true}
                     style={
                       Object {
                         "color": "#007398",
+                        "fontFamily": "AmaticSC-Bold",
                         "fontSize": 42,
+                        "fontStyle": "normal",
+                        "fontWeight": "bold",
+                        "letterSpacing": 2,
+                        "lineHeight": 42,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "lowercase",
                       }
                     }
                   >
@@ -2631,9 +2859,15 @@ exports[`renders renders correctly without back button 1`] = `
                     style={
                       Object {
                         "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "lineHeight": 24,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       }
                     }
                   >
@@ -2701,13 +2935,19 @@ exports[`renders renders correctly without back button 1`] = `
                     }
                   />
                   <Text
-                    header={true}
                     style={
                       Object {
                         "color": "#007398",
+                        "fontFamily": "AmaticSC-Bold",
                         "fontSize": 42,
+                        "fontStyle": "normal",
+                        "fontWeight": "bold",
+                        "letterSpacing": 2,
+                        "lineHeight": 42,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "lowercase",
                       }
                     }
                   >
@@ -2717,9 +2957,15 @@ exports[`renders renders correctly without back button 1`] = `
                     style={
                       Object {
                         "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "lineHeight": 24,
                         "padding": 5,
                         "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       }
                     }
                   >
@@ -2746,7 +2992,7 @@ exports[`renders renders correctly without stages 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#66D9F0",
+      "backgroundColor": "#3CC8E6",
       "flex": 1,
     }
   }
@@ -2796,11 +3042,16 @@ exports[`renders renders correctly without stages 1`] = `
             "color": "#007398",
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 18,
-            "fontWeight": "500",
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "letterSpacing": 1,
+            "lineHeight": 24,
             "paddingBottom": 25,
             "paddingHorizontal": 30,
             "paddingTop": 45,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
             "width": 650,
           }
         }

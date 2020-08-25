@@ -8,10 +8,11 @@ import {
   ImageSourcePropType,
   ViewProps,
   GestureResponderEvent,
+  Text,
 } from 'react-native';
 import debounce from 'lodash.debounce';
 
-import { Touchable, Text, Flex } from '../common';
+import { Touchable, Flex } from '../common';
 import { exists } from '../../utils/common';
 
 import styles from './styles';

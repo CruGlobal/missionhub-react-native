@@ -12,15 +12,6 @@ export default StyleSheet.create({
     borderBottomColor: theme.separatorColor,
     borderBottomWidth: theme.separatorHeight,
   },
-  gif: {
-    flex: 1,
-    width: theme.fullWidth,
-  },
-  loadText: {
-    fontSize: 64,
-    color: theme.primaryColor,
-    paddingVertical: 0,
-  },
   nullState: {
     marginTop: 20,
   },
