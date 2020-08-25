@@ -49,6 +49,7 @@ export const PendingFeedItem = ({
     communityId,
     mediaType: 'video',
     onComplete,
+    existingStorageId: pendingItemId,
   });
   const updatePost = useUpdatePost({
     media,

@@ -277,7 +277,6 @@ export const useUpdatePost = ({
         hasVideo && dispatch(trackActionWithoutData(ACTIONS.VIDEO_ADDED));
 
         onComplete();
-        dispatch(PendingPostFailed(storageId));
       },
       onError: () => {
         hasVideo && dispatch(PendingPostFailed(storageId));
