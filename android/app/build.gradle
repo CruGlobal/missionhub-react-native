@@ -2,6 +2,9 @@ apply plugin: "com.android.application"
 apply plugin: 'com.google.gms.google-services' // For Firebase
 apply plugin: "com.google.firebase.firebase-perf"
 
+// Expo react-native-unimodules
+apply from: '../../node_modules/react-native-unimodules/gradle.groovy'
+
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 import com.android.build.OutputFile
@@ -190,6 +193,9 @@ dependencies {
 
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
+
+    // Expo react-native-unimodules
+    addUnimodulesDependencies()
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
       exclude group:'com.facebook.fbjni'
