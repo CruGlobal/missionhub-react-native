@@ -119,59 +119,47 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {},
-                null,
+                Array [
+                  Object {
+                    "color": "#007AFF",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#007AFF",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                  ],
-                ]
-              }
-            >
-              Cancel
-            </Text>
-          </View>
+            Cancel
+          </Text>
         </View>
         <Text
           style={
@@ -203,54 +191,42 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {},
-                null,
+                Object {
+                  "color": "#007AFF",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                },
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "color": "#007AFF",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 16,
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                    "lineHeight": 24,
-                    "textAlignVertical": "center",
-                    "textTransform": "none",
-                  },
-                ]
-              }
-            >
-              Done
-            </Text>
-          </View>
+            Done
+          </Text>
         </View>
       </View>
     </View>
@@ -358,59 +334,47 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {},
-                null,
+                Array [
+                  Object {
+                    "color": "#007AFF",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#007AFF",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                  ],
-                ]
-              }
-            >
-              Cancel
-            </Text>
-          </View>
+            Cancel
+          </Text>
         </View>
         <Text
           style={
@@ -442,54 +406,42 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {},
-                null,
+                Object {
+                  "color": "#007AFF",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                },
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "color": "#007AFF",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 16,
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                    "lineHeight": 24,
-                    "textAlignVertical": "center",
-                    "textTransform": "none",
-                  },
-                ]
-              }
-            >
-              Done
-            </Text>
-          </View>
+            Done
+          </Text>
         </View>
       </View>
     </View>
@@ -596,59 +548,47 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {},
-                null,
+                Array [
+                  Object {
+                    "color": "#007AFF",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#007AFF",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                  ],
-                ]
-              }
-            >
-              Cancel
-            </Text>
-          </View>
+            Cancel
+          </Text>
         </View>
         <Text
           style={
@@ -680,54 +620,42 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {},
-                null,
+                Object {
+                  "color": "#007AFF",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                },
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "color": "#007AFF",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 16,
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                    "lineHeight": 24,
-                    "textAlignVertical": "center",
-                    "textTransform": "none",
-                  },
-                ]
-              }
-            >
-              Done
-            </Text>
-          </View>
+            Done
+          </Text>
         </View>
       </View>
     </View>
@@ -834,59 +762,47 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {},
-                null,
+                Array [
+                  Object {
+                    "color": "#007AFF",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#007AFF",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                  ],
-                ]
-              }
-            >
-              Cancel
-            </Text>
-          </View>
+            Cancel
+          </Text>
         </View>
         <Text
           style={
@@ -918,54 +834,42 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {},
-                null,
+                Object {
+                  "color": "#007AFF",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                },
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "color": "#007AFF",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 16,
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                    "lineHeight": 24,
-                    "textAlignVertical": "center",
-                    "textTransform": "none",
-                  },
-                ]
-              }
-            >
-              Done
-            </Text>
-          </View>
+            Done
+          </Text>
         </View>
       </View>
     </View>
@@ -1072,59 +976,47 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {},
-                null,
+                Array [
+                  Object {
+                    "color": "#007AFF",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#007AFF",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                  ],
-                ]
-              }
-            >
-              Cancel
-            </Text>
-          </View>
+            Cancel
+          </Text>
         </View>
         <Text
           style={
@@ -1156,54 +1048,42 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {},
-                null,
+                Object {
+                  "color": "#007AFF",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                },
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "color": "#007AFF",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 16,
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                    "lineHeight": 24,
-                    "textAlignVertical": "center",
-                    "textTransform": "none",
-                  },
-                ]
-              }
-            >
-              Done
-            </Text>
-          </View>
+            Done
+          </Text>
         </View>
       </View>
     </View>
@@ -1313,59 +1193,47 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {},
-                null,
+                Array [
+                  Object {
+                    "color": "#007AFF",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#007AFF",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                  ],
-                ]
-              }
-            >
-              Cancel
-            </Text>
-          </View>
+            Cancel
+          </Text>
         </View>
         <Text
           style={
@@ -1397,54 +1265,42 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {},
-                null,
+                Object {
+                  "color": "#007AFF",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                },
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "color": "#007AFF",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 16,
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                    "lineHeight": 24,
-                    "textAlignVertical": "center",
-                    "textTransform": "none",
-                  },
-                ]
-              }
-            >
-              Done
-            </Text>
-          </View>
+            Done
+          </Text>
         </View>
       </View>
     </View>
@@ -1555,59 +1411,47 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {},
-                null,
+                Array [
+                  Object {
+                    "color": "#007AFF",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#007AFF",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                  ],
-                ]
-              }
-            >
-              Cancel
-            </Text>
-          </View>
+            Cancel
+          </Text>
         </View>
         <Text
           style={
@@ -1639,54 +1483,42 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {},
-                null,
+                Object {
+                  "color": "#007AFF",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                },
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "color": "#007AFF",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 16,
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                    "lineHeight": 24,
-                    "textAlignVertical": "center",
-                    "textTransform": "none",
-                  },
-                ]
-              }
-            >
-              Done
-            </Text>
-          </View>
+            Done
+          </Text>
         </View>
       </View>
     </View>

@@ -154,73 +154,56 @@ exports[`render MemberOptionsMenu should not render menu if I am member 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "height": 32,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 32,
         }
       }
       testID="IconButton"
     >
-      <View
+      <Text
+        allowFontScaling={false}
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "color": undefined,
+              "fontSize": 12,
             },
-            null,
             Array [
               Object {
-                "alignItems": "center",
-                "justifyContent": "center",
+                "color": "#ffffff",
               },
               Object {
-                "height": 32,
-                "width": 32,
-              },
-            ],
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
+                "fontSize": 18,
               },
               Array [
                 Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
+                  "margin": 10,
                 },
                 Array [
                   Object {
-                    "margin": 10,
+                    "color": "#B4B6BA",
+                    "margin": 0,
+                    "paddingHorizontal": 10,
                   },
-                  Array [
-                    Object {
-                      "color": "#B4B6BA",
-                      "margin": 0,
-                      "paddingHorizontal": 10,
-                    },
-                    undefined,
-                  ],
+                  undefined,
                 ],
               ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        
+      </Text>
     </View>
   </View>
 </View>
@@ -422,73 +405,56 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "height": 32,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 32,
         }
       }
       testID="IconButton"
     >
-      <View
+      <Text
+        allowFontScaling={false}
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "color": undefined,
+              "fontSize": 12,
             },
-            null,
             Array [
               Object {
-                "alignItems": "center",
-                "justifyContent": "center",
+                "color": "#ffffff",
               },
               Object {
-                "height": 32,
-                "width": 32,
-              },
-            ],
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
+                "fontSize": 18,
               },
               Array [
                 Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
+                  "margin": 10,
                 },
                 Array [
                   Object {
-                    "margin": 10,
+                    "color": "#B4B6BA",
+                    "margin": 0,
+                    "paddingHorizontal": 10,
                   },
-                  Array [
-                    Object {
-                      "color": "#B4B6BA",
-                      "margin": 0,
-                      "paddingHorizontal": 10,
-                    },
-                    undefined,
-                  ],
+                  undefined,
                 ],
               ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        
+      </Text>
     </View>
   </View>
 </View>
@@ -648,73 +614,56 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "height": 32,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 32,
         }
       }
       testID="IconButton"
     >
-      <View
+      <Text
+        allowFontScaling={false}
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "color": undefined,
+              "fontSize": 12,
             },
-            null,
             Array [
               Object {
-                "alignItems": "center",
-                "justifyContent": "center",
+                "color": "#ffffff",
               },
               Object {
-                "height": 32,
-                "width": 32,
-              },
-            ],
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
+                "fontSize": 18,
               },
               Array [
                 Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
+                  "margin": 10,
                 },
                 Array [
                   Object {
-                    "margin": 10,
+                    "color": "#B4B6BA",
+                    "margin": 0,
+                    "paddingHorizontal": 10,
                   },
-                  Array [
-                    Object {
-                      "color": "#B4B6BA",
-                      "margin": 0,
-                      "paddingHorizontal": 10,
-                    },
-                    undefined,
-                  ],
+                  undefined,
                 ],
               ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        
+      </Text>
     </View>
   </View>
 </View>
@@ -874,73 +823,56 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "height": 32,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 32,
         }
       }
       testID="IconButton"
     >
-      <View
+      <Text
+        allowFontScaling={false}
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "color": undefined,
+              "fontSize": 12,
             },
-            null,
             Array [
               Object {
-                "alignItems": "center",
-                "justifyContent": "center",
+                "color": "#ffffff",
               },
               Object {
-                "height": 32,
-                "width": 32,
-              },
-            ],
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
+                "fontSize": 18,
               },
               Array [
                 Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
+                  "margin": 10,
                 },
                 Array [
                   Object {
-                    "margin": 10,
+                    "color": "#B4B6BA",
+                    "margin": 0,
+                    "paddingHorizontal": 10,
                   },
-                  Array [
-                    Object {
-                      "color": "#B4B6BA",
-                      "margin": 0,
-                      "paddingHorizontal": 10,
-                    },
-                    undefined,
-                  ],
+                  undefined,
                 ],
               ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        
+      </Text>
     </View>
   </View>
 </View>
@@ -1121,73 +1053,56 @@ exports[`render contacts count should render admin permissions 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "height": 32,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 32,
         }
       }
       testID="IconButton"
     >
-      <View
+      <Text
+        allowFontScaling={false}
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "color": undefined,
+              "fontSize": 12,
             },
-            null,
             Array [
               Object {
-                "alignItems": "center",
-                "justifyContent": "center",
+                "color": "#ffffff",
               },
               Object {
-                "height": 32,
-                "width": 32,
-              },
-            ],
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
+                "fontSize": 18,
               },
               Array [
                 Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
+                  "margin": 10,
                 },
                 Array [
                   Object {
-                    "margin": 10,
+                    "color": "#B4B6BA",
+                    "margin": 0,
+                    "paddingHorizontal": 10,
                   },
-                  Array [
-                    Object {
-                      "color": "#B4B6BA",
-                      "margin": 0,
-                      "paddingHorizontal": 10,
-                    },
-                    undefined,
-                  ],
+                  undefined,
                 ],
               ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        
+      </Text>
     </View>
   </View>
 </View>
@@ -1347,73 +1262,56 @@ exports[`render contacts count should render member permissions 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "height": 32,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 32,
         }
       }
       testID="IconButton"
     >
-      <View
+      <Text
+        allowFontScaling={false}
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "color": undefined,
+              "fontSize": 12,
             },
-            null,
             Array [
               Object {
-                "alignItems": "center",
-                "justifyContent": "center",
+                "color": "#ffffff",
               },
               Object {
-                "height": 32,
-                "width": 32,
-              },
-            ],
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
+                "fontSize": 18,
               },
               Array [
                 Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
+                  "margin": 10,
                 },
                 Array [
                   Object {
-                    "margin": 10,
+                    "color": "#B4B6BA",
+                    "margin": 0,
+                    "paddingHorizontal": 10,
                   },
-                  Array [
-                    Object {
-                      "color": "#B4B6BA",
-                      "margin": 0,
-                      "paddingHorizontal": 10,
-                    },
-                    undefined,
-                  ],
+                  undefined,
                 ],
               ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        
+      </Text>
     </View>
   </View>
 </View>
@@ -1615,73 +1513,56 @@ exports[`render contacts count should render owner permissions 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "height": 32,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 32,
         }
       }
       testID="IconButton"
     >
-      <View
+      <Text
+        allowFontScaling={false}
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "color": undefined,
+              "fontSize": 12,
             },
-            null,
             Array [
               Object {
-                "alignItems": "center",
-                "justifyContent": "center",
+                "color": "#ffffff",
               },
               Object {
-                "height": 32,
-                "width": 32,
-              },
-            ],
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
+                "fontSize": 18,
               },
               Array [
                 Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
+                  "margin": 10,
                 },
                 Array [
                   Object {
-                    "margin": 10,
+                    "color": "#B4B6BA",
+                    "margin": 0,
+                    "paddingHorizontal": 10,
                   },
-                  Array [
-                    Object {
-                      "color": "#B4B6BA",
-                      "margin": 0,
-                      "paddingHorizontal": 10,
-                    },
-                    undefined,
-                  ],
+                  undefined,
                 ],
               ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        
+      </Text>
     </View>
   </View>
 </View>

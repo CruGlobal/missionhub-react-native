@@ -70,57 +70,45 @@ exports[`JoinGroupScreen onSearch should set community after entering 6th digit 
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        undefined,
-                      ],
+                      undefined,
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -377,57 +365,45 @@ exports[`JoinGroupScreen onSearch should set input without calling serach has < 
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        undefined,
-                      ],
+                      undefined,
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>

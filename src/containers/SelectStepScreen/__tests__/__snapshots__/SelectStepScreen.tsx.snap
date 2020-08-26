@@ -78,57 +78,45 @@ exports[`in onboarding renders correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        undefined,
-                      ],
+                      undefined,
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -166,62 +154,46 @@ exports[`in onboarding renders correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
+                "padding": 15,
               }
             }
             testID="skipButton"
           >
-            <View
+            <Text
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
-                  null,
-                  Array [
-                    Object {
-                      "padding": 15,
-                    },
-                    undefined,
-                  ],
-                  null,
-                ]
-              }
-            >
-              <Text
-                style={
                   Array [
                     Object {
                       "color": "#ffffff",
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 14,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
-                      "letterSpacing": 1,
-                      "lineHeight": 18,
-                      "textAlign": "center",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
                       "textAlignVertical": "center",
-                      "textTransform": "uppercase",
+                      "textTransform": "none",
                     },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                        "fontFamily": "SourceSansPro-Regular",
-                        "fontSize": 14,
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                        "lineHeight": 20,
-                        "textAlignVertical": "center",
-                        "textTransform": "none",
-                      },
-                      undefined,
-                    ],
-                  ]
-                }
-              >
-                SKIP
-              </Text>
-            </View>
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              SKIP
+            </Text>
           </View>
           <View
             accessible={true}
@@ -235,35 +207,23 @@ exports[`in onboarding renders correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="SelectStepExplainerIconButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#ffffff"
-              />
-            </View>
+            <SvgMock
+              color="#ffffff"
+            />
           </View>
         </View>
       </View>
@@ -759,7 +719,7 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 - First value
 + Second value
 
-@@ -291,307 +291,10 @@
+@@ -251,307 +251,10 @@
           }
         }
       >
@@ -1147,57 +1107,45 @@ exports[`loading should render correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        undefined,
-                      ],
+                      undefined,
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -1235,35 +1183,23 @@ exports[`loading should render correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="SelectStepExplainerIconButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#ffffff"
-              />
-            </View>
+            <SvgMock
+              color="#ffffff"
+            />
           </View>
         </View>
       </View>
@@ -1832,57 +1768,45 @@ exports[`loading should render for self steps correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        undefined,
-                      ],
+                      undefined,
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -2177,57 +2101,45 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        undefined,
-                      ],
+                      undefined,
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -2265,62 +2177,46 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
+                "padding": 15,
               }
             }
             testID="skipButton"
           >
-            <View
+            <Text
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
-                  null,
-                  Array [
-                    Object {
-                      "padding": 15,
-                    },
-                    undefined,
-                  ],
-                  null,
-                ]
-              }
-            >
-              <Text
-                style={
                   Array [
                     Object {
                       "color": "#ffffff",
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 14,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
-                      "letterSpacing": 1,
-                      "lineHeight": 18,
-                      "textAlign": "center",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
                       "textAlignVertical": "center",
-                      "textTransform": "uppercase",
+                      "textTransform": "none",
                     },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                        "fontFamily": "SourceSansPro-Regular",
-                        "fontSize": 14,
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                        "lineHeight": 20,
-                        "textAlignVertical": "center",
-                        "textTransform": "none",
-                      },
-                      undefined,
-                    ],
-                  ]
-                }
-              >
-                SKIP
-              </Text>
-            </View>
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              SKIP
+            </Text>
           </View>
           <View
             accessible={true}
@@ -2334,35 +2230,23 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="SelectStepExplainerIconButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#ffffff"
-              />
-            </View>
+            <SvgMock
+              color="#ffffff"
+            />
           </View>
         </View>
       </View>
@@ -2944,57 +2828,45 @@ exports[`loading skip button should render skip button correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        undefined,
-                      ],
+                      undefined,
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -3032,62 +2904,46 @@ exports[`loading skip button should render skip button correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
+                "padding": 15,
               }
             }
             testID="skipButton"
           >
-            <View
+            <Text
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
-                  null,
-                  Array [
-                    Object {
-                      "padding": 15,
-                    },
-                    undefined,
-                  ],
-                  null,
-                ]
-              }
-            >
-              <Text
-                style={
                   Array [
                     Object {
                       "color": "#ffffff",
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 14,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
-                      "letterSpacing": 1,
-                      "lineHeight": 18,
-                      "textAlign": "center",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
                       "textAlignVertical": "center",
-                      "textTransform": "uppercase",
+                      "textTransform": "none",
                     },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                        "fontFamily": "SourceSansPro-Regular",
-                        "fontSize": 14,
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                        "lineHeight": 20,
-                        "textAlignVertical": "center",
-                        "textTransform": "none",
-                      },
-                      undefined,
-                    ],
-                  ]
-                }
-              >
-                SKIP
-              </Text>
-            </View>
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              SKIP
+            </Text>
           </View>
           <View
             accessible={true}
@@ -3101,35 +2957,23 @@ exports[`loading skip button should render skip button correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="SelectStepExplainerIconButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#ffffff"
-              />
-            </View>
+            <SvgMock
+              color="#ffffff"
+            />
           </View>
         </View>
       </View>
@@ -3698,57 +3542,45 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        undefined,
-                      ],
+                      undefined,
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -3786,35 +3618,23 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="SelectStepExplainerIconButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#ffffff"
-              />
-            </View>
+            <SvgMock
+              color="#ffffff"
+            />
           </View>
         </View>
       </View>
@@ -4412,7 +4232,7 @@ exports[`should load step suggestions 1`] = `
 - First value
 + Second value
 
-@@ -220,11 +220,11 @@
+@@ -196,11 +196,11 @@
             \\"textAlignVertical\\": \\"center\\",
             \\"textTransform\\": \\"none\\",
           }
@@ -4425,7 +4245,7 @@ exports[`should load step suggestions 1`] = `
         style={
           Object {
             \\"flexDirection\\": \\"row\\",
-@@ -292,10 +292,41 @@
+@@ -268,10 +268,41 @@
                   ]
                 }
               >
@@ -4467,7 +4287,7 @@ exports[`should load step suggestions 1`] = `
               style={
                 Array [
                   Object {
-@@ -386,12 +417,43 @@
+@@ -362,12 +393,43 @@
                 }
               >
                 Pray
@@ -4511,7 +4331,7 @@ exports[`should load step suggestions 1`] = `
           focusable={true}
           onClick={[Function onClick]}
           onResponderGrant={[Function onResponderGrant]}
-@@ -451,12 +513,43 @@
+@@ -427,12 +489,43 @@
                 }
               >
                 Care
@@ -4555,7 +4375,7 @@ exports[`should load step suggestions 1`] = `
           focusable={true}
           onClick={[Function onClick]}
           onResponderGrant={[Function onResponderGrant]}
-@@ -516,20 +609,47 @@
+@@ -492,20 +585,47 @@
                 }
               >
                 Share
@@ -4608,7 +4428,7 @@ exports[`should load step suggestions 1`] = `
           message=\\"Error loading step suggestions\\"
           refetch={[Function anonymous]}
         />
-@@ -545,10 +665,22 @@
+@@ -521,10 +641,22 @@
           Object {
             \\"action\\": [Function action],
             \\"icon\\": true,
@@ -4631,7 +4451,7 @@ exports[`should load step suggestions 1`] = `
       }
       disableVirtualization={false}
       getItem={[Function anonymous]}
-@@ -566,11 +698,11 @@
+@@ -542,11 +674,11 @@
       onScrollBeginDrag={[Function anonymous]}
       onScrollEndDrag={[Function anonymous]}
       refreshControl={
@@ -4644,7 +4464,7 @@ exports[`should load step suggestions 1`] = `
       removeClippedSubviews={false}
       renderItem={[Function anonymous]}
       scrollEventThrottle={50}
-@@ -648,36 +780,130 @@
+@@ -624,36 +756,130 @@
             </Text>
             <SvgMock />
           </View>
@@ -4797,7 +4617,7 @@ exports[`should paginate 1`] = `
 - First value
 + Second value
 
-@@ -220,11 +220,11 @@
+@@ -196,11 +196,11 @@
             \\"textAlignVertical\\": \\"center\\",
             \\"textTransform\\": \\"none\\",
           }
@@ -4810,7 +4630,7 @@ exports[`should paginate 1`] = `
         style={
           Object {
             \\"flexDirection\\": \\"row\\",
-@@ -678,10 +678,22 @@
+@@ -654,10 +654,22 @@
             \\"action\\": [Function action],
             \\"icon\\": false,
             \\"key\\": \\"6\\",
@@ -4833,7 +4653,7 @@ exports[`should paginate 1`] = `
       disableVirtualization={false}
       getItem={[Function anonymous]}
       getItemCount={[Function anonymous]}
-@@ -884,10 +896,118 @@
+@@ -860,10 +872,118 @@
                   \\"textTransform\\": \\"none\\",
                 }
               }
@@ -4959,7 +4779,7 @@ exports[`with explainer open opens explainer modal 1`] = `
 - First value
 + Second value
 
-@@ -903,6 +903,9 @@
+@@ -879,6 +879,9 @@
             emulateUnlessSupported={true}
           />
         </View>

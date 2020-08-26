@@ -18,7 +18,7 @@ exports[`should hide edit, delete, and stage for members 1`] = `
         \\"position\\": \\"absolute\\",
         \\"right\\": 0,
         \\"top\\": 0,
-@@ -122,38 +122,11 @@
+@@ -104,38 +104,11 @@
                   \\"flex\\": 1,
                   \\"justifyContent\\": \\"center\\",
                 },
@@ -57,7 +57,7 @@ exports[`should hide edit, delete, and stage for members 1`] = `
       <View
         style={
           Object {
-@@ -199,28 +172,10 @@
+@@ -181,28 +154,10 @@
               \\"textTransform\\": \\"none\\",
             }
           }
@@ -93,7 +93,7 @@ exports[`should load person data correctly 1`] = `
 - First value
 + Second value
 
-@@ -160,49 +160,33 @@
+@@ -142,49 +142,33 @@
             \\"alignItems\\": \\"center\\",
             \\"marginBottom\\": 24,
           }
@@ -152,7 +152,7 @@ exports[`should load person data correctly 1`] = `
             Object {
               \\"color\\": \\"#ffffff\\",
               \\"fontFamily\\": \\"SourceSansPro-Light\\",
-@@ -213,11 +197,13 @@
+@@ -195,11 +179,13 @@
               \\"marginTop\\": 12,
               \\"textAlignVertical\\": \\"center\\",
               \\"textTransform\\": \\"none\\",
@@ -167,7 +167,7 @@ exports[`should load person data correctly 1`] = `
             Object {
               \\"color\\": \\"#ffffff\\",
               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-@@ -229,11 +215,13 @@
+@@ -211,11 +197,13 @@
               \\"marginTop\\": 4,
               \\"textAlignVertical\\": \\"center\\",
               \\"textTransform\\": \\"uppercase\\",
@@ -260,42 +260,24 @@ exports[`should render loading 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="BackButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Array [
-                    Object {
-                      "alignItems": "flex-start",
-                      "alignSelf": "flex-start",
-                      "justifyContent": "center",
-                    },
-                    undefined,
-                  ],
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#ffffff"
-              />
-            </View>
+            <SvgMock
+              color="#ffffff"
+            />
           </View>
         </View>
         <View
@@ -632,42 +614,24 @@ exports[`should render me loading 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="BackButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Array [
-                    Object {
-                      "alignItems": "flex-start",
-                      "alignSelf": "flex-start",
-                      "justifyContent": "center",
-                    },
-                    undefined,
-                  ],
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#ffffff"
-              />
-            </View>
+            <SvgMock
+              color="#ffffff"
+            />
           </View>
         </View>
         <View
@@ -696,35 +660,23 @@ exports[`should render me loading 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="editButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#ffffff"
-              />
-            </View>
+            <SvgMock
+              color="#ffffff"
+            />
           </View>
         </View>
       </View>

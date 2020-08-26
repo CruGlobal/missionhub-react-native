@@ -108,57 +108,45 @@ exports[`label variations render extra large label 1`] = `
               onStartShouldSetResponder={[Function]}
               style={
                 Object {
+                  "backgroundColor": "transparent",
                   "opacity": 1,
                 }
               }
               testID="IconButton"
             >
-              <View
+              <Text
+                allowFontScaling={false}
                 style={
                   Array [
                     Object {
-                      "backgroundColor": "transparent",
+                      "color": undefined,
+                      "fontSize": 12,
                     },
-                    null,
-                    Object {},
-                    null,
-                  ]
-                }
-              >
-                <Text
-                  allowFontScaling={false}
-                  style={
                     Array [
                       Object {
-                        "color": undefined,
-                        "fontSize": 12,
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
                       },
                       Array [
                         Object {
-                          "color": "#ffffff",
+                          "margin": 10,
                         },
-                        Object {
-                          "fontSize": 18,
-                        },
-                        Array [
-                          Object {
-                            "margin": 10,
-                          },
-                          undefined,
-                        ],
+                        undefined,
                       ],
-                      Object {
-                        "fontFamily": "icomoon",
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  
-                </Text>
-              </View>
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
             </View>
           </View>
         </View>
@@ -346,66 +334,38 @@ exports[`label variations renders label with on press with no text 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "center",
+      "backgroundColor": "#7076B5",
+      "borderRadius": 50,
+      "borderWidth": 0,
+      "flexDirection": "row",
+      "height": 36,
+      "justifyContent": "space-between",
+      "margin": 0,
       "opacity": 1,
+      "paddingHorizontal": 20,
+      "paddingLeft": 20,
+      "paddingRight": 16,
+      "paddingVertical": 0,
+      "width": 20,
     }
   }
   testID="STORYButton"
 >
-  <View
+  <SvgMock
+    color="#ffffff"
+    height={20}
     style={
       Array [
         Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
+          "marginLeft": -10,
+          "marginRight": 10,
         },
-        null,
-        Array [
-          Object {
-            "alignItems": "center",
-            "borderRadius": 18,
-            "flexDirection": "row",
-            "height": 36,
-            "justifyContent": "space-between",
-            "paddingLeft": 20,
-            "paddingRight": 16,
-            "paddingVertical": 0,
-          },
-          Object {
-            "backgroundColor": "#7076B5",
-          },
-          null,
-          Object {
-            "width": 20,
-          },
-        ],
-        Object {
-          "borderRadius": 50,
-        },
+        undefined,
       ]
     }
-  >
-    <SvgMock
-      color="#ffffff"
-      height={20}
-      style={
-        Array [
-          Object {
-            "marginLeft": -10,
-            "marginRight": 10,
-          },
-          undefined,
-        ]
-      }
-      width={20}
-    />
-  </View>
+    width={20}
+  />
 </View>
 `;
 
@@ -2479,79 +2439,52 @@ exports[`renders pressable correctly 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "center",
+      "backgroundColor": "#7076B5",
+      "borderRadius": 50,
+      "borderWidth": 0,
+      "flexDirection": "row",
+      "height": 36,
+      "justifyContent": "space-between",
+      "margin": 0,
       "opacity": 1,
+      "paddingHorizontal": 20,
+      "paddingLeft": 20,
+      "paddingRight": 16,
+      "paddingVertical": 0,
     }
   }
   testID="STORYButton"
 >
-  <View
+  <SvgMock
+    color="#ffffff"
+    height={20}
     style={
       Array [
         Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
+          "marginLeft": -10,
+          "marginRight": 10,
         },
-        null,
-        Array [
-          Object {
-            "alignItems": "center",
-            "borderRadius": 18,
-            "flexDirection": "row",
-            "height": 36,
-            "justifyContent": "space-between",
-            "paddingLeft": 20,
-            "paddingRight": 16,
-            "paddingVertical": 0,
-          },
-          Object {
-            "backgroundColor": "#7076B5",
-          },
-          null,
-          null,
-        ],
-        Object {
-          "borderRadius": 50,
-        },
+        undefined,
       ]
     }
+    width={20}
+  />
+  <Text
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 14,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 20,
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
+    }
   >
-    <SvgMock
-      color="#ffffff"
-      height={20}
-      style={
-        Array [
-          Object {
-            "marginLeft": -10,
-            "marginRight": 10,
-          },
-          undefined,
-        ]
-      }
-      width={20}
-    />
-    <Text
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 14,
-          "fontStyle": "normal",
-          "fontWeight": "normal",
-          "lineHeight": 20,
-          "textAlignVertical": "center",
-          "textTransform": "none",
-        }
-      }
-    >
-      God Story
-    </Text>
-  </View>
+    God Story
+  </Text>
 </View>
 `;

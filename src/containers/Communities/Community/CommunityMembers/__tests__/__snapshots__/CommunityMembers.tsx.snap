@@ -267,64 +267,44 @@ exports[`CommunityMembers renders with content 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 50,
+          "borderWidth": 0,
+          "height": 48,
+          "justifyContent": "center",
+          "margin": 0,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                undefined,
-              ],
-            ]
-          }
-        >
-          INVITE MEMBER
-        </Text>
-      </View>
+        INVITE MEMBER
+      </Text>
     </View>
   </RCTSafeAreaView>
   <RCTSafeAreaView
@@ -365,70 +345,55 @@ exports[`CommunityMembers renders with content 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#B4B6BA",
+            "borderRadius": 25,
+            "borderWidth": 0,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
           }
         }
         testID="IconButton"
       >
-        <View
+        <Text
+          allowFontScaling={false}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": undefined,
+                "fontSize": 12,
               },
-              null,
-              Object {
-                "backgroundColor": "#B4B6BA",
-                "borderRadius": 25,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            allowFontScaling={false}
-            style={
               Array [
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 26,
                 },
                 Array [
                   Object {
-                    "color": "#ffffff",
+                    "margin": 10,
                   },
                   Object {
-                    "fontSize": 26,
+                    "margin": 2,
                   },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    Object {
-                      "margin": 2,
-                    },
-                  ],
                 ],
-                Object {
-                  "fontFamily": "Material Icons",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
       </View>
     </View>
   </RCTSafeAreaView>
@@ -931,64 +896,44 @@ exports[`CommunityMembers should render empty state 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 50,
+          "borderWidth": 0,
+          "height": 48,
+          "justifyContent": "center",
+          "margin": 0,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                undefined,
-              ],
-            ]
-          }
-        >
-          INVITE MEMBER
-        </Text>
-      </View>
+        INVITE MEMBER
+      </Text>
     </View>
   </RCTSafeAreaView>
   <RCTSafeAreaView
@@ -1029,70 +974,55 @@ exports[`CommunityMembers should render empty state 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#B4B6BA",
+            "borderRadius": 25,
+            "borderWidth": 0,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
           }
         }
         testID="IconButton"
       >
-        <View
+        <Text
+          allowFontScaling={false}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": undefined,
+                "fontSize": 12,
               },
-              null,
-              Object {
-                "backgroundColor": "#B4B6BA",
-                "borderRadius": 25,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            allowFontScaling={false}
-            style={
               Array [
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 26,
                 },
                 Array [
                   Object {
-                    "color": "#ffffff",
+                    "margin": 10,
                   },
                   Object {
-                    "fontSize": 26,
+                    "margin": 2,
                   },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    Object {
-                      "margin": 2,
-                    },
-                  ],
                 ],
-                Object {
-                  "fontFamily": "Material Icons",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
       </View>
     </View>
   </RCTSafeAreaView>
@@ -1221,64 +1151,44 @@ exports[`CommunityMembers should render loading state 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 50,
+          "borderWidth": 0,
+          "height": 48,
+          "justifyContent": "center",
+          "margin": 0,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                undefined,
-              ],
-            ]
-          }
-        >
-          INVITE MEMBER
-        </Text>
-      </View>
+        INVITE MEMBER
+      </Text>
     </View>
   </RCTSafeAreaView>
   <RCTSafeAreaView
@@ -1319,70 +1229,55 @@ exports[`CommunityMembers should render loading state 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#B4B6BA",
+            "borderRadius": 25,
+            "borderWidth": 0,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
           }
         }
         testID="IconButton"
       >
-        <View
+        <Text
+          allowFontScaling={false}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": undefined,
+                "fontSize": 12,
               },
-              null,
-              Object {
-                "backgroundColor": "#B4B6BA",
-                "borderRadius": 25,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            allowFontScaling={false}
-            style={
               Array [
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 26,
                 },
                 Array [
                   Object {
-                    "color": "#ffffff",
+                    "margin": 10,
                   },
                   Object {
-                    "fontSize": 26,
+                    "margin": 2,
                   },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    Object {
-                      "margin": 2,
-                    },
-                  ],
                 ],
-                Object {
-                  "fontFamily": "Material Icons",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
       </View>
     </View>
   </RCTSafeAreaView>
