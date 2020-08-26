@@ -87,6 +87,54 @@ Object {
 }
 `;
 
+exports[`PENDING_POST_RETRY marks pending create post as not failed 1`] = `
+Object {
+  "nextId": 2,
+  "pendingPosts": Object {
+    "0": Object {
+      "communityId": "123",
+      "content": "create post",
+      "failed": false,
+      "media": "video.mov",
+      "postType": "story",
+      "storageId": "0",
+    },
+    "1": Object {
+      "communityId": "321",
+      "content": "update post",
+      "failed": true,
+      "id": "4",
+      "media": "image.jpg",
+      "storageId": "1",
+    },
+  },
+}
+`;
+
+exports[`PENDING_POST_RETRY marks pending update post as not failed 1`] = `
+Object {
+  "nextId": 2,
+  "pendingPosts": Object {
+    "0": Object {
+      "communityId": "123",
+      "content": "create post",
+      "failed": true,
+      "media": "video.mov",
+      "postType": "story",
+      "storageId": "0",
+    },
+    "1": Object {
+      "communityId": "321",
+      "content": "update post",
+      "failed": false,
+      "id": "4",
+      "media": "image.jpg",
+      "storageId": "1",
+    },
+  },
+}
+`;
+
 exports[`SAVE_PENDING_POST saves pending create post 1`] = `
 Object {
   "nextId": 3,
