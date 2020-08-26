@@ -232,12 +232,69 @@ exports[`Select video should select a video 1`] = `
 - First value
 + Second value
 
-@@ -272,138 +272,13 @@
+@@ -134,12 +134,55 @@
+                \\"flex\\": 1,
+                \\"justifyContent\\": \\"center\\",
+              },
+            ]
+          }
++       >
++         <View
++           accessible={true}
++           focusable={true}
++           onClick={[Function onClick]}
++           onResponderGrant={[Function onResponderGrant]}
++           onResponderMove={[Function onResponderMove]}
++           onResponderRelease={[Function onResponderRelease]}
++           onResponderTerminate={[Function onResponderTerminate]}
++           onResponderTerminationRequest={[Function onResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function onStartShouldSetResponder]}
++           style={
++             Object {
++               \\"opacity\\": 1,
++             }
++           }
++           testID=\\"CreatePostButton\\"
++         >
++           <View
++             style={
++               Array [
++                 Object {
++                   \\"backgroundColor\\": \\"transparent\\",
++                 },
++                 null,
++                 Object {
++                   \\"paddingHorizontal\\": 10,
++                   \\"paddingTop\\": 0,
++                 },
++                 null,
++               ]
++             }
++           >
++             <SvgMock
++               style={
++                 Object {
++                   \\"height\\": 24,
++                   \\"width\\": 24,
++                 }
++               }
+              />
+            </View>
++         </View>
++       </View>
++     </View>
+    </RCTSafeAreaView>
+    <View
+      style={
+        Object {
+          \\"backgroundColor\\": \\"#ECEEF2\\",
+@@ -271,139 +314,14 @@
+            ]
           }
           testID=\\"PostInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
-        />
+-       />
 -       <View
 -         style={
 -           Object {
@@ -246,7 +303,7 @@ exports[`Select video should select a video 1`] = `
 -             \\"width\\": 750,
 -           }
 -         }
--       />
+        />
 -       <View
 -         accessible={true}
 -         focusable={true}

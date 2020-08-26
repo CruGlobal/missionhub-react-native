@@ -485,6 +485,58 @@ describe('Creating a post', () => {
       trackActionWithoutDataResult,
     ]);
   });
+
+  it('calls savePost function with video and no text', async () => {
+    const expectedInput = {
+      content: '',
+      communityId,
+      postType: PostTypeEnum.prayer_request,
+      media: {
+        name: 'upload',
+        type: VIDEO_TYPE,
+        uri: MOCK_VIDEO,
+      },
+    };
+
+    const { getByTestId, store } = renderWithContext(<CreatePostScreen />, {
+      initialState,
+      navParams: {
+        communityId,
+        postType,
+        onComplete,
+      },
+    });
+
+    fireEvent.press(getByTestId('VideoButton'));
+    await flushMicrotasksQueue();
+
+    fireEvent.press(getByTestId('CreatePostButton'));
+    await flushMicrotasksQueue();
+
+    expect(navigateBack).toHaveBeenCalledWith();
+    expect(useMutation).toHaveBeenMutatedWith(CREATE_POST, {
+      variables: {
+        input: expectedInput,
+      },
+    });
+    expect(trackAction).toHaveBeenCalledWith(ACTIONS.CREATE_POST.name, {
+      [ACTIONS.CREATE_POST.key]: postType,
+    });
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.PHOTO_ADDED,
+    );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.VIDEO_ADDED);
+    expect(onComplete).toHaveBeenCalledWith();
+
+    expect(store.getActions()).toEqual([
+      navigatePushResult,
+      navigateBackResult,
+      { type: SAVE_PENDING_POST, post: expectedInput, storageId: '0' },
+      trackActionResult,
+      { type: DELETE_PENDING_POST, storageId: '0' },
+      trackActionWithoutDataResult,
+    ]);
+  });
 });
 
 describe('Updating a post', () => {
@@ -615,6 +667,63 @@ describe('Updating a post', () => {
       variables: {
         input: {
           content: MOCK_POST,
+          id: post.id,
+          media: {
+            name: 'upload',
+            type: VIDEO_TYPE,
+            uri: MOCK_VIDEO,
+          },
+        },
+      },
+    });
+    expect(trackAction).not.toHaveBeenCalled();
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.PHOTO_ADDED,
+    );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.VIDEO_ADDED);
+    expect(onComplete).toHaveBeenCalledWith();
+
+    expect(store.getActions()).toEqual([
+      navigatePushResult,
+      navigateBackResult,
+      { type: SAVE_PENDING_POST, post: expectedInput, storageId: '0' },
+      { type: DELETE_PENDING_POST, storageId: '0' },
+      trackActionWithoutDataResult,
+    ]);
+  });
+
+  it('calls savePost function with video and no text', async () => {
+    const expectedInput = {
+      id: post.id,
+      content: '',
+      communityId,
+      media: {
+        name: 'upload',
+        type: VIDEO_TYPE,
+        uri: MOCK_VIDEO,
+      },
+    };
+
+    const { getByTestId, store } = renderWithContext(<CreatePostScreen />, {
+      initialState,
+      navParams: {
+        communityId,
+        post: { ...post, content: '' },
+        onComplete,
+      },
+    });
+
+    fireEvent.press(getByTestId('VideoButton'));
+    await flushMicrotasksQueue();
+
+    fireEvent.press(getByTestId('CreatePostButton'));
+    await flushMicrotasksQueue();
+
+    expect(navigateBack).toHaveBeenCalledWith();
+    expect(useMutation).toHaveBeenMutatedWith(UPDATE_POST, {
+      variables: {
+        input: {
+          content: '',
           id: post.id,
           media: {
             name: 'upload',
