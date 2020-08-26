@@ -1,44 +1,33 @@
 import React, { useState, useRef } from 'react';
-import { connect } from 'react-redux-legacy';
-import { SafeAreaView, Keyboard, View, TextInput, Text } from 'react-native';
+import { Keyboard, View, Text, TextInput } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { SafeAreaView } from 'react-navigation';
 import { useTranslation } from 'react-i18next';
-import i18n from 'i18next';
-import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import { ThunkAction } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { AnyAction } from 'redux';
 
-import {
-  Button,
-  Flex,
-  Icon,
-  LoadingWheel,
-  Input,
-} from '../../../components/common';
+import { Button, Flex, LoadingWheel, Input } from '../../../components/common';
 import DeprecatedBackButton from '../../DeprecatedBackButton';
 import BottomButton from '../../../components/BottomButton';
 import Header from '../../../components/Header';
-import {
-  keyLoginWithAuthorizationCode,
-  keyLogin,
-  openKeyURL,
-} from '../../../actions/auth/key';
-import { trackActionWithoutData } from '../../../actions/analytics';
-import { ACTIONS, MFA_REQUIRED } from '../../../constants';
-import {
-  facebookPromptLogin,
-  facebookLoginWithAccessToken,
-} from '../../../actions/auth/facebook';
 import { useKeyboardListeners } from '../../../utils/hooks/useKeyboardListeners';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { RootState } from '../../../reducers';
+import {
+  SocialAuthButtons,
+  SocialAuthButtonsType,
+} from '../../../auth/components/SocialAuthButtons/SocialAuthButtons';
+import { useAuth } from '../../../auth/useAuth';
+import { SignInWithTheKeyType } from '../../../auth/providers/useSignInWithTheKey';
+import { AuthErrorNotice } from '../../../auth/components/AuthErrorNotice/AuthErrorNotice';
+import { AuthError, IdentityProvider } from '../../../auth/constants';
 
 import styles from './styles';
 
 const SignInScreen = ({
-  dispatch,
   next,
 }: {
-  dispatch: ThunkDispatch<RootState, never, AnyAction>;
   next: (params?: {
     requires2FA: boolean;
     email: string;
@@ -47,12 +36,12 @@ const SignInScreen = ({
 }) => {
   useAnalytics('sign in');
   const { t } = useTranslation('keyLogin');
+  const dispatch = useDispatch();
   const forcedLogout = useNavigationParam('forcedLogout');
+  const { authenticate, loading, error } = useAuth();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
   const [showLogo, setShowLogo] = useState(true);
 
   useKeyboardListeners({
@@ -61,45 +50,30 @@ const SignInScreen = ({
   });
 
   const handleForgotPassword = async () => {
-    // @ts-ignore
-    const { code, codeVerifier, redirectUri } = await dispatch(
-      openKeyURL('service/selfservice?target=displayForgotPassword'),
-    );
-    setIsLoading(true);
     try {
-      await dispatch(
-        keyLoginWithAuthorizationCode(code, codeVerifier, redirectUri),
-      );
-      dispatch(next());
-    } catch (e) {
-      setIsLoading(false);
-    }
+      await authenticate({
+        provider: IdentityProvider.TheKey,
+        theKeyOptions: {
+          type: SignInWithTheKeyType.ForgotPassword,
+        },
+      });
+    } catch {}
   };
 
   const login = async () => {
-    setErrorMessage('');
-    setIsLoading(true);
-
+    Keyboard.dismiss();
     try {
-      // @ts-ignore
-      await dispatch(keyLogin(email, password));
-      Keyboard.dismiss();
+      await authenticate({
+        provider: IdentityProvider.TheKey,
+        theKeyOptions: {
+          type: SignInWithTheKeyType.EmailPassword,
+          email,
+          password,
+        },
+      });
       dispatch(next());
     } catch (error) {
-      setIsLoading(false);
-
-      const apiError = error.apiError;
-      let errorMessage;
-      let action;
-
-      if (
-        apiError['error'] === 'invalid_request' ||
-        apiError['thekey_authn_error'] === 'invalid_credentials'
-      ) {
-        errorMessage = i18n.t('keyLogin:invalidCredentialsMessage');
-      } else if (apiError['thekey_authn_error'] === 'email_unverified') {
-        errorMessage = i18n.t('keyLogin:verifyEmailMessage');
-      } else if (apiError['thekey_authn_error'] === MFA_REQUIRED) {
+      if (error === AuthError.MfaRequired) {
         dispatch(
           next({
             requires2FA: true,
@@ -107,39 +81,9 @@ const SignInScreen = ({
             password,
           }),
         );
-        setEmail('');
         setPassword('');
-        return;
       }
-
-      if (errorMessage) {
-        action = ACTIONS.USER_ERROR;
-        setErrorMessage(errorMessage);
-      } else {
-        action = ACTIONS.SYSTEM_ERROR;
-      }
-
-      dispatch(trackActionWithoutData(action));
     }
-  };
-
-  const facebookLogin = async () => {
-    try {
-      await dispatch(facebookPromptLogin());
-      setIsLoading(true);
-      await dispatch(facebookLoginWithAccessToken());
-      dispatch(next());
-    } catch (error) {
-      setIsLoading(false);
-    }
-  };
-
-  const renderErrorMessage = () => {
-    return errorMessage ? (
-      <SafeAreaView style={styles.errorBar}>
-        <Text style={styles.errorMessage}>{errorMessage}</Text>
-      </SafeAreaView>
-    ) : null;
   };
 
   const passwordRef = useRef<TextInput>(null);
@@ -149,7 +93,7 @@ const SignInScreen = ({
 
   return (
     <View style={styles.container}>
-      {renderErrorMessage()}
+      <AuthErrorNotice error={error} />
       <Header left={forcedLogout ? null : <DeprecatedBackButton />} />
       {showLogo ? (
         <Flex align="center" justify="center">
@@ -162,7 +106,7 @@ const SignInScreen = ({
           )}
         </Flex>
       ) : null}
-      <Flex value={3} style={{ paddingVertical: 10, paddingHorizontal: 30 }}>
+      <Flex value={2} style={{ paddingVertical: 10, paddingHorizontal: 30 }}>
         <View>
           <Text style={styles.label}>{t('emailLabel')}</Text>
           <Input
@@ -210,33 +154,26 @@ const SignInScreen = ({
         </Flex>
       ) : (
         <SafeAreaView
-          style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
+          style={{
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginHorizontal: 38,
+          }}
         >
-          <Button
-            testID="facebookButton"
-            pill={true}
-            onPress={facebookLogin}
-            style={styles.facebookButton}
-            buttonTextStyle={styles.buttonText}
-          >
-            <Flex direction="row">
-              <Icon
-                name="facebookIcon"
-                size={21}
-                type="MissionHub"
-                style={styles.icon}
-              />
-              <Text style={styles.buttonText}>
-                {t('facebookLogin').toUpperCase()}
-              </Text>
-            </Flex>
-          </Button>
+          <SocialAuthButtons
+            type={SocialAuthButtonsType.SignIn}
+            authenticate={async options => {
+              await authenticate(options);
+              dispatch(next());
+            }}
+          />
         </SafeAreaView>
       )}
-      {isLoading ? <LoadingWheel /> : null}
+      {loading ? <LoadingWheel /> : null}
     </View>
   );
 };
 
-export default connect()(SignInScreen);
+export default SignInScreen;
 export const SIGN_IN_SCREEN = 'nav/SIGN_IN_SCREEN';

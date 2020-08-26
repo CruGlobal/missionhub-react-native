@@ -9,6 +9,9 @@ import {
   personSelector,
 } from '../../selectors/people';
 import { localizedStageSelector } from '../../selectors/stages';
+import { RootState } from '../../reducers';
+import { Person } from '../../reducers/people';
+import { getAuthPerson } from '../../auth/authUtilities';
 
 import styles from './styles';
 
@@ -31,31 +34,26 @@ PathwayStageDisplay.propTypes = {
   orgId: PropTypes.string,
 };
 
-// @ts-ignore
-const mapStateToProps = ({ people, auth, stages }, { person }) => {
-  const authPerson = auth.person;
+const mapStateToProps = (
+  { people, stages }: RootState,
+  { person }: { person: Person },
+) => {
+  const authPerson = getAuthPerson();
   const stagesList = stages.stages || [];
 
-  if (authPerson.id === person.id) {
+  if (authPerson?.id === person.id) {
     return {
-      pathwayStage: stagesList.find(
-        // @ts-ignore
-        s => s.id === `${authPerson.user.pathway_stage_id}`,
-      ),
+      pathwayStage: stagesList.find(s => s.id === authPerson?.stage?.id),
     };
   }
 
   const loadedPerson =
     personSelector({ people }, { personId: person.id }) || person;
-  const contactAssignment = contactAssignmentSelector(
-    { auth },
-    { person: loadedPerson },
-  );
+  const contactAssignment = contactAssignmentSelector({ person: loadedPerson });
 
   return {
     pathwayStage:
       contactAssignment &&
-      // @ts-ignore
       stagesList.find(s => s.id === `${contactAssignment.pathway_stage_id}`),
   };
 };

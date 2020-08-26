@@ -33,7 +33,6 @@ import { navigatePush } from '../navigation';
 import { getMyCommunities } from '../organizations';
 import { PeopleState } from '../../reducers/people';
 import { OrganizationsState } from '../../reducers/organizations';
-import { AuthState } from '../../reducers/auth';
 import {
   ME_PERSON_TABS,
   PERSON_TABS,
@@ -54,7 +53,6 @@ const contactAssignmentId = '3';
 const mockStore = configureStore([thunk]);
 // @ts-ignore
 let store;
-let auth: AuthState;
 let organizations: OrganizationsState;
 let people: PeopleState;
 const expectedInclude =
@@ -71,7 +69,6 @@ const person = {
 };
 
 beforeEach(() => {
-  auth = { person: mePerson } as AuthState;
   organizations = ({ all: [] } as unknown) as OrganizationsState;
   people = {
     people: {
@@ -80,7 +77,6 @@ beforeEach(() => {
     },
   };
   store = mockStore({
-    auth,
     organizations,
     people,
   });

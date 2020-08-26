@@ -7,17 +7,6 @@ import {
 } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../../testUtils';
-import {
-  openKeyURL,
-  keyLogin,
-  keyLoginWithAuthorizationCode,
-} from '../../../../actions/auth/key';
-import { trackActionWithoutData } from '../../../../actions/analytics';
-import { ACTIONS, MFA_REQUIRED } from '../../../../constants';
-import {
-  facebookLoginWithAccessToken,
-  facebookPromptLogin,
-} from '../../../../actions/auth/facebook';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import SignInScreen from '..';
 

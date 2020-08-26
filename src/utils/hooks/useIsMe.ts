@@ -1,11 +1,11 @@
-import { useSelector } from 'react-redux';
+import { useAuthPerson } from '../../auth/authHooks';
 
-import { AuthState } from '../../reducers/auth';
+export const useMyId = () => {
+  const authPerson = useAuthPerson();
+  return authPerson.id;
+};
 
-export const useMyId = () =>
-  useSelector<{ auth: AuthState }, string>(({ auth }) => auth.person.id);
-
-export const useIsMe = (personId: string) => {
+export const useIsMe = (personId: string | undefined) => {
   const authPersonId = useMyId();
   return personId === authPersonId;
 };

@@ -7,9 +7,9 @@ import {
 } from '../../selectors/people';
 import { getStageIndex } from '../../utils/common';
 import { apolloClient } from '../../apolloClient';
-import { AuthState } from '../../reducers/auth';
-import { StagesState } from '../../reducers/stages';
-import { PeopleState } from '../../reducers/people';
+import { RootState } from '../../reducers';
+import { getAuthPerson } from '../../auth/authUtilities';
+import { AuthPerson_currentUser_person } from '../../auth/__generated__/AuthPerson';
 
 import {
   StepCountWithPerson,
@@ -19,24 +19,24 @@ import {
 export const paramsForStageNavigation = async (
   personId: string,
   orgId: string,
-  getState: () => { auth: AuthState; stages: StagesState; people: PeopleState },
+  getState: () => RootState,
 ) => {
   const {
-    auth: { person: authPerson },
     stages: { stages },
     people,
   } = getState();
 
-  const isMe = personId === authPerson.id;
+  const authPerson = getAuthPerson();
+  const isMe = personId === authPerson?.id;
   const person = isMe ? authPerson : personSelector({ people }, { personId });
   const assignment = isMe
     ? null
-    : selectContactAssignment(person, authPerson.id);
+    : selectContactAssignment(person, authPerson?.id);
   const stageId = getStageId(isMe, assignment, authPerson);
   const hasHitCount = await hasHitThreeSteps(personId);
   const isNotSure = hasNotSureStage(stageId);
   const firstItemIndex = getStageIndex(stages, stageId);
-  const firstName = isMe ? authPerson.first_name : person.first_name;
+  const firstName = isMe ? authPerson?.firstName : person.first_name;
   const questionText = getQuestionText(isMe, isNotSure, firstName);
 
   return {
@@ -49,15 +49,14 @@ export const paramsForStageNavigation = async (
 
 function getStageId(
   isMe: boolean,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  assignment: any,
-  authPerson: AuthState['person'],
+  assignment: { pathway_stage_id: string },
+  authPerson?: AuthPerson_currentUser_person,
 ) {
   return isMe
-    ? authPerson.user.pathway_stage_id
-    : assignment && assignment.pathway_stage_id >= 0
+    ? authPerson?.stage?.id
+    : assignment && Number(assignment.pathway_stage_id) >= 0
     ? assignment.pathway_stage_id
-    : null;
+    : undefined;
 }
 
 const STEP_COUNT_WITH_PERSON_QUERY = gql`
@@ -88,7 +87,7 @@ const hasHitThreeSteps = async (personId: string) => {
   }
 };
 
-function hasNotSureStage(stageId: string) {
+function hasNotSureStage(stageId?: string) {
   return stageId === '6';
 }
 

@@ -1,10 +1,10 @@
 import { createSelector } from 'reselect';
 
 import { PeopleState, Person } from '../reducers/people';
-import { AuthState } from '../reducers/auth';
 import { Organization, OrganizationsState } from '../reducers/organizations';
-
-import { removeHiddenOrgs } from './selectorUtils';
+import { RootState } from '../reducers';
+import { getAuthPerson } from '../auth/authUtilities';
+import { AuthPerson_currentUser_person } from '../auth/__generated__/AuthPerson';
 
 interface Org {
   id: string;
@@ -13,36 +13,33 @@ interface Org {
 }
 
 export const allAssignedPeopleSelector = createSelector(
-  ({ people }: { auth: AuthState; people: PeopleState }) => people.people,
+  ({ people }: RootState) => people.people,
   ({
     organizations,
   }: {
-    auth: AuthState;
     people: PeopleState;
     organizations: OrganizationsState;
   }) => organizations.all,
-  ({ auth }: { auth: AuthState; people: PeopleState }) => auth.person,
-  (people, orgs, authUser) => {
+  () => getAuthPerson(),
+  (people, orgs, authPerson) => {
     return Object.values(people)
       .filter((person: Person) =>
-        isAssignedToMeInSomeOrganization(person, orgs, authUser),
+        isAssignedToMeInSomeOrganization(person, orgs, authPerson),
       )
-      .sort((a, b) => sortPeople(a, b, authUser));
+      .sort((a, b) => sortPeople(a, b, authPerson));
   },
 );
 
 const isAssignedToMeInSomeOrganization = (
   person: Person,
   orgs: Organization[],
-  me: Person,
+  me?: AuthPerson_currentUser_person,
 ) => {
   const { reverse_contact_assignments } = person;
 
-  if (person.id === me.id) {
+  if (person.id === me?.id) {
     return true;
   }
-
-  const visibleOrgs = removeHiddenOrgs(orgs, me);
 
   return (
     reverse_contact_assignments &&
@@ -52,9 +49,9 @@ const isAssignedToMeInSomeOrganization = (
 
       return (
         assigned_to &&
-        assigned_to.id === me.id &&
+        assigned_to.id === me?.id &&
         (!organization ||
-          visibleOrgs.some(({ id }: { id: string }) => organization.id === id))
+          orgs.some(({ id }: { id: string }) => organization.id === id))
       );
     })
   );
@@ -77,19 +74,22 @@ const sortPeople = (a: Person, b: Person, authUser: Person) => {
 
 export const personSelector = createSelector(
   ({ people }: { people: PeopleState }) => people.people,
-  (_: { people: PeopleState }, { personId }: { personId: string }) => personId,
+  (_: { people: PeopleState }, { personId }: { personId?: string }) => personId,
   (people, personId) => {
-    return people[personId];
+    return personId ? people[personId] : undefined;
   },
 );
 
 export const contactAssignmentSelector = createSelector(
-  (_: { auth: AuthState }, { person }: { person: Person }) => person || {},
-  ({ auth }: { auth: AuthState }) => auth.person.id,
+  ({ person }: { person: Person }) => person || {},
+  () => getAuthPerson().id,
   (person, authUserId) => selectContactAssignment(person, authUserId),
 );
 
-export const selectContactAssignment = (person: Person, authUserId: string) => {
+export const selectContactAssignment = (
+  person: Person,
+  authUserId?: string,
+) => {
   const { reverse_contact_assignments = [] } = person;
 
   // Just return the first one found regardless of org since after the split there will only be one and we will have dropped org ids. There is an edge case where the same user is assigned to you in 2 orgs but we are ok breaking that since it has such little usage.

@@ -8,7 +8,6 @@ import {
   navigatePush,
   navigateToCommunityFeed,
 } from '../../../actions/navigation';
-import { AuthState } from '../../../reducers/auth';
 import { OrganizationsState } from '../../../reducers/organizations';
 import {
   getChallenge,
@@ -17,7 +16,6 @@ import {
   updateChallenge,
 } from '../../../actions/challenges';
 import { communityChallengeSelector } from '../../../selectors/challenges';
-import { ORG_PERMISSIONS } from '../../../constants';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import ChallengeDetailScreen from '..';
 
@@ -61,18 +59,7 @@ const joinedProps = {
   acceptedChallenge: joinedChallenge,
 };
 
-const orgPermission = {
-  organization_id: '456',
-  permission_id: ORG_PERMISSIONS.ADMIN,
-};
-
 const store = {
-  auth: {
-    person: {
-      id: myId,
-      organizational_permissions: [orgPermission],
-    },
-  } as AuthState,
   organizations: {
     all: [organization],
   } as OrganizationsState,

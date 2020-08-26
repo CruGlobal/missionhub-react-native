@@ -32,9 +32,6 @@ jest.mock('../actions/navigationInit');
 jest.mock('../actions/notifications');
 jest.mock('../actions/deepLink');
 
-jest.mock('react-native-default-preference', () => ({
-  get: jest.fn().mockReturnValue(Promise.reject()),
-}));
 // @ts-ignore
 global.window = {};
 

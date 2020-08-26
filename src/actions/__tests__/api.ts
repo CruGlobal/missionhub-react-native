@@ -8,10 +8,8 @@ import {
   EXPIRED_ACCESS_TOKEN,
   INVALID_ACCESS_TOKEN,
   INVALID_GRANT,
-  UPDATE_TOKEN,
 } from '../../constants';
-import { logout, handleInvalidAccessToken } from '../auth/auth';
-import { AuthState } from '../../reducers/auth';
+import { logout } from '../auth/auth';
 
 jest.mock('../../api');
 jest.mock('../auth/anonymous');
@@ -22,9 +20,6 @@ jest.mock('../auth/key');
 const token = 'alsnjfjwqfpuqfeownposfnjnsaobjfaslkklnsfd';
 const refreshToken = 'refresh';
 const mockStore = configureStore([thunk]);
-const mockAuthState = {
-  token,
-};
 const mockActionResult = { type: 'mockActionResult' };
 
 const accessTokenQuery = { access_token: token };
@@ -45,7 +40,6 @@ const invalidGrantError = { apiError: { error: INVALID_GRANT } };
 global.APILOG = jest.fn();
 
 async function testCallApiWithError({
-  state = {},
   request,
   error,
   action,
@@ -55,7 +49,6 @@ async function testCallApiWithError({
   data = {},
   shouldReject = false,
 }: {
-  state?: Partial<AuthState>;
   request: ApiRouteConfigEntry;
   error: { apiError: { errors: { detail: string }[] } | { error: string } };
   action: () => void;

@@ -19,7 +19,6 @@ import {
   ACCEPTED_STEP,
   GLOBAL_COMMUNITY_ID,
 } from '../constants';
-import { AuthState } from '../reducers/auth';
 import { OnboardingState } from '../reducers/onboarding';
 import {
   PermissionEnum,
@@ -88,12 +87,6 @@ export const refresh = (obj, method) => {
       obj.setState({ refreshing: false });
     });
 };
-
-export const isAuthenticated = (authState: AuthState): boolean =>
-  !!authState.token;
-
-export const personIsCurrentUser = (personId: string, authState: AuthState) =>
-  personId === authState.person.id;
 
 export const isOnboarding = (onboardingState: OnboardingState) =>
   onboardingState.currentlyOnboarding;
@@ -321,7 +314,7 @@ export function getPersonEmailAddress(person) {
     : null;
 }
 
-export function getStageIndex(stages: StagesState['stages'], stageId: string) {
+export function getStageIndex(stages: StagesState['stages'], stageId?: string) {
   const index = (stages || []).findIndex(s => s && `${s.id}` === `${stageId}`);
 
   return index === -1 ? undefined : index;

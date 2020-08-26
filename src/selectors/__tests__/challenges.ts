@@ -6,6 +6,7 @@ import {
   communityChallengeSelector,
   acceptedChallengesSelector,
 } from '../challenges';
+import { RootState } from '../../reducers';
 
 jest.mock('../organizations');
 
@@ -142,10 +143,10 @@ describe('communityChallengesSelector', () => {
     organizationSelector.mockReturnValue(organizations.all[0]);
 
     expect(
-      communityChallengeSelector(
-        { organizations },
-        { orgId, challengeId: challengeItems[0].id },
-      ),
+      communityChallengeSelector({ organizations } as RootState, {
+        orgId,
+        challengeId: challengeItems[0].id,
+      }),
     ).toEqual({ ...challengeItems[0], isPast: false });
     expect(organizationSelector).toHaveBeenCalledWith(
       { organizations },
@@ -158,10 +159,10 @@ describe('communityChallengesSelector', () => {
     organizationSelector.mockReturnValue(organizations.all[0]);
 
     expect(
-      communityChallengeSelector(
-        { organizations },
-        { orgId, challengeId: challengeItems[2].id },
-      ),
+      communityChallengeSelector({ organizations } as RootState, {
+        orgId,
+        challengeId: challengeItems[2].id,
+      }),
     ).toEqual({ ...challengeItems[2], isPast: true });
     expect(organizationSelector).toHaveBeenCalledWith(
       { organizations },
@@ -174,10 +175,10 @@ describe('communityChallengesSelector', () => {
     organizationSelector.mockReturnValue({ id: 'noChallenges' });
 
     expect(
-      communityChallengeSelector(
-        { organizations },
-        { orgId, challengeId: challengeItems[2].id },
-      ),
+      communityChallengeSelector({ organizations } as RootState, {
+        orgId,
+        challengeId: challengeItems[2].id,
+      }),
     ).toEqual({});
   });
 });

@@ -34,7 +34,6 @@ import { trackAction } from '../../actions/analytics';
 import { updatePersonGQL } from '../../actions/person';
 import { ACTIONS } from '../../constants';
 import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
-import { AuthState } from '../../reducers/auth';
 import { Stage, StagesState } from '../../reducers/stages';
 import { PeopleState } from '../../reducers/people';
 import {
@@ -45,6 +44,9 @@ import { localizedStageSelector } from '../../selectors/stages';
 import Header from '../../components/Header';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { RootState } from '../../reducers';
+import { useMyId, useIsMe } from '../../utils/hooks/useIsMe';
+import { useAuthPerson } from '../../auth/authHooks';
+import { loadAuthPerson } from '../../auth/authUtilities';
 
 import styles, {
   sliderWidth,
@@ -65,10 +67,8 @@ interface SelectStageScreenProps {
     skipSelectSteps?: boolean;
     orgId?: string;
   }) => ThunkAction<void, RootState, never, AnyAction>;
-  myId: string;
-  firstName: string;
+  personFirstName: string;
   contactAssignmentId?: string;
-  isMe: boolean;
   stages: Stage[];
   testID?: string;
 }
@@ -85,10 +85,8 @@ export interface SelectStageNavParams {
 
 const SelectStageScreen = ({
   next,
-  myId,
-  firstName,
+  personFirstName,
   contactAssignmentId,
-  isMe,
   stages,
 }: SelectStageScreenProps) => {
   const {
@@ -105,6 +103,10 @@ const SelectStageScreen = ({
   const { t } = useTranslation('selectStage');
   const [scrollPosition, setScrollPosition] = useState(0);
   const [stageIndex, setStageIndex] = useState(selectedStageId || 0);
+
+  const authPerson = useAuthPerson();
+  const myId = useMyId();
+  const isMe = useIsMe(personId);
 
   const handleScreenChange = useAnalytics('', {
     sectionType: true,
@@ -136,6 +138,7 @@ const SelectStageScreen = ({
           ? updateUserStage(contactAssignmentId, stage.id)
           : selectPersonStage(personId, myId, stage.id, orgId),
       );
+      isMe && (await loadAuthPerson('network-only'));
       updatePersonGQL(personId);
     }
 
@@ -198,7 +201,9 @@ const SelectStageScreen = ({
   const activeButtonText = t('stillHere').toUpperCase();
   const headerText =
     questionText ||
-    t(isMe ? 'meQuestion' : 'personQuestion', { name: firstName });
+    t(isMe ? 'meQuestion' : 'personQuestion', {
+      name: isMe ? authPerson.firstName : personFirstName,
+    });
 
   return (
     <View style={styles.backgroundWrapper}>
@@ -240,11 +245,9 @@ const SelectStageScreen = ({
 
 const mapStateToProps = (
   {
-    auth,
     people,
     stages,
   }: {
-    auth: AuthState;
     people: PeopleState;
     stages: StagesState;
   },
@@ -257,16 +260,12 @@ const mapStateToProps = (
   }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
   any,
 ) => {
-  const myId = auth.person.id;
   const person = personSelector({ people }, { personId }) || {};
-  const contactAssignment =
-    contactAssignmentSelector({ auth }, { person }) || {};
+  const contactAssignment = contactAssignmentSelector({ person }) || {};
 
   return {
-    myId,
-    firstName: person.first_name,
+    personFirstName: person.first_name,
     contactAssignmentId: contactAssignment.id,
-    isMe: personId === myId,
     onComplete,
     stages: stages.stages,
   };

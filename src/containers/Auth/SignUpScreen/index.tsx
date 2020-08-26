@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   SafeAreaView,
   View,
@@ -12,22 +12,20 @@ import { connect } from 'react-redux-legacy';
 import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
-import {
-  keyLoginWithAuthorizationCode,
-  openKeyURL,
-} from '../../../actions/auth/key';
-import { Button, Flex, Icon, LoadingWheel } from '../../../components/common';
+import { Button, Flex, LoadingWheel } from '../../../components/common';
 import DeprecatedBackButton from '../../DeprecatedBackButton';
 import LOGO from '../../../../assets/images/missionHubLogoWords.png';
 import PEOPLE from '../../../../assets/images/MemberContacts_light.png';
-import {
-  facebookPromptLogin,
-  facebookLoginWithAccessToken,
-} from '../../../actions/auth/facebook';
 import TosPrivacy from '../../../components/TosPrivacy';
 import Header from '../../../components/Header';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { RootState } from '../../../reducers';
+import {
+  SocialAuthButtons,
+  SocialAuthButtonsType,
+} from '../../../auth/components/SocialAuthButtons/SocialAuthButtons';
+import { useAuth } from '../../../auth/useAuth';
+import { AuthErrorNotice } from '../../../auth/components/AuthErrorNotice/AuthErrorNotice';
 
 import styles from './styles';
 
@@ -67,39 +65,13 @@ const SignUpScreen = ({
     signUpType === SIGNUP_TYPES.CREATE_COMMUNITY ? 'communities' : 'menu',
     'sign up',
   ]);
-  const [isLoading, setIsLoading] = useState(false);
 
   const { t } = useTranslation('loginOptions');
 
+  const { authenticate, loading, error } = useAuth();
+
   const login = () => {
     dispatch(next({ signIn: true }));
-  };
-
-  const emailSignUp = async () => {
-    // @ts-ignore
-    const { code, codeVerifier, redirectUri } = await dispatch(
-      openKeyURL('login?action=signup'),
-    );
-    setIsLoading(true);
-    try {
-      await dispatch(
-        keyLoginWithAuthorizationCode(code, codeVerifier, redirectUri),
-      );
-      dispatch(next());
-    } catch (e) {
-      setIsLoading(false);
-    }
-  };
-
-  const facebookLogin = async () => {
-    try {
-      await dispatch(facebookPromptLogin());
-      setIsLoading(true);
-      await dispatch(facebookLoginWithAccessToken());
-      dispatch(next());
-    } catch (error) {
-      setIsLoading(false);
-    }
   };
 
   const renderHeader = ({ image, title, description }: HeaderContentOption) => (
@@ -121,6 +93,7 @@ const SignUpScreen = ({
 
   return (
     <View style={styles.container}>
+      <AuthErrorNotice error={error} />
       <Header left={<DeprecatedBackButton />} />
       <Flex value={1} align="center" justify="center">
         <Flex value={1} align="center" justify="center">
@@ -134,44 +107,13 @@ const SignUpScreen = ({
           style={styles.buttonWrapper}
         >
           <Flex value={4} direction="column" self="stretch" align="center">
-            <Button
-              testID="emailButton"
-              pill={true}
-              onPress={emailSignUp}
-              style={styles.clearButton}
-              buttonTextStyle={styles.buttonText}
-            >
-              <Flex direction="row">
-                <Icon
-                  name="emailIcon2"
-                  size={21}
-                  type="MissionHub"
-                  style={styles.icon}
-                />
-                <Text style={styles.buttonText}>
-                  {t('emailSignUp').toUpperCase()}
-                </Text>
-              </Flex>
-            </Button>
-            <Button
-              testID="facebookButton"
-              pill={true}
-              onPress={facebookLogin}
-              style={styles.clearButton}
-              buttonTextStyle={styles.buttonText}
-            >
-              <Flex direction="row">
-                <Icon
-                  name="facebookIcon"
-                  size={21}
-                  type="MissionHub"
-                  style={styles.icon}
-                />
-                <Text style={styles.buttonText}>
-                  {t('facebookSignup').toUpperCase()}
-                </Text>
-              </Flex>
-            </Button>
+            <SocialAuthButtons
+              type={SocialAuthButtonsType.SignUp}
+              authenticate={async options => {
+                await authenticate(options);
+                dispatch(next());
+              }}
+            />
             <TosPrivacy />
           </Flex>
         </Flex>
@@ -188,7 +130,7 @@ const SignUpScreen = ({
           />
         </SafeAreaView>
       </Flex>
-      {isLoading ? <LoadingWheel /> : null}
+      {loading ? <LoadingWheel /> : null}
     </View>
   );
 };

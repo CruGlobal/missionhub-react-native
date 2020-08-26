@@ -59,8 +59,6 @@ export const NAVIGATE_POP = 'Navigation/POP';
 export const MAIN_TABS = 'nav/MAIN_TABS';
 export const MAIN_MENU_DRAWER = 'nav/drawer/main';
 export const PERSON_MENU_DRAWER = 'nav/drawer/person';
-export const UPDATE_TOKEN = 'app/UPDATE_TOKEN';
-export const CLEAR_UPGRADE_TOKEN = 'app/CLEAR_UPGRADE_TOKEN';
 
 export const SAVE_PENDING_POST = 'app/SAVE_PENDING_POST';
 export const DELETE_PENDING_POST = 'app/DELETE_PENDING_POST';
@@ -76,8 +74,6 @@ export const CANNOT_EDIT_FIRST_NAME =
   'You are not allowed to edit first names of other MissionHub users';
 export const ERROR_PERSON_PART_OF_ORG =
   'this person already has permissions on this organization';
-export const MFA_REQUIRED = 'mfa_required';
-export const FACEBOOK_CANCELED_ERROR = 'Facebook login canceled by user';
 
 export const URL_ENCODED = 'application/x-www-form-urlencoded';
 export const URL_FORM_DATA = 'multipart/form-data';

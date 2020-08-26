@@ -3,14 +3,6 @@ import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../../testUtils';
-import {
-  keyLoginWithAuthorizationCode,
-  openKeyURL,
-} from '../../../../actions/auth/key';
-import {
-  facebookPromptLogin,
-  facebookLoginWithAccessToken,
-} from '../../../../actions/auth/facebook';
 import { navigatePush } from '../../../../actions/navigation';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import SignUpScreen, { SIGNUP_TYPES } from '..';

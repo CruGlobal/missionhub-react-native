@@ -19,7 +19,6 @@ import {
   navigateToAddStepFlow,
 } from '../../../actions/misc';
 import NullStateComponent from '../../../components/NullStateComponent';
-import { AuthState } from '../../../reducers/auth';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import StepItem from '../../../components/StepItem';
 import { useIsMe } from '../../../utils/hooks/useIsMe';
@@ -56,9 +55,7 @@ export const PersonSteps = ({ collapsibleHeaderContext }: PersonStepsProps) => {
   const [hideCompleted, setHideCompleted] = useState(true);
   const dispatch = useDispatch();
   const isMe = useIsMe(personId);
-  const contactAssignment = useSelector(({ auth }: { auth: AuthState }) =>
-    contactAssignmentSelector({ auth }, { person }),
-  );
+  const contactAssignment = contactAssignmentSelector({ person });
 
   const { data, loading, error, fetchMore, refetch } = useQuery<
     PersonStepsList,

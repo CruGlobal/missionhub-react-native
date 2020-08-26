@@ -10,12 +10,13 @@ import {
   EXPIRED_ACCESS_TOKEN,
   INVALID_ACCESS_TOKEN,
   INVALID_GRANT,
-  UPDATE_TOKEN,
 } from '../constants';
 import { LOG, APILOG } from '../utils/logging';
 import { RootState } from '../reducers';
+import { getCachedAuthToken, setAuthToken } from '../auth/authStore';
+import { authRefresh } from '../auth/provideAuthRefresh';
 
-import { logout, handleInvalidAccessToken } from './auth/auth';
+import { logout } from './auth/auth';
 
 // WARNING: You shouldn't have to touch this file to change routes/mapping
 // Put new routes in '../api/routes';
@@ -24,8 +25,8 @@ const METHODS_WITH_DATA = ['put', 'post', 'delete'];
 
 export default function callApi(
   action: ApiRouteConfigEntry,
-  query: { [key: string]: any } = {},
-  data: { [key: string]: any } = {},
+  query: Record<string, unknown> = {},
+  data: Record<string, unknown> | string | FormData = {},
 ): ThunkAction<
   Record<string, any>,
   RootState,
@@ -40,7 +41,7 @@ export default function callApi(
       token: string;
     }
 > {
-  return async (dispatch, getState) => {
+  return async dispatch => {
     // Generic error handler
     const throwErr = (msg: string) => {
       if (__DEV__) {
@@ -56,12 +57,10 @@ export default function callApi(
       ...query,
     };
 
-    const authState = getState().auth;
     if (!action.anonymous) {
-      const { token } = authState;
       // If the request has not already passed in an access token, set it
       if (!newQuery.access_token) {
-        newQuery.access_token = token;
+        newQuery.access_token = getCachedAuthToken();
       }
     }
 
@@ -103,7 +102,7 @@ export default function callApi(
         errorDetail === EXPIRED_ACCESS_TOKEN ||
         errorDetail === INVALID_ACCESS_TOKEN
       ) {
-        return dispatch(handleInvalidAccessToken());
+        return authRefresh();
       } else if (
         apiError?.error === INVALID_GRANT &&
         action.name === REQUESTS.KEY_REFRESH_TOKEN.name
@@ -139,10 +138,7 @@ export default function callApi(
       });
 
       if (response.sessionHeader) {
-        dispatch({
-          type: UPDATE_TOKEN,
-          token: response.sessionHeader,
-        });
+        setAuthToken(response.sessionHeader);
       }
 
       // Add data to the results to be used by followup actions

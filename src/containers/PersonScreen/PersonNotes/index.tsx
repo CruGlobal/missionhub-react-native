@@ -15,7 +15,7 @@ import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { isAndroid } from '../../../utils/common';
 import { CollapsibleViewContext } from '../../../components/CollapsibleView/CollapsibleView';
 import { RootState } from '../../../reducers';
-import { useIsMe } from '../../../utils/hooks/useIsMe';
+import { useIsMe, useMyId } from '../../../utils/hooks/useIsMe';
 import { personSelector } from '../../../selectors/people';
 
 import styles from './styles';
@@ -46,7 +46,7 @@ export const PersonNotes = ({ collapsibleHeaderContext }: PersonNotesProps) => {
   const notesInput = useRef<TextInput>(null);
 
   const isMe = useIsMe(personId);
-  const myUserId = useSelector(({ auth }: RootState) => auth.person.user.id);
+  const myUserId = useMyId();
 
   const getNote = async () => {
     const results = await dispatch(getPersonNote(personId, myUserId));
@@ -58,7 +58,9 @@ export const PersonNotes = ({ collapsibleHeaderContext }: PersonNotesProps) => {
   const saveNote = () => {
     Keyboard.dismiss();
 
-    editing && dispatch(savePersonNote(person.id, text, noteId, myUserId));
+    editing &&
+      myUserId &&
+      dispatch(savePersonNote(person.id, text, noteId, myUserId));
 
     setEditing(false);
   };

@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { connect } from 'react-redux-legacy';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { View, Keyboard, TextInput, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
@@ -9,12 +8,9 @@ import { ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import appsFlyer from 'react-native-appsflyer';
 
-import { Flex, Input } from '../../components/common';
+import { Flex, Input, LoadingWheel } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
-import { createMyPerson } from '../../actions/onboarding';
 import TosPrivacy from '../../components/TosPrivacy';
-import { AuthState } from '../../reducers/auth';
-import { PeopleState } from '../../reducers/people';
 import DeprecatedBackButton from '../DeprecatedBackButton';
 import Header from '../../components/Header';
 import Skip from '../../components/Skip';
@@ -23,10 +19,15 @@ import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS, LOAD_PERSON_DETAILS } from '../../constants';
 import { personSelector } from '../../selectors/people';
-import { OnboardingState } from '../../reducers/onboarding';
 import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { RootState } from '../../reducers';
+import { useAuth } from '../../auth/useAuth';
+import { useAuthPerson } from '../../auth/authHooks';
+import { SignInWithAnonymousType } from '../../auth/providers/useSignInWithAnonymous';
+import { getAuthPerson } from '../../auth/authUtilities';
+import { AuthErrorNotice } from '../../auth/components/AuthErrorNotice/AuthErrorNotice';
+import { IdentityProvider } from '../../auth/constants';
 
 import { CREATE_PERSON, UPDATE_PERSON } from './queries';
 import {
@@ -45,20 +46,10 @@ interface SetupScreenProps {
     personId?: string;
   }) => ThunkAction<void, RootState, never, AnyAction>;
   isMe: boolean;
-  personId?: string;
-  loadedFirstName?: string;
-  loadedLastName?: string;
   hideSkipBtn?: boolean;
 }
 
-const SetupScreen = ({
-  next,
-  isMe,
-  personId,
-  loadedFirstName = '',
-  loadedLastName = '',
-  hideSkipBtn = false,
-}: SetupScreenProps) => {
+const SetupScreen = ({ next, isMe, hideSkipBtn = false }: SetupScreenProps) => {
   useAnalytics(['onboarding', `${isMe ? 'self' : 'contact'} name`], {
     sectionType: true,
   });
@@ -67,8 +58,32 @@ const SetupScreen = ({
     'relationshipType',
   );
   const dispatch = useDispatch();
-  const [firstName, setFirstName] = useState(loadedFirstName);
-  const [lastName, setLastName] = useState(loadedLastName);
+
+  const onboardingPersonid = useSelector(
+    ({ onboarding }: RootState) => onboarding.personId,
+  );
+
+  const { authenticate, loading: authLoading, error: authError } = useAuth();
+
+  const {
+    id: myId,
+    firstName: myFirstName,
+    lastName: myLastName,
+  } = useAuthPerson();
+
+  const personId = isMe ? myId : onboardingPersonid;
+
+  const {
+    first_name: personFirstName,
+    last_name: personLastName,
+  } = useSelector(
+    ({ people }: RootState) => personSelector({ people }, { personId }) || {},
+  );
+
+  const [firstName, setFirstName] = useState(
+    isMe ? myFirstName : personFirstName,
+  );
+  const [lastName, setLastName] = useState(isMe ? myLastName : personLastName);
   const [isLoading, setIsLoading] = useState(false);
   const lastNameRef = useRef<TextInput>(null);
 
@@ -112,10 +127,17 @@ const SetupScreen = ({
           });
         dispatch(next({ personId }));
       } else if (isMe) {
-        const { id } = ((await dispatch(
-          createMyPerson(firstName, lastName),
-        )) as unknown) as { id: string };
-        dispatch(next({ personId: id }));
+        try {
+          await authenticate({
+            provider: IdentityProvider.Anonymous,
+            anonymousOptions: {
+              type: SignInWithAnonymousType.Create,
+              firstName,
+              lastName,
+            },
+          });
+          dispatch(next({ personId: getAuthPerson().id }));
+        } catch {}
       } else {
         const { data } = await createPerson({
           variables: {
@@ -165,6 +187,7 @@ const SetupScreen = ({
         message={t('errorSavingPerson')}
         refetch={saveAndNavigateNext}
       />
+      <AuthErrorNotice error={authError} />
       <Header
         left={
           <DeprecatedBackButton
@@ -228,42 +251,11 @@ const SetupScreen = ({
         onPress={saveAndNavigateNext}
         text={t('continue')}
       />
+      {authLoading ? <LoadingWheel /> : null}
     </View>
   );
 };
 
-const mapStateToProps = (
-  {
-    auth,
-    onboarding,
-    people,
-  }: { auth: AuthState; onboarding: OnboardingState; people: PeopleState },
-  {
-    isMe,
-  }: {
-    isMe: boolean;
-  },
-) => {
-  const { personId } = onboarding;
-
-  return {
-    isMe,
-    ...(isMe
-      ? {
-          loadedFirstName: auth.person.first_name,
-          loadedLastName: auth.person.last_name,
-          personId: auth.person.id,
-        }
-      : {
-          loadedFirstName: (personSelector({ people }, { personId }) || {})
-            .first_name,
-          loadedLastName: (personSelector({ people }, { personId }) || {})
-            .last_name,
-          personId,
-        }),
-  };
-};
-
-export default connect(mapStateToProps)(SetupScreen);
+export default SetupScreen;
 export const SETUP_SCREEN = 'nav/SETUP';
 export const SETUP_PERSON_SCREEN = 'nav/SETUP_PERSON_SCREEN';

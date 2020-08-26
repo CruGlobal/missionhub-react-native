@@ -22,7 +22,7 @@ it('should render correctly', () => {
       onChangeText={jest.fn()}
       value="Roge"
       onSubmit={jest.fn()}
-      isLoading={false}
+      loading={false}
     />,
   ).snapshot();
 });
@@ -32,7 +32,7 @@ it('should change loading state', () => {
       onChangeText={jest.fn()}
       value="Roge"
       onSubmit={jest.fn()}
-      isLoading={false}
+      loading={false}
     />,
   );
 
@@ -42,7 +42,7 @@ it('should change loading state', () => {
       onChangeText={jest.fn()}
       value="Roge"
       onSubmit={jest.fn()}
-      isLoading={true}
+      loading={true}
     />,
   );
   diffSnapshot();
@@ -53,7 +53,7 @@ it('should change loading state', () => {
       onChangeText={jest.fn()}
       value="Roge"
       onSubmit={jest.fn()}
-      isLoading={false}
+      loading={false}
     />,
   );
   diffSnapshot();
@@ -67,7 +67,7 @@ it('calls onChangeText prop', () => {
       onChangeText={onChangeText}
       value="Roge"
       onSubmit={jest.fn()}
-      isLoading={true}
+      loading={true}
     />,
   );
   fireEvent.changeText(getByTestId('mfaCodeInput'), '123456');
@@ -99,7 +99,7 @@ it('submits when done on keyboard is pressed', () => {
       onChangeText={jest.fn()}
       value="Roge"
       onSubmit={onSubmit}
-      isLoading={true}
+      loading={true}
     />,
   );
   fireEvent(getByTestId('mfaCodeInput'), 'submitEditing');

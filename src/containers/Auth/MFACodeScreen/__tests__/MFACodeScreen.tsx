@@ -4,7 +4,6 @@ import i18n from 'i18next';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../../testUtils';
-import { keyLogin } from '../../../../actions/auth/key';
 import { MFA_REQUIRED } from '../../../../constants';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import MFACodeScreen from '..';

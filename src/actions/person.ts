@@ -21,6 +21,8 @@ import {
 } from '../containers/PersonScreen/PersonTabs';
 import { personSelector, contactAssignmentSelector } from '../selectors/people';
 import { GET_PERSON } from '../containers/AddContactScreen/queries';
+import { useIsMe } from '../utils/hooks/useIsMe';
+import { getAuthPerson } from '../auth/authUtilities';
 
 import callApi from './api';
 import { trackActionWithoutData } from './analytics';
@@ -319,7 +321,7 @@ export function updateOrgPermission(
 // @ts-ignore
 export function archiveOrgPermission(personId, orgPermissionId) {
   // @ts-ignore
-  return async (dispatch, getState) => {
+  return async dispatch => {
     const results = await dispatch(
       updatePerson({
         id: personId,
@@ -330,7 +332,7 @@ export function archiveOrgPermission(personId, orgPermissionId) {
       }),
     );
 
-    const myId = getState().auth.person.id;
+    const myId = getAuthPerson().id;
     dispatch(
       trackActionWithoutData(
         personId === myId
@@ -349,11 +351,11 @@ export function deleteContactAssignment(personId: string) {
     dispatch: ThunkDispatch<RootState, never, AnyAction>,
     getState: () => RootState,
   ) => {
-    const { auth, people } = getState();
+    const { people } = getState();
 
     const person = personSelector({ people }, { personId });
     const { id: contactAssignmentId } =
-      contactAssignmentSelector({ auth }, { person }) || {};
+      contactAssignmentSelector({ person }) || {};
 
     await dispatch(
       callApi(REQUESTS.DELETE_CONTACT_ASSIGNMENT, {
@@ -370,13 +372,8 @@ export function deleteContactAssignment(personId: string) {
 }
 
 export function navToPersonScreen(personId: string) {
-  return (
-    dispatch: ThunkDispatch<RootState, never, AnyAction>,
-    getState: () => RootState,
-  ) => {
-    const { auth } = getState();
-
-    const isMe = auth.person.id === personId;
+  return (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
+    const isMe = useIsMe(personId);
 
     dispatch(
       navigatePush(isMe ? ME_PERSON_TABS : PERSON_TABS, {
@@ -386,6 +383,5 @@ export function navToPersonScreen(personId: string) {
   };
 }
 
-export const updatePersonGQL = (id: string) => {
+export const updatePersonGQL = (id: string) =>
   apolloClient.query({ query: GET_PERSON, variables: { id } });
-};

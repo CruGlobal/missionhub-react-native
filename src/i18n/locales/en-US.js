@@ -152,6 +152,15 @@ export default {
     signIn: 'Sign In',
     createAccount: 'Create Account',
   },
+  socialAuthButtons: {
+    signInWithGoogle: 'Sign in with Google',
+    signUpWithGoogle: 'Sign up with Google',
+    signInWithFacebook: 'Sign in with Facebook',
+    signUpWithFacebook: 'Sign up with Facebook',
+    signInWithApple: 'Sign in with Apple',
+    signUpWithApple: 'Sign up with Apple',
+    signUpWithEmail: 'Sign up with Email',
+  },
   login: {
     tagline1: 'Grow closer to God.',
     tagline2: 'Help others experience Him.',
@@ -168,22 +177,22 @@ export default {
     createCommunityDescription: 'Sign Up to create a MissionHub community.',
   },
   keyLogin: {
-    invalidCredentialsMessage: 'Your Email or Password is Incorrect',
-    verifyEmailMessage: 'Verify your account via Email',
     emailLabel: 'Email',
     passwordLabel: 'Password',
     forgotPassword: 'Forgot Password?',
     login: 'LOGIN',
-    errorDefault: 'There was a problem signing in.',
-    errorIncorrect: 'Your Email or Password is Incorrect',
-    errorVerify: 'Verify your account via Email',
     facebookLogin: 'Sign In With Facebook',
   },
   mfaLogin: {
     mfaHeader: 'two-step verification',
     mfaDescription: 'Enter verification code from your authenticator app.',
     mfaLabel: 'Verification Code',
+  },
+  authErrorNotice: {
+    credentialsIncorrect: 'Your Email or Password is Incorrect',
+    emailUnverified: 'Verify your account via Email',
     mfaIncorrect: 'Incorrect verification code',
+    unknown: 'There was a problem signing in.',
   },
   welcome: {
     getStarted: "Let's Get Started",

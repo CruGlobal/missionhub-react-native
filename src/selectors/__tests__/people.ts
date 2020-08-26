@@ -6,7 +6,6 @@ import {
   contactAssignmentSelector,
   orgPermissionSelector,
 } from '../people';
-import { AuthState } from '../../reducers/auth';
 
 jest.mock('../../selectors/selectorUtils', () => ({
   removeHiddenOrgs: jest.fn().mockImplementation(orgs => orgs),
@@ -167,7 +166,7 @@ describe('contactAssignmentSelector', () => {
 
   it('should get first contactAssignment for a person that is assigned to the current user', () => {
     expect(
-      contactAssignmentSelector({ auth } as { auth: AuthState }, {
+      contactAssignmentSelector({
         person: {
           reverse_contact_assignments: [
             {

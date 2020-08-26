@@ -7,10 +7,6 @@ const pushDevice: PushDevice = {
   id: '9',
   token: 'some token',
   platform: 'GCM',
-  user: {
-    id: '1',
-    __type: 'user',
-  },
 };
 
 it('should update push device', () => {

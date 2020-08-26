@@ -52,7 +52,7 @@ export function updateUserStage(contactAssignmentId: string, stageId: string) {
 // eslint-disable-next-line max-params
 export function selectPersonStage(
   personId: string,
-  assignedToId: string,
+  assignedToId: string | undefined,
   pathwayStageId: string,
   orgId?: string,
 ) {
