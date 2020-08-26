@@ -61,73 +61,54 @@ exports[`renders correctly 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "borderColor": "#3CC8E6",
+            "borderRadius": 50,
+            "borderWidth": 1,
+            "height": 48,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
+            "width": 670,
           }
         }
         testID="tryItNowButton"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Object {
-                "backgroundColor": "transparent",
-                "borderColor": "#3CC8E6",
-                "borderWidth": 1,
-                "height": 48,
-                "margin": 8,
-                "width": 670,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Object {
-                "borderRadius": 50,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1.5,
+                "lineHeight": 18,
+                "paddingTop": 2,
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 14,
-                  "fontStyle": "normal",
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "lineHeight": 18,
-                  "textAlign": "center",
-                  "textAlignVertical": "center",
-                  "textTransform": "uppercase",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 14,
-                  "fontStyle": "normal",
-                  "fontWeight": "bold",
-                  "letterSpacing": 1.5,
-                  "lineHeight": 18,
-                  "paddingTop": 2,
-                  "textAlignVertical": "center",
-                  "textTransform": "uppercase",
-                },
-              ]
-            }
-          >
-            GET STARTED
-          </Text>
-        </View>
+          GET STARTED
+        </Text>
       </View>
       <View
         accessible={true}
@@ -141,73 +122,54 @@ exports[`renders correctly 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "borderColor": "#3CC8E6",
+            "borderRadius": 50,
+            "borderWidth": 1,
+            "height": 48,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
+            "width": 670,
           }
         }
         testID="communityCodeButton"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Object {
-                "backgroundColor": "transparent",
-                "borderColor": "#3CC8E6",
-                "borderWidth": 1,
-                "height": 48,
-                "margin": 8,
-                "width": 670,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Object {
-                "borderRadius": 50,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1.5,
+                "lineHeight": 18,
+                "paddingTop": 2,
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 14,
-                  "fontStyle": "normal",
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "lineHeight": 18,
-                  "textAlign": "center",
-                  "textAlignVertical": "center",
-                  "textTransform": "uppercase",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 14,
-                  "fontStyle": "normal",
-                  "fontWeight": "bold",
-                  "letterSpacing": 1.5,
-                  "lineHeight": 18,
-                  "paddingTop": 2,
-                  "textAlignVertical": "center",
-                  "textTransform": "uppercase",
-                },
-              ]
-            }
-          >
-            I HAVE A COMMUNITY CODE
-          </Text>
-        </View>
+          I HAVE A COMMUNITY CODE
+        </Text>
       </View>
     </View>
     <RCTSafeAreaView
@@ -251,25 +213,27 @@ exports[`renders correctly 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "backgroundColor": "transparent",
             "opacity": 1,
           }
         }
         testID="signInButton"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "backgroundColor": "transparent",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Object {},
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#ffffff",
@@ -277,36 +241,22 @@ exports[`renders correctly 1`] = `
                   "fontSize": 14,
                   "fontStyle": "normal",
                   "fontWeight": "bold",
-                  "letterSpacing": 1,
+                  "letterSpacing": 1.5,
                   "lineHeight": 18,
-                  "textAlign": "center",
+                  "paddingTop": 2,
                   "textAlignVertical": "center",
                   "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1.5,
-                    "lineHeight": 18,
-                    "paddingTop": 2,
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "marginBottom": 20,
-                    "marginRight": 10,
-                  },
-                ],
-              ]
-            }
-          >
-            SIGN IN
-          </Text>
-        </View>
+                Object {
+                  "marginBottom": 20,
+                  "marginRight": 10,
+                },
+              ],
+            ]
+          }
+        >
+          SIGN IN
+        </Text>
       </View>
     </RCTSafeAreaView>
   </View>

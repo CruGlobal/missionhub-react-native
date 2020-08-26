@@ -33,9 +33,7 @@ exports[`Reported Post call handleDelete 1`] = `
 -         \\"marginVertical\\": 15,
 -       },
 -     ]
-+       \\"justifyContent\\": \\"center\\",
-+       \\"marginTop\\": \\"50%\\",
-      }
+-   }
 - >
 -   <View
 -     style={
@@ -44,9 +42,9 @@ exports[`Reported Post call handleDelete 1`] = `
 -         \\"borderBottomWidth\\": 1,
 -         \\"flexDirection\\": \\"row\\",
 -         \\"padding\\": 15,
-    }
+-       }
 -     }
-  >
+-   >
 -     <View
 -       style={
 -         Array [
@@ -57,35 +55,37 @@ exports[`Reported Post call handleDelete 1`] = `
 -         ]
 -       }
 -     >
-+   <SvgMock />
-    <Text
-      style={
-        Object {
+-       <Text
+-         style={
+-           Object {
 -             \\"color\\": \\"#ECEEF2\\",
 -             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -             \\"fontSize\\": 14,
-+         \\"color\\": \\"#B4B6BA\\",
-+         \\"fontFamily\\": \\"SourceSansPro-Light\\",
-+         \\"fontSize\\": 24,
-          \\"fontStyle\\": \\"normal\\",
+-             \\"fontStyle\\": \\"normal\\",
 -             \\"fontWeight\\": \\"normal\\",
 -             \\"lineHeight\\": 20,
 -             \\"textAlignVertical\\": \\"center\\",
 -             \\"textTransform\\": \\"none\\",
--           }
--         }
--       >
++       \\"justifyContent\\": \\"center\\",
++       \\"marginTop\\": \\"50%\\",
+      }
+    }
+  >
 -         Reported By
 -         :
 -       </Text>
--       <Text
++   <SvgMock />
+    <Text
 -         numberOfLines={1}
--         style={
--           Object {
+      style={
+        Object {
 -             \\"color\\": \\"#ffffff\\",
 -             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -             \\"fontSize\\": 16,
--             \\"fontStyle\\": \\"normal\\",
++         \\"color\\": \\"#B4B6BA\\",
++         \\"fontFamily\\": \\"SourceSansPro-Light\\",
++         \\"fontSize\\": 24,
+          \\"fontStyle\\": \\"normal\\",
 -             \\"fontWeight\\": \\"normal\\",
 -             \\"lineHeight\\": 24,
 -             \\"textAlignVertical\\": \\"center\\",
@@ -110,9 +110,9 @@ exports[`Reported Post call handleDelete 1`] = `
 +         \\"paddingVertical\\": 20,
           \\"textAlignVertical\\": \\"center\\",
           \\"textTransform\\": \\"none\\",
-        }
-      }
-    >
+-           }
+-         }
+-       >
 -         Synergistic tertiary service-desk
 -       </Text>
 -     </View>
@@ -142,9 +142,9 @@ exports[`Reported Post call handleDelete 1`] = `
 -           \\"flexDirection\\": \\"row\\",
 -           \\"justifyContent\\": \\"flex-start\\",
 -           \\"paddingVertical\\": 8,
--         }
--       }
--     >
+        }
+      }
+    >
 -       <Image
 -         resizeMode=\\"cover\\"
 -         source={
@@ -226,7 +226,7 @@ exports[`Reported Post call handleDelete 1`] = `
 -               },
         Object {
           \\"color\\": \\"#B4B6BA\\",
--                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+          \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                 \\"fontSize\\": 12,
 -                 \\"fontStyle\\": \\"normal\\",
 -                 \\"fontWeight\\": \\"normal\\",
@@ -255,7 +255,7 @@ exports[`Reported Post call handleDelete 1`] = `
 -       style={
 -         Object {
 -           \\"color\\": \\"#505256\\",
-          \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-           \\"fontFamily\\": \\"SourceSansPro-Regular\\",
           \\"fontSize\\": 16,
           \\"fontStyle\\": \\"normal\\",
           \\"fontWeight\\": \\"normal\\",
@@ -304,54 +304,39 @@ exports[`Reported Post call handleDelete 1`] = `
 -         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 -         style={
 -           Object {
+-             \\"alignItems\\": \\"center\\",
+-             \\"backgroundColor\\": \\"#3CC8E6\\",
+-             \\"borderBottomLeftRadius\\": 8,
+-             \\"borderRightColor\\": \\"#ffffff\\",
+-             \\"borderRightWidth\\": 1,
+-             \\"height\\": 50,
+-             \\"justifyContent\\": \\"center\\",
 -             \\"opacity\\": 1,
 -           }
 -         }
 -         testID=\\"ignoreButton\\"
 -       >
--         <View
+-         <Text
 -           style={
 -             Array [
 -               Object {
--                 \\"alignItems\\": \\"center\\",
--                 \\"backgroundColor\\": \\"#3CC8E6\\",
--                 \\"height\\": 60,
--                 \\"justifyContent\\": \\"center\\",
+-                 \\"color\\": \\"#ffffff\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontSize\\": 14,
+-                 \\"fontStyle\\": \\"normal\\",
+-                 \\"fontWeight\\": \\"bold\\",
+-                 \\"letterSpacing\\": 1,
+-                 \\"lineHeight\\": 18,
+-                 \\"textAlign\\": \\"center\\",
+-                 \\"textAlignVertical\\": \\"center\\",
+-                 \\"textTransform\\": \\"uppercase\\",
 -               },
--               null,
--               Object {
--                 \\"borderBottomLeftRadius\\": 8,
--                 \\"borderRightColor\\": \\"#ffffff\\",
--                 \\"borderRightWidth\\": 1,
--                 \\"height\\": 50,
--               },
--               null,
+-               Object {},
 -             ]
 -           }
 -         >
--           <Text
--             style={
--               Array [
--                 Object {
--                   \\"color\\": \\"#ffffff\\",
--                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--                   \\"fontSize\\": 14,
--                   \\"fontStyle\\": \\"normal\\",
--                   \\"fontWeight\\": \\"bold\\",
--                   \\"letterSpacing\\": 1,
--                   \\"lineHeight\\": 18,
--                   \\"textAlign\\": \\"center\\",
--                   \\"textAlignVertical\\": \\"center\\",
--                   \\"textTransform\\": \\"uppercase\\",
--                 },
--                 Object {},
--               ]
--             }
--           >
--             IGNORE
-+     You have successfully deleted the post.
-    </Text>
--         </View>
+-           IGNORE
+-         </Text>
 -       </View>
 -     </View>
 -     <View
@@ -376,51 +361,38 @@ exports[`Reported Post call handleDelete 1`] = `
 -         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 -         style={
 -           Object {
+-             \\"alignItems\\": \\"center\\",
+-             \\"backgroundColor\\": \\"#3CC8E6\\",
+-             \\"borderBottomRightRadius\\": 8,
+-             \\"height\\": 50,
+-             \\"justifyContent\\": \\"center\\",
 -             \\"opacity\\": 1,
 -           }
 -         }
 -         testID=\\"deleteButton\\"
 -       >
--         <View
+-         <Text
 -           style={
 -             Array [
 -               Object {
--                 \\"alignItems\\": \\"center\\",
--                 \\"backgroundColor\\": \\"#3CC8E6\\",
--                 \\"height\\": 60,
--                 \\"justifyContent\\": \\"center\\",
+-                 \\"color\\": \\"#ffffff\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontSize\\": 14,
+-                 \\"fontStyle\\": \\"normal\\",
+-                 \\"fontWeight\\": \\"bold\\",
+-                 \\"letterSpacing\\": 1,
+-                 \\"lineHeight\\": 18,
+-                 \\"textAlign\\": \\"center\\",
+-                 \\"textAlignVertical\\": \\"center\\",
+-                 \\"textTransform\\": \\"uppercase\\",
 -               },
--               null,
--               Object {
--                 \\"borderBottomRightRadius\\": 8,
--                 \\"height\\": 50,
--               },
--               null,
+-               Object {},
 -             ]
 -           }
 -         >
--           <Text
--             style={
--               Array [
--                 Object {
--                   \\"color\\": \\"#ffffff\\",
--                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--                   \\"fontSize\\": 14,
--                   \\"fontStyle\\": \\"normal\\",
--                   \\"fontWeight\\": \\"bold\\",
--                   \\"letterSpacing\\": 1,
--                   \\"lineHeight\\": 18,
--                   \\"textAlign\\": \\"center\\",
--                   \\"textAlignVertical\\": \\"center\\",
--                   \\"textTransform\\": \\"uppercase\\",
--                 },
--                 Object {},
--               ]
--             }
--           >
--             DELETE
--           </Text>
--         </View>
+-           DELETE
++     You have successfully deleted the post.
+    </Text>
 -       </View>
 -     </View>
 -   </View>
@@ -460,9 +432,7 @@ exports[`Reported Post call handleIgnore 1`] = `
 -         \\"marginVertical\\": 15,
 -       },
 -     ]
-+       \\"justifyContent\\": \\"center\\",
-+       \\"marginTop\\": \\"50%\\",
-      }
+-   }
 - >
 -   <View
 -     style={
@@ -471,9 +441,9 @@ exports[`Reported Post call handleIgnore 1`] = `
 -         \\"borderBottomWidth\\": 1,
 -         \\"flexDirection\\": \\"row\\",
 -         \\"padding\\": 15,
-    }
+-       }
 -     }
-  >
+-   >
 -     <View
 -       style={
 -         Array [
@@ -484,35 +454,37 @@ exports[`Reported Post call handleIgnore 1`] = `
 -         ]
 -       }
 -     >
-+   <SvgMock />
-    <Text
-      style={
-        Object {
+-       <Text
+-         style={
+-           Object {
 -             \\"color\\": \\"#ECEEF2\\",
 -             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -             \\"fontSize\\": 14,
-+         \\"color\\": \\"#B4B6BA\\",
-+         \\"fontFamily\\": \\"SourceSansPro-Light\\",
-+         \\"fontSize\\": 24,
-          \\"fontStyle\\": \\"normal\\",
+-             \\"fontStyle\\": \\"normal\\",
 -             \\"fontWeight\\": \\"normal\\",
 -             \\"lineHeight\\": 20,
 -             \\"textAlignVertical\\": \\"center\\",
 -             \\"textTransform\\": \\"none\\",
--           }
--         }
--       >
++       \\"justifyContent\\": \\"center\\",
++       \\"marginTop\\": \\"50%\\",
+      }
+    }
+  >
 -         Reported By
 -         :
 -       </Text>
--       <Text
++   <SvgMock />
+    <Text
 -         numberOfLines={1}
--         style={
--           Object {
+      style={
+        Object {
 -             \\"color\\": \\"#ffffff\\",
 -             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -             \\"fontSize\\": 16,
--             \\"fontStyle\\": \\"normal\\",
++         \\"color\\": \\"#B4B6BA\\",
++         \\"fontFamily\\": \\"SourceSansPro-Light\\",
++         \\"fontSize\\": 24,
+          \\"fontStyle\\": \\"normal\\",
 -             \\"fontWeight\\": \\"normal\\",
 -             \\"lineHeight\\": 24,
 -             \\"textAlignVertical\\": \\"center\\",
@@ -537,9 +509,9 @@ exports[`Reported Post call handleIgnore 1`] = `
 +         \\"paddingVertical\\": 20,
           \\"textAlignVertical\\": \\"center\\",
           \\"textTransform\\": \\"none\\",
-        }
-      }
-    >
+-           }
+-         }
+-       >
 -         Synergistic tertiary service-desk
 -       </Text>
 -     </View>
@@ -569,9 +541,9 @@ exports[`Reported Post call handleIgnore 1`] = `
 -           \\"flexDirection\\": \\"row\\",
 -           \\"justifyContent\\": \\"flex-start\\",
 -           \\"paddingVertical\\": 8,
--         }
--       }
--     >
+        }
+      }
+    >
 -       <Image
 -         resizeMode=\\"cover\\"
 -         source={
@@ -653,7 +625,7 @@ exports[`Reported Post call handleIgnore 1`] = `
 -               },
         Object {
           \\"color\\": \\"#B4B6BA\\",
--                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+          \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                 \\"fontSize\\": 12,
 -                 \\"fontStyle\\": \\"normal\\",
 -                 \\"fontWeight\\": \\"normal\\",
@@ -682,7 +654,7 @@ exports[`Reported Post call handleIgnore 1`] = `
 -       style={
 -         Object {
 -           \\"color\\": \\"#505256\\",
-          \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-           \\"fontFamily\\": \\"SourceSansPro-Regular\\",
           \\"fontSize\\": 16,
           \\"fontStyle\\": \\"normal\\",
           \\"fontWeight\\": \\"normal\\",
@@ -731,54 +703,39 @@ exports[`Reported Post call handleIgnore 1`] = `
 -         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 -         style={
 -           Object {
+-             \\"alignItems\\": \\"center\\",
+-             \\"backgroundColor\\": \\"#3CC8E6\\",
+-             \\"borderBottomLeftRadius\\": 8,
+-             \\"borderRightColor\\": \\"#ffffff\\",
+-             \\"borderRightWidth\\": 1,
+-             \\"height\\": 50,
+-             \\"justifyContent\\": \\"center\\",
 -             \\"opacity\\": 1,
 -           }
 -         }
 -         testID=\\"ignoreButton\\"
 -       >
--         <View
+-         <Text
 -           style={
 -             Array [
 -               Object {
--                 \\"alignItems\\": \\"center\\",
--                 \\"backgroundColor\\": \\"#3CC8E6\\",
--                 \\"height\\": 60,
--                 \\"justifyContent\\": \\"center\\",
+-                 \\"color\\": \\"#ffffff\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontSize\\": 14,
+-                 \\"fontStyle\\": \\"normal\\",
+-                 \\"fontWeight\\": \\"bold\\",
+-                 \\"letterSpacing\\": 1,
+-                 \\"lineHeight\\": 18,
+-                 \\"textAlign\\": \\"center\\",
+-                 \\"textAlignVertical\\": \\"center\\",
+-                 \\"textTransform\\": \\"uppercase\\",
 -               },
--               null,
--               Object {
--                 \\"borderBottomLeftRadius\\": 8,
--                 \\"borderRightColor\\": \\"#ffffff\\",
--                 \\"borderRightWidth\\": 1,
--                 \\"height\\": 50,
--               },
--               null,
+-               Object {},
 -             ]
 -           }
 -         >
--           <Text
--             style={
--               Array [
--                 Object {
--                   \\"color\\": \\"#ffffff\\",
--                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--                   \\"fontSize\\": 14,
--                   \\"fontStyle\\": \\"normal\\",
--                   \\"fontWeight\\": \\"bold\\",
--                   \\"letterSpacing\\": 1,
--                   \\"lineHeight\\": 18,
--                   \\"textAlign\\": \\"center\\",
--                   \\"textAlignVertical\\": \\"center\\",
--                   \\"textTransform\\": \\"uppercase\\",
--                 },
--                 Object {},
--               ]
--             }
--           >
--             IGNORE
-+     You have successfully ignored the post.
-    </Text>
--         </View>
+-           IGNORE
+-         </Text>
 -       </View>
 -     </View>
 -     <View
@@ -803,51 +760,38 @@ exports[`Reported Post call handleIgnore 1`] = `
 -         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 -         style={
 -           Object {
+-             \\"alignItems\\": \\"center\\",
+-             \\"backgroundColor\\": \\"#3CC8E6\\",
+-             \\"borderBottomRightRadius\\": 8,
+-             \\"height\\": 50,
+-             \\"justifyContent\\": \\"center\\",
 -             \\"opacity\\": 1,
 -           }
 -         }
 -         testID=\\"deleteButton\\"
 -       >
--         <View
+-         <Text
 -           style={
 -             Array [
 -               Object {
--                 \\"alignItems\\": \\"center\\",
--                 \\"backgroundColor\\": \\"#3CC8E6\\",
--                 \\"height\\": 60,
--                 \\"justifyContent\\": \\"center\\",
+-                 \\"color\\": \\"#ffffff\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontSize\\": 14,
+-                 \\"fontStyle\\": \\"normal\\",
+-                 \\"fontWeight\\": \\"bold\\",
+-                 \\"letterSpacing\\": 1,
+-                 \\"lineHeight\\": 18,
+-                 \\"textAlign\\": \\"center\\",
+-                 \\"textAlignVertical\\": \\"center\\",
+-                 \\"textTransform\\": \\"uppercase\\",
 -               },
--               null,
--               Object {
--                 \\"borderBottomRightRadius\\": 8,
--                 \\"height\\": 50,
--               },
--               null,
+-               Object {},
 -             ]
 -           }
 -         >
--           <Text
--             style={
--               Array [
--                 Object {
--                   \\"color\\": \\"#ffffff\\",
--                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--                   \\"fontSize\\": 14,
--                   \\"fontStyle\\": \\"normal\\",
--                   \\"fontWeight\\": \\"bold\\",
--                   \\"letterSpacing\\": 1,
--                   \\"lineHeight\\": 18,
--                   \\"textAlign\\": \\"center\\",
--                   \\"textAlignVertical\\": \\"center\\",
--                   \\"textTransform\\": \\"uppercase\\",
--                 },
--                 Object {},
--               ]
--             }
--           >
--             DELETE
--           </Text>
--         </View>
+-           DELETE
++     You have successfully ignored the post.
+    </Text>
 -       </View>
 -     </View>
 -   </View>
@@ -1241,53 +1185,39 @@ exports[`renders correctly 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#3CC8E6",
+            "borderBottomLeftRadius": 8,
+            "borderRightColor": "#ffffff",
+            "borderRightWidth": 1,
+            "height": 50,
+            "justifyContent": "center",
             "opacity": 1,
           }
         }
         testID="ignoreButton"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "#3CC8E6",
-                "height": 60,
-                "justifyContent": "center",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Object {
-                "borderBottomLeftRadius": 8,
-                "borderRightColor": "#ffffff",
-                "borderRightWidth": 1,
-                "height": 50,
-              },
-              null,
+              Object {},
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 14,
-                  "fontStyle": "normal",
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "lineHeight": 18,
-                  "textAlign": "center",
-                  "textAlignVertical": "center",
-                  "textTransform": "uppercase",
-                },
-                Object {},
-              ]
-            }
-          >
-            IGNORE
-          </Text>
-        </View>
+          IGNORE
+        </Text>
       </View>
     </View>
     <View
@@ -1312,51 +1242,37 @@ exports[`renders correctly 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#3CC8E6",
+            "borderBottomRightRadius": 8,
+            "height": 50,
+            "justifyContent": "center",
             "opacity": 1,
           }
         }
         testID="deleteButton"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "#3CC8E6",
-                "height": 60,
-                "justifyContent": "center",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Object {
-                "borderBottomRightRadius": 8,
-                "height": 50,
-              },
-              null,
+              Object {},
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 14,
-                  "fontStyle": "normal",
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "lineHeight": 18,
-                  "textAlign": "center",
-                  "textAlignVertical": "center",
-                  "textTransform": "uppercase",
-                },
-                Object {},
-              ]
-            }
-          >
-            DELETE
-          </Text>
-        </View>
+          DELETE
+        </Text>
       </View>
     </View>
   </View>

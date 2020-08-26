@@ -200,7 +200,17 @@ exports[`should render correctly for basic member 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "flex": 1,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="ChallengeItemSelectButton"
@@ -209,109 +219,134 @@ exports[`should render correctly for basic member 1`] = `
               style={
                 Array [
                   Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "padding": 20,
                   },
-                  null,
                   Object {
+                    "alignItems": "center",
                     "flex": 1,
+                    "flexDirection": "row",
                   },
-                  null,
                 ]
               }
             >
               <View
                 style={
                   Array [
+                    Object {},
                     Object {
-                      "padding": 20,
-                    },
-                    Object {
-                      "alignItems": "center",
-                      "flex": 1,
-                      "flexDirection": "row",
+                      "flex": 5,
+                      "flexDirection": "column",
                     },
                   ]
                 }
               >
+                <Text
+                  style={
+                    Object {
+                      "color": "#005A7F",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginBottom": 3,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
+                    }
+                  }
+                >
+                  Read "There and Back Again"
+                </Text>
                 <View
                   style={
                     Array [
-                      Object {},
                       Object {
-                        "flex": 5,
-                        "flexDirection": "column",
+                        "paddingTop": 8,
+                      },
+                      Object {
+                        "flexDirection": "row",
+                        "justifyContent": "space-between",
                       },
                     ]
                   }
                 >
-                  <Text
-                    style={
-                      Object {
-                        "color": "#005A7F",
-                        "fontFamily": "SourceSansPro-Regular",
-                        "fontSize": 16,
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                        "lineHeight": 24,
-                        "marginBottom": 3,
-                        "textAlignVertical": "center",
-                        "textTransform": "none",
-                      }
-                    }
-                  >
-                    Read "There and Back Again"
-                  </Text>
                   <View
                     style={
                       Array [
+                        Object {},
                         Object {
-                          "paddingTop": 8,
-                        },
-                        Object {
-                          "flexDirection": "row",
-                          "justifyContent": "space-between",
+                          "flex": 1,
+                          "flexDirection": "column",
+                          "justifyContent": "flex-start",
                         },
                       ]
                     }
                   >
-                    <View
+                    <Text
                       style={
-                        Array [
-                          Object {},
-                          Object {
-                            "flex": 1,
-                            "flexDirection": "column",
-                            "justifyContent": "flex-start",
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
+                        }
                       }
                     >
-                      <Text
-                        style={
-                          Object {
-                            "color": "#B4B6BA",
-                            "fontFamily": "SourceSansPro-Regular",
-                            "fontSize": 12,
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                            "lineHeight": 16,
-                            "textAlignVertical": "center",
-                            "textTransform": "none",
-                          }
+                      Days Left
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-ExtraLight",
+                          "fontSize": 24,
+                          "fontStyle": "normal",
+                          "fontWeight": "300",
+                          "lineHeight": 30,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
-                      >
-                        Days Left
-                      </Text>
-                      <Text
-                        style={
+                      }
+                    >
+                      35
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      Array [
+                        Object {},
+                        Object {
+                          "flex": 1,
+                          "flexDirection": "column",
+                          "justifyContent": "flex-start",
+                        },
+                      ]
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
+                        }
+                      }
+                    >
+                      Joined
+                    </Text>
+                    <Text
+                      onPress={[Function]}
+                      style={
+                        Array [
                           Object {
                             "color": "#505256",
                             "fontFamily": "SourceSansPro-ExtraLight",
@@ -321,127 +356,79 @@ exports[`should render correctly for basic member 1`] = `
                             "lineHeight": 30,
                             "textAlignVertical": "center",
                             "textTransform": "none",
-                          }
-                        }
-                      >
-                        35
-                      </Text>
-                    </View>
-                    <View
-                      style={
-                        Array [
-                          Object {},
-                          Object {
-                            "flex": 1,
-                            "flexDirection": "column",
-                            "justifyContent": "flex-start",
                           },
+                          null,
                         ]
                       }
+                      testID="joinedCount"
                     >
-                      <Text
-                        style={
-                          Object {
-                            "color": "#B4B6BA",
-                            "fontFamily": "SourceSansPro-Regular",
-                            "fontSize": 12,
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                            "lineHeight": 16,
-                            "textAlignVertical": "center",
-                            "textTransform": "none",
-                          }
-                        }
-                      >
-                        Joined
-                      </Text>
-                      <Text
-                        onPress={[Function]}
-                        style={
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "fontStyle": "normal",
-                              "fontWeight": "300",
-                              "lineHeight": 30,
-                              "textAlignVertical": "center",
-                              "textTransform": "none",
-                            },
-                            null,
-                          ]
-                        }
-                        testID="joinedCount"
-                      >
-                        5
-                      </Text>
-                    </View>
-                    <View
+                      5
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      Array [
+                        Object {},
+                        Object {
+                          "flex": 1,
+                          "flexDirection": "column",
+                          "justifyContent": "flex-start",
+                        },
+                      ]
+                    }
+                  >
+                    <Text
                       style={
-                        Array [
-                          Object {},
-                          Object {
-                            "flex": 1,
-                            "flexDirection": "column",
-                            "justifyContent": "flex-start",
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
+                        }
                       }
                     >
-                      <Text
-                        style={
+                      Completed
+                    </Text>
+                    <Text
+                      onPress={[Function]}
+                      style={
+                        Array [
                           Object {
-                            "color": "#B4B6BA",
-                            "fontFamily": "SourceSansPro-Regular",
-                            "fontSize": 12,
+                            "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
                             "fontStyle": "normal",
-                            "fontWeight": "normal",
-                            "lineHeight": 16,
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                             "textAlignVertical": "center",
                             "textTransform": "none",
-                          }
-                        }
-                      >
-                        Completed
-                      </Text>
-                      <Text
-                        onPress={[Function]}
-                        style={
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "fontStyle": "normal",
-                              "fontWeight": "300",
-                              "lineHeight": 30,
-                              "textAlignVertical": "center",
-                              "textTransform": "none",
-                            },
-                            null,
-                          ]
-                        }
-                        testID="completedCount"
-                      >
-                        3
-                      </Text>
-                    </View>
+                          },
+                          null,
+                        ]
+                      }
+                      testID="completedCount"
+                    >
+                      3
+                    </Text>
                   </View>
                 </View>
-                <View
-                  style={
-                    Array [
-                      Object {},
-                      Object {
-                        "alignItems": "flex-end",
-                        "flex": 1,
-                        "justifyContent": "center",
-                      },
-                    ]
-                  }
-                />
               </View>
+              <View
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "alignItems": "flex-end",
+                      "flex": 1,
+                      "justifyContent": "center",
+                    },
+                  ]
+                }
+              />
             </View>
           </View>
           <View
@@ -456,69 +443,53 @@ exports[`should render correctly for basic member 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "center",
+                "backgroundColor": "#3CC8E6",
+                "borderBottomLeftRadius": 8,
+                "borderBottomRightRadius": 8,
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": undefined,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 8,
               }
             }
             testID="ChallengeItemActionButton"
           >
-            <View
+            <Text
               style={
                 Array [
                   Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
-                  null,
                   Object {
-                    "backgroundColor": "#3CC8E6",
-                    "borderBottomLeftRadius": 8,
-                    "borderBottomRightRadius": 8,
-                    "height": undefined,
-                    "paddingVertical": 8,
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
-                  null,
                 ]
               }
             >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 14,
-                      "fontStyle": "normal",
-                      "fontWeight": "bold",
-                      "letterSpacing": 1,
-                      "lineHeight": 18,
-                      "textAlign": "center",
-                      "textAlignVertical": "center",
-                      "textTransform": "uppercase",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 14,
-                      "fontStyle": "normal",
-                      "fontWeight": "bold",
-                      "letterSpacing": 1,
-                      "lineHeight": 18,
-                      "textAlignVertical": "center",
-                      "textTransform": "uppercase",
-                    },
-                  ]
-                }
-              >
-                JOIN
-              </Text>
-            </View>
+              JOIN
+            </Text>
           </View>
         </View>
       </View>
@@ -601,7 +572,17 @@ exports[`should render correctly for basic member 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "flex": 1,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="ChallengeItemSelectButton"
@@ -610,109 +591,134 @@ exports[`should render correctly for basic member 1`] = `
               style={
                 Array [
                   Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "padding": 20,
                   },
-                  null,
                   Object {
+                    "alignItems": "center",
                     "flex": 1,
+                    "flexDirection": "row",
                   },
-                  null,
                 ]
               }
             >
               <View
                 style={
                   Array [
+                    Object {},
                     Object {
-                      "padding": 20,
-                    },
-                    Object {
-                      "alignItems": "center",
-                      "flex": 1,
-                      "flexDirection": "row",
+                      "flex": 5,
+                      "flexDirection": "column",
                     },
                   ]
                 }
               >
+                <Text
+                  style={
+                    Object {
+                      "color": "#005A7F",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginBottom": 3,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
+                    }
+                  }
+                >
+                  Past Challenge
+                </Text>
                 <View
                   style={
                     Array [
-                      Object {},
                       Object {
-                        "flex": 5,
-                        "flexDirection": "column",
+                        "paddingTop": 8,
+                      },
+                      Object {
+                        "flexDirection": "row",
+                        "justifyContent": "space-between",
                       },
                     ]
                   }
                 >
-                  <Text
-                    style={
-                      Object {
-                        "color": "#005A7F",
-                        "fontFamily": "SourceSansPro-Regular",
-                        "fontSize": 16,
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                        "lineHeight": 24,
-                        "marginBottom": 3,
-                        "textAlignVertical": "center",
-                        "textTransform": "none",
-                      }
-                    }
-                  >
-                    Past Challenge
-                  </Text>
                   <View
                     style={
                       Array [
+                        Object {},
                         Object {
-                          "paddingTop": 8,
-                        },
-                        Object {
-                          "flexDirection": "row",
-                          "justifyContent": "space-between",
+                          "flex": 1,
+                          "flexDirection": "column",
+                          "justifyContent": "flex-start",
                         },
                       ]
                     }
                   >
-                    <View
+                    <Text
                       style={
-                        Array [
-                          Object {},
-                          Object {
-                            "flex": 1,
-                            "flexDirection": "column",
-                            "justifyContent": "flex-start",
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
+                        }
                       }
                     >
-                      <Text
-                        style={
-                          Object {
-                            "color": "#B4B6BA",
-                            "fontFamily": "SourceSansPro-Regular",
-                            "fontSize": 12,
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                            "lineHeight": 16,
-                            "textAlignVertical": "center",
-                            "textTransform": "none",
-                          }
+                      Days
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-ExtraLight",
+                          "fontSize": 24,
+                          "fontStyle": "normal",
+                          "fontWeight": "300",
+                          "lineHeight": 30,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
                         }
-                      >
-                        Days
-                      </Text>
-                      <Text
-                        style={
+                      }
+                    >
+                      -56
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      Array [
+                        Object {},
+                        Object {
+                          "flex": 1,
+                          "flexDirection": "column",
+                          "justifyContent": "flex-start",
+                        },
+                      ]
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
+                        }
+                      }
+                    >
+                      Joined
+                    </Text>
+                    <Text
+                      onPress={[Function]}
+                      style={
+                        Array [
                           Object {
                             "color": "#505256",
                             "fontFamily": "SourceSansPro-ExtraLight",
@@ -722,127 +728,79 @@ exports[`should render correctly for basic member 1`] = `
                             "lineHeight": 30,
                             "textAlignVertical": "center",
                             "textTransform": "none",
-                          }
-                        }
-                      >
-                        -56
-                      </Text>
-                    </View>
-                    <View
-                      style={
-                        Array [
-                          Object {},
-                          Object {
-                            "flex": 1,
-                            "flexDirection": "column",
-                            "justifyContent": "flex-start",
                           },
+                          null,
                         ]
                       }
+                      testID="joinedCount"
                     >
-                      <Text
-                        style={
-                          Object {
-                            "color": "#B4B6BA",
-                            "fontFamily": "SourceSansPro-Regular",
-                            "fontSize": 12,
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                            "lineHeight": 16,
-                            "textAlignVertical": "center",
-                            "textTransform": "none",
-                          }
-                        }
-                      >
-                        Joined
-                      </Text>
-                      <Text
-                        onPress={[Function]}
-                        style={
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "fontStyle": "normal",
-                              "fontWeight": "300",
-                              "lineHeight": 30,
-                              "textAlignVertical": "center",
-                              "textTransform": "none",
-                            },
-                            null,
-                          ]
-                        }
-                        testID="joinedCount"
-                      >
-                        5
-                      </Text>
-                    </View>
-                    <View
+                      5
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      Array [
+                        Object {},
+                        Object {
+                          "flex": 1,
+                          "flexDirection": "column",
+                          "justifyContent": "flex-start",
+                        },
+                      ]
+                    }
+                  >
+                    <Text
                       style={
-                        Array [
-                          Object {},
-                          Object {
-                            "flex": 1,
-                            "flexDirection": "column",
-                            "justifyContent": "flex-start",
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                          "textAlignVertical": "center",
+                          "textTransform": "none",
+                        }
                       }
                     >
-                      <Text
-                        style={
+                      Completed
+                    </Text>
+                    <Text
+                      onPress={[Function]}
+                      style={
+                        Array [
                           Object {
-                            "color": "#B4B6BA",
-                            "fontFamily": "SourceSansPro-Regular",
-                            "fontSize": 12,
+                            "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
                             "fontStyle": "normal",
-                            "fontWeight": "normal",
-                            "lineHeight": 16,
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                             "textAlignVertical": "center",
                             "textTransform": "none",
-                          }
-                        }
-                      >
-                        Completed
-                      </Text>
-                      <Text
-                        onPress={[Function]}
-                        style={
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "fontStyle": "normal",
-                              "fontWeight": "300",
-                              "lineHeight": 30,
-                              "textAlignVertical": "center",
-                              "textTransform": "none",
-                            },
-                            null,
-                          ]
-                        }
-                        testID="completedCount"
-                      >
-                        3
-                      </Text>
-                    </View>
+                          },
+                          null,
+                        ]
+                      }
+                      testID="completedCount"
+                    >
+                      3
+                    </Text>
                   </View>
                 </View>
-                <View
-                  style={
-                    Array [
-                      Object {},
-                      Object {
-                        "alignItems": "flex-end",
-                        "flex": 1,
-                        "justifyContent": "center",
-                      },
-                    ]
-                  }
-                />
               </View>
+              <View
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "alignItems": "flex-end",
+                      "flex": 1,
+                      "justifyContent": "center",
+                    },
+                  ]
+                }
+              />
             </View>
           </View>
         </View>

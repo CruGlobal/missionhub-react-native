@@ -46,54 +46,42 @@ exports[`renders correctly with name 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "backgroundColor": "transparent",
       "opacity": 1,
     }
   }
   testID="NameButton"
 >
-  <View
+  <Text
+    numberOfLines={2}
     style={
       Array [
         Object {
-          "backgroundColor": "transparent",
+          "color": "#007398",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         },
-        null,
-        Object {},
-        null,
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        },
       ]
     }
   >
-    <Text
-      numberOfLines={2}
-      style={
-        Array [
-          Object {
-            "color": "#007398",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 16,
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-            "lineHeight": 24,
-            "textAlignVertical": "center",
-            "textTransform": "none",
-          },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 16,
-            "fontStyle": "normal",
-            "fontWeight": "bold",
-            "letterSpacing": 1,
-            "lineHeight": 20,
-            "textAlignVertical": "center",
-            "textTransform": "none",
-          },
-        ]
-      }
-    >
-      Test Person
-    </Text>
-  </View>
+    Test Person
+  </Text>
 </View>
 `;
 

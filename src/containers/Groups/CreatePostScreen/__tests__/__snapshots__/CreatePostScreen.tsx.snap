@@ -5,7 +5,7 @@ exports[`Creating a post user types a post 1`] = `
 - First value
 + Second value
 
-@@ -134,12 +134,55 @@
+@@ -114,12 +114,42 @@
                 \\"flex\\": 1,
                 \\"justifyContent\\": \\"center\\",
               },
@@ -24,35 +24,22 @@ exports[`Creating a post user types a post 1`] = `
 +           onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +           style={
 +             Object {
++               \\"backgroundColor\\": \\"transparent\\",
 +               \\"opacity\\": 1,
++               \\"paddingHorizontal\\": 10,
++               \\"paddingTop\\": 0,
 +             }
 +           }
 +           testID=\\"CreatePostButton\\"
 +         >
-+           <View
++           <SvgMock
 +             style={
-+               Array [
-+                 Object {
-+                   \\"backgroundColor\\": \\"transparent\\",
-+                 },
-+                 null,
-+                 Object {
-+                   \\"paddingHorizontal\\": 10,
-+                   \\"paddingTop\\": 0,
-+                 },
-+                 null,
-+               ]
-+             }
-+           >
-+             <SvgMock
-+               style={
-+                 Object {
-+                   \\"height\\": 24,
-+                   \\"width\\": 24,
-+                 }
++               Object {
++                 \\"height\\": 24,
++                 \\"width\\": 24,
 +               }
-              />
-+           </View>
++             }
+            />
           </View>
 +       </View>
 +     </View>
@@ -61,7 +48,7 @@ exports[`Creating a post user types a post 1`] = `
       style={
         Object {
           \\"backgroundColor\\": \\"#ECEEF2\\",
-@@ -270,11 +313,11 @@
+@@ -250,11 +280,11 @@
               },
             ]
           }
@@ -81,7 +68,7 @@ exports[`Select image should select an image 1`] = `
 - First value
 + Second value
 
-@@ -273,19 +273,10 @@
+@@ -253,19 +253,10 @@
           testID=\\"PostInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
@@ -101,7 +88,7 @@ exports[`Select image should select an image 1`] = `
           onClick={[Function onClick]}
           onResponderGrant={[Function onResponderGrant]}
           onResponderMove={[Function onResponderMove]}
-@@ -293,117 +284,28 @@
+@@ -273,117 +264,28 @@
           onResponderTerminate={[Function onResponderTerminate]}
           onResponderTerminationRequest={[Function onResponderTerminationRequest]}
           onStartShouldSetResponder={[Function onStartShouldSetResponder]}
@@ -232,7 +219,7 @@ exports[`Select video should select a video 1`] = `
 - First value
 + Second value
 
-@@ -134,12 +134,55 @@
+@@ -114,11 +114,41 @@
                 \\"flex\\": 1,
                 \\"justifyContent\\": \\"center\\",
               },
@@ -251,50 +238,35 @@ exports[`Select video should select a video 1`] = `
 +           onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +           style={
 +             Object {
++               \\"backgroundColor\\": \\"transparent\\",
 +               \\"opacity\\": 1,
++               \\"paddingHorizontal\\": 10,
++               \\"paddingTop\\": 0,
 +             }
 +           }
 +           testID=\\"CreatePostButton\\"
 +         >
-+           <View
++           <SvgMock
 +             style={
-+               Array [
-+                 Object {
-+                   \\"backgroundColor\\": \\"transparent\\",
-+                 },
-+                 null,
-+                 Object {
-+                   \\"paddingHorizontal\\": 10,
-+                   \\"paddingTop\\": 0,
-+                 },
-+                 null,
-+               ]
-+             }
-+           >
-+             <SvgMock
-+               style={
-+                 Object {
-+                   \\"height\\": 24,
-+                   \\"width\\": 24,
-+                 }
++               Object {
++                 \\"height\\": 24,
++                 \\"width\\": 24,
 +               }
-              />
-            </View>
++             }
+            />
 +         </View>
 +       </View>
-+     </View>
+      </View>
     </RCTSafeAreaView>
     <View
       style={
         Object {
-          \\"backgroundColor\\": \\"#ECEEF2\\",
-@@ -271,139 +314,14 @@
-            ]
+@@ -252,138 +282,13 @@
           }
           testID=\\"PostInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
--       />
+        />
 -       <View
 -         style={
 -           Object {
@@ -303,7 +275,7 @@ exports[`Select video should select a video 1`] = `
 -             \\"width\\": 750,
 -           }
 -         }
-        />
+-       />
 -       <View
 -         accessible={true}
 -         focusable={true}
@@ -439,7 +411,7 @@ exports[`Updating a post user types a post 1`] = `
 - First value
 + Second value
 
-@@ -335,11 +335,11 @@
+@@ -302,11 +302,11 @@
               },
             ]
           }
@@ -511,45 +483,25 @@ exports[`renders correctly for new post 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 10,
+              "paddingTop": 0,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "paddingHorizontal": 10,
-                    "paddingTop": 0,
-                  },
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#505256"
-            />
-          </View>
+          <SvgMock
+            color="#505256"
+          />
         </View>
       </View>
       <View
@@ -923,45 +875,25 @@ exports[`renders correctly for new post and feature flag false 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 10,
+              "paddingTop": 0,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "paddingHorizontal": 10,
-                    "paddingTop": 0,
-                  },
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#505256"
-            />
-          </View>
+          <SvgMock
+            color="#505256"
+          />
         </View>
       </View>
       <View
@@ -1278,45 +1210,25 @@ exports[`renders correctly for update post with image 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 10,
+              "paddingTop": 0,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "paddingHorizontal": 10,
-                    "paddingTop": 0,
-                  },
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#505256"
-            />
-          </View>
+          <SvgMock
+            color="#505256"
+          />
         </View>
       </View>
       <View
@@ -1373,57 +1285,44 @@ exports[`renders correctly for update post with image 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
+              "paddingHorizontal": 10,
+              "paddingTop": 0,
             }
           }
           testID="CreatePostButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
                 Object {
-                  "paddingHorizontal": 10,
-                  "paddingTop": 0,
+                  "color": "#3CC8E6",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
-                null,
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "color": "#3CC8E6",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 16,
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                    "lineHeight": 24,
-                    "textAlignVertical": "center",
-                    "textTransform": "none",
-                  },
-                ]
-              }
-            >
-              Done
-            </Text>
-          </View>
+            Done
+          </Text>
         </View>
       </View>
     </View>
@@ -1657,45 +1556,25 @@ exports[`renders correctly for update post with video 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 10,
+              "paddingTop": 0,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "paddingHorizontal": 10,
-                    "paddingTop": 0,
-                  },
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#505256"
-            />
-          </View>
+          <SvgMock
+            color="#505256"
+          />
         </View>
       </View>
       <View
@@ -1752,57 +1631,44 @@ exports[`renders correctly for update post with video 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
+              "paddingHorizontal": 10,
+              "paddingTop": 0,
             }
           }
           testID="CreatePostButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
                 Object {
-                  "paddingHorizontal": 10,
-                  "paddingTop": 0,
+                  "color": "#3CC8E6",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
-                null,
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "color": "#3CC8E6",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 16,
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                    "lineHeight": 24,
-                    "textAlignVertical": "center",
-                    "textTransform": "none",
-                  },
-                ]
-              }
-            >
-              Done
-            </Text>
-          </View>
+            Done
+          </Text>
         </View>
       </View>
     </View>
@@ -2009,45 +1875,25 @@ exports[`renders correctly for update post without media 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 10,
+              "paddingTop": 0,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "paddingHorizontal": 10,
-                    "paddingTop": 0,
-                  },
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#505256"
-            />
-          </View>
+          <SvgMock
+            color="#505256"
+          />
         </View>
       </View>
       <View
@@ -2104,57 +1950,44 @@ exports[`renders correctly for update post without media 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
+              "paddingHorizontal": 10,
+              "paddingTop": 0,
             }
           }
           testID="CreatePostButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
                 Object {
-                  "paddingHorizontal": 10,
-                  "paddingTop": 0,
+                  "color": "#3CC8E6",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
-                null,
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "color": "#3CC8E6",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 16,
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                    "lineHeight": 24,
-                    "textAlignVertical": "center",
-                    "textTransform": "none",
-                  },
-                ]
-              }
-            >
-              Done
-            </Text>
-          </View>
+            Done
+          </Text>
         </View>
       </View>
     </View>
@@ -2486,45 +2319,25 @@ exports[`renders correctly for update post without media and feature flag false 
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 10,
+              "paddingTop": 0,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "paddingHorizontal": 10,
-                    "paddingTop": 0,
-                  },
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#505256"
-            />
-          </View>
+          <SvgMock
+            color="#505256"
+          />
         </View>
       </View>
       <View
@@ -2581,57 +2394,44 @@ exports[`renders correctly for update post without media and feature flag false 
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
+              "paddingHorizontal": 10,
+              "paddingTop": 0,
             }
           }
           testID="CreatePostButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
                 Object {
-                  "paddingHorizontal": 10,
-                  "paddingTop": 0,
+                  "color": "#3CC8E6",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
-                null,
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "color": "#3CC8E6",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 16,
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                    "lineHeight": 24,
-                    "textAlignVertical": "center",
-                    "textTransform": "none",
-                  },
-                ]
-              }
-            >
-              Done
-            </Text>
-          </View>
+            Done
+          </Text>
         </View>
       </View>
     </View>
@@ -2906,45 +2706,25 @@ exports[`renders correctly for update post without video if feature flag is fals
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 10,
+              "paddingTop": 0,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "paddingHorizontal": 10,
-                    "paddingTop": 0,
-                  },
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#505256"
-            />
-          </View>
+          <SvgMock
+            color="#505256"
+          />
         </View>
       </View>
       <View
@@ -3001,57 +2781,44 @@ exports[`renders correctly for update post without video if feature flag is fals
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
+              "paddingHorizontal": 10,
+              "paddingTop": 0,
             }
           }
           testID="CreatePostButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
                 Object {
-                  "paddingHorizontal": 10,
-                  "paddingTop": 0,
+                  "color": "#3CC8E6",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
-                null,
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "color": "#3CC8E6",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 16,
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                    "lineHeight": 24,
-                    "textAlignVertical": "center",
-                    "textTransform": "none",
-                  },
-                ]
-              }
-            >
-              Done
-            </Text>
-          </View>
+            Done
+          </Text>
         </View>
       </View>
     </View>
@@ -3326,45 +3093,25 @@ exports[`renders for post types renders for announcement 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 10,
+              "paddingTop": 0,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "paddingHorizontal": 10,
-                    "paddingTop": 0,
-                  },
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#505256"
-            />
-          </View>
+          <SvgMock
+            color="#505256"
+          />
         </View>
       </View>
       <View
@@ -3738,45 +3485,25 @@ exports[`renders for post types renders for help request 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 10,
+              "paddingTop": 0,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "paddingHorizontal": 10,
-                    "paddingTop": 0,
-                  },
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#505256"
-            />
-          </View>
+          <SvgMock
+            color="#505256"
+          />
         </View>
       </View>
       <View
@@ -4150,45 +3877,25 @@ exports[`renders for post types renders for prayer request 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 10,
+              "paddingTop": 0,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "paddingHorizontal": 10,
-                    "paddingTop": 0,
-                  },
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#505256"
-            />
-          </View>
+          <SvgMock
+            color="#505256"
+          />
         </View>
       </View>
       <View
@@ -4562,45 +4269,25 @@ exports[`renders for post types renders for spiritual question 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 10,
+              "paddingTop": 0,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "paddingHorizontal": 10,
-                    "paddingTop": 0,
-                  },
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#505256"
-            />
-          </View>
+          <SvgMock
+            color="#505256"
+          />
         </View>
       </View>
       <View
@@ -4974,45 +4661,25 @@ exports[`renders for post types renders for story 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 10,
+              "paddingTop": 0,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "paddingHorizontal": 10,
-                    "paddingTop": 0,
-                  },
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#505256"
-            />
-          </View>
+          <SvgMock
+            color="#505256"
+          />
         </View>
       </View>
       <View
@@ -5386,45 +5053,25 @@ exports[`renders for post types renders for thought 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 10,
+              "paddingTop": 0,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "paddingHorizontal": 10,
-                    "paddingTop": 0,
-                  },
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#505256"
-            />
-          </View>
+          <SvgMock
+            color="#505256"
+          />
         </View>
       </View>
       <View
