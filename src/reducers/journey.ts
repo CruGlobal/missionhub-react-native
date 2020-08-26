@@ -1,6 +1,8 @@
 import { LOGOUT, UPDATE_JOURNEY_ITEMS, LogoutAction } from '../constants';
 
-export type JourneyItem = any;
+export interface JourneyItem {
+  id: string;
+}
 
 export interface JourneyState {
   personal: { [key: string]: JourneyItem[] };

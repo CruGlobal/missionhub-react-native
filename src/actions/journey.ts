@@ -36,9 +36,9 @@ export function getJourney(personId: string) {
           break;
         }
       }
-      console.log('here');
+
       dispatch(updateJourney(personId, personFeed));
-      console.log('here again');
+
       return personFeed;
     } catch (e) {
       return [];

@@ -33,15 +33,31 @@ const initialState = {
 };
 
 beforeEach(() => {
-  // @ts-ignore
-  navigateBack.mockReturnValue(navigateBackResult);
-  // @ts-ignore
-  updateChallengeNote.mockReturnValue(updateChallengeNoteResult);
-  // @ts-ignore
-  editComment.mockReturnValue(editCommentResult);
-  // @ts-ignore
-  getJourney.mockReturnValue(getJourneyResult);
+  (navigateBack as jest.Mock).mockReturnValue(navigateBackResult);
+  (updateChallengeNote as jest.Mock).mockReturnValue(updateChallengeNoteResult);
+  (editComment as jest.Mock).mockReturnValue(editCommentResult);
+  (getJourney as jest.Mock).mockReturnValue(getJourneyResult);
 });
+
+// eslint-disable-next-line  @typescript-eslint/no-explicit-any
+const renderScreen = (navParams: any = {}) => {
+  const Component = JourneyEditFlowScreens[ADD_STEP_SCREEN];
+
+  const { store, getByType } = renderWithContext(<Component />, {
+    initialState,
+    navParams,
+  });
+
+  const originalComponent = getByType(Component).children[0];
+
+  if (typeof originalComponent === 'string') {
+    throw "Can't access component props";
+  }
+
+  const next = originalComponent.props.next;
+
+  return { store, next };
+};
 
 describe('AddStepScreen next', () => {
   it('updates step and navigates back', async () => {
@@ -54,21 +70,13 @@ describe('AddStepScreen next', () => {
       orgId,
     };
 
-    const Component = JourneyEditFlowScreens[ADD_STEP_SCREEN];
+    const { store, next } = renderScreen(nextProps);
 
-    const { store, getByType } = renderWithContext(<Component />, {
-      initialState,
-      navParams: nextProps,
-    });
+    await store.dispatch(next(nextProps));
 
-    await store.dispatch(
-      // @ts-ignore
-      getByType(Component).children[0].props.next(nextProps),
-    );
-
+    expect(navigateBack).toHaveBeenCalledWith();
     expect(updateChallengeNote).toHaveBeenCalledWith(interationId, text);
     expect(getJourney).toHaveBeenCalledWith(personId);
-    expect(navigateBack).toHaveBeenCalledWith();
   });
 
   it('updates interaction and navigates back', async () => {
@@ -81,20 +89,12 @@ describe('AddStepScreen next', () => {
       orgId,
     };
 
-    const Component = JourneyEditFlowScreens[ADD_STEP_SCREEN];
+    const { store, next } = renderScreen(nextProps);
 
-    const { store, getByType } = renderWithContext(<Component />, {
-      initialState,
-      navParams: nextProps,
-    });
+    await store.dispatch(next(nextProps));
 
-    await store.dispatch(
-      // @ts-ignore
-      getByType(Component).children[0].props.next(nextProps),
-    );
-
+    expect(navigateBack).toHaveBeenCalledWith();
     expect(editComment).toHaveBeenCalledWith(interationId, text);
     expect(getJourney).toHaveBeenCalledWith(personId);
-    expect(navigateBack).toHaveBeenCalledWith();
   });
 });
