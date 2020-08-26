@@ -325,7 +325,7 @@ export const CreatePostScreen = () => {
   const updatePost = useUpdatePost({ media: mediaData, mediaType, onComplete });
 
   const savePost = () => {
-    if (!text) {
+    if (!text && !hasVideo) {
       return;
     }
 
@@ -375,7 +375,7 @@ export const CreatePostScreen = () => {
   };
 
   const renderSendButton = () =>
-    text ? (
+    text || hasVideo ? (
       post ? (
         <Button
           type="transparent"
