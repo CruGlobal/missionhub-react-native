@@ -25,6 +25,7 @@ import {
   SAVE_PENDING_POST,
   DELETE_PENDING_POST,
   PENDING_POST_FAILED,
+  PENDING_POST_RETRY,
 } from '../../../constants';
 import { mapPostTypeToFeedType } from '../../../utils/common';
 import { getPostTypeAnalytics } from '../../../utils/analytics';
@@ -65,6 +66,7 @@ import {
   PendingPostFailedAction,
   PendingUpdatePost,
   PendingCreatePost,
+  PendingPostRetryAction,
 } from '../../../reducers/communityPosts';
 
 import PhotoIcon from './photoIcon.svg';
@@ -117,18 +119,28 @@ const PendingPostFailed = (storageId: string) => (
     storageId,
   } as PendingPostFailedAction);
 
+const retryPendingPost = (storageId: string) => (
+  dispatch: ThunkDispatch<RootState, never, AnyAction>,
+) =>
+  dispatch({
+    type: PENDING_POST_RETRY,
+    storageId,
+  } as PendingPostRetryAction);
+
 export const useCreatePost = ({
   media,
   postType,
   communityId,
   mediaType,
   onComplete,
+  existingStorageId,
 }: {
   media: string | null;
   postType: PostTypeEnum;
   communityId: string;
   mediaType: string | null;
   onComplete: () => void;
+  existingStorageId?: string;
 }) => {
   const hasImage = !!media && !!mediaType?.includes('image');
   const hasVideo = !!media && !!mediaType?.includes('video');
@@ -137,7 +149,7 @@ export const useCreatePost = ({
   const nextId = useSelector(
     ({ communityPosts }: RootState) => communityPosts.nextId,
   );
-  const [storageId] = useState(`${nextId}`);
+  const [storageId] = useState(existingStorageId || `${nextId}`);
 
   const [createPost] = useMutation<CreatePost, CreatePostVariables>(
     CREATE_POST,
@@ -224,9 +236,11 @@ export const useCreatePost = ({
   const createFeedItem = (input: CreatePostInput) => {
     const pendingPost = input as PendingCreatePost;
 
-    input.media &&
-      hasVideo &&
-      dispatch(savePendingPost(pendingPost, storageId));
+    existingStorageId
+      ? dispatch(retryPendingPost(storageId))
+      : input.media &&
+        hasVideo &&
+        dispatch(savePendingPost(pendingPost, storageId));
 
     createPost({ variables: { input } });
   };
@@ -238,10 +252,12 @@ export const useUpdatePost = ({
   media,
   mediaType,
   onComplete,
+  existingStorageId,
 }: {
   media: string | null;
   mediaType: string | null;
   onComplete: () => void;
+  existingStorageId?: string;
 }) => {
   const hasImage = !!media && !!mediaType?.includes('image');
   const hasVideo = !!media && !!mediaType?.includes('video');
@@ -250,7 +266,7 @@ export const useUpdatePost = ({
   const nextId = useSelector(
     ({ communityPosts }: RootState) => communityPosts.nextId,
   );
-  const [storageId] = useState(`${nextId}`);
+  const [storageId] = useState(existingStorageId || `${nextId}`);
 
   const [updatePost] = useMutation<UpdatePost, UpdatePostVariables>(
     UPDATE_POST,
@@ -271,9 +287,11 @@ export const useUpdatePost = ({
   const updateFeedItem = (input: UpdatePostInput, communityId: string) => {
     const pendingPost = { ...input, communityId } as PendingUpdatePost;
 
-    input.media &&
-      hasVideo &&
-      dispatch(savePendingPost(pendingPost, storageId));
+    existingStorageId
+      ? dispatch(retryPendingPost(storageId))
+      : input.media &&
+        hasVideo &&
+        dispatch(savePendingPost(pendingPost, storageId));
 
     updatePost({ variables: { input } });
   };
@@ -325,7 +343,7 @@ export const CreatePostScreen = () => {
   const updatePost = useUpdatePost({ media: mediaData, mediaType, onComplete });
 
   const savePost = () => {
-    if (!text) {
+    if (!text && !hasVideo) {
       return;
     }
 
@@ -336,7 +354,7 @@ export const CreatePostScreen = () => {
     const media: string | ReactNativeFile | undefined =
       mediaData && mediaType && hasImage && mediaHasChanged
         ? mediaData
-        : mediaData && mediaType && hasVideo && mediaHasChanged
+        : mediaData && mediaType && hasVideo
         ? new ReactNativeFile({
             name: 'upload',
             uri: mediaData,
@@ -375,7 +393,7 @@ export const CreatePostScreen = () => {
   };
 
   const renderSendButton = () =>
-    text ? (
+    text || hasVideo ? (
       post ? (
         <Button
           type="transparent"
