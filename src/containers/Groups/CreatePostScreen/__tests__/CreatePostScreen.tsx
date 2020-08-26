@@ -9,13 +9,17 @@ import {
   ORG_PERMISSIONS,
   SAVE_PENDING_POST,
   DELETE_PENDING_POST,
+  PENDING_POST_RETRY,
 } from '../../../../constants';
 import { navigatePush, navigateBack } from '../../../../actions/navigation';
 import {
   trackActionWithoutData,
   trackAction,
 } from '../../../../actions/analytics';
-import { renderWithContext } from '../../../../../testUtils';
+import {
+  renderWithContext,
+  renderHookWithContext,
+} from '../../../../../testUtils';
 import { mockFragment } from '../../../../../testUtils/apolloMockClient';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import * as common from '../../../../utils/common';
@@ -27,7 +31,7 @@ import {
   CommunityFeedItem_subject_Post,
 } from '../../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { useFeatureFlags } from '../../../../utils/hooks/useFeatureFlags';
-import { CreatePostScreen } from '..';
+import { CreatePostScreen, useCreatePost, useUpdatePost } from '..';
 
 jest.mock('../../../../components/VideoPlayer', () => 'VideoPlayer');
 jest.mock('../../../../actions/navigation');
@@ -740,6 +744,104 @@ describe('Updating a post', () => {
       navigatePushResult,
       navigateBackResult,
       { type: SAVE_PENDING_POST, post: expectedInput, storageId: '0' },
+      { type: DELETE_PENDING_POST, storageId: '0' },
+      trackActionWithoutDataResult,
+    ]);
+  });
+});
+
+describe('useCreatePost, other functions', () => {
+  const existingStorageId = '0';
+
+  it('retries create post', async () => {
+    const input = {
+      content: MOCK_POST,
+      communityId,
+      postType,
+      media: {
+        name: 'upload',
+        type: VIDEO_TYPE,
+        uri: MOCK_VIDEO,
+      },
+    };
+
+    const { result, store } = renderHookWithContext(
+      () =>
+        useCreatePost({
+          media: MOCK_VIDEO,
+          postType,
+          communityId,
+          mediaType: VIDEO_TYPE,
+          onComplete,
+          existingStorageId,
+        }),
+      { initialState },
+    );
+
+    result.current(input);
+    await flushMicrotasksQueue();
+
+    expect(useMutation).toHaveBeenMutatedWith(CREATE_POST, {
+      variables: { input },
+    });
+    expect(trackAction).toHaveBeenCalledWith(ACTIONS.CREATE_POST.name, {
+      [ACTIONS.CREATE_POST.key]: postType,
+    });
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.PHOTO_ADDED,
+    );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.VIDEO_ADDED);
+    expect(onComplete).toHaveBeenCalledWith();
+
+    expect(store.getActions()).toEqual([
+      { type: PENDING_POST_RETRY, storageId: existingStorageId },
+      trackActionResult,
+      { type: DELETE_PENDING_POST, storageId: '0' },
+      trackActionWithoutDataResult,
+    ]);
+  });
+});
+
+describe('useUpdatePost, other functions', () => {
+  const existingStorageId = '0';
+
+  it('retries update post', async () => {
+    const input = {
+      content: MOCK_POST,
+      id: post.id,
+      media: {
+        name: 'upload',
+        type: VIDEO_TYPE,
+        uri: MOCK_VIDEO,
+      },
+    };
+
+    const { result, store } = renderHookWithContext(
+      () =>
+        useUpdatePost({
+          media: MOCK_VIDEO,
+          mediaType: VIDEO_TYPE,
+          onComplete,
+          existingStorageId,
+        }),
+      { initialState },
+    );
+
+    result.current(input, communityId);
+    await flushMicrotasksQueue();
+
+    expect(useMutation).toHaveBeenMutatedWith(UPDATE_POST, {
+      variables: { input },
+    });
+    expect(trackAction).not.toHaveBeenCalled();
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.PHOTO_ADDED,
+    );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.VIDEO_ADDED);
+    expect(onComplete).toHaveBeenCalledWith();
+
+    expect(store.getActions()).toEqual([
+      { type: PENDING_POST_RETRY, storageId: existingStorageId },
       { type: DELETE_PENDING_POST, storageId: '0' },
       trackActionWithoutDataResult,
     ]);
