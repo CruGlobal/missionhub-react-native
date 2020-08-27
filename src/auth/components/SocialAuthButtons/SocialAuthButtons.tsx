@@ -23,6 +23,7 @@ export enum SocialAuthButtonsType {
 interface SocialAuthButtonsProps {
   type: SocialAuthButtonsType;
   authenticate: ReturnType<typeof useAuth>['authenticate'];
+  testID?: string;
 }
 
 export const SocialAuthButtons = ({

@@ -162,6 +162,7 @@ const SignInScreen = ({
           }}
         >
           <SocialAuthButtons
+            testID="signInSocialAuthButtons"
             type={SocialAuthButtonsType.SignIn}
             authenticate={async options => {
               await authenticate(options);

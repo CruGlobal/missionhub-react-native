@@ -108,6 +108,7 @@ const SignUpScreen = ({
         >
           <Flex value={4} direction="column" self="stretch" align="center">
             <SocialAuthButtons
+              testID="signUpSocialAuthButtons"
               type={SocialAuthButtonsType.SignUp}
               authenticate={async options => {
                 await authenticate(options);

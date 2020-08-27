@@ -4,19 +4,15 @@ import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import i18next from 'i18next';
 import MockDate from 'mockdate';
-import * as RNOmniture from 'react-native-omniture';
 
 import * as callApi from '../../api';
 import { REQUESTS } from '../../../api/routes';
-import { getFeatureFlags } from '../../misc';
 import { updateLocaleAndTimezone, loadHome } from '../userData';
 import { getMyPeople } from '../../people';
 import { getMyCommunities } from '../../organizations';
 import { getMe } from '../../person';
 import { getStagesIfNotExists } from '../../stages';
-import { rollbar } from '../../../utils/rollbar.config';
 import { requestNativePermissions } from '../../notifications';
-import * as common from '../../../utils/common';
 
 const getMyCommunitiesResult = { type: 'got communities' };
 const getMeResult = { type: 'got me successfully' };

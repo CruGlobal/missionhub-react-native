@@ -9,13 +9,13 @@ import {
 import { renderWithContext } from '../../../../../testUtils';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import SignInScreen from '..';
+import { useAuth } from '../../../../auth/useAuth';
+import { IdentityProvider, AuthError } from '../../../../auth/constants';
+import { SignInWithTheKeyType } from '../../../../auth/providers/useSignInWithTheKey';
 
 jest.mock('../../../../actions/analytics');
-jest.mock('../../../../actions/auth/key');
-jest.mock('../../../../actions/auth/facebook', () => ({
-  facebookPromptLogin: jest.fn().mockReturnValue({ type: 'test' }),
-  facebookLoginWithAccessToken: jest.fn().mockReturnValue({ type: 'test' }),
-}));
+jest.mock('../../../../auth/useAuth');
+jest.mock('../../../../reducers/nav', () => null);
 let keyboardListeners: { [name: string]: () => void };
 jest.mock('../../../../utils/hooks/useKeyboardListeners', () => ({
   useKeyboardListeners: ({
@@ -48,9 +48,12 @@ const credentials = {
   email: 'klas&jflk@lkjasdf.com',
   password: 'this&is=unsafe',
 };
-const code = 'test code';
-const codeVerifier = 'test codeVerifier';
-const redirectUri = 'test redirectUri';
+
+const authenticate = jest.fn();
+
+beforeEach(() => {
+  (useAuth as jest.Mock).mockReturnValue({ authenticate });
+});
 
 it('renders correctly', () => {
   renderWithContext(<SignInScreen next={next} />).snapshot();
@@ -93,19 +96,18 @@ describe('keyboard listeners', () => {
   });
 });
 
-describe('facebook login button is pressed', () => {
-  it('facebook button calls facebook login logic', async () => {
-    const { recordSnapshot, getByTestId, diffSnapshot } = renderWithContext(
-      <SignInScreen next={next} />,
+describe('social auth buttons', () => {
+  it('should call authenticate when pressed', async () => {
+    const { getByTestId } = renderWithContext(<SignInScreen next={next} />);
+
+    fireEvent(
+      getByTestId('signInSocialAuthButtons'),
+      'authenticate',
+      'authenticateOptions',
     );
-    recordSnapshot();
-
-    fireEvent.press(getByTestId('facebookButton'));
     await flushMicrotasksQueue();
-    diffSnapshot(); // Check if loading wheel is shown
 
-    expect(facebookPromptLogin).toHaveBeenCalledTimes(1);
-    expect(facebookLoginWithAccessToken).toHaveBeenCalledTimes(1);
+    expect(authenticate).toHaveBeenCalledWith('authenticateOptions');
     expect(next).toHaveBeenCalledTimes(1);
   });
 });
@@ -127,89 +129,69 @@ describe('key login button is pressed', () => {
   it('key login is called', async () => {
     await performKeyLogin();
 
-    expect(keyLogin).toHaveBeenCalledWith(
-      credentials.email,
-      credentials.password,
-    );
+    expect(authenticate).toHaveBeenCalledWith({
+      provider: IdentityProvider.TheKey,
+      theKeyOptions: {
+        type: SignInWithTheKeyType.EmailPassword,
+        email: credentials.email,
+        password: credentials.password,
+      },
+    });
     expect(next).toHaveBeenCalled();
   });
 
   it('should fire login actions when inputs are submitted', async () => {
-    const { recordSnapshot, getByTestId, diffSnapshot } = renderWithContext(
-      <SignInScreen next={next} />,
-    );
+    const { getByTestId } = renderWithContext(<SignInScreen next={next} />);
 
     fireEvent.changeText(getByTestId('emailInput'), credentials.email);
     fireEvent(getByTestId('emailInput'), 'submitEditing');
     fireEvent.changeText(getByTestId('passwordInput'), credentials.password);
-    recordSnapshot();
     fireEvent(getByTestId('passwordInput'), 'submitEditing');
     await flushMicrotasksQueue();
-    diffSnapshot(); // Checking if loading indicator is shown
 
-    expect(keyLogin).toHaveBeenCalledWith(
-      credentials.email,
-      credentials.password,
-    );
+    expect(authenticate).toHaveBeenCalledWith({
+      provider: IdentityProvider.TheKey,
+      theKeyOptions: {
+        type: SignInWithTheKeyType.EmailPassword,
+        email: credentials.email,
+        password: credentials.password,
+      },
+    });
     expect(next).toHaveBeenCalled();
   });
 
-  it('shows invalid credentials message and tracks user error when invalid credentials are entered', async () => {
-    (keyLogin as jest.Mock).mockReturnValue(() =>
-      Promise.reject({
-        apiError: { thekey_authn_error: 'invalid_credentials' },
-      }),
-    );
+  it('should not call next when an auth error is thrown', async () => {
+    authenticate.mockRejectedValue(AuthError.Unknown);
 
     await performKeyLogin();
+    await flushMicrotasksQueue();
 
-    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.USER_ERROR);
-    expect(next).not.toHaveBeenCalled();
-  });
-
-  it('shows invalid credentials message and tracks user error when email or password is missing', async () => {
-    (keyLogin as jest.Mock).mockReturnValue(() =>
-      Promise.reject({ apiError: { error: 'invalid_request' } }),
-    );
-
-    await performKeyLogin();
-
-    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.USER_ERROR);
-    expect(next).not.toHaveBeenCalled();
-  });
-
-  it('shows email verification required message and tracks user error when email has not been verified', async () => {
-    (keyLogin as jest.Mock).mockReturnValue(() =>
-      Promise.reject({
-        apiError: { thekey_authn_error: 'email_unverified' },
-      }),
-    );
-
-    await performKeyLogin();
-
-    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.USER_ERROR);
-    expect(next).not.toHaveBeenCalled();
-  });
-
-  it('tracks system error for unexpected error', async () => {
-    (keyLogin as jest.Mock).mockReturnValue(() =>
-      Promise.reject({ apiError: { error: 'invalid_grant' } }),
-    );
-
-    await performKeyLogin();
-
-    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.SYSTEM_ERROR);
+    expect(authenticate).toHaveBeenCalledWith({
+      provider: IdentityProvider.TheKey,
+      theKeyOptions: {
+        type: SignInWithTheKeyType.EmailPassword,
+        email: credentials.email,
+        password: credentials.password,
+      },
+    });
     expect(next).not.toHaveBeenCalled();
   });
 
   describe('mfa_required is returned from the Key', () => {
     it('should send user to MFA screen and clear credentials', async () => {
-      (keyLogin as jest.Mock).mockReturnValue(() =>
-        Promise.reject({ apiError: { thekey_authn_error: MFA_REQUIRED } }),
-      );
+      authenticate.mockRejectedValue(AuthError.MfaRequired);
 
       await performKeyLogin();
+      await flushMicrotasksQueue();
 
+      expect(authenticate).toHaveBeenCalledWith({
+        provider: IdentityProvider.TheKey,
+        theKeyOptions: {
+          type: SignInWithTheKeyType.EmailPassword,
+          email: credentials.email,
+          password: credentials.password,
+        },
+      });
       expect(next).toHaveBeenCalledWith({
         requires2FA: true,
         email: credentials.email,
@@ -221,22 +203,16 @@ describe('key login button is pressed', () => {
 
 describe('forgot password button is pressed', () => {
   it('should call forgot password logic', async () => {
-    const { recordSnapshot, getByTestId, diffSnapshot } = renderWithContext(
-      <SignInScreen next={next} />,
-    );
+    const { getByTestId } = renderWithContext(<SignInScreen next={next} />);
 
-    recordSnapshot();
     fireEvent.press(getByTestId('forgotPasswordButton'));
     await flushMicrotasksQueue();
-    diffSnapshot();
 
-    expect(openKeyURL).toHaveBeenCalledWith(
-      'service/selfservice?target=displayForgotPassword',
-    );
-    expect(keyLoginWithAuthorizationCode).toHaveBeenCalledWith(
-      code,
-      codeVerifier,
-      redirectUri,
-    );
+    expect(authenticate).toHaveBeenCalledWith({
+      provider: IdentityProvider.TheKey,
+      theKeyOptions: {
+        type: SignInWithTheKeyType.ForgotPassword,
+      },
+    });
   });
 });

@@ -6,10 +6,13 @@ import { useMutation } from '@apollo/react-hooks';
 import { renderWithContext } from '../../../../testUtils';
 import { useLogoutOnBack } from '../../../utils/hooks/useLogoutOnBack';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-import { createMyPerson, createPerson } from '../../../actions/onboarding';
+import { createPerson } from '../../../actions/onboarding';
 import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
 import { UPDATE_PERSON, CREATE_PERSON } from '../queries';
 import SetupScreen from '..';
+import { IdentityProvider } from '../../../auth/constants';
+import { SignInWithAnonymousType } from '../../../auth/providers/useSignInWithAnonymous';
+import { useAuth } from '../../../auth/useAuth';
 
 const personId = '1';
 const mockState = {
@@ -27,15 +30,15 @@ const lastName = 'TestLname';
 jest.mock('../../../actions/api');
 jest.mock('../../../actions/onboarding');
 jest.mock('../../../actions/person');
+jest.mock('../../../auth/useAuth');
 jest.mock('../../../utils/hooks/useLogoutOnBack');
 jest.mock('../../../utils/hooks/useAnalytics');
 Keyboard.dismiss = jest.fn();
 
+const authenticate = jest.fn();
+(useAuth as jest.Mock).mockReturnValue({ authenticate });
+
 beforeEach(() => {
-  (createMyPerson as jest.Mock).mockReturnValue({
-    type: 'createMyPerson',
-    id: '1',
-  });
   (createPerson as jest.Mock).mockReturnValue({
     type: 'createPerson',
     response: { id: '1' },
@@ -156,7 +159,14 @@ describe('saveAndNavigateNext', () => {
 
       await fireEvent.press(getByTestId('SaveBottomButton'));
 
-      expect(createMyPerson).toHaveBeenCalledWith(firstName, lastName);
+      expect(authenticate).toHaveBeenCalledWith({
+        provider: IdentityProvider.Anonymous,
+        anonymousOptions: {
+          type: SignInWithAnonymousType.Create,
+          firstName,
+          lastName,
+        },
+      });
       expect(next).toHaveBeenCalledWith({ personId });
     });
   });
@@ -221,7 +231,7 @@ describe('saveAndNavigateNext', () => {
         },
       },
     });
-    expect(createMyPerson).not.toHaveBeenCalled();
+    expect(authenticate).not.toHaveBeenCalled();
 
     expect(next).not.toHaveBeenCalled();
   });

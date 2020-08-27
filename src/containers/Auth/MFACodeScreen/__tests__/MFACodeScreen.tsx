@@ -1,6 +1,4 @@
 import React from 'react';
-import { Alert } from 'react-native';
-import i18n from 'i18next';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../../testUtils';
