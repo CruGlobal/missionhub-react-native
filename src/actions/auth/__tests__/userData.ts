@@ -9,7 +9,7 @@ import * as RNOmniture from 'react-native-omniture';
 import * as callApi from '../../api';
 import { REQUESTS } from '../../../api/routes';
 import { getFeatureFlags } from '../../misc';
-import { updateLocaleAndTimezone, authSuccess, loadHome } from '../userData';
+import { updateLocaleAndTimezone, loadHome } from '../userData';
 import { getMyPeople } from '../../people';
 import { getMyCommunities } from '../../organizations';
 import { getMe } from '../../person';
@@ -91,63 +91,6 @@ describe('updateLocaleAndTimezone', () => {
       {},
       newUserSettings,
     );
-  });
-});
-
-describe('authSuccess', () => {
-  const personId = '593348';
-  const global_registry_mdm_id = 'c6e4fdcf-d638-46b7-a02b-8c6c1cc4af23';
-
-  beforeEach(() => {
-    store = mockStore({
-      auth: {
-        person: {
-          id: personId,
-        },
-      },
-    });
-
-    (getMe as jest.Mock).mockReturnValue(() =>
-      Promise.resolve({
-        global_registry_mdm_id,
-      }),
-    );
-  });
-
-  it('should set Rollbar user id', async () => {
-    await store.dispatch<any>(authSuccess());
-
-    expect(rollbar.setPerson).toHaveBeenCalledWith(`${personId}`);
-  });
-
-  it('should track global registry master person id', async () => {
-    await store.dispatch<any>(authSuccess());
-
-    expect(RNOmniture.syncIdentifier).toHaveBeenCalledWith(
-      global_registry_mdm_id,
-    );
-  });
-
-  it('should get feature flags', async () => {
-    await store.dispatch<any>(authSuccess());
-
-    expect(getFeatureFlags).toHaveBeenCalledWith();
-  });
-
-  it('should not call requestNativePermissions on iOS', async () => {
-    ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
-
-    await store.dispatch<any>(authSuccess());
-
-    expect(requestNativePermissions).not.toHaveBeenCalled();
-  });
-
-  it('should call requestNativePermissions on Android', async () => {
-    ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
-
-    await store.dispatch<any>(authSuccess());
-
-    expect(requestNativePermissions).toHaveBeenCalled();
   });
 });
 

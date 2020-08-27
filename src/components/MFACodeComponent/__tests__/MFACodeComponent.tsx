@@ -3,6 +3,7 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { MFACodeComponent } from '..';
+import { AuthError } from '../../../auth/constants';
 
 jest.mock('../../../components/common', () => ({
   Flex: 'Flex',
@@ -23,6 +24,7 @@ it('should render correctly', () => {
       value="Roge"
       onSubmit={jest.fn()}
       loading={false}
+      error={AuthError.None}
     />,
   ).snapshot();
 });
@@ -33,6 +35,7 @@ it('should change loading state', () => {
       value="Roge"
       onSubmit={jest.fn()}
       loading={false}
+      error={AuthError.None}
     />,
   );
 
@@ -43,6 +46,7 @@ it('should change loading state', () => {
       value="Roge"
       onSubmit={jest.fn()}
       loading={true}
+      error={AuthError.None}
     />,
   );
   diffSnapshot();
@@ -54,6 +58,7 @@ it('should change loading state', () => {
       value="Roge"
       onSubmit={jest.fn()}
       loading={false}
+      error={AuthError.None}
     />,
   );
   diffSnapshot();
@@ -68,6 +73,7 @@ it('calls onChangeText prop', () => {
       value="Roge"
       onSubmit={jest.fn()}
       loading={true}
+      error={AuthError.None}
     />,
   );
   fireEvent.changeText(getByTestId('mfaCodeInput'), '123456');
@@ -83,7 +89,8 @@ it('submits when DONE button is pressed', () => {
       onChangeText={jest.fn()}
       value="Roge"
       onSubmit={onSubmit}
-      isLoading={true}
+      loading={true}
+      error={AuthError.None}
     />,
   );
   fireEvent.press(getByTestId('doneButton'));
@@ -100,6 +107,7 @@ it('submits when done on keyboard is pressed', () => {
       value="Roge"
       onSubmit={onSubmit}
       loading={true}
+      error={AuthError.None}
     />,
   );
   fireEvent(getByTestId('mfaCodeInput'), 'submitEditing');

@@ -51,25 +51,6 @@ const credentials = {
 const code = 'test code';
 const codeVerifier = 'test codeVerifier';
 const redirectUri = 'test redirectUri';
-const openKeyResponse = {
-  type: 'open key',
-  code,
-  codeVerifier,
-  redirectUri,
-};
-const keyLoginWithAuthorizationCodeResponse = {
-  type: 'test keyLoginWithAuthorizationCode',
-};
-const loginResult = { type: 'login result' };
-
-(openKeyURL as jest.Mock).mockReturnValue(openKeyResponse);
-(keyLoginWithAuthorizationCode as jest.Mock).mockReturnValue(
-  keyLoginWithAuthorizationCodeResponse,
-);
-(keyLogin as jest.Mock).mockReturnValue(loginResult);
-(trackActionWithoutData as jest.Mock).mockReturnValue({
-  type: 'tracked action',
-});
 
 it('renders correctly', () => {
   renderWithContext(<SignInScreen next={next} />).snapshot();

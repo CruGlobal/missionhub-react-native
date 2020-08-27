@@ -7,7 +7,6 @@ import {
   setOnboardingPersonId,
   setOnboardingCommunity,
   skipOnboardingAddPerson,
-  createMyPerson,
   createPerson,
   skipAddPersonAndCompleteOnboarding,
   resetPersonAndCompleteOnboarding,
@@ -121,53 +120,6 @@ describe('startOnboarding', () => {
     expect(store.getActions()).toEqual([
       trackActionWithoutDataResult,
       { type: START_ONBOARDING },
-    ]);
-  });
-});
-
-describe('createMyPerson', () => {
-  it('should send the correct API request', async () => {
-    const first_name = 'Roger';
-    const last_name = 'Goers';
-
-    (callApi as jest.Mock).mockReturnValue({
-      type: 'callApi',
-    });
-    (getMe as jest.Mock).mockReturnValue(() => ({
-      id: myId,
-      first_name,
-      last_name,
-      type: 'person',
-    }));
-    (updateLocaleAndTimezone as jest.Mock).mockReturnValue({
-      type: 'updateLocaleAndTimezone',
-    });
-
-    await store.dispatch<any>(createMyPerson('Roger', 'Goers'));
-
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.CREATE_MY_PERSON,
-      {},
-      {
-        code: expect.any(String),
-        first_name,
-        last_name,
-      },
-    );
-    expect(updateLocaleAndTimezone).toHaveBeenCalled();
-    expect(rollbar.setPerson).toHaveBeenCalledWith(myId);
-    expect(store.getActions()).toEqual([
-      { type: 'callApi' },
-      { type: 'updateLocaleAndTimezone' },
-      {
-        type: LOAD_PERSON_DETAILS,
-        person: {
-          type: 'person',
-          id: myId,
-          first_name,
-          last_name,
-        },
-      },
     ]);
   });
 });
