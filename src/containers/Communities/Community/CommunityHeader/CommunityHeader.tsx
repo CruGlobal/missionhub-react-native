@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ImageBackground } from 'react-native';
+import { View, ImageBackground, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { useDispatch } from 'react-redux';
@@ -10,7 +10,7 @@ import {
   createCollapsibleViewContext,
   CollapsibleViewHeader,
 } from '../../../../components/CollapsibleView/CollapsibleView';
-import { Text, Flex, Button } from '../../../../components/common';
+import { Flex, Button } from '../../../../components/common';
 import { HeaderTabBar } from '../../../../components/HeaderTabBar/HeaderTabBar';
 import BackButton from '../../../../components/BackButton';
 import theme from '../../../../theme';

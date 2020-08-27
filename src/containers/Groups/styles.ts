@@ -28,10 +28,10 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.extraLightGrey,
   },
-  headerTitle: { fontSize: 16, lineHeight: 24, fontWeight: '400' },
+  headerTitle: { ...theme.textRegular16, color: theme.white },
   cardSectionHeader: {
+    ...theme.textRegular14,
     marginVertical: 8,
-    fontSize: 14,
     alignContent: 'center',
   },
   onboardingCard: {
@@ -54,15 +54,14 @@ export default StyleSheet.create({
     height: 60,
   },
   onboardingHeader: {
-    fontSize: 24,
-    fontWeight: '300',
+    ...theme.textLight24,
     color: theme.primaryColor,
     textAlign: 'center',
     paddingTop: 5,
   },
   onboardingDescription: {
-    fontSize: 16,
-    color: theme.grey,
+    ...theme.textRegular16,
+    color: theme.lightGrey,
     paddingHorizontal: 50,
     textAlign: 'center',
     paddingVertical: 5,
@@ -89,8 +88,8 @@ export default StyleSheet.create({
     borderRightColor: theme.primaryColor,
   },
   blockBtnText: {
+    ...theme.textBold14,
     fontSize: 12,
-    fontWeight: 'bold',
     color: theme.white,
   },
   unreadTitle: {
@@ -100,7 +99,7 @@ export default StyleSheet.create({
     paddingVertical: 15,
   },
   reportHeader: {
-    backgroundColor: theme.red,
+    backgroundColor: theme.orange,
   },
   backIcon: {
     color: theme.black,
@@ -109,7 +108,7 @@ export default StyleSheet.create({
     paddingRight: 5,
   },
   clearAllButtonText: {
-    fontSize: 10,
+    ...theme.textRegular10,
     color: theme.black,
   },
 });

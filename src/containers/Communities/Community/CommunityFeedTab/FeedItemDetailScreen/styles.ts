@@ -7,10 +7,7 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.white,
   },
-  headerText: {
-    fontSize: 14,
-    lineHeight: 20,
-  },
+  headerText: theme.textRegular14,
   belowItem: {
     marginBottom: 6,
   },

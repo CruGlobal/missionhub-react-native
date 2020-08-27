@@ -1,10 +1,9 @@
 import React from 'react';
-import { View, StyleProp, ViewStyle, TextStyle } from 'react-native';
+import { View, StyleProp, ViewStyle, TextStyle, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { SvgProps } from 'react-native-svg';
 
 import { StepTypeEnum } from '../../../__generated__/globalTypes';
-import { Text } from '../common';
 import theme from '../../theme';
 import RelateIcon from '../../../assets/images/stepTypes/relate.svg';
 import PrayIcon from '../../../assets/images/stepTypes/pray.svg';
@@ -89,11 +88,9 @@ export const StepTypeBadge = React.memo(
         {hideLabel ? null : (
           <Text
             style={[
+              labelUppercase ? theme.textBold16 : theme.textRegular14,
               {
-                fontSize: labelUppercase ? 16 : 14,
-                fontWeight: labelUppercase ? 'bold' : 'normal',
                 color,
-                ...(labelUppercase ? { letterSpacing: 1 } : {}),
                 paddingLeft: hideIcon ? 0 : 4,
                 ...(displayVertically && !hideIcon ? { marginTop: 7 } : {}),
               },

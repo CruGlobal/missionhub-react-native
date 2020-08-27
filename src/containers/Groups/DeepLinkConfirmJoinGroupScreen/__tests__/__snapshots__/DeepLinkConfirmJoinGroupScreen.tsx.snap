@@ -42,19 +42,25 @@ exports[`DeepLinkConfirmJoinGroupScreen renders error correctly 1`] = `
       align="center"
       justify="center"
     >
-      <MyText
+      <Text
         style={
           Object {
             "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
             "padding": 4,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
         Sorry, we couldn't find your community.
 Double check your link.
-      </MyText>
+      </Text>
     </Flex>
   </Flex>
 </View>
@@ -102,19 +108,25 @@ exports[`DeepLinkConfirmJoinGroupScreen renders group card correctly 1`] = `
       align="center"
       justify="center"
     >
-      <MyText
+      <Text
         style={
           Object {
             "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
             "padding": 4,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
         Sorry, we couldn't find your community.
 Double check your link.
-      </MyText>
+      </Text>
     </Flex>
   </Flex>
 </View>
@@ -162,19 +174,25 @@ exports[`DeepLinkConfirmJoinGroupScreen renders start correctly 1`] = `
       align="center"
       justify="center"
     >
-      <MyText
+      <Text
         style={
           Object {
             "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
             "padding": 4,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
         Sorry, we couldn't find your community.
 Double check your link.
-      </MyText>
+      </Text>
     </Flex>
   </Flex>
 </View>

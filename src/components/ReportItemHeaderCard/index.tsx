@@ -1,7 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Text } from 'react-native';
 
-import { Text, Card, Icon } from '../common';
+import { Card, Icon } from '../common';
 
 import styles from './styles';
 

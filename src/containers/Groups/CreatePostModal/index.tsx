@@ -108,9 +108,9 @@ const CreatePostModal = ({
                 align="center"
                 style={{ marginTop: 20 }}
               >
-                <LineIcon width="21" color={theme.grey} />
+                <LineIcon width="21" color={theme.extraLightGrey} />
                 <Text style={sectionTitle}>{t('ownersAndAdmins')}</Text>
-                <LineIcon width="21" color={theme.grey} />
+                <LineIcon width="21" color={theme.extraLightGrey} />
               </Flex>
               <View style={{ marginVertical: 10 }}>
                 <PostTypeLabel

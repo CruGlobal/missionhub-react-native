@@ -24,17 +24,16 @@ exports[`ErrorNotice should render a network error 1`] = `
 >
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 16,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 24,
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     Offline
@@ -94,17 +93,16 @@ exports[`ErrorNotice should render an a specificError 1`] = `
 >
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 16,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 24,
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     A specific error was fired
@@ -164,17 +162,16 @@ exports[`ErrorNotice should render an error 1`] = `
 >
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 16,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 24,
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     A test error was fired.
@@ -236,17 +233,16 @@ exports[`ErrorNotice should show general error if no specific errors are matched
 >
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 16,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 24,
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     A test error was fired.

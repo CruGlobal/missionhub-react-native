@@ -124,7 +124,7 @@ const CommentBox = forwardRef(
             onSubmitEditing={handleSubmit}
             blurOnSubmit={true}
             placeholder={placeholderText}
-            placeholderTextColor={theme.grey1}
+            placeholderTextColor={theme.lightGrey}
           />
         </View>
         <Touchable
@@ -135,7 +135,7 @@ const CommentBox = forwardRef(
           {!text || isSubmitting ? (
             <SubmitPostArrowDisabled color={theme.extraLightGrey} />
           ) : (
-            <SubmitPostArrowActive color={theme.parakeetBlue} />
+            <SubmitPostArrowActive color={theme.secondaryColor} />
           )}
         </Touchable>
       </SafeAreaView>

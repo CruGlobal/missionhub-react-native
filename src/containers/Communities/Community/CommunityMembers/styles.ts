@@ -8,12 +8,9 @@ export default StyleSheet.create({
     backgroundColor: theme.extraLightGrey,
   },
   membersCount: {
+    ...theme.textLight24,
     marginTop: 15,
     marginBottom: 20,
-    fontSize: 24,
-    fontWeight: '300',
-    lineHeight: 30,
-    color: theme.grey,
   },
   listContent: {
     paddingHorizontal: 20,
@@ -26,7 +23,7 @@ export default StyleSheet.create({
   },
   closeWrap: {
     paddingHorizontal: 20,
-    paddingVertical: 60,
+    paddingTop: 60,
   },
   close: {
     margin: 2,

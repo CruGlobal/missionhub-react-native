@@ -5,7 +5,7 @@ exports[`renders different gifs correctly renders arrow gif 1`] = `
   style={
     Array [
       Object {
-        "backgroundColor": "#52C5DC",
+        "backgroundColor": "#3CC8E6",
       },
       Object {
         "flex": 1,
@@ -39,7 +39,7 @@ exports[`renders different gifs correctly renders dino gif 1`] = `
   style={
     Array [
       Object {
-        "backgroundColor": "#52C5DC",
+        "backgroundColor": "#3CC8E6",
       },
       Object {
         "flex": 1,
@@ -73,7 +73,7 @@ exports[`renders different gifs correctly renders fireworks gif 1`] = `
   style={
     Array [
       Object {
-        "backgroundColor": "#52C5DC",
+        "backgroundColor": "#3CC8E6",
       },
       Object {
         "flex": 1,
@@ -107,7 +107,7 @@ exports[`renders different gifs correctly renders narwhal gif 1`] = `
   style={
     Array [
       Object {
-        "backgroundColor": "#52C5DC",
+        "backgroundColor": "#3CC8E6",
       },
       Object {
         "flex": 1,
@@ -141,7 +141,7 @@ exports[`renders different gifs correctly renders party gif 1`] = `
   style={
     Array [
       Object {
-        "backgroundColor": "#52C5DC",
+        "backgroundColor": "#3CC8E6",
       },
       Object {
         "flex": 1,
@@ -175,7 +175,7 @@ exports[`renders random gif correctly 1`] = `
   style={
     Array [
       Object {
-        "backgroundColor": "#52C5DC",
+        "backgroundColor": "#3CC8E6",
       },
       Object {
         "flex": 1,

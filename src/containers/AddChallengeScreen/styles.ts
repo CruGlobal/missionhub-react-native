@@ -14,10 +14,10 @@ export default StyleSheet.create({
     paddingTop: 10,
   },
   textInput: {
+    ...theme.textRegular16,
     fontSize: 24,
-    fontWeight: '300',
     lineHeight: 30,
-    color: theme.grey,
+    color: theme.lightGrey,
     borderBottomWidth: 0,
     marginBottom: 16,
     paddingHorizontal: 32,
@@ -30,13 +30,12 @@ export default StyleSheet.create({
     paddingHorizontal: 32,
   },
   dateLabel: {
-    fontSize: 12,
+    ...theme.textRegular12,
     color: '#939393',
   },
   dateInput: {
-    fontSize: 16,
-    lineHeight: 22,
-    color: theme.parakeetBlue,
+    ...theme.textRegular16,
+    color: theme.secondaryColor,
   },
   detailWrap: {
     borderColor: theme.extraLightGrey,
@@ -45,13 +44,12 @@ export default StyleSheet.create({
     paddingHorizontal: 32,
   },
   detailLabel: {
-    fontSize: 12,
+    ...theme.textRegular12,
     color: '#939393',
   },
   detailInput: {
-    fontSize: 16,
-    lineHeight: 24,
-    color: theme.grey,
+    ...theme.textRegular16,
+    color: theme.lightGrey,
     borderBottomWidth: 0,
     marginBottom: 26,
     paddingBottom: 70,

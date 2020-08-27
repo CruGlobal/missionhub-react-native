@@ -11,17 +11,13 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.white,
   },
-  headerTitle: {
-    color: theme.grey,
-    fontFamily: 'SourceSansPro-Light',
-    fontWeight: '400',
-  },
+  headerTitle: theme.textRegular14,
   scrollView: {
     flex: 1,
   },
   disabledButton: {
     opacity: 1,
     backgroundColor: theme.accentColor,
-    color: '#007398',
+    color: theme.white,
   },
 });

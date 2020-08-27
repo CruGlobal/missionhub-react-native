@@ -76,42 +76,36 @@ exports[`PersonJourney renders loading screen correctly 1`] = `
         />
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#007398",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 24,
-                "fontWeight": "300",
-                "paddingTop": 10,
-              },
-            ]
+            Object {
+              "color": "#007398",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingTop": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           OUR JOURNEY
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "paddingHorizontal": 80,
-                "paddingVertical": 10,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingHorizontal": 80,
+              "paddingVertical": 10,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           This is where MissionHub saves all of your completed steps and any notes you added along the way.
@@ -224,42 +218,36 @@ exports[`PersonJourney renders null screen correctly 1`] = `
         />
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#007398",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 24,
-                "fontWeight": "300",
-                "paddingTop": 10,
-              },
-            ]
+            Object {
+              "color": "#007398",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingTop": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           OUR JOURNEY
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "paddingHorizontal": 80,
-                "paddingVertical": 10,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingHorizontal": 80,
+              "paddingVertical": 10,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           This is where MissionHub saves all of your completed steps and any notes you added along the way.
@@ -362,6 +350,7 @@ exports[`PersonJourney renders screen with steps correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "flex": 1,
               "opacity": 1,
             }
           }
@@ -448,18 +437,16 @@ exports[`PersonJourney renders screen with steps correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 10,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 10,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 14,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
                 testID="Text"
               >
@@ -467,18 +454,16 @@ exports[`PersonJourney renders screen with steps correctly 1`] = `
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#007398",
-                      "fontSize": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#007398",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 Completed Step of Faith
@@ -584,6 +569,7 @@ exports[`PersonJourney renders screen with steps for me correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "flex": 1,
               "opacity": 1,
             }
           }
@@ -670,18 +656,16 @@ exports[`PersonJourney renders screen with steps for me correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 10,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 10,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 14,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
                 testID="Text"
               >
@@ -689,18 +673,16 @@ exports[`PersonJourney renders screen with steps for me correctly 1`] = `
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#007398",
-                      "fontSize": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#007398",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 Completed Step of Faith
@@ -889,18 +871,16 @@ exports[`journey methods renders a stage change row 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#A0A2A6",
-                    "fontSize": 10,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 10,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 14,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
               testID="Text"
             >
@@ -908,35 +888,32 @@ exports[`journey methods renders a stage change row 1`] = `
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#007398",
-                    "fontSize": 16,
-                  },
-                ]
+                Object {
+                  "color": "#007398",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Curious
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               You added Ben to MissionHub as Curious
@@ -1042,6 +1019,7 @@ exports[`journey methods renders a step 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "flex": 1,
               "opacity": 1,
             }
           }
@@ -1128,18 +1106,16 @@ exports[`journey methods renders a step 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 10,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 10,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 14,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
                 testID="Text"
               >
@@ -1147,35 +1123,32 @@ exports[`journey methods renders a step 1`] = `
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#007398",
-                      "fontSize": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#007398",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 Completed Step of Faith
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "fontSize": 14,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 undefined
@@ -1284,6 +1257,7 @@ exports[`journey methods renders an interaction row 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "flex": 1,
               "opacity": 1,
             }
           }
@@ -1323,18 +1297,16 @@ exports[`journey methods renders an interaction row 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 10,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 10,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 14,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
                 testID="Text"
               >
@@ -1342,17 +1314,16 @@ exports[`journey methods renders an interaction row 1`] = `
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "fontSize": 14,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 123

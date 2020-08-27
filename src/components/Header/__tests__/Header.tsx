@@ -1,6 +1,6 @@
 import React from 'react';
+import { Text } from 'react-native';
 
-import { Text } from '../../common';
 import { renderWithContext } from '../../../../testUtils';
 import Header from '..';
 

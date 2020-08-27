@@ -23,7 +23,7 @@ const StatusBarBgStyle: {
   HELP_REQUEST: theme.communityHelpRequestRed,
   PRAYER_REQUEST: theme.communityPrayerRequestPurple,
   QUESTION: theme.communityQuestionOrange,
-  STEP: theme.parakeetBlue,
+  STEP: theme.secondaryColor,
   STORY: theme.communityGodStoryPurple,
   THOUGHT: theme.communityThoughtGrey,
 };

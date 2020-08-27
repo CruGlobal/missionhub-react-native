@@ -18,8 +18,5 @@ export default StyleSheet.create({
     height: 24,
     width: 24,
   },
-  completedText: {
-    color: theme.textColor,
-    fontSize: 16,
-  },
+  completedText: theme.textRegular16,
 });

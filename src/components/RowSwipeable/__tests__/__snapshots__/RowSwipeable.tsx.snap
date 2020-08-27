@@ -89,7 +89,7 @@ exports[`renders edit action correctly 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "backgroundColor": "#A0A2A6",
+          "backgroundColor": "#B4B6BA",
           "flex": 1,
           "justifyContent": "center",
           "opacity": 1,
@@ -138,18 +138,10 @@ exports[`renders edit action correctly 1`] = `
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 13,
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontSize": 13,
+            }
           }
         >
           Edit
@@ -323,18 +315,10 @@ exports[`renders remove/complete actions correctly 1`] = `
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 13,
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontSize": 13,
+            }
           }
         >
           Remove
@@ -403,18 +387,10 @@ exports[`renders remove/complete actions correctly 1`] = `
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 13,
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontSize": 13,
+            }
           }
         >
           Complete

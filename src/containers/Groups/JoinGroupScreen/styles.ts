@@ -17,7 +17,7 @@ export default StyleSheet.create({
     minHeight: theme.fullHeight * 0.3,
   },
   text: {
-    fontSize: 16,
+    ...theme.textRegular16,
     color: theme.white,
     textAlign: 'center',
     padding: 4,
@@ -28,6 +28,7 @@ export default StyleSheet.create({
     paddingHorizontal: 30,
   },
   input: {
+    ...theme.textRegular16,
     fontSize: 36,
     color: theme.white,
     textAlign: 'center',

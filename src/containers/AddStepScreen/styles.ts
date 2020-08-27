@@ -15,20 +15,18 @@ export default StyleSheet.create({
     paddingTop: 10,
   },
   skipBtnText: {
-    fontSize: 14,
+    ...theme.textBold14,
     color: theme.lightGrey,
-    fontWeight: 'bold',
   },
   backButtonStyle: {
     color: theme.lightGrey,
   },
   input: {
+    ...theme.textLight32,
     flex: 1,
     borderBottomColor: 'transparent',
-    fontSize: 32,
     color: theme.lightGrey,
     paddingHorizontal: 45,
-    fontFamily: 'SourceSansPro-Light',
     minHeight: 90.5,
   },
   badge: {

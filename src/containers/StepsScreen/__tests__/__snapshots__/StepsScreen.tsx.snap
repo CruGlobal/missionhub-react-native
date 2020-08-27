@@ -5,7 +5,7 @@ exports[`handleRefresh refetches steps and checks for unread comments 1`] = `
 - First value
 + Second value
 
-@@ -365,14 +365,14 @@
+@@ -350,14 +350,14 @@
         onScrollBeginDrag={[Function anonymous]}
         onScrollEndDrag={[Function anonymous]}
         refreshControl={
@@ -80,53 +80,41 @@ exports[`renders empty screen correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="menuButton"
         >
-          <View
+          <Image
+            resizeMode="cover"
+            source={
+              Object {
+                "uri": "quisquam recusandae alias",
+              }
+            }
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "borderRadius": 20,
+                  "height": 42,
+                  "width": 42,
                 },
-                null,
-                Object {},
-                null,
+                Object {
+                  "backgroundColor": "rgb(167, 154, 115)",
+                },
+                undefined,
               ]
             }
-          >
-            <Image
-              resizeMode="cover"
-              source={
-                Object {
-                  "uri": "quisquam recusandae alias",
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "borderRadius": 20,
-                    "height": 42,
-                    "width": 42,
-                  },
-                  Object {
-                    "backgroundColor": "rgb(167, 154, 115)",
-                  },
-                  undefined,
-                ]
-              }
-            />
-          </View>
+          />
         </View>
       </View>
       <View
@@ -146,23 +134,25 @@ exports[`renders empty screen correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                Object {
-                  "fontSize": 16,
-                  "fontWeight": "400",
-                  "lineHeight": 24,
-                },
-              ],
             ]
           }
         >
@@ -211,57 +201,52 @@ exports[`renders empty screen correctly 1`] = `
       />
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "AmaticSC-Bold",
-            },
-            Object {
-              "color": "#007398",
-              "fontSize": 42,
-              "paddingTop": 10,
-            },
-          ]
+          Object {
+            "color": "#007398",
+            "fontFamily": "AmaticSC-Bold",
+            "fontSize": 42,
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "letterSpacing": 2,
+            "lineHeight": 42,
+            "paddingTop": 10,
+            "textAlignVertical": "center",
+            "textTransform": "lowercase",
+          }
         }
       >
-        steps of faith
+        STEPS OF FAITH
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "textAlign": "center",
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         You don't have any Steps of Faith.
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "textAlign": "center",
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Choose a person and add some new steps.
@@ -288,68 +273,44 @@ exports[`renders empty screen correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "height": 48,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+              "width": 650,
             }
           }
           testID="bottomButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
                 Array [
-                  Object {
-                    "alignItems": "center",
-                    "height": 48,
-                    "width": 650,
-                  },
                   undefined,
                 ],
-                Object {
-                  "borderRadius": 50,
-                },
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Array [
-                      undefined,
-                    ],
-                  ],
-                ]
-              }
-            >
-              TAKE A STEP WITH SOMEONE
-            </Text>
-          </View>
+            TAKE A STEP WITH SOMEONE
+          </Text>
         </View>
       </RCTSafeAreaView>
     </View>
@@ -413,7 +374,16 @@ exports[`renders loading screen correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="menuButton"
@@ -423,66 +393,37 @@ exports[`renders loading screen correctly 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
                   "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
                 },
-                null,
-                Object {},
-                null,
+                Array [
+                  Object {
+                    "borderRadius": 20,
+                    "height": 42,
+                    "width": 42,
+                  },
+                  Object {
+                    "backgroundColor": "#B4B6BA",
+                  },
+                  undefined,
+                ],
               ]
             }
           >
-            <View
+            <Text
               style={
                 Array [
                   Object {
-                    "alignItems": "center",
-                    "justifyContent": "center",
+                    "color": "#ffffff",
                   },
-                  Array [
-                    Object {
-                      "borderRadius": 20,
-                      "height": 42,
-                      "width": 42,
-                    },
-                    Object {
-                      "backgroundColor": "#B4B6BA",
-                    },
-                    undefined,
-                  ],
+                  Object {
+                    "fontSize": 26,
+                    "fontWeight": "300",
+                  },
                 ]
               }
             >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 26,
-                        "fontWeight": "300",
-                      },
-                    ],
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -503,23 +444,25 @@ exports[`renders loading screen correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                Object {
-                  "fontSize": 16,
-                  "fontWeight": "400",
-                  "lineHeight": 24,
-                },
-              ],
             ]
           }
         >
@@ -610,22 +553,21 @@ exports[`renders loading screen correctly 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "AmaticSC-Bold",
-              },
-              Object {
-                "color": "#007398",
-                "fontSize": 64,
-                "paddingVertical": 0,
-              },
-            ]
+            Object {
+              "color": "#007398",
+              "fontFamily": "AmaticSC-Bold",
+              "fontSize": 64,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 2,
+              "lineHeight": 48,
+              "paddingVertical": 0,
+              "textAlignVertical": "center",
+              "textTransform": "lowercase",
+            }
           }
         >
-          loading
+          LOADING
         </Text>
       </View>
       <View
@@ -699,53 +641,41 @@ exports[`renders screen with steps correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="menuButton"
         >
-          <View
+          <Image
+            resizeMode="cover"
+            source={
+              Object {
+                "uri": "eos itaque velit",
+              }
+            }
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "borderRadius": 20,
+                  "height": 42,
+                  "width": 42,
                 },
-                null,
-                Object {},
-                null,
+                Object {
+                  "backgroundColor": "rgb(160, 123, 115)",
+                },
+                undefined,
               ]
             }
-          >
-            <Image
-              resizeMode="cover"
-              source={
-                Object {
-                  "uri": "eos itaque velit",
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "borderRadius": 20,
-                    "height": 42,
-                    "width": 42,
-                  },
-                  Object {
-                    "backgroundColor": "rgb(160, 123, 115)",
-                  },
-                  undefined,
-                ]
-              }
-            />
-          </View>
+          />
         </View>
       </View>
       <View
@@ -765,23 +695,25 @@ exports[`renders screen with steps correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                Object {
-                  "fontSize": 16,
-                  "fontWeight": "400",
-                  "lineHeight": 24,
-                },
-              ],
             ]
           }
         >
@@ -879,42 +811,37 @@ exports[`renders screen with steps correctly 1`] = `
         />
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#007398",
-                "fontSize": 24,
-                "fontWeight": "300",
-                "paddingTop": 5,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#007398",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "paddingTop": 5,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Steps of Faith
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "paddingHorizontal": 50,
-                "paddingVertical": 5,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingHorizontal": 50,
+              "paddingVertical": 5,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Choose a person in People view to add a new step
@@ -1106,7 +1033,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 - First value
 + Second value
 
-@@ -344,10 +344,54 @@
+@@ -329,10 +329,54 @@
                 \\"reminderType\\": \\"once\\",
               },
               \\"stepType\\": \\"bond\\",
@@ -1161,7 +1088,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
         disableVirtualization={false}
         getItem={[Function anonymous]}
         getItemCount={[Function anonymous]}
-@@ -447,9 +491,82 @@
+@@ -432,9 +476,82 @@
                 }
               }
               testID=\\"stepItem\\"

@@ -10,6 +10,7 @@ import {
   Linking,
   Alert,
   ScrollView,
+  Text,
 } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 
@@ -17,7 +18,7 @@ import { useCheckForUpdate } from '../../utils/hooks/useCheckForUpdate';
 import { useMyId } from '../../utils/hooks/useIsMe';
 import { useIsDrawerOpen } from '../../utils/hooks/useIsDrawerOpen';
 import Avatar from '../Avatar';
-import { Button, Text } from '../common';
+import { Button } from '../common';
 import { AuthState } from '../../reducers/auth';
 import CloseButton from '../CloseButton';
 import EditIcon from '../../../assets/images/editIcon.svg';
@@ -220,7 +221,7 @@ const SideMenu = () => {
             <Button
               testID="updateButton"
               style={styles.updateButton}
-              buttonTextStyle={[styles.updateText]}
+              buttonTextStyle={styles.updateText}
               text={t('update')}
               onPress={onHandleOpenStore}
               pill={true}

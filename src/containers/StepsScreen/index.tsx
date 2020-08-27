@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, Image, FlatList } from 'react-native';
+import { View, Image, FlatList, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { useDispatch } from 'react-redux';
 
 import { navigateToMainTabs } from '../../actions/navigation';
-import { Text, LoadingGuy } from '../../components/common';
+import { LoadingGuy } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import { FooterLoading } from '../../components/FooterLoading';
 import Header from '../../components/Header';
@@ -91,9 +91,7 @@ const StepsScreen = () => {
   const renderNull = () => (
     <View style={styles.nullWrap}>
       <Image source={NULL} />
-      <Text header={true} style={styles.nullHeader}>
-        {t('nullHeader')}
-      </Text>
+      <Text style={styles.nullHeader}>{t('nullHeader')}</Text>
       <Text style={styles.nullText}>{t('nullNoReminders.part1')}</Text>
       <Text style={styles.nullText}>{t('nullNoReminders.part2')}</Text>
       <BottomButton

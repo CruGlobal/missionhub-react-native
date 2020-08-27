@@ -4,6 +4,7 @@ import {
   SAVE_PENDING_POST,
   DELETE_PENDING_POST,
   PENDING_POST_FAILED,
+  PENDING_POST_RETRY,
   LogoutAction,
 } from '../constants';
 
@@ -57,12 +58,18 @@ export interface PendingPostFailedAction {
   storageId: string;
 }
 
+export interface PendingPostRetryAction {
+  type: typeof PENDING_POST_RETRY;
+  storageId: string;
+}
+
 const communityPostsReducer = (
   state: CommunityPostsState = initialState,
   action:
     | SavePendingPostAction
     | DeletePendingPostAction
     | PendingPostFailedAction
+    | PendingPostRetryAction
     | LogoutAction,
 ) => {
   switch (action.type) {
@@ -101,6 +108,17 @@ const communityPostsReducer = (
           [action.storageId]: {
             ...state.pendingPosts[action.storageId],
             failed: true,
+          },
+        },
+      };
+    case PENDING_POST_RETRY:
+      return {
+        ...state,
+        pendingPosts: {
+          ...state.pendingPosts,
+          [action.storageId]: {
+            ...state.pendingPosts[action.storageId],
+            failed: false,
           },
         },
       };

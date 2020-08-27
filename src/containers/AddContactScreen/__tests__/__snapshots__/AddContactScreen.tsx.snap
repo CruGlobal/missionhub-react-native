@@ -61,23 +61,25 @@ exports[`handleUpdateData should update the state 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontWeight": "400",
-                },
-              ],
             ]
           }
         >
@@ -110,42 +112,24 @@ exports[`handleUpdateData should update the state 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="CloseButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#ECEEF2"
-            />
-          </View>
+          <SvgMock
+            color="#ECEEF2"
+          />
         </View>
       </View>
     </View>
@@ -196,19 +180,17 @@ exports[`handleUpdateData should update the state 1`] = `
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               First Name
@@ -233,13 +215,18 @@ exports[`handleUpdateData should update the state 1`] = `
                 Array [
                   Object {
                     "backgroundColor": "transparent",
-                    "borderBottomColor": "#52C5DC",
+                    "borderBottomColor": "#3CC8E6",
                     "borderBottomWidth": 1,
                     "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
                     "letterSpacing": 0.25,
+                    "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -264,19 +251,17 @@ exports[`handleUpdateData should update the state 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             />
             <TextInput
@@ -298,13 +283,18 @@ exports[`handleUpdateData should update the state 1`] = `
                 Array [
                   Object {
                     "backgroundColor": "transparent",
-                    "borderBottomColor": "#52C5DC",
+                    "borderBottomColor": "#3CC8E6",
                     "borderBottomWidth": 1,
                     "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
                     "letterSpacing": 0.25,
+                    "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -329,19 +319,17 @@ exports[`handleUpdateData should update the state 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Stage
@@ -361,21 +349,19 @@ exports[`handleUpdateData should update the state 1`] = `
               <Text
                 onPress={[Function]}
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "alignItems": "flex-start",
-                      "color": "#3CC8E6",
-                      "fontSize": 16,
-                      "marginVertical": 10,
-                      "width": "100%",
-                    },
-                  ]
+                  Object {
+                    "alignItems": "flex-start",
+                    "color": "#3CC8E6",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "marginVertical": 10,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                    "width": "100%",
+                  }
                 }
                 testID="stageSelectButton"
               >
@@ -395,19 +381,17 @@ exports[`handleUpdateData should update the state 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               How do you know each other?
@@ -443,21 +427,19 @@ exports[`handleUpdateData should update the state 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "alignItems": "flex-start",
-                        "color": "#3CC8E6",
-                        "fontSize": 16,
-                        "marginVertical": 10,
-                        "width": "100%",
-                      },
-                    ]
+                    Object {
+                      "alignItems": "flex-start",
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginVertical": 10,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
+                      "width": "100%",
+                    }
                   }
                 >
                   Choose a category
@@ -494,63 +476,40 @@ exports[`handleUpdateData should update the state 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               null,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  null,
-                ],
-              ],
-            ]
-          }
-        >
-          DONE
-        </Text>
-      </View>
+        DONE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -612,42 +571,24 @@ exports[`renders correctly | No Person 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#ffffff"
-            />
-          </View>
+          <SvgMock
+            color="#ffffff"
+          />
         </View>
       </View>
       <View
@@ -722,23 +663,18 @@ exports[`renders correctly | No Person 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontFamily": "SourceSansPro-Light",
-                        "fontSize": 24,
-                        "fontWeight": "300",
-                        "lineHeight": 30,
-                        "maxWidth": 230,
-                        "textAlign": "center",
-                      },
-                    ]
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 24,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 30,
+                      "maxWidth": 230,
+                      "textAlign": "center",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
+                    }
                   }
                 >
                   Who would you like to take steps of faith with this week?
@@ -747,19 +683,17 @@ exports[`renders correctly | No Person 1`] = `
             </View>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#52C5DC",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#3CC8E6",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             />
             <TextInput
@@ -782,13 +716,18 @@ exports[`renders correctly | No Person 1`] = `
                 Array [
                   Object {
                     "backgroundColor": "transparent",
-                    "borderBottomColor": "#52C5DC",
+                    "borderBottomColor": "#3CC8E6",
                     "borderBottomWidth": 1,
                     "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
                     "letterSpacing": 0.25,
+                    "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#3CC8E6",
@@ -813,19 +752,17 @@ exports[`renders correctly | No Person 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#52C5DC",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#3CC8E6",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             />
             <TextInput
@@ -847,13 +784,18 @@ exports[`renders correctly | No Person 1`] = `
                 Array [
                   Object {
                     "backgroundColor": "transparent",
-                    "borderBottomColor": "#52C5DC",
+                    "borderBottomColor": "#3CC8E6",
                     "borderBottomWidth": 1,
                     "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
                     "letterSpacing": 0.25,
+                    "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#3CC8E6",
@@ -892,73 +834,45 @@ exports[`renders correctly | No Person 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#005A7F",
+          "borderRadius": 50,
+          "color": "#ffffff",
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            Object {
-              "opacity": 0.6,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
             Array [
               Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
-              Object {
                 "backgroundColor": "#005A7F",
-                "color": "#007398",
+                "color": "#ffffff",
                 "opacity": 1,
               },
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "#005A7F",
-                    "color": "#007398",
-                    "opacity": 1,
-                  },
-                ],
-              ],
-            ]
-          }
-        >
-          CONTINUE
-        </Text>
-      </View>
+        CONTINUE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -1025,23 +939,25 @@ exports[`renders correctly | With Person 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontWeight": "400",
-                },
-              ],
             ]
           }
         >
@@ -1074,42 +990,24 @@ exports[`renders correctly | With Person 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="CloseButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#ECEEF2"
-            />
-          </View>
+          <SvgMock
+            color="#ECEEF2"
+          />
         </View>
       </View>
     </View>
@@ -1170,23 +1068,18 @@ exports[`renders correctly | With Person 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontFamily": "SourceSansPro-Light",
-                        "fontSize": 24,
-                        "fontWeight": "300",
-                        "lineHeight": 30,
-                        "maxWidth": 230,
-                        "textAlign": "center",
-                      },
-                    ]
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 24,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 30,
+                      "maxWidth": 230,
+                      "textAlign": "center",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
+                    }
                   }
                 >
                   Who would you like to take steps of faith with this week?
@@ -1195,19 +1088,17 @@ exports[`renders correctly | With Person 1`] = `
             </View>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#52C5DC",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#3CC8E6",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             />
             <TextInput
@@ -1230,13 +1121,18 @@ exports[`renders correctly | With Person 1`] = `
                 Array [
                   Object {
                     "backgroundColor": "transparent",
-                    "borderBottomColor": "#52C5DC",
+                    "borderBottomColor": "#3CC8E6",
                     "borderBottomWidth": 1,
                     "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
                     "letterSpacing": 0.25,
+                    "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#3CC8E6",
@@ -1261,19 +1157,17 @@ exports[`renders correctly | With Person 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#52C5DC",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#3CC8E6",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             />
             <TextInput
@@ -1295,13 +1189,18 @@ exports[`renders correctly | With Person 1`] = `
                 Array [
                   Object {
                     "backgroundColor": "transparent",
-                    "borderBottomColor": "#52C5DC",
+                    "borderBottomColor": "#3CC8E6",
                     "borderBottomWidth": 1,
                     "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
                     "letterSpacing": 0.25,
+                    "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#3CC8E6",
@@ -1340,73 +1239,45 @@ exports[`renders correctly | With Person 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#005A7F",
+          "borderRadius": 50,
+          "color": "#ffffff",
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            Object {
-              "opacity": 0.6,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
             Array [
               Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
-              Object {
                 "backgroundColor": "#005A7F",
-                "color": "#007398",
+                "color": "#ffffff",
                 "opacity": 1,
               },
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "#005A7F",
-                    "color": "#007398",
-                    "opacity": 1,
-                  },
-                ],
-              ],
-            ]
-          }
-        >
-          DONE
-        </Text>
-      </View>
+        DONE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -1468,42 +1339,24 @@ exports[`savePerson add new person with org should add a new person 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#ffffff"
-            />
-          </View>
+          <SvgMock
+            color="#ffffff"
+          />
         </View>
       </View>
       <View
@@ -1568,19 +1421,17 @@ exports[`savePerson add new person with org should add a new person 1`] = `
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               First Name
@@ -1605,13 +1456,18 @@ exports[`savePerson add new person with org should add a new person 1`] = `
                 Array [
                   Object {
                     "backgroundColor": "transparent",
-                    "borderBottomColor": "#52C5DC",
+                    "borderBottomColor": "#3CC8E6",
                     "borderBottomWidth": 1,
                     "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
                     "letterSpacing": 0.25,
+                    "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -1636,19 +1492,17 @@ exports[`savePerson add new person with org should add a new person 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             />
             <TextInput
@@ -1670,13 +1524,18 @@ exports[`savePerson add new person with org should add a new person 1`] = `
                 Array [
                   Object {
                     "backgroundColor": "transparent",
-                    "borderBottomColor": "#52C5DC",
+                    "borderBottomColor": "#3CC8E6",
                     "borderBottomWidth": 1,
                     "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
                     "letterSpacing": 0.25,
+                    "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -1701,19 +1560,17 @@ exports[`savePerson add new person with org should add a new person 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Stage
@@ -1733,21 +1590,19 @@ exports[`savePerson add new person with org should add a new person 1`] = `
               <Text
                 onPress={[Function]}
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "alignItems": "flex-start",
-                      "color": "#3CC8E6",
-                      "fontSize": 16,
-                      "marginVertical": 10,
-                      "width": "100%",
-                    },
-                  ]
+                  Object {
+                    "alignItems": "flex-start",
+                    "color": "#3CC8E6",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "marginVertical": 10,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                    "width": "100%",
+                  }
                 }
                 testID="stageSelectButton"
               >
@@ -1767,19 +1622,17 @@ exports[`savePerson add new person with org should add a new person 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               How do you know each other?
@@ -1815,21 +1668,19 @@ exports[`savePerson add new person with org should add a new person 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "alignItems": "flex-start",
-                        "color": "#3CC8E6",
-                        "fontSize": 16,
-                        "marginVertical": 10,
-                        "width": "100%",
-                      },
-                    ]
+                    Object {
+                      "alignItems": "flex-start",
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginVertical": 10,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
+                      "width": "100%",
+                    }
                   }
                 >
                   Choose a category
@@ -1866,63 +1717,40 @@ exports[`savePerson add new person with org should add a new person 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               null,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  null,
-                ],
-              ],
-            ]
-          }
-        >
-          CONTINUE
-        </Text>
-      </View>
+        CONTINUE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -1933,7 +1761,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 - First value
 + Second value
 
-@@ -145,66 +145,33 @@
+@@ -127,59 +127,31 @@
                 style={
                   Array [
                     Object {},
@@ -1943,7 +1771,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 -                     \\"justifyContent\\": \\"flex-end\\",
                     },
                   ]
-                }
+-               }
 -             >
 -               <View
 -                 style={
@@ -1953,59 +1781,52 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 -                   }
 -                 }
 -               >
+-                 <Text
+-                   style={
+-                     Object {
+-                       \\"color\\": \\"#ffffff\\",
+-                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                       \\"fontSize\\": 24,
+-                       \\"fontStyle\\": \\"normal\\",
+-                       \\"fontWeight\\": \\"normal\\",
+-                       \\"lineHeight\\": 30,
+-                       \\"maxWidth\\": 230,
+-                       \\"textAlign\\": \\"center\\",
+-                       \\"textAlignVertical\\": \\"center\\",
+-                       \\"textTransform\\": \\"none\\",
+                }
+-                   }
+-                 >
+-                   Who would you like to take steps of faith with this week?
+-                 </Text>
+-               </View>
+-             </View>
 +             />
               <Text
                 style={
-                  Array [
-                    Object {
-                      \\"color\\": \\"#505256\\",
-                    },
-                    Object {
-                      \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-                    },
-                    Object {
--                         \\"color\\": \\"#ffffff\\",
--                         \\"fontFamily\\": \\"SourceSansPro-Light\\",
--                         \\"fontSize\\": 24,
--                         \\"fontWeight\\": \\"300\\",
--                         \\"lineHeight\\": 30,
--                         \\"maxWidth\\": 230,
--                         \\"textAlign\\": \\"center\\",
-+                     \\"color\\": \\"#B4B6BA\\",
-+                     \\"fontSize\\": 13,
-+                     \\"marginTop\\": 15,
-                    },
-                  ]
+                  Object {
+-                   \\"color\\": \\"#3CC8E6\\",
++                   \\"color\\": \\"#B4B6BA\\",
+                    \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+                    \\"fontSize\\": 12,
+                    \\"fontStyle\\": \\"normal\\",
+                    \\"fontWeight\\": \\"normal\\",
+                    \\"lineHeight\\": 16,
+                    \\"marginTop\\": 15,
+                    \\"textAlignVertical\\": \\"center\\",
+                    \\"textTransform\\": \\"none\\",
+                  }
                 }
-              >
--                   Who would you like to take steps of faith with this week?
-+               First Name
-              </Text>
--               </View>
--             </View>
--             <Text
--               style={
--                 Array [
--                   Object {
--                     \\"color\\": \\"#505256\\",
--                   },
--                   Object {
--                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--                   },
--                   Object {
--                     \\"color\\": \\"#52C5DC\\",
--                     \\"fontSize\\": 13,
--                     \\"marginTop\\": 15,
--                   },
--                 ]
--               }
 -             />
++             >
++               First Name
++             </Text>
               <TextInput
                 allowFontScaling={true}
                 autoCorrect={false}
                 autoFocus={true}
                 blurOnSubmit={false}
-@@ -213,11 +180,11 @@
+@@ -188,11 +160,11 @@
                 onBlur={[Function onBlur]}
                 onChangeText={[Function onChangeText]}
                 onFocus={[Function onFocus]}
@@ -2018,10 +1839,10 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                 selectionColor=\\"#3CC8E6\\"
                 style={
                   Array [
-@@ -230,18 +197,18 @@
-                      \\"fontSize\\": 16,
-                      \\"letterSpacing\\": 0.25,
+@@ -210,18 +182,18 @@
                       \\"paddingVertical\\": 5,
+                      \\"textAlignVertical\\": \\"center\\",
+                      \\"textTransform\\": \\"none\\",
                     },
                     Object {
 -                     \\"borderBottomColor\\": \\"#3CC8E6\\",
@@ -2040,20 +1861,20 @@ exports[`savePerson add new person without org should add a new person 1`] = `
             <View
               style={
                 Array [
-@@ -260,11 +227,11 @@
-                    },
-                    Object {
-                      \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-                    },
-                    Object {
--                     \\"color\\": \\"#52C5DC\\",
-+                     \\"color\\": \\"#B4B6BA\\",
-                      \\"fontSize\\": 13,
-                      \\"marginTop\\": 15,
-                    },
-                  ]
-                }
-@@ -278,11 +245,11 @@
+@@ -233,11 +205,11 @@
+              }
+            >
+              <Text
+                style={
+                  Object {
+-                   \\"color\\": \\"#3CC8E6\\",
++                   \\"color\\": \\"#B4B6BA\\",
+                    \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+                    \\"fontSize\\": 12,
+                    \\"fontStyle\\": \\"normal\\",
+                    \\"fontWeight\\": \\"normal\\",
+                    \\"lineHeight\\": 16,
+@@ -256,11 +228,11 @@
                 multiline={false}
                 onBlur={[Function onBlur]}
                 onChangeText={[Function onChangeText]}
@@ -2066,10 +1887,10 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                 selectionColor=\\"#3CC8E6\\"
                 style={
                   Array [
-@@ -295,19 +262,170 @@
-                      \\"fontSize\\": 16,
-                      \\"letterSpacing\\": 0.25,
+@@ -278,23 +250,166 @@
                       \\"paddingVertical\\": 5,
+                      \\"textAlignVertical\\": \\"center\\",
+                      \\"textTransform\\": \\"none\\",
                     },
                     Object {
 -                     \\"borderBottomColor\\": \\"#3CC8E6\\",
@@ -2096,19 +1917,17 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 +           >
 +             <Text
 +               style={
-+                 Array [
-+                   Object {
-+                     \\"color\\": \\"#505256\\",
-+                   },
-+                   Object {
-+                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                   },
-+                   Object {
-+                     \\"color\\": \\"#B4B6BA\\",
-+                     \\"fontSize\\": 13,
-+                     \\"marginTop\\": 15,
-+                   },
-+                 ]
++                 Object {
++                   \\"color\\": \\"#B4B6BA\\",
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   \\"fontSize\\": 12,
++                   \\"fontStyle\\": \\"normal\\",
++                   \\"fontWeight\\": \\"normal\\",
++                   \\"lineHeight\\": 16,
++                   \\"marginTop\\": 15,
++                   \\"textAlignVertical\\": \\"center\\",
++                   \\"textTransform\\": \\"none\\",
++                 }
 +               }
 +             >
 +               Stage
@@ -2128,21 +1947,19 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 +               <Text
 +                 onPress={[Function onPress]}
 +                 style={
-+                   Array [
-+                     Object {
-+                       \\"color\\": \\"#505256\\",
-+                     },
-+                     Object {
-+                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                     },
-+                     Object {
-+                       \\"alignItems\\": \\"flex-start\\",
-+                       \\"color\\": \\"#3CC8E6\\",
-+                       \\"fontSize\\": 16,
-+                       \\"marginVertical\\": 10,
-+                       \\"width\\": \\"100%\\",
-+                     },
-+                   ]
++                   Object {
++                     \\"alignItems\\": \\"flex-start\\",
++                     \\"color\\": \\"#3CC8E6\\",
++                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                     \\"fontSize\\": 16,
++                     \\"fontStyle\\": \\"normal\\",
++                     \\"fontWeight\\": \\"normal\\",
++                     \\"lineHeight\\": 24,
++                     \\"marginVertical\\": 10,
++                     \\"textAlignVertical\\": \\"center\\",
++                     \\"textTransform\\": \\"none\\",
++                     \\"width\\": \\"100%\\",
++                   }
 +                 }
 +                 testID=\\"stageSelectButton\\"
 +               >
@@ -2162,19 +1979,17 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 +           >
 +             <Text
 +               style={
-+                 Array [
-+                   Object {
-+                     \\"color\\": \\"#505256\\",
-+                   },
-+                   Object {
-+                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                   },
-+                   Object {
-+                     \\"color\\": \\"#B4B6BA\\",
-+                     \\"fontSize\\": 13,
-+                     \\"marginTop\\": 15,
-+                   },
-+                 ]
++                 Object {
++                   \\"color\\": \\"#B4B6BA\\",
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   \\"fontSize\\": 12,
++                   \\"fontStyle\\": \\"normal\\",
++                   \\"fontWeight\\": \\"normal\\",
++                   \\"lineHeight\\": 16,
++                   \\"marginTop\\": 15,
++                   \\"textAlignVertical\\": \\"center\\",
++                   \\"textTransform\\": \\"none\\",
++                 }
 +               }
 +             >
 +               How do you know each other?
@@ -2210,21 +2025,19 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 +               >
 +                 <Text
 +                   style={
-+                     Array [
-+                       Object {
-+                         \\"color\\": \\"#505256\\",
-+                       },
-+                       Object {
-+                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                       },
-+                       Object {
-+                         \\"alignItems\\": \\"flex-start\\",
-+                         \\"color\\": \\"#3CC8E6\\",
-+                         \\"fontSize\\": 16,
-+                         \\"marginVertical\\": 10,
-+                         \\"width\\": \\"100%\\",
-+                       },
-+                     ]
++                     Object {
++                       \\"alignItems\\": \\"flex-start\\",
++                       \\"color\\": \\"#3CC8E6\\",
++                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                       \\"fontSize\\": 16,
++                       \\"fontStyle\\": \\"normal\\",
++                       \\"fontWeight\\": \\"normal\\",
++                       \\"lineHeight\\": 24,
++                       \\"marginVertical\\": 10,
++                       \\"textAlignVertical\\": \\"center\\",
++                       \\"textTransform\\": \\"none\\",
++                       \\"width\\": \\"100%\\",
++                     }
 +                   }
 +                 >
 +                   Choose a category
@@ -2232,57 +2045,49 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 +                 <SvgMock
 +                   color=\\"#B4B6BA\\"
                   />
-+               </View>
-+             </View>
+                </View>
+              </View>
             </View>
           </View>
-        </View>
-      </View>
++       </View>
++     </View>
     </RCTScrollView>
-@@ -345,24 +463,18 @@
-                \\"alignItems\\": \\"center\\",
-                \\"backgroundColor\\": \\"#52C5DC\\",
-                \\"height\\": 60,
-                \\"justifyContent\\": \\"center\\",
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
+      style={
+        Object {
+@@ -315,13 +430,12 @@
+        onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+        onStartShouldSetResponder={[Function onStartShouldSetResponder]}
+        style={
+          Object {
+            \\"alignItems\\": \\"center\\",
+-           \\"backgroundColor\\": \\"#005A7F\\",
++           \\"backgroundColor\\": \\"#3CC8E6\\",
+            \\"borderRadius\\": 50,
+-           \\"color\\": \\"#ffffff\\",
+            \\"height\\": 48,
+            \\"justifyContent\\": \\"center\\",
+            \\"opacity\\": 1,
+            \\"width\\": 650,
+          }
+@@ -342,15 +456,11 @@
+                \\"textAlign\\": \\"center\\",
+                \\"textAlignVertical\\": \\"center\\",
+                \\"textTransform\\": \\"uppercase\\",
               },
--             Object {
--               \\"opacity\\": 0.6,
--             },
-+             null,
               Array [
-                Object {
-                  \\"alignItems\\": \\"center\\",
-                  \\"height\\": 48,
-                  \\"width\\": 650,
-                },
 -               Object {
 -                 \\"backgroundColor\\": \\"#005A7F\\",
--                 \\"color\\": \\"#007398\\",
+-                 \\"color\\": \\"#ffffff\\",
 -                 \\"opacity\\": 1,
 -               },
 +               null,
               ],
-              Object {
-                \\"borderRadius\\": 50,
-              },
             ]
-@@ -385,15 +497,11 @@
-                    \\"fontWeight\\": \\"500\\",
-                    \\"letterSpacing\\": 1.5,
-                    \\"textAlign\\": \\"center\\",
-                  },
-                  Array [
--                   Object {
--                     \\"backgroundColor\\": \\"#005A7F\\",
--                     \\"color\\": \\"#007398\\",
--                     \\"opacity\\": 1,
--                   },
-+                   null,
-                  ],
-                ],
-              ]
-            }
-          >"
+          }
+        >
+          CONTINUE"
 `;
 
 exports[`savePerson update existing person set last name to null should update person and navigate back 1`] = `
@@ -2346,23 +2151,25 @@ exports[`savePerson update existing person set last name to null should update p
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontWeight": "400",
-                },
-              ],
             ]
           }
         >
@@ -2395,42 +2202,24 @@ exports[`savePerson update existing person set last name to null should update p
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="CloseButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#ECEEF2"
-            />
-          </View>
+          <SvgMock
+            color="#ECEEF2"
+          />
         </View>
       </View>
     </View>
@@ -2481,19 +2270,17 @@ exports[`savePerson update existing person set last name to null should update p
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               First Name
@@ -2518,13 +2305,18 @@ exports[`savePerson update existing person set last name to null should update p
                 Array [
                   Object {
                     "backgroundColor": "transparent",
-                    "borderBottomColor": "#52C5DC",
+                    "borderBottomColor": "#3CC8E6",
                     "borderBottomWidth": 1,
                     "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
                     "letterSpacing": 0.25,
+                    "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -2549,19 +2341,17 @@ exports[`savePerson update existing person set last name to null should update p
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             />
             <TextInput
@@ -2583,13 +2373,18 @@ exports[`savePerson update existing person set last name to null should update p
                 Array [
                   Object {
                     "backgroundColor": "transparent",
-                    "borderBottomColor": "#52C5DC",
+                    "borderBottomColor": "#3CC8E6",
                     "borderBottomWidth": 1,
                     "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
                     "letterSpacing": 0.25,
+                    "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -2614,19 +2409,17 @@ exports[`savePerson update existing person set last name to null should update p
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Stage
@@ -2646,21 +2439,19 @@ exports[`savePerson update existing person set last name to null should update p
               <Text
                 onPress={[Function]}
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "alignItems": "flex-start",
-                      "color": "#3CC8E6",
-                      "fontSize": 16,
-                      "marginVertical": 10,
-                      "width": "100%",
-                    },
-                  ]
+                  Object {
+                    "alignItems": "flex-start",
+                    "color": "#3CC8E6",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "marginVertical": 10,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                    "width": "100%",
+                  }
                 }
                 testID="stageSelectButton"
               >
@@ -2680,19 +2471,17 @@ exports[`savePerson update existing person set last name to null should update p
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               How do you know each other?
@@ -2728,21 +2517,19 @@ exports[`savePerson update existing person set last name to null should update p
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "alignItems": "flex-start",
-                        "color": "#3CC8E6",
-                        "fontSize": 16,
-                        "marginVertical": 10,
-                        "width": "100%",
-                      },
-                    ]
+                    Object {
+                      "alignItems": "flex-start",
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginVertical": 10,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
+                      "width": "100%",
+                    }
                   }
                 >
                   Choose a category
@@ -2779,63 +2566,40 @@ exports[`savePerson update existing person set last name to null should update p
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               null,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  null,
-                ],
-              ],
-            ]
-          }
-        >
-          DONE
-        </Text>
-      </View>
+        DONE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -2902,23 +2666,25 @@ exports[`savePerson update existing person with org should update person and nav
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontWeight": "400",
-                },
-              ],
             ]
           }
         >
@@ -2951,42 +2717,24 @@ exports[`savePerson update existing person with org should update person and nav
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="CloseButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#ECEEF2"
-            />
-          </View>
+          <SvgMock
+            color="#ECEEF2"
+          />
         </View>
       </View>
     </View>
@@ -3037,19 +2785,17 @@ exports[`savePerson update existing person with org should update person and nav
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               First Name
@@ -3074,13 +2820,18 @@ exports[`savePerson update existing person with org should update person and nav
                 Array [
                   Object {
                     "backgroundColor": "transparent",
-                    "borderBottomColor": "#52C5DC",
+                    "borderBottomColor": "#3CC8E6",
                     "borderBottomWidth": 1,
                     "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
                     "letterSpacing": 0.25,
+                    "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -3105,19 +2856,17 @@ exports[`savePerson update existing person with org should update person and nav
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             />
             <TextInput
@@ -3139,13 +2888,18 @@ exports[`savePerson update existing person with org should update person and nav
                 Array [
                   Object {
                     "backgroundColor": "transparent",
-                    "borderBottomColor": "#52C5DC",
+                    "borderBottomColor": "#3CC8E6",
                     "borderBottomWidth": 1,
                     "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
                     "letterSpacing": 0.25,
+                    "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -3170,19 +2924,17 @@ exports[`savePerson update existing person with org should update person and nav
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Stage
@@ -3202,21 +2954,19 @@ exports[`savePerson update existing person with org should update person and nav
               <Text
                 onPress={[Function]}
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "alignItems": "flex-start",
-                      "color": "#3CC8E6",
-                      "fontSize": 16,
-                      "marginVertical": 10,
-                      "width": "100%",
-                    },
-                  ]
+                  Object {
+                    "alignItems": "flex-start",
+                    "color": "#3CC8E6",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "marginVertical": 10,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                    "width": "100%",
+                  }
                 }
                 testID="stageSelectButton"
               >
@@ -3236,19 +2986,17 @@ exports[`savePerson update existing person with org should update person and nav
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               How do you know each other?
@@ -3284,21 +3032,19 @@ exports[`savePerson update existing person with org should update person and nav
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "alignItems": "flex-start",
-                        "color": "#3CC8E6",
-                        "fontSize": 16,
-                        "marginVertical": 10,
-                        "width": "100%",
-                      },
-                    ]
+                    Object {
+                      "alignItems": "flex-start",
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginVertical": 10,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
+                      "width": "100%",
+                    }
                   }
                 >
                   Choose a category
@@ -3335,63 +3081,40 @@ exports[`savePerson update existing person with org should update person and nav
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               null,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  null,
-                ],
-              ],
-            ]
-          }
-        >
-          DONE
-        </Text>
-      </View>
+        DONE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -3458,23 +3181,25 @@ exports[`savePerson update existing person without org should update person and 
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontWeight": "400",
-                },
-              ],
             ]
           }
         >
@@ -3507,42 +3232,24 @@ exports[`savePerson update existing person without org should update person and 
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="CloseButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#ECEEF2"
-            />
-          </View>
+          <SvgMock
+            color="#ECEEF2"
+          />
         </View>
       </View>
     </View>
@@ -3593,19 +3300,17 @@ exports[`savePerson update existing person without org should update person and 
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               First Name
@@ -3630,13 +3335,18 @@ exports[`savePerson update existing person without org should update person and 
                 Array [
                   Object {
                     "backgroundColor": "transparent",
-                    "borderBottomColor": "#52C5DC",
+                    "borderBottomColor": "#3CC8E6",
                     "borderBottomWidth": 1,
                     "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
                     "letterSpacing": 0.25,
+                    "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -3661,19 +3371,17 @@ exports[`savePerson update existing person without org should update person and 
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             />
             <TextInput
@@ -3695,13 +3403,18 @@ exports[`savePerson update existing person without org should update person and 
                 Array [
                   Object {
                     "backgroundColor": "transparent",
-                    "borderBottomColor": "#52C5DC",
+                    "borderBottomColor": "#3CC8E6",
                     "borderBottomWidth": 1,
                     "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
                     "letterSpacing": 0.25,
+                    "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -3726,19 +3439,17 @@ exports[`savePerson update existing person without org should update person and 
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Stage
@@ -3758,21 +3469,19 @@ exports[`savePerson update existing person without org should update person and 
               <Text
                 onPress={[Function]}
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "alignItems": "flex-start",
-                      "color": "#3CC8E6",
-                      "fontSize": 16,
-                      "marginVertical": 10,
-                      "width": "100%",
-                    },
-                  ]
+                  Object {
+                    "alignItems": "flex-start",
+                    "color": "#3CC8E6",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "marginVertical": 10,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                    "width": "100%",
+                  }
                 }
                 testID="stageSelectButton"
               >
@@ -3792,19 +3501,17 @@ exports[`savePerson update existing person without org should update person and 
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               How do you know each other?
@@ -3840,21 +3547,19 @@ exports[`savePerson update existing person without org should update person and 
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "alignItems": "flex-start",
-                        "color": "#3CC8E6",
-                        "fontSize": 16,
-                        "marginVertical": 10,
-                        "width": "100%",
-                      },
-                    ]
+                    Object {
+                      "alignItems": "flex-start",
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginVertical": 10,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
+                      "width": "100%",
+                    }
                   }
                 >
                   Friend
@@ -3891,63 +3596,40 @@ exports[`savePerson update existing person without org should update person and 
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               null,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  null,
-                ],
-              ],
-            ]
-          }
-        >
-          DONE
-        </Text>
-      </View>
+        DONE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -4014,23 +3696,25 @@ exports[`savePerson update existing person without org updates users profile pic
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontWeight": "400",
-                },
-              ],
             ]
           }
         >
@@ -4063,42 +3747,24 @@ exports[`savePerson update existing person without org updates users profile pic
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="CloseButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#ECEEF2"
-            />
-          </View>
+          <SvgMock
+            color="#ECEEF2"
+          />
         </View>
       </View>
     </View>
@@ -4176,20 +3842,12 @@ exports[`savePerson update existing person without org updates users profile pic
                     style={
                       Array [
                         Object {
-                          "color": "#505256",
+                          "color": "#ffffff",
                         },
                         Object {
-                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 64,
+                          "fontWeight": "300",
                         },
-                        Array [
-                          Object {
-                            "color": "#ffffff",
-                          },
-                          Object {
-                            "fontSize": 64,
-                            "fontWeight": "300",
-                          },
-                        ],
                       ]
                     }
                   >
@@ -4219,19 +3877,17 @@ exports[`savePerson update existing person without org updates users profile pic
             </View>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               First Name
@@ -4256,13 +3912,18 @@ exports[`savePerson update existing person without org updates users profile pic
                 Array [
                   Object {
                     "backgroundColor": "transparent",
-                    "borderBottomColor": "#52C5DC",
+                    "borderBottomColor": "#3CC8E6",
                     "borderBottomWidth": 1,
                     "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
                     "letterSpacing": 0.25,
+                    "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -4287,19 +3948,17 @@ exports[`savePerson update existing person without org updates users profile pic
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             />
             <TextInput
@@ -4321,13 +3980,18 @@ exports[`savePerson update existing person without org updates users profile pic
                 Array [
                   Object {
                     "backgroundColor": "transparent",
-                    "borderBottomColor": "#52C5DC",
+                    "borderBottomColor": "#3CC8E6",
                     "borderBottomWidth": 1,
                     "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
                     "letterSpacing": 0.25,
+                    "lineHeight": 24,
                     "paddingVertical": 5,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
                     "borderBottomColor": "#ECEEF2",
@@ -4352,19 +4016,17 @@ exports[`savePerson update existing person without org updates users profile pic
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 13,
-                    "marginTop": 15,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Stage
@@ -4384,21 +4046,19 @@ exports[`savePerson update existing person without org updates users profile pic
               <Text
                 onPress={[Function]}
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "alignItems": "flex-start",
-                      "color": "#3CC8E6",
-                      "fontSize": 16,
-                      "marginVertical": 10,
-                      "width": "100%",
-                    },
-                  ]
+                  Object {
+                    "alignItems": "flex-start",
+                    "color": "#3CC8E6",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "marginVertical": 10,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                    "width": "100%",
+                  }
                 }
                 testID="stageSelectButton"
               >
@@ -4432,63 +4092,40 @@ exports[`savePerson update existing person without org updates users profile pic
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               null,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  null,
-                ],
-              ],
-            ]
-          }
-        >
-          DONE
-        </Text>
-      </View>
+        DONE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>

@@ -13,7 +13,6 @@ import LoadingWheel from './LoadingWheel';
 import PlatformKeyboardAvoidingView from './PlatformKeyboardAvoidingView';
 import RefreshControl from './RefreshControl';
 import Separator from './Separator';
-import Text from './Text';
 import Touchable from './Touchable';
 
 export {
@@ -30,6 +29,5 @@ export {
   PlatformKeyboardAvoidingView,
   RefreshControl,
   Separator,
-  Text,
   Touchable,
 };

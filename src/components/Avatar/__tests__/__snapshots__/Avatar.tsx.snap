@@ -148,20 +148,12 @@ exports[`renders person with custom text 1`] = `
     style={
       Array [
         Object {
-          "color": "#505256",
+          "color": "#ffffff",
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 20,
+          "fontWeight": "300",
         },
-        Array [
-          Object {
-            "color": "#ffffff",
-          },
-          Object {
-            "fontSize": 20,
-            "fontWeight": "300",
-          },
-        ],
       ]
     }
   >
@@ -198,19 +190,11 @@ exports[`renders text extrasmall 1`] = `
     style={
       Array [
         Object {
-          "color": "#505256",
+          "color": "#ffffff",
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
         },
-        Array [
-          Object {
-            "color": "#ffffff",
-          },
-          Object {
-            "fontSize": 12,
-          },
-        ],
       ]
     }
   >
@@ -245,20 +229,12 @@ exports[`renders text large 1`] = `
     style={
       Array [
         Object {
-          "color": "#505256",
+          "color": "#ffffff",
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 64,
+          "fontWeight": "300",
         },
-        Array [
-          Object {
-            "color": "#ffffff",
-          },
-          Object {
-            "fontSize": 64,
-            "fontWeight": "300",
-          },
-        ],
       ]
     }
   >
@@ -293,20 +269,12 @@ exports[`renders text medium 1`] = `
     style={
       Array [
         Object {
-          "color": "#505256",
+          "color": "#ffffff",
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 26,
+          "fontWeight": "300",
         },
-        Array [
-          Object {
-            "color": "#ffffff",
-          },
-          Object {
-            "fontSize": 26,
-            "fontWeight": "300",
-          },
-        ],
       ]
     }
   >
@@ -341,20 +309,12 @@ exports[`renders text mediumSmall 1`] = `
     style={
       Array [
         Object {
-          "color": "#505256",
+          "color": "#ffffff",
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 26,
+          "fontWeight": "300",
         },
-        Array [
-          Object {
-            "color": "#ffffff",
-          },
-          Object {
-            "fontSize": 26,
-            "fontWeight": "300",
-          },
-        ],
       ]
     }
   >
@@ -389,20 +349,12 @@ exports[`renders text small 1`] = `
     style={
       Array [
         Object {
-          "color": "#505256",
+          "color": "#ffffff",
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 20,
+          "fontWeight": "300",
         },
-        Array [
-          Object {
-            "color": "#ffffff",
-          },
-          Object {
-            "fontSize": 20,
-            "fontWeight": "300",
-          },
-        ],
       ]
     }
   >

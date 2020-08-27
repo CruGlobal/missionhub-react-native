@@ -7,6 +7,7 @@ import {
   Image,
   NativeScrollEvent,
   NativeSyntheticEvent,
+  Text,
 } from 'react-native';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import i18next from 'i18next';
@@ -14,7 +15,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigationState, useFocusEffect } from 'react-navigation-hooks';
 import Carousel from 'react-native-snap-carousel';
 
-import { Text, Button } from '../../components/common';
+import { Button } from '../../components/common';
 import DeprecatedBackButton from '../DeprecatedBackButton';
 import LANDSCAPE from '../../../assets/images/landscapeStagesImage.png';
 import UNINTERESTED from '../../../assets/images/uninterestedIcon.png';
@@ -174,7 +175,7 @@ const SelectStageScreen = ({
       <View key={item.id} style={styles.cardWrapper}>
         <View style={styles.card}>
           <Image source={stageIcons[index]} />
-          <Text header={true} style={styles.cardHeader}>
+          <Text style={styles.cardHeader}>
             {localizedStageSelector(item, i18next.language).name.toLowerCase()}
           </Text>
           <Text style={styles.cardText}>

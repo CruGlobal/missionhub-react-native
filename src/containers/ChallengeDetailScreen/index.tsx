@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, StatusBar, Image } from 'react-native';
+import { View, StatusBar, Image, Text } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
@@ -18,7 +18,7 @@ import {
 import { AuthState } from '../../reducers/auth';
 import { OrganizationsState } from '../../reducers/organizations';
 import DeprecatedBackButton from '../DeprecatedBackButton';
-import { Button, Touchable, Text } from '../../components/common';
+import { Button, Touchable } from '../../components/common';
 import Header from '../../components/Header';
 import BottomButton from '../../components/BottomButton';
 import ChallengeDetailHeader from '../../components/ChallengeDetailHeader';

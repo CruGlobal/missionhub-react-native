@@ -70,57 +70,45 @@ exports[`JoinGroupScreen onSearch should set community after entering 6th digit 
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        undefined,
-                      ],
+                      undefined,
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -141,19 +129,16 @@ exports[`JoinGroupScreen onSearch should set community after entering 6th digit 
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "white",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
@@ -220,20 +205,18 @@ exports[`JoinGroupScreen onSearch should set community after entering 6th digit 
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 16,
-                  "padding": 4,
-                  "textAlign": "center",
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "padding": 4,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
           >
             Enter your Community Code
@@ -267,19 +250,30 @@ exports[`JoinGroupScreen onSearch should set community after entering 6th digit 
             Array [
               Object {
                 "backgroundColor": "transparent",
-                "borderBottomColor": "#52C5DC",
+                "borderBottomColor": "#3CC8E6",
                 "borderBottomWidth": 1,
                 "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "letterSpacing": 0.25,
+                "lineHeight": 24,
                 "paddingVertical": 5,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 36,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
                 "padding": 8,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -371,57 +365,45 @@ exports[`JoinGroupScreen onSearch should set input without calling serach has < 
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        undefined,
-                      ],
+                      undefined,
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -442,19 +424,16 @@ exports[`JoinGroupScreen onSearch should set input without calling serach has < 
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "white",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
@@ -521,20 +500,18 @@ exports[`JoinGroupScreen onSearch should set input without calling serach has < 
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 16,
-                  "padding": 4,
-                  "textAlign": "center",
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "padding": 4,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
           >
             Enter your Community Code
@@ -568,19 +545,30 @@ exports[`JoinGroupScreen onSearch should set input without calling serach has < 
             Array [
               Object {
                 "backgroundColor": "transparent",
-                "borderBottomColor": "#52C5DC",
+                "borderBottomColor": "#3CC8E6",
                 "borderBottomWidth": 1,
                 "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "letterSpacing": 0.25,
+                "lineHeight": 24,
                 "paddingVertical": 5,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 36,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
                 "padding": 8,
                 "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -659,18 +647,24 @@ exports[`JoinGroupScreen renders error correctly 1`] = `
             }
           }
         />
-        <MyText
+        <Text
           style={
             Object {
               "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
               "padding": 4,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
           Enter your Community Code
-        </MyText>
+        </Text>
       </Flex>
     </Flex>
     <Flex
@@ -691,9 +685,15 @@ exports[`JoinGroupScreen renders error correctly 1`] = `
         style={
           Object {
             "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 36,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
             "padding": 8,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="joinInput"
@@ -801,9 +801,15 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
         style={
           Object {
             "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 36,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
             "padding": 8,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="joinInput"
@@ -880,18 +886,24 @@ exports[`JoinGroupScreen renders start correctly 1`] = `
             }
           }
         />
-        <MyText
+        <Text
           style={
             Object {
               "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
               "padding": 4,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
           Enter your Community Code
-        </MyText>
+        </Text>
       </Flex>
     </Flex>
     <Flex
@@ -912,9 +924,15 @@ exports[`JoinGroupScreen renders start correctly 1`] = `
         style={
           Object {
             "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 36,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
             "padding": 8,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
         testID="joinInput"

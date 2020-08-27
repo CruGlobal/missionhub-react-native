@@ -59,42 +59,24 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="BackButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Array [
-                    Object {
-                      "alignItems": "flex-start",
-                      "alignSelf": "flex-start",
-                      "justifyContent": "center",
-                    },
-                    undefined,
-                  ],
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#B4B6BA"
-              />
-            </View>
+            <SvgMock
+              color="#B4B6BA"
+            />
           </View>
         </View>
         <View
@@ -127,18 +109,16 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Switchable full-range extranet
@@ -307,19 +287,16 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
               />
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 What's on Your Mind
@@ -355,7 +332,7 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                 testID="popupMenuButton"
               >
                 <SvgMock
-                  color="#505256"
+                  color="#B4B6BA"
                 />
               </View>
             </View>
@@ -409,23 +386,26 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#007398",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
+                      "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 20,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
-                    Array [
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                      },
-                      Object {
-                        "color": "#505256",
-                        "fontSize": 16,
-                        "fontWeight": "bold",
-                        "lineHeight": 20,
-                      },
-                    ],
                   ]
                 }
               >
@@ -435,22 +415,25 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#B4B6BA",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
+                      "color": "#B4B6BA",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
-                    Array [
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "fontSize": 12,
-                        "lineHeight": 16,
-                      },
-                    ],
                   ]
                 }
                 testID="Text"
@@ -495,7 +478,11 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
                         "lineHeight": 18,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -567,26 +554,32 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
+                      "width": 30,
+                    }
                   }
                 />
                 <View
                   accessible={true}
                   focusable={true}
+                  hitSlop={
+                    Object {
+                      "bottom": 25,
+                      "left": 25,
+                      "right": 25,
+                      "top": 25,
+                    }
+                  }
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -596,39 +589,18 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                   onStartShouldSetResponder={[Function]}
                   style={
                     Object {
+                      "backgroundColor": "transparent",
+                      "height": 24,
                       "opacity": 1,
+                      "width": 24,
                     }
                   }
                   testID="LikeIconButton"
                 >
-                  <View
-                    hitSlop={
-                      Object {
-                        "bottom": 25,
-                        "left": 25,
-                        "right": 25,
-                        "top": 25,
-                      }
-                    }
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Object {
-                          "height": 24,
-                          "width": 24,
-                        },
-                        null,
-                      ]
-                    }
-                  >
-                    <SvgMock
-                      color="#FF5532"
-                      fill="#FF5532"
-                    />
-                  </View>
+                  <SvgMock
+                    color="#FF5532"
+                    fill="#FF5532"
+                  />
                 </View>
               </View>
               <View
@@ -644,21 +616,19 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
+                      "width": 30,
+                    }
                   }
                 >
                   53441
@@ -666,6 +636,14 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
+                  hitSlop={
+                    Object {
+                      "bottom": 25,
+                      "left": 25,
+                      "right": 25,
+                      "top": 25,
+                    }
+                  }
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -675,33 +653,13 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                   onStartShouldSetResponder={[Function]}
                   style={
                     Object {
+                      "backgroundColor": "transparent",
                       "opacity": 1,
                     }
                   }
                   testID="CommentIconButton"
                 >
-                  <View
-                    hitSlop={
-                      Object {
-                        "bottom": 25,
-                        "left": 25,
-                        "right": 25,
-                        "top": 25,
-                      }
-                    }
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Object {},
-                        null,
-                      ]
-                    }
-                  >
-                    <SvgMock />
-                  </View>
+                  <SvgMock />
                 </View>
               </View>
             </View>
@@ -839,7 +797,7 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
         onFocus={[Function]}
         onSubmitEditing={[Function]}
         placeholder="Add a comment..."
-        placeholderTextColor="#B2B0B2"
+        placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         returnKeyType="done"
         selectionColor="#005A7F"
@@ -847,21 +805,32 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#4E4C4E",
+              "color": "#505256",
               "flex": 1,
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
               "paddingHorizontal": 12,
               "paddingVertical": 6,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -953,42 +922,24 @@ exports[`edit/delete post edit and delete for my post 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="BackButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Array [
-                    Object {
-                      "alignItems": "flex-start",
-                      "alignSelf": "flex-start",
-                      "justifyContent": "center",
-                    },
-                    undefined,
-                  ],
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#B4B6BA"
-              />
-            </View>
+            <SvgMock
+              color="#B4B6BA"
+            />
           </View>
         </View>
         <View
@@ -1021,18 +972,16 @@ exports[`edit/delete post edit and delete for my post 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Switchable full-range extranet
@@ -1201,19 +1150,16 @@ exports[`edit/delete post edit and delete for my post 1`] = `
               />
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 What's on Your Mind
@@ -1249,7 +1195,7 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                 testID="popupMenuButton"
               >
                 <SvgMock
-                  color="#505256"
+                  color="#B4B6BA"
                 />
               </View>
             </View>
@@ -1303,23 +1249,26 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#007398",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
+                      "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 20,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
-                    Array [
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                      },
-                      Object {
-                        "color": "#505256",
-                        "fontSize": 16,
-                        "fontWeight": "bold",
-                        "lineHeight": 20,
-                      },
-                    ],
                   ]
                 }
               >
@@ -1329,22 +1278,25 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#B4B6BA",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
+                      "color": "#B4B6BA",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
-                    Array [
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "fontSize": 12,
-                        "lineHeight": 16,
-                      },
-                    ],
                   ]
                 }
                 testID="Text"
@@ -1389,7 +1341,11 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
                         "lineHeight": 18,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -1461,21 +1417,19 @@ exports[`edit/delete post edit and delete for my post 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
+                      "width": 30,
+                    }
                   }
                 >
                   82914
@@ -1483,6 +1437,14 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
+                  hitSlop={
+                    Object {
+                      "bottom": 25,
+                      "left": 25,
+                      "right": 25,
+                      "top": 25,
+                    }
+                  }
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -1492,39 +1454,18 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                   onStartShouldSetResponder={[Function]}
                   style={
                     Object {
+                      "backgroundColor": "transparent",
+                      "height": 24,
                       "opacity": 1,
+                      "width": 24,
                     }
                   }
                   testID="LikeIconButton"
                 >
-                  <View
-                    hitSlop={
-                      Object {
-                        "bottom": 25,
-                        "left": 25,
-                        "right": 25,
-                        "top": 25,
-                      }
-                    }
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Object {
-                          "height": 24,
-                          "width": 24,
-                        },
-                        null,
-                      ]
-                    }
-                  >
-                    <SvgMock
-                      color="#FF5532"
-                      fill="#FF5532"
-                    />
-                  </View>
+                  <SvgMock
+                    color="#FF5532"
+                    fill="#FF5532"
+                  />
                 </View>
               </View>
               <View
@@ -1540,21 +1481,19 @@ exports[`edit/delete post edit and delete for my post 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
+                      "width": 30,
+                    }
                   }
                 >
                   53441
@@ -1562,6 +1501,14 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
+                  hitSlop={
+                    Object {
+                      "bottom": 25,
+                      "left": 25,
+                      "right": 25,
+                      "top": 25,
+                    }
+                  }
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -1571,33 +1518,13 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                   onStartShouldSetResponder={[Function]}
                   style={
                     Object {
+                      "backgroundColor": "transparent",
                       "opacity": 1,
                     }
                   }
                   testID="CommentIconButton"
                 >
-                  <View
-                    hitSlop={
-                      Object {
-                        "bottom": 25,
-                        "left": 25,
-                        "right": 25,
-                        "top": 25,
-                      }
-                    }
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Object {},
-                        null,
-                      ]
-                    }
-                  >
-                    <SvgMock />
-                  </View>
+                  <SvgMock />
                 </View>
               </View>
             </View>
@@ -1735,7 +1662,7 @@ exports[`edit/delete post edit and delete for my post 1`] = `
         onFocus={[Function]}
         onSubmitEditing={[Function]}
         placeholder="Add a comment..."
-        placeholderTextColor="#B2B0B2"
+        placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         returnKeyType="done"
         selectionColor="#005A7F"
@@ -1743,21 +1670,32 @@ exports[`edit/delete post edit and delete for my post 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#4E4C4E",
+              "color": "#505256",
               "flex": 1,
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
               "paddingHorizontal": 12,
               "paddingVertical": 6,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -1849,42 +1787,24 @@ exports[`edit/delete post no options for not my post 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="BackButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Array [
-                    Object {
-                      "alignItems": "flex-start",
-                      "alignSelf": "flex-start",
-                      "justifyContent": "center",
-                    },
-                    undefined,
-                  ],
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#B4B6BA"
-              />
-            </View>
+            <SvgMock
+              color="#B4B6BA"
+            />
           </View>
         </View>
         <View
@@ -1917,18 +1837,16 @@ exports[`edit/delete post no options for not my post 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Switchable full-range extranet
@@ -2097,19 +2015,16 @@ exports[`edit/delete post no options for not my post 1`] = `
               />
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 What's on Your Mind
@@ -2165,23 +2080,26 @@ exports[`edit/delete post no options for not my post 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#007398",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
+                      "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 20,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
-                    Array [
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                      },
-                      Object {
-                        "color": "#505256",
-                        "fontSize": 16,
-                        "fontWeight": "bold",
-                        "lineHeight": 20,
-                      },
-                    ],
                   ]
                 }
               >
@@ -2191,22 +2109,25 @@ exports[`edit/delete post no options for not my post 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#B4B6BA",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
+                      "color": "#B4B6BA",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
-                    Array [
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "fontSize": 12,
-                        "lineHeight": 16,
-                      },
-                    ],
                   ]
                 }
                 testID="Text"
@@ -2251,7 +2172,11 @@ exports[`edit/delete post no options for not my post 1`] = `
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
                         "lineHeight": 18,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -2323,26 +2248,32 @@ exports[`edit/delete post no options for not my post 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
+                      "width": 30,
+                    }
                   }
                 />
                 <View
                   accessible={true}
                   focusable={true}
+                  hitSlop={
+                    Object {
+                      "bottom": 25,
+                      "left": 25,
+                      "right": 25,
+                      "top": 25,
+                    }
+                  }
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -2352,39 +2283,18 @@ exports[`edit/delete post no options for not my post 1`] = `
                   onStartShouldSetResponder={[Function]}
                   style={
                     Object {
+                      "backgroundColor": "transparent",
+                      "height": 24,
                       "opacity": 1,
+                      "width": 24,
                     }
                   }
                   testID="LikeIconButton"
                 >
-                  <View
-                    hitSlop={
-                      Object {
-                        "bottom": 25,
-                        "left": 25,
-                        "right": 25,
-                        "top": 25,
-                      }
-                    }
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Object {
-                          "height": 24,
-                          "width": 24,
-                        },
-                        null,
-                      ]
-                    }
-                  >
-                    <SvgMock
-                      color="#FF5532"
-                      fill="#FF5532"
-                    />
-                  </View>
+                  <SvgMock
+                    color="#FF5532"
+                    fill="#FF5532"
+                  />
                 </View>
               </View>
               <View
@@ -2400,21 +2310,19 @@ exports[`edit/delete post no options for not my post 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
+                      "width": 30,
+                    }
                   }
                 >
                   53441
@@ -2422,6 +2330,14 @@ exports[`edit/delete post no options for not my post 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
+                  hitSlop={
+                    Object {
+                      "bottom": 25,
+                      "left": 25,
+                      "right": 25,
+                      "top": 25,
+                    }
+                  }
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -2431,33 +2347,13 @@ exports[`edit/delete post no options for not my post 1`] = `
                   onStartShouldSetResponder={[Function]}
                   style={
                     Object {
+                      "backgroundColor": "transparent",
                       "opacity": 1,
                     }
                   }
                   testID="CommentIconButton"
                 >
-                  <View
-                    hitSlop={
-                      Object {
-                        "bottom": 25,
-                        "left": 25,
-                        "right": 25,
-                        "top": 25,
-                      }
-                    }
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Object {},
-                        null,
-                      ]
-                    }
-                  >
-                    <SvgMock />
-                  </View>
+                  <SvgMock />
                 </View>
               </View>
             </View>
@@ -2595,7 +2491,7 @@ exports[`edit/delete post no options for not my post 1`] = `
         onFocus={[Function]}
         onSubmitEditing={[Function]}
         placeholder="Add a comment..."
-        placeholderTextColor="#B2B0B2"
+        placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         returnKeyType="done"
         selectionColor="#005A7F"
@@ -2603,21 +2499,32 @@ exports[`edit/delete post no options for not my post 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#4E4C4E",
+              "color": "#505256",
               "flex": 1,
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
               "paddingHorizontal": 12,
               "paddingVertical": 6,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -2655,10 +2562,10 @@ exports[`refresh calls refreshComments 1`] = `
 - First value
 + Second value
 
-@@ -136,11 +136,11 @@
-                      \\"lineHeight\\": 20,
-                    },
-                  ]
+@@ -116,11 +116,11 @@
+                    \\"textAlignVertical\\": \\"center\\",
+                    \\"textTransform\\": \\"none\\",
+                  }
                 }
               >
 -               Programmable foreground task-force
@@ -2668,7 +2575,7 @@ exports[`refresh calls refreshComments 1`] = `
           </View>
           <View
             style={
-@@ -181,32 +181,32 @@
+@@ -161,32 +161,32 @@
       }
       data={
         Array [
@@ -2715,7 +2622,7 @@ exports[`refresh calls refreshComments 1`] = `
         ]
       }
       disableVirtualization={false}
-@@ -268,22 +268,22 @@
+@@ -248,22 +248,22 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -2740,9 +2647,9 @@ exports[`refresh calls refreshComments 1`] = `
                   ]
                 }
               />
-@@ -324,11 +324,11 @@
-                        },
-                      ],
+@@ -307,11 +307,11 @@
+                        \\"textTransform\\": \\"none\\",
+                      },
                     ]
                   }
                 >
@@ -2753,8 +2660,8 @@ exports[`refresh calls refreshComments 1`] = `
                   style={
                     Array [
                       Object {
-@@ -350,11 +350,11 @@
-                      ],
+@@ -336,23 +336,40 @@
+                      },
                     ]
                   }
                   testID=\\"Text\\"
@@ -2766,38 +2673,39 @@ exports[`refresh calls refreshComments 1`] = `
             </View>
           </View>
           <View
-@@ -373,19 +373,39 @@
-                  },
-                  Object {
-                    \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-                  },
-                  Object {
-+                   \\"color\\": \\"#3CC8E6\\",
-                    \\"fontSize\\": 16,
-+                   \\"fontWeight\\": \\"bold\\",
-+                   \\"lineHeight\\": 20,
-+                 },
-+               ]
+            style={
+              Object {
+                \\"paddingHorizontal\\": 20,
+                \\"paddingVertical\\": 8,
 +             }
-+           >
-+             Completed a Challenge!
-+           </Text>
++           }
++         >
 +           <Text
 +             style={
-+               Array [
-+                 Object {
-+                   \\"color\\": \\"#505256\\",
-+                 },
-+                 Object {
-+                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                 },
-+                 Object {
-+                   \\"fontSize\\": 16,
-                    \\"justifyContent\\": \\"flex-start\\",
-                    \\"lineHeight\\": 24,
-                    \\"paddingBottom\\": 8,
-                  },
-                ]
++               Object {
++                 \\"color\\": \\"#3CC8E6\\",
++                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                 \\"fontSize\\": 16,
++                 \\"fontStyle\\": \\"normal\\",
++                 \\"fontWeight\\": \\"bold\\",
++                 \\"letterSpacing\\": 1,
++                 \\"lineHeight\\": 20,
++                 \\"textAlignVertical\\": \\"center\\",
++                 \\"textTransform\\": \\"uppercase\\",
+                }
+              }
+            >
++             Completed a Challenge!
++           </Text>
+            <Text
+              style={
+                Object {
+                  \\"color\\": \\"#505256\\",
+                  \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+@@ -365,11 +382,11 @@
+                  \\"textAlignVertical\\": \\"center\\",
+                  \\"textTransform\\": \\"none\\",
+                }
               }
             >
 -             repellat ratione ut
@@ -2807,24 +2715,24 @@ exports[`refresh calls refreshComments 1`] = `
           <View
             style={
               Array [
-@@ -553,11 +573,12 @@
-                          null,
-                        ]
+@@ -521,11 +538,12 @@
                       }
-                    >
-                      <SvgMock
--                       color=\\"#505256\\"
-+                       color=\\"#FF5532\\"
-+                       fill=\\"#FF5532\\"
-                      />
-                    </View>
+                    }
+                    testID=\\"LikeIconButton\\"
+                  >
+                    <SvgMock
+-                     color=\\"#505256\\"
++                     color=\\"#FF5532\\"
++                     fill=\\"#FF5532\\"
+                    />
                   </View>
                 </View>
                 <View
-@@ -588,11 +609,11 @@
-                          \\"width\\": 30,
-                        },
-                      ]
+                  style={
+@@ -553,11 +571,11 @@
+                        \\"textTransform\\": \\"none\\",
+                        \\"width\\": 30,
+                      }
                     }
                   >
 -                   52454
@@ -2833,8 +2741,8 @@ exports[`refresh calls refreshComments 1`] = `
                   <View
                     accessible={true}
                     focusable={true}
-                    onClick={[Function onClick]}
-@@ -656,28 +677,29 @@
+                    hitSlop={
+@@ -609,28 +627,29 @@
         >
           <CommentItem
             comment={
@@ -2872,7 +2780,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -688,28 +710,29 @@
+@@ -641,28 +660,29 @@
         >
           <CommentItem
             comment={
@@ -2910,7 +2818,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -729,22 +752,22 @@
+@@ -682,22 +702,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
@@ -2996,42 +2904,24 @@ exports[`renders correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="BackButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Array [
-                    Object {
-                      "alignItems": "flex-start",
-                      "alignSelf": "flex-start",
-                      "justifyContent": "center",
-                    },
-                    undefined,
-                  ],
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#B4B6BA"
-              />
-            </View>
+            <SvgMock
+              color="#B4B6BA"
+            />
           </View>
         </View>
         <View
@@ -3064,18 +2954,16 @@ exports[`renders correctly 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Switchable full-range extranet
@@ -3244,19 +3132,16 @@ exports[`renders correctly 1`] = `
               />
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 What's on Your Mind
@@ -3312,23 +3197,26 @@ exports[`renders correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#007398",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
+                      "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 20,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
-                    Array [
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                      },
-                      Object {
-                        "color": "#505256",
-                        "fontSize": 16,
-                        "fontWeight": "bold",
-                        "lineHeight": 20,
-                      },
-                    ],
                   ]
                 }
               >
@@ -3338,22 +3226,25 @@ exports[`renders correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#B4B6BA",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
+                      "color": "#B4B6BA",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
-                    Array [
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "fontSize": 12,
-                        "lineHeight": 16,
-                      },
-                    ],
                   ]
                 }
                 testID="Text"
@@ -3398,7 +3289,11 @@ exports[`renders correctly 1`] = `
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
                         "lineHeight": 18,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -3470,26 +3365,32 @@ exports[`renders correctly 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
+                      "width": 30,
+                    }
                   }
                 />
                 <View
                   accessible={true}
                   focusable={true}
+                  hitSlop={
+                    Object {
+                      "bottom": 25,
+                      "left": 25,
+                      "right": 25,
+                      "top": 25,
+                    }
+                  }
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -3499,39 +3400,18 @@ exports[`renders correctly 1`] = `
                   onStartShouldSetResponder={[Function]}
                   style={
                     Object {
+                      "backgroundColor": "transparent",
+                      "height": 24,
                       "opacity": 1,
+                      "width": 24,
                     }
                   }
                   testID="LikeIconButton"
                 >
-                  <View
-                    hitSlop={
-                      Object {
-                        "bottom": 25,
-                        "left": 25,
-                        "right": 25,
-                        "top": 25,
-                      }
-                    }
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Object {
-                          "height": 24,
-                          "width": 24,
-                        },
-                        null,
-                      ]
-                    }
-                  >
-                    <SvgMock
-                      color="#FF5532"
-                      fill="#FF5532"
-                    />
-                  </View>
+                  <SvgMock
+                    color="#FF5532"
+                    fill="#FF5532"
+                  />
                 </View>
               </View>
               <View
@@ -3547,21 +3427,19 @@ exports[`renders correctly 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
+                      "width": 30,
+                    }
                   }
                 >
                   67046
@@ -3569,6 +3447,14 @@ exports[`renders correctly 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
+                  hitSlop={
+                    Object {
+                      "bottom": 25,
+                      "left": 25,
+                      "right": 25,
+                      "top": 25,
+                    }
+                  }
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -3578,33 +3464,13 @@ exports[`renders correctly 1`] = `
                   onStartShouldSetResponder={[Function]}
                   style={
                     Object {
+                      "backgroundColor": "transparent",
                       "opacity": 1,
                     }
                   }
                   testID="CommentIconButton"
                 >
-                  <View
-                    hitSlop={
-                      Object {
-                        "bottom": 25,
-                        "left": 25,
-                        "right": 25,
-                        "top": 25,
-                      }
-                    }
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Object {},
-                        null,
-                      ]
-                    }
-                  >
-                    <SvgMock />
-                  </View>
+                  <SvgMock />
                 </View>
               </View>
             </View>
@@ -3742,7 +3608,7 @@ exports[`renders correctly 1`] = `
         onFocus={[Function]}
         onSubmitEditing={[Function]}
         placeholder="Add a comment..."
-        placeholderTextColor="#B2B0B2"
+        placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         returnKeyType="done"
         selectionColor="#005A7F"
@@ -3750,21 +3616,32 @@ exports[`renders correctly 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#4E4C4E",
+              "color": "#505256",
               "flex": 1,
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
               "paddingHorizontal": 12,
               "paddingVertical": 6,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -3856,42 +3733,24 @@ exports[`renders correctly with communityId passed in 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="BackButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Array [
-                    Object {
-                      "alignItems": "flex-start",
-                      "alignSelf": "flex-start",
-                      "justifyContent": "center",
-                    },
-                    undefined,
-                  ],
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#B4B6BA"
-              />
-            </View>
+            <SvgMock
+              color="#B4B6BA"
+            />
           </View>
         </View>
         <View
@@ -3924,18 +3783,16 @@ exports[`renders correctly with communityId passed in 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               Switchable full-range extranet
@@ -4104,19 +3961,16 @@ exports[`renders correctly with communityId passed in 1`] = `
               />
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 What's on Your Mind
@@ -4172,23 +4026,26 @@ exports[`renders correctly with communityId passed in 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#007398",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
+                      "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 20,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
-                    Array [
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                      },
-                      Object {
-                        "color": "#505256",
-                        "fontSize": 16,
-                        "fontWeight": "bold",
-                        "lineHeight": 20,
-                      },
-                    ],
                   ]
                 }
               >
@@ -4198,22 +4055,25 @@ exports[`renders correctly with communityId passed in 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#B4B6BA",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
                     Object {
+                      "color": "#B4B6BA",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
                     },
-                    Array [
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "fontSize": 12,
-                        "lineHeight": 16,
-                      },
-                    ],
                   ]
                 }
                 testID="Text"
@@ -4258,7 +4118,11 @@ exports[`renders correctly with communityId passed in 1`] = `
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
                         "lineHeight": 18,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
                       },
                       Object {},
                     ]
@@ -4330,26 +4194,32 @@ exports[`renders correctly with communityId passed in 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
+                      "width": 30,
+                    }
                   }
                 />
                 <View
                   accessible={true}
                   focusable={true}
+                  hitSlop={
+                    Object {
+                      "bottom": 25,
+                      "left": 25,
+                      "right": 25,
+                      "top": 25,
+                    }
+                  }
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -4359,39 +4229,18 @@ exports[`renders correctly with communityId passed in 1`] = `
                   onStartShouldSetResponder={[Function]}
                   style={
                     Object {
+                      "backgroundColor": "transparent",
+                      "height": 24,
                       "opacity": 1,
+                      "width": 24,
                     }
                   }
                   testID="LikeIconButton"
                 >
-                  <View
-                    hitSlop={
-                      Object {
-                        "bottom": 25,
-                        "left": 25,
-                        "right": 25,
-                        "top": 25,
-                      }
-                    }
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Object {
-                          "height": 24,
-                          "width": 24,
-                        },
-                        null,
-                      ]
-                    }
-                  >
-                    <SvgMock
-                      color="#FF5532"
-                      fill="#FF5532"
-                    />
-                  </View>
+                  <SvgMock
+                    color="#FF5532"
+                    fill="#FF5532"
+                  />
                 </View>
               </View>
               <View
@@ -4407,21 +4256,19 @@ exports[`renders correctly with communityId passed in 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
+                      "width": 30,
+                    }
                   }
                 >
                   67046
@@ -4429,6 +4276,14 @@ exports[`renders correctly with communityId passed in 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
+                  hitSlop={
+                    Object {
+                      "bottom": 25,
+                      "left": 25,
+                      "right": 25,
+                      "top": 25,
+                    }
+                  }
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -4438,33 +4293,13 @@ exports[`renders correctly with communityId passed in 1`] = `
                   onStartShouldSetResponder={[Function]}
                   style={
                     Object {
+                      "backgroundColor": "transparent",
                       "opacity": 1,
                     }
                   }
                   testID="CommentIconButton"
                 >
-                  <View
-                    hitSlop={
-                      Object {
-                        "bottom": 25,
-                        "left": 25,
-                        "right": 25,
-                        "top": 25,
-                      }
-                    }
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Object {},
-                        null,
-                      ]
-                    }
-                  >
-                    <SvgMock />
-                  </View>
+                  <SvgMock />
                 </View>
               </View>
             </View>
@@ -4602,7 +4437,7 @@ exports[`renders correctly with communityId passed in 1`] = `
         onFocus={[Function]}
         onSubmitEditing={[Function]}
         placeholder="Add a comment..."
-        placeholderTextColor="#B2B0B2"
+        placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         returnKeyType="done"
         selectionColor="#005A7F"
@@ -4610,21 +4445,32 @@ exports[`renders correctly with communityId passed in 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#4E4C4E",
+              "color": "#505256",
               "flex": 1,
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
               "paddingHorizontal": 12,
               "paddingVertical": 6,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -4716,42 +4562,24 @@ exports[`renders loading 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="BackButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Array [
-                    Object {
-                      "alignItems": "flex-start",
-                      "alignSelf": "flex-start",
-                      "justifyContent": "center",
-                    },
-                    undefined,
-                  ],
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#B4B6BA"
-              />
-            </View>
+            <SvgMock
+              color="#B4B6BA"
+            />
           </View>
         </View>
         <View
@@ -4784,18 +4612,16 @@ exports[`renders loading 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
             >
               MissionHub

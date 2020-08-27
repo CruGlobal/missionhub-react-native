@@ -7,10 +7,8 @@ export default StyleSheet.create({
     paddingRight: 10,
   },
   removeStepButtonText: {
-    color: theme.inactiveColor,
-    fontSize: 14,
-    fontWeight: 'bold',
-    letterSpacing: 1,
+    ...theme.textBold14,
+    color: theme.lightGrey,
   },
   reminderButton: {
     alignItems: 'center',
@@ -50,13 +48,13 @@ export default StyleSheet.create({
     borderRadius: 16,
     backgroundColor: theme.white,
     borderWidth: 1,
-    borderColor: theme.inactiveColor,
+    borderColor: theme.lightGrey,
     paddingHorizontal: 0,
     paddingVertical: 0,
     margin: 8,
   },
   cancelIcon: {
     fontSize: 18,
-    color: theme.inactiveColor,
+    color: theme.lightGrey,
   },
 });

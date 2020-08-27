@@ -15,14 +15,13 @@ export default StyleSheet.create({
     justifyContent: 'center',
     minWidth: 100,
   },
-  tabTextLight: {
-    color: theme.inactiveColor,
-  },
+  tabText: theme.textRegular16,
   tabActive: {
-    borderBottomColor: theme.parakeetBlue,
+    borderBottomColor: theme.secondaryColor,
     borderBottomWidth: 2,
   },
-  tabTextActiveLight: {
-    color: theme.parakeetBlue,
+  tabTextActive: {
+    ...theme.textRegular16,
+    color: theme.secondaryColor,
   },
 });

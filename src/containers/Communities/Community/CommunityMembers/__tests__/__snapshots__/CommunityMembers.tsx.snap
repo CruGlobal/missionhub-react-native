@@ -78,22 +78,18 @@ exports[`CommunityMembers renders with content 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 24,
-                "fontWeight": "300",
-                "lineHeight": 30,
-                "marginBottom": 20,
-                "marginTop": 15,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "marginBottom": 20,
+              "marginTop": 15,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           93255 Members
@@ -183,18 +179,16 @@ exports[`CommunityMembers renders with content 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  }
                 }
               >
                 Elizabeth Zulauf
@@ -212,36 +206,32 @@ exports[`CommunityMembers renders with content 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "fontSize": 12,
-                      },
-                    ]
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
+                    }
                   }
                 >
                   Member since
                    
                   <Text
                     style={
-                      Array [
-                        Object {
-                          "color": "#505256",
-                        },
-                        Object {
-                          "fontFamily": "SourceSansPro-Regular",
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                          "fontSize": 12,
-                        },
-                      ]
+                      Object {
+                        "color": "#B4B6BA",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 12,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "lineHeight": 16,
+                        "textAlignVertical": "center",
+                        "textTransform": "none",
+                      }
                     }
                     testID="Text"
                   >
@@ -277,68 +267,44 @@ exports[`CommunityMembers renders with content 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 50,
+          "borderWidth": 0,
+          "height": 48,
+          "justifyContent": "center",
+          "margin": 0,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
-              ],
-            ]
-          }
-        >
-          INVITE MEMBER
-        </Text>
-      </View>
+        INVITE MEMBER
+      </Text>
     </View>
   </RCTSafeAreaView>
   <RCTSafeAreaView
@@ -355,7 +321,7 @@ exports[`CommunityMembers renders with content 1`] = `
       style={
         Object {
           "paddingHorizontal": 20,
-          "paddingVertical": 60,
+          "paddingTop": 60,
         }
       }
     >
@@ -379,70 +345,55 @@ exports[`CommunityMembers renders with content 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#B4B6BA",
+            "borderRadius": 25,
+            "borderWidth": 0,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
           }
         }
         testID="IconButton"
       >
-        <View
+        <Text
+          allowFontScaling={false}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": undefined,
+                "fontSize": 12,
               },
-              null,
-              Object {
-                "backgroundColor": "#B4B6BA",
-                "borderRadius": 25,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            allowFontScaling={false}
-            style={
               Array [
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 26,
                 },
                 Array [
                   Object {
-                    "color": "#ffffff",
+                    "margin": 10,
                   },
                   Object {
-                    "fontSize": 26,
+                    "margin": 2,
                   },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    Object {
-                      "margin": 2,
-                    },
-                  ],
                 ],
-                Object {
-                  "fontFamily": "Material Icons",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
       </View>
     </View>
   </RCTSafeAreaView>
@@ -501,10 +452,10 @@ exports[`CommunityMembers should load next page 1`] = `
       disableVirtualization={false}
       getItem={[Function anonymous]}
       getItemCount={[Function anonymous]}
-@@ -109,11 +145,11 @@
-                  \\"marginTop\\": 15,
-                },
-              ]
+@@ -105,11 +141,11 @@
+                \\"textAlignVertical\\": \\"center\\",
+                \\"textTransform\\": \\"none\\",
+              }
             }
           >
 -           93255 Members
@@ -514,8 +465,8 @@ exports[`CommunityMembers should load next page 1`] = `
         <View
           onLayout={[Function onLayout]}
           style={null}
-@@ -413,10 +449,318 @@
-                        ]
+@@ -397,10 +433,306 @@
+                        }
                       }
                       testID=\\"Text\\"
                     >
@@ -611,18 +562,16 @@ exports[`CommunityMembers should load next page 1`] = `
 +             >
 +               <Text
 +                 style={
-+                   Array [
-+                     Object {
-+                       \\"color\\": \\"#505256\\",
-+                     },
-+                     Object {
-+                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                     },
-+                     Object {
-+                       \\"color\\": \\"#505256\\",
-+                       \\"fontSize\\": 16,
-+                     },
-+                   ]
++                   Object {
++                     \\"color\\": \\"#505256\\",
++                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                     \\"fontSize\\": 16,
++                     \\"fontStyle\\": \\"normal\\",
++                     \\"fontWeight\\": \\"normal\\",
++                     \\"lineHeight\\": 24,
++                     \\"textAlignVertical\\": \\"center\\",
++                     \\"textTransform\\": \\"none\\",
++                   }
 +                 }
 +               >
 +                 Shad Farrell
@@ -640,36 +589,32 @@ exports[`CommunityMembers should load next page 1`] = `
 +               >
 +                 <Text
 +                   style={
-+                     Array [
-+                       Object {
-+                         \\"color\\": \\"#505256\\",
-+                       },
-+                       Object {
-+                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                       },
-+                       Object {
-+                         \\"color\\": \\"#B4B6BA\\",
-+                         \\"fontSize\\": 12,
-+                       },
-+                     ]
++                     Object {
++                       \\"color\\": \\"#B4B6BA\\",
++                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                       \\"fontSize\\": 12,
++                       \\"fontStyle\\": \\"normal\\",
++                       \\"fontWeight\\": \\"normal\\",
++                       \\"lineHeight\\": 16,
++                       \\"textAlignVertical\\": \\"center\\",
++                       \\"textTransform\\": \\"none\\",
++                     }
 +                   }
 +                 >
 +                   Member since
 +                    
 +                   <Text
 +                     style={
-+                       Array [
-+                         Object {
-+                           \\"color\\": \\"#505256\\",
-+                         },
-+                         Object {
-+                           \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                         },
-+                         Object {
-+                           \\"color\\": \\"#B4B6BA\\",
-+                           \\"fontSize\\": 12,
-+                         },
-+                       ]
++                       Object {
++                         \\"color\\": \\"#B4B6BA\\",
++                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                         \\"fontSize\\": 12,
++                         \\"fontStyle\\": \\"normal\\",
++                         \\"fontWeight\\": \\"normal\\",
++                         \\"lineHeight\\": 16,
++                         \\"textAlignVertical\\": \\"center\\",
++                         \\"textTransform\\": \\"none\\",
++                       }
 +                     }
 +                     testID=\\"Text\\"
 +                   >
@@ -765,18 +710,16 @@ exports[`CommunityMembers should load next page 1`] = `
 +             >
 +               <Text
 +                 style={
-+                   Array [
-+                     Object {
-+                       \\"color\\": \\"#505256\\",
-+                     },
-+                     Object {
-+                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                     },
-+                     Object {
-+                       \\"color\\": \\"#505256\\",
-+                       \\"fontSize\\": 16,
-+                     },
-+                   ]
++                   Object {
++                     \\"color\\": \\"#505256\\",
++                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                     \\"fontSize\\": 16,
++                     \\"fontStyle\\": \\"normal\\",
++                     \\"fontWeight\\": \\"normal\\",
++                     \\"lineHeight\\": 24,
++                     \\"textAlignVertical\\": \\"center\\",
++                     \\"textTransform\\": \\"none\\",
++                   }
 +                 }
 +               >
 +                 Keaton Keeling
@@ -794,36 +737,32 @@ exports[`CommunityMembers should load next page 1`] = `
 +               >
 +                 <Text
 +                   style={
-+                     Array [
-+                       Object {
-+                         \\"color\\": \\"#505256\\",
-+                       },
-+                       Object {
-+                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                       },
-+                       Object {
-+                         \\"color\\": \\"#B4B6BA\\",
-+                         \\"fontSize\\": 12,
-+                       },
-+                     ]
++                     Object {
++                       \\"color\\": \\"#B4B6BA\\",
++                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                       \\"fontSize\\": 12,
++                       \\"fontStyle\\": \\"normal\\",
++                       \\"fontWeight\\": \\"normal\\",
++                       \\"lineHeight\\": 16,
++                       \\"textAlignVertical\\": \\"center\\",
++                       \\"textTransform\\": \\"none\\",
++                     }
 +                   }
 +                 >
 +                   Member since
 +                    
 +                   <Text
 +                     style={
-+                       Array [
-+                         Object {
-+                           \\"color\\": \\"#505256\\",
-+                         },
-+                         Object {
-+                           \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                         },
-+                         Object {
-+                           \\"color\\": \\"#B4B6BA\\",
-+                           \\"fontSize\\": 12,
-+                         },
-+                       ]
++                       Object {
++                         \\"color\\": \\"#B4B6BA\\",
++                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                         \\"fontSize\\": 12,
++                         \\"fontStyle\\": \\"normal\\",
++                         \\"fontWeight\\": \\"normal\\",
++                         \\"lineHeight\\": 16,
++                         \\"textAlignVertical\\": \\"center\\",
++                         \\"textTransform\\": \\"none\\",
++                       }
 +                     }
 +                     testID=\\"Text\\"
 +                   >
@@ -892,22 +831,18 @@ exports[`CommunityMembers should render empty state 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 24,
-                "fontWeight": "300",
-                "lineHeight": 30,
-                "marginBottom": 20,
-                "marginTop": 15,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "marginBottom": 20,
+              "marginTop": 15,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           0 Members
@@ -961,68 +896,44 @@ exports[`CommunityMembers should render empty state 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 50,
+          "borderWidth": 0,
+          "height": 48,
+          "justifyContent": "center",
+          "margin": 0,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
-              ],
-            ]
-          }
-        >
-          INVITE MEMBER
-        </Text>
-      </View>
+        INVITE MEMBER
+      </Text>
     </View>
   </RCTSafeAreaView>
   <RCTSafeAreaView
@@ -1039,7 +950,7 @@ exports[`CommunityMembers should render empty state 1`] = `
       style={
         Object {
           "paddingHorizontal": 20,
-          "paddingVertical": 60,
+          "paddingTop": 60,
         }
       }
     >
@@ -1063,70 +974,55 @@ exports[`CommunityMembers should render empty state 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#B4B6BA",
+            "borderRadius": 25,
+            "borderWidth": 0,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
           }
         }
         testID="IconButton"
       >
-        <View
+        <Text
+          allowFontScaling={false}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": undefined,
+                "fontSize": 12,
               },
-              null,
-              Object {
-                "backgroundColor": "#B4B6BA",
-                "borderRadius": 25,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            allowFontScaling={false}
-            style={
               Array [
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 26,
                 },
                 Array [
                   Object {
-                    "color": "#ffffff",
+                    "margin": 10,
                   },
                   Object {
-                    "fontSize": 26,
+                    "margin": 2,
                   },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    Object {
-                      "margin": 2,
-                    },
-                  ],
                 ],
-                Object {
-                  "fontFamily": "Material Icons",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
       </View>
     </View>
   </RCTSafeAreaView>
@@ -1190,22 +1086,18 @@ exports[`CommunityMembers should render loading state 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 24,
-                "fontWeight": "300",
-                "lineHeight": 30,
-                "marginBottom": 20,
-                "marginTop": 15,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "marginBottom": 20,
+              "marginTop": 15,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           0 Members
@@ -1259,68 +1151,44 @@ exports[`CommunityMembers should render loading state 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 50,
+          "borderWidth": 0,
+          "height": 48,
+          "justifyContent": "center",
+          "margin": 0,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
-              ],
-            ]
-          }
-        >
-          INVITE MEMBER
-        </Text>
-      </View>
+        INVITE MEMBER
+      </Text>
     </View>
   </RCTSafeAreaView>
   <RCTSafeAreaView
@@ -1337,7 +1205,7 @@ exports[`CommunityMembers should render loading state 1`] = `
       style={
         Object {
           "paddingHorizontal": 20,
-          "paddingVertical": 60,
+          "paddingTop": 60,
         }
       }
     >
@@ -1361,70 +1229,55 @@ exports[`CommunityMembers should render loading state 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#B4B6BA",
+            "borderRadius": 25,
+            "borderWidth": 0,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
           }
         }
         testID="IconButton"
       >
-        <View
+        <Text
+          allowFontScaling={false}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": undefined,
+                "fontSize": 12,
               },
-              null,
-              Object {
-                "backgroundColor": "#B4B6BA",
-                "borderRadius": 25,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            allowFontScaling={false}
-            style={
               Array [
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 26,
                 },
                 Array [
                   Object {
-                    "color": "#ffffff",
+                    "margin": 10,
                   },
                   Object {
-                    "fontSize": 26,
+                    "margin": 2,
                   },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    Object {
-                      "margin": 2,
-                    },
-                  ],
                 ],
-                Object {
-                  "fontFamily": "Material Icons",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
       </View>
     </View>
   </RCTSafeAreaView>

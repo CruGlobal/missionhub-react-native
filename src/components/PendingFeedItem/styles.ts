@@ -14,21 +14,10 @@ export default StyleSheet.create({
     flex: 1,
     marginHorizontal: 7,
   },
-  text: {
-    fontSize: 16,
-    lineHeight: 24,
-  },
+  text: theme.textRegular16,
   retryText: {
-    fontSize: 16,
-    lineHeight: 24,
+    ...theme.textRegular16,
     fontWeight: 'bold',
     color: theme.secondaryColor,
-  },
-  endWrapper: {
-    width: 24,
-    height: 24,
-  },
-  closeIcon: {
-    color: theme.lightGrey,
   },
 });

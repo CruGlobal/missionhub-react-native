@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, Text } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
@@ -8,7 +8,7 @@ import TARGET from '../../../assets/images/challengeTarget.png';
 import GLOBE from '../../../assets/images/globe.png';
 import STEPS from '../../../assets/images/footprints.png';
 import CloseIcon from '../../../assets/images/closeIcon.svg';
-import { Flex, Text, Card } from '../../components/common';
+import { Flex, Card } from '../../components/common';
 import { removeGroupOnboardingCard } from '../../actions/swipe';
 import { SwipeState } from '../../reducers/swipe';
 import theme from '../../theme';

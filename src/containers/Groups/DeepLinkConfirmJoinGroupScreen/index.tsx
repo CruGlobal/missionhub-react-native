@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Image, View } from 'react-native';
+import { Image, View, Text } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { Flex, Text, IconButton } from '../../../components/common';
+import { Flex, IconButton } from '../../../components/common';
 import GroupCardItem from '../../../components/GroupCardItem';
 import Header from '../../../components/Header';
 import GROUP_ICON from '../../../../assets/images/MemberContacts_light.png';

@@ -5,7 +5,7 @@ exports[`should change loading state 1`] = `
 - First value
 + Second value
 
-@@ -128,6 +128,7 @@
+@@ -149,6 +149,7 @@
           testID=\\"mfaCodeInput\\"
           value=\\"Roge\\"
         />
@@ -20,7 +20,7 @@ exports[`should change loading state 2`] = `
 - First value
 + Second value
 
-@@ -128,7 +128,6 @@
+@@ -149,7 +149,6 @@
           testID=\\"mfaCodeInput\\"
           value=\\"Roge\\"
         />
@@ -87,8 +87,15 @@ exports[`should render correctly 1`] = `
         <Button
           buttonTextStyle={
             Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
-              "letterSpacing": 2,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1.5,
+              "lineHeight": 18,
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             }
           }
           onPress={[MockFunction]}
@@ -110,15 +117,19 @@ exports[`should render correctly 1`] = `
     value={1}
   >
     <Text
-      header={true}
       style={
         Object {
-          "color": "#52C5DC",
+          "color": "#3CC8E6",
+          "fontFamily": "AmaticSC-Bold",
           "fontSize": 36,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
           "letterSpacing": 2,
-          "lineHeight": 32,
+          "lineHeight": 36,
           "paddingVertical": 10,
           "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "lowercase",
         }
       }
     >
@@ -128,11 +139,15 @@ exports[`should render correctly 1`] = `
       style={
         Object {
           "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
-          "letterSpacing": 0.25,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
           "lineHeight": 24,
           "paddingVertical": 10,
           "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
@@ -142,8 +157,14 @@ exports[`should render correctly 1`] = `
       <Text
         style={
           Object {
-            "color": "#52C5DC",
+            "color": "#3CC8E6",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -156,7 +177,7 @@ exports[`should render correctly 1`] = `
         onChangeText={[MockFunction]}
         onSubmitEditing={[MockFunction]}
         placeholder="Verification Code"
-        placeholderTextColor="white"
+        placeholderTextColor="#ffffff"
         returnKeyType="done"
         testID="mfaCodeInput"
         value="Roge"

@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
-import { View, Animated, PanResponder, DeviceEventEmitter } from 'react-native';
+import {
+  View,
+  Animated,
+  PanResponder,
+  DeviceEventEmitter,
+  Text,
+} from 'react-native';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 
-import { Flex, Touchable, Icon, Text } from '../common';
+import { Flex, Touchable, Icon } from '../common';
 
 import styles from './styles';
 

@@ -17,20 +17,20 @@ exports[`StepTypeBadge should hide "step" 1`] = `
       Array [
         Object {
           "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "uppercase",
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "color": "#B4B6BA",
+          "paddingLeft": 0,
         },
-        Array [
-          Object {
-            "color": "#B4B6BA",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "letterSpacing": 1,
-            "paddingLeft": 0,
-          },
-          undefined,
-        ],
+        undefined,
       ]
     }
   >
@@ -56,20 +56,20 @@ exports[`StepTypeBadge should hide icon 1`] = `
       Array [
         Object {
           "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "uppercase",
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "color": "#B4B6BA",
+          "paddingLeft": 0,
         },
-        Array [
-          Object {
-            "color": "#B4B6BA",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "letterSpacing": 1,
-            "paddingLeft": 0,
-          },
-          undefined,
-        ],
+        undefined,
       ]
     }
   >
@@ -118,20 +118,20 @@ exports[`StepTypeBadge should render icon props 1`] = `
       Array [
         Object {
           "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "uppercase",
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "color": "#B4B6BA",
+          "paddingLeft": 4,
         },
-        Array [
-          Object {
-            "color": "#B4B6BA",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "letterSpacing": 1,
-            "paddingLeft": 4,
-          },
-          undefined,
-        ],
+        undefined,
       ]
     }
   >
@@ -161,20 +161,20 @@ exports[`StepTypeBadge should render large icons 1`] = `
       Array [
         Object {
           "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "uppercase",
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "color": "#B4B6BA",
+          "paddingLeft": 4,
         },
-        Array [
-          Object {
-            "color": "#B4B6BA",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "letterSpacing": 1,
-            "paddingLeft": 4,
-          },
-          undefined,
-        ],
+        undefined,
       ]
     }
   >
@@ -204,19 +204,19 @@ exports[`StepTypeBadge should render text not uppercase 1`] = `
       Array [
         Object {
           "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "color": "#B4B6BA",
+          "paddingLeft": 4,
         },
-        Array [
-          Object {
-            "color": "#B4B6BA",
-            "fontSize": 14,
-            "fontWeight": "normal",
-            "paddingLeft": 4,
-          },
-          undefined,
-        ],
+        undefined,
       ]
     }
   >
@@ -246,22 +246,22 @@ exports[`StepTypeBadge should render text style 1`] = `
       Array [
         Object {
           "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "uppercase",
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "color": "#B4B6BA",
+          "paddingLeft": 4,
         },
-        Array [
-          Object {
-            "color": "#B4B6BA",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "letterSpacing": 1,
-            "paddingLeft": 4,
-          },
-          Object {
-            "padding": 5,
-          },
-        ],
+        Object {
+          "padding": 5,
+        },
       ]
     }
   >
@@ -291,20 +291,20 @@ exports[`StepTypeBadge should render the care step type 1`] = `
       Array [
         Object {
           "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "uppercase",
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "color": "#B4B6BA",
+          "paddingLeft": 4,
         },
-        Array [
-          Object {
-            "color": "#B4B6BA",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "letterSpacing": 1,
-            "paddingLeft": 4,
-          },
-          undefined,
-        ],
+        undefined,
       ]
     }
   >
@@ -334,20 +334,20 @@ exports[`StepTypeBadge should render the generic step type 1`] = `
       Array [
         Object {
           "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "uppercase",
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "color": "#B4B6BA",
+          "paddingLeft": 4,
         },
-        Array [
-          Object {
-            "color": "#B4B6BA",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "letterSpacing": 1,
-            "paddingLeft": 4,
-          },
-          undefined,
-        ],
+        undefined,
       ]
     }
   >
@@ -377,20 +377,20 @@ exports[`StepTypeBadge should render the pray step type 1`] = `
       Array [
         Object {
           "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "uppercase",
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "color": "#B4B6BA",
+          "paddingLeft": 4,
         },
-        Array [
-          Object {
-            "color": "#B4B6BA",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "letterSpacing": 1,
-            "paddingLeft": 4,
-          },
-          undefined,
-        ],
+        undefined,
       ]
     }
   >
@@ -420,20 +420,20 @@ exports[`StepTypeBadge should render the relate step type 1`] = `
       Array [
         Object {
           "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "uppercase",
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "color": "#B4B6BA",
+          "paddingLeft": 4,
         },
-        Array [
-          Object {
-            "color": "#B4B6BA",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "letterSpacing": 1,
-            "paddingLeft": 4,
-          },
-          undefined,
-        ],
+        undefined,
       ]
     }
   >
@@ -463,20 +463,20 @@ exports[`StepTypeBadge should render the share step type 1`] = `
       Array [
         Object {
           "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "uppercase",
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "color": "#B4B6BA",
+          "paddingLeft": 4,
         },
-        Array [
-          Object {
-            "color": "#B4B6BA",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "letterSpacing": 1,
-            "paddingLeft": 4,
-          },
-          undefined,
-        ],
+        undefined,
       ]
     }
   >
@@ -506,21 +506,21 @@ exports[`StepTypeBadge should render vertically 1`] = `
       Array [
         Object {
           "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "uppercase",
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "color": "#B4B6BA",
+          "marginTop": 7,
+          "paddingLeft": 4,
         },
-        Array [
-          Object {
-            "color": "#B4B6BA",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "letterSpacing": 1,
-            "marginTop": 7,
-            "paddingLeft": 4,
-          },
-          undefined,
-        ],
+        undefined,
       ]
     }
   >
@@ -552,20 +552,20 @@ exports[`StepTypeBadge should render view style 1`] = `
       Array [
         Object {
           "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "uppercase",
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "color": "#B4B6BA",
+          "paddingLeft": 4,
         },
-        Array [
-          Object {
-            "color": "#B4B6BA",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "letterSpacing": 1,
-            "paddingLeft": 4,
-          },
-          undefined,
-        ],
+        undefined,
       ]
     }
   >

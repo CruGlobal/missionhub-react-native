@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { SafeAreaView, View, Image, ImageSourcePropType } from 'react-native';
+import {
+  SafeAreaView,
+  View,
+  Image,
+  ImageSourcePropType,
+  Text,
+} from 'react-native';
 import { useTranslation } from 'react-i18next';
 import i18Next from 'i18next';
 import { connect } from 'react-redux-legacy';
@@ -10,13 +16,7 @@ import {
   keyLoginWithAuthorizationCode,
   openKeyURL,
 } from '../../../actions/auth/key';
-import {
-  Text,
-  Button,
-  Flex,
-  Icon,
-  LoadingWheel,
-} from '../../../components/common';
+import { Button, Flex, Icon, LoadingWheel } from '../../../components/common';
 import DeprecatedBackButton from '../../DeprecatedBackButton';
 import LOGO from '../../../../assets/images/missionHubLogoWords.png';
 import PEOPLE from '../../../../assets/images/MemberContacts_light.png';
@@ -110,9 +110,7 @@ const SignUpScreen = ({
       style={styles.headerContainer}
     >
       <Image source={image} />
-      <Text header={true} style={styles.headerText}>
-        {title.toUpperCase()}
-      </Text>
+      <Text style={styles.headerText}>{title.toUpperCase()}</Text>
       <Text style={styles.descriptionText}>{description}</Text>
     </Flex>
   );

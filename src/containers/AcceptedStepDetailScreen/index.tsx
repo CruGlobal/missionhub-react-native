@@ -3,24 +3,42 @@ import { View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 
 import { Button, Icon } from '../../components/common';
-import { completeStep, deleteStepWithTracking } from '../../actions/steps';
-import { removeStepReminder } from '../../actions/stepReminders';
+import {
+  handleAfterCompleteStep,
+  removeFromStepsList,
+} from '../../actions/steps';
+import { REFRESH_STEP_REMINDER_QUERY } from '../../actions/stepReminders';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { navigateBack } from '../../actions/navigation';
 import ReminderButton from '../../components/ReminderButton';
 import ReminderDateText from '../../components/ReminderDateText';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { trackStepDeleted } from '../../actions/analytics';
 
 import styles from './styles';
-import { ACCEPTED_STEP_DETAIL_QUERY } from './queries';
+import {
+  ACCEPTED_STEP_DETAIL_QUERY,
+  DELETE_STEP_MUTATION,
+  DELETE_STEP_REMINDER_MUTATION,
+  COMPLETE_STEP_MUTATION,
+} from './queries';
 import {
   AcceptedStepDetail,
   AcceptedStepDetailVariables,
 } from './__generated__/AcceptedStepDetail';
+import { DeleteStep, DeleteStepVariables } from './__generated__/DeleteStep';
+import {
+  DeleteReminder,
+  DeleteReminderVariables,
+} from './__generated__/DeleteReminder';
+import {
+  CompleteStep,
+  CompleteStepVariables,
+} from './__generated__/CompleteStep';
 
 const AcceptedStepDetailScreen = () => {
   const { t } = useTranslation('acceptedStepDetail');
@@ -38,28 +56,68 @@ const AcceptedStepDetailScreen = () => {
     variables: { id: useNavigationParam('stepId') },
   });
 
+  const [completeStep] = useMutation<CompleteStep, CompleteStepVariables>(
+    COMPLETE_STEP_MUTATION,
+    {
+      onCompleted: data => {
+        data.markStepAsCompleted?.step &&
+          dispatch(
+            handleAfterCompleteStep(
+              {
+                id: data.markStepAsCompleted?.step?.id,
+                receiver: data.markStepAsCompleted?.step?.receiver,
+                community: data.markStepAsCompleted?.step?.community,
+              },
+              'Step Detail',
+              true,
+            ),
+          );
+      },
+    },
+  );
+
+  const [deleteStep] = useMutation<DeleteStep, DeleteStepVariables>(
+    DELETE_STEP_MUTATION,
+    {
+      onCompleted: data => {
+        dispatch(trackStepDeleted('Step Detail'));
+        data.deleteStep?.id &&
+          removeFromStepsList(data.deleteStep.id, personId);
+      },
+    },
+  );
+
+  const [deleteStepReminder] = useMutation<
+    DeleteReminder,
+    DeleteReminderVariables
+  >(DELETE_STEP_REMINDER_MUTATION, {
+    refetchQueries: [
+      {
+        query: REFRESH_STEP_REMINDER_QUERY,
+        variables: { stepId: step && step.id },
+      },
+    ],
+  });
+
   const post = step?.post;
   const handleCompleteStep = () =>
     step &&
-    dispatch(
-      completeStep(
-        {
+    completeStep({
+      variables: {
+        input: {
           id: step.id,
-          receiver: step.receiver,
-          organization: step.community || undefined,
         },
-        'Step Detail',
-        true,
-      ),
-    );
+      },
+    });
 
   const handleRemoveStep = () => {
-    step && dispatch(deleteStepWithTracking(step, 'Step Detail'));
+    step && deleteStep({ variables: { input: { id: step.id } } });
     dispatch(navigateBack());
   };
 
   const handleRemoveReminder = () =>
-    step && dispatch(removeStepReminder(step.id));
+    step?.reminder &&
+    deleteStepReminder({ variables: { input: { id: step.reminder?.id } } });
 
   const renderReminderButton = () =>
     !step ? null : (

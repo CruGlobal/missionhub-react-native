@@ -68,42 +68,37 @@ exports[`OnboardingCard render celebrate card 1`] = `
     />
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#007398",
-            "fontSize": 24,
-            "fontWeight": "300",
-            "paddingTop": 5,
-            "textAlign": "center",
-          },
-        ]
+        Object {
+          "color": "#007398",
+          "fontFamily": "SourceSansPro-Light",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "paddingTop": 5,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Celebrate One Another
     </Text>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#505256",
-            "fontSize": 16,
-            "paddingHorizontal": 50,
-            "paddingVertical": 5,
-            "textAlign": "center",
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "paddingHorizontal": 50,
+          "paddingVertical": 5,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       See and celebrate one another's Steps of Faith.
@@ -200,42 +195,37 @@ exports[`OnboardingCard render challenges card | Admin 1`] = `
     />
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#007398",
-            "fontSize": 24,
-            "fontWeight": "300",
-            "paddingTop": 5,
-            "textAlign": "center",
-          },
-        ]
+        Object {
+          "color": "#007398",
+          "fontFamily": "SourceSansPro-Light",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "paddingTop": 5,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Our Challenges
     </Text>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#505256",
-            "fontSize": 16,
-            "paddingHorizontal": 50,
-            "paddingVertical": 5,
-            "textAlign": "center",
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "paddingHorizontal": 50,
+          "paddingVertical": 5,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Create a community challenge everyone can join.
@@ -330,42 +320,37 @@ exports[`OnboardingCard render challenges card | Member 1`] = `
     />
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#007398",
-            "fontSize": 24,
-            "fontWeight": "300",
-            "paddingTop": 5,
-            "textAlign": "center",
-          },
-        ]
+        Object {
+          "color": "#007398",
+          "fontFamily": "SourceSansPro-Light",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "paddingTop": 5,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Our Challenges
     </Text>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#505256",
-            "fontSize": 16,
-            "paddingHorizontal": 50,
-            "paddingVertical": 5,
-            "textAlign": "center",
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "paddingHorizontal": 50,
+          "paddingVertical": 5,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Join each other in a challenge created for your community.
@@ -460,42 +445,37 @@ exports[`OnboardingCard render challenges card hidden 1`] = `
     />
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#007398",
-            "fontSize": 24,
-            "fontWeight": "300",
-            "paddingTop": 5,
-            "textAlign": "center",
-          },
-        ]
+        Object {
+          "color": "#007398",
+          "fontFamily": "SourceSansPro-Light",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "paddingTop": 5,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Celebrate One Another
     </Text>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#505256",
-            "fontSize": 16,
-            "paddingHorizontal": 50,
-            "paddingVertical": 5,
-            "textAlign": "center",
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "paddingHorizontal": 50,
+          "paddingVertical": 5,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       See and celebrate one another's Steps of Faith.
@@ -590,42 +570,37 @@ exports[`OnboardingCard render impact card 1`] = `
     />
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#007398",
-            "fontSize": 24,
-            "fontWeight": "300",
-            "paddingTop": 5,
-            "textAlign": "center",
-          },
-        ]
+        Object {
+          "color": "#007398",
+          "fontFamily": "SourceSansPro-Light",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "paddingTop": 5,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       See God at Work
     </Text>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#505256",
-            "fontSize": 16,
-            "paddingHorizontal": 50,
-            "paddingVertical": 5,
-            "textAlign": "center",
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "paddingHorizontal": 50,
+          "paddingVertical": 5,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       See what God is doing as you take Steps of Faith together. 
@@ -722,42 +697,37 @@ exports[`OnboardingCard render steps card 1`] = `
     />
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#007398",
-            "fontSize": 24,
-            "fontWeight": "300",
-            "paddingTop": 5,
-            "textAlign": "center",
-          },
-        ]
+        Object {
+          "color": "#007398",
+          "fontFamily": "SourceSansPro-Light",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "paddingTop": 5,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Steps of Faith
     </Text>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#505256",
-            "fontSize": 16,
-            "paddingHorizontal": 50,
-            "paddingVertical": 5,
-            "textAlign": "center",
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "paddingHorizontal": 50,
+          "paddingVertical": 5,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Choose a person in People view to add a new step
@@ -854,42 +824,37 @@ exports[`handles press event from the close button 1`] = `
     />
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#007398",
-            "fontSize": 24,
-            "fontWeight": "300",
-            "paddingTop": 5,
-            "textAlign": "center",
-          },
-        ]
+        Object {
+          "color": "#007398",
+          "fontFamily": "SourceSansPro-Light",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "paddingTop": 5,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Celebrate One Another
     </Text>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#505256",
-            "fontSize": 16,
-            "paddingHorizontal": 50,
-            "paddingVertical": 5,
-            "textAlign": "center",
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "paddingHorizontal": 50,
+          "paddingVertical": 5,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       See and celebrate one another's Steps of Faith.

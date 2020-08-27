@@ -20,7 +20,9 @@ describe('back button', () => {
   });
 
   it('renders with different color', () => {
-    renderWithContext(<BackButton iconColor={theme.parakeetBlue} />).snapshot();
+    renderWithContext(
+      <BackButton iconColor={theme.secondaryColor} />,
+    ).snapshot();
   });
 
   it('calls navigate back once', () => {

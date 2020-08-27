@@ -14,6 +14,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
+    ...theme.textRegular16,
     fontSize: 24,
     textAlign: 'left',
     paddingVertical: 10,

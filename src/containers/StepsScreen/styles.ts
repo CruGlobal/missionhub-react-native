@@ -14,14 +14,14 @@ export default StyleSheet.create({
   list: {
     paddingVertical: 8,
   },
-  headerTitle: { fontSize: 16, lineHeight: 24, fontWeight: '400' },
+  headerTitle: { ...theme.textRegular16, color: theme.white },
   nullWrap: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
   nullHeader: {
-    fontSize: 42,
+    ...theme.textAmatic42,
     color: theme.primaryColor,
     paddingTop: 10,
   },
@@ -30,8 +30,7 @@ export default StyleSheet.create({
     paddingVertical: 10,
   },
   nullText: {
-    fontSize: 16,
-    color: theme.textColor,
+    ...theme.textRegular16,
     textAlign: 'center',
   },
 });

@@ -4,7 +4,7 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: theme.impactBlue,
+    backgroundColor: theme.secondaryColor,
   },
   image: {
     backgroundColor: theme.secondaryColor,
@@ -14,6 +14,7 @@ export default StyleSheet.create({
     height: (205 / 375) * theme.fullWidth,
   },
   text: {
+    ...theme.textRegular16,
     fontSize: 28,
     color: theme.white,
     width: 270,
@@ -27,6 +28,6 @@ export default StyleSheet.create({
   bottomSection: {
     alignItems: 'center',
     paddingBottom: 40,
-    backgroundColor: theme.impactBlue,
+    backgroundColor: theme.secondaryColor,
   },
 });

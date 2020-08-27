@@ -51,9 +51,9 @@ exports[`render card with children 1`] = `
   }
 >
   <View>
-    <MyText>
+    <Text>
       Testing
-    </MyText>
+    </Text>
   </View>
 </View>
 `;
@@ -115,9 +115,9 @@ exports[`render touchable card with children 1`] = `
   }
 >
   <View>
-    <MyText>
+    <Text>
       Testing
-    </MyText>
+    </Text>
   </View>
 </ForwardRef>
 `;
