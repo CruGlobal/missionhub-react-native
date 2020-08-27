@@ -146,59 +146,40 @@ Take a moment and pray. Who do you want to take steps of faith with?
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#3CC8E6",
+            "borderRadius": 50,
+            "height": 48,
+            "justifyContent": "center",
             "opacity": 1,
+            "width": 650,
           }
         }
         testID="bottomButton"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "#3CC8E6",
-                "height": 60,
-                "justifyContent": "center",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
               Array [
-                Object {
-                  "alignItems": "center",
-                  "height": 48,
-                  "width": 650,
-                },
                 undefined,
               ],
-              Object {
-                "borderRadius": 50,
-              },
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 14,
-                  "fontStyle": "normal",
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "lineHeight": 18,
-                  "textAlign": "center",
-                  "textAlignVertical": "center",
-                  "textTransform": "uppercase",
-                },
-                Array [
-                  undefined,
-                ],
-              ]
-            }
-          >
-            ADD SOMEONE
-          </Text>
-        </View>
+          ADD SOMEONE
+        </Text>
       </View>
     </RCTSafeAreaView>
   </View>
@@ -275,59 +256,47 @@ exports[`AddStepScreen next renders correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
                       Object {
-                        "fontSize": 18,
+                        "color": "#B4B6BA",
                       },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                        },
-                      ],
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -486,59 +455,40 @@ exports[`AddStepScreen next renders correctly 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                undefined,
-              ],
-            ]
-          }
-        >
-          ADD TO MY STEPS
-        </Text>
-      </View>
+        ADD TO MY STEPS
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -656,57 +606,45 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        undefined,
-                      ],
+                      undefined,
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -744,35 +682,23 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="SelectStepExplainerIconButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#ffffff"
-              />
-            </View>
+            <SvgMock
+              color="#ffffff"
+            />
           </View>
         </View>
       </View>
@@ -1361,57 +1287,45 @@ exports[`SelectStageScreen renders correctly 1`] = `
               onStartShouldSetResponder={[Function]}
               style={
                 Object {
+                  "backgroundColor": "transparent",
                   "opacity": 1,
                 }
               }
               testID="IconButton"
             >
-              <View
+              <Text
+                allowFontScaling={false}
                 style={
                   Array [
                     Object {
-                      "backgroundColor": "transparent",
+                      "color": undefined,
+                      "fontSize": 12,
                     },
-                    null,
-                    Object {},
-                    null,
-                  ]
-                }
-              >
-                <Text
-                  allowFontScaling={false}
-                  style={
                     Array [
                       Object {
-                        "color": undefined,
-                        "fontSize": 12,
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
                       },
                       Array [
                         Object {
-                          "color": "#ffffff",
+                          "margin": 10,
                         },
-                        Object {
-                          "fontSize": 18,
-                        },
-                        Array [
-                          Object {
-                            "margin": 10,
-                          },
-                          undefined,
-                        ],
+                        undefined,
                       ],
-                      Object {
-                        "fontFamily": "icomoon",
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  
-                </Text>
-              </View>
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
             </View>
           </View>
         </View>
@@ -1635,57 +1549,45 @@ exports[`SetupPersonScreen next renders without skip button correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        undefined,
-                      ],
+                      undefined,
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -1876,59 +1778,40 @@ exports[`SetupPersonScreen next renders without skip button correctly 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                undefined,
-              ],
-            ]
-          }
-        >
-          CONTINUE
-        </Text>
-      </View>
+        CONTINUE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -1990,42 +1873,24 @@ exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#B4B6BA"
-            />
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+          />
         </View>
       </View>
       <View
@@ -2151,59 +2016,40 @@ exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                undefined,
-              ],
-            ]
-          }
-        >
-          ADD TO MY STEPS
-        </Text>
-      </View>
+        ADD TO MY STEPS
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>

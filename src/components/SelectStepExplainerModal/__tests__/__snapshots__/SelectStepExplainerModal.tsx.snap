@@ -1483,65 +1483,50 @@ exports[`renders correctly render with Got It Button 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
+          "marginHorizontal": 30,
+          "marginVertical": 15,
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="SelectStepExplainerGotItButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Object {
-              "height": 48,
-              "marginHorizontal": 30,
-              "marginVertical": 15,
-              "width": 650,
-            },
-            Object {
-              "borderRadius": 50,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-            ]
-          }
-        >
-          GOT IT!
-        </Text>
-      </View>
+        GOT IT!
+      </Text>
     </View>
     <View
       style={
@@ -1572,63 +1557,49 @@ exports[`renders correctly render with Got It Button 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "backgroundColor": "rgba(0,0,0,0.25)",
+            "borderRadius": 30,
             "opacity": 1,
           }
         }
         testID="IconButton"
       >
-        <View
+        <Text
+          allowFontScaling={false}
           style={
             Array [
               Object {
-                "backgroundColor": "transparent",
+                "color": undefined,
+                "fontSize": 12,
               },
-              null,
-              Object {
-                "backgroundColor": "rgba(0,0,0,0.25)",
-                "borderRadius": 30,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            allowFontScaling={false}
-            style={
               Array [
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 22,
                 },
                 Array [
                   Object {
-                    "color": "#ffffff",
+                    "margin": 10,
                   },
                   Object {
-                    "fontSize": 22,
+                    "color": "#ffffff",
+                    "margin": 4,
                   },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "margin": 4,
-                    },
-                  ],
                 ],
-                Object {
-                  "fontFamily": "Material Icons",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
       </View>
     </View>
   </View>
@@ -3159,63 +3130,49 @@ exports[`renders correctly renders correctly 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "backgroundColor": "rgba(0,0,0,0.25)",
+            "borderRadius": 30,
             "opacity": 1,
           }
         }
         testID="IconButton"
       >
-        <View
+        <Text
+          allowFontScaling={false}
           style={
             Array [
               Object {
-                "backgroundColor": "transparent",
+                "color": undefined,
+                "fontSize": 12,
               },
-              null,
-              Object {
-                "backgroundColor": "rgba(0,0,0,0.25)",
-                "borderRadius": 30,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            allowFontScaling={false}
-            style={
               Array [
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 22,
                 },
                 Array [
                   Object {
-                    "color": "#ffffff",
+                    "margin": 10,
                   },
                   Object {
-                    "fontSize": 22,
+                    "color": "#ffffff",
+                    "margin": 4,
                   },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "margin": 4,
-                    },
-                  ],
                 ],
-                Object {
-                  "fontFamily": "Material Icons",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
       </View>
     </View>
   </View>

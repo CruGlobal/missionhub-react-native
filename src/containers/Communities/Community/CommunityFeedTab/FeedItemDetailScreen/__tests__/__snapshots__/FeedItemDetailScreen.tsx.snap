@@ -59,42 +59,24 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="BackButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Array [
-                    Object {
-                      "alignItems": "flex-start",
-                      "alignSelf": "flex-start",
-                      "justifyContent": "center",
-                    },
-                    undefined,
-                  ],
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#B4B6BA"
-              />
-            </View>
+            <SvgMock
+              color="#B4B6BA"
+            />
           </View>
         </View>
         <View
@@ -590,6 +572,14 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
+                  hitSlop={
+                    Object {
+                      "bottom": 25,
+                      "left": 25,
+                      "right": 25,
+                      "top": 25,
+                    }
+                  }
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -599,39 +589,18 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                   onStartShouldSetResponder={[Function]}
                   style={
                     Object {
+                      "backgroundColor": "transparent",
+                      "height": 24,
                       "opacity": 1,
+                      "width": 24,
                     }
                   }
                   testID="LikeIconButton"
                 >
-                  <View
-                    hitSlop={
-                      Object {
-                        "bottom": 25,
-                        "left": 25,
-                        "right": 25,
-                        "top": 25,
-                      }
-                    }
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Object {
-                          "height": 24,
-                          "width": 24,
-                        },
-                        null,
-                      ]
-                    }
-                  >
-                    <SvgMock
-                      color="#FF5532"
-                      fill="#FF5532"
-                    />
-                  </View>
+                  <SvgMock
+                    color="#FF5532"
+                    fill="#FF5532"
+                  />
                 </View>
               </View>
               <View
@@ -667,6 +636,14 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
+                  hitSlop={
+                    Object {
+                      "bottom": 25,
+                      "left": 25,
+                      "right": 25,
+                      "top": 25,
+                    }
+                  }
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -676,33 +653,13 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                   onStartShouldSetResponder={[Function]}
                   style={
                     Object {
+                      "backgroundColor": "transparent",
                       "opacity": 1,
                     }
                   }
                   testID="CommentIconButton"
                 >
-                  <View
-                    hitSlop={
-                      Object {
-                        "bottom": 25,
-                        "left": 25,
-                        "right": 25,
-                        "top": 25,
-                      }
-                    }
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Object {},
-                        null,
-                      ]
-                    }
-                  >
-                    <SvgMock />
-                  </View>
+                  <SvgMock />
                 </View>
               </View>
             </View>
@@ -965,42 +922,24 @@ exports[`edit/delete post edit and delete for my post 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="BackButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Array [
-                    Object {
-                      "alignItems": "flex-start",
-                      "alignSelf": "flex-start",
-                      "justifyContent": "center",
-                    },
-                    undefined,
-                  ],
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#B4B6BA"
-              />
-            </View>
+            <SvgMock
+              color="#B4B6BA"
+            />
           </View>
         </View>
         <View
@@ -1498,6 +1437,14 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
+                  hitSlop={
+                    Object {
+                      "bottom": 25,
+                      "left": 25,
+                      "right": 25,
+                      "top": 25,
+                    }
+                  }
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -1507,39 +1454,18 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                   onStartShouldSetResponder={[Function]}
                   style={
                     Object {
+                      "backgroundColor": "transparent",
+                      "height": 24,
                       "opacity": 1,
+                      "width": 24,
                     }
                   }
                   testID="LikeIconButton"
                 >
-                  <View
-                    hitSlop={
-                      Object {
-                        "bottom": 25,
-                        "left": 25,
-                        "right": 25,
-                        "top": 25,
-                      }
-                    }
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Object {
-                          "height": 24,
-                          "width": 24,
-                        },
-                        null,
-                      ]
-                    }
-                  >
-                    <SvgMock
-                      color="#FF5532"
-                      fill="#FF5532"
-                    />
-                  </View>
+                  <SvgMock
+                    color="#FF5532"
+                    fill="#FF5532"
+                  />
                 </View>
               </View>
               <View
@@ -1575,6 +1501,14 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
+                  hitSlop={
+                    Object {
+                      "bottom": 25,
+                      "left": 25,
+                      "right": 25,
+                      "top": 25,
+                    }
+                  }
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -1584,33 +1518,13 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                   onStartShouldSetResponder={[Function]}
                   style={
                     Object {
+                      "backgroundColor": "transparent",
                       "opacity": 1,
                     }
                   }
                   testID="CommentIconButton"
                 >
-                  <View
-                    hitSlop={
-                      Object {
-                        "bottom": 25,
-                        "left": 25,
-                        "right": 25,
-                        "top": 25,
-                      }
-                    }
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Object {},
-                        null,
-                      ]
-                    }
-                  >
-                    <SvgMock />
-                  </View>
+                  <SvgMock />
                 </View>
               </View>
             </View>
@@ -1873,42 +1787,24 @@ exports[`edit/delete post no options for not my post 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="BackButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Array [
-                    Object {
-                      "alignItems": "flex-start",
-                      "alignSelf": "flex-start",
-                      "justifyContent": "center",
-                    },
-                    undefined,
-                  ],
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#B4B6BA"
-              />
-            </View>
+            <SvgMock
+              color="#B4B6BA"
+            />
           </View>
         </View>
         <View
@@ -2370,6 +2266,14 @@ exports[`edit/delete post no options for not my post 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
+                  hitSlop={
+                    Object {
+                      "bottom": 25,
+                      "left": 25,
+                      "right": 25,
+                      "top": 25,
+                    }
+                  }
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -2379,39 +2283,18 @@ exports[`edit/delete post no options for not my post 1`] = `
                   onStartShouldSetResponder={[Function]}
                   style={
                     Object {
+                      "backgroundColor": "transparent",
+                      "height": 24,
                       "opacity": 1,
+                      "width": 24,
                     }
                   }
                   testID="LikeIconButton"
                 >
-                  <View
-                    hitSlop={
-                      Object {
-                        "bottom": 25,
-                        "left": 25,
-                        "right": 25,
-                        "top": 25,
-                      }
-                    }
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Object {
-                          "height": 24,
-                          "width": 24,
-                        },
-                        null,
-                      ]
-                    }
-                  >
-                    <SvgMock
-                      color="#FF5532"
-                      fill="#FF5532"
-                    />
-                  </View>
+                  <SvgMock
+                    color="#FF5532"
+                    fill="#FF5532"
+                  />
                 </View>
               </View>
               <View
@@ -2447,6 +2330,14 @@ exports[`edit/delete post no options for not my post 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
+                  hitSlop={
+                    Object {
+                      "bottom": 25,
+                      "left": 25,
+                      "right": 25,
+                      "top": 25,
+                    }
+                  }
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -2456,33 +2347,13 @@ exports[`edit/delete post no options for not my post 1`] = `
                   onStartShouldSetResponder={[Function]}
                   style={
                     Object {
+                      "backgroundColor": "transparent",
                       "opacity": 1,
                     }
                   }
                   testID="CommentIconButton"
                 >
-                  <View
-                    hitSlop={
-                      Object {
-                        "bottom": 25,
-                        "left": 25,
-                        "right": 25,
-                        "top": 25,
-                      }
-                    }
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Object {},
-                        null,
-                      ]
-                    }
-                  >
-                    <SvgMock />
-                  </View>
+                  <SvgMock />
                 </View>
               </View>
             </View>
@@ -2691,7 +2562,7 @@ exports[`refresh calls refreshComments 1`] = `
 - First value
 + Second value
 
-@@ -134,11 +134,11 @@
+@@ -116,11 +116,11 @@
                     \\"textAlignVertical\\": \\"center\\",
                     \\"textTransform\\": \\"none\\",
                   }
@@ -2704,7 +2575,7 @@ exports[`refresh calls refreshComments 1`] = `
           </View>
           <View
             style={
-@@ -179,32 +179,32 @@
+@@ -161,32 +161,32 @@
       }
       data={
         Array [
@@ -2751,7 +2622,7 @@ exports[`refresh calls refreshComments 1`] = `
         ]
       }
       disableVirtualization={false}
-@@ -266,22 +266,22 @@
+@@ -248,22 +248,22 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -2776,7 +2647,7 @@ exports[`refresh calls refreshComments 1`] = `
                   ]
                 }
               />
-@@ -325,11 +325,11 @@
+@@ -307,11 +307,11 @@
                         \\"textTransform\\": \\"none\\",
                       },
                     ]
@@ -2789,7 +2660,7 @@ exports[`refresh calls refreshComments 1`] = `
                   style={
                     Array [
                       Object {
-@@ -354,23 +354,40 @@
+@@ -336,23 +336,40 @@
                       },
                     ]
                   }
@@ -2831,7 +2702,7 @@ exports[`refresh calls refreshComments 1`] = `
                 Object {
                   \\"color\\": \\"#505256\\",
                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-@@ -383,11 +400,11 @@
+@@ -365,11 +382,11 @@
                   \\"textAlignVertical\\": \\"center\\",
                   \\"textTransform\\": \\"none\\",
                 }
@@ -2844,21 +2715,21 @@ exports[`refresh calls refreshComments 1`] = `
           <View
             style={
               Array [
-@@ -551,11 +568,12 @@
-                          null,
-                        ]
+@@ -521,11 +538,12 @@
                       }
-                    >
-                      <SvgMock
--                       color=\\"#505256\\"
-+                       color=\\"#FF5532\\"
-+                       fill=\\"#FF5532\\"
-                      />
-                    </View>
+                    }
+                    testID=\\"LikeIconButton\\"
+                  >
+                    <SvgMock
+-                     color=\\"#505256\\"
++                     color=\\"#FF5532\\"
++                     fill=\\"#FF5532\\"
+                    />
                   </View>
                 </View>
                 <View
-@@ -584,11 +602,11 @@
+                  style={
+@@ -553,11 +571,11 @@
                         \\"textTransform\\": \\"none\\",
                         \\"width\\": 30,
                       }
@@ -2870,8 +2741,8 @@ exports[`refresh calls refreshComments 1`] = `
                   <View
                     accessible={true}
                     focusable={true}
-                    onClick={[Function onClick]}
-@@ -652,28 +670,29 @@
+                    hitSlop={
+@@ -609,28 +627,29 @@
         >
           <CommentItem
             comment={
@@ -2909,7 +2780,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -684,28 +703,29 @@
+@@ -641,28 +660,29 @@
         >
           <CommentItem
             comment={
@@ -2947,7 +2818,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -725,22 +745,22 @@
+@@ -682,22 +702,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
@@ -3033,42 +2904,24 @@ exports[`renders correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="BackButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Array [
-                    Object {
-                      "alignItems": "flex-start",
-                      "alignSelf": "flex-start",
-                      "justifyContent": "center",
-                    },
-                    undefined,
-                  ],
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#B4B6BA"
-              />
-            </View>
+            <SvgMock
+              color="#B4B6BA"
+            />
           </View>
         </View>
         <View
@@ -3530,6 +3383,14 @@ exports[`renders correctly 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
+                  hitSlop={
+                    Object {
+                      "bottom": 25,
+                      "left": 25,
+                      "right": 25,
+                      "top": 25,
+                    }
+                  }
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -3539,39 +3400,18 @@ exports[`renders correctly 1`] = `
                   onStartShouldSetResponder={[Function]}
                   style={
                     Object {
+                      "backgroundColor": "transparent",
+                      "height": 24,
                       "opacity": 1,
+                      "width": 24,
                     }
                   }
                   testID="LikeIconButton"
                 >
-                  <View
-                    hitSlop={
-                      Object {
-                        "bottom": 25,
-                        "left": 25,
-                        "right": 25,
-                        "top": 25,
-                      }
-                    }
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Object {
-                          "height": 24,
-                          "width": 24,
-                        },
-                        null,
-                      ]
-                    }
-                  >
-                    <SvgMock
-                      color="#FF5532"
-                      fill="#FF5532"
-                    />
-                  </View>
+                  <SvgMock
+                    color="#FF5532"
+                    fill="#FF5532"
+                  />
                 </View>
               </View>
               <View
@@ -3607,6 +3447,14 @@ exports[`renders correctly 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
+                  hitSlop={
+                    Object {
+                      "bottom": 25,
+                      "left": 25,
+                      "right": 25,
+                      "top": 25,
+                    }
+                  }
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -3616,33 +3464,13 @@ exports[`renders correctly 1`] = `
                   onStartShouldSetResponder={[Function]}
                   style={
                     Object {
+                      "backgroundColor": "transparent",
                       "opacity": 1,
                     }
                   }
                   testID="CommentIconButton"
                 >
-                  <View
-                    hitSlop={
-                      Object {
-                        "bottom": 25,
-                        "left": 25,
-                        "right": 25,
-                        "top": 25,
-                      }
-                    }
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Object {},
-                        null,
-                      ]
-                    }
-                  >
-                    <SvgMock />
-                  </View>
+                  <SvgMock />
                 </View>
               </View>
             </View>
@@ -3905,42 +3733,24 @@ exports[`renders correctly with communityId passed in 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="BackButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Array [
-                    Object {
-                      "alignItems": "flex-start",
-                      "alignSelf": "flex-start",
-                      "justifyContent": "center",
-                    },
-                    undefined,
-                  ],
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#B4B6BA"
-              />
-            </View>
+            <SvgMock
+              color="#B4B6BA"
+            />
           </View>
         </View>
         <View
@@ -4402,6 +4212,14 @@ exports[`renders correctly with communityId passed in 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
+                  hitSlop={
+                    Object {
+                      "bottom": 25,
+                      "left": 25,
+                      "right": 25,
+                      "top": 25,
+                    }
+                  }
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -4411,39 +4229,18 @@ exports[`renders correctly with communityId passed in 1`] = `
                   onStartShouldSetResponder={[Function]}
                   style={
                     Object {
+                      "backgroundColor": "transparent",
+                      "height": 24,
                       "opacity": 1,
+                      "width": 24,
                     }
                   }
                   testID="LikeIconButton"
                 >
-                  <View
-                    hitSlop={
-                      Object {
-                        "bottom": 25,
-                        "left": 25,
-                        "right": 25,
-                        "top": 25,
-                      }
-                    }
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Object {
-                          "height": 24,
-                          "width": 24,
-                        },
-                        null,
-                      ]
-                    }
-                  >
-                    <SvgMock
-                      color="#FF5532"
-                      fill="#FF5532"
-                    />
-                  </View>
+                  <SvgMock
+                    color="#FF5532"
+                    fill="#FF5532"
+                  />
                 </View>
               </View>
               <View
@@ -4479,6 +4276,14 @@ exports[`renders correctly with communityId passed in 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
+                  hitSlop={
+                    Object {
+                      "bottom": 25,
+                      "left": 25,
+                      "right": 25,
+                      "top": 25,
+                    }
+                  }
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -4488,33 +4293,13 @@ exports[`renders correctly with communityId passed in 1`] = `
                   onStartShouldSetResponder={[Function]}
                   style={
                     Object {
+                      "backgroundColor": "transparent",
                       "opacity": 1,
                     }
                   }
                   testID="CommentIconButton"
                 >
-                  <View
-                    hitSlop={
-                      Object {
-                        "bottom": 25,
-                        "left": 25,
-                        "right": 25,
-                        "top": 25,
-                      }
-                    }
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Object {},
-                        null,
-                      ]
-                    }
-                  >
-                    <SvgMock />
-                  </View>
+                  <SvgMock />
                 </View>
               </View>
             </View>
@@ -4777,42 +4562,24 @@ exports[`renders loading 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="BackButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Array [
-                    Object {
-                      "alignItems": "flex-start",
-                      "alignSelf": "flex-start",
-                      "justifyContent": "center",
-                    },
-                    undefined,
-                  ],
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#B4B6BA"
-              />
-            </View>
+            <SvgMock
+              color="#B4B6BA"
+            />
           </View>
         </View>
         <View

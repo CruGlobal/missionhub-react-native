@@ -5,27 +5,25 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 - First value
 + Second value
 
-@@ -180,11 +180,11 @@
-                        \\"textTransform\\": \\"uppercase\\",
-                      },
-                    ]
-                  }
-                >
--                 EDIT
-+                 DONE
-                </Text>
-              </View>
+@@ -156,11 +156,11 @@
+                      \\"textTransform\\": \\"uppercase\\",
+                    },
+                  ]
+                }
+              >
+-               EDIT
++               DONE
+              </Text>
             </View>
           </View>
         </View>
-@@ -193,12 +193,29 @@
-    <View
-      style={
+      </RCTSafeAreaView>
+@@ -170,10 +170,27 @@
         Object {
           \\"backgroundColor\\": \\"#505256\\",
           \\"flex\\": 1,
-+       }
-+     }
+        }
+      }
 +   >
 +     <View
 +       accessible={true}
@@ -40,15 +38,15 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 +       style={
 +         Object {
 +           \\"opacity\\": 1,
-          }
-        }
++         }
++       }
 +       testID=\\"popupMenuButton\\"
       >
         <View
           style={
             Array [
               Object {
-@@ -225,13 +242,37 @@
+@@ -200,13 +217,37 @@
             style={
               Object {
                 \\"borderRadius\\": 4,
@@ -86,7 +84,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
         keyboardShouldPersistTaps=\\"handled\\"
         style={
           Object {
-@@ -252,27 +293,140 @@
+@@ -227,27 +268,124 @@
                   \\"flexDirection\\": \\"row\\",
                 },
               ]
@@ -154,74 +152,58 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 +             onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +             style={
 +               Object {
++                 \\"alignItems\\": \\"center\\",
++                 \\"backgroundColor\\": \\"transparent\\",
++                 \\"justifyContent\\": \\"center\\",
 +                 \\"opacity\\": 1,
                 }
               }
 +             testID=\\"IconButton\\"
             >
 -             esse repellat quisquam
-+             <View
++             <Text
++               allowFontScaling={false}
 +               style={
 +                 Array [
 +                   Object {
-+                     \\"backgroundColor\\": \\"transparent\\",
++                     \\"color\\": undefined,
++                     \\"fontSize\\": 12,
 +                   },
-+                   null,
 +                   Array [
 +                     Object {
-+                       \\"alignItems\\": \\"center\\",
-+                       \\"justifyContent\\": \\"center\\",
++                       \\"color\\": \\"#ffffff\\",
 +                     },
-+                     undefined,
-+                   ],
-+                   null,
-+                 ]
-+               }
-+             >
-+               <Text
-+                 allowFontScaling={false}
-+                 style={
-+                   Array [
 +                     Object {
-+                       \\"color\\": undefined,
-+                       \\"fontSize\\": 12,
++                       \\"fontSize\\": 20,
 +                     },
 +                     Array [
 +                       Object {
-+                         \\"color\\": \\"#ffffff\\",
-+                       },
-+                       Object {
-+                         \\"fontSize\\": 20,
++                         \\"margin\\": 10,
 +                       },
 +                       Array [
 +                         Object {
-+                           \\"margin\\": 10,
++                           \\"color\\": \\"#B4B6BA\\",
++                           \\"margin\\": 0,
++                           \\"paddingHorizontal\\": 10,
 +                         },
-+                         Array [
-+                           Object {
-+                             \\"color\\": \\"#B4B6BA\\",
-+                             \\"margin\\": 0,
-+                             \\"paddingHorizontal\\": 10,
-+                           },
-+                           Object {
-+                             \\"color\\": \\"#ffffff\\",
-+                             \\"marginLeft\\": 15,
-+                           },
-+                         ],
++                         Object {
++                           \\"color\\": \\"#ffffff\\",
++                           \\"marginLeft\\": 15,
++                         },
 +                       ],
 +                     ],
-+                     Object {
-+                       \\"fontFamily\\": \\"icomoon\\",
-+                       \\"fontStyle\\": \\"normal\\",
-+                       \\"fontWeight\\": \\"normal\\",
-+                     },
-+                     Object {},
-+                   ]
-+                 }
-+               >
-+                 
-                </Text>
-+             </View>
++                   ],
++                   Object {
++                     \\"fontFamily\\": \\"icomoon\\",
++                     \\"fontStyle\\": \\"normal\\",
++                     \\"fontWeight\\": \\"normal\\",
++                   },
++                   Object {},
++                 ]
++               }
++             >
++               
+              </Text>
             </View>
 +         </View>
           <View
@@ -229,96 +211,74 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
               Array [
                 Object {
                   \\"marginHorizontal\\": 20,
-@@ -517,25 +671,30 @@
+@@ -489,18 +627,18 @@
+              onResponderTerminate={[Function onResponderTerminate]}
+              onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+              onStartShouldSetResponder={[Function onStartShouldSetResponder]}
               style={
                 Object {
+-                 \\"backgroundColor\\": \\"#3CC8E6\\",
++                 \\"backgroundColor\\": \\"#FF5532\\",
+                  \\"borderRadius\\": 15,
                   \\"opacity\\": 1,
+                  \\"paddingHorizontal\\": 20,
+                  \\"paddingVertical\\": 7,
                 }
               }
 -             testID=\\"copyCodeButton\\"
 +             testID=\\"newCodeButton\\"
             >
-              <View
+              <Text
                 style={
                   Array [
                     Object {
-                      \\"backgroundColor\\": \\"transparent\\",
+@@ -527,11 +665,11 @@
+                      \\"textTransform\\": \\"uppercase\\",
                     },
-                    null,
-+                   Array [
-                      Object {
-                        \\"backgroundColor\\": \\"#3CC8E6\\",
-                        \\"borderRadius\\": 15,
-                        \\"paddingHorizontal\\": 20,
-                        \\"paddingVertical\\": 7,
-                      },
-+                     Object {
-+                       \\"backgroundColor\\": \\"#FF5532\\",
-+                     },
-+                   ],
-                    null,
                   ]
                 }
               >
-                <Text
-@@ -565,11 +724,11 @@
-                        \\"textTransform\\": \\"uppercase\\",
-                      },
-                    ]
-                  }
-                >
--                 COPY
-+                 NEW CODE
-                </Text>
-              </View>
+-               COPY
++               NEW CODE
+              </Text>
             </View>
           </View>
           <View
-@@ -657,25 +816,30 @@
+            style={
+@@ -615,18 +753,18 @@
+              onResponderTerminate={[Function onResponderTerminate]}
+              onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+              onStartShouldSetResponder={[Function onStartShouldSetResponder]}
               style={
                 Object {
+-                 \\"backgroundColor\\": \\"#3CC8E6\\",
++                 \\"backgroundColor\\": \\"#FF5532\\",
+                  \\"borderRadius\\": 15,
                   \\"opacity\\": 1,
+                  \\"paddingHorizontal\\": 20,
+                  \\"paddingVertical\\": 7,
                 }
               }
 -             testID=\\"copyUrlButton\\"
 +             testID=\\"newUrlButton\\"
             >
-              <View
+              <Text
                 style={
                   Array [
                     Object {
-                      \\"backgroundColor\\": \\"transparent\\",
+@@ -653,11 +791,11 @@
+                      \\"textTransform\\": \\"uppercase\\",
                     },
-                    null,
-+                   Array [
-                      Object {
-                        \\"backgroundColor\\": \\"#3CC8E6\\",
-                        \\"borderRadius\\": 15,
-                        \\"paddingHorizontal\\": 20,
-                        \\"paddingVertical\\": 7,
-+                     },
-+                     Object {
-+                       \\"backgroundColor\\": \\"#FF5532\\",
-                      },
-+                   ],
-                    null,
                   ]
                 }
               >
-                <Text
-@@ -705,11 +869,11 @@
-                        \\"textTransform\\": \\"uppercase\\",
-                      },
-                    ]
-                  }
-                >
--                 COPY
-+                 NEW LINK
-                </Text>
-              </View>
+-               COPY
++               NEW LINK
+              </Text>
             </View>
           </View>
-          <View"
+          <View
+            style={"
 `;
 
 exports[`CommunityProfile edit screen should stop editing 1`] = `
@@ -326,27 +286,25 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 - First value
 + Second value
 
-@@ -180,11 +180,11 @@
-                        \\"textTransform\\": \\"uppercase\\",
-                      },
-                    ]
-                  }
-                >
--                 DONE
-+                 EDIT
-                </Text>
-              </View>
+@@ -156,11 +156,11 @@
+                      \\"textTransform\\": \\"uppercase\\",
+                    },
+                  ]
+                }
+              >
+-               DONE
++               EDIT
+              </Text>
             </View>
           </View>
         </View>
-@@ -193,29 +193,12 @@
-    <View
-      style={
+      </RCTSafeAreaView>
+@@ -170,27 +170,10 @@
         Object {
           \\"backgroundColor\\": \\"#505256\\",
           \\"flex\\": 1,
--       }
--     }
+        }
+      }
 -   >
 -     <View
 -       accessible={true}
@@ -361,15 +319,15 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 -       style={
 -         Object {
 -           \\"opacity\\": 1,
-        }
-      }
+-         }
+-       }
 -       testID=\\"popupMenuButton\\"
     >
       <View
         style={
           Array [
             Object {
-@@ -242,37 +225,13 @@
+@@ -217,37 +200,13 @@
           style={
             Object {
               \\"borderRadius\\": 4,
@@ -407,7 +365,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
         keyboardShouldPersistTaps=\\"handled\\"
         style={
           Object {
-@@ -293,140 +252,27 @@
+@@ -268,124 +227,27 @@
                   \\"flexDirection\\": \\"row\\",
                 },
               ]
@@ -475,74 +433,58 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 -             onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 -             style={
 -               Object {
+-                 \\"alignItems\\": \\"center\\",
+-                 \\"backgroundColor\\": \\"transparent\\",
+-                 \\"justifyContent\\": \\"center\\",
 -                 \\"opacity\\": 1,
                 }
               }
 -             testID=\\"IconButton\\"
             >
--             <View
+-             <Text
+-               allowFontScaling={false}
 -               style={
 -                 Array [
 -                   Object {
--                     \\"backgroundColor\\": \\"transparent\\",
+-                     \\"color\\": undefined,
+-                     \\"fontSize\\": 12,
 -                   },
--                   null,
 -                   Array [
 -                     Object {
--                       \\"alignItems\\": \\"center\\",
--                       \\"justifyContent\\": \\"center\\",
+-                       \\"color\\": \\"#ffffff\\",
 -                     },
--                     undefined,
--                   ],
--                   null,
--                 ]
--               }
--             >
--               <Text
--                 allowFontScaling={false}
--                 style={
--                   Array [
 -                     Object {
--                       \\"color\\": undefined,
--                       \\"fontSize\\": 12,
+-                       \\"fontSize\\": 20,
 -                     },
 -                     Array [
 -                       Object {
--                         \\"color\\": \\"#ffffff\\",
--                       },
--                       Object {
--                         \\"fontSize\\": 20,
+-                         \\"margin\\": 10,
 -                       },
 -                       Array [
 -                         Object {
--                           \\"margin\\": 10,
+-                           \\"color\\": \\"#B4B6BA\\",
+-                           \\"margin\\": 0,
+-                           \\"paddingHorizontal\\": 10,
 -                         },
--                         Array [
--                           Object {
--                             \\"color\\": \\"#B4B6BA\\",
--                             \\"margin\\": 0,
--                             \\"paddingHorizontal\\": 10,
--                           },
--                           Object {
--                             \\"color\\": \\"#ffffff\\",
--                             \\"marginLeft\\": 15,
--                           },
--                         ],
+-                         Object {
+-                           \\"color\\": \\"#ffffff\\",
+-                           \\"marginLeft\\": 15,
+-                         },
 -                       ],
 -                     ],
--                     Object {
--                       \\"fontFamily\\": \\"icomoon\\",
--                       \\"fontStyle\\": \\"normal\\",
--                       \\"fontWeight\\": \\"normal\\",
--                     },
--                     Object {},
--                   ]
--                 }
--               >
--                 
+-                   ],
+-                   Object {
+-                     \\"fontFamily\\": \\"icomoon\\",
+-                     \\"fontStyle\\": \\"normal\\",
+-                     \\"fontWeight\\": \\"normal\\",
+-                   },
+-                   Object {},
+-                 ]
+-               }
+-             >
+-               
 +             esse repellat quisquam
             </Text>
--             </View>
           </View>
 -         </View>
           <View
@@ -550,96 +492,74 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
               Array [
                 Object {
                   \\"marginHorizontal\\": 20,
-@@ -671,30 +517,25 @@
+@@ -627,18 +489,18 @@
+              onResponderTerminate={[Function onResponderTerminate]}
+              onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+              onStartShouldSetResponder={[Function onStartShouldSetResponder]}
               style={
                 Object {
+-                 \\"backgroundColor\\": \\"#FF5532\\",
++                 \\"backgroundColor\\": \\"#3CC8E6\\",
+                  \\"borderRadius\\": 15,
                   \\"opacity\\": 1,
+                  \\"paddingHorizontal\\": 20,
+                  \\"paddingVertical\\": 7,
                 }
               }
 -             testID=\\"newCodeButton\\"
 +             testID=\\"copyCodeButton\\"
             >
-              <View
+              <Text
                 style={
                   Array [
                     Object {
-                      \\"backgroundColor\\": \\"transparent\\",
+@@ -665,11 +527,11 @@
+                      \\"textTransform\\": \\"uppercase\\",
                     },
-                    null,
--                   Array [
-                    Object {
-                      \\"backgroundColor\\": \\"#3CC8E6\\",
-                      \\"borderRadius\\": 15,
-                      \\"paddingHorizontal\\": 20,
-                      \\"paddingVertical\\": 7,
-                    },
--                     Object {
--                       \\"backgroundColor\\": \\"#FF5532\\",
--                     },
--                   ],
-                    null,
                   ]
                 }
               >
-                <Text
-@@ -724,11 +565,11 @@
-                        \\"textTransform\\": \\"uppercase\\",
-                      },
-                    ]
-                  }
-                >
--                 NEW CODE
-+                 COPY
-                </Text>
-              </View>
+-               NEW CODE
++               COPY
+              </Text>
             </View>
           </View>
           <View
-@@ -816,30 +657,25 @@
+            style={
+@@ -753,18 +615,18 @@
+              onResponderTerminate={[Function onResponderTerminate]}
+              onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+              onStartShouldSetResponder={[Function onStartShouldSetResponder]}
               style={
                 Object {
+-                 \\"backgroundColor\\": \\"#FF5532\\",
++                 \\"backgroundColor\\": \\"#3CC8E6\\",
+                  \\"borderRadius\\": 15,
                   \\"opacity\\": 1,
+                  \\"paddingHorizontal\\": 20,
+                  \\"paddingVertical\\": 7,
                 }
               }
 -             testID=\\"newUrlButton\\"
 +             testID=\\"copyUrlButton\\"
             >
-              <View
+              <Text
                 style={
                   Array [
                     Object {
-                      \\"backgroundColor\\": \\"transparent\\",
+@@ -791,11 +653,11 @@
+                      \\"textTransform\\": \\"uppercase\\",
                     },
-                    null,
--                   Array [
-                    Object {
-                      \\"backgroundColor\\": \\"#3CC8E6\\",
-                      \\"borderRadius\\": 15,
-                      \\"paddingHorizontal\\": 20,
-                      \\"paddingVertical\\": 7,
--                     },
--                     Object {
--                       \\"backgroundColor\\": \\"#FF5532\\",
-                    },
--                   ],
-                    null,
                   ]
                 }
               >
-                <Text
-@@ -869,11 +705,11 @@
-                        \\"textTransform\\": \\"uppercase\\",
-                      },
-                    ]
-                  }
-                >
--                 NEW LINK
-+                 COPY
-                </Text>
-              </View>
+-               NEW LINK
++               COPY
+              </Text>
             </View>
           </View>
-          <View"
+          <View
+            style={"
 `;
 
 exports[`CommunityProfile should render correctly 1`] = `
@@ -647,7 +567,7 @@ exports[`CommunityProfile should render correctly 1`] = `
 - First value
 + Second value
 
-@@ -147,11 +147,27 @@
+@@ -135,11 +135,27 @@
               \\"alignItems\\": \\"center\\",
               \\"justifyContent\\": \\"center\\",
             },
@@ -675,7 +595,7 @@ exports[`CommunityProfile should render correctly 1`] = `
         style={
           Object {
             \\"flex\\": 1,
-@@ -184,11 +200,13 @@
+@@ -172,11 +188,13 @@
                   \\"lineHeight\\": 38,
                   \\"textAlignVertical\\": \\"center\\",
                   \\"textTransform\\": \\"none\\",
@@ -690,7 +610,7 @@ exports[`CommunityProfile should render correctly 1`] = `
             style={
               Array [
                 Object {
-@@ -240,11 +258,13 @@
+@@ -228,11 +246,13 @@
                     \\"lineHeight\\": 16,
                     \\"textAlignVertical\\": \\"center\\",
                     \\"textTransform\\": \\"none\\",
@@ -705,7 +625,7 @@ exports[`CommunityProfile should render correctly 1`] = `
               style={
                 Array [
                   Object {},
-@@ -269,10 +289,27 @@
+@@ -257,10 +277,27 @@
                   }
                 }
               >
@@ -733,7 +653,7 @@ exports[`CommunityProfile should render correctly 1`] = `
           <View
             style={
               Array [
-@@ -324,11 +361,13 @@
+@@ -312,11 +349,13 @@
                     \\"lineHeight\\": 16,
                     \\"textAlignVertical\\": \\"center\\",
                     \\"textTransform\\": \\"none\\",
@@ -748,7 +668,7 @@ exports[`CommunityProfile should render correctly 1`] = `
           <View
             style={
               Array [
-@@ -394,11 +433,13 @@
+@@ -382,11 +421,13 @@
                     \\"lineHeight\\": 38,
                     \\"textAlignVertical\\": \\"center\\",
                     \\"textTransform\\": \\"none\\",
@@ -763,7 +683,7 @@ exports[`CommunityProfile should render correctly 1`] = `
               accessible={true}
               focusable={true}
               onClick={[Function onClick]}
-@@ -533,11 +574,11 @@
+@@ -507,11 +548,11 @@
                     \\"textAlignVertical\\": \\"center\\",
                     \\"textTransform\\": \\"none\\",
                   }
@@ -834,59 +754,47 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
                       Object {
-                        "fontSize": 18,
+                        "paddingLeft": 10,
                       },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "paddingLeft": 10,
-                        },
-                      ],
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
         <View
@@ -1191,60 +1099,46 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "#3CC8E6",
+                "borderRadius": 15,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 7,
               }
             }
             testID="copyCodeButton"
           >
-            <View
+            <Text
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
-                  null,
                   Object {
-                    "backgroundColor": "#3CC8E6",
-                    "borderRadius": 15,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 7,
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
-                  null,
                 ]
               }
             >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 14,
-                      "fontStyle": "normal",
-                      "fontWeight": "bold",
-                      "letterSpacing": 1,
-                      "lineHeight": 18,
-                      "textAlign": "center",
-                      "textAlignVertical": "center",
-                      "textTransform": "uppercase",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 14,
-                      "fontStyle": "normal",
-                      "fontWeight": "bold",
-                      "letterSpacing": 1,
-                      "lineHeight": 18,
-                      "textAlignVertical": "center",
-                      "textTransform": "uppercase",
-                    },
-                  ]
-                }
-              >
-                COPY
-              </Text>
-            </View>
+              COPY
+            </Text>
           </View>
         </View>
         <View
@@ -1331,60 +1225,46 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "#3CC8E6",
+                "borderRadius": 15,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 7,
               }
             }
             testID="copyUrlButton"
           >
-            <View
+            <Text
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
-                  null,
                   Object {
-                    "backgroundColor": "#3CC8E6",
-                    "borderRadius": 15,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 7,
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
-                  null,
                 ]
               }
             >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 14,
-                      "fontStyle": "normal",
-                      "fontWeight": "bold",
-                      "letterSpacing": 1,
-                      "lineHeight": 18,
-                      "textAlign": "center",
-                      "textAlignVertical": "center",
-                      "textTransform": "uppercase",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 14,
-                      "fontStyle": "normal",
-                      "fontWeight": "bold",
-                      "letterSpacing": 1,
-                      "lineHeight": 18,
-                      "textAlignVertical": "center",
-                      "textTransform": "uppercase",
-                    },
-                  ]
-                }
-              >
-                COPY
-              </Text>
-            </View>
+              COPY
+            </Text>
           </View>
         </View>
         <View

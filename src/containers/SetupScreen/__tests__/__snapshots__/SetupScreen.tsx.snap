@@ -70,57 +70,45 @@ exports[`renders isMe version correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        undefined,
-                      ],
+                      undefined,
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -334,58 +322,46 @@ exports[`renders isMe version correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="ToSButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {},
-                null,
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 0,
+                  "lineHeight": 16,
+                  "paddingHorizontal": 3,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textDecorationLine": "underline",
+                  "textTransform": "none",
+                },
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 12,
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                    "letterSpacing": 0,
-                    "lineHeight": 16,
-                    "paddingHorizontal": 3,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textDecorationLine": "underline",
-                    "textTransform": "none",
-                  },
-                ]
-              }
-            >
-              Terms of Service
-            </Text>
-          </View>
+            Terms of Service
+          </Text>
         </View>
         <Text
           style={
@@ -417,58 +393,46 @@ exports[`renders isMe version correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="PrivacyButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {},
-                null,
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 0,
+                  "lineHeight": 16,
+                  "paddingHorizontal": 3,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textDecorationLine": "underline",
+                  "textTransform": "none",
+                },
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 12,
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                    "letterSpacing": 0,
-                    "lineHeight": 16,
-                    "paddingHorizontal": 3,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textDecorationLine": "underline",
-                    "textTransform": "none",
-                  },
-                ]
-              }
-            >
-              Privacy Policy
-            </Text>
-          </View>
+            Privacy Policy
+          </Text>
         </View>
       </View>
     </View>
@@ -495,59 +459,40 @@ exports[`renders isMe version correctly 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                undefined,
-              ],
-            ]
-          }
-        >
-          CONTINUE
-        </Text>
-      </View>
+        CONTINUE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -623,57 +568,45 @@ exports[`renders other person version correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        undefined,
-                      ],
+                      undefined,
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -703,62 +636,46 @@ exports[`renders other person version correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
+              "padding": 15,
             }
           }
           testID="skipButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Array [
-                  Object {
-                    "padding": 15,
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <Text
-              style={
                 Array [
                   Object {
                     "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
+                    "fontWeight": "normal",
+                    "lineHeight": 20,
                     "textAlignVertical": "center",
-                    "textTransform": "uppercase",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 14,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "lineHeight": 20,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                    undefined,
-                  ],
-                ]
-              }
-            >
-              SKIP
-            </Text>
-          </View>
+                  undefined,
+                ],
+              ]
+            }
+          >
+            SKIP
+          </Text>
         </View>
       </View>
     </View>
@@ -934,59 +851,40 @@ exports[`renders other person version correctly 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                undefined,
-              ],
-            ]
-          }
-        >
-          CONTINUE
-        </Text>
-      </View>
+        CONTINUE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -997,7 +895,7 @@ exports[`setup screen methods should update first name 1`] = `
 - First value
 + Second value
 
-@@ -305,11 +305,11 @@
+@@ -277,11 +277,11 @@
               Object {},
             ]
           }
@@ -1017,7 +915,7 @@ exports[`setup screen methods should update last name 1`] = `
 - First value
 + Second value
 
-@@ -350,11 +350,11 @@
+@@ -322,11 +322,11 @@
               Object {},
             ]
           }

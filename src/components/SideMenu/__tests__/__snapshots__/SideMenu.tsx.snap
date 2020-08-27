@@ -33,42 +33,24 @@ exports[`render update button 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="CloseButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#B4B6BA"
-            />
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+          />
         </View>
         <View
           accessible={true}
@@ -82,35 +64,23 @@ exports[`render update button 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="editButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#B4B6BA"
-            />
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+          />
         </View>
       </View>
       <View
@@ -234,69 +204,53 @@ exports[`render update button 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              Share a God Story with us
-            </Text>
-          </View>
+            Share a God Story with us
+          </Text>
         </View>
         <View
           accessible={true}
@@ -310,69 +264,53 @@ exports[`render update button 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              Suggest a Step of Faith
-            </Text>
-          </View>
+            Suggest a Step of Faith
+          </Text>
         </View>
         <View
           accessible={true}
@@ -386,69 +324,53 @@ exports[`render update button 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              Enjoying our app? Rate it
-            </Text>
-          </View>
+            Enjoying our app? Rate it
+          </Text>
         </View>
       </View>
       <View
@@ -490,69 +412,53 @@ exports[`render update button 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              MissionHub Blog
-            </Text>
-          </View>
+            MissionHub Blog
+          </Text>
         </View>
         <View
           accessible={true}
@@ -566,69 +472,53 @@ exports[`render update button 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              MissionHub Website
-            </Text>
-          </View>
+            MissionHub Website
+          </Text>
         </View>
         <View
           accessible={true}
@@ -642,69 +532,53 @@ exports[`render update button 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              Help
-            </Text>
-          </View>
+            Help
+          </Text>
         </View>
         <View
           accessible={true}
@@ -718,69 +592,53 @@ exports[`render update button 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              Privacy Policy
-            </Text>
-          </View>
+            Privacy Policy
+          </Text>
         </View>
         <View
           accessible={true}
@@ -794,69 +652,53 @@ exports[`render update button 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              Terms of Service
-            </Text>
-          </View>
+            Terms of Service
+          </Text>
         </View>
       </View>
       <Text
@@ -917,72 +759,53 @@ exports[`render update button 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#3CC8E6",
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "color": "#ffffff",
+              "height": 30,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 10,
+              "paddingVertical": 0,
             }
           }
           testID="updateButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {
-                  "backgroundColor": "#3CC8E6",
                   "color": "#ffffff",
-                  "height": 30,
-                  "paddingHorizontal": 10,
-                  "paddingVertical": 0,
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
                 Object {
-                  "borderRadius": 50,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 0.2,
+                  "lineHeight": 24,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 16,
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                    "letterSpacing": 0.2,
-                    "lineHeight": 24,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "none",
-                  },
-                ]
-              }
-            >
-              Update
-            </Text>
-          </View>
+            Update
+          </Text>
         </View>
       </View>
     </View>
@@ -1023,42 +846,24 @@ exports[`renders correctly | Authenticated User 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="CloseButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#B4B6BA"
-            />
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+          />
         </View>
         <View
           accessible={true}
@@ -1072,35 +877,23 @@ exports[`renders correctly | Authenticated User 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="editButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#B4B6BA"
-            />
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+          />
         </View>
       </View>
       <View
@@ -1217,70 +1010,53 @@ exports[`renders correctly | Authenticated User 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderColor": "#3CC8E6",
+                "borderRadius": 50,
+                "borderWidth": 1,
+                "height": 42,
+                "justifyContent": "center",
+                "margin": 0,
+                "marginLeft": 10,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="Button"
           >
-            <View
+            <Text
               style={
                 Array [
                   Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Object {
-                    "borderColor": "#3CC8E6",
-                    "borderWidth": 1,
-                    "height": 42,
-                    "marginLeft": 10,
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
                   Object {
-                    "borderRadius": 50,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                 ]
               }
             >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 14,
-                      "fontStyle": "normal",
-                      "fontWeight": "bold",
-                      "letterSpacing": 1,
-                      "lineHeight": 18,
-                      "textAlign": "center",
-                      "textAlignVertical": "center",
-                      "textTransform": "uppercase",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ]
-                }
-              >
-                Sign In
-              </Text>
-            </View>
+              Sign In
+            </Text>
           </View>
           <View
             accessible={true}
@@ -1294,70 +1070,53 @@ exports[`renders correctly | Authenticated User 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderColor": "#3CC8E6",
+                "borderRadius": 50,
+                "borderWidth": 1,
+                "height": 42,
+                "justifyContent": "center",
+                "margin": 0,
+                "marginLeft": 10,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="Button"
           >
-            <View
+            <Text
               style={
                 Array [
                   Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Object {
-                    "borderColor": "#3CC8E6",
-                    "borderWidth": 1,
-                    "height": 42,
-                    "marginLeft": 10,
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
                   Object {
-                    "borderRadius": 50,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                 ]
               }
             >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 14,
-                      "fontStyle": "normal",
-                      "fontWeight": "bold",
-                      "letterSpacing": 1,
-                      "lineHeight": 18,
-                      "textAlign": "center",
-                      "textAlignVertical": "center",
-                      "textTransform": "uppercase",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ]
-                }
-              >
-                Create Account
-              </Text>
-            </View>
+              Create Account
+            </Text>
           </View>
         </View>
       </View>
@@ -1400,69 +1159,53 @@ exports[`renders correctly | Authenticated User 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              Share a God Story with us
-            </Text>
-          </View>
+            Share a God Story with us
+          </Text>
         </View>
         <View
           accessible={true}
@@ -1476,69 +1219,53 @@ exports[`renders correctly | Authenticated User 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              Suggest a Step of Faith
-            </Text>
-          </View>
+            Suggest a Step of Faith
+          </Text>
         </View>
         <View
           accessible={true}
@@ -1552,69 +1279,53 @@ exports[`renders correctly | Authenticated User 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              Enjoying our app? Rate it
-            </Text>
-          </View>
+            Enjoying our app? Rate it
+          </Text>
         </View>
       </View>
       <View
@@ -1656,69 +1367,53 @@ exports[`renders correctly | Authenticated User 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              MissionHub Blog
-            </Text>
-          </View>
+            MissionHub Blog
+          </Text>
         </View>
         <View
           accessible={true}
@@ -1732,69 +1427,53 @@ exports[`renders correctly | Authenticated User 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              MissionHub Website
-            </Text>
-          </View>
+            MissionHub Website
+          </Text>
         </View>
         <View
           accessible={true}
@@ -1808,69 +1487,53 @@ exports[`renders correctly | Authenticated User 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              Help
-            </Text>
-          </View>
+            Help
+          </Text>
         </View>
         <View
           accessible={true}
@@ -1884,69 +1547,53 @@ exports[`renders correctly | Authenticated User 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              Privacy Policy
-            </Text>
-          </View>
+            Privacy Policy
+          </Text>
         </View>
         <View
           accessible={true}
@@ -1960,69 +1607,53 @@ exports[`renders correctly | Authenticated User 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              Terms of Service
-            </Text>
-          </View>
+            Terms of Service
+          </Text>
         </View>
       </View>
       <View
@@ -2091,42 +1722,24 @@ exports[`renders correctly | UnAuthed User 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="CloseButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#B4B6BA"
-            />
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+          />
         </View>
         <View
           accessible={true}
@@ -2140,35 +1753,23 @@ exports[`renders correctly | UnAuthed User 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="editButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#B4B6BA"
-            />
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+          />
         </View>
       </View>
       <View
@@ -2304,69 +1905,53 @@ exports[`renders correctly | UnAuthed User 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              Share a God Story with us
-            </Text>
-          </View>
+            Share a God Story with us
+          </Text>
         </View>
         <View
           accessible={true}
@@ -2380,69 +1965,53 @@ exports[`renders correctly | UnAuthed User 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              Suggest a Step of Faith
-            </Text>
-          </View>
+            Suggest a Step of Faith
+          </Text>
         </View>
         <View
           accessible={true}
@@ -2456,69 +2025,53 @@ exports[`renders correctly | UnAuthed User 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              Enjoying our app? Rate it
-            </Text>
-          </View>
+            Enjoying our app? Rate it
+          </Text>
         </View>
       </View>
       <View
@@ -2560,69 +2113,53 @@ exports[`renders correctly | UnAuthed User 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              MissionHub Blog
-            </Text>
-          </View>
+            MissionHub Blog
+          </Text>
         </View>
         <View
           accessible={true}
@@ -2636,69 +2173,53 @@ exports[`renders correctly | UnAuthed User 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              MissionHub Website
-            </Text>
-          </View>
+            MissionHub Website
+          </Text>
         </View>
         <View
           accessible={true}
@@ -2712,69 +2233,53 @@ exports[`renders correctly | UnAuthed User 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              Help
-            </Text>
-          </View>
+            Help
+          </Text>
         </View>
         <View
           accessible={true}
@@ -2788,69 +2293,53 @@ exports[`renders correctly | UnAuthed User 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              Privacy Policy
-            </Text>
-          </View>
+            Privacy Policy
+          </Text>
         </View>
         <View
           accessible={true}
@@ -2864,69 +2353,53 @@ exports[`renders correctly | UnAuthed User 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 50,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {
-                  "height": 50,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                },
-                null,
+                Array [
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.2,
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2,
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ],
-                ]
-              }
-            >
-              Terms of Service
-            </Text>
-          </View>
+            Terms of Service
+          </Text>
         </View>
       </View>
       <Text

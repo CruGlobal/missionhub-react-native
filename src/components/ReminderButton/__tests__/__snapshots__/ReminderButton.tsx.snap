@@ -96,82 +96,58 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderColor": "#B4B6BA",
+              "borderRadius": 35,
+              "borderWidth": 1,
+              "height": 70,
+              "justifyContent": "center",
+              "margin": 8,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
+              "width": 70,
             }
           }
           testID="ReminderRepeatButtonDaily"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
                 Array [
                   Object {
-                    "borderRadius": 35,
-                    "height": 70,
-                    "margin": 8,
-                    "paddingHorizontal": 0,
-                    "paddingVertical": 0,
-                    "width": 70,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
-                    "backgroundColor": "#ffffff",
-                    "borderColor": "#B4B6BA",
-                    "borderWidth": 1,
+                    "color": "#B4B6BA",
                   },
                 ],
-                null,
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 12,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ]
-              }
-            >
-              Daily
-            </Text>
-          </View>
+            Daily
+          </Text>
         </View>
         <View
           accessible={true}
@@ -185,82 +161,58 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderColor": "#B4B6BA",
+              "borderRadius": 35,
+              "borderWidth": 1,
+              "height": 70,
+              "justifyContent": "center",
+              "margin": 8,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
+              "width": 70,
             }
           }
           testID="ReminderRepeatButtonWeekly"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
                 Array [
                   Object {
-                    "borderRadius": 35,
-                    "height": 70,
-                    "margin": 8,
-                    "paddingHorizontal": 0,
-                    "paddingVertical": 0,
-                    "width": 70,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
-                    "backgroundColor": "#ffffff",
-                    "borderColor": "#B4B6BA",
-                    "borderWidth": 1,
+                    "color": "#B4B6BA",
                   },
                 ],
-                null,
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 12,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ]
-              }
-            >
-              Weekly
-            </Text>
-          </View>
+            Weekly
+          </Text>
         </View>
         <View
           accessible={true}
@@ -274,82 +226,58 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderColor": "#B4B6BA",
+              "borderRadius": 35,
+              "borderWidth": 1,
+              "height": 70,
+              "justifyContent": "center",
+              "margin": 8,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
+              "width": 70,
             }
           }
           testID="ReminderRepeatButtonMonthly"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
                 Array [
                   Object {
-                    "borderRadius": 35,
-                    "height": 70,
-                    "margin": 8,
-                    "paddingHorizontal": 0,
-                    "paddingVertical": 0,
-                    "width": 70,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
-                    "backgroundColor": "#ffffff",
-                    "borderColor": "#B4B6BA",
-                    "borderWidth": 1,
+                    "color": "#B4B6BA",
                   },
                 ],
-                null,
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 12,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ]
-              }
-            >
-              Monthly
-            </Text>
-          </View>
+            Monthly
+          </Text>
         </View>
       </View>
       <View
@@ -378,59 +306,47 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {},
-                null,
+                Array [
+                  Object {
+                    "color": "#007AFF",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#007AFF",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                  ],
-                ]
-              }
-            >
-              Cancel
-            </Text>
-          </View>
+            Cancel
+          </Text>
         </View>
         <Text
           style={
@@ -462,54 +378,42 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {},
-                null,
+                Object {
+                  "color": "#007AFF",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                },
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "color": "#007AFF",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 16,
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                    "lineHeight": 24,
-                    "textAlignVertical": "center",
-                    "textTransform": "none",
-                  },
-                ]
-              }
-            >
-              Done
-            </Text>
-          </View>
+            Done
+          </Text>
         </View>
       </View>
     </View>
@@ -613,82 +517,58 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderColor": "#B4B6BA",
+              "borderRadius": 35,
+              "borderWidth": 1,
+              "height": 70,
+              "justifyContent": "center",
+              "margin": 8,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
+              "width": 70,
             }
           }
           testID="ReminderRepeatButtonDaily"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
                 Array [
                   Object {
-                    "borderRadius": 35,
-                    "height": 70,
-                    "margin": 8,
-                    "paddingHorizontal": 0,
-                    "paddingVertical": 0,
-                    "width": 70,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
-                    "backgroundColor": "#ffffff",
-                    "borderColor": "#B4B6BA",
-                    "borderWidth": 1,
+                    "color": "#B4B6BA",
                   },
                 ],
-                null,
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 12,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ]
-              }
-            >
-              Daily
-            </Text>
-          </View>
+            Daily
+          </Text>
         </View>
         <View
           accessible={true}
@@ -702,82 +582,58 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderColor": "#B4B6BA",
+              "borderRadius": 35,
+              "borderWidth": 1,
+              "height": 70,
+              "justifyContent": "center",
+              "margin": 8,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
+              "width": 70,
             }
           }
           testID="ReminderRepeatButtonWeekly"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
                 Array [
                   Object {
-                    "borderRadius": 35,
-                    "height": 70,
-                    "margin": 8,
-                    "paddingHorizontal": 0,
-                    "paddingVertical": 0,
-                    "width": 70,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
-                    "backgroundColor": "#ffffff",
-                    "borderColor": "#B4B6BA",
-                    "borderWidth": 1,
+                    "color": "#B4B6BA",
                   },
                 ],
-                null,
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 12,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ]
-              }
-            >
-              Weekly
-            </Text>
-          </View>
+            Weekly
+          </Text>
         </View>
         <View
           accessible={true}
@@ -791,82 +647,58 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderColor": "#B4B6BA",
+              "borderRadius": 35,
+              "borderWidth": 1,
+              "height": 70,
+              "justifyContent": "center",
+              "margin": 8,
               "opacity": 1,
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
+              "width": 70,
             }
           }
           testID="ReminderRepeatButtonMonthly"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
                 Array [
                   Object {
-                    "borderRadius": 35,
-                    "height": 70,
-                    "margin": 8,
-                    "paddingHorizontal": 0,
-                    "paddingVertical": 0,
-                    "width": 70,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 1,
+                    "lineHeight": 16,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                   Object {
-                    "backgroundColor": "#ffffff",
-                    "borderColor": "#B4B6BA",
-                    "borderWidth": 1,
+                    "color": "#B4B6BA",
                   },
                 ],
-                null,
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 12,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ]
-              }
-            >
-              Monthly
-            </Text>
-          </View>
+            Monthly
+          </Text>
         </View>
       </View>
       <View
@@ -895,59 +727,47 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {},
-                null,
+                Array [
+                  Object {
+                    "color": "#007AFF",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Array [
-                    Object {
-                      "color": "#007AFF",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "lineHeight": 24,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                  ],
-                ]
-              }
-            >
-              Cancel
-            </Text>
-          </View>
+            Cancel
+          </Text>
         </View>
         <Text
           style={
@@ -979,54 +799,42 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="Button"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Object {},
-                null,
+                Object {
+                  "color": "#007AFF",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                },
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "color": "#007AFF",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 16,
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                    "lineHeight": 24,
-                    "textAlignVertical": "center",
-                    "textTransform": "none",
-                  },
-                ]
-              }
-            >
-              Done
-            </Text>
-          </View>
+            Done
+          </Text>
         </View>
       </View>
     </View>

@@ -22,7 +22,7 @@ exports[`CommunityHeader should render community details 1`] = `
               Object {
                 \\"bottom\\": 0,
                 \\"left\\": 0,
-@@ -237,11 +241,11 @@
+@@ -207,11 +211,11 @@
                 \\"textAlignVertical\\": \\"center\\",
                 \\"textTransform\\": \\"none\\",
               }
@@ -35,19 +35,19 @@ exports[`CommunityHeader should render community details 1`] = `
             style={
               Array [
                 Object {},
-@@ -316,11 +320,11 @@
-                        \\"textTransform\\": \\"none\\",
-                      },
-                    ]
-                  }
-                >
--                 0 Members
-+                 30233 Members
-                </Text>
-              </View>
+@@ -272,11 +276,11 @@
+                      \\"textTransform\\": \\"none\\",
+                    },
+                  ]
+                }
+              >
+-               0 Members
++               30233 Members
+              </Text>
             </View>
           </View>
-        </View>"
+        </View>
+      </View>"
 `;
 
 exports[`CommunityHeader should render global community details 1`] = `
@@ -55,19 +55,19 @@ exports[`CommunityHeader should render global community details 1`] = `
 - First value
 + Second value
 
-@@ -277,11 +277,11 @@
-                        \\"textTransform\\": \\"none\\",
-                      },
-                    ]
-                  }
-                >
--                 0 Members
-+                 41702 Members
-                </Text>
-              </View>
+@@ -245,11 +245,11 @@
+                      \\"textTransform\\": \\"none\\",
+                    },
+                  ]
+                }
+              >
+-               0 Members
++               41702 Members
+              </Text>
             </View>
           </View>
-        </View>"
+        </View>
+      </View>"
 `;
 
 exports[`CommunityHeader should render global community loading 1`] = `
@@ -190,42 +190,24 @@ exports[`CommunityHeader should render global community loading 1`] = `
               onStartShouldSetResponder={[Function]}
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "alignSelf": "flex-start",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
                   "opacity": 1,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
                 }
               }
               testID="BackButton"
             >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "transparent",
-                      "borderRadius": 0,
-                      "borderWidth": 0,
-                      "height": 60,
-                      "justifyContent": "center",
-                      "margin": 0,
-                      "paddingHorizontal": 20,
-                      "paddingVertical": 10,
-                    },
-                    null,
-                    Array [
-                      Object {
-                        "alignItems": "flex-start",
-                        "alignSelf": "flex-start",
-                        "justifyContent": "center",
-                      },
-                      undefined,
-                    ],
-                    null,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#ffffff"
-                />
-              </View>
+              <SvgMock
+                color="#ffffff"
+              />
             </View>
           </View>
           <View
@@ -298,63 +280,48 @@ exports[`CommunityHeader should render global community loading 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "borderColor": "#ffffff",
+                "borderRadius": 50,
+                "borderWidth": 1,
+                "marginBottom": 10,
                 "opacity": 1,
+                "paddingHorizontal": 12,
+                "paddingVertical": 3,
               }
             }
             testID="communityMembersButton"
           >
-            <View
+            <Text
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
-                  null,
                   Object {
-                    "borderColor": "#ffffff",
-                    "borderRadius": 30,
-                    "borderWidth": 1,
-                    "marginBottom": 10,
-                    "paddingHorizontal": 12,
-                    "paddingVertical": 3,
-                  },
-                  Object {
-                    "borderRadius": 50,
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                 ]
               }
             >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 14,
-                      "fontStyle": "normal",
-                      "fontWeight": "bold",
-                      "letterSpacing": 1,
-                      "lineHeight": 18,
-                      "textAlign": "center",
-                      "textAlignVertical": "center",
-                      "textTransform": "uppercase",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 14,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "lineHeight": 20,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ]
-                }
-              >
-                0 Members
-              </Text>
-            </View>
+              0 Members
+            </Text>
           </View>
         </View>
       </View>
@@ -611,42 +578,24 @@ exports[`CommunityHeader should render loading state 1`] = `
               onStartShouldSetResponder={[Function]}
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "alignSelf": "flex-start",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
                   "opacity": 1,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
                 }
               }
               testID="BackButton"
             >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "transparent",
-                      "borderRadius": 0,
-                      "borderWidth": 0,
-                      "height": 60,
-                      "justifyContent": "center",
-                      "margin": 0,
-                      "paddingHorizontal": 20,
-                      "paddingVertical": 10,
-                    },
-                    null,
-                    Array [
-                      Object {
-                        "alignItems": "flex-start",
-                        "alignSelf": "flex-start",
-                        "justifyContent": "center",
-                      },
-                      undefined,
-                    ],
-                    null,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#ffffff"
-                />
-              </View>
+              <SvgMock
+                color="#ffffff"
+              />
             </View>
           </View>
           <View
@@ -675,35 +624,23 @@ exports[`CommunityHeader should render loading state 1`] = `
               onStartShouldSetResponder={[Function]}
               style={
                 Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
                   "opacity": 1,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
                 }
               }
               testID="communityProfileButton"
             >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "transparent",
-                      "borderRadius": 0,
-                      "borderWidth": 0,
-                      "height": 60,
-                      "justifyContent": "center",
-                      "margin": 0,
-                      "paddingHorizontal": 20,
-                      "paddingVertical": 10,
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#ffffff"
-                />
-              </View>
+              <SvgMock
+                color="#ffffff"
+              />
             </View>
           </View>
         </View>
@@ -762,63 +699,48 @@ exports[`CommunityHeader should render loading state 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "borderColor": "#ffffff",
+                "borderRadius": 50,
+                "borderWidth": 1,
+                "marginBottom": 10,
                 "opacity": 1,
+                "paddingHorizontal": 12,
+                "paddingVertical": 3,
               }
             }
             testID="communityMembersButton"
           >
-            <View
+            <Text
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textAlignVertical": "center",
+                    "textTransform": "uppercase",
                   },
-                  null,
                   Object {
-                    "borderColor": "#ffffff",
-                    "borderRadius": 30,
-                    "borderWidth": 1,
-                    "marginBottom": 10,
-                    "paddingHorizontal": 12,
-                    "paddingVertical": 3,
-                  },
-                  Object {
-                    "borderRadius": 50,
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
                 ]
               }
             >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 14,
-                      "fontStyle": "normal",
-                      "fontWeight": "bold",
-                      "letterSpacing": 1,
-                      "lineHeight": 18,
-                      "textAlign": "center",
-                      "textAlignVertical": "center",
-                      "textTransform": "uppercase",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 14,
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "lineHeight": 20,
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    },
-                  ]
-                }
-              >
-                0 Members
-              </Text>
-            </View>
+              0 Members
+            </Text>
           </View>
         </View>
       </View>

@@ -175,59 +175,40 @@ exports[`renders correctly when me and no steps 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                undefined,
-              ],
-            ]
-          }
-        >
-          ADD A STEP OF FAITH
-        </Text>
-      </View>
+        ADD A STEP OF FAITH
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -408,59 +389,40 @@ exports[`renders correctly when no steps 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                undefined,
-              ],
-            ]
-          }
-        >
-          ADD A STEP OF FAITH
-        </Text>
-      </View>
+        ADD A STEP OF FAITH
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -719,62 +681,44 @@ exports[`renders correctly with completed steps 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderColor": "#B4B6BA",
+                "borderRadius": 50,
+                "borderWidth": 1,
+                "height": 36,
+                "justifyContent": "center",
+                "margin": 0,
+                "marginHorizontal": 20,
+                "marginVertical": 15,
+                "minWidth": 250,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="completedStepsButton"
           >
-            <View
+            <Text
+              numberOfLines={1}
               style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Object {
-                    "backgroundColor": "transparent",
-                    "borderColor": "#B4B6BA",
-                    "borderWidth": 1,
-                    "height": 36,
-                    "marginHorizontal": 20,
-                    "marginVertical": 15,
-                    "minWidth": 250,
-                  },
-                  Object {
-                    "borderRadius": 50,
-                  },
-                ]
+                Object {
+                  "backgroundColor": "transparent",
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
+                }
               }
             >
-              <Text
-                numberOfLines={1}
-                style={
-                  Object {
-                    "backgroundColor": "transparent",
-                    "color": "#B4B6BA",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  }
-                }
-              >
-                HIDE COMPLETED STEPS
-              </Text>
-            </View>
+              HIDE COMPLETED STEPS
+            </Text>
           </View>
         </View>
       </View>
@@ -850,59 +794,40 @@ exports[`renders correctly with completed steps 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                undefined,
-              ],
-            ]
-          }
-        >
-          ADD A STEP OF FAITH
-        </Text>
-      </View>
+        ADD A STEP OF FAITH
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -1096,59 +1021,40 @@ exports[`renders correctly with steps 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                undefined,
-              ],
-            ]
-          }
-        >
-          ADD A STEP OF FAITH
-        </Text>
-      </View>
+        ADD A STEP OF FAITH
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>

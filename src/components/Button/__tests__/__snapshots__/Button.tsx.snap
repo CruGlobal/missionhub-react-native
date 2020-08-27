@@ -13,32 +13,20 @@ exports[`renders correctly 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "borderRadius": 0,
+      "borderWidth": 0,
+      "height": 60,
+      "justifyContent": "center",
+      "margin": 0,
       "opacity": 1,
+      "paddingHorizontal": 20,
+      "paddingVertical": 10,
     }
   }
   testID="Button"
->
-  <View
-    style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
-        },
-        null,
-        Object {},
-        null,
-      ]
-    }
-  />
-</View>
+/>
 `;
 
 exports[`renders pill correctly 1`] = `
@@ -54,34 +42,20 @@ exports[`renders pill correctly 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "borderRadius": 50,
+      "borderWidth": 0,
+      "height": 60,
+      "justifyContent": "center",
+      "margin": 0,
       "opacity": 1,
+      "paddingHorizontal": 20,
+      "paddingVertical": 10,
     }
   }
   testID="Button"
->
-  <View
-    style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
-        },
-        null,
-        Object {},
-        Object {
-          "borderRadius": 50,
-        },
-      ]
-    }
-  />
-</View>
+/>
 `;
 
 exports[`renders primary correctly 1`] = `
@@ -97,27 +71,15 @@ exports[`renders primary correctly 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "center",
+      "backgroundColor": "#007398",
+      "height": 60,
+      "justifyContent": "center",
       "opacity": 1,
     }
   }
   testID="Button"
->
-  <View
-    style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "#007398",
-          "height": 60,
-          "justifyContent": "center",
-        },
-        null,
-        Object {},
-        null,
-      ]
-    }
-  />
-</View>
+/>
 `;
 
 exports[`renders secondary correctly 1`] = `
@@ -133,27 +95,15 @@ exports[`renders secondary correctly 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "center",
+      "backgroundColor": "#3CC8E6",
+      "height": 60,
+      "justifyContent": "center",
       "opacity": 1,
     }
   }
   testID="Button"
->
-  <View
-    style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "#3CC8E6",
-          "height": 60,
-          "justifyContent": "center",
-        },
-        null,
-        Object {},
-        null,
-      ]
-    }
-  />
-</View>
+/>
 `;
 
 exports[`renders transparent correctly 1`] = `
@@ -169,24 +119,12 @@ exports[`renders transparent correctly 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "backgroundColor": "transparent",
       "opacity": 1,
     }
   }
   testID="Button"
->
-  <View
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        null,
-        Object {},
-        null,
-      ]
-    }
-  />
-</View>
+/>
 `;
 
 exports[`renders with image correctly 1`] = `
@@ -202,7 +140,16 @@ exports[`renders with image correctly 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "borderRadius": 0,
+      "borderWidth": 0,
+      "height": 60,
+      "justifyContent": "center",
+      "margin": 0,
       "opacity": 1,
+      "paddingHorizontal": 20,
+      "paddingVertical": 10,
     }
   }
   testID="Button"
@@ -210,107 +157,23 @@ exports[`renders with image correctly 1`] = `
   <View
     style={
       Array [
+        Object {},
         Object {
           "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
+          "flexDirection": "row",
+          "justifyContent": "space-around",
         },
-        null,
-        Object {},
-        null,
       ]
     }
   >
-    <View
+    <Image
+      source={1234}
       style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "justifyContent": "space-around",
-          },
-        ]
-      }
-    >
-      <Image
-        source={1234}
-        style={
-          Object {
-            "marginHorizontal": 5,
-          }
-        }
-      />
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
-              "fontSize": 14,
-              "fontStyle": "normal",
-              "fontWeight": "bold",
-              "letterSpacing": 1,
-              "lineHeight": 18,
-              "textAlign": "center",
-              "textAlignVertical": "center",
-              "textTransform": "uppercase",
-            },
-            Object {},
-          ]
-        }
-      >
-        Button
-      </Text>
-    </View>
-  </View>
-</View>
-`;
-
-exports[`renders with text correctly 1`] = `
-<View
-  accessible={true}
-  focusable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "opacity": 1,
-    }
-  }
-  testID="Button"
->
-  <View
-    style={
-      Array [
         Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
-        },
-        null,
-        Object {},
-        null,
-      ]
-    }
-  >
+          "marginHorizontal": 5,
+        }
+      }
+    />
     <Text
       style={
         Array [
@@ -333,5 +196,56 @@ exports[`renders with text correctly 1`] = `
       Button
     </Text>
   </View>
+</View>
+`;
+
+exports[`renders with text correctly 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "borderRadius": 0,
+      "borderWidth": 0,
+      "height": 60,
+      "justifyContent": "center",
+      "margin": 0,
+      "opacity": 1,
+      "paddingHorizontal": 20,
+      "paddingVertical": 10,
+    }
+  }
+  testID="Button"
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 18,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "uppercase",
+        },
+        Object {},
+      ]
+    }
+  >
+    Button
+  </Text>
 </View>
 `;

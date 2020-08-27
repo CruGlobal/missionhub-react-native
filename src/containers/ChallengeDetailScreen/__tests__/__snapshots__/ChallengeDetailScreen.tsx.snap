@@ -68,59 +68,47 @@ exports[`should call navigateBack from community name press 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
                       Object {
-                        "fontSize": 18,
+                        "color": "#B4B6BA",
                       },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                        },
-                      ],
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -190,50 +178,37 @@ exports[`should call navigateBack from community name press 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
+              "paddingRight": 10,
             }
           }
           testID="editButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
                 Object {
-                  "paddingRight": 10,
+                  "color": "#3CC8E6",
+                  "fontSize": 14,
                 },
-                null,
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "color": "#3CC8E6",
-                    "fontSize": 14,
-                  },
-                ]
-              }
-            >
-              EDIT
-            </Text>
-          </View>
+            EDIT
+          </Text>
         </View>
       </View>
     </View>
@@ -583,7 +558,13 @@ exports[`should call navigateBack from community name press 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
@@ -591,75 +572,50 @@ exports[`should call navigateBack from community name press 1`] = `
       <View
         style={
           Array [
+            Object {},
             Object {
               "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
-              undefined,
-            ],
-            Object {
-              "borderRadius": 50,
+              "flexDirection": "row",
+              "justifyContent": "space-around",
             },
           ]
         }
       >
-        <View
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/challengeComplete.png",
+            }
+          }
+          style={
+            Object {
+              "marginHorizontal": 5,
+            }
+          }
+        />
+        <Text
           style={
             Array [
-              Object {},
               Object {
-                "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "space-around",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
+              Array [
+                undefined,
+              ],
             ]
           }
         >
-          <Image
-            source={
-              Object {
-                "testUri": "../../../assets/images/challengeComplete.png",
-              }
-            }
-            style={
-              Object {
-                "marginHorizontal": 5,
-              }
-            }
-          />
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 14,
-                  "fontStyle": "normal",
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "lineHeight": 18,
-                  "textAlign": "center",
-                  "textAlignVertical": "center",
-                  "textTransform": "uppercase",
-                },
-                Array [
-                  undefined,
-                ],
-              ]
-            }
-          >
-            I DID IT
-          </Text>
-        </View>
+          I DID IT
+        </Text>
       </View>
     </View>
   </RCTSafeAreaView>
@@ -734,59 +690,47 @@ exports[`should call navigateBack from press 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
                       Object {
-                        "fontSize": 18,
+                        "color": "#B4B6BA",
                       },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                        },
-                      ],
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -816,50 +760,37 @@ exports[`should call navigateBack from press 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
+              "paddingRight": 10,
             }
           }
           testID="editButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
                 Object {
-                  "paddingRight": 10,
+                  "color": "#3CC8E6",
+                  "fontSize": 14,
                 },
-                null,
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "color": "#3CC8E6",
-                    "fontSize": 14,
-                  },
-                ]
-              }
-            >
-              EDIT
-            </Text>
-          </View>
+            EDIT
+          </Text>
         </View>
       </View>
     </View>
@@ -1209,7 +1140,13 @@ exports[`should call navigateBack from press 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
@@ -1217,75 +1154,50 @@ exports[`should call navigateBack from press 1`] = `
       <View
         style={
           Array [
+            Object {},
             Object {
               "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
-              undefined,
-            ],
-            Object {
-              "borderRadius": 50,
+              "flexDirection": "row",
+              "justifyContent": "space-around",
             },
           ]
         }
       >
-        <View
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/challengeComplete.png",
+            }
+          }
+          style={
+            Object {
+              "marginHorizontal": 5,
+            }
+          }
+        />
+        <Text
           style={
             Array [
-              Object {},
               Object {
-                "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "space-around",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
+              Array [
+                undefined,
+              ],
             ]
           }
         >
-          <Image
-            source={
-              Object {
-                "testUri": "../../../assets/images/challengeComplete.png",
-              }
-            }
-            style={
-              Object {
-                "marginHorizontal": 5,
-              }
-            }
-          />
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 14,
-                  "fontStyle": "normal",
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "lineHeight": 18,
-                  "textAlign": "center",
-                  "textAlignVertical": "center",
-                  "textTransform": "uppercase",
-                },
-                Array [
-                  undefined,
-                ],
-              ]
-            }
-          >
-            I DID IT
-          </Text>
-        </View>
+          I DID IT
+        </Text>
       </View>
     </View>
   </RCTSafeAreaView>
@@ -1360,59 +1272,47 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
                       Object {
-                        "fontSize": 18,
+                        "color": "#B4B6BA",
                       },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                        },
-                      ],
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -1482,50 +1382,37 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
+              "paddingRight": 10,
             }
           }
           testID="editButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
                 Object {
-                  "paddingRight": 10,
+                  "color": "#3CC8E6",
+                  "fontSize": 14,
                 },
-                null,
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "color": "#3CC8E6",
-                    "fontSize": 14,
-                  },
-                ]
-              }
-            >
-              EDIT
-            </Text>
-          </View>
+            EDIT
+          </Text>
         </View>
       </View>
     </View>
@@ -1875,7 +1762,13 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
@@ -1883,75 +1776,50 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
       <View
         style={
           Array [
+            Object {},
             Object {
               "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
-              undefined,
-            ],
-            Object {
-              "borderRadius": 50,
+              "flexDirection": "row",
+              "justifyContent": "space-around",
             },
           ]
         }
       >
-        <View
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/challengeComplete.png",
+            }
+          }
+          style={
+            Object {
+              "marginHorizontal": 5,
+            }
+          }
+        />
+        <Text
           style={
             Array [
-              Object {},
               Object {
-                "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "space-around",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
+              Array [
+                undefined,
+              ],
             ]
           }
         >
-          <Image
-            source={
-              Object {
-                "testUri": "../../../assets/images/challengeComplete.png",
-              }
-            }
-            style={
-              Object {
-                "marginHorizontal": 5,
-              }
-            }
-          />
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 14,
-                  "fontStyle": "normal",
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "lineHeight": 18,
-                  "textAlign": "center",
-                  "textAlignVertical": "center",
-                  "textTransform": "uppercase",
-                },
-                Array [
-                  undefined,
-                ],
-              ]
-            }
-          >
-            I DID IT
-          </Text>
-        </View>
+          I DID IT
+        </Text>
       </View>
     </View>
   </RCTSafeAreaView>
@@ -2026,59 +1894,47 @@ exports[`should render completed challenge correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
                       Object {
-                        "fontSize": 18,
+                        "color": "#B4B6BA",
                       },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                        },
-                      ],
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -2108,50 +1964,37 @@ exports[`should render completed challenge correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
+              "paddingRight": 10,
             }
           }
           testID="editButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
                 Object {
-                  "paddingRight": 10,
+                  "color": "#3CC8E6",
+                  "fontSize": 14,
                 },
-                null,
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "color": "#3CC8E6",
-                    "fontSize": 14,
-                  },
-                ]
-              }
-            >
-              EDIT
-            </Text>
-          </View>
+            EDIT
+          </Text>
         </View>
       </View>
     </View>
@@ -2550,59 +2393,47 @@ exports[`should render joined challenge correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
                       Object {
-                        "fontSize": 18,
+                        "color": "#B4B6BA",
                       },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                        },
-                      ],
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -2632,50 +2463,37 @@ exports[`should render joined challenge correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
+              "paddingRight": 10,
             }
           }
           testID="editButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
                 Object {
-                  "paddingRight": 10,
+                  "color": "#3CC8E6",
+                  "fontSize": 14,
                 },
-                null,
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "color": "#3CC8E6",
-                    "fontSize": 14,
-                  },
-                ]
-              }
-            >
-              EDIT
-            </Text>
-          </View>
+            EDIT
+          </Text>
         </View>
       </View>
     </View>
@@ -3025,7 +2843,13 @@ exports[`should render joined challenge correctly 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
@@ -3033,75 +2857,50 @@ exports[`should render joined challenge correctly 1`] = `
       <View
         style={
           Array [
+            Object {},
             Object {
               "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
-              undefined,
-            ],
-            Object {
-              "borderRadius": 50,
+              "flexDirection": "row",
+              "justifyContent": "space-around",
             },
           ]
         }
       >
-        <View
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/challengeComplete.png",
+            }
+          }
+          style={
+            Object {
+              "marginHorizontal": 5,
+            }
+          }
+        />
+        <Text
           style={
             Array [
-              Object {},
               Object {
-                "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "space-around",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
+              Array [
+                undefined,
+              ],
             ]
           }
         >
-          <Image
-            source={
-              Object {
-                "testUri": "../../../assets/images/challengeComplete.png",
-              }
-            }
-            style={
-              Object {
-                "marginHorizontal": 5,
-              }
-            }
-          />
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 14,
-                  "fontStyle": "normal",
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "lineHeight": 18,
-                  "textAlign": "center",
-                  "textAlignVertical": "center",
-                  "textTransform": "uppercase",
-                },
-                Array [
-                  undefined,
-                ],
-              ]
-            }
-          >
-            I DID IT
-          </Text>
-        </View>
+          I DID IT
+        </Text>
       </View>
     </View>
   </RCTSafeAreaView>
@@ -3176,59 +2975,47 @@ exports[`should render unjoined challenge correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
                       Object {
-                        "fontSize": 18,
+                        "color": "#B4B6BA",
                       },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                        },
-                      ],
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -3258,50 +3045,37 @@ exports[`should render unjoined challenge correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
+              "paddingRight": 10,
             }
           }
           testID="editButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
                 Object {
-                  "paddingRight": 10,
+                  "color": "#3CC8E6",
+                  "fontSize": 14,
                 },
-                null,
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {
-                    "color": "#3CC8E6",
-                    "fontSize": 14,
-                  },
-                ]
-              }
-            >
-              EDIT
-            </Text>
-          </View>
+            EDIT
+          </Text>
         </View>
       </View>
     </View>
@@ -3651,59 +3425,40 @@ exports[`should render unjoined challenge correctly 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                undefined,
-              ],
-            ]
-          }
-        >
-          JOIN
-        </Text>
-      </View>
+        JOIN
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -3777,59 +3532,47 @@ exports[`should render without edit correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
                       Object {
-                        "fontSize": 18,
+                        "color": "#B4B6BA",
                       },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                        },
-                      ],
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -4155,7 +3898,13 @@ exports[`should render without edit correctly 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
@@ -4163,75 +3912,50 @@ exports[`should render without edit correctly 1`] = `
       <View
         style={
           Array [
+            Object {},
             Object {
               "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
-              undefined,
-            ],
-            Object {
-              "borderRadius": 50,
+              "flexDirection": "row",
+              "justifyContent": "space-around",
             },
           ]
         }
       >
-        <View
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/challengeComplete.png",
+            }
+          }
+          style={
+            Object {
+              "marginHorizontal": 5,
+            }
+          }
+        />
+        <Text
           style={
             Array [
-              Object {},
               Object {
-                "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "space-around",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
+              Array [
+                undefined,
+              ],
             ]
           }
         >
-          <Image
-            source={
-              Object {
-                "testUri": "../../../assets/images/challengeComplete.png",
-              }
-            }
-            style={
-              Object {
-                "marginHorizontal": 5,
-              }
-            }
-          />
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 14,
-                  "fontStyle": "normal",
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "lineHeight": 18,
-                  "textAlign": "center",
-                  "textAlignVertical": "center",
-                  "textTransform": "uppercase",
-                },
-                Array [
-                  undefined,
-                ],
-              ]
-            }
-          >
-            I DID IT
-          </Text>
-        </View>
+          I DID IT
+        </Text>
       </View>
     </View>
   </RCTSafeAreaView>

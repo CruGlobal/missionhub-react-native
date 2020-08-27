@@ -112,42 +112,24 @@ exports[`handleUpdateData should update the state 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="CloseButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#ECEEF2"
-            />
-          </View>
+          <SvgMock
+            color="#ECEEF2"
+          />
         </View>
       </View>
     </View>
@@ -494,59 +476,40 @@ exports[`handleUpdateData should update the state 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               null,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                null,
-              ],
-            ]
-          }
-        >
-          DONE
-        </Text>
-      </View>
+        DONE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -608,42 +571,24 @@ exports[`renders correctly | No Person 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#ffffff"
-            />
-          </View>
+          <SvgMock
+            color="#ffffff"
+          />
         </View>
       </View>
       <View
@@ -889,69 +834,45 @@ exports[`renders correctly | No Person 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#005A7F",
+          "borderRadius": 50,
+          "color": "#ffffff",
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            Object {
-              "opacity": 0.6,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               Object {
                 "backgroundColor": "#005A7F",
                 "color": "#ffffff",
                 "opacity": 1,
               },
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "#005A7F",
-                  "color": "#ffffff",
-                  "opacity": 1,
-                },
-              ],
-            ]
-          }
-        >
-          CONTINUE
-        </Text>
-      </View>
+        CONTINUE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -1069,42 +990,24 @@ exports[`renders correctly | With Person 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="CloseButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#ECEEF2"
-            />
-          </View>
+          <SvgMock
+            color="#ECEEF2"
+          />
         </View>
       </View>
     </View>
@@ -1336,69 +1239,45 @@ exports[`renders correctly | With Person 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#005A7F",
+          "borderRadius": 50,
+          "color": "#ffffff",
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            Object {
-              "opacity": 0.6,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               Object {
                 "backgroundColor": "#005A7F",
                 "color": "#ffffff",
                 "opacity": 1,
               },
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "#005A7F",
-                  "color": "#ffffff",
-                  "opacity": 1,
-                },
-              ],
-            ]
-          }
-        >
-          DONE
-        </Text>
-      </View>
+        DONE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -1460,42 +1339,24 @@ exports[`savePerson add new person with org should add a new person 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#ffffff"
-            />
-          </View>
+          <SvgMock
+            color="#ffffff"
+          />
         </View>
       </View>
       <View
@@ -1856,59 +1717,40 @@ exports[`savePerson add new person with org should add a new person 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               null,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                null,
-              ],
-            ]
-          }
-        >
-          CONTINUE
-        </Text>
-      </View>
+        CONTINUE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -1919,7 +1761,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 - First value
 + Second value
 
-@@ -145,59 +145,31 @@
+@@ -127,59 +127,31 @@
                 style={
                   Array [
                     Object {},
@@ -1952,8 +1794,8 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 -                       \\"textAlign\\": \\"center\\",
 -                       \\"textAlignVertical\\": \\"center\\",
 -                       \\"textTransform\\": \\"none\\",
--                     }
                 }
+-                   }
 -                 >
 -                   Who would you like to take steps of faith with this week?
 -                 </Text>
@@ -1984,7 +1826,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                 autoCorrect={false}
                 autoFocus={true}
                 blurOnSubmit={false}
-@@ -206,11 +178,11 @@
+@@ -188,11 +160,11 @@
                 onBlur={[Function onBlur]}
                 onChangeText={[Function onChangeText]}
                 onFocus={[Function onFocus]}
@@ -1997,7 +1839,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                 selectionColor=\\"#3CC8E6\\"
                 style={
                   Array [
-@@ -228,18 +200,18 @@
+@@ -210,18 +182,18 @@
                       \\"paddingVertical\\": 5,
                       \\"textAlignVertical\\": \\"center\\",
                       \\"textTransform\\": \\"none\\",
@@ -2019,7 +1861,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
             <View
               style={
                 Array [
-@@ -251,11 +223,11 @@
+@@ -233,11 +205,11 @@
               }
             >
               <Text
@@ -2032,7 +1874,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                     \\"fontStyle\\": \\"normal\\",
                     \\"fontWeight\\": \\"normal\\",
                     \\"lineHeight\\": 16,
-@@ -274,11 +246,11 @@
+@@ -256,11 +228,11 @@
                 multiline={false}
                 onBlur={[Function onBlur]}
                 onChangeText={[Function onChangeText]}
@@ -2045,7 +1887,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                 selectionColor=\\"#3CC8E6\\"
                 style={
                   Array [
-@@ -296,23 +268,166 @@
+@@ -278,23 +250,166 @@
                       \\"paddingVertical\\": 5,
                       \\"textAlignVertical\\": \\"center\\",
                       \\"textTransform\\": \\"none\\",
@@ -2061,8 +1903,8 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                 testID=\\"lastNameInput\\"
                 underlineColorAndroid=\\"rgba(0,0,0,0)\\"
                 value=\\"\\"
-              />
-            </View>
++             />
++           </View>
 +           <View
 +             style={
 +               Array [
@@ -2202,8 +2044,8 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 +                 </Text>
 +                 <SvgMock
 +                   color=\\"#B4B6BA\\"
-+                 />
-+               </View>
+                  />
+                </View>
               </View>
             </View>
           </View>
@@ -2214,22 +2056,27 @@ exports[`savePerson add new person without org should add a new person 1`] = `
       emulateUnlessSupported={true}
       style={
         Object {
-@@ -346,24 +461,18 @@
-                \\"alignItems\\": \\"center\\",
-                \\"backgroundColor\\": \\"#3CC8E6\\",
-                \\"height\\": 60,
-                \\"justifyContent\\": \\"center\\",
+@@ -315,13 +430,12 @@
+        onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+        onStartShouldSetResponder={[Function onStartShouldSetResponder]}
+        style={
+          Object {
+            \\"alignItems\\": \\"center\\",
+-           \\"backgroundColor\\": \\"#005A7F\\",
++           \\"backgroundColor\\": \\"#3CC8E6\\",
+            \\"borderRadius\\": 50,
+-           \\"color\\": \\"#ffffff\\",
+            \\"height\\": 48,
+            \\"justifyContent\\": \\"center\\",
+            \\"opacity\\": 1,
+            \\"width\\": 650,
+          }
+@@ -342,15 +456,11 @@
+                \\"textAlign\\": \\"center\\",
+                \\"textAlignVertical\\": \\"center\\",
+                \\"textTransform\\": \\"uppercase\\",
               },
--             Object {
--               \\"opacity\\": 0.6,
--             },
-+             null,
               Array [
-                Object {
-                  \\"alignItems\\": \\"center\\",
-                  \\"height\\": 48,
-                  \\"width\\": 650,
-                },
 -               Object {
 -                 \\"backgroundColor\\": \\"#005A7F\\",
 -                 \\"color\\": \\"#ffffff\\",
@@ -2237,27 +2084,10 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 -               },
 +               null,
               ],
-              Object {
-                \\"borderRadius\\": 50,
-              },
             ]
-@@ -383,15 +492,11 @@
-                  \\"textAlign\\": \\"center\\",
-                  \\"textAlignVertical\\": \\"center\\",
-                  \\"textTransform\\": \\"uppercase\\",
-                },
-                Array [
--                 Object {
--                   \\"backgroundColor\\": \\"#005A7F\\",
--                   \\"color\\": \\"#ffffff\\",
--                   \\"opacity\\": 1,
--                 },
-+                 null,
-                ],
-              ]
-            }
-          >
-            CONTINUE"
+          }
+        >
+          CONTINUE"
 `;
 
 exports[`savePerson update existing person set last name to null should update person and navigate back 1`] = `
@@ -2372,42 +2202,24 @@ exports[`savePerson update existing person set last name to null should update p
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="CloseButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#ECEEF2"
-            />
-          </View>
+          <SvgMock
+            color="#ECEEF2"
+          />
         </View>
       </View>
     </View>
@@ -2754,59 +2566,40 @@ exports[`savePerson update existing person set last name to null should update p
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               null,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                null,
-              ],
-            ]
-          }
-        >
-          DONE
-        </Text>
-      </View>
+        DONE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -2924,42 +2717,24 @@ exports[`savePerson update existing person with org should update person and nav
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="CloseButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#ECEEF2"
-            />
-          </View>
+          <SvgMock
+            color="#ECEEF2"
+          />
         </View>
       </View>
     </View>
@@ -3306,59 +3081,40 @@ exports[`savePerson update existing person with org should update person and nav
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               null,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                null,
-              ],
-            ]
-          }
-        >
-          DONE
-        </Text>
-      </View>
+        DONE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -3476,42 +3232,24 @@ exports[`savePerson update existing person without org should update person and 
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="CloseButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#ECEEF2"
-            />
-          </View>
+          <SvgMock
+            color="#ECEEF2"
+          />
         </View>
       </View>
     </View>
@@ -3858,59 +3596,40 @@ exports[`savePerson update existing person without org should update person and 
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               null,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                null,
-              ],
-            ]
-          }
-        >
-          DONE
-        </Text>
-      </View>
+        DONE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -4028,42 +3747,24 @@ exports[`savePerson update existing person without org updates users profile pic
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="CloseButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#ECEEF2"
-            />
-          </View>
+          <SvgMock
+            color="#ECEEF2"
+          />
         </View>
       </View>
     </View>
@@ -4391,59 +4092,40 @@ exports[`savePerson update existing person without org updates users profile pic
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               null,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                null,
-              ],
-            ]
-          }
-        >
-          DONE
-        </Text>
-      </View>
+        DONE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
