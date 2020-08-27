@@ -11,6 +11,7 @@ import {
   removeFromStepsList,
 } from '../../actions/steps';
 import { REFRESH_STEP_REMINDER_QUERY } from '../../actions/stepReminders';
+import { updatePersonGQL } from '../../actions/person';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { navigateBack } from '../../actions/navigation';
 import ReminderButton from '../../components/ReminderButton';
@@ -72,6 +73,8 @@ const AcceptedStepDetailScreen = () => {
               true,
             ),
           );
+        console.log(step?.receiver);
+        step?.receiver && updatePersonGQL(step.receiver.id);
       },
     },
   );
@@ -112,6 +115,7 @@ const AcceptedStepDetailScreen = () => {
 
   const handleRemoveStep = () => {
     step && deleteStep({ variables: { input: { id: step.id } } });
+    step && updatePersonGQL(step.receiver.id);
     dispatch(navigateBack());
   };
 
