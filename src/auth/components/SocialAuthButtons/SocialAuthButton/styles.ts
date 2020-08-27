@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import theme from '../../../../theme';
+import theme, { TEXT_STYLES } from '../../../../theme';
 
 export const styles = StyleSheet.create({
   socialButton: {
@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     width: 70,
   },
   socialButtonText: {
+    ...TEXT_STYLES.REGULAR_16,
     color: theme.white,
-    fontSize: 18,
   },
 });

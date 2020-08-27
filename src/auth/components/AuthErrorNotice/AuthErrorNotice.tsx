@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react';
+import { Text } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import { useTranslation } from 'react-i18next';
 
 import { AuthError } from '../../constants';
-import { Text } from '../../../components/common';
 
 import { styles } from './styles';
 

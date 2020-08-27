@@ -9,8 +9,5 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  errorMessage: {
-    color: theme.white,
-    fontSize: 16,
-  },
+  errorMessage: { ...theme.textRegular16, color: theme.white },
 });
