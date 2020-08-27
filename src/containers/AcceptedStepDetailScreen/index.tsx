@@ -73,7 +73,6 @@ const AcceptedStepDetailScreen = () => {
               true,
             ),
           );
-        console.log(step?.receiver);
         step?.receiver && updatePersonGQL(step.receiver.id);
       },
     },
@@ -86,6 +85,7 @@ const AcceptedStepDetailScreen = () => {
         dispatch(trackStepDeleted('Step Detail'));
         data.deleteStep?.id &&
           removeFromStepsList(data.deleteStep.id, personId);
+        step?.receiver && updatePersonGQL(step.receiver.id);
       },
     },
   );
