@@ -46,82 +46,62 @@ exports[`renders correctly with non-null onClick 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "backgroundColor": "transparent",
           "opacity": 1,
         }
       }
       testID="IconButton"
     >
-      <View
+      <Text
+        allowFontScaling={false}
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "color": undefined,
+              "fontSize": 12,
             },
-            null,
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
             Array [
               Object {
-                "color": undefined,
-                "fontSize": 12,
+                "color": "#ffffff",
+              },
+              Object {
+                "fontSize": 18,
               },
               Array [
                 Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
+                  "margin": 10,
                 },
                 Array [
                   Object {
-                    "margin": 10,
+                    "color": "#3CC8E6",
+                    "fontSize": 24,
                   },
-                  Array [
-                    Object {
-                      "color": "#52C5DC",
-                      "fontSize": 24,
-                    },
-                    Object {},
-                    Object {
-                      "padding": 10,
-                    },
-                  ],
+                  Object {},
+                  Object {
+                    "padding": 10,
+                  },
                 ],
               ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          ?
-        </Text>
-      </View>
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        ?
+      </Text>
     </View>
   </View>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 11,
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontSize": 11,
+      }
     }
   >
     Hello, MissionHub
@@ -173,84 +153,62 @@ exports[`renders correctly with undefined onClick 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
+          "backgroundColor": "transparent",
+          "opacity": 0.6,
         }
       }
       testID="IconButton"
     >
-      <View
+      <Text
+        allowFontScaling={false}
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "color": undefined,
+              "fontSize": 12,
             },
-            Object {
-              "opacity": 0.6,
-            },
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
             Array [
               Object {
-                "color": undefined,
-                "fontSize": 12,
+                "color": "#ffffff",
+              },
+              Object {
+                "fontSize": 18,
               },
               Array [
                 Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
+                  "margin": 10,
                 },
                 Array [
                   Object {
-                    "margin": 10,
+                    "color": "#3CC8E6",
+                    "fontSize": 24,
                   },
-                  Array [
-                    Object {
-                      "color": "#52C5DC",
-                      "fontSize": 24,
-                    },
-                    Object {
-                      "opacity": 0.5,
-                    },
-                    undefined,
-                  ],
+                  Object {
+                    "opacity": 0.5,
+                  },
+                  undefined,
                 ],
               ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          ?
-        </Text>
-      </View>
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        ?
+      </Text>
     </View>
   </View>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 11,
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontSize": 11,
+      }
     }
   >
     Hello, MissionHub

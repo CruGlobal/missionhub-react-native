@@ -36,9 +36,8 @@ export default StyleSheet.create({
     height: 48,
   },
   buttonText: {
+    ...theme.textBold14,
     color: theme.white,
-    fontWeight: '500',
-    fontSize: 14,
     paddingTop: 2,
     letterSpacing: 1.5,
   },
@@ -47,9 +46,8 @@ export default StyleSheet.create({
     flexDirection: 'row',
   },
   memberText: {
-    fontSize: 14,
+    ...theme.textBold14,
     color: theme.secondaryColor,
-    fontWeight: '500',
     paddingTop: 2,
     letterSpacing: 1.5,
     marginRight: 10,

@@ -26,39 +26,32 @@ exports[`does not navigate if accepted_count is 0 | Joined 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Days Left
     </Text>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-ExtraLight",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       0
@@ -78,19 +71,16 @@ exports[`does not navigate if accepted_count is 0 | Joined 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Joined
@@ -101,21 +91,17 @@ exports[`does not navigate if accepted_count is 0 | Joined 1`] = `
         Array [
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
           Object {
-            "fontFamily": "SourceSansPro-Regular",
+            "color": "#B4B6BA",
           },
-          Array [
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 24,
-              "lineHeight": 30,
-            },
-            Object {
-              "color": "#B4B6BA",
-            },
-          ],
         ]
       }
       testID="joinedCount"
@@ -137,19 +123,16 @@ exports[`does not navigate if accepted_count is 0 | Joined 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Completed
@@ -160,19 +143,15 @@ exports[`does not navigate if accepted_count is 0 | Joined 1`] = `
         Array [
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 24,
-              "lineHeight": 30,
-            },
-            null,
-          ],
+          null,
         ]
       }
       testID="completedCount"
@@ -209,39 +188,32 @@ exports[`does not navigate if completed_count is 0 | Completed 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Days Left
     </Text>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-ExtraLight",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       0
@@ -261,19 +233,16 @@ exports[`does not navigate if completed_count is 0 | Completed 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Joined
@@ -284,19 +253,15 @@ exports[`does not navigate if completed_count is 0 | Completed 1`] = `
         Array [
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 24,
-              "lineHeight": 30,
-            },
-            null,
-          ],
+          null,
         ]
       }
       testID="joinedCount"
@@ -318,19 +283,16 @@ exports[`does not navigate if completed_count is 0 | Completed 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Completed
@@ -341,21 +303,17 @@ exports[`does not navigate if completed_count is 0 | Completed 1`] = `
         Array [
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
           Object {
-            "fontFamily": "SourceSansPro-Regular",
+            "color": "#B4B6BA",
           },
-          Array [
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 24,
-              "lineHeight": 30,
-            },
-            Object {
-              "color": "#B4B6BA",
-            },
-          ],
         ]
       }
       testID="completedCount"
@@ -392,39 +350,32 @@ exports[`does not navigate if isDetailScreen is false 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Days Left
     </Text>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-ExtraLight",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       0
@@ -444,19 +395,16 @@ exports[`does not navigate if isDetailScreen is false 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Joined
@@ -467,19 +415,15 @@ exports[`does not navigate if isDetailScreen is false 1`] = `
         Array [
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 24,
-              "lineHeight": 30,
-            },
-            null,
-          ],
+          null,
         ]
       }
       testID="joinedCount"
@@ -501,19 +445,16 @@ exports[`does not navigate if isDetailScreen is false 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Completed
@@ -524,19 +465,15 @@ exports[`does not navigate if isDetailScreen is false 1`] = `
         Array [
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 24,
-              "lineHeight": 30,
-            },
-            null,
-          ],
+          null,
         ]
       }
       testID="completedCount"
@@ -573,39 +510,32 @@ exports[`does not navigate if organization is null | Completed 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Days Left
     </Text>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-ExtraLight",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       0
@@ -625,19 +555,16 @@ exports[`does not navigate if organization is null | Completed 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Joined
@@ -648,19 +575,15 @@ exports[`does not navigate if organization is null | Completed 1`] = `
         Array [
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 24,
-              "lineHeight": 30,
-            },
-            null,
-          ],
+          null,
         ]
       }
       testID="joinedCount"
@@ -682,19 +605,16 @@ exports[`does not navigate if organization is null | Completed 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Completed
@@ -705,21 +625,17 @@ exports[`does not navigate if organization is null | Completed 1`] = `
         Array [
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
           Object {
-            "fontFamily": "SourceSansPro-Regular",
+            "color": "#B4B6BA",
           },
-          Array [
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 24,
-              "lineHeight": 30,
-            },
-            Object {
-              "color": "#B4B6BA",
-            },
-          ],
         ]
       }
       testID="completedCount"
@@ -756,39 +672,32 @@ exports[`does not navigate if organization is null | Joined 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Days Left
     </Text>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-ExtraLight",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       0
@@ -808,19 +717,16 @@ exports[`does not navigate if organization is null | Joined 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Joined
@@ -831,21 +737,17 @@ exports[`does not navigate if organization is null | Joined 1`] = `
         Array [
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
           Object {
-            "fontFamily": "SourceSansPro-Regular",
+            "color": "#B4B6BA",
           },
-          Array [
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 24,
-              "lineHeight": 30,
-            },
-            Object {
-              "color": "#B4B6BA",
-            },
-          ],
         ]
       }
       testID="joinedCount"
@@ -867,19 +769,16 @@ exports[`does not navigate if organization is null | Joined 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Completed
@@ -890,19 +789,15 @@ exports[`does not navigate if organization is null | Joined 1`] = `
         Array [
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 24,
-              "lineHeight": 30,
-            },
-            null,
-          ],
+          null,
         ]
       }
       testID="completedCount"
@@ -939,19 +834,16 @@ exports[`render challenge stats | DetailScreen 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Joined
@@ -961,20 +853,16 @@ exports[`render challenge stats | DetailScreen 1`] = `
       style={
         Array [
           Object {
-            "color": "#505256",
+            "color": "#3CC8E6",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 32,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 38,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "color": "#3CC8E6",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 32,
-              "lineHeight": 38,
-            },
-            null,
-          ],
+          null,
         ]
       }
       testID="joinedCount"
@@ -996,19 +884,16 @@ exports[`render challenge stats | DetailScreen 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Completed
@@ -1018,20 +903,16 @@ exports[`render challenge stats | DetailScreen 1`] = `
       style={
         Array [
           Object {
-            "color": "#505256",
+            "color": "#3CC8E6",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 32,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 38,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "color": "#3CC8E6",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 32,
-              "lineHeight": 38,
-            },
-            null,
-          ],
+          null,
         ]
       }
       testID="completedCount"
@@ -1080,39 +961,32 @@ exports[`render challenge stats 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Days Left
     </Text>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-ExtraLight",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       0
@@ -1132,19 +1006,16 @@ exports[`render challenge stats 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Joined
@@ -1155,19 +1026,15 @@ exports[`render challenge stats 1`] = `
         Array [
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 24,
-              "lineHeight": 30,
-            },
-            null,
-          ],
+          null,
         ]
       }
       testID="joinedCount"
@@ -1189,19 +1056,16 @@ exports[`render challenge stats 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Completed
@@ -1212,19 +1076,15 @@ exports[`render challenge stats 1`] = `
         Array [
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 24,
-              "lineHeight": 30,
-            },
-            null,
-          ],
+          null,
         ]
       }
       testID="completedCount"
@@ -1263,39 +1123,32 @@ exports[`render challenge stats small with style 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Days Left
     </Text>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-ExtraLight",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       0
@@ -1315,19 +1168,16 @@ exports[`render challenge stats small with style 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Joined
@@ -1338,19 +1188,15 @@ exports[`render challenge stats small with style 1`] = `
         Array [
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 24,
-              "lineHeight": 30,
-            },
-            null,
-          ],
+          null,
         ]
       }
       testID="joinedCount"
@@ -1372,19 +1218,16 @@ exports[`render challenge stats small with style 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Completed
@@ -1395,19 +1238,15 @@ exports[`render challenge stats small with style 1`] = `
         Array [
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 24,
-              "lineHeight": 30,
-            },
-            null,
-          ],
+          null,
         ]
       }
       testID="completedCount"
@@ -1446,39 +1285,32 @@ exports[`render challenge stats with style 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Days Left
     </Text>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-ExtraLight",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       0
@@ -1498,19 +1330,16 @@ exports[`render challenge stats with style 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Joined
@@ -1521,19 +1350,15 @@ exports[`render challenge stats with style 1`] = `
         Array [
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 24,
-              "lineHeight": 30,
-            },
-            null,
-          ],
+          null,
         ]
       }
       testID="joinedCount"
@@ -1555,19 +1380,16 @@ exports[`render challenge stats with style 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Completed
@@ -1578,19 +1400,15 @@ exports[`render challenge stats with style 1`] = `
         Array [
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 24,
-              "lineHeight": 30,
-            },
-            null,
-          ],
+          null,
         ]
       }
       testID="completedCount"
@@ -1627,39 +1445,32 @@ exports[`render past challenge stats 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Days
     </Text>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-ExtraLight",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       3
@@ -1679,19 +1490,16 @@ exports[`render past challenge stats 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Joined
@@ -1702,19 +1510,15 @@ exports[`render past challenge stats 1`] = `
         Array [
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 24,
-              "lineHeight": 30,
-            },
-            null,
-          ],
+          null,
         ]
       }
       testID="joinedCount"
@@ -1736,19 +1540,16 @@ exports[`render past challenge stats 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Completed
@@ -1759,19 +1560,15 @@ exports[`render past challenge stats 1`] = `
         Array [
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 24,
-              "lineHeight": 30,
-            },
-            null,
-          ],
+          null,
         ]
       }
       testID="completedCount"
@@ -1808,39 +1605,32 @@ exports[`render upcoming challenge stats 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Days Left
     </Text>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-ExtraLight",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       1
@@ -1860,19 +1650,16 @@ exports[`render upcoming challenge stats 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Joined
@@ -1883,19 +1670,15 @@ exports[`render upcoming challenge stats 1`] = `
         Array [
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 24,
-              "lineHeight": 30,
-            },
-            null,
-          ],
+          null,
         ]
       }
       testID="joinedCount"
@@ -1917,19 +1700,16 @@ exports[`render upcoming challenge stats 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 12,
-            "lineHeight": 16,
-          },
-        ]
+        Object {
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Completed
@@ -1940,19 +1720,15 @@ exports[`render upcoming challenge stats 1`] = `
         Array [
           Object {
             "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 24,
-              "lineHeight": 30,
-            },
-            null,
-          ],
+          null,
         ]
       }
       testID="completedCount"

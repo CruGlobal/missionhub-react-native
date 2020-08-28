@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { useDispatch } from 'react-redux';
 
 import { useMyId } from '../../../utils/hooks/useIsMe';
-import { Button, Text } from '../../../components/common';
+import { Button } from '../../../components/common';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import Avatar from '../../../components/Avatar';
 import { FeedItemSubjectTypeEnum } from '../../../../__generated__/globalTypes';

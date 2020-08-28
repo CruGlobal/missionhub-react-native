@@ -13,42 +13,24 @@ exports[`back button renders correctly | circle 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "flex-start",
+      "alignSelf": "flex-start",
+      "backgroundColor": "transparent",
+      "borderRadius": 0,
+      "borderWidth": 0,
+      "height": 60,
+      "justifyContent": "center",
+      "margin": 0,
       "opacity": 1,
+      "paddingHorizontal": 20,
+      "paddingVertical": 10,
     }
   }
   testID="CloseButton"
 >
-  <View
-    style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
-        },
-        null,
-        Array [
-          Object {
-            "alignItems": "flex-start",
-            "alignSelf": "flex-start",
-            "justifyContent": "center",
-          },
-          undefined,
-        ],
-        null,
-      ]
-    }
-  >
-    <SvgMock
-      color="#B4B6BA"
-    />
-  </View>
+  <SvgMock
+    color="#B4B6BA"
+  />
 </View>
 `;
 
@@ -65,42 +47,24 @@ exports[`back button renders correctly | thick 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "flex-start",
+      "alignSelf": "flex-start",
+      "backgroundColor": "transparent",
+      "borderRadius": 0,
+      "borderWidth": 0,
+      "height": 60,
+      "justifyContent": "center",
+      "margin": 0,
       "opacity": 1,
+      "paddingHorizontal": 20,
+      "paddingVertical": 10,
     }
   }
   testID="CloseButton"
 >
-  <View
-    style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
-        },
-        null,
-        Array [
-          Object {
-            "alignItems": "flex-start",
-            "alignSelf": "flex-start",
-            "justifyContent": "center",
-          },
-          undefined,
-        ],
-        null,
-      ]
-    }
-  >
-    <SvgMock
-      color="#B4B6BA"
-    />
-  </View>
+  <SvgMock
+    color="#B4B6BA"
+  />
 </View>
 `;
 
@@ -117,42 +81,24 @@ exports[`back button renders normally 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "flex-start",
+      "alignSelf": "flex-start",
+      "backgroundColor": "transparent",
+      "borderRadius": 0,
+      "borderWidth": 0,
+      "height": 60,
+      "justifyContent": "center",
+      "margin": 0,
       "opacity": 1,
+      "paddingHorizontal": 20,
+      "paddingVertical": 10,
     }
   }
   testID="CloseButton"
 >
-  <View
-    style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
-        },
-        null,
-        Array [
-          Object {
-            "alignItems": "flex-start",
-            "alignSelf": "flex-start",
-            "justifyContent": "center",
-          },
-          undefined,
-        ],
-        null,
-      ]
-    }
-  >
-    <SvgMock
-      color="#B4B6BA"
-    />
-  </View>
+  <SvgMock
+    color="#B4B6BA"
+  />
 </View>
 `;
 
@@ -169,41 +115,23 @@ exports[`back button renders with different color 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "flex-start",
+      "alignSelf": "flex-start",
+      "backgroundColor": "transparent",
+      "borderRadius": 0,
+      "borderWidth": 0,
+      "height": 60,
+      "justifyContent": "center",
+      "margin": 0,
       "opacity": 1,
+      "paddingHorizontal": 20,
+      "paddingVertical": 10,
     }
   }
   testID="CloseButton"
 >
-  <View
-    style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
-        },
-        null,
-        Array [
-          Object {
-            "alignItems": "flex-start",
-            "alignSelf": "flex-start",
-            "justifyContent": "center",
-          },
-          undefined,
-        ],
-        null,
-      ]
-    }
-  >
-    <SvgMock
-      color="#3CC8E6"
-    />
-  </View>
+  <SvgMock
+    color="#3CC8E6"
+  />
 </View>
 `;

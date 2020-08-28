@@ -5,11 +5,12 @@ import {
   Keyboard,
   Image,
   KeyboardAvoidingView,
+  Text,
 } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { withTranslation } from 'react-i18next';
 
-import { Flex, Text, Input, IconButton } from '../../../components/common';
+import { Flex, Input, IconButton } from '../../../components/common';
 import Header from '../../../components/Header';
 import theme from '../../../theme';
 import CAMERA_ICON from '../../../../assets/images/cameraIcon.png';
@@ -163,9 +164,7 @@ class CreateGroupScreen extends Component {
             style={styles.flex}
           >
             <Flex style={styles.fieldWrap}>
-              <Text style={styles.label} header={true}>
-                {t('name')}
-              </Text>
+              <Text style={styles.label}>{t('name')}</Text>
               <Input
                 ref={this.ref}
                 onChangeText={this.onChangeText}

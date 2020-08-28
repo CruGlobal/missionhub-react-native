@@ -1,15 +1,17 @@
 import React from 'react';
-import { fireEvent } from 'react-native-testing-library';
+import { useMutation } from '@apollo/react-hooks';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { StepItem as Step } from '../__generated__/StepItem';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { STEP_ITEM_FRAGMENT } from '../queries';
+import { COMPLETE_STEP_MUTATION } from '../../../containers/AcceptedStepDetailScreen/queries';
 import { navigatePush } from '../../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../../containers/AcceptedStepDetailScreen';
 import { COMPLETED_STEP_DETAIL_SCREEN } from '../../../containers/CompletedStepDetailScreen';
 import { navToPersonScreen } from '../../../actions/person';
-import { completeStep } from '../../../actions/steps';
+import { handleAfterCompleteStep } from '../../../actions/steps';
 import { CONTACT_STEPS } from '../../../constants';
 import StepItem from '..';
 
@@ -20,7 +22,9 @@ jest.mock('../../../actions/person', () => ({
   navToPersonScreen: jest.fn().mockReturnValue({ type: 'navToPersonScreen' }),
 }));
 jest.mock('../../../actions/steps', () => ({
-  completeStep: jest.fn().mockReturnValue({ type: 'completeStep' }),
+  handleAfterCompleteStep: jest
+    .fn()
+    .mockReturnValue({ type: 'handleAfterCompleteStep' }),
 }));
 jest.mock('../../ReminderButton', () => ({
   __esModule: true,
@@ -118,10 +122,24 @@ it('should navigate to person screen', () => {
   expect(navToPersonScreen).toHaveBeenCalledWith(mockStep.receiver.id);
 });
 
-it('should complete steps with checkbox', () => {
+it('should complete steps with checkbox', async () => {
   const { getByTestId } = renderWithContext(<StepItem step={mockStep} />, {
     initialState,
   });
   fireEvent.press(getByTestId('CompleteStepButton'));
-  expect(completeStep).toHaveBeenCalledWith(mockStep, CONTACT_STEPS);
+  expect(useMutation).toHaveBeenMutatedWith(COMPLETE_STEP_MUTATION, {
+    variables: { input: { id: mockStep.id } },
+  });
+  await flushMicrotasksQueue();
+  expect(handleAfterCompleteStep).toHaveBeenCalledWith(
+    {
+      id: mockStep.id,
+      receiver: { ...mockStep.receiver, __typename: 'Person' },
+      community: {
+        __typename: 'Community',
+        ...mockStep.community,
+      },
+    },
+    CONTACT_STEPS,
+  );
 });

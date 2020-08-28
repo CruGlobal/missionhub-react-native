@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux-legacy';
 import { useDispatch } from 'react-redux';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
-import { Flex, Text } from '../../components/common';
+import { Flex } from '../../components/common';
 import DeprecatedBackButton from '../DeprecatedBackButton';
 import BottomButton from '../../components/BottomButton';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
@@ -52,7 +52,7 @@ const GetStartedScreen = ({
       />
       <Flex align="center" justify="center" value={1} style={styles.content}>
         <Flex align="start" justify="center" value={4}>
-          <Text header={true} style={styles.headerTitle}>
+          <Text style={styles.headerTitle}>
             {t('hi', { name: name.toLowerCase() })}
           </Text>
           <Text style={styles.text}>

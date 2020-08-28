@@ -4,11 +4,11 @@ import theme from '../../theme';
 
 export const styles = StyleSheet.create({
   errorContainer: {
-    backgroundColor: theme.grey,
+    backgroundColor: theme.darkGrey,
     alignItems: 'center',
     padding: 5,
     flexDirection: 'row',
     justifyContent: 'center',
   },
-  white: { color: theme.white },
+  text: { ...theme.textRegular16, color: theme.white },
 });

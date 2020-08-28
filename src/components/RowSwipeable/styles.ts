@@ -14,7 +14,7 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: theme.red,
+    backgroundColor: theme.orange,
   },
   completeWrap: {
     flex: 1,
@@ -30,6 +30,6 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: theme.inactiveColor,
+    backgroundColor: theme.lightGrey,
   },
 });

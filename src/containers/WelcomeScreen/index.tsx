@@ -1,12 +1,12 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { ThunkAction } from 'redux-thunk';
 import { useDispatch } from 'react-redux';
 import { AnyAction } from 'redux';
 
-import { Flex, Text, Button } from '../../components/common';
+import { Flex, Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import Header from '../../components/Header';
@@ -44,9 +44,7 @@ const WelcomeScreen = ({ next }: WelcomeScreenProps) => {
       <Header left={<DeprecatedBackButton />} />
       <Flex align="center" justify="center" value={1} style={styles.content}>
         <Flex value={3} align="start" justify="center">
-          <Text header={true} style={styles.headerText}>
-            {t('welcome')}
-          </Text>
+          <Text style={styles.headerText}>{t('welcome')}</Text>
           <Text style={styles.descriptionText}>{t('welcomeDescription')}</Text>
         </Flex>
 

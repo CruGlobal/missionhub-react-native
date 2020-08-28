@@ -27,8 +27,7 @@ export default StyleSheet.create({
     marginHorizontal: 20,
   },
   buttonText: {
-    fontSize: 14,
-    height: 18,
+    ...theme.textRegular14,
     paddingLeft: 10,
   },
 });

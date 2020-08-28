@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  View,
   StyleProp,
   ViewStyle,
   TextStyle,
@@ -8,10 +7,11 @@ import {
   ImageSourcePropType,
   ViewProps,
   GestureResponderEvent,
+  Text,
 } from 'react-native';
 import debounce from 'lodash.debounce';
 
-import { Touchable, Text, Flex } from '../common';
+import { Touchable, Flex } from '../common';
 import { exists } from '../../utils/common';
 
 import styles from './styles';
@@ -107,18 +107,15 @@ export default class Button extends Component<ButtonProps, ButtonState> {
         {...rest}
         disabled={isDisabled}
         onPress={this.handlePressDb}
+        {...viewProps}
+        style={[
+          getTypeStyle(type),
+          disabled ? styles.disabled : null,
+          style,
+          pill ? styles.pill : null,
+        ]}
       >
-        <View
-          {...viewProps}
-          style={[
-            getTypeStyle(type),
-            disabled ? styles.disabled : null,
-            style,
-            pill ? styles.pill : null,
-          ]}
-        >
-          {content}
-        </View>
+        {content}
       </Touchable>
     );
   }

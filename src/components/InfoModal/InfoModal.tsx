@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Modal, View, TextStyle } from 'react-native';
+import { Modal, View, TextStyle, Text } from 'react-native';
 
 import Flex from '../Flex';
 import IconButton from '../IconButton';
-import { Text, Button } from '../common';
+import { Button } from '../common';
 
 import styles from './styles';
 

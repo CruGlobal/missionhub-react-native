@@ -6,20 +6,18 @@ exports[`renders correctly 1`] = `
   style={
     Array [
       Object {
-        "color": "#505256",
+        "color": "#007398",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 16,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 24,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       },
       Object {
-        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 12,
       },
-      Array [
-        Object {
-          "color": "#007398",
-          "fontSize": 16,
-        },
-        Object {
-          "fontSize": 12,
-        },
-      ],
     ]
   }
 >

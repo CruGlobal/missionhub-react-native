@@ -13,10 +13,7 @@ export default StyleSheet.create({
     backgroundColor: theme.extraLightGrey,
   },
   memberText: {
+    ...theme.textLight24,
     paddingHorizontal: 20,
-    fontSize: 24,
-    lineHeight: 30,
-    color: theme.grey,
-    fontWeight: '300',
   },
 });

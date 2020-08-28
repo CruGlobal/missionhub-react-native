@@ -1,10 +1,10 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, Text } from 'react-native';
 import moment from 'moment';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { Flex, Text, Touchable, Card, DateComponent } from '../common';
+import { Flex, Touchable, Card, DateComponent } from '../common';
 import { AuthState } from '../../reducers/auth';
 import Avatar from '../Avatar';
 import { ChallengeItem } from '../ChallengeStats';

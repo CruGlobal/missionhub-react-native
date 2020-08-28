@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
-import { View, Keyboard, TextInput, Animated } from 'react-native';
+import { View, Keyboard, TextInput, Animated, Text } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { useIsFocused, useNavigationParam } from 'react-navigation-hooks';
 
-import { Text, Input } from '../../../components/common';
+import { Input } from '../../../components/common';
 import { savePersonNote, getPersonNote } from '../../../actions/person';
 import NOTES from '../../../../assets/images/myNotes.png';
 import NullStateComponent from '../../../components/NullStateComponent';

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { connect } from 'react-redux-legacy';
 import { useDispatch } from 'react-redux';
-import { View, Keyboard, TextInput } from 'react-native';
+import { View, Keyboard, TextInput, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useMutation } from '@apollo/react-hooks';
@@ -9,7 +9,7 @@ import { ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import appsFlyer from 'react-native-appsflyer';
 
-import { Text, Flex, Input } from '../../components/common';
+import { Flex, Input } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import { createMyPerson } from '../../actions/onboarding';
 import TosPrivacy from '../../components/TosPrivacy';
@@ -175,9 +175,7 @@ const SetupScreen = ({
       />
       <Flex value={2} justify="end" align="center">
         {isMe ? (
-          <Text header={true} style={styles.header}>
-            {t('namePrompt')}
-          </Text>
+          <Text style={styles.header}>{t('namePrompt')}</Text>
         ) : (
           <>
             <View style={styles.textWrap}>

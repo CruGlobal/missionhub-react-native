@@ -1,7 +1,7 @@
 /* eslint-disable max-lines */
 
 import React, { useState } from 'react';
-import { View, Alert, Image, ScrollView } from 'react-native';
+import { View, Alert, Image, ScrollView, Text } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
@@ -10,7 +10,6 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import {
   Flex,
   Input,
-  Text,
   Button,
   Separator,
   IconButton,

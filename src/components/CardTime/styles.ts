@@ -4,7 +4,7 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   time: {
-    color: theme.grey1,
-    fontSize: 12,
+    ...theme.textRegular12,
+    color: theme.lightGrey,
   },
 });

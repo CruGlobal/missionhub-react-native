@@ -1,11 +1,11 @@
 import React from 'react';
-import { SafeAreaView, Image, View } from 'react-native';
+import { SafeAreaView, Image, View, Text } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { navigatePush } from '../../actions/navigation';
-import { Button, Text } from '../../components/common';
+import { Button } from '../../components/common';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import {
   FULL_ONBOARDING_FLOW,

@@ -2,13 +2,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import appsFlyer from 'react-native-appsflyer';
 import { AnyAction } from 'redux';
 
-import {
-  COMPLETED_STEP_COUNT,
-  STEP_NOTE,
-  ACTIONS,
-  ACCEPTED_STEP,
-} from '../constants';
-import { formatApiDate } from '../utils/date';
+import { STEP_NOTE, ACTIONS, ACCEPTED_STEP } from '../constants';
 import {
   COMPLETE_STEP_FLOW,
   COMPLETE_STEP_FLOW_NAVIGATE_BACK,
@@ -52,54 +46,19 @@ function buildChallengeData(attributes: Record<string, unknown>) {
   };
 }
 
-function completeChallengeAPI(step: {
-  id: string;
-  receiver: { id: string };
-  organization?: { id: string };
-}) {
-  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
-    const { id: stepId, receiver, organization } = step;
-    const receiverId = receiver && receiver.id;
-    const orgId = organization && organization.id;
-
-    const query = {
-      challenge_id: stepId,
-    };
-    const data = buildChallengeData({
-      completed_at: formatApiDate(),
-    });
-
-    await dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data));
-    dispatch({
-      type: COMPLETED_STEP_COUNT,
-      userId: receiverId,
-    });
-    dispatch(refreshImpact(orgId));
-
-    removeFromStepsList(stepId, receiverId);
-
-    apolloClient.query({
-      query: PERSON_STEPS_QUERY,
-      variables: { personId: receiverId, completed: true },
-    });
-
-    orgId && getCelebrateFeed(orgId);
-  };
-}
-
-export function completeStep(
+export function handleAfterCompleteStep(
   step: {
     id: string;
     receiver: { id: string };
-    organization?: { id: string };
+    community?: { id: string } | null;
   },
   screen: string,
   extraBack = false,
 ) {
   return (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
-    const { id: stepId, receiver, organization } = step;
-    const receiverId = (receiver && receiver.id) || null;
-    const orgId = (organization && organization.id) || null;
+    const { id: stepId, receiver, community } = step;
+    const receiverId = receiver && receiver.id;
+    const communityId = (community && community.id) || undefined;
 
     dispatch(
       navigatePush(
@@ -107,8 +66,19 @@ export function completeStep(
         {
           id: stepId,
           personId: receiverId,
-          orgId,
-          onSetComplete: () => dispatch(completeChallengeAPI(step)),
+          orgId: communityId,
+          onSetComplete: () => {
+            dispatch(refreshImpact(communityId));
+
+            removeFromStepsList(stepId, receiverId);
+
+            apolloClient.query({
+              query: PERSON_STEPS_QUERY,
+              variables: { personId: receiverId, completed: true },
+            });
+
+            communityId && getCelebrateFeed(communityId);
+          },
           type: STEP_NOTE,
         },
       ),
@@ -123,29 +93,7 @@ export function completeStep(
   };
 }
 
-export function deleteStepWithTracking(
-  step: { id: string; receiver: { id: string } },
-  screen: string,
-) {
-  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
-    await dispatch(deleteStep(step));
-    dispatch(
-      trackAction(`${ACTIONS.STEP_REMOVED.name} on ${screen} Screen`, {
-        [ACTIONS.STEP_REMOVED.key]: null,
-      }),
-    );
-  };
-}
-
-function deleteStep(step: { id: string; receiver: { id: string } }) {
-  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
-    const query = { challenge_id: step.id };
-    await dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {}));
-    removeFromStepsList(step.id, step.receiver.id);
-  };
-}
-
-const removeFromStepsList = (stepId: string, personId: string) => {
+export const removeFromStepsList = (stepId: string, personId: string) => {
   const cachedSteps = apolloClient.readQuery<StepsList>({
     query: STEPS_QUERY,
   });

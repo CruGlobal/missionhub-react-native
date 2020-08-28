@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import theme, { COLORS } from '../../theme';
+import theme from '../../theme';
 
 export default StyleSheet.create({
   container: {
@@ -25,13 +25,13 @@ export default StyleSheet.create({
     marginVertical: 5,
   },
   edited: {
-    color: theme.grey1,
-    fontSize: 12,
+    ...theme.textRegular12,
+    color: theme.lightGrey,
   },
   editedBullet: {
     paddingHorizontal: 2,
   },
   editingComment: {
-    backgroundColor: COLORS.GLACIER_BLUE,
+    backgroundColor: theme.lightBlue,
   },
 });

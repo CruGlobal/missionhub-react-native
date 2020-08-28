@@ -16,7 +16,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
   },
   controlBarBackground: {
-    backgroundColor: '#00000066',
+    backgroundColor: theme.fadedBlackBackgroundColor,
   },
   controlBarWrap: {
     flexDirection: 'row',
@@ -31,10 +31,8 @@ export default StyleSheet.create({
     alignItems: 'flex-start',
   },
   countdownText: {
-    fontWeight: '300',
+    ...theme.textLight24,
     color: theme.white,
-    fontSize: 24,
-    lineHeight: 30,
     textAlign: 'center',
   },
   recordButton: {
@@ -47,14 +45,14 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   startRecordIcon: {
-    backgroundColor: theme.red,
+    backgroundColor: theme.orange,
     height: 24,
     width: 24,
     borderRadius: 12,
     opacity: 1.0,
   },
   endRecordIcon: {
-    backgroundColor: theme.red,
+    backgroundColor: theme.orange,
     height: 20,
     width: 20,
     borderRadius: 2,
@@ -68,6 +66,6 @@ export default StyleSheet.create({
   closeButton: {
     margin: 18,
     borderRadius: 18,
-    backgroundColor: '#00000066',
+    backgroundColor: theme.fadedBlackBackgroundColor,
   },
 });

@@ -12,20 +12,18 @@ export default StyleSheet.create({
   textWrap: { alignItems: 'center', marginBottom: 30 },
   inputWrap: { flex: 3, padding: 30 },
   label: {
+    ...theme.textRegular12,
     color: theme.secondaryColor,
-    fontSize: 12,
   },
   header: {
+    ...theme.textAmatic36,
     color: theme.secondaryColor,
-    fontSize: 36,
     marginBottom: 10,
   },
   addPersonText: {
+    ...theme.textLight24,
     maxWidth: 230,
     color: theme.white,
-    fontSize: 24,
-    fontWeight: '300',
-    lineHeight: 30,
     textAlign: 'center',
   },
   termsWrap: {
@@ -33,18 +31,16 @@ export default StyleSheet.create({
     marginBottom: 38,
   },
   termsText: {
+    ...theme.textRegular12,
     color: theme.white,
-    fontSize: 12,
     textAlign: 'center',
     paddingHorizontal: 3,
   },
   termsTextLink: {
+    ...theme.textRegular12,
     color: theme.white,
-    fontSize: 12,
     textAlign: 'center',
     paddingHorizontal: 3,
     textDecorationLine: 'underline',
-    fontWeight: 'normal',
-    letterSpacing: 0,
   },
 });

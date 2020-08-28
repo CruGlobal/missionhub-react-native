@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, SafeAreaView, Image } from 'react-native';
+import { View, SafeAreaView, Image, Text } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
@@ -8,7 +8,7 @@ import gql from 'graphql-tag';
 import { AnyAction } from 'redux';
 
 import BackButton from '../../components/BackButton';
-import { Text, Button } from '../../components/common';
+import { Button } from '../../components/common';
 import Header from '../../components/Header';
 import Skip from '../../components/Skip';
 import ImagePicker, { SelectImageParams } from '../../components/ImagePicker';

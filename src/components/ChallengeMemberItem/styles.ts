@@ -9,11 +9,11 @@ export default StyleSheet.create({
     width: theme.fullWidth,
   },
   nameText: {
-    color: theme.primaryColor,
-    fontSize: 16,
+    ...theme.textRegular16,
+    color: theme.accentColor,
   },
   date: {
-    fontSize: 12,
+    ...theme.textRegular12,
     color: theme.lightGrey,
   },
   card: {

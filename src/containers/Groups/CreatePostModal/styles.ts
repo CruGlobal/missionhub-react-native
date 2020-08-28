@@ -5,7 +5,7 @@ import theme from '../../../theme';
 export default StyleSheet.create({
   modalStyle: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: theme.fadedBlackBackgroundColor,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -27,24 +27,13 @@ export default StyleSheet.create({
     justifyContent: 'flex-end',
   },
   titleText: {
+    ...theme.textRegular14,
     paddingBottom: 20,
-    fontFamily: 'SourceSansPro-Regular',
-    fontSize: 14,
-    lineHeight: 20,
     textAlign: 'center',
-    color: theme.grey,
   },
   sectionTitle: {
-    fontSize: 16,
-    fontFamily: 'SourceSansPro-Regular',
-    lineHeight: 24,
+    ...theme.textRegular16,
     color: theme.lightGrey,
     paddingHorizontal: 10,
-  },
-  bodyText: {
-    fontSize: 16,
-    lineHeight: 22,
-    textAlign: 'center',
-    color: theme.textColor,
   },
 });

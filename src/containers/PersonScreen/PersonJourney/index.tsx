@@ -56,7 +56,7 @@ export const PersonJourney = ({
 
   useEffect(() => {
     getInteractions();
-  }, []);
+  }, [journeyItems]);
 
   const getInteractions = () => {
     dispatch(getJourney(person.id));
@@ -101,6 +101,9 @@ export const PersonJourney = ({
           actions={[
             { text: t('edit'), onPress: () => handleEditInteraction(item) },
           ]}
+          buttonProps={{
+            style: { flex: 1 },
+          }}
           triggerOnLongPress={true}
         >
           {content}

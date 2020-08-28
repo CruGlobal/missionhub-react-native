@@ -93,37 +93,21 @@ exports[`GroupCardItem renders for global community 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "bold",
+            }
           }
         >
           GROUP NAME
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontSize": 12,
+            }
           }
         >
           0 Members
@@ -223,37 +207,21 @@ exports[`GroupCardItem renders for join screen 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "bold",
+            }
           }
         >
           GROUP NAME
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontSize": 12,
+            }
           }
         >
           Roge E (Owner)
@@ -282,60 +250,40 @@ exports[`GroupCardItem renders for join screen 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "#FF5532",
+              "borderRadius": 12,
+              "margin": 5,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 5,
             }
           }
           testID="JoinButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Array [
-                  Object {
-                    "backgroundColor": "#FF5532",
-                    "borderRadius": 12,
-                    "margin": 5,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 5,
-                  },
-                ],
-                null,
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                },
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                    },
-                  ],
-                ]
-              }
-            >
-              JOIN
-            </Text>
-          </View>
+            JOIN
+          </Text>
         </View>
       </View>
     </View>
@@ -432,37 +380,21 @@ exports[`GroupCardItem renders for join screen no owner 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "bold",
+            }
           }
         >
           GROUP NAME
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontSize": 12,
+            }
           }
         >
           Private Group
@@ -491,60 +423,40 @@ exports[`GroupCardItem renders for join screen no owner 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "#FF5532",
+              "borderRadius": 12,
+              "margin": 5,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 5,
             }
           }
           testID="JoinButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
-                Array [
-                  Object {
-                    "backgroundColor": "#FF5532",
-                    "borderRadius": 12,
-                    "margin": 5,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 5,
-                  },
-                ],
-                null,
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                },
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                    },
-                  ],
-                ]
-              }
-            >
-              JOIN
-            </Text>
-          </View>
+            JOIN
+          </Text>
         </View>
       </View>
     </View>
@@ -641,37 +553,21 @@ exports[`GroupCardItem renders group 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "bold",
+            }
           }
         >
           GROUP NAME
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontSize": 12,
+            }
           }
         >
           0 Members
@@ -771,37 +667,21 @@ exports[`GroupCardItem renders group with member count 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "bold",
+            }
           }
         >
           GROUP NAME
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontSize": 12,
+            }
           }
         >
           5 Members
@@ -901,37 +781,21 @@ exports[`GroupCardItem renders group with singular member count 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "bold",
+            }
           }
         >
           GROUP NAME
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontSize": 12,
+            }
           }
         >
           1 Member
@@ -1035,37 +899,21 @@ exports[`GroupCardItem renders with image url 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "bold",
+            }
           }
         >
           GROUP NAME
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontSize": 12,
+            }
           }
         >
           0 Members
@@ -1165,37 +1013,21 @@ exports[`GroupCardItem renders with no report counts 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "bold",
+            }
           }
         >
           GROUP NAME
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontSize": 12,
+            }
           }
         >
           0 Members
@@ -1295,37 +1127,21 @@ exports[`GroupCardItem renders with no report counts 2`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "bold",
+            }
           }
         >
           GROUP NAME
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontSize": 12,
+            }
           }
         >
           0 Members
@@ -1425,37 +1241,21 @@ exports[`GroupCardItem renders with notification 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "bold",
+            }
           }
         >
           GROUP NAME
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontSize": 12,
+            }
           }
         >
           0 Members

@@ -57,49 +57,29 @@ exports[`renders correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "color": "#B4B6BA",
+              "height": 60,
+              "justifyContent": "flex-end",
+              "margin": 0,
               "opacity": 1,
+              "padding": 15,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+              "position": "absolute",
+              "right": -20,
+              "top": -50,
             }
           }
           testID="CloseButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "justifyContent": "flex-end",
-                    "padding": 15,
-                    "position": "absolute",
-                    "right": -20,
-                    "top": -50,
-                  },
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#B4B6BA"
-            />
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+          />
         </View>
       </View>
       <Text
@@ -108,9 +88,13 @@ exports[`renders correctly 1`] = `
             "color": "#505256",
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
             "lineHeight": 20,
             "paddingBottom": 20,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -135,85 +119,53 @@ exports[`renders correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#7076B5",
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "flexDirection": "row",
+              "height": 48,
+              "justifyContent": "space-between",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
+              "paddingVertical": 0,
             }
           }
           testID="STORYButton"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={24}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingLeft": 20,
-                    "paddingRight": 16,
-                    "paddingVertical": 0,
-                  },
-                  Object {
-                    "backgroundColor": "#7076B5",
-                  },
-                  Object {
-                    "height": 48,
-                  },
-                  null,
-                ],
-                Object {
-                  "borderRadius": 50,
-                },
+                undefined,
               ]
             }
+            width={24}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
+            }
           >
-            <SvgMock
-              color="#ffffff"
-              height={24}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={24}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              God Story
-            </Text>
-          </View>
+            God Story
+          </Text>
         </View>
       </View>
       <View
@@ -235,85 +187,53 @@ exports[`renders correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#A97398",
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "flexDirection": "row",
+              "height": 48,
+              "justifyContent": "space-between",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
+              "paddingVertical": 0,
             }
           }
           testID="PRAYER_REQUESTButton"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={24}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingLeft": 20,
-                    "paddingRight": 16,
-                    "paddingVertical": 0,
-                  },
-                  Object {
-                    "backgroundColor": "#A97398",
-                  },
-                  Object {
-                    "height": 48,
-                  },
-                  null,
-                ],
-                Object {
-                  "borderRadius": 50,
-                },
+                undefined,
               ]
             }
+            width={24}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
+            }
           >
-            <SvgMock
-              color="#ffffff"
-              height={24}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={24}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              Prayer Request
-            </Text>
-          </View>
+            Prayer Request
+          </Text>
         </View>
       </View>
       <View
@@ -335,85 +255,53 @@ exports[`renders correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#FFA178",
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "flexDirection": "row",
+              "height": 48,
+              "justifyContent": "space-between",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
+              "paddingVertical": 0,
             }
           }
           testID="QUESTIONButton"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={24}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingLeft": 20,
-                    "paddingRight": 16,
-                    "paddingVertical": 0,
-                  },
-                  Object {
-                    "backgroundColor": "#FFA178",
-                  },
-                  Object {
-                    "height": 48,
-                  },
-                  null,
-                ],
-                Object {
-                  "borderRadius": 50,
-                },
+                undefined,
               ]
             }
+            width={24}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
+            }
           >
-            <SvgMock
-              color="#ffffff"
-              height={24}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={24}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              Spiritual Question
-            </Text>
-          </View>
+            Spiritual Question
+          </Text>
         </View>
       </View>
       <View
@@ -435,85 +323,53 @@ exports[`renders correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#FD726D",
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "flexDirection": "row",
+              "height": 48,
+              "justifyContent": "space-between",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
+              "paddingVertical": 0,
             }
           }
           testID="HELP_REQUESTButton"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={24}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingLeft": 20,
-                    "paddingRight": 16,
-                    "paddingVertical": 0,
-                  },
-                  Object {
-                    "backgroundColor": "#FD726D",
-                  },
-                  Object {
-                    "height": 48,
-                  },
-                  null,
-                ],
-                Object {
-                  "borderRadius": 50,
-                },
+                undefined,
               ]
             }
+            width={24}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
+            }
           >
-            <SvgMock
-              color="#ffffff"
-              height={24}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={24}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              Community Need
-            </Text>
-          </View>
+            Community Need
+          </Text>
         </View>
       </View>
       <View
@@ -535,85 +391,53 @@ exports[`renders correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#B4B6BA",
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "flexDirection": "row",
+              "height": 48,
+              "justifyContent": "space-between",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
+              "paddingVertical": 0,
             }
           }
           testID="THOUGHTButton"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={24}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingLeft": 20,
-                    "paddingRight": 16,
-                    "paddingVertical": 0,
-                  },
-                  Object {
-                    "backgroundColor": "#B4B6BA",
-                  },
-                  Object {
-                    "height": 48,
-                  },
-                  null,
-                ],
-                Object {
-                  "borderRadius": 50,
-                },
+                undefined,
               ]
             }
+            width={24}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
+            }
           >
-            <SvgMock
-              color="#ffffff"
-              height={24}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={24}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              What's on Your Mind
-            </Text>
-          </View>
+            What's on Your Mind
+          </Text>
         </View>
       </View>
     </View>
@@ -678,49 +502,29 @@ exports[`renders correctly for admin 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "color": "#B4B6BA",
+              "height": 60,
+              "justifyContent": "flex-end",
+              "margin": 0,
               "opacity": 1,
+              "padding": 15,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+              "position": "absolute",
+              "right": -20,
+              "top": -50,
             }
           }
           testID="CloseButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "justifyContent": "flex-end",
-                    "padding": 15,
-                    "position": "absolute",
-                    "right": -20,
-                    "top": -50,
-                  },
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#B4B6BA"
-            />
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+          />
         </View>
       </View>
       <Text
@@ -729,9 +533,13 @@ exports[`renders correctly for admin 1`] = `
             "color": "#505256",
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
             "lineHeight": 20,
             "paddingBottom": 20,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -758,8 +566,12 @@ exports[`renders correctly for admin 1`] = `
               "color": "#B4B6BA",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -788,85 +600,53 @@ exports[`renders correctly for admin 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#7076B5",
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "flexDirection": "row",
+              "height": 48,
+              "justifyContent": "space-between",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
+              "paddingVertical": 0,
             }
           }
           testID="STORYButton"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={24}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingLeft": 20,
-                    "paddingRight": 16,
-                    "paddingVertical": 0,
-                  },
-                  Object {
-                    "backgroundColor": "#7076B5",
-                  },
-                  Object {
-                    "height": 48,
-                  },
-                  null,
-                ],
-                Object {
-                  "borderRadius": 50,
-                },
+                undefined,
               ]
             }
+            width={24}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
+            }
           >
-            <SvgMock
-              color="#ffffff"
-              height={24}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={24}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              God Story
-            </Text>
-          </View>
+            God Story
+          </Text>
         </View>
       </View>
       <View
@@ -888,85 +668,53 @@ exports[`renders correctly for admin 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#A97398",
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "flexDirection": "row",
+              "height": 48,
+              "justifyContent": "space-between",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
+              "paddingVertical": 0,
             }
           }
           testID="PRAYER_REQUESTButton"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={24}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingLeft": 20,
-                    "paddingRight": 16,
-                    "paddingVertical": 0,
-                  },
-                  Object {
-                    "backgroundColor": "#A97398",
-                  },
-                  Object {
-                    "height": 48,
-                  },
-                  null,
-                ],
-                Object {
-                  "borderRadius": 50,
-                },
+                undefined,
               ]
             }
+            width={24}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
+            }
           >
-            <SvgMock
-              color="#ffffff"
-              height={24}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={24}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              Prayer Request
-            </Text>
-          </View>
+            Prayer Request
+          </Text>
         </View>
       </View>
       <View
@@ -988,85 +736,53 @@ exports[`renders correctly for admin 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#FFA178",
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "flexDirection": "row",
+              "height": 48,
+              "justifyContent": "space-between",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
+              "paddingVertical": 0,
             }
           }
           testID="QUESTIONButton"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={24}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingLeft": 20,
-                    "paddingRight": 16,
-                    "paddingVertical": 0,
-                  },
-                  Object {
-                    "backgroundColor": "#FFA178",
-                  },
-                  Object {
-                    "height": 48,
-                  },
-                  null,
-                ],
-                Object {
-                  "borderRadius": 50,
-                },
+                undefined,
               ]
             }
+            width={24}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
+            }
           >
-            <SvgMock
-              color="#ffffff"
-              height={24}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={24}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              Spiritual Question
-            </Text>
-          </View>
+            Spiritual Question
+          </Text>
         </View>
       </View>
       <View
@@ -1088,85 +804,53 @@ exports[`renders correctly for admin 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#FD726D",
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "flexDirection": "row",
+              "height": 48,
+              "justifyContent": "space-between",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
+              "paddingVertical": 0,
             }
           }
           testID="HELP_REQUESTButton"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={24}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingLeft": 20,
-                    "paddingRight": 16,
-                    "paddingVertical": 0,
-                  },
-                  Object {
-                    "backgroundColor": "#FD726D",
-                  },
-                  Object {
-                    "height": 48,
-                  },
-                  null,
-                ],
-                Object {
-                  "borderRadius": 50,
-                },
+                undefined,
               ]
             }
+            width={24}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
+            }
           >
-            <SvgMock
-              color="#ffffff"
-              height={24}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={24}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              Community Need
-            </Text>
-          </View>
+            Community Need
+          </Text>
         </View>
       </View>
       <View
@@ -1188,85 +872,53 @@ exports[`renders correctly for admin 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#B4B6BA",
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "flexDirection": "row",
+              "height": 48,
+              "justifyContent": "space-between",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
+              "paddingVertical": 0,
             }
           }
           testID="THOUGHTButton"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={24}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingLeft": 20,
-                    "paddingRight": 16,
-                    "paddingVertical": 0,
-                  },
-                  Object {
-                    "backgroundColor": "#B4B6BA",
-                  },
-                  Object {
-                    "height": 48,
-                  },
-                  null,
-                ],
-                Object {
-                  "borderRadius": 50,
-                },
+                undefined,
               ]
             }
+            width={24}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
+            }
           >
-            <SvgMock
-              color="#ffffff"
-              height={24}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={24}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              What's on Your Mind
-            </Text>
-          </View>
+            What's on Your Mind
+          </Text>
         </View>
       </View>
       <View
@@ -1284,7 +936,7 @@ exports[`renders correctly for admin 1`] = `
         }
       >
         <SvgMock
-          color="#505256"
+          color="#ECEEF2"
           width="21"
         />
         <Text
@@ -1293,15 +945,19 @@ exports[`renders correctly for admin 1`] = `
               "color": "#B4B6BA",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
           Post as Owner/Admin
         </Text>
         <SvgMock
-          color="#505256"
+          color="#ECEEF2"
           width="21"
         />
       </View>
@@ -1324,85 +980,53 @@ exports[`renders correctly for admin 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#505256",
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "flexDirection": "row",
+              "height": 48,
+              "justifyContent": "space-between",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
+              "paddingVertical": 0,
             }
           }
           testID="ANNOUNCEMENTButton"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={24}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingLeft": 20,
-                    "paddingRight": 16,
-                    "paddingVertical": 0,
-                  },
-                  Object {
-                    "backgroundColor": "#505256",
-                  },
-                  Object {
-                    "height": 48,
-                  },
-                  null,
-                ],
-                Object {
-                  "borderRadius": 50,
-                },
+                undefined,
               ]
             }
+            width={24}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
+            }
           >
-            <SvgMock
-              color="#ffffff"
-              height={24}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={24}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              Announcement
-            </Text>
-          </View>
+            Announcement
+          </Text>
         </View>
       </View>
     </View>
@@ -1467,49 +1091,29 @@ exports[`renders correctly for owner 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "color": "#B4B6BA",
+              "height": 60,
+              "justifyContent": "flex-end",
+              "margin": 0,
               "opacity": 1,
+              "padding": 15,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+              "position": "absolute",
+              "right": -20,
+              "top": -50,
             }
           }
           testID="CloseButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "justifyContent": "flex-end",
-                    "padding": 15,
-                    "position": "absolute",
-                    "right": -20,
-                    "top": -50,
-                  },
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#B4B6BA"
-            />
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+          />
         </View>
       </View>
       <Text
@@ -1518,9 +1122,13 @@ exports[`renders correctly for owner 1`] = `
             "color": "#505256",
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
             "lineHeight": 20,
             "paddingBottom": 20,
             "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
@@ -1547,8 +1155,12 @@ exports[`renders correctly for owner 1`] = `
               "color": "#B4B6BA",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
@@ -1577,85 +1189,53 @@ exports[`renders correctly for owner 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#7076B5",
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "flexDirection": "row",
+              "height": 48,
+              "justifyContent": "space-between",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
+              "paddingVertical": 0,
             }
           }
           testID="STORYButton"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={24}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingLeft": 20,
-                    "paddingRight": 16,
-                    "paddingVertical": 0,
-                  },
-                  Object {
-                    "backgroundColor": "#7076B5",
-                  },
-                  Object {
-                    "height": 48,
-                  },
-                  null,
-                ],
-                Object {
-                  "borderRadius": 50,
-                },
+                undefined,
               ]
             }
+            width={24}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
+            }
           >
-            <SvgMock
-              color="#ffffff"
-              height={24}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={24}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              God Story
-            </Text>
-          </View>
+            God Story
+          </Text>
         </View>
       </View>
       <View
@@ -1677,85 +1257,53 @@ exports[`renders correctly for owner 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#A97398",
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "flexDirection": "row",
+              "height": 48,
+              "justifyContent": "space-between",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
+              "paddingVertical": 0,
             }
           }
           testID="PRAYER_REQUESTButton"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={24}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingLeft": 20,
-                    "paddingRight": 16,
-                    "paddingVertical": 0,
-                  },
-                  Object {
-                    "backgroundColor": "#A97398",
-                  },
-                  Object {
-                    "height": 48,
-                  },
-                  null,
-                ],
-                Object {
-                  "borderRadius": 50,
-                },
+                undefined,
               ]
             }
+            width={24}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
+            }
           >
-            <SvgMock
-              color="#ffffff"
-              height={24}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={24}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              Prayer Request
-            </Text>
-          </View>
+            Prayer Request
+          </Text>
         </View>
       </View>
       <View
@@ -1777,85 +1325,53 @@ exports[`renders correctly for owner 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#FFA178",
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "flexDirection": "row",
+              "height": 48,
+              "justifyContent": "space-between",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
+              "paddingVertical": 0,
             }
           }
           testID="QUESTIONButton"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={24}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingLeft": 20,
-                    "paddingRight": 16,
-                    "paddingVertical": 0,
-                  },
-                  Object {
-                    "backgroundColor": "#FFA178",
-                  },
-                  Object {
-                    "height": 48,
-                  },
-                  null,
-                ],
-                Object {
-                  "borderRadius": 50,
-                },
+                undefined,
               ]
             }
+            width={24}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
+            }
           >
-            <SvgMock
-              color="#ffffff"
-              height={24}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={24}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              Spiritual Question
-            </Text>
-          </View>
+            Spiritual Question
+          </Text>
         </View>
       </View>
       <View
@@ -1877,85 +1393,53 @@ exports[`renders correctly for owner 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#FD726D",
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "flexDirection": "row",
+              "height": 48,
+              "justifyContent": "space-between",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
+              "paddingVertical": 0,
             }
           }
           testID="HELP_REQUESTButton"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={24}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingLeft": 20,
-                    "paddingRight": 16,
-                    "paddingVertical": 0,
-                  },
-                  Object {
-                    "backgroundColor": "#FD726D",
-                  },
-                  Object {
-                    "height": 48,
-                  },
-                  null,
-                ],
-                Object {
-                  "borderRadius": 50,
-                },
+                undefined,
               ]
             }
+            width={24}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
+            }
           >
-            <SvgMock
-              color="#ffffff"
-              height={24}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={24}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              Community Need
-            </Text>
-          </View>
+            Community Need
+          </Text>
         </View>
       </View>
       <View
@@ -1977,85 +1461,53 @@ exports[`renders correctly for owner 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#B4B6BA",
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "flexDirection": "row",
+              "height": 48,
+              "justifyContent": "space-between",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
+              "paddingVertical": 0,
             }
           }
           testID="THOUGHTButton"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={24}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingLeft": 20,
-                    "paddingRight": 16,
-                    "paddingVertical": 0,
-                  },
-                  Object {
-                    "backgroundColor": "#B4B6BA",
-                  },
-                  Object {
-                    "height": 48,
-                  },
-                  null,
-                ],
-                Object {
-                  "borderRadius": 50,
-                },
+                undefined,
               ]
             }
+            width={24}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
+            }
           >
-            <SvgMock
-              color="#ffffff"
-              height={24}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={24}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              What's on Your Mind
-            </Text>
-          </View>
+            What's on Your Mind
+          </Text>
         </View>
       </View>
       <View
@@ -2073,7 +1525,7 @@ exports[`renders correctly for owner 1`] = `
         }
       >
         <SvgMock
-          color="#505256"
+          color="#ECEEF2"
           width="21"
         />
         <Text
@@ -2082,15 +1534,19 @@ exports[`renders correctly for owner 1`] = `
               "color": "#B4B6BA",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             }
           }
         >
           Post as Owner/Admin
         </Text>
         <SvgMock
-          color="#505256"
+          color="#ECEEF2"
           width="21"
         />
       </View>
@@ -2113,85 +1569,53 @@ exports[`renders correctly for owner 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#505256",
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "flexDirection": "row",
+              "height": 48,
+              "justifyContent": "space-between",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
+              "paddingVertical": 0,
             }
           }
           testID="ANNOUNCEMENTButton"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={24}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingLeft": 20,
-                    "paddingRight": 16,
-                    "paddingVertical": 0,
-                  },
-                  Object {
-                    "backgroundColor": "#505256",
-                  },
-                  Object {
-                    "height": 48,
-                  },
-                  null,
-                ],
-                Object {
-                  "borderRadius": 50,
-                },
+                undefined,
               ]
             }
+            width={24}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
+            }
           >
-            <SvgMock
-              color="#ffffff"
-              height={24}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={24}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              Announcement
-            </Text>
-          </View>
+            Announcement
+          </Text>
         </View>
       </View>
     </View>

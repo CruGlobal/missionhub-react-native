@@ -1,8 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
+import { Text } from 'react-native';
 
-import { Flex, Text, DateComponent, Dot, Touchable } from '../common';
+import { Flex, DateComponent, Dot, Touchable } from '../common';
 import MemberOptionsMenu from '../MemberOptionsMenu';
 import { isAdminOrOwner, isOwner } from '../../utils/common';
 import { Organization } from '../../reducers/organizations';

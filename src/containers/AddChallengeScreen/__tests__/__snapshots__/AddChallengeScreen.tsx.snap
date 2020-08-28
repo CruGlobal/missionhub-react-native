@@ -86,36 +86,24 @@ exports[`create methods calls onComplete 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/images/closeButton.png",
+                }
               }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/closeButton.png",
-                  }
+              style={
+                Object {
+                  "margin": 10,
                 }
-                style={
-                  Object {
-                    "margin": 10,
-                  }
-                }
-              />
-            </View>
+              }
+            />
           </View>
         </View>
       </View>
@@ -154,27 +142,36 @@ exports[`create methods calls onComplete 1`] = `
         placeholderTextColor="#3CC8E6"
         rejectResponderTermination={true}
         returnKeyType="done"
-        selectionColor="#52C5DC"
+        selectionColor="#3CC8E6"
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 24,
-              "fontWeight": "300",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "lineHeight": 30,
               "marginBottom": 16,
               "paddingHorizontal": 32,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -202,37 +199,32 @@ exports[`create methods calls onComplete 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#939393",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#939393",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
           >
             Challenge Ends
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#3CC8E6",
-                  "fontSize": 16,
-                  "lineHeight": 22,
-                },
-              ]
+              Object {
+                "color": "#3CC8E6",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
           >
             February 13, 2020
@@ -251,18 +243,16 @@ exports[`create methods calls onComplete 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#939393",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#939393",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Details
@@ -279,26 +269,36 @@ exports[`create methods calls onComplete 1`] = `
           placeholderTextColor="#3CC8E6"
           rejectResponderTermination={true}
           scrollEnabled={false}
-          selectionColor="#52C5DC"
+          selectionColor="#3CC8E6"
           style={
             Array [
               Object {
                 "backgroundColor": "transparent",
-                "borderBottomColor": "#52C5DC",
+                "borderBottomColor": "#3CC8E6",
                 "borderBottomWidth": 1,
                 "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "letterSpacing": 0.25,
+                "lineHeight": 24,
                 "paddingVertical": 5,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "borderBottomWidth": 0,
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "lineHeight": 24,
                 "marginBottom": 26,
                 "paddingBottom": 70,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -346,63 +346,40 @@ exports[`create methods calls onComplete 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
+          "opacity": 0.6,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               null,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  null,
-                ],
-              ],
-            ]
-          }
-        >
-          CREATE CHALLENGE
-        </Text>
-      </View>
+        CREATE CHALLENGE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -413,7 +390,7 @@ exports[`create methods changes date 1`] = `
 - First value
 + Second value
 
-@@ -178,11 +178,11 @@
+@@ -175,11 +175,11 @@
           testID=\\"titleInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
@@ -426,10 +403,10 @@ exports[`create methods changes date 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -230,11 +230,11 @@
-                    \\"lineHeight\\": 22,
-                  },
-                ]
+@@ -222,11 +222,11 @@
+                  \\"textAlignVertical\\": \\"center\\",
+                  \\"textTransform\\": \\"none\\",
+                }
               }
             >
 -             End Date (Required)
@@ -466,7 +443,7 @@ exports[`create methods changes title 1`] = `
 - First value
 + Second value
 
-@@ -175,11 +175,11 @@
+@@ -172,11 +172,11 @@
               },
             ]
           }
@@ -486,7 +463,7 @@ exports[`create methods clears date 1`] = `
 - First value
 + Second value
 
-@@ -178,11 +178,11 @@
+@@ -175,11 +175,11 @@
           testID=\\"titleInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
@@ -499,10 +476,10 @@ exports[`create methods clears date 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -230,11 +230,11 @@
-                    \\"lineHeight\\": 22,
-                  },
-                ]
+@@ -222,11 +222,11 @@
+                  \\"textAlignVertical\\": \\"center\\",
+                  \\"textTransform\\": \\"none\\",
+                }
               }
             >
 -             February 13, 2020
@@ -519,7 +496,7 @@ exports[`create methods fires onBlur | detailInput 1`] = `
 - First value
 + Second value
 
-@@ -271,11 +271,11 @@
+@@ -261,11 +261,11 @@
             multiline={true}
             onBlur={[Function onBlur]}
             onChangeText={[Function onChangeText]}
@@ -529,7 +506,7 @@ exports[`create methods fires onBlur | detailInput 1`] = `
 +           placeholderTextColor=\\"#3CC8E6\\"
             rejectResponderTermination={true}
             scrollEnabled={false}
-            selectionColor=\\"#52C5DC\\"
+            selectionColor=\\"#3CC8E6\\"
             style={
               Array ["
 `;
@@ -539,7 +516,7 @@ exports[`create methods fires onBlur | titleInput 1`] = `
 - First value
 + Second value
 
-@@ -146,11 +146,11 @@
+@@ -134,11 +134,11 @@
           multiline={true}
           onBlur={[Function onBlur]}
           onChangeText={[Function onChangeTitle]}
@@ -549,7 +526,7 @@ exports[`create methods fires onBlur | titleInput 1`] = `
 +         placeholderTextColor=\\"#3CC8E6\\"
           rejectResponderTermination={true}
           returnKeyType=\\"done\\"
-          selectionColor=\\"#52C5DC\\"
+          selectionColor=\\"#3CC8E6\\"
           style={
             Array ["
 `;
@@ -559,7 +536,7 @@ exports[`create methods focuses on press | detailInput 1`] = `
 - First value
 + Second value
 
-@@ -271,11 +271,11 @@
+@@ -261,11 +261,11 @@
             multiline={true}
             onBlur={[Function onBlur]}
             onChangeText={[Function onChangeText]}
@@ -569,7 +546,7 @@ exports[`create methods focuses on press | detailInput 1`] = `
 +           placeholderTextColor=\\"#B4B6BA\\"
             rejectResponderTermination={true}
             scrollEnabled={false}
-            selectionColor=\\"#52C5DC\\"
+            selectionColor=\\"#3CC8E6\\"
             style={
               Array ["
 `;
@@ -579,7 +556,7 @@ exports[`create methods focuses on press | titleInput 1`] = `
 - First value
 + Second value
 
-@@ -146,11 +146,11 @@
+@@ -134,11 +134,11 @@
           multiline={true}
           onBlur={[Function onBlur]}
           onChangeText={[Function onChangeTitle]}
@@ -589,7 +566,7 @@ exports[`create methods focuses on press | titleInput 1`] = `
 +         placeholderTextColor=\\"#B4B6BA\\"
           rejectResponderTermination={true}
           returnKeyType=\\"done\\"
-          selectionColor=\\"#52C5DC\\"
+          selectionColor=\\"#3CC8E6\\"
           style={
             Array ["
 `;
@@ -599,7 +576,7 @@ exports[`create methods sets disable false 1`] = `
 - First value
 + Second value
 
-@@ -175,14 +175,14 @@
+@@ -172,14 +172,14 @@
               },
             ]
           }
@@ -616,10 +593,10 @@ exports[`create methods sets disable false 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -230,11 +230,11 @@
-                    \\"lineHeight\\": 22,
-                  },
-                ]
+@@ -222,11 +222,11 @@
+                  \\"textAlignVertical\\": \\"center\\",
+                  \\"textTransform\\": \\"none\\",
+                }
               }
             >
 -             End Date (Required)
@@ -629,46 +606,34 @@ exports[`create methods sets disable false 1`] = `
         </DatePicker>
         <View
           style={
-@@ -355,22 +355,18 @@
-                \\"alignItems\\": \\"center\\",
-                \\"backgroundColor\\": \\"#52C5DC\\",
-                \\"height\\": 60,
-                \\"justifyContent\\": \\"center\\",
+@@ -342,11 +342,11 @@
+        onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+        onStartShouldSetResponder={[Function onStartShouldSetResponder]}
+        style={
+          Object {
+            \\"alignItems\\": \\"center\\",
+-           \\"backgroundColor\\": \\"#B4B6BA\\",
++           \\"backgroundColor\\": \\"#3CC8E6\\",
+            \\"borderRadius\\": 50,
+            \\"height\\": 48,
+            \\"justifyContent\\": \\"center\\",
+            \\"opacity\\": 0.6,
+            \\"width\\": 650,
+@@ -368,13 +368,11 @@
+                \\"textAlign\\": \\"center\\",
+                \\"textAlignVertical\\": \\"center\\",
+                \\"textTransform\\": \\"uppercase\\",
               },
--             Object {
--               \\"opacity\\": 0.6,
--             },
-+             null,
               Array [
-                Object {
-                  \\"alignItems\\": \\"center\\",
-                  \\"height\\": 48,
-                  \\"width\\": 650,
-                },
 -               Object {
 -                 \\"backgroundColor\\": \\"#B4B6BA\\",
 -               },
 +               null,
               ],
-              Object {
-                \\"borderRadius\\": 50,
-              },
             ]
-@@ -393,13 +389,11 @@
-                    \\"fontWeight\\": \\"500\\",
-                    \\"letterSpacing\\": 1.5,
-                    \\"textAlign\\": \\"center\\",
-                  },
-                  Array [
--                   Object {
--                     \\"backgroundColor\\": \\"#B4B6BA\\",
--                   },
-+                   null,
-                  ],
-                ],
-              ]
-            }
-          >"
+          }
+        >
+          CREATE CHALLENGE"
 `;
 
 exports[`edit methods Saves challenge when user updates detail 1`] = `
@@ -676,7 +641,7 @@ exports[`edit methods Saves challenge when user updates detail 1`] = `
 - First value
 + Second value
 
-@@ -381,11 +381,11 @@
+@@ -364,11 +364,11 @@
                 },
               ]
             }
@@ -760,59 +725,47 @@ exports[`edit methods calls onComplete 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
                       Object {
-                        "fontSize": 18,
+                        "color": "#B4B6BA",
                       },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                        },
-                      ],
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -842,54 +795,37 @@ exports[`edit methods calls onComplete 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
+              "marginRight": 10,
               "opacity": 1,
             }
           }
           testID="editButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
                 Object {
-                  "marginRight": 10,
+                  "color": "#3CC8E6",
+                  "fontSize": 14,
                 },
-                null,
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontSize": 14,
-                    },
-                  ],
-                ]
-              }
-            >
-              SAVE
-            </Text>
-          </View>
+            SAVE
+          </Text>
         </View>
       </View>
     </View>
@@ -927,27 +863,36 @@ exports[`edit methods calls onComplete 1`] = `
         placeholderTextColor="#3CC8E6"
         rejectResponderTermination={true}
         returnKeyType="done"
-        selectionColor="#52C5DC"
+        selectionColor="#3CC8E6"
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 24,
-              "fontWeight": "300",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "lineHeight": 30,
               "marginBottom": 16,
               "paddingHorizontal": 32,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -975,37 +920,32 @@ exports[`edit methods calls onComplete 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#939393",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#939393",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
           >
             Challenge Ends
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#3CC8E6",
-                  "fontSize": 16,
-                  "lineHeight": 22,
-                },
-              ]
+              Object {
+                "color": "#3CC8E6",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
           >
             February 13, 2020
@@ -1024,18 +964,16 @@ exports[`edit methods calls onComplete 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#939393",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#939393",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Details
@@ -1052,26 +990,36 @@ exports[`edit methods calls onComplete 1`] = `
           placeholderTextColor="#3CC8E6"
           rejectResponderTermination={true}
           scrollEnabled={false}
-          selectionColor="#52C5DC"
+          selectionColor="#3CC8E6"
           style={
             Array [
               Object {
                 "backgroundColor": "transparent",
-                "borderBottomColor": "#52C5DC",
+                "borderBottomColor": "#3CC8E6",
                 "borderBottomWidth": 1,
                 "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "letterSpacing": 0.25,
+                "lineHeight": 24,
                 "paddingVertical": 5,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "borderBottomWidth": 0,
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "lineHeight": 24,
                 "marginBottom": 26,
                 "paddingBottom": 70,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -1105,7 +1053,7 @@ exports[`edit methods disables button if user deletes title 1`] = `
 - First value
 + Second value
 
-@@ -257,11 +257,11 @@
+@@ -237,11 +237,11 @@
               },
             ]
           }
@@ -1206,36 +1154,24 @@ exports[`renders correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/images/closeButton.png",
+                }
               }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/closeButton.png",
-                  }
+              style={
+                Object {
+                  "margin": 10,
                 }
-                style={
-                  Object {
-                    "margin": 10,
-                  }
-                }
-              />
-            </View>
+              }
+            />
           </View>
         </View>
       </View>
@@ -1274,27 +1210,36 @@ exports[`renders correctly 1`] = `
         placeholderTextColor="#3CC8E6"
         rejectResponderTermination={true}
         returnKeyType="done"
-        selectionColor="#52C5DC"
+        selectionColor="#3CC8E6"
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 24,
-              "fontWeight": "300",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "lineHeight": 30,
               "marginBottom": 16,
               "paddingHorizontal": 32,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -1322,37 +1267,32 @@ exports[`renders correctly 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#939393",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#939393",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
           >
             Challenge Ends
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#3CC8E6",
-                  "fontSize": 16,
-                  "lineHeight": 22,
-                },
-              ]
+              Object {
+                "color": "#3CC8E6",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
           >
             End Date (Required)
@@ -1371,18 +1311,16 @@ exports[`renders correctly 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#939393",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#939393",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Details
@@ -1399,26 +1337,36 @@ exports[`renders correctly 1`] = `
           placeholderTextColor="#3CC8E6"
           rejectResponderTermination={true}
           scrollEnabled={false}
-          selectionColor="#52C5DC"
+          selectionColor="#3CC8E6"
           style={
             Array [
               Object {
                 "backgroundColor": "transparent",
-                "borderBottomColor": "#52C5DC",
+                "borderBottomColor": "#3CC8E6",
                 "borderBottomWidth": 1,
                 "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "letterSpacing": 0.25,
+                "lineHeight": 24,
                 "paddingVertical": 5,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "borderBottomWidth": 0,
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "lineHeight": 24,
                 "marginBottom": 26,
                 "paddingBottom": 70,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -1466,69 +1414,42 @@ exports[`renders correctly 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
+          "alignItems": "center",
+          "backgroundColor": "#B4B6BA",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
+          "opacity": 0.6,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            Object {
-              "opacity": 0.6,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               Object {
                 "backgroundColor": "#B4B6BA",
               },
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "#B4B6BA",
-                  },
-                ],
-              ],
-            ]
-          }
-        >
-          CREATE CHALLENGE
-        </Text>
-      </View>
+        CREATE CHALLENGE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -1620,36 +1541,24 @@ exports[`renders correctly on android 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/images/closeButton.png",
+                }
               }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/closeButton.png",
-                  }
+              style={
+                Object {
+                  "margin": 10,
                 }
-                style={
-                  Object {
-                    "margin": 10,
-                  }
-                }
-              />
-            </View>
+              }
+            />
           </View>
         </View>
       </View>
@@ -1688,27 +1597,36 @@ exports[`renders correctly on android 1`] = `
         placeholderTextColor="#3CC8E6"
         rejectResponderTermination={true}
         returnKeyType="done"
-        selectionColor="#52C5DC"
+        selectionColor="#3CC8E6"
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 24,
-              "fontWeight": "300",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "lineHeight": 30,
               "marginBottom": 16,
               "paddingHorizontal": 32,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -1736,37 +1654,32 @@ exports[`renders correctly on android 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#939393",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#939393",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
           >
             Challenge Ends
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#3CC8E6",
-                  "fontSize": 16,
-                  "lineHeight": 22,
-                },
-              ]
+              Object {
+                "color": "#3CC8E6",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
           >
             End Date (Required)
@@ -1785,18 +1698,16 @@ exports[`renders correctly on android 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#939393",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#939393",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Details
@@ -1813,26 +1724,36 @@ exports[`renders correctly on android 1`] = `
           placeholderTextColor="#3CC8E6"
           rejectResponderTermination={true}
           scrollEnabled={false}
-          selectionColor="#52C5DC"
+          selectionColor="#3CC8E6"
           style={
             Array [
               Object {
                 "backgroundColor": "transparent",
-                "borderBottomColor": "#52C5DC",
+                "borderBottomColor": "#3CC8E6",
                 "borderBottomWidth": 1,
                 "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "letterSpacing": 0.25,
+                "lineHeight": 24,
                 "paddingVertical": 5,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "borderBottomWidth": 0,
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "lineHeight": 24,
                 "marginBottom": 26,
                 "paddingBottom": 70,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }
@@ -1880,69 +1801,42 @@ exports[`renders correctly on android 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
+          "alignItems": "center",
+          "backgroundColor": "#B4B6BA",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
+          "opacity": 0.6,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            Object {
-              "opacity": 0.6,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               Object {
                 "backgroundColor": "#B4B6BA",
               },
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "#B4B6BA",
-                  },
-                ],
-              ],
-            ]
-          }
-        >
-          CREATE CHALLENGE
-        </Text>
-      </View>
+        CREATE CHALLENGE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -2017,59 +1911,47 @@ exports[`renders edit challenge correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
                       Object {
-                        "fontSize": 18,
+                        "color": "#B4B6BA",
                       },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                        },
-                      ],
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -2099,54 +1981,37 @@ exports[`renders edit challenge correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
+              "marginRight": 10,
               "opacity": 1,
             }
           }
           testID="editButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                null,
                 Object {
-                  "marginRight": 10,
+                  "color": "#3CC8E6",
+                  "fontSize": 14,
                 },
-                null,
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontSize": 14,
-                    },
-                  ],
-                ]
-              }
-            >
-              SAVE
-            </Text>
-          </View>
+            SAVE
+          </Text>
         </View>
       </View>
     </View>
@@ -2184,27 +2049,36 @@ exports[`renders edit challenge correctly 1`] = `
         placeholderTextColor="#3CC8E6"
         rejectResponderTermination={true}
         returnKeyType="done"
-        selectionColor="#52C5DC"
+        selectionColor="#3CC8E6"
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 24,
-              "fontWeight": "300",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "lineHeight": 30,
               "marginBottom": 16,
               "paddingHorizontal": 32,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
           ]
         }
@@ -2232,37 +2106,32 @@ exports[`renders edit challenge correctly 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#939393",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#939393",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
           >
             Challenge Ends
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#3CC8E6",
-                  "fontSize": 16,
-                  "lineHeight": 22,
-                },
-              ]
+              Object {
+                "color": "#3CC8E6",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
           >
             February 29, 2020
@@ -2281,18 +2150,16 @@ exports[`renders edit challenge correctly 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#939393",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#939393",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Details
@@ -2309,26 +2176,36 @@ exports[`renders edit challenge correctly 1`] = `
           placeholderTextColor="#3CC8E6"
           rejectResponderTermination={true}
           scrollEnabled={false}
-          selectionColor="#52C5DC"
+          selectionColor="#3CC8E6"
           style={
             Array [
               Object {
                 "backgroundColor": "transparent",
-                "borderBottomColor": "#52C5DC",
+                "borderBottomColor": "#3CC8E6",
                 "borderBottomWidth": 1,
                 "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "letterSpacing": 0.25,
+                "lineHeight": 24,
                 "paddingVertical": 5,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
                 "borderBottomWidth": 0,
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "lineHeight": 24,
                 "marginBottom": 26,
                 "paddingBottom": 70,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
             ]
           }

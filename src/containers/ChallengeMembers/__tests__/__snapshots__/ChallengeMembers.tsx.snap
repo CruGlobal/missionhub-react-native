@@ -86,36 +86,24 @@ exports[`renders correctly for completed members 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/images/closeButton.png",
+                }
               }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/closeButton.png",
-                  }
+              style={
+                Object {
+                  "margin": 10,
                 }
-                style={
-                  Object {
-                    "margin": 10,
-                  }
-                }
-              />
-            </View>
+              }
+            />
           </View>
         </View>
       </View>
@@ -133,21 +121,17 @@ exports[`renders correctly for completed members 1`] = `
     <View>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "paddingHorizontal": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "paddingHorizontal": 20,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         2 Members Joined
@@ -306,20 +290,12 @@ exports[`renders correctly for completed members 1`] = `
                         style={
                           Array [
                             Object {
-                              "color": "#505256",
+                              "color": "#ffffff",
                             },
                             Object {
-                              "fontFamily": "SourceSansPro-Regular",
+                              "fontSize": 26,
+                              "fontWeight": "300",
                             },
-                            Array [
-                              Object {
-                                "color": "#ffffff",
-                              },
-                              Object {
-                                "fontSize": 26,
-                                "fontWeight": "300",
-                              },
-                            ],
                           ]
                         }
                       >
@@ -351,18 +327,16 @@ exports[`renders correctly for completed members 1`] = `
                       >
                         <Text
                           style={
-                            Array [
-                              Object {
-                                "color": "#505256",
-                              },
-                              Object {
-                                "fontFamily": "SourceSansPro-Regular",
-                              },
-                              Object {
-                                "color": "#007398",
-                                "fontSize": 16,
-                              },
-                            ]
+                            Object {
+                              "color": "#005A7F",
+                              "fontFamily": "SourceSansPro-Regular",
+                              "fontSize": 16,
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "lineHeight": 24,
+                              "textAlignVertical": "center",
+                              "textTransform": "none",
+                            }
                           }
                         >
                           Christian Huffman
@@ -371,35 +345,31 @@ exports[`renders correctly for completed members 1`] = `
                           style={
                             Array [
                               Object {
-                                "color": "#505256",
-                              },
-                              Object {
+                                "color": "#B4B6BA",
                                 "fontFamily": "SourceSansPro-Regular",
+                                "fontSize": 12,
+                                "fontStyle": "normal",
+                                "fontWeight": "normal",
+                                "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
                               },
-                              Array [
-                                Object {
-                                  "color": "#B4B6BA",
-                                  "fontSize": 12,
-                                },
-                              ],
                             ]
                           }
                         >
                           Joined 
                           <Text
                             style={
-                              Array [
-                                Object {
-                                  "color": "#505256",
-                                },
-                                Object {
-                                  "fontFamily": "SourceSansPro-Regular",
-                                },
-                                Object {
-                                  "color": "#B4B6BA",
-                                  "fontSize": 12,
-                                },
-                              ]
+                              Object {
+                                "color": "#B4B6BA",
+                                "fontFamily": "SourceSansPro-Regular",
+                                "fontSize": 12,
+                                "fontStyle": "normal",
+                                "fontWeight": "normal",
+                                "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
+                              }
                             }
                             testID="Text"
                           >
@@ -512,20 +482,12 @@ exports[`renders correctly for completed members 1`] = `
                         style={
                           Array [
                             Object {
-                              "color": "#505256",
+                              "color": "#ffffff",
                             },
                             Object {
-                              "fontFamily": "SourceSansPro-Regular",
+                              "fontSize": 26,
+                              "fontWeight": "300",
                             },
-                            Array [
-                              Object {
-                                "color": "#ffffff",
-                              },
-                              Object {
-                                "fontSize": 26,
-                                "fontWeight": "300",
-                              },
-                            ],
                           ]
                         }
                       >
@@ -557,18 +519,16 @@ exports[`renders correctly for completed members 1`] = `
                       >
                         <Text
                           style={
-                            Array [
-                              Object {
-                                "color": "#505256",
-                              },
-                              Object {
-                                "fontFamily": "SourceSansPro-Regular",
-                              },
-                              Object {
-                                "color": "#007398",
-                                "fontSize": 16,
-                              },
-                            ]
+                            Object {
+                              "color": "#005A7F",
+                              "fontFamily": "SourceSansPro-Regular",
+                              "fontSize": 16,
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "lineHeight": 24,
+                              "textAlignVertical": "center",
+                              "textTransform": "none",
+                            }
                           }
                         >
                           Scotty Waggoner
@@ -577,35 +537,31 @@ exports[`renders correctly for completed members 1`] = `
                           style={
                             Array [
                               Object {
-                                "color": "#505256",
-                              },
-                              Object {
+                                "color": "#B4B6BA",
                                 "fontFamily": "SourceSansPro-Regular",
+                                "fontSize": 12,
+                                "fontStyle": "normal",
+                                "fontWeight": "normal",
+                                "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
                               },
-                              Array [
-                                Object {
-                                  "color": "#B4B6BA",
-                                  "fontSize": 12,
-                                },
-                              ],
                             ]
                           }
                         >
                           Joined 
                           <Text
                             style={
-                              Array [
-                                Object {
-                                  "color": "#505256",
-                                },
-                                Object {
-                                  "fontFamily": "SourceSansPro-Regular",
-                                },
-                                Object {
-                                  "color": "#B4B6BA",
-                                  "fontSize": 12,
-                                },
-                              ]
+                              Object {
+                                "color": "#B4B6BA",
+                                "fontFamily": "SourceSansPro-Regular",
+                                "fontSize": 12,
+                                "fontStyle": "normal",
+                                "fontWeight": "normal",
+                                "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
+                              }
                             }
                             testID="Text"
                           >
@@ -720,36 +676,24 @@ exports[`renders correctly for joined members 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/images/closeButton.png",
+                }
               }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/closeButton.png",
-                  }
+              style={
+                Object {
+                  "margin": 10,
                 }
-                style={
-                  Object {
-                    "margin": 10,
-                  }
-                }
-              />
-            </View>
+              }
+            />
           </View>
         </View>
       </View>
@@ -767,21 +711,17 @@ exports[`renders correctly for joined members 1`] = `
     <View>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "paddingHorizontal": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "paddingHorizontal": 20,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         1 Member Joined
@@ -932,20 +872,12 @@ exports[`renders correctly for joined members 1`] = `
                         style={
                           Array [
                             Object {
-                              "color": "#505256",
+                              "color": "#ffffff",
                             },
                             Object {
-                              "fontFamily": "SourceSansPro-Regular",
+                              "fontSize": 26,
+                              "fontWeight": "300",
                             },
-                            Array [
-                              Object {
-                                "color": "#ffffff",
-                              },
-                              Object {
-                                "fontSize": 26,
-                                "fontWeight": "300",
-                              },
-                            ],
                           ]
                         }
                       >
@@ -977,18 +909,16 @@ exports[`renders correctly for joined members 1`] = `
                       >
                         <Text
                           style={
-                            Array [
-                              Object {
-                                "color": "#505256",
-                              },
-                              Object {
-                                "fontFamily": "SourceSansPro-Regular",
-                              },
-                              Object {
-                                "color": "#007398",
-                                "fontSize": 16,
-                              },
-                            ]
+                            Object {
+                              "color": "#005A7F",
+                              "fontFamily": "SourceSansPro-Regular",
+                              "fontSize": 16,
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "lineHeight": 24,
+                              "textAlignVertical": "center",
+                              "textTransform": "none",
+                            }
                           }
                         >
                           Christian Huffman
@@ -997,35 +927,31 @@ exports[`renders correctly for joined members 1`] = `
                           style={
                             Array [
                               Object {
-                                "color": "#505256",
-                              },
-                              Object {
+                                "color": "#B4B6BA",
                                 "fontFamily": "SourceSansPro-Regular",
+                                "fontSize": 12,
+                                "fontStyle": "normal",
+                                "fontWeight": "normal",
+                                "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
                               },
-                              Array [
-                                Object {
-                                  "color": "#B4B6BA",
-                                  "fontSize": 12,
-                                },
-                              ],
                             ]
                           }
                         >
                           Joined 
                           <Text
                             style={
-                              Array [
-                                Object {
-                                  "color": "#505256",
-                                },
-                                Object {
-                                  "fontFamily": "SourceSansPro-Regular",
-                                },
-                                Object {
-                                  "color": "#B4B6BA",
-                                  "fontSize": 12,
-                                },
-                              ]
+                              Object {
+                                "color": "#B4B6BA",
+                                "fontFamily": "SourceSansPro-Regular",
+                                "fontSize": 12,
+                                "fontStyle": "normal",
+                                "fontWeight": "normal",
+                                "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
+                              }
                             }
                             testID="Text"
                           >
@@ -1140,36 +1066,24 @@ exports[`renders plural sentence for joined members 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/images/closeButton.png",
+                }
               }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/closeButton.png",
-                  }
+              style={
+                Object {
+                  "margin": 10,
                 }
-                style={
-                  Object {
-                    "margin": 10,
-                  }
-                }
-              />
-            </View>
+              }
+            />
           </View>
         </View>
       </View>
@@ -1187,21 +1101,17 @@ exports[`renders plural sentence for joined members 1`] = `
     <View>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "paddingHorizontal": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "paddingHorizontal": 20,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         2 Members Joined
@@ -1360,20 +1270,12 @@ exports[`renders plural sentence for joined members 1`] = `
                         style={
                           Array [
                             Object {
-                              "color": "#505256",
+                              "color": "#ffffff",
                             },
                             Object {
-                              "fontFamily": "SourceSansPro-Regular",
+                              "fontSize": 26,
+                              "fontWeight": "300",
                             },
-                            Array [
-                              Object {
-                                "color": "#ffffff",
-                              },
-                              Object {
-                                "fontSize": 26,
-                                "fontWeight": "300",
-                              },
-                            ],
                           ]
                         }
                       >
@@ -1405,18 +1307,16 @@ exports[`renders plural sentence for joined members 1`] = `
                       >
                         <Text
                           style={
-                            Array [
-                              Object {
-                                "color": "#505256",
-                              },
-                              Object {
-                                "fontFamily": "SourceSansPro-Regular",
-                              },
-                              Object {
-                                "color": "#007398",
-                                "fontSize": 16,
-                              },
-                            ]
+                            Object {
+                              "color": "#005A7F",
+                              "fontFamily": "SourceSansPro-Regular",
+                              "fontSize": 16,
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "lineHeight": 24,
+                              "textAlignVertical": "center",
+                              "textTransform": "none",
+                            }
                           }
                         >
                           Christian Huffman
@@ -1425,35 +1325,31 @@ exports[`renders plural sentence for joined members 1`] = `
                           style={
                             Array [
                               Object {
-                                "color": "#505256",
-                              },
-                              Object {
+                                "color": "#B4B6BA",
                                 "fontFamily": "SourceSansPro-Regular",
+                                "fontSize": 12,
+                                "fontStyle": "normal",
+                                "fontWeight": "normal",
+                                "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
                               },
-                              Array [
-                                Object {
-                                  "color": "#B4B6BA",
-                                  "fontSize": 12,
-                                },
-                              ],
                             ]
                           }
                         >
                           Joined 
                           <Text
                             style={
-                              Array [
-                                Object {
-                                  "color": "#505256",
-                                },
-                                Object {
-                                  "fontFamily": "SourceSansPro-Regular",
-                                },
-                                Object {
-                                  "color": "#B4B6BA",
-                                  "fontSize": 12,
-                                },
-                              ]
+                              Object {
+                                "color": "#B4B6BA",
+                                "fontFamily": "SourceSansPro-Regular",
+                                "fontSize": 12,
+                                "fontStyle": "normal",
+                                "fontWeight": "normal",
+                                "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
+                              }
                             }
                             testID="Text"
                           >
@@ -1566,20 +1462,12 @@ exports[`renders plural sentence for joined members 1`] = `
                         style={
                           Array [
                             Object {
-                              "color": "#505256",
+                              "color": "#ffffff",
                             },
                             Object {
-                              "fontFamily": "SourceSansPro-Regular",
+                              "fontSize": 26,
+                              "fontWeight": "300",
                             },
-                            Array [
-                              Object {
-                                "color": "#ffffff",
-                              },
-                              Object {
-                                "fontSize": 26,
-                                "fontWeight": "300",
-                              },
-                            ],
                           ]
                         }
                       >
@@ -1611,18 +1499,16 @@ exports[`renders plural sentence for joined members 1`] = `
                       >
                         <Text
                           style={
-                            Array [
-                              Object {
-                                "color": "#505256",
-                              },
-                              Object {
-                                "fontFamily": "SourceSansPro-Regular",
-                              },
-                              Object {
-                                "color": "#007398",
-                                "fontSize": 16,
-                              },
-                            ]
+                            Object {
+                              "color": "#005A7F",
+                              "fontFamily": "SourceSansPro-Regular",
+                              "fontSize": 16,
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "lineHeight": 24,
+                              "textAlignVertical": "center",
+                              "textTransform": "none",
+                            }
                           }
                         >
                           Scotty Waggoner
@@ -1631,35 +1517,31 @@ exports[`renders plural sentence for joined members 1`] = `
                           style={
                             Array [
                               Object {
-                                "color": "#505256",
-                              },
-                              Object {
+                                "color": "#B4B6BA",
                                 "fontFamily": "SourceSansPro-Regular",
+                                "fontSize": 12,
+                                "fontStyle": "normal",
+                                "fontWeight": "normal",
+                                "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
                               },
-                              Array [
-                                Object {
-                                  "color": "#B4B6BA",
-                                  "fontSize": 12,
-                                },
-                              ],
                             ]
                           }
                         >
                           Joined 
                           <Text
                             style={
-                              Array [
-                                Object {
-                                  "color": "#505256",
-                                },
-                                Object {
-                                  "fontFamily": "SourceSansPro-Regular",
-                                },
-                                Object {
-                                  "color": "#B4B6BA",
-                                  "fontSize": 12,
-                                },
-                              ]
+                              Object {
+                                "color": "#B4B6BA",
+                                "fontFamily": "SourceSansPro-Regular",
+                                "fontSize": 12,
+                                "fontStyle": "normal",
+                                "fontWeight": "normal",
+                                "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
+                              }
                             }
                             testID="Text"
                           >
@@ -1774,36 +1656,24 @@ exports[`renders singular sentence for completed members 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/images/closeButton.png",
+                }
               }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/closeButton.png",
-                  }
+              style={
+                Object {
+                  "margin": 10,
                 }
-                style={
-                  Object {
-                    "margin": 10,
-                  }
-                }
-              />
-            </View>
+              }
+            />
           </View>
         </View>
       </View>
@@ -1821,21 +1691,17 @@ exports[`renders singular sentence for completed members 1`] = `
     <View>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "paddingHorizontal": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "paddingHorizontal": 20,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         1 Member Joined
@@ -1986,20 +1852,12 @@ exports[`renders singular sentence for completed members 1`] = `
                         style={
                           Array [
                             Object {
-                              "color": "#505256",
+                              "color": "#ffffff",
                             },
                             Object {
-                              "fontFamily": "SourceSansPro-Regular",
+                              "fontSize": 26,
+                              "fontWeight": "300",
                             },
-                            Array [
-                              Object {
-                                "color": "#ffffff",
-                              },
-                              Object {
-                                "fontSize": 26,
-                                "fontWeight": "300",
-                              },
-                            ],
                           ]
                         }
                       >
@@ -2031,18 +1889,16 @@ exports[`renders singular sentence for completed members 1`] = `
                       >
                         <Text
                           style={
-                            Array [
-                              Object {
-                                "color": "#505256",
-                              },
-                              Object {
-                                "fontFamily": "SourceSansPro-Regular",
-                              },
-                              Object {
-                                "color": "#007398",
-                                "fontSize": 16,
-                              },
-                            ]
+                            Object {
+                              "color": "#005A7F",
+                              "fontFamily": "SourceSansPro-Regular",
+                              "fontSize": 16,
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                              "lineHeight": 24,
+                              "textAlignVertical": "center",
+                              "textTransform": "none",
+                            }
                           }
                         >
                           Christian Huffman
@@ -2051,35 +1907,31 @@ exports[`renders singular sentence for completed members 1`] = `
                           style={
                             Array [
                               Object {
-                                "color": "#505256",
-                              },
-                              Object {
+                                "color": "#B4B6BA",
                                 "fontFamily": "SourceSansPro-Regular",
+                                "fontSize": 12,
+                                "fontStyle": "normal",
+                                "fontWeight": "normal",
+                                "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
                               },
-                              Array [
-                                Object {
-                                  "color": "#B4B6BA",
-                                  "fontSize": 12,
-                                },
-                              ],
                             ]
                           }
                         >
                           Joined 
                           <Text
                             style={
-                              Array [
-                                Object {
-                                  "color": "#505256",
-                                },
-                                Object {
-                                  "fontFamily": "SourceSansPro-Regular",
-                                },
-                                Object {
-                                  "color": "#B4B6BA",
-                                  "fontSize": 12,
-                                },
-                              ]
+                              Object {
+                                "color": "#B4B6BA",
+                                "fontFamily": "SourceSansPro-Regular",
+                                "fontSize": 12,
+                                "fontStyle": "normal",
+                                "fontWeight": "normal",
+                                "lineHeight": 16,
+                                "textAlignVertical": "center",
+                                "textTransform": "none",
+                              }
                             }
                             testID="Text"
                           >

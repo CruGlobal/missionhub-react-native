@@ -51,36 +51,32 @@ exports[`renders correctly 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 48,
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 48,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 48,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         12
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 14,
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         New Comments
@@ -114,20 +110,18 @@ exports[`renders correctly 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "flex": 1,
-              "fontSize": 12,
-              "fontWeight": "bold",
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "flex": 1,
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "letterSpacing": 1,
+            "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
+          }
         }
       >
         VIEW
@@ -190,57 +184,45 @@ exports[`renders correctly 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "backgroundColor": "transparent",
             "opacity": 1,
           }
         }
         testID="IconButton"
       >
-        <View
+        <Text
+          allowFontScaling={false}
           style={
             Array [
               Object {
-                "backgroundColor": "transparent",
+                "color": undefined,
+                "fontSize": 12,
               },
-              null,
-              Object {},
-              null,
-            ]
-          }
-        >
-          <Text
-            allowFontScaling={false}
-            style={
               Array [
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 13,
                 },
                 Array [
                   Object {
-                    "color": "#ffffff",
+                    "margin": 10,
                   },
-                  Object {
-                    "fontSize": 13,
-                  },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    undefined,
-                  ],
+                  undefined,
                 ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
       </View>
     </View>
   </View>
@@ -298,36 +280,32 @@ exports[`renders correctly singular 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 48,
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 48,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 48,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         1
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 14,
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         New Comment
@@ -361,20 +339,18 @@ exports[`renders correctly singular 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "flex": 1,
-              "fontSize": 12,
-              "fontWeight": "bold",
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "flex": 1,
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "letterSpacing": 1,
+            "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
+          }
         }
       >
         VIEW
@@ -437,57 +413,45 @@ exports[`renders correctly singular 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "backgroundColor": "transparent",
             "opacity": 1,
           }
         }
         testID="IconButton"
       >
-        <View
+        <Text
+          allowFontScaling={false}
           style={
             Array [
               Object {
-                "backgroundColor": "transparent",
+                "color": undefined,
+                "fontSize": 12,
               },
-              null,
-              Object {},
-              null,
-            ]
-          }
-        >
-          <Text
-            allowFontScaling={false}
-            style={
               Array [
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 13,
                 },
                 Array [
                   Object {
-                    "color": "#ffffff",
+                    "margin": 10,
                   },
-                  Object {
-                    "fontSize": 13,
-                  },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    undefined,
-                  ],
+                  undefined,
                 ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
       </View>
     </View>
   </View>

@@ -38,17 +38,16 @@ exports[`HeaderTabBar should render active tab 1`] = `
       <Text
         numberOfLines={1}
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#A0A2A6",
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Tab One
@@ -80,17 +79,16 @@ exports[`HeaderTabBar should render active tab 1`] = `
       <Text
         numberOfLines={1}
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#3CC8E6",
-            },
-          ]
+          Object {
+            "color": "#3CC8E6",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Tab Two
@@ -140,17 +138,16 @@ exports[`HeaderTabBar should render tabs 1`] = `
       <Text
         numberOfLines={1}
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#3CC8E6",
-            },
-          ]
+          Object {
+            "color": "#3CC8E6",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Tab One
@@ -180,17 +177,16 @@ exports[`HeaderTabBar should render tabs 1`] = `
       <Text
         numberOfLines={1}
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#A0A2A6",
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Tab Two

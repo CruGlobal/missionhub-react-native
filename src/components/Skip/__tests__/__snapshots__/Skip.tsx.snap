@@ -13,59 +13,46 @@ exports[`render skip 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "backgroundColor": "transparent",
       "opacity": 1,
+      "padding": 15,
     }
   }
   testID="skipButton"
 >
-  <View
+  <Text
     style={
       Array [
         Object {
-          "backgroundColor": "transparent",
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 18,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "uppercase",
         },
-        null,
         Array [
           Object {
-            "padding": 15,
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
           undefined,
         ],
-        null,
       ]
     }
   >
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "backgroundColor": "rgba(0,0,0,0)",
-              "color": "#ffffff",
-              "fontSize": 14,
-              "fontWeight": "500",
-              "letterSpacing": 1.5,
-              "textAlign": "center",
-            },
-            Array [
-              Object {
-                "color": "#ffffff",
-              },
-              undefined,
-            ],
-          ],
-        ]
-      }
-    >
-      SKIP
-    </Text>
-  </View>
+    SKIP
+  </Text>
 </View>
 `;
 
@@ -82,61 +69,46 @@ exports[`renders disabled 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
-      "opacity": 1,
+      "backgroundColor": "transparent",
+      "opacity": 0.6,
+      "padding": 15,
     }
   }
   testID="skipButton"
 >
-  <View
+  <Text
     style={
       Array [
         Object {
-          "backgroundColor": "transparent",
-        },
-        Object {
-          "opacity": 0.6,
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 18,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "uppercase",
         },
         Array [
           Object {
-            "padding": 15,
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
           undefined,
         ],
-        null,
       ]
     }
   >
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "backgroundColor": "rgba(0,0,0,0)",
-              "color": "#ffffff",
-              "fontSize": 14,
-              "fontWeight": "500",
-              "letterSpacing": 1.5,
-              "textAlign": "center",
-            },
-            Array [
-              Object {
-                "color": "#ffffff",
-              },
-              undefined,
-            ],
-          ],
-        ]
-      }
-    >
-      SKIP
-    </Text>
-  </View>
+    SKIP
+  </Text>
 </View>
 `;
 
@@ -153,61 +125,46 @@ exports[`renders skip with style 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "backgroundColor": "transparent",
       "opacity": 1,
+      "padding": 5,
     }
   }
   testID="skipButton"
 >
-  <View
+  <Text
     style={
       Array [
         Object {
-          "backgroundColor": "transparent",
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 18,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "uppercase",
         },
-        null,
         Array [
           Object {
-            "padding": 15,
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
-          Object {
-            "padding": 5,
-          },
+          undefined,
         ],
-        null,
       ]
     }
   >
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "backgroundColor": "rgba(0,0,0,0)",
-              "color": "#ffffff",
-              "fontSize": 14,
-              "fontWeight": "500",
-              "letterSpacing": 1.5,
-              "textAlign": "center",
-            },
-            Array [
-              Object {
-                "color": "#ffffff",
-              },
-              undefined,
-            ],
-          ],
-        ]
-      }
-    >
-      SKIP
-    </Text>
-  </View>
+    SKIP
+  </Text>
 </View>
 `;
 
@@ -224,60 +181,47 @@ exports[`renders skip with text style 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "backgroundColor": "transparent",
       "opacity": 1,
+      "padding": 15,
     }
   }
   testID="skipButton"
 >
-  <View
+  <Text
     style={
       Array [
         Object {
-          "backgroundColor": "transparent",
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 18,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "uppercase",
         },
-        null,
         Array [
           Object {
-            "padding": 15,
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
-          undefined,
+          Object {
+            "padding": 5,
+          },
         ],
-        null,
       ]
     }
   >
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "backgroundColor": "rgba(0,0,0,0)",
-              "color": "#ffffff",
-              "fontSize": 14,
-              "fontWeight": "500",
-              "letterSpacing": 1.5,
-              "textAlign": "center",
-            },
-            Array [
-              Object {
-                "color": "#ffffff",
-              },
-              Object {
-                "padding": 5,
-              },
-            ],
-          ],
-        ]
-      }
-    >
-      SKIP
-    </Text>
-  </View>
+    SKIP
+  </Text>
 </View>
 `;

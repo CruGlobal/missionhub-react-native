@@ -1,12 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<MyText
+<Text
   style={
     Array [
       Object {
-        "color": "#B2B0B2",
+        "color": "#B4B6BA",
+        "fontFamily": "SourceSansPro-Regular",
         "fontSize": 12,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 16,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       },
       Object {},
     ]
@@ -14,16 +20,22 @@ exports[`renders correctly 1`] = `
   testID="Text"
 >
   Monday @ 1:51 PM
-</MyText>
+</Text>
 `;
 
 exports[`renders correctly with custom styling 1`] = `
-<MyText
+<Text
   style={
     Array [
       Object {
-        "color": "#B2B0B2",
+        "color": "#B4B6BA",
+        "fontFamily": "SourceSansPro-Regular",
         "fontSize": 12,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 16,
+        "textAlignVertical": "center",
+        "textTransform": "none",
       },
       Object {
         "color": "blue",
@@ -33,5 +45,5 @@ exports[`renders correctly with custom styling 1`] = `
   testID="Text"
 >
   Monday @ 1:51 PM
-</MyText>
+</Text>
 `;

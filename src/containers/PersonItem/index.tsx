@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 
@@ -11,7 +11,7 @@ import GUIDING from '../../../assets/images/guidingIcon.png';
 import NOTSURE from '../../../assets/images/notsureIcon.png';
 import NoStage from '../../../assets/images/noStage.svg';
 import ItemHeaderText from '../../components/ItemHeaderText';
-import { Text, Touchable, Icon, Card } from '../../components/common';
+import { Touchable, Icon, Card } from '../../components/common';
 import {
   navigateToStageScreen,
   navigateToAddStepFlow,

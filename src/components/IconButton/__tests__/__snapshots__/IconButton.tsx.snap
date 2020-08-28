@@ -13,57 +13,45 @@ exports[`renders correctly 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "backgroundColor": "transparent",
       "opacity": 1,
     }
   }
   testID="IconButton"
 >
-  <View
+  <Text
+    allowFontScaling={false}
     style={
       Array [
         Object {
-          "backgroundColor": "transparent",
+          "color": undefined,
+          "fontSize": 12,
         },
-        null,
-        Object {},
-        null,
-      ]
-    }
-  >
-    <Text
-      allowFontScaling={false}
-      style={
         Array [
           Object {
-            "color": undefined,
-            "fontSize": 12,
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 18,
           },
           Array [
             Object {
-              "color": "#ffffff",
+              "margin": 10,
             },
-            Object {
-              "fontSize": 18,
-            },
-            Array [
-              Object {
-                "margin": 10,
-              },
-              undefined,
-            ],
+            undefined,
           ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-          Object {},
-        ]
-      }
-    >
-      
-    </Text>
-  </View>
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
 </View>
 `;
 
@@ -80,61 +68,48 @@ exports[`renders correctly with button styles 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "backgroundColor": "transparent",
+      "margin": 20,
       "opacity": 1,
     }
   }
   testID="IconButton"
 >
-  <View
+  <Text
+    allowFontScaling={false}
     style={
       Array [
         Object {
-          "backgroundColor": "transparent",
+          "color": undefined,
+          "fontSize": 12,
         },
-        null,
-        Object {
-          "margin": 20,
-        },
-        null,
-      ]
-    }
-  >
-    <Text
-      allowFontScaling={false}
-      style={
         Array [
           Object {
-            "color": undefined,
-            "fontSize": 12,
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 18,
           },
           Array [
             Object {
-              "color": "#ffffff",
+              "margin": 10,
             },
             Object {
-              "fontSize": 18,
+              "padding": 10,
             },
-            Array [
-              Object {
-                "margin": 10,
-              },
-              Object {
-                "padding": 10,
-              },
-            ],
           ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-          Object {},
-        ]
-      }
-    >
-      
-    </Text>
-  </View>
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
 </View>
 `;
 
@@ -151,59 +126,47 @@ exports[`renders correctly with icon props 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "backgroundColor": "transparent",
       "opacity": 1,
     }
   }
   testID="IconButton"
 >
-  <View
+  <Text
+    allowFontScaling={false}
     style={
       Array [
         Object {
-          "backgroundColor": "transparent",
+          "color": undefined,
+          "fontSize": 12,
         },
-        null,
-        Object {},
-        null,
-      ]
-    }
-  >
-    <Text
-      allowFontScaling={false}
-      style={
         Array [
           Object {
-            "color": undefined,
-            "fontSize": 12,
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 24,
           },
           Array [
             Object {
-              "color": "#ffffff",
+              "margin": 10,
             },
             Object {
-              "fontSize": 24,
+              "padding": 10,
             },
-            Array [
-              Object {
-                "margin": 10,
-              },
-              Object {
-                "padding": 10,
-              },
-            ],
           ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-          Object {},
-        ]
-      }
-    >
-      
-    </Text>
-  </View>
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
 </View>
 `;
 
@@ -220,34 +183,21 @@ exports[`renders correctly with image 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "backgroundColor": "transparent",
+      "margin": 20,
       "opacity": 1,
     }
   }
   testID="IconButton"
 >
-  <View
+  <Image
+    source={1234}
     style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        null,
-        Object {
-          "margin": 20,
-        },
-        null,
-      ]
-    }
-  >
-    <Image
-      source={1234}
-      style={
-        Object {
-          "margin": 10,
-        }
+      Object {
+        "margin": 10,
       }
-    />
-  </View>
+    }
+  />
 </View>
 `;
 
@@ -264,58 +214,46 @@ exports[`renders correctly without onpress 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "backgroundColor": "transparent",
       "opacity": 1,
     }
   }
   testID="IconButton"
 >
-  <View
+  <Text
+    allowFontScaling={false}
     style={
       Array [
         Object {
-          "backgroundColor": "transparent",
+          "color": undefined,
+          "fontSize": 12,
         },
-        null,
-        Object {},
-        null,
-      ]
-    }
-  >
-    <Text
-      allowFontScaling={false}
-      style={
         Array [
           Object {
-            "color": undefined,
-            "fontSize": 12,
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 18,
           },
           Array [
             Object {
-              "color": "#ffffff",
+              "margin": 10,
             },
             Object {
-              "fontSize": 18,
+              "padding": 10,
             },
-            Array [
-              Object {
-                "margin": 10,
-              },
-              Object {
-                "padding": 10,
-              },
-            ],
           ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-          Object {},
-        ]
-      }
-    >
-      
-    </Text>
-  </View>
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
 </View>
 `;

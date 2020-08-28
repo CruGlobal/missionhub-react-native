@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { GestureResponderEvent, View } from 'react-native';
+import { GestureResponderEvent, View, Text } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useMutation } from '@apollo/react-hooks';
 
-import { Text, Button } from '../common';
+import { Button } from '../common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 import { useIsMe } from '../../utils/hooks/useIsMe';
@@ -120,8 +120,8 @@ export const CommentLikeComponent = ({
             )
           ) : (
             <HeartIcon
-              color={liked ? theme.red : theme.textColor}
-              fill={liked ? theme.red : undefined}
+              color={liked ? theme.orange : theme.textColor}
+              fill={liked ? theme.orange : undefined}
             />
           )}
         </Button>

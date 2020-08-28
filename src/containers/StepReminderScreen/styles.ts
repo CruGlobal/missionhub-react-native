@@ -19,18 +19,13 @@ export default StyleSheet.create({
   backButton: {
     color: theme.lightGrey,
   },
-  headerText: {
-    fontSize: 16,
-    lineHeight: 24,
-  },
+  headerText: theme.textRegular16,
   inputHeaderText: {
-    fontSize: 12,
-    lineHeight: 16,
+    ...theme.textRegular12,
     textAlignVertical: 'center',
   },
   inputContentText: {
-    fontSize: 16,
-    lineHeight: 24,
+    ...theme.textRegular16,
     textAlignVertical: 'center',
     borderBottomWidth: 1,
     borderBottomColor: theme.lightGrey,

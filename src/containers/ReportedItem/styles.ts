@@ -24,19 +24,16 @@ export default StyleSheet.create({
     flexDirection: 'column',
   },
   respondedTitle: {
-    color: theme.grey,
-    fontSize: 24,
-    lineHeight: 30,
-    fontWeight: '300',
+    ...theme.textLight24,
+    color: theme.lightGrey,
     paddingVertical: 20,
   },
   respondedMessage: {
-    color: theme.grey,
-    fontSize: 16,
-    lineHeight: 24,
+    ...theme.textRegular16,
+    color: theme.lightGrey,
   },
   openPost: {
-    color: theme.parakeetBlue,
+    color: theme.secondaryColor,
   },
   users: {
     padding: 15,

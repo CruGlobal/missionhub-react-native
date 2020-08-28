@@ -50,21 +50,33 @@ exports[`renders contact_assignment correctly 1`] = `
       format="LL"
       style={
         Object {
-          "color": "#A0A2A6",
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 10,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 14,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     />
-    <MyText
+    <Text
       style={
         Object {
           "color": "#007398",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
       Test Person was assigned to RogerBilly
-    </MyText>
+    </Text>
   </Flex>
 </Flex>
 `;
@@ -119,21 +131,33 @@ exports[`renders contact_unassignment correctly 1`] = `
       format="LL"
       style={
         Object {
-          "color": "#A0A2A6",
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 10,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 14,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     />
-    <MyText
+    <Text
       style={
         Object {
           "color": "#007398",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
       Test Person was unassigned from Roger
-    </MyText>
+    </Text>
   </Flex>
 </Flex>
 `;
@@ -190,30 +214,49 @@ exports[`renders interaction correctly 1`] = `
       format="LL"
       style={
         Object {
-          "color": "#A0A2A6",
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 10,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 14,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     />
-    <MyText
+    <Text
       style={
         Object {
           "color": "#007398",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
       Comment
-    </MyText>
-    <MyText
+    </Text>
+    <Text
       style={
         Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
       Test Interaction
-    </MyText>
+    </Text>
   </Flex>
 </Flex>
 `;
@@ -268,95 +311,146 @@ exports[`renders survey correctly 1`] = `
       format="LL"
       style={
         Object {
-          "color": "#A0A2A6",
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 10,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 14,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     />
-    <MyText
+    <Text
       style={
         Object {
           "color": "#007398",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
       Test Survey
-    </MyText>
+    </Text>
     <Flex
       direction="column"
       key="1"
     >
-      <MyText
+      <Text
         style={
           Object {
-            "color": "#A0A2A6",
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
             "marginTop": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
         Question 1
-      </MyText>
-      <MyText
+      </Text>
+      <Text
         style={
           Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
         Answer 1
-      </MyText>
+      </Text>
     </Flex>
     <Flex
       direction="column"
       key="2"
     >
-      <MyText
+      <Text
         style={
           Object {
-            "color": "#A0A2A6",
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
             "marginTop": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
         Question 2
-      </MyText>
-      <MyText
+      </Text>
+      <Text
         style={
           Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
         Answer 2
-      </MyText>
+      </Text>
     </Flex>
     <Flex
       direction="column"
       key="3"
     >
-      <MyText
+      <Text
         style={
           Object {
-            "color": "#A0A2A6",
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
             "marginTop": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
         Question 3
-      </MyText>
-      <MyText
+      </Text>
+      <Text
         style={
           Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           }
         }
       >
         Answer 3
-      </MyText>
+      </Text>
     </Flex>
   </Flex>
 </Flex>
@@ -412,30 +506,49 @@ exports[`stage is rendered correctly with old stage for a contact 1`] = `
       format="LL"
       style={
         Object {
-          "color": "#A0A2A6",
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 10,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 14,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     />
-    <MyText
+    <Text
       style={
         Object {
           "color": "#007398",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
       Uninterested to Curious
-    </MyText>
-    <MyText
+    </Text>
+    <Text
       style={
         Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
       Test Person changed from Uninterested to Curious
-    </MyText>
+    </Text>
   </Flex>
 </Flex>
 `;
@@ -490,30 +603,49 @@ exports[`stage is rendered correctly with old stage for self 1`] = `
       format="LL"
       style={
         Object {
-          "color": "#A0A2A6",
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 10,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 14,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     />
-    <MyText
+    <Text
       style={
         Object {
           "color": "#007398",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
       Uninterested to Curious
-    </MyText>
-    <MyText
+    </Text>
+    <Text
       style={
         Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
       You changed from Uninterested to Curious
-    </MyText>
+    </Text>
   </Flex>
 </Flex>
 `;
@@ -568,30 +700,49 @@ exports[`stage is rendered correctly without old stage for a contact 1`] = `
       format="LL"
       style={
         Object {
-          "color": "#A0A2A6",
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 10,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 14,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     />
-    <MyText
+    <Text
       style={
         Object {
           "color": "#007398",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
       Curious
-    </MyText>
-    <MyText
+    </Text>
+    <Text
       style={
         Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
       You added Test Person to MissionHub as Curious
-    </MyText>
+    </Text>
   </Flex>
 </Flex>
 `;
@@ -646,30 +797,49 @@ exports[`stage is rendered correctly without old stage for self 1`] = `
       format="LL"
       style={
         Object {
-          "color": "#A0A2A6",
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 10,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 14,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     />
-    <MyText
+    <Text
       style={
         Object {
           "color": "#007398",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
       Curious
-    </MyText>
-    <MyText
+    </Text>
+    <Text
       style={
         Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
       You added yourself to MissionHub as Curious
-    </MyText>
+    </Text>
   </Flex>
 </Flex>
 `;
@@ -724,32 +894,51 @@ exports[`step is rendered correctly with comment 1`] = `
       format="LL"
       style={
         Object {
-          "color": "#A0A2A6",
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 10,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 14,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     />
-    <MyText
+    <Text
       style={
         Object {
           "color": "#007398",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
       Completed Step of Faith
-    </MyText>
-    <MyText
+    </Text>
+    <Text
       style={
         Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
       Test Step
 
 test comment on completed step
-    </MyText>
+    </Text>
   </Flex>
 </Flex>
 `;
@@ -804,30 +993,49 @@ exports[`step is rendered correctly with pathway stage 1`] = `
       format="LL"
       style={
         Object {
-          "color": "#A0A2A6",
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 10,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 14,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     />
-    <MyText
+    <Text
       style={
         Object {
           "color": "#007398",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
       Completed Guiding Step of Faith
-    </MyText>
-    <MyText
+    </Text>
+    <Text
       style={
         Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
       Test Step
-    </MyText>
+    </Text>
   </Flex>
 </Flex>
 `;
@@ -882,30 +1090,49 @@ exports[`step is rendered correctly without comment 1`] = `
       format="LL"
       style={
         Object {
-          "color": "#A0A2A6",
+          "color": "#B4B6BA",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 10,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 14,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     />
-    <MyText
+    <Text
       style={
         Object {
           "color": "#007398",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
       Completed Step of Faith
-    </MyText>
-    <MyText
+    </Text>
+    <Text
       style={
         Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
         }
       }
     >
       Test Step
-    </MyText>
+    </Text>
   </Flex>
 </Flex>
 `;

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Image, ImageSourcePropType, View } from 'react-native';
+import { Image, ImageSourcePropType, View, Text } from 'react-native';
 
-import { Flex, Text } from '../../components/common';
+import { Flex } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import Skip from '../../components/Skip';
 import DeprecatedBackButton from '../DeprecatedBackButton';
