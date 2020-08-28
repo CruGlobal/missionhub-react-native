@@ -813,7 +813,7 @@ exports[`render update button 1`] = `
 </RCTSafeAreaView>
 `;
 
-exports[`renders correctly | Authenticated User 1`] = `
+exports[`renders correctly | anonymous User 1`] = `
 <RCTSafeAreaView
   emulateUnlessSupported={true}
   style={
@@ -1689,7 +1689,7 @@ exports[`renders correctly | Authenticated User 1`] = `
 </RCTSafeAreaView>
 `;
 
-exports[`renders correctly | UnAuthed User 1`] = `
+exports[`renders correctly | signed in User 1`] = `
 <RCTSafeAreaView
   emulateUnlessSupported={true}
   style={

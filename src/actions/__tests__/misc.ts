@@ -35,6 +35,11 @@ jest.mock('../navigation');
 jest.mock('../person');
 jest.mock('../../selectors/people');
 jest.mock('../../utils/common');
+jest.mock('../../auth/authUtilities', () => ({
+  getAuthPerson: () => ({
+    id: '111',
+  }),
+}));
 
 const mockStore = configureStore([thunk]);
 let store: MockStore;
@@ -49,14 +54,7 @@ const updatePersonAttributesResult = { type: 'updated person' };
 const hasOrgPermissionsResult = false;
 const buildTrackingObjResult = { tracking: 'tracking' };
 
-const groups_feature = true;
 const myId = '111';
-const mePerson = {
-  id: myId,
-  user: {
-    groups_feature,
-  },
-};
 const personId = '100';
 const url = 'url';
 const action = { type: 'link action' };
@@ -65,12 +63,9 @@ const contactAssignment = { id: '1908' };
 const orgPermission = { id: '1234' };
 const firstItemIndex = 3;
 const stage = { id: '5' };
-const state = {
-  auth: { person: mePerson },
-};
 
 beforeEach(() => {
-  store = mockStore(state);
+  store = mockStore();
 
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
   (reloadJourney as jest.Mock).mockReturnValue(reloadJourneyResult);

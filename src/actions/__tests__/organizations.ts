@@ -41,8 +41,11 @@ jest.mock('../api');
 jest.mock('../person');
 jest.mock('../challenges');
 jest.mock('../navigation');
-jest.mock('../../selectors/selectorUtils');
 jest.mock('../../selectors/organizations');
+jest.mock('../../auth/authUtilities', () => ({
+  getAuthPerson: () => ({ id: '1' }),
+}));
+jest.mock('../../auth/authStore', () => ({ isAuthenticated: () => true }));
 
 FormData = require('react-native/Libraries/Network/FormData');
 
@@ -126,27 +129,6 @@ describe('getMyOrganizations', () => {
       {
         type: LOAD_ORGANIZATIONS,
         orgs,
-      },
-    ]);
-  });
-
-  it('should sort by user order when specified', async () => {
-    store = mockStore({
-      auth: {
-        person: {
-          user: { organization_order: [org5.id, org4.id, org6.id, org3.id] },
-        },
-      },
-    });
-
-    await store.dispatch<any>(getMyOrganizations());
-
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
-    expect(store.getActions()).toEqual([
-      getMyOrganizationsResult,
-      {
-        type: LOAD_ORGANIZATIONS,
-        orgs: [org5, org4, org6, org3, org1, org2, org7, org8],
       },
     ]);
   });

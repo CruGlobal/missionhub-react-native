@@ -16,7 +16,6 @@ jest.mock('../../../actions/navigation', () => ({
 }));
 
 const myId = '1';
-const me = { id: myId, full_name: 'Me' };
 
 const createdAt = '2020-05-25 13:00:00';
 
@@ -38,7 +37,6 @@ const ownerPermissions = { ...orgPerm, permission: PermissionEnum.owner };
 const organization = { id: '1234' };
 
 const initialState = {
-  auth: { person: me },
   organizations: { all: [organization] },
 };
 

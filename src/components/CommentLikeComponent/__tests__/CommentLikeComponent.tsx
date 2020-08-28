@@ -30,7 +30,6 @@ const trackActionResponse = { type: 'tracked action' };
 
 const myId = '1';
 const feedItemId = '12';
-const initialState = { auth: { person: { id: myId } } };
 
 beforeEach(() => {
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResponse);
@@ -44,7 +43,9 @@ function render(mocks?: IMocks) {
         mocks ? { mocks } : undefined,
       )}
     />,
-    { initialState },
+    {
+      mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+    },
   );
 }
 
@@ -205,7 +206,9 @@ describe('with subject person', () => {
           },
         })}
       />,
-      { initialState },
+      {
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+      },
     );
 
     fireEvent.press(getByTestId('CommentIconButton'));

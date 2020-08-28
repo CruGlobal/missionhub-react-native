@@ -11,21 +11,6 @@ jest.mock('react-native-device-info');
 jest.mock('../../actions/navigation');
 jest.mock('../../utils/hooks/useAnalytics');
 
-const initialState = {
-  auth: {
-    person: { first_name: 'Test Fname', user: { pathway_stage_id: '1' } },
-  },
-  stages: {
-    stages: [
-      {
-        id: '1',
-        self_followup_description: 'We are glad you are here, <<user>>!',
-      },
-    ],
-  },
-  onboarding: { currentlyOnboarding: true },
-};
-
 const next = jest.fn();
 
 const navigateBackResult = { type: 'navigate back' };
@@ -36,9 +21,7 @@ beforeEach(() => {
 });
 
 it('renders correctly', () => {
-  renderWithContext(<StageSuccessScreen next={next} />, {
-    initialState,
-  }).snapshot();
+  renderWithContext(<StageSuccessScreen next={next} />).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(
     ['onboarding', 'stage confirmation'],
@@ -47,23 +30,13 @@ it('renders correctly', () => {
 });
 
 it('calls next with selected stage', () => {
-  const { getByTestId } = renderWithContext(
-    <StageSuccessScreen next={next} />,
-    {
-      initialState,
-    },
-  );
+  const { getByTestId } = renderWithContext(<StageSuccessScreen next={next} />);
   fireEvent(getByTestId('IconMessageScreen'), 'onComplete');
   expect(next).toHaveBeenCalledWith();
 });
 
 it('calls navigate back', () => {
-  const { getByTestId } = renderWithContext(
-    <StageSuccessScreen next={next} />,
-    {
-      initialState,
-    },
-  );
+  const { getByTestId } = renderWithContext(<StageSuccessScreen next={next} />);
   fireEvent(getByTestId('IconMessageScreen'), 'onBack');
   expect(navigateBack).toHaveBeenCalledWith();
 });

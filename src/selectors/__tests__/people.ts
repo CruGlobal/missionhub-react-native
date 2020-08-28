@@ -1,11 +1,11 @@
 /* eslint-disable max-lines */
 
 import {
-  allAssignedPeopleSelector,
   personSelector,
   contactAssignmentSelector,
   orgPermissionSelector,
 } from '../people';
+import { RootState } from '../../reducers';
 
 jest.mock('../../selectors/selectorUtils', () => ({
   removeHiddenOrgs: jest.fn().mockImplementation(orgs => orgs),
@@ -138,25 +138,11 @@ const people = {
   },
 };
 
-describe('allAssignedPeopleSelector', () => {
-  it('should take the people object and transform it into a single array', () => {
-    expect(
-      allAssignedPeopleSelector({
-        people,
-        // @ts-ignore
-        auth,
-        // @ts-ignore
-        organizations: {
-          all: [unnamedOrganization, organizationOne, organizationTwo],
-        },
-      }),
-    ).toMatchSnapshot();
-  });
-});
-
 describe('personSelector', () => {
   it('should get a person in the personal org', () => {
-    expect(personSelector({ people }, { personId: '22' })).toMatchSnapshot();
+    expect(
+      personSelector(({ people } as unknown) as RootState, { personId: '22' }),
+    ).toMatchSnapshot();
   });
 });
 

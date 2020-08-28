@@ -74,9 +74,6 @@ beforeEach(() => {
   };
   store = mockStore({
     analytics: analyticsContext,
-    auth: {
-      person: { id: myId, global_registry_mdm_id: grMasterPersonId },
-    },
   });
   (RNOmniture.trackState as jest.Mock) = jest.fn();
   (RNOmniture.trackAction as jest.Mock) = jest.fn();
@@ -166,9 +163,6 @@ describe('trackScreenChange', () => {
         ...analyticsContext,
         ...screenContext,
         [ANALYTICS_MCID]: '',
-      },
-      auth: {
-        person: { global_registry_mdm_id: grMasterPersonId },
       },
     });
 

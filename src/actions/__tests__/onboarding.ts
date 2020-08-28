@@ -30,6 +30,7 @@ import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
 import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
 import { COMMUNITY_TABS } from '../../containers/Communities/Community/constants';
+import { createThunkStore } from '../../../testUtils';
 
 jest.mock('../api');
 jest.mock('../notifications');
@@ -38,12 +39,11 @@ jest.mock('../person');
 jest.mock('../organizations');
 jest.mock('../navigation');
 jest.mock('../auth/userData');
+jest.mock('../../auth/authUtilities', () => ({
+  getAuthPerson: () => ({ id: '1' }),
+}));
 
-const myId = '1';
-
-let store = configureStore([thunk])({
-  auth: { person: { id: myId } },
-});
+let store = createThunkStore();
 
 const navigatePushResponse = { type: 'navigate push' };
 const navigateBackResponse = { type: 'navigate back' };

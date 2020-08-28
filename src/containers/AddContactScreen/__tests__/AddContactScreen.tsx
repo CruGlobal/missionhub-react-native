@@ -67,7 +67,6 @@ const next = jest.fn();
 const mockPerson = mockFragment<PersonFragment>(PERSON_FRAGMENT);
 
 const initialState = {
-  auth: { person: me },
   drawer: { isOpen: false },
 };
 

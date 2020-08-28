@@ -1,7 +1,7 @@
 /* eslint-disable max-lines */
 import React from 'react';
 import { ActionSheetIOS } from 'react-native';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { ORG_PERMISSIONS } from '../../../constants';
@@ -18,12 +18,12 @@ import AddContactFields from '..';
 jest.mock('../../../selectors/people');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/person');
+jest.mock('../../../auth/authStore', () => ({ isAuthenticated: () => true }));
 
 const orgPermission = { permission_id: ORG_PERMISSIONS.CONTACT };
 const getPersonDetailsResults = { type: 'get person details' };
 const navigatePushResults = { type: 'navigate push' };
-const myMockId = '2';
-const initialState = { auth: { person: { id: myMockId } } };
+const myId = '2';
 const onUpdateData = jest.fn();
 const emptyPerson: PersonType = {
   id: '',
@@ -73,7 +73,7 @@ it('renders correctly | No Person', () => {
       person={emptyPerson}
     />,
     {
-      initialState,
+      mocks: { User: () => ({ person: () => ({ id: myId }) }) },
     },
   );
   snapshot();
@@ -85,10 +85,10 @@ it('render correctly | With Person | With Picture', () => {
       next={next}
       organization={null}
       onUpdateData={onUpdateData}
-      person={{ ...mockPerson, id: myMockId, picture: mockImage }}
+      person={{ ...mockPerson, id: myId, picture: mockImage }}
     />,
     {
-      initialState,
+      mocks: { User: () => ({ person: () => ({ id: myId }) }) },
     },
   );
   snapshot();
@@ -102,12 +102,12 @@ it('render correctly | With Person | No Picture', () => {
       onUpdateData={onUpdateData}
       person={{
         ...mockPerson,
-        id: myMockId,
+        id: myId,
         picture: null,
       }}
     />,
     {
-      initialState,
+      mocks: { User: () => ({ person: () => ({ id: myId }) }) },
     },
   );
   snapshot();
@@ -119,10 +119,10 @@ it('render correctly | With Person | No Stage', () => {
       next={next}
       organization={null}
       onUpdateData={onUpdateData}
-      person={{ ...mockPerson, id: myMockId, stage: null }}
+      person={{ ...mockPerson, id: myId, stage: null }}
     />,
     {
-      initialState,
+      mocks: { User: () => ({ person: () => ({ id: myId }) }) },
     },
   );
   snapshot();
@@ -140,7 +140,7 @@ it('render correctly | With Person | Not Me | No Person Category', () => {
       }}
     />,
     {
-      initialState,
+      mocks: { User: () => ({ person: () => ({ id: myId }) }) },
     },
   );
   snapshot();
@@ -158,7 +158,7 @@ it('render correctly | With Person | Not Me | With Person Category', () => {
       }}
     />,
     {
-      initialState,
+      mocks: { User: () => ({ person: () => ({ id: myId }) }) },
     },
   );
   snapshot();
@@ -173,9 +173,6 @@ describe('calls methods', () => {
         onUpdateData={onUpdateData}
         person={emptyPerson}
       />,
-      {
-        initialState,
-      },
     );
     recordSnapshot();
     fireEvent(getByTestId('firstNameInput'), 'onFocus');
@@ -195,9 +192,6 @@ describe('calls methods', () => {
         onUpdateData={onUpdateData}
         person={emptyPerson}
       />,
-      {
-        initialState,
-      },
     );
     recordSnapshot();
     fireEvent(getByTestId('lastNameInput'), 'onFocus');
@@ -221,9 +215,6 @@ describe('calls methods', () => {
           relationshipType: RelationshipTypeEnum.family,
         }}
       />,
-      {
-        initialState,
-      },
     );
     recordSnapshot();
     fireEvent(getByTestId('popupMenuButton'), 'onPress');
@@ -243,12 +234,14 @@ describe('calls methods', () => {
         next={next}
         organization={null}
         onUpdateData={onUpdateData}
-        person={{ ...mockPerson, id: myMockId, picture: null }}
+        person={{ ...mockPerson, id: myId, picture: null }}
       />,
       {
-        initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
     );
+
+    await flushMicrotasksQueue();
     recordSnapshot();
     await fireEvent(getByTestId('ImagePicker'), 'onSelectImage', {
       data: `data:image/jpeg;base64,${mockImage}`,
@@ -256,7 +249,7 @@ describe('calls methods', () => {
     diffSnapshot();
     expect(onUpdateData).toHaveBeenLastCalledWith({
       ...mockPerson,
-      id: myMockId,
+      id: myId,
       picture: `data:image/jpeg;base64,${mockImage}`,
     });
   });
@@ -267,16 +260,13 @@ describe('calls methods', () => {
         next={next}
         organization={null}
         onUpdateData={onUpdateData}
-        person={{ ...mockPerson, id: myMockId }}
+        person={{ ...mockPerson, id: myId }}
       />,
-      {
-        initialState,
-      },
     );
     fireEvent.press(getByTestId('stageSelectButton'));
     expect(next).toHaveBeenCalledWith({
       orgId: undefined,
-      person: { ...mockPerson, id: myMockId },
+      person: { ...mockPerson, id: myId },
       navigateToStageSelection: true,
       updatePerson: onUpdateData,
     });

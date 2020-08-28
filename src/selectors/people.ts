@@ -1,10 +1,9 @@
 import { createSelector } from 'reselect';
 
-import { PeopleState, Person } from '../reducers/people';
-import { Organization, OrganizationsState } from '../reducers/organizations';
+import { Person } from '../reducers/people';
+import { Organization } from '../reducers/organizations';
 import { RootState } from '../reducers';
 import { getAuthPerson } from '../auth/authUtilities';
-import { AuthPerson_currentUser_person } from '../auth/__generated__/AuthPerson';
 
 interface Org {
   id: string;
@@ -12,69 +11,9 @@ interface Org {
   name: string;
 }
 
-export const allAssignedPeopleSelector = createSelector(
-  ({ people }: RootState) => people.people,
-  ({
-    organizations,
-  }: {
-    people: PeopleState;
-    organizations: OrganizationsState;
-  }) => organizations.all,
-  () => getAuthPerson(),
-  (people, orgs, authPerson) => {
-    return Object.values(people)
-      .filter((person: Person) =>
-        isAssignedToMeInSomeOrganization(person, orgs, authPerson),
-      )
-      .sort((a, b) => sortPeople(a, b, authPerson));
-  },
-);
-
-const isAssignedToMeInSomeOrganization = (
-  person: Person,
-  orgs: Organization[],
-  me?: AuthPerson_currentUser_person,
-) => {
-  const { reverse_contact_assignments } = person;
-
-  if (person.id === me?.id) {
-    return true;
-  }
-
-  return (
-    reverse_contact_assignments &&
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    reverse_contact_assignments.some((a: any) => {
-      const { assigned_to, organization } = a;
-
-      return (
-        assigned_to &&
-        assigned_to.id === me?.id &&
-        (!organization ||
-          orgs.some(({ id }: { id: string }) => organization.id === id))
-      );
-    })
-  );
-};
-
-const sortPeople = (a: Person, b: Person, authUser: Person) => {
-  // Sort people in org by first name, then last name
-  // Keep "ME" person in front
-  if (a.id === authUser.id) {
-    return -1;
-  }
-  if (b.id === authUser.id) {
-    return 1;
-  }
-  return (
-    a.first_name.localeCompare(b.first_name) ||
-    a.last_name.localeCompare(b.last_name)
-  );
-};
-
 export const personSelector = createSelector(
-  ({ people }: { people: PeopleState }) => people.people,
-  (_: { people: PeopleState }, { personId }: { personId?: string }) => personId,
+  ({ people }: RootState) => people.people,
+  (_: RootState, { personId }: { personId?: string }) => personId,
   (people, personId) => {
     return personId ? people[personId] : undefined;
   },

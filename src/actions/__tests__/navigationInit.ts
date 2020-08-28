@@ -6,11 +6,15 @@ import { checkNotifications } from '../notifications';
 import { LANDING_SCREEN } from '../../containers/LandingScreen';
 import { GET_STARTED_ONBOARDING_FLOW } from '../../routes/constants';
 import { NOTIFICATION_PROMPT_TYPES } from '../../constants';
+import { isAuthenticated } from '../../auth/authStore';
+import { getAuthPerson } from '../../auth/authUtilities';
 
 jest.mock('../notifications');
 jest.mock('../navigation');
 jest.mock('../onboarding');
 jest.mock('../analytics');
+jest.mock('../../auth/authStore');
+jest.mock('../../auth/authUtilities');
 
 const token =
   'sfhaspofuasdnfpwqnfoiqwofiwqioefpqwnofuoweqfniuqweouiowqefonpqnowfpowqfneqowfenopnqwnfeo';
@@ -26,16 +30,18 @@ beforeEach(() => {
   (navigateReset as jest.Mock).mockReturnValue(navigateResetResult);
   (startOnboarding as jest.Mock).mockReturnValue(startOnboardingResult);
   (checkNotifications as jest.Mock).mockReturnValue(checkNotificationsResult);
+  (isAuthenticated as jest.Mock).mockReturnValue(true);
+  (getAuthPerson as jest.Mock).mockReturnValue({ stage: { id: '1' } });
 });
 
 describe('resetToInitialRoute', () => {
   describe('unauthenticated user', () => {
+    beforeEach(() => {
+      (isAuthenticated as jest.Mock).mockReturnValue(false);
+    });
+
     it('should navigate to landing screen', () => {
-      const mockStore = createThunkStore({
-        auth: {
-          token: '',
-        },
-      });
+      const mockStore = createThunkStore();
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       mockStore.dispatch<any>(resetToInitialRoute());
       expect(navigateReset).toHaveBeenCalledWith(LANDING_SCREEN);
@@ -54,14 +60,8 @@ describe('resetToInitialRoute', () => {
 
   describe('authenticated user without stage', () => {
     it('should navigate to get started screen', () => {
-      const mockStore = createThunkStore({
-        auth: {
-          token,
-          person: {
-            id: myId,
-          },
-        },
-      });
+      (getAuthPerson as jest.Mock).mockReturnValue({ stage: null });
+      const mockStore = createThunkStore();
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       mockStore.dispatch<any>(resetToInitialRoute());
       expect(startOnboarding).toHaveBeenCalled();
@@ -84,15 +84,7 @@ describe('resetToInitialRoute', () => {
 
   describe('authenticated user with stage', () => {
     it('should navigate to main tabs', () => {
-      const mockStore = createThunkStore({
-        auth: {
-          token,
-          person: {
-            id: myId,
-            user: { pathway_stage_id: '3' },
-          },
-        },
-      });
+      const mockStore = createThunkStore();
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       mockStore.dispatch<any>(resetToInitialRoute());
       expect(navigateToMainTabs).toHaveBeenCalled();
@@ -114,15 +106,7 @@ describe('resetToInitialRoute', () => {
       `);
     });
     it('should not dispatch reload app if preservePreviousScreen is set', () => {
-      const mockStore = createThunkStore({
-        auth: {
-          token,
-          person: {
-            id: myId,
-            user: { pathway_stage_id: '3' },
-          },
-        },
-      });
+      const mockStore = createThunkStore();
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       mockStore.dispatch<any>(resetToInitialRoute(true));
       expect(navigateToMainTabs).toHaveBeenCalled();

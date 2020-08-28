@@ -28,10 +28,6 @@ const myId = '2';
 
 const testPersonTabs = personTabs({ isMe: false });
 
-const initialState = {
-  auth: { person: { id: myId } },
-};
-
 it('should render loading', () => {
   renderWithContext(
     <PersonHeader
@@ -40,7 +36,6 @@ it('should render loading', () => {
     />,
     {
       navParams: { personId },
-      initialState,
     },
   ).snapshot();
 });
@@ -53,7 +48,6 @@ it('should render me loading', () => {
     />,
     {
       navParams: { personId: myId },
-      initialState,
     },
   ).snapshot();
 });
@@ -66,7 +60,6 @@ it('should load person data correctly', async () => {
     />,
     {
       navParams: { personId },
-      initialState,
     },
   );
 
@@ -83,7 +76,6 @@ it('should hide edit, delete, and stage for members', async () => {
     />,
     {
       navParams: { personId },
-      initialState,
     },
   );
 
@@ -108,7 +100,6 @@ it('should handle edit me', async () => {
     />,
     {
       navParams: { personId: myId },
-      initialState,
     },
   );
 
@@ -129,7 +120,6 @@ it('should handle edit person', async () => {
     />,
     {
       navParams: { personId },
-      initialState,
     },
   );
 
@@ -151,7 +141,6 @@ it('should handle delete person', async () => {
     />,
     {
       navParams: { personId },
-      initialState,
     },
   );
 

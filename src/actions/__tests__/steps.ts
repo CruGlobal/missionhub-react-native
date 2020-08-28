@@ -51,11 +51,6 @@ describe('completeStep', () => {
 
   beforeEach(() => {
     store = mockStore({
-      auth: {
-        person: {
-          id: personId,
-        },
-      },
       organizations: {
         all: [
           {

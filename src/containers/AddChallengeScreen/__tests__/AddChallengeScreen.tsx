@@ -28,12 +28,6 @@ const editChallenge = {
 };
 const onComplete = jest.fn();
 
-const initialState = {
-  auth: {
-    person: { id: '111' },
-  },
-};
-
 beforeEach(() => {
   ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
   ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
@@ -44,7 +38,6 @@ beforeEach(() => {
 
 it('renders correctly', () => {
   renderWithContext(<AddChallengeScreen />, {
-    initialState,
     navParams: {
       communityId,
       onComplete,
@@ -59,7 +52,6 @@ it('renders correctly', () => {
 it('renders correctly on android', () => {
   ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
   renderWithContext(<AddChallengeScreen />, {
-    initialState,
     navParams: {
       communityId,
       onComplete,
@@ -70,7 +62,6 @@ it('renders correctly on android', () => {
 
 it('renders edit challenge correctly', () => {
   renderWithContext(<AddChallengeScreen />, {
-    initialState,
     navParams: {
       communityId,
       onComplete,
@@ -88,7 +79,6 @@ describe('create methods', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
           communityId,
           onComplete,
@@ -104,7 +94,6 @@ describe('create methods', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
           communityId,
           onComplete,
@@ -121,7 +110,6 @@ describe('create methods', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
           communityId,
           onComplete,
@@ -139,7 +127,6 @@ describe('create methods', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
           communityId,
           onComplete,
@@ -157,7 +144,6 @@ describe('create methods', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
           communityId,
           onComplete,
@@ -177,7 +163,6 @@ describe('create methods', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
           communityId,
           onComplete,
@@ -198,7 +183,6 @@ describe('create methods', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
           communityId,
           onComplete,
@@ -216,7 +200,6 @@ describe('create methods', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
           communityId,
           onComplete,
@@ -236,7 +219,6 @@ describe('create methods', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: { communityId, onComplete, isEdit: false },
       },
     );
@@ -261,7 +243,6 @@ describe('create methods', () => {
     const { getByTestId, snapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
           communityId,
           onComplete,
@@ -292,7 +273,6 @@ describe('edit methods', () => {
     const { getByTestId, snapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
           communityId,
           onComplete,
@@ -310,7 +290,6 @@ describe('edit methods', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
           communityId,
           onComplete,
@@ -330,7 +309,6 @@ describe('edit methods', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
           communityId,
           onComplete,

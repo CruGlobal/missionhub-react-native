@@ -11,12 +11,11 @@ const person = {
   last_name: 'Last',
   reverse_contact_assignments: [{ organization }],
 };
-const initialState = { auth: { person: {} } };
 
 it('render assigned contact', () => {
-  renderWithContext(<PersonListItem onSelect={jest.fn()} person={person} />, {
-    initialState,
-  }).snapshot();
+  renderWithContext(
+    <PersonListItem onSelect={jest.fn()} person={person} />,
+  ).snapshot();
 });
 
 it('render unassigned contact', () => {
@@ -25,21 +24,18 @@ it('render unassigned contact', () => {
       onSelect={jest.fn()}
       person={{ ...person, reverse_contact_assignments: [] }}
     />,
-    { initialState },
   ).snapshot();
 });
 
 it('render without touchable', () => {
   renderWithContext(
     <PersonListItem person={{ ...person, reverse_contact_assignments: [] }} />,
-    { initialState },
   ).snapshot();
 });
 
 it('render without last name', () => {
   renderWithContext(
     <PersonListItem person={{ ...person, last_name: undefined }} />,
-    { initialState },
   ).snapshot();
 });
 
@@ -48,7 +44,6 @@ it('calls onSelect prop', () => {
 
   const { getByTestId } = renderWithContext(
     <PersonListItem onSelect={onSelect} person={person} />,
-    { initialState },
   );
 
   fireEvent.press(getByTestId('PersonListItemButton'));

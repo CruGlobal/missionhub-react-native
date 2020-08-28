@@ -1,5 +1,5 @@
 module.exports = {
-  preset: 'jest-expo', // jest-expo is derived from the react-native preset
+  preset: 'react-native',
   setupFiles: [
     '<rootDir>/__mock__/react-native-device-info.ts',
     '<rootDir>/__mock__/react-native-appsflyer.ts',
@@ -17,6 +17,7 @@ module.exports = {
     '<rootDir>/__mock__/apolloClient.ts',
     '<rootDir>/__mock__/react-native-camera.ts',
     '<rootDir>/__mock__/react-native-video.ts',
+    require.resolve('jest-expo/src/preset/setup.js'),
   ],
   setupFilesAfterEnv: [
     '<rootDir>/__mock__/hideWarnings.ts',

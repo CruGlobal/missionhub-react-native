@@ -45,6 +45,7 @@ import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerS
 import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../../routes/constants';
 import { getCelebrateFeed } from '../celebration';
 import { COMMUNITY_TABS } from '../../containers/Communities/Community/constants';
+import { isAuthenticated } from '../../auth/authStore';
 
 jest.mock('../person');
 jest.mock('../organizations');
@@ -57,8 +58,11 @@ jest.mock('react-native-config', () => ({
   APNS_MODE: 'APNS',
 }));
 jest.mock('../../selectors/organizations');
+jest.mock('../../auth/authStore');
+jest.mock('../../auth/authUtilities', () => ({
+  loadAuthPerson: jest.fn(() => ({ id: '1' })),
+}));
 
-const authToken = 'auth token';
 const pushDevice = { id: '1' };
 const permission: PushNotificationPermissions = { alert: true };
 
@@ -103,8 +107,8 @@ describe('checkNotifications', () => {
 
   describe('no onComplete', () => {
     it('skips everything if not logged in', () => {
+      (isAuthenticated as jest.Mock).mockReturnValue(false);
       const store = createThunkStore({
-        auth: { token: undefined },
         notifications: {
           pushDevice,
           appHasShownPrompt: false,
@@ -121,8 +125,8 @@ describe('checkNotifications', () => {
 
     it('immediately check permissions if Android', async () => {
       ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
+      (isAuthenticated as jest.Mock).mockReturnValue(true);
       const store = createThunkStore({
-        auth: { token: authToken },
         notifications: {
           pushDevice,
           appHasShownPrompt: false,
@@ -138,8 +142,8 @@ describe('checkNotifications', () => {
     });
 
     it('requests permissions if iOS user has already approved and native permissions are enabled', async () => {
+      (isAuthenticated as jest.Mock).mockReturnValue(true);
       const store = createThunkStore({
-        auth: { token: authToken },
         notifications: {
           pushDevice,
           appHasShownPrompt: true,
@@ -156,9 +160,9 @@ describe('checkNotifications', () => {
 
     it('navigates to NotificationOffScreen if native permissions are disabled | IOS', async () => {
       (RNPushNotification.requestPermissions as jest.Mock).mockReturnValue({});
+      (isAuthenticated as jest.Mock).mockReturnValue(true);
 
       const store = createThunkStore({
-        auth: { token: authToken },
         notifications: {
           pushDevice,
           appHasShownPrompt: true,
@@ -182,12 +186,12 @@ describe('checkNotifications', () => {
 
     it('navigates to NotificationOffScreen if native permissions are disabled | Android', async () => {
       ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
+      (isAuthenticated as jest.Mock).mockReturnValue(true);
       (RNPushNotification.checkPermissions as jest.Mock).mockImplementation(
         cb => cb({ alert: false }),
       );
 
       const store = createThunkStore({
-        auth: { token: authToken },
         notifications: {
           pushDevice,
           appHasShownPrompt: true,
@@ -210,8 +214,8 @@ describe('checkNotifications', () => {
     });
 
     it('navigates to NotificationPrimerScreen if iOS user has not already approved and prompt has not been shown', async () => {
+      (isAuthenticated as jest.Mock).mockReturnValue(true);
       const store = createThunkStore({
-        auth: { token: authToken },
         notifications: {
           pushDevice,
           appHasShownPrompt: false,
@@ -231,9 +235,9 @@ describe('checkNotifications', () => {
 
     it('Does nothing if LOGIN and native permissions are disabled', async () => {
       (RNPushNotification.requestPermissions as jest.Mock).mockReturnValue({});
+      (isAuthenticated as jest.Mock).mockReturnValue(true);
 
       const store = createThunkStore({
-        auth: { token: authToken },
         notifications: {
           pushDevice,
           appHasShownPrompt: true,
@@ -255,8 +259,8 @@ describe('checkNotifications', () => {
     const onComplete = jest.fn();
 
     it('skips everything if not logged in', () => {
+      (isAuthenticated as jest.Mock).mockReturnValue(false);
       const store = createThunkStore({
-        auth: { token: undefined },
         notifications: {
           pushDevice,
           appHasShownPrompt: false,
@@ -277,8 +281,8 @@ describe('checkNotifications', () => {
 
     it('immediately check permissions if Android', async () => {
       ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
+      (isAuthenticated as jest.Mock).mockReturnValue(true);
       const store = createThunkStore({
-        auth: { token: authToken },
         notifications: {
           pushDevice,
           appHasShownPrompt: false,
@@ -300,8 +304,8 @@ describe('checkNotifications', () => {
     });
 
     it('requests permissions if iOS user has already approved and native permissions are enabled', async () => {
+      (isAuthenticated as jest.Mock).mockReturnValue(true);
       const store = createThunkStore({
-        auth: { token: authToken },
         notifications: {
           pushDevice,
           appHasShownPrompt: true,
@@ -323,10 +327,10 @@ describe('checkNotifications', () => {
     });
 
     it('navigates to NotificationOffScreen if native permissions are disabled', async () => {
+      (isAuthenticated as jest.Mock).mockReturnValue(true);
       (RNPushNotification.requestPermissions as jest.Mock).mockReturnValue({});
 
       const store = createThunkStore({
-        auth: { token: authToken },
         notifications: {
           pushDevice,
           appHasShownPrompt: true,
@@ -352,8 +356,8 @@ describe('checkNotifications', () => {
     });
 
     it('navigates to NotificationPrimerScreen if iOS user has not already approved and prompt has not been shown', async () => {
+      (isAuthenticated as jest.Mock).mockReturnValue(true);
       const store = createThunkStore({
-        auth: { token: authToken },
         notifications: {
           pushDevice,
           appHasShownPrompt: false,
@@ -376,9 +380,9 @@ describe('checkNotifications', () => {
 
     it('Does nothing if LOGIN and native permissions are disabled', async () => {
       (RNPushNotification.requestPermissions as jest.Mock).mockReturnValue({});
+      (isAuthenticated as jest.Mock).mockReturnValue(true);
 
       const store = createThunkStore({
-        auth: { token: authToken },
         notifications: {
           pushDevice,
           appHasShownPrompt: true,
@@ -505,9 +509,6 @@ describe('askNotificationPermissions', () => {
     const celebration_item_id = '111';
 
     const store = createThunkStore({
-      auth: {
-        person,
-      },
       organizations,
     });
 

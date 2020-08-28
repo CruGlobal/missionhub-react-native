@@ -26,10 +26,6 @@ jest.mock('../../../actions/challenges');
 jest.mock('../../../utils/hooks/useFeatureFlags');
 jest.mock('react-native-video', () => 'Video');
 
-const initialState = {
-  auth: { person: { id: '1' } },
-};
-
 const navigateResponse = { type: 'navigate push' };
 const trackActionResult = { type: 'tracked plain action' };
 const reloadGroupChallengeFeedReponse = { type: 'reload group feed' };
@@ -56,7 +52,6 @@ describe('CommunityFeedItemContent', () => {
   ) => {
     renderWithContext(
       <CommunityFeedItemContent feedItem={feedItem} {...otherProps} />,
-      { initialState },
     ).snapshot();
   };
 
@@ -393,7 +388,6 @@ describe('onPressChallengeLink', () => {
 
     const { getByTestId, store } = renderWithContext(
       <CommunityFeedItemContent feedItem={challengeFeedItem} />,
-      { initialState },
     );
     // Used to fix unsupported subject type error
     if (challengeFeedItem.subject.__typename !== 'AcceptedCommunityChallenge') {
@@ -427,7 +421,6 @@ describe('onPressChallengeLink', () => {
 
     const { getByTestId, store } = renderWithContext(
       <CommunityFeedItemContent feedItem={challengeFeedItem} />,
-      { initialState },
     );
     // Used to fix unsupported subject type error
     if (challengeFeedItem.subject.__typename !== 'AcceptedCommunityChallenge') {
@@ -459,7 +452,6 @@ describe('press footer', () => {
     });
     const { getByTestId } = renderWithContext(
       <CommunityFeedItemContent feedItem={challengeFeedItem} />,
-      { initialState },
     );
 
     fireEvent.press(getByTestId('FooterTouchable'));
@@ -476,7 +468,6 @@ describe('press video', () => {
     });
     const { getByTestId } = renderWithContext(
       <CommunityFeedItemContent feedItem={videoPostItem} />,
-      { initialState },
     );
 
     fireEvent.press(getByTestId('VideoTouchable'));
@@ -496,7 +487,6 @@ it('press comment press', () => {
       feedItem={storyFeedItem}
       onCommentPress={onCommentPress}
     />,
-    { initialState },
   );
 
   fireEvent(getByTestId('CommentLikeComponent'), 'onCommentPress');

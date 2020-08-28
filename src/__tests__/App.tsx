@@ -45,9 +45,7 @@ jest.mock('react-navigation-redux-helpers', () => ({
 
 jest.mock('../store', () => ({
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  store: require('../../testUtils').createThunkStore({
-    auth: { token: undefined },
-  }),
+  store: require('../../testUtils').createThunkStore(),
 
   persistor: {},
 }));
