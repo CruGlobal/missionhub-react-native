@@ -160,6 +160,48 @@ exports[`renders correctly 1`] = `
           <View
             style={
               Array [
+                Object {},
+                Object {
+                  "alignItems": "center",
+                  "flex": 4,
+                  "justifyContent": "center",
+                },
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              style={
+                Array [
+                  Object {
+                    "color": "white",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 20,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                ]
+              }
+            >
+              MissionHub Community
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
                 Object {
                   "paddingRight": 5,
                 },
