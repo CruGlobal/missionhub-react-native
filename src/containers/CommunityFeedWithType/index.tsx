@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StatusBar } from 'react-native';
 import { useNavigationParam } from 'react-navigation-hooks';
+import { useTranslation } from 'react-i18next';
 
 import { CommunityFeed } from '../CommunityFeed';
 import { orgIsGlobal } from '../../utils/common';
@@ -11,6 +12,7 @@ import PostTypeLabel, {
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { getPostTypeAnalytics } from '../../utils/analytics';
 import theme from '../../theme';
+import { GLOBAL_COMMUNITY_ID } from '../../constants';
 
 const StatusBarBgStyle: {
   [key in FeedItemSubjectTypeEnum]: string;
@@ -29,9 +31,14 @@ const StatusBarBgStyle: {
 };
 
 const CommunityFeedWithType = () => {
-  const communityId: string = useNavigationParam('communityId');
-  const communityName: string = useNavigationParam('communityName');
+  const { t } = useTranslation();
+  const communityId: string =
+    useNavigationParam('communityId') || GLOBAL_COMMUNITY_ID;
+  const communityName: string =
+    useNavigationParam('communityName') || t('missionhubCommunity');
   const type: FeedItemSubjectTypeEnum = useNavigationParam('type');
+
+  const isGlobal = orgIsGlobal({ id: communityId });
 
   useAnalytics(['feed', 'card', getPostTypeAnalytics(type)], {
     permissionType: { communityId },
@@ -45,12 +52,13 @@ const CommunityFeedWithType = () => {
       />
       <PostTypeLabel
         communityName={communityName}
+        isGlobal={isGlobal}
         type={type}
         size={PostLabelSizeEnum.extraLarge}
       />
       <CommunityFeed
         communityId={communityId}
-        itemNamePressable={!orgIsGlobal({ id: communityId })}
+        itemNamePressable={!isGlobal}
         filteredFeedType={type}
       />
     </View>
