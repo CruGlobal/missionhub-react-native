@@ -125,33 +125,21 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
               onStartShouldSetResponder={[Function]}
               style={
                 Object {
+                  "backgroundColor": "transparent",
                   "opacity": 1,
                 }
               }
               testID="NameButton"
             >
-              <View
+              <Text
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
+                  Object {
+                    "paddingRight": 6,
+                  }
                 }
               >
-                <Text
-                  style={
-                    Object {
-                      "paddingRight": 6,
-                    }
-                  }
-                >
-                  Branson Gutkowski
-                </Text>
-              </View>
+                Branson Gutkowski
+              </Text>
             </View>
             <Text
               style={
@@ -313,33 +301,21 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
               onStartShouldSetResponder={[Function]}
               style={
                 Object {
+                  "backgroundColor": "transparent",
                   "opacity": 1,
                 }
               }
               testID="NameButton"
             >
-              <View
+              <Text
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
+                  Object {
+                    "paddingRight": 6,
+                  }
                 }
               >
-                <Text
-                  style={
-                    Object {
-                      "paddingRight": 6,
-                    }
-                  }
-                >
-                  Marcellus Hyatt
-                </Text>
-              </View>
+                Marcellus Hyatt
+              </Text>
             </View>
             <Text
               style={
@@ -567,33 +543,21 @@ exports[`with comments with next page renders correctly 1`] = `
               onStartShouldSetResponder={[Function]}
               style={
                 Object {
+                  "backgroundColor": "transparent",
                   "opacity": 1,
                 }
               }
               testID="NameButton"
             >
-              <View
+              <Text
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
+                  Object {
+                    "paddingRight": 6,
+                  }
                 }
               >
-                <Text
-                  style={
-                    Object {
-                      "paddingRight": 6,
-                    }
-                  }
-                >
-                  Branson Gutkowski
-                </Text>
-              </View>
+                Branson Gutkowski
+              </Text>
             </View>
             <Text
               style={
@@ -755,33 +719,21 @@ exports[`with comments with next page renders correctly 1`] = `
               onStartShouldSetResponder={[Function]}
               style={
                 Object {
+                  "backgroundColor": "transparent",
                   "opacity": 1,
                 }
               }
               testID="NameButton"
             >
-              <View
+              <Text
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
+                  Object {
+                    "paddingRight": 6,
+                  }
                 }
               >
-                <Text
-                  style={
-                    Object {
-                      "paddingRight": 6,
-                    }
-                  }
-                >
-                  Marcellus Hyatt
-                </Text>
-              </View>
+                Marcellus Hyatt
+              </Text>
             </View>
             <Text
               style={
@@ -1009,33 +961,21 @@ exports[`with comments with next page without next page renders correctly 1`] = 
               onStartShouldSetResponder={[Function]}
               style={
                 Object {
+                  "backgroundColor": "transparent",
                   "opacity": 1,
                 }
               }
               testID="NameButton"
             >
-              <View
+              <Text
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
+                  Object {
+                    "paddingRight": 6,
+                  }
                 }
               >
-                <Text
-                  style={
-                    Object {
-                      "paddingRight": 6,
-                    }
-                  }
-                >
-                  Branson Gutkowski
-                </Text>
-              </View>
+                Branson Gutkowski
+              </Text>
             </View>
             <Text
               style={
@@ -1197,33 +1137,21 @@ exports[`with comments with next page without next page renders correctly 1`] = 
               onStartShouldSetResponder={[Function]}
               style={
                 Object {
+                  "backgroundColor": "transparent",
                   "opacity": 1,
                 }
               }
               testID="NameButton"
             >
-              <View
+              <Text
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
+                  Object {
+                    "paddingRight": 6,
+                  }
                 }
               >
-                <Text
-                  style={
-                    Object {
-                      "paddingRight": 6,
-                    }
-                  }
-                >
-                  Marcellus Hyatt
-                </Text>
-              </View>
+                Marcellus Hyatt
+              </Text>
             </View>
             <Text
               style={

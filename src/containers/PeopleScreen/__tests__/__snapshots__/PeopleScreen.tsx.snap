@@ -64,73 +64,61 @@ exports[`renders empty correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 32,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
                       Object {
-                        "fontSize": 32,
+                        "color": "#B4B6BA",
+                        "justifyContent": "flex-end",
+                        "margin": 0,
+                        "padding": 25,
+                        "position": "absolute",
+                        "right": -20,
+                        "top": -70,
                       },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                          "justifyContent": "flex-end",
-                          "margin": 0,
-                          "padding": 25,
-                          "position": "absolute",
-                          "right": -20,
-                          "top": -70,
-                        },
-                      ],
                     ],
-                    Object {
-                      "fontFamily": "Material Icons",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "Material Icons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
         <Text
@@ -179,63 +167,45 @@ exports[`renders empty correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#007398",
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "fontSize": 14,
+              "height": 48,
+              "justifyContent": "center",
+              "letterSpacing": 1.5,
+              "lineHeight": 24,
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+              "width": 600,
             }
           }
           testID="AnnouncementActionButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#007398",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
-                  "height": 48,
-                  "letterSpacing": 1.5,
-                  "lineHeight": 24,
-                  "width": 600,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                Object {
-                  "borderRadius": 50,
-                },
+                Object {},
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              QUAM IPSAM NOBIS
-            </Text>
-          </View>
+            QUAM IPSAM NOBIS
+          </Text>
         </View>
         <View
           accessible={true}
@@ -249,63 +219,45 @@ exports[`renders empty correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#007398",
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "fontSize": 14,
+              "height": 48,
+              "justifyContent": "center",
+              "letterSpacing": 1.5,
+              "lineHeight": 24,
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+              "width": 600,
             }
           }
           testID="AnnouncementActionButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#007398",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
-                  "height": 48,
-                  "letterSpacing": 1.5,
-                  "lineHeight": 24,
-                  "width": 600,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                Object {
-                  "borderRadius": 50,
-                },
+                Object {},
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              SED LIBERO REPUDIANDAE
-            </Text>
-          </View>
+            SED LIBERO REPUDIANDAE
+          </Text>
         </View>
       </View>
     </View>
@@ -359,53 +311,41 @@ exports[`renders empty correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="menuButton"
         >
-          <View
+          <Image
+            resizeMode="cover"
+            source={
+              Object {
+                "uri": "et porro ut",
+              }
+            }
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "borderRadius": 20,
+                  "height": 42,
+                  "width": 42,
                 },
-                null,
-                Object {},
-                null,
+                Object {
+                  "backgroundColor": "rgb(127, 155, 180)",
+                },
+                undefined,
               ]
             }
-          >
-            <Image
-              resizeMode="cover"
-              source={
-                Object {
-                  "uri": "et porro ut",
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "borderRadius": 20,
-                    "height": 42,
-                    "width": 42,
-                  },
-                  Object {
-                    "backgroundColor": "rgb(127, 155, 180)",
-                  },
-                  undefined,
-                ]
-              }
-            />
-          </View>
+          />
         </View>
       </View>
       <View
@@ -476,33 +416,21 @@ exports[`renders empty correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="Button"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <SvgMock />
-          </View>
+          <SvgMock />
         </View>
       </View>
     </View>
@@ -628,64 +556,44 @@ exports[`renders empty correctly 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 50,
+          "borderWidth": 0,
+          "height": 48,
+          "justifyContent": "center",
+          "margin": 0,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                undefined,
-              ],
-            ]
-          }
-        >
-          TAKE A STEP WITH SOMEONE
-        </Text>
-      </View>
+        TAKE A STEP WITH SOMEONE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -755,73 +663,61 @@ exports[`renders with people correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
                 "opacity": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 32,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
                       Object {
-                        "fontSize": 32,
+                        "color": "#B4B6BA",
+                        "justifyContent": "flex-end",
+                        "margin": 0,
+                        "padding": 25,
+                        "position": "absolute",
+                        "right": -20,
+                        "top": -70,
                       },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                          "justifyContent": "flex-end",
-                          "margin": 0,
-                          "padding": 25,
-                          "position": "absolute",
-                          "right": -20,
-                          "top": -70,
-                        },
-                      ],
                     ],
-                    Object {
-                      "fontFamily": "Material Icons",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "Material Icons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
         <Text
@@ -870,63 +766,45 @@ exports[`renders with people correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#007398",
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "fontSize": 14,
+              "height": 48,
+              "justifyContent": "center",
+              "letterSpacing": 1.5,
+              "lineHeight": 24,
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+              "width": 600,
             }
           }
           testID="AnnouncementActionButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#007398",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
-                  "height": 48,
-                  "letterSpacing": 1.5,
-                  "lineHeight": 24,
-                  "width": 600,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                Object {
-                  "borderRadius": 50,
-                },
+                Object {},
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              FUGIT REPELLENDUS HIC
-            </Text>
-          </View>
+            FUGIT REPELLENDUS HIC
+          </Text>
         </View>
         <View
           accessible={true}
@@ -940,63 +818,45 @@ exports[`renders with people correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#007398",
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "fontSize": 14,
+              "height": 48,
+              "justifyContent": "center",
+              "letterSpacing": 1.5,
+              "lineHeight": 24,
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+              "width": 600,
             }
           }
           testID="AnnouncementActionButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#007398",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
-                  "height": 48,
-                  "letterSpacing": 1.5,
-                  "lineHeight": 24,
-                  "width": 600,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                Object {
-                  "borderRadius": 50,
-                },
+                Object {},
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "fontStyle": "normal",
-                    "fontWeight": "bold",
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                    "textAlign": "center",
-                    "textAlignVertical": "center",
-                    "textTransform": "uppercase",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              VEL LABORE OMNIS
-            </Text>
-          </View>
+            VEL LABORE OMNIS
+          </Text>
         </View>
       </View>
     </View>
@@ -1050,53 +910,41 @@ exports[`renders with people correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="menuButton"
         >
-          <View
+          <Image
+            resizeMode="cover"
+            source={
+              Object {
+                "uri": "voluptas culpa non",
+              }
+            }
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "borderRadius": 20,
+                  "height": 42,
+                  "width": 42,
                 },
-                null,
-                Object {},
-                null,
+                Object {
+                  "backgroundColor": "rgb(154, 123, 115)",
+                },
+                undefined,
               ]
             }
-          >
-            <Image
-              resizeMode="cover"
-              source={
-                Object {
-                  "uri": "voluptas culpa non",
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "borderRadius": 20,
-                    "height": 42,
-                    "width": 42,
-                  },
-                  Object {
-                    "backgroundColor": "rgb(154, 123, 115)",
-                  },
-                  undefined,
-                ]
-              }
-            />
-          </View>
+          />
         </View>
       </View>
       <View
@@ -1167,33 +1015,21 @@ exports[`renders with people correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="Button"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <SvgMock />
-          </View>
+          <SvgMock />
         </View>
       </View>
     </View>

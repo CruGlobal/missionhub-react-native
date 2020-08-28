@@ -39,83 +39,65 @@ exports[`does render announcement for owner 1`] = `
     onStartShouldSetResponder={[Function]}
     style={
       Object {
+        "alignItems": "center",
+        "backgroundColor": "#ECEEF2",
+        "borderRadius": 20,
+        "borderWidth": 0,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "flex-start",
+        "margin": 0,
+        "marginHorizontal": 20,
+        "marginVertical": 20,
         "opacity": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
       }
     }
     testID="CreatePostButton"
   >
-    <View
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "repellat ratione ut",
+        }
+      }
       style={
         Array [
           Object {
-            "alignItems": "center",
-            "backgroundColor": "transparent",
-            "borderRadius": 0,
-            "borderWidth": 0,
-            "height": 60,
-            "justifyContent": "center",
-            "margin": 0,
-            "paddingHorizontal": 20,
-            "paddingVertical": 10,
+            "borderColor": "#ffffff",
+            "borderRadius": 12,
+            "borderWidth": 1,
+            "height": 24,
+            "width": 24,
           },
-          null,
           Object {
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "borderRadius": 20,
-            "flexDirection": "row",
-            "height": 36,
-            "justifyContent": "flex-start",
-            "marginHorizontal": 20,
-            "marginVertical": 20,
+            "backgroundColor": "rgb(72, 144, 67)",
           },
-          null,
+          Object {
+            "marginLeft": -15,
+          },
         ]
       }
+    />
+    <Text
+      style={
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "paddingLeft": 10,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
+      }
     >
-      <Image
-        resizeMode="cover"
-        source={
-          Object {
-            "uri": "repellat ratione ut",
-          }
-        }
-        style={
-          Array [
-            Object {
-              "borderColor": "#ffffff",
-              "borderRadius": 12,
-              "borderWidth": 1,
-              "height": 24,
-              "width": 24,
-            },
-            Object {
-              "backgroundColor": "rgb(72, 144, 67)",
-            },
-            Object {
-              "marginLeft": -15,
-            },
-          ]
-        }
-      />
-      <Text
-        style={
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 14,
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-            "lineHeight": 20,
-            "paddingLeft": 10,
-            "textAlignVertical": "center",
-            "textTransform": "none",
-          }
-        }
-      >
-        Make an Announcement
-      </Text>
-    </View>
+      Make an Announcement
+    </Text>
   </View>
 </View>
 `;
@@ -125,7 +107,7 @@ exports[`onPress opens modal 1`] = `
 - First value
 + Second value
 
-@@ -16,10 +16,617 @@
+@@ -16,10 +16,452 @@
         \\"shadowOpacity\\": 0.3,
         \\"shadowRadius\\": 2,
       }
@@ -187,49 +169,29 @@ exports[`onPress opens modal 1`] = `
 +             onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +             style={
 +               Object {
++                 \\"alignItems\\": \\"flex-start\\",
++                 \\"alignSelf\\": \\"flex-start\\",
++                 \\"backgroundColor\\": \\"transparent\\",
++                 \\"borderRadius\\": 0,
++                 \\"borderWidth\\": 0,
++                 \\"color\\": \\"#B4B6BA\\",
++                 \\"height\\": 60,
++                 \\"justifyContent\\": \\"flex-end\\",
++                 \\"margin\\": 0,
 +                 \\"opacity\\": 1,
++                 \\"padding\\": 15,
++                 \\"paddingHorizontal\\": 20,
++                 \\"paddingVertical\\": 10,
++                 \\"position\\": \\"absolute\\",
++                 \\"right\\": -20,
++                 \\"top\\": -50,
 +               }
 +             }
 +             testID=\\"CloseButton\\"
 +           >
-+             <View
-+               style={
-+                 Array [
-+                   Object {
-+                     \\"alignItems\\": \\"center\\",
-+                     \\"backgroundColor\\": \\"transparent\\",
-+                     \\"borderRadius\\": 0,
-+                     \\"borderWidth\\": 0,
-+                     \\"height\\": 60,
-+                     \\"justifyContent\\": \\"center\\",
-+                     \\"margin\\": 0,
-+                     \\"paddingHorizontal\\": 20,
-+                     \\"paddingVertical\\": 10,
-+                   },
-+                   null,
-+                   Array [
-+                     Object {
-+                       \\"alignItems\\": \\"flex-start\\",
-+                       \\"alignSelf\\": \\"flex-start\\",
-+                       \\"justifyContent\\": \\"center\\",
-+                     },
-+                     Object {
-+                       \\"color\\": \\"#B4B6BA\\",
-+                       \\"justifyContent\\": \\"flex-end\\",
-+                       \\"padding\\": 15,
-+                       \\"position\\": \\"absolute\\",
-+                       \\"right\\": -20,
-+                       \\"top\\": -50,
-+                     },
-+                   ],
-+                   null,
-+                 ]
-+               }
-+             >
-+               <SvgMock
-+                 color=\\"#B4B6BA\\"
-+               />
-+             </View>
++             <SvgMock
++               color=\\"#B4B6BA\\"
++             />
 +           </View>
 +         </View>
 +         <Text
@@ -269,82 +231,53 @@ exports[`onPress opens modal 1`] = `
 +             onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +             style={
 +               Object {
++                 \\"alignItems\\": \\"center\\",
++                 \\"backgroundColor\\": \\"#7076B5\\",
++                 \\"borderRadius\\": 50,
++                 \\"borderWidth\\": 0,
++                 \\"flexDirection\\": \\"row\\",
++                 \\"height\\": 48,
++                 \\"justifyContent\\": \\"space-between\\",
++                 \\"margin\\": 0,
 +                 \\"opacity\\": 1,
++                 \\"paddingHorizontal\\": 20,
++                 \\"paddingLeft\\": 20,
++                 \\"paddingRight\\": 16,
++                 \\"paddingVertical\\": 0,
 +               }
 +             }
 +             testID=\\"STORYButton\\"
 +           >
-+             <View
++             <SvgMock
++               color=\\"#ffffff\\"
++               height={24}
 +               style={
 +                 Array [
 +                   Object {
-+                     \\"alignItems\\": \\"center\\",
-+                     \\"backgroundColor\\": \\"transparent\\",
-+                     \\"borderRadius\\": 0,
-+                     \\"borderWidth\\": 0,
-+                     \\"height\\": 60,
-+                     \\"justifyContent\\": \\"center\\",
-+                     \\"margin\\": 0,
-+                     \\"paddingHorizontal\\": 20,
-+                     \\"paddingVertical\\": 10,
++                     \\"marginLeft\\": -10,
++                     \\"marginRight\\": 10,
 +                   },
-+                   null,
-+                   Array [
-+                     Object {
-+                       \\"alignItems\\": \\"center\\",
-+                       \\"borderRadius\\": 18,
-+                       \\"flexDirection\\": \\"row\\",
-+                       \\"height\\": 36,
-+                       \\"justifyContent\\": \\"space-between\\",
-+                       \\"paddingLeft\\": 20,
-+                       \\"paddingRight\\": 16,
-+                       \\"paddingVertical\\": 0,
-+                     },
-+                     Object {
-+                       \\"backgroundColor\\": \\"#7076B5\\",
-+                     },
-+                     Object {
-+                       \\"height\\": 48,
-+                     },
-+                     null,
-+                   ],
-+                   Object {
-+                     \\"borderRadius\\": 50,
-+                   },
++                   undefined,
 +                 ]
 +               }
++               width={24}
++             />
++             <Text
++               style={
++                 Object {
++                   \\"color\\": \\"#ffffff\\",
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   \\"fontSize\\": 14,
++                   \\"fontStyle\\": \\"normal\\",
++                   \\"fontWeight\\": \\"normal\\",
++                   \\"lineHeight\\": 20,
++                   \\"textAlignVertical\\": \\"center\\",
++                   \\"textTransform\\": \\"none\\",
++                 }
++               }
 +             >
-+               <SvgMock
-+                 color=\\"#ffffff\\"
-+                 height={24}
-+                 style={
-+                   Array [
-+                     Object {
-+                       \\"marginLeft\\": -10,
-+                       \\"marginRight\\": 10,
-+                     },
-+                     undefined,
-+                   ]
-+                 }
-+                 width={24}
-+               />
-+               <Text
-+                 style={
-+                   Object {
-+                     \\"color\\": \\"#ffffff\\",
-+                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                     \\"fontSize\\": 14,
-+                     \\"fontStyle\\": \\"normal\\",
-+                     \\"fontWeight\\": \\"normal\\",
-+                     \\"lineHeight\\": 20,
-+                     \\"textAlignVertical\\": \\"center\\",
-+                     \\"textTransform\\": \\"none\\",
-+                   }
-+                 }
-+               >
-+                 God Story
-+               </Text>
-+             </View>
++               God Story
++             </Text>
 +           </View>
 +         </View>
 +         <View
@@ -366,82 +299,53 @@ exports[`onPress opens modal 1`] = `
 +             onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +             style={
 +               Object {
++                 \\"alignItems\\": \\"center\\",
++                 \\"backgroundColor\\": \\"#A97398\\",
++                 \\"borderRadius\\": 50,
++                 \\"borderWidth\\": 0,
++                 \\"flexDirection\\": \\"row\\",
++                 \\"height\\": 48,
++                 \\"justifyContent\\": \\"space-between\\",
++                 \\"margin\\": 0,
 +                 \\"opacity\\": 1,
++                 \\"paddingHorizontal\\": 20,
++                 \\"paddingLeft\\": 20,
++                 \\"paddingRight\\": 16,
++                 \\"paddingVertical\\": 0,
 +               }
 +             }
 +             testID=\\"PRAYER_REQUESTButton\\"
 +           >
-+             <View
++             <SvgMock
++               color=\\"#ffffff\\"
++               height={24}
 +               style={
 +                 Array [
 +                   Object {
-+                     \\"alignItems\\": \\"center\\",
-+                     \\"backgroundColor\\": \\"transparent\\",
-+                     \\"borderRadius\\": 0,
-+                     \\"borderWidth\\": 0,
-+                     \\"height\\": 60,
-+                     \\"justifyContent\\": \\"center\\",
-+                     \\"margin\\": 0,
-+                     \\"paddingHorizontal\\": 20,
-+                     \\"paddingVertical\\": 10,
++                     \\"marginLeft\\": -10,
++                     \\"marginRight\\": 10,
 +                   },
-+                   null,
-+                   Array [
-+                     Object {
-+                       \\"alignItems\\": \\"center\\",
-+                       \\"borderRadius\\": 18,
-+                       \\"flexDirection\\": \\"row\\",
-+                       \\"height\\": 36,
-+                       \\"justifyContent\\": \\"space-between\\",
-+                       \\"paddingLeft\\": 20,
-+                       \\"paddingRight\\": 16,
-+                       \\"paddingVertical\\": 0,
-+                     },
-+                     Object {
-+                       \\"backgroundColor\\": \\"#A97398\\",
-+                     },
-+                     Object {
-+                       \\"height\\": 48,
-+                     },
-+                     null,
-+                   ],
-+                   Object {
-+                     \\"borderRadius\\": 50,
-+                   },
++                   undefined,
 +                 ]
 +               }
++               width={24}
++             />
++             <Text
++               style={
++                 Object {
++                   \\"color\\": \\"#ffffff\\",
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   \\"fontSize\\": 14,
++                   \\"fontStyle\\": \\"normal\\",
++                   \\"fontWeight\\": \\"normal\\",
++                   \\"lineHeight\\": 20,
++                   \\"textAlignVertical\\": \\"center\\",
++                   \\"textTransform\\": \\"none\\",
++                 }
++               }
 +             >
-+               <SvgMock
-+                 color=\\"#ffffff\\"
-+                 height={24}
-+                 style={
-+                   Array [
-+                     Object {
-+                       \\"marginLeft\\": -10,
-+                       \\"marginRight\\": 10,
-+                     },
-+                     undefined,
-+                   ]
-+                 }
-+                 width={24}
-+               />
-+               <Text
-+                 style={
-+                   Object {
-+                     \\"color\\": \\"#ffffff\\",
-+                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                     \\"fontSize\\": 14,
-+                     \\"fontStyle\\": \\"normal\\",
-+                     \\"fontWeight\\": \\"normal\\",
-+                     \\"lineHeight\\": 20,
-+                     \\"textAlignVertical\\": \\"center\\",
-+                     \\"textTransform\\": \\"none\\",
-+                   }
-+                 }
-+               >
-+                 Prayer Request
-+               </Text>
-+             </View>
++               Prayer Request
++             </Text>
 +           </View>
 +         </View>
 +         <View
@@ -463,82 +367,53 @@ exports[`onPress opens modal 1`] = `
 +             onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +             style={
 +               Object {
++                 \\"alignItems\\": \\"center\\",
++                 \\"backgroundColor\\": \\"#FFA178\\",
++                 \\"borderRadius\\": 50,
++                 \\"borderWidth\\": 0,
++                 \\"flexDirection\\": \\"row\\",
++                 \\"height\\": 48,
++                 \\"justifyContent\\": \\"space-between\\",
++                 \\"margin\\": 0,
 +                 \\"opacity\\": 1,
++                 \\"paddingHorizontal\\": 20,
++                 \\"paddingLeft\\": 20,
++                 \\"paddingRight\\": 16,
++                 \\"paddingVertical\\": 0,
 +               }
 +             }
 +             testID=\\"QUESTIONButton\\"
 +           >
-+             <View
++             <SvgMock
++               color=\\"#ffffff\\"
++               height={24}
 +               style={
 +                 Array [
 +                   Object {
-+                     \\"alignItems\\": \\"center\\",
-+                     \\"backgroundColor\\": \\"transparent\\",
-+                     \\"borderRadius\\": 0,
-+                     \\"borderWidth\\": 0,
-+                     \\"height\\": 60,
-+                     \\"justifyContent\\": \\"center\\",
-+                     \\"margin\\": 0,
-+                     \\"paddingHorizontal\\": 20,
-+                     \\"paddingVertical\\": 10,
++                     \\"marginLeft\\": -10,
++                     \\"marginRight\\": 10,
 +                   },
-+                   null,
-+                   Array [
-+                     Object {
-+                       \\"alignItems\\": \\"center\\",
-+                       \\"borderRadius\\": 18,
-+                       \\"flexDirection\\": \\"row\\",
-+                       \\"height\\": 36,
-+                       \\"justifyContent\\": \\"space-between\\",
-+                       \\"paddingLeft\\": 20,
-+                       \\"paddingRight\\": 16,
-+                       \\"paddingVertical\\": 0,
-+                     },
-+                     Object {
-+                       \\"backgroundColor\\": \\"#FFA178\\",
-+                     },
-+                     Object {
-+                       \\"height\\": 48,
-+                     },
-+                     null,
-+                   ],
-+                   Object {
-+                     \\"borderRadius\\": 50,
-+                   },
++                   undefined,
 +                 ]
 +               }
++               width={24}
++             />
++             <Text
++               style={
++                 Object {
++                   \\"color\\": \\"#ffffff\\",
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   \\"fontSize\\": 14,
++                   \\"fontStyle\\": \\"normal\\",
++                   \\"fontWeight\\": \\"normal\\",
++                   \\"lineHeight\\": 20,
++                   \\"textAlignVertical\\": \\"center\\",
++                   \\"textTransform\\": \\"none\\",
++                 }
++               }
 +             >
-+               <SvgMock
-+                 color=\\"#ffffff\\"
-+                 height={24}
-+                 style={
-+                   Array [
-+                     Object {
-+                       \\"marginLeft\\": -10,
-+                       \\"marginRight\\": 10,
-+                     },
-+                     undefined,
-+                   ]
-+                 }
-+                 width={24}
-+               />
-+               <Text
-+                 style={
-+                   Object {
-+                     \\"color\\": \\"#ffffff\\",
-+                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                     \\"fontSize\\": 14,
-+                     \\"fontStyle\\": \\"normal\\",
-+                     \\"fontWeight\\": \\"normal\\",
-+                     \\"lineHeight\\": 20,
-+                     \\"textAlignVertical\\": \\"center\\",
-+                     \\"textTransform\\": \\"none\\",
-+                   }
-+                 }
-+               >
-+                 Spiritual Question
-+               </Text>
-+             </View>
++               Spiritual Question
++             </Text>
 +           </View>
 +         </View>
 +         <View
@@ -560,82 +435,53 @@ exports[`onPress opens modal 1`] = `
 +             onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +             style={
 +               Object {
++                 \\"alignItems\\": \\"center\\",
++                 \\"backgroundColor\\": \\"#FD726D\\",
++                 \\"borderRadius\\": 50,
++                 \\"borderWidth\\": 0,
++                 \\"flexDirection\\": \\"row\\",
++                 \\"height\\": 48,
++                 \\"justifyContent\\": \\"space-between\\",
++                 \\"margin\\": 0,
 +                 \\"opacity\\": 1,
++                 \\"paddingHorizontal\\": 20,
++                 \\"paddingLeft\\": 20,
++                 \\"paddingRight\\": 16,
++                 \\"paddingVertical\\": 0,
 +               }
 +             }
 +             testID=\\"HELP_REQUESTButton\\"
 +           >
-+             <View
++             <SvgMock
++               color=\\"#ffffff\\"
++               height={24}
 +               style={
 +                 Array [
 +                   Object {
-+                     \\"alignItems\\": \\"center\\",
-+                     \\"backgroundColor\\": \\"transparent\\",
-+                     \\"borderRadius\\": 0,
-+                     \\"borderWidth\\": 0,
-+                     \\"height\\": 60,
-+                     \\"justifyContent\\": \\"center\\",
-+                     \\"margin\\": 0,
-+                     \\"paddingHorizontal\\": 20,
-+                     \\"paddingVertical\\": 10,
++                     \\"marginLeft\\": -10,
++                     \\"marginRight\\": 10,
 +                   },
-+                   null,
-+                   Array [
-+                     Object {
-+                       \\"alignItems\\": \\"center\\",
-+                       \\"borderRadius\\": 18,
-+                       \\"flexDirection\\": \\"row\\",
-+                       \\"height\\": 36,
-+                       \\"justifyContent\\": \\"space-between\\",
-+                       \\"paddingLeft\\": 20,
-+                       \\"paddingRight\\": 16,
-+                       \\"paddingVertical\\": 0,
-+                     },
-+                     Object {
-+                       \\"backgroundColor\\": \\"#FD726D\\",
-+                     },
-+                     Object {
-+                       \\"height\\": 48,
-+                     },
-+                     null,
-+                   ],
-+                   Object {
-+                     \\"borderRadius\\": 50,
-+                   },
++                   undefined,
 +                 ]
 +               }
++               width={24}
++             />
++             <Text
++               style={
++                 Object {
++                   \\"color\\": \\"#ffffff\\",
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   \\"fontSize\\": 14,
++                   \\"fontStyle\\": \\"normal\\",
++                   \\"fontWeight\\": \\"normal\\",
++                   \\"lineHeight\\": 20,
++                   \\"textAlignVertical\\": \\"center\\",
++                   \\"textTransform\\": \\"none\\",
++                 }
++               }
 +             >
-+               <SvgMock
-+                 color=\\"#ffffff\\"
-+                 height={24}
-+                 style={
-+                   Array [
-+                     Object {
-+                       \\"marginLeft\\": -10,
-+                       \\"marginRight\\": 10,
-+                     },
-+                     undefined,
-+                   ]
-+                 }
-+                 width={24}
-+               />
-+               <Text
-+                 style={
-+                   Object {
-+                     \\"color\\": \\"#ffffff\\",
-+                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                     \\"fontSize\\": 14,
-+                     \\"fontStyle\\": \\"normal\\",
-+                     \\"fontWeight\\": \\"normal\\",
-+                     \\"lineHeight\\": 20,
-+                     \\"textAlignVertical\\": \\"center\\",
-+                     \\"textTransform\\": \\"none\\",
-+                   }
-+                 }
-+               >
-+                 Community Need
-+               </Text>
-+             </View>
++               Community Need
++             </Text>
 +           </View>
 +         </View>
 +         <View
@@ -657,82 +503,53 @@ exports[`onPress opens modal 1`] = `
 +             onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +             style={
 +               Object {
++                 \\"alignItems\\": \\"center\\",
++                 \\"backgroundColor\\": \\"#B4B6BA\\",
++                 \\"borderRadius\\": 50,
++                 \\"borderWidth\\": 0,
++                 \\"flexDirection\\": \\"row\\",
++                 \\"height\\": 48,
++                 \\"justifyContent\\": \\"space-between\\",
++                 \\"margin\\": 0,
 +                 \\"opacity\\": 1,
++                 \\"paddingHorizontal\\": 20,
++                 \\"paddingLeft\\": 20,
++                 \\"paddingRight\\": 16,
++                 \\"paddingVertical\\": 0,
 +               }
 +             }
 +             testID=\\"THOUGHTButton\\"
 +           >
-+             <View
++             <SvgMock
++               color=\\"#ffffff\\"
++               height={24}
 +               style={
 +                 Array [
 +                   Object {
-+                     \\"alignItems\\": \\"center\\",
-+                     \\"backgroundColor\\": \\"transparent\\",
-+                     \\"borderRadius\\": 0,
-+                     \\"borderWidth\\": 0,
-+                     \\"height\\": 60,
-+                     \\"justifyContent\\": \\"center\\",
-+                     \\"margin\\": 0,
-+                     \\"paddingHorizontal\\": 20,
-+                     \\"paddingVertical\\": 10,
++                     \\"marginLeft\\": -10,
++                     \\"marginRight\\": 10,
 +                   },
-+                   null,
-+                   Array [
-+                     Object {
-+                       \\"alignItems\\": \\"center\\",
-+                       \\"borderRadius\\": 18,
-+                       \\"flexDirection\\": \\"row\\",
-+                       \\"height\\": 36,
-+                       \\"justifyContent\\": \\"space-between\\",
-+                       \\"paddingLeft\\": 20,
-+                       \\"paddingRight\\": 16,
-+                       \\"paddingVertical\\": 0,
-+                     },
-+                     Object {
-+                       \\"backgroundColor\\": \\"#B4B6BA\\",
-+                     },
-+                     Object {
-+                       \\"height\\": 48,
-+                     },
-+                     null,
-+                   ],
-+                   Object {
-+                     \\"borderRadius\\": 50,
-+                   },
++                   undefined,
 +                 ]
 +               }
++               width={24}
++             />
++             <Text
++               style={
++                 Object {
++                   \\"color\\": \\"#ffffff\\",
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   \\"fontSize\\": 14,
++                   \\"fontStyle\\": \\"normal\\",
++                   \\"fontWeight\\": \\"normal\\",
++                   \\"lineHeight\\": 20,
++                   \\"textAlignVertical\\": \\"center\\",
++                   \\"textTransform\\": \\"none\\",
++                 }
++               }
 +             >
-+               <SvgMock
-+                 color=\\"#ffffff\\"
-+                 height={24}
-+                 style={
-+                   Array [
-+                     Object {
-+                       \\"marginLeft\\": -10,
-+                       \\"marginRight\\": 10,
-+                     },
-+                     undefined,
-+                   ]
-+                 }
-+                 width={24}
-+               />
-+               <Text
-+                 style={
-+                   Object {
-+                     \\"color\\": \\"#ffffff\\",
-+                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                     \\"fontSize\\": 14,
-+                     \\"fontStyle\\": \\"normal\\",
-+                     \\"fontWeight\\": \\"normal\\",
-+                     \\"lineHeight\\": 20,
-+                     \\"textAlignVertical\\": \\"center\\",
-+                     \\"textTransform\\": \\"none\\",
-+                   }
-+                 }
-+               >
-+                 What's on Your Mind
-+               </Text>
-+             </View>
++               What's on Your Mind
++             </Text>
 +           </View>
 +         </View>
 +       </View>
@@ -778,83 +595,65 @@ exports[`renders correctly 1`] = `
     onStartShouldSetResponder={[Function]}
     style={
       Object {
+        "alignItems": "center",
+        "backgroundColor": "#ECEEF2",
+        "borderRadius": 20,
+        "borderWidth": 0,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "flex-start",
+        "margin": 0,
+        "marginHorizontal": 20,
+        "marginVertical": 20,
         "opacity": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
       }
     }
     testID="CreatePostButton"
   >
-    <View
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "ut sunt qui",
+        }
+      }
       style={
         Array [
           Object {
-            "alignItems": "center",
-            "backgroundColor": "transparent",
-            "borderRadius": 0,
-            "borderWidth": 0,
-            "height": 60,
-            "justifyContent": "center",
-            "margin": 0,
-            "paddingHorizontal": 20,
-            "paddingVertical": 10,
+            "borderColor": "#ffffff",
+            "borderRadius": 12,
+            "borderWidth": 1,
+            "height": 24,
+            "width": 24,
           },
-          null,
           Object {
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "borderRadius": 20,
-            "flexDirection": "row",
-            "height": 36,
-            "justifyContent": "flex-start",
-            "marginHorizontal": 20,
-            "marginVertical": 20,
+            "backgroundColor": "rgb(161, 161, 152)",
           },
-          null,
+          Object {
+            "marginLeft": -15,
+          },
         ]
       }
+    />
+    <Text
+      style={
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "paddingLeft": 10,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
+      }
     >
-      <Image
-        resizeMode="cover"
-        source={
-          Object {
-            "uri": "ut sunt qui",
-          }
-        }
-        style={
-          Array [
-            Object {
-              "borderColor": "#ffffff",
-              "borderRadius": 12,
-              "borderWidth": 1,
-              "height": 24,
-              "width": 24,
-            },
-            Object {
-              "backgroundColor": "rgb(161, 161, 152)",
-            },
-            Object {
-              "marginLeft": -15,
-            },
-          ]
-        }
-      />
-      <Text
-        style={
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 14,
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-            "lineHeight": 20,
-            "paddingLeft": 10,
-            "textAlignVertical": "center",
-            "textTransform": "none",
-          }
-        }
-      >
-        Post to community...
-      </Text>
-    </View>
+      Post to community...
+    </Text>
   </View>
 </View>
 `;
@@ -892,83 +691,65 @@ exports[`renders correctly for admin 1`] = `
     onStartShouldSetResponder={[Function]}
     style={
       Object {
+        "alignItems": "center",
+        "backgroundColor": "#ECEEF2",
+        "borderRadius": 20,
+        "borderWidth": 0,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "flex-start",
+        "margin": 0,
+        "marginHorizontal": 20,
+        "marginVertical": 20,
         "opacity": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
       }
     }
     testID="CreatePostButton"
   >
-    <View
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "repellat ratione ut",
+        }
+      }
       style={
         Array [
           Object {
-            "alignItems": "center",
-            "backgroundColor": "transparent",
-            "borderRadius": 0,
-            "borderWidth": 0,
-            "height": 60,
-            "justifyContent": "center",
-            "margin": 0,
-            "paddingHorizontal": 20,
-            "paddingVertical": 10,
+            "borderColor": "#ffffff",
+            "borderRadius": 12,
+            "borderWidth": 1,
+            "height": 24,
+            "width": 24,
           },
-          null,
           Object {
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "borderRadius": 20,
-            "flexDirection": "row",
-            "height": 36,
-            "justifyContent": "flex-start",
-            "marginHorizontal": 20,
-            "marginVertical": 20,
+            "backgroundColor": "rgb(72, 144, 67)",
           },
-          null,
+          Object {
+            "marginLeft": -15,
+          },
         ]
       }
+    />
+    <Text
+      style={
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "paddingLeft": 10,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
+      }
     >
-      <Image
-        resizeMode="cover"
-        source={
-          Object {
-            "uri": "repellat ratione ut",
-          }
-        }
-        style={
-          Array [
-            Object {
-              "borderColor": "#ffffff",
-              "borderRadius": 12,
-              "borderWidth": 1,
-              "height": 24,
-              "width": 24,
-            },
-            Object {
-              "backgroundColor": "rgb(72, 144, 67)",
-            },
-            Object {
-              "marginLeft": -15,
-            },
-          ]
-        }
-      />
-      <Text
-        style={
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 14,
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-            "lineHeight": 20,
-            "paddingLeft": 10,
-            "textAlignVertical": "center",
-            "textTransform": "none",
-          }
-        }
-      >
-        Post to community...
-      </Text>
-    </View>
+      Post to community...
+    </Text>
   </View>
 </View>
 `;
@@ -1006,83 +787,65 @@ exports[`renders correctly for owner 1`] = `
     onStartShouldSetResponder={[Function]}
     style={
       Object {
+        "alignItems": "center",
+        "backgroundColor": "#ECEEF2",
+        "borderRadius": 20,
+        "borderWidth": 0,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "flex-start",
+        "margin": 0,
+        "marginHorizontal": 20,
+        "marginVertical": 20,
         "opacity": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
       }
     }
     testID="CreatePostButton"
   >
-    <View
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "repellat ratione ut",
+        }
+      }
       style={
         Array [
           Object {
-            "alignItems": "center",
-            "backgroundColor": "transparent",
-            "borderRadius": 0,
-            "borderWidth": 0,
-            "height": 60,
-            "justifyContent": "center",
-            "margin": 0,
-            "paddingHorizontal": 20,
-            "paddingVertical": 10,
+            "borderColor": "#ffffff",
+            "borderRadius": 12,
+            "borderWidth": 1,
+            "height": 24,
+            "width": 24,
           },
-          null,
           Object {
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "borderRadius": 20,
-            "flexDirection": "row",
-            "height": 36,
-            "justifyContent": "flex-start",
-            "marginHorizontal": 20,
-            "marginVertical": 20,
+            "backgroundColor": "rgb(72, 144, 67)",
           },
-          null,
+          Object {
+            "marginLeft": -15,
+          },
         ]
       }
+    />
+    <Text
+      style={
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "paddingLeft": 10,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
+      }
     >
-      <Image
-        resizeMode="cover"
-        source={
-          Object {
-            "uri": "repellat ratione ut",
-          }
-        }
-        style={
-          Array [
-            Object {
-              "borderColor": "#ffffff",
-              "borderRadius": 12,
-              "borderWidth": 1,
-              "height": 24,
-              "width": 24,
-            },
-            Object {
-              "backgroundColor": "rgb(72, 144, 67)",
-            },
-            Object {
-              "marginLeft": -15,
-            },
-          ]
-        }
-      />
-      <Text
-        style={
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 14,
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-            "lineHeight": 20,
-            "paddingLeft": 10,
-            "textAlignVertical": "center",
-            "textTransform": "none",
-          }
-        }
-      >
-        Post to community...
-      </Text>
-    </View>
+      Post to community...
+    </Text>
   </View>
 </View>
 `;
@@ -1120,7 +883,19 @@ exports[`renders correctly with type 1`] = `
     onStartShouldSetResponder={[Function]}
     style={
       Object {
+        "alignItems": "center",
+        "backgroundColor": "#ECEEF2",
+        "borderRadius": 20,
+        "borderWidth": 0,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "flex-start",
+        "margin": 0,
+        "marginHorizontal": 20,
+        "marginVertical": 20,
         "opacity": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
       }
     }
     testID="CreatePostButton"
@@ -1130,88 +905,58 @@ exports[`renders correctly with type 1`] = `
         Array [
           Object {
             "alignItems": "center",
-            "backgroundColor": "transparent",
-            "borderRadius": 0,
-            "borderWidth": 0,
-            "height": 60,
             "justifyContent": "center",
-            "margin": 0,
-            "paddingHorizontal": 20,
-            "paddingVertical": 10,
           },
-          null,
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "borderRadius": 20,
-            "flexDirection": "row",
-            "height": 36,
-            "justifyContent": "flex-start",
-            "marginHorizontal": 20,
-            "marginVertical": 20,
-          },
-          null,
+          Array [
+            Object {
+              "borderColor": "#ffffff",
+              "borderRadius": 12,
+              "borderWidth": 1,
+              "height": 24,
+              "width": 24,
+            },
+            Object {
+              "backgroundColor": "#B4B6BA",
+            },
+            Object {
+              "marginLeft": -15,
+            },
+          ],
         ]
       }
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "justifyContent": "center",
+              "color": "#ffffff",
             },
-            Array [
-              Object {
-                "borderColor": "#ffffff",
-                "borderRadius": 12,
-                "borderWidth": 1,
-                "height": 24,
-                "width": 24,
-              },
-              Object {
-                "backgroundColor": "#B4B6BA",
-              },
-              Object {
-                "marginLeft": -15,
-              },
-            ],
+            Object {
+              "fontSize": 12,
+            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-              },
-              Object {
-                "fontSize": 12,
-              },
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <Text
-        style={
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 14,
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-            "lineHeight": 20,
-            "paddingLeft": 10,
-            "textAlignVertical": "center",
-            "textTransform": "none",
-          }
-        }
-      >
-        Share a God Story
+        
       </Text>
     </View>
+    <Text
+      style={
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "paddingLeft": 10,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
+      }
+    >
+      Share a God Story
+    </Text>
   </View>
 </View>
 `;

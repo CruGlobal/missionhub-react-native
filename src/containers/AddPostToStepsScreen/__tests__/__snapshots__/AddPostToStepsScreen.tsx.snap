@@ -5,7 +5,7 @@ exports[`changes the title of the step and creates a new step 1`] = `
 - First value
 + Second value
 
-@@ -190,11 +190,11 @@
+@@ -172,11 +172,11 @@
               \\"textTransform\\": \\"none\\",
             }
           }
@@ -90,42 +90,24 @@ exports[`should render correctly | Care Step 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="CloseButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#ffffff"
-            />
-          </View>
+          <SvgMock
+            color="#ffffff"
+          />
         </View>
       </View>
     </View>
@@ -454,59 +436,40 @@ exports[`should render correctly | Care Step 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                undefined,
-              ],
-            ]
-          }
-        >
-          ADD TO MY STEPS
-        </Text>
-      </View>
+        ADD TO MY STEPS
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -582,42 +545,24 @@ exports[`should render correctly | Pray Step 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="CloseButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#ffffff"
-            />
-          </View>
+          <SvgMock
+            color="#ffffff"
+          />
         </View>
       </View>
     </View>
@@ -945,59 +890,40 @@ exports[`should render correctly | Pray Step 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                undefined,
-              ],
-            ]
-          }
-        >
-          ADD TO MY STEPS
-        </Text>
-      </View>
+        ADD TO MY STEPS
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -1073,42 +999,24 @@ exports[`should render correctly | Share Step 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="CloseButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#ffffff"
-            />
-          </View>
+          <SvgMock
+            color="#ffffff"
+          />
         </View>
       </View>
     </View>
@@ -1437,59 +1345,40 @@ exports[`should render correctly | Share Step 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                undefined,
-              ],
-            ]
-          }
-        >
-          ADD TO MY STEPS
-        </Text>
-      </View>
+        ADD TO MY STEPS
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>

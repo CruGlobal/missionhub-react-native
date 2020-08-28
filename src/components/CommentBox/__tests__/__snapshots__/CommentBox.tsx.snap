@@ -41,18 +41,13 @@ exports[`handles start edit 1`] = `
 - First value
 + Second value
 
-@@ -9,44 +9,82 @@
+@@ -9,45 +9,71 @@
       }
     }
   >
     <View
       style={
--       Array [
-        Object {
--           \\"alignItems\\": \\"center\\",
--           \\"justifyContent\\": \\"center\\",
--         },
--         Array [
++       Object {
 +         \\"backgroundColor\\": \\"#B4B6BA\\",
 +         \\"borderRadius\\": 25,
 +       }
@@ -69,77 +64,72 @@ exports[`handles start edit 1`] = `
 +       onResponderTerminationRequest={[Function onResponderTerminationRequest]}
 +       onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +       style={
-          Object {
--             \\"borderRadius\\": 18,
--             \\"height\\": 36,
--             \\"width\\": 36,
--           },
++         Object {
++           \\"backgroundColor\\": \\"transparent\\",
 +           \\"opacity\\": 1,
 +         }
 +       }
 +       testID=\\"IconButton\\"
 +     >
-+       <View
++       <Text
++         allowFontScaling={false}
 +         style={
-+           Array [
+            Array [
               Object {
--             \\"backgroundColor\\": \\"#B4B6BA\\",
-+               \\"backgroundColor\\": \\"transparent\\",
+-           \\"alignItems\\": \\"center\\",
+-           \\"justifyContent\\": \\"center\\",
++               \\"color\\": undefined,
++               \\"fontSize\\": 12,
               },
+              Array [
+                Object {
+-             \\"borderRadius\\": 18,
+-             \\"height\\": 36,
+-             \\"width\\": 36,
++                 \\"color\\": \\"#ffffff\\",
+                },
+                Object {
+-             \\"backgroundColor\\": \\"#B4B6BA\\",
++                 \\"fontSize\\": 16,
+                },
 -           undefined,
 -         ],
-+             null,
+-       ]
+-     }
+-   >
+-     <Text
+-       style={
+                Array [
++                 Object {
++                   \\"margin\\": 10,
++                 },
+                  Object {
+                    \\"color\\": \\"#ffffff\\",
+                  },
++               ],
++             ],
+              Object {
+-             \\"fontSize\\": 20,
+-             \\"fontWeight\\": \\"300\\",
++               \\"fontFamily\\": \\"icomoon\\",
++               \\"fontStyle\\": \\"normal\\",
++               \\"fontWeight\\": \\"normal\\",
+              },
 +             Object {},
-+             null,
             ]
           }
         >
-          <Text
-+           allowFontScaling={false}
-            style={
-              Array [
-                Object {
-+                 \\"color\\": undefined,
-+                 \\"fontSize\\": 12,
-+               },
-+               Array [
-+                 Object {
-                    \\"color\\": \\"#ffffff\\",
-                  },
-                  Object {
--             \\"fontSize\\": 20,
--             \\"fontWeight\\": \\"300\\",
-+                   \\"fontSize\\": 16,
-+                 },
-+                 Array [
-+                   Object {
-+                     \\"margin\\": 10,
-+                   },
-+                   Object {
-+                     \\"color\\": \\"#ffffff\\",
-+                   },
-+                 ],
-+               ],
-+               Object {
-+                 \\"fontFamily\\": \\"icomoon\\",
-+                 \\"fontStyle\\": \\"normal\\",
-+                 \\"fontWeight\\": \\"normal\\",
-                },
-+               Object {},
-              ]
-            }
-          >
 -       
-+           
-          </Text>
-+       </View>
-+     </View>
-    </View>
++         
+        </Text>
+      </View>
++   </View>
     <View
       style={
         Object {
           \\"backgroundColor\\": \\"#ECEEF2\\",
-@@ -101,11 +139,11 @@
+          \\"borderRadius\\": 8,
+@@ -101,11 +127,11 @@
               \\"textTransform\\": \\"none\\",
             },
           ]
@@ -152,7 +142,7 @@ exports[`handles start edit 1`] = `
     <View
       accessible={true}
       focusable={true}
-@@ -122,9 +160,9 @@
+@@ -122,9 +148,9 @@
         }
       }
       testID=\\"SubmitButton\\"

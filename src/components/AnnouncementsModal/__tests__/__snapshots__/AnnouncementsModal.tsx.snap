@@ -58,65 +58,53 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="IconButton"
         >
-          <View
+          <Text
+            allowFontScaling={false}
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": undefined,
+                  "fontSize": 12,
                 },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
                 Array [
                   Object {
-                    "color": undefined,
-                    "fontSize": 12,
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 32,
                   },
                   Array [
                     Object {
-                      "color": "#ffffff",
+                      "margin": 10,
                     },
                     Object {
-                      "fontSize": 32,
+                      "color": "#B4B6BA",
+                      "justifyContent": "flex-end",
+                      "margin": 0,
+                      "padding": 25,
+                      "position": "absolute",
+                      "right": -20,
+                      "top": -70,
                     },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "justifyContent": "flex-end",
-                        "margin": 0,
-                        "padding": 25,
-                        "position": "absolute",
-                        "right": -20,
-                        "top": -70,
-                      },
-                    ],
                   ],
-                  Object {
-                    "fontFamily": "Material Icons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
+                ],
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
         </View>
       </View>
       <Text
@@ -165,63 +153,45 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#007398",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "fontSize": 14,
+            "height": 48,
+            "justifyContent": "center",
+            "letterSpacing": 1.5,
+            "lineHeight": 24,
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
+            "width": 600,
           }
         }
         testID="AnnouncementActionButton"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#007398",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
-                "height": 48,
-                "letterSpacing": 1.5,
-                "lineHeight": 24,
-                "width": 600,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              Object {
-                "borderRadius": 50,
-              },
+              Object {},
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 14,
-                  "fontStyle": "normal",
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "lineHeight": 18,
-                  "textAlign": "center",
-                  "textAlignVertical": "center",
-                  "textTransform": "uppercase",
-                },
-                Object {},
-              ]
-            }
-          >
-            GO TO GOOGLE
-          </Text>
-        </View>
+          GO TO GOOGLE
+        </Text>
       </View>
     </View>
   </View>
@@ -284,65 +254,53 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="IconButton"
         >
-          <View
+          <Text
+            allowFontScaling={false}
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": undefined,
+                  "fontSize": 12,
                 },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
                 Array [
                   Object {
-                    "color": undefined,
-                    "fontSize": 12,
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 32,
                   },
                   Array [
                     Object {
-                      "color": "#ffffff",
+                      "margin": 10,
                     },
                     Object {
-                      "fontSize": 32,
+                      "color": "#B4B6BA",
+                      "justifyContent": "flex-end",
+                      "margin": 0,
+                      "padding": 25,
+                      "position": "absolute",
+                      "right": -20,
+                      "top": -70,
                     },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "justifyContent": "flex-end",
-                        "margin": 0,
-                        "padding": 25,
-                        "position": "absolute",
-                        "right": -20,
-                        "top": -70,
-                      },
-                    ],
                   ],
-                  Object {
-                    "fontFamily": "Material Icons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
+                ],
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
         </View>
       </View>
       <Text
@@ -391,63 +349,45 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#007398",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "fontSize": 14,
+            "height": 48,
+            "justifyContent": "center",
+            "letterSpacing": 1.5,
+            "lineHeight": 24,
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
+            "width": 600,
           }
         }
         testID="AnnouncementActionButton"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#007398",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
-                "height": 48,
-                "letterSpacing": 1.5,
-                "lineHeight": 24,
-                "width": 600,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              Object {
-                "borderRadius": 50,
-              },
+              Object {},
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 14,
-                  "fontStyle": "normal",
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "lineHeight": 18,
-                  "textAlign": "center",
-                  "textAlignVertical": "center",
-                  "textTransform": "uppercase",
-                },
-                Object {},
-              ]
-            }
-          >
-            GO TO GOOGLE
-          </Text>
-        </View>
+          GO TO GOOGLE
+        </Text>
       </View>
     </View>
   </View>
@@ -510,65 +450,53 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="IconButton"
         >
-          <View
+          <Text
+            allowFontScaling={false}
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": undefined,
+                  "fontSize": 12,
                 },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
                 Array [
                   Object {
-                    "color": undefined,
-                    "fontSize": 12,
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 32,
                   },
                   Array [
                     Object {
-                      "color": "#ffffff",
+                      "margin": 10,
                     },
                     Object {
-                      "fontSize": 32,
+                      "color": "#B4B6BA",
+                      "justifyContent": "flex-end",
+                      "margin": 0,
+                      "padding": 25,
+                      "position": "absolute",
+                      "right": -20,
+                      "top": -70,
                     },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "justifyContent": "flex-end",
-                        "margin": 0,
-                        "padding": 25,
-                        "position": "absolute",
-                        "right": -20,
-                        "top": -70,
-                      },
-                    ],
                   ],
-                  Object {
-                    "fontFamily": "Material Icons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
+                ],
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
         </View>
       </View>
       <Text
@@ -617,63 +545,45 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#007398",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "fontSize": 14,
+            "height": 48,
+            "justifyContent": "center",
+            "letterSpacing": 1.5,
+            "lineHeight": 24,
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
+            "width": 600,
           }
         }
         testID="AnnouncementActionButton"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#007398",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
-                "height": 48,
-                "letterSpacing": 1.5,
-                "lineHeight": 24,
-                "width": 600,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              Object {
-                "borderRadius": 50,
-              },
+              Object {},
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 14,
-                  "fontStyle": "normal",
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "lineHeight": 18,
-                  "textAlign": "center",
-                  "textAlignVertical": "center",
-                  "textTransform": "uppercase",
-                },
-                Object {},
-              ]
-            }
-          >
-            TRACK THIS ACTION
-          </Text>
-        </View>
+          TRACK THIS ACTION
+        </Text>
       </View>
     </View>
   </View>
@@ -736,65 +646,53 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUNCEMENT
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "transparent",
               "opacity": 1,
             }
           }
           testID="IconButton"
         >
-          <View
+          <Text
+            allowFontScaling={false}
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": undefined,
+                  "fontSize": 12,
                 },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
                 Array [
                   Object {
-                    "color": undefined,
-                    "fontSize": 12,
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 32,
                   },
                   Array [
                     Object {
-                      "color": "#ffffff",
+                      "margin": 10,
                     },
                     Object {
-                      "fontSize": 32,
+                      "color": "#B4B6BA",
+                      "justifyContent": "flex-end",
+                      "margin": 0,
+                      "padding": 25,
+                      "position": "absolute",
+                      "right": -20,
+                      "top": -70,
                     },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "justifyContent": "flex-end",
-                        "margin": 0,
-                        "padding": 25,
-                        "position": "absolute",
-                        "right": -20,
-                        "top": -70,
-                      },
-                    ],
                   ],
-                  Object {
-                    "fontFamily": "Material Icons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
+                ],
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
         </View>
       </View>
       <Text
@@ -843,63 +741,45 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUNCEMENT
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#007398",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "fontSize": 14,
+            "height": 48,
+            "justifyContent": "center",
+            "letterSpacing": 1.5,
+            "lineHeight": 24,
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
+            "width": 600,
           }
         }
         testID="AnnouncementNoActionButton"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#007398",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
-                "height": 48,
-                "letterSpacing": 1.5,
-                "lineHeight": 24,
-                "width": 600,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              Object {
-                "borderRadius": 50,
-              },
+              Object {},
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 14,
-                  "fontStyle": "normal",
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "lineHeight": 18,
-                  "textAlign": "center",
-                  "textAlignVertical": "center",
-                  "textTransform": "uppercase",
-                },
-                Object {},
-              ]
-            }
-          >
-            Done
-          </Text>
-        </View>
+          Done
+        </Text>
       </View>
     </View>
   </View>

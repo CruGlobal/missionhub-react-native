@@ -287,6 +287,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -296,38 +304,17 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#505256"
-              />
-            </View>
+            <SvgMock
+              color="#505256"
+            />
           </View>
         </View>
         <View
@@ -363,6 +350,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -372,33 +367,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>
@@ -694,6 +669,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -703,38 +686,17 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#505256"
-              />
-            </View>
+            <SvgMock
+              color="#505256"
+            />
           </View>
         </View>
         <View
@@ -770,6 +732,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -779,33 +749,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>
@@ -1080,6 +1030,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1089,38 +1047,17 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#505256"
-              />
-            </View>
+            <SvgMock
+              color="#505256"
+            />
           </View>
         </View>
         <View
@@ -1156,6 +1093,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1165,33 +1110,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>
@@ -1466,6 +1391,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1475,38 +1408,17 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#505256"
-              />
-            </View>
+            <SvgMock
+              color="#505256"
+            />
           </View>
         </View>
         <View
@@ -1542,6 +1454,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1551,33 +1471,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>
@@ -1824,6 +1724,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1833,39 +1741,18 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#FF5532"
-                fill="#FF5532"
-              />
-            </View>
+            <SvgMock
+              color="#FF5532"
+              fill="#FF5532"
+            />
           </View>
         </View>
         <View
@@ -1901,6 +1788,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1910,33 +1805,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>
@@ -1976,80 +1851,53 @@ Array [
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#7076B5",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "space-between",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingLeft": 20,
+            "paddingRight": 16,
+            "paddingVertical": 0,
           }
         }
         testID="STORYButton"
       >
-        <View
+        <SvgMock
+          color="#ffffff"
+          height={20}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "marginLeft": -10,
+                "marginRight": 10,
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderRadius": 18,
-                  "flexDirection": "row",
-                  "height": 36,
-                  "justifyContent": "space-between",
-                  "paddingLeft": 20,
-                  "paddingRight": 16,
-                  "paddingVertical": 0,
-                },
-                Object {
-                  "backgroundColor": "#7076B5",
-                },
-                null,
-                null,
-              ],
-              Object {
-                "borderRadius": 50,
-              },
+              undefined,
             ]
           }
+          width={20}
+        />
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
         >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Array [
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                },
-                undefined,
-              ]
-            }
-            width={20}
-          />
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "lineHeight": 20,
-                "textAlignVertical": "center",
-                "textTransform": "none",
-              }
-            }
-          >
-            God Story
-          </Text>
-        </View>
+          God Story
+        </Text>
       </View>
     </View>
     <View
@@ -2287,6 +2135,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -2296,38 +2152,17 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#505256"
-              />
-            </View>
+            <SvgMock
+              color="#505256"
+            />
           </View>
         </View>
         <View
@@ -2363,6 +2198,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -2372,33 +2215,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>
@@ -2438,80 +2261,53 @@ Array [
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#A97398",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "space-between",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingLeft": 20,
+            "paddingRight": 16,
+            "paddingVertical": 0,
           }
         }
         testID="PRAYER_REQUESTButton"
       >
-        <View
+        <SvgMock
+          color="#ffffff"
+          height={20}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "marginLeft": -10,
+                "marginRight": 10,
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderRadius": 18,
-                  "flexDirection": "row",
-                  "height": 36,
-                  "justifyContent": "space-between",
-                  "paddingLeft": 20,
-                  "paddingRight": 16,
-                  "paddingVertical": 0,
-                },
-                Object {
-                  "backgroundColor": "#A97398",
-                },
-                null,
-                null,
-              ],
-              Object {
-                "borderRadius": 50,
-              },
+              undefined,
             ]
           }
+          width={20}
+        />
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
         >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Array [
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                },
-                undefined,
-              ]
-            }
-            width={20}
-          />
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "lineHeight": 20,
-                "textAlignVertical": "center",
-                "textTransform": "none",
-              }
-            }
-          >
-            Prayer Request
-          </Text>
-        </View>
+          Prayer Request
+        </Text>
       </View>
     </View>
     <View
@@ -2810,6 +2606,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -2819,38 +2623,17 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#505256"
-              />
-            </View>
+            <SvgMock
+              color="#505256"
+            />
           </View>
         </View>
         <View
@@ -2886,6 +2669,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -2895,33 +2686,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>
@@ -2961,80 +2732,53 @@ Array [
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#A97398",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "space-between",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingLeft": 20,
+            "paddingRight": 16,
+            "paddingVertical": 0,
           }
         }
         testID="PRAYER_REQUESTButton"
       >
-        <View
+        <SvgMock
+          color="#ffffff"
+          height={20}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "marginLeft": -10,
+                "marginRight": 10,
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderRadius": 18,
-                  "flexDirection": "row",
-                  "height": 36,
-                  "justifyContent": "space-between",
-                  "paddingLeft": 20,
-                  "paddingRight": 16,
-                  "paddingVertical": 0,
-                },
-                Object {
-                  "backgroundColor": "#A97398",
-                },
-                null,
-                null,
-              ],
-              Object {
-                "borderRadius": 50,
-              },
+              undefined,
             ]
           }
+          width={20}
+        />
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
         >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Array [
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                },
-                undefined,
-              ]
-            }
-            width={20}
-          />
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "lineHeight": 20,
-                "textAlignVertical": "center",
-                "textTransform": "none",
-              }
-            }
-          >
-            Prayer Request
-          </Text>
-        </View>
+          Prayer Request
+        </Text>
       </View>
     </View>
     <View
@@ -3272,6 +3016,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -3281,38 +3033,17 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#505256"
-              />
-            </View>
+            <SvgMock
+              color="#505256"
+            />
           </View>
         </View>
         <View
@@ -3348,6 +3079,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -3357,33 +3096,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>
@@ -3423,80 +3142,53 @@ Array [
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#A97398",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "space-between",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingLeft": 20,
+            "paddingRight": 16,
+            "paddingVertical": 0,
           }
         }
         testID="PRAYER_REQUESTButton"
       >
-        <View
+        <SvgMock
+          color="#ffffff"
+          height={20}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "marginLeft": -10,
+                "marginRight": 10,
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderRadius": 18,
-                  "flexDirection": "row",
-                  "height": 36,
-                  "justifyContent": "space-between",
-                  "paddingLeft": 20,
-                  "paddingRight": 16,
-                  "paddingVertical": 0,
-                },
-                Object {
-                  "backgroundColor": "#A97398",
-                },
-                null,
-                null,
-              ],
-              Object {
-                "borderRadius": 50,
-              },
+              undefined,
             ]
           }
+          width={20}
+        />
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
         >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Array [
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                },
-                undefined,
-              ]
-            }
-            width={20}
-          />
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "lineHeight": 20,
-                "textAlignVertical": "center",
-                "textTransform": "none",
-              }
-            }
-          >
-            Prayer Request
-          </Text>
-        </View>
+          Prayer Request
+        </Text>
       </View>
     </View>
     <View
@@ -3690,80 +3382,53 @@ Array [
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#3CC8E6",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "space-between",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingLeft": 20,
+            "paddingRight": 16,
+            "paddingVertical": 0,
           }
         }
         testID="STEPButton"
       >
-        <View
+        <SvgMock
+          color="#ffffff"
+          height={20}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "marginLeft": -10,
+                "marginRight": 10,
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderRadius": 18,
-                  "flexDirection": "row",
-                  "height": 36,
-                  "justifyContent": "space-between",
-                  "paddingLeft": 20,
-                  "paddingRight": 16,
-                  "paddingVertical": 0,
-                },
-                Object {
-                  "backgroundColor": "#3CC8E6",
-                },
-                null,
-                null,
-              ],
-              Object {
-                "borderRadius": 50,
-              },
+              undefined,
             ]
           }
+          width={20}
+        />
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
         >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Array [
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                },
-                undefined,
-              ]
-            }
-            width={20}
-          />
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "lineHeight": 20,
-                "textAlignVertical": "center",
-                "textTransform": "none",
-              }
-            }
-          >
-            Step of Faith
-          </Text>
-        </View>
+          Step of Faith
+        </Text>
       </View>
     </View>
     <View
@@ -3977,6 +3642,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -3986,39 +3659,18 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#FF5532"
-                fill="#FF5532"
-              />
-            </View>
+            <SvgMock
+              color="#FF5532"
+              fill="#FF5532"
+            />
           </View>
         </View>
         <View
@@ -4054,6 +3706,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -4063,33 +3723,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>
@@ -4129,80 +3769,53 @@ Array [
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#3CC8E6",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "space-between",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingLeft": 20,
+            "paddingRight": 16,
+            "paddingVertical": 0,
           }
         }
         testID="STEPButton"
       >
-        <View
+        <SvgMock
+          color="#ffffff"
+          height={20}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "marginLeft": -10,
+                "marginRight": 10,
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderRadius": 18,
-                  "flexDirection": "row",
-                  "height": 36,
-                  "justifyContent": "space-between",
-                  "paddingLeft": 20,
-                  "paddingRight": 16,
-                  "paddingVertical": 0,
-                },
-                Object {
-                  "backgroundColor": "#3CC8E6",
-                },
-                null,
-                null,
-              ],
-              Object {
-                "borderRadius": 50,
-              },
+              undefined,
             ]
           }
+          width={20}
+        />
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
         >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Array [
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                },
-                undefined,
-              ]
-            }
-            width={20}
-          />
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "lineHeight": 20,
-                "textAlignVertical": "center",
-                "textTransform": "none",
-              }
-            }
-          >
-            Step of Faith
-          </Text>
-        </View>
+          Step of Faith
+        </Text>
       </View>
     </View>
     <View
@@ -4416,6 +4029,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -4425,39 +4046,18 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#FF5532"
-                fill="#FF5532"
-              />
-            </View>
+            <SvgMock
+              color="#FF5532"
+              fill="#FF5532"
+            />
           </View>
         </View>
         <View
@@ -4493,6 +4093,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -4502,33 +4110,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>
@@ -4568,80 +4156,53 @@ Array [
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#3CC8E6",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "space-between",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingLeft": 20,
+            "paddingRight": 16,
+            "paddingVertical": 0,
           }
         }
         testID="STEPButton"
       >
-        <View
+        <SvgMock
+          color="#ffffff"
+          height={20}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "marginLeft": -10,
+                "marginRight": 10,
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderRadius": 18,
-                  "flexDirection": "row",
-                  "height": 36,
-                  "justifyContent": "space-between",
-                  "paddingLeft": 20,
-                  "paddingRight": 16,
-                  "paddingVertical": 0,
-                },
-                Object {
-                  "backgroundColor": "#3CC8E6",
-                },
-                null,
-                null,
-              ],
-              Object {
-                "borderRadius": 50,
-              },
+              undefined,
             ]
           }
+          width={20}
+        />
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
         >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Array [
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                },
-                undefined,
-              ]
-            }
-            width={20}
-          />
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "lineHeight": 20,
-                "textAlignVertical": "center",
-                "textTransform": "none",
-              }
-            }
-          >
-            Step of Faith
-          </Text>
-        </View>
+          Step of Faith
+        </Text>
       </View>
     </View>
     <View
@@ -4855,6 +4416,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -4864,39 +4433,18 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#FF5532"
-                fill="#FF5532"
-              />
-            </View>
+            <SvgMock
+              color="#FF5532"
+              fill="#FF5532"
+            />
           </View>
         </View>
         <View
@@ -4932,6 +4480,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -4941,33 +4497,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>
@@ -5007,80 +4543,53 @@ Array [
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#3CC8E6",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "space-between",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingLeft": 20,
+            "paddingRight": 16,
+            "paddingVertical": 0,
           }
         }
         testID="STEPButton"
       >
-        <View
+        <SvgMock
+          color="#ffffff"
+          height={20}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "marginLeft": -10,
+                "marginRight": 10,
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderRadius": 18,
-                  "flexDirection": "row",
-                  "height": 36,
-                  "justifyContent": "space-between",
-                  "paddingLeft": 20,
-                  "paddingRight": 16,
-                  "paddingVertical": 0,
-                },
-                Object {
-                  "backgroundColor": "#3CC8E6",
-                },
-                null,
-                null,
-              ],
-              Object {
-                "borderRadius": 50,
-              },
+              undefined,
             ]
           }
+          width={20}
+        />
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
         >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Array [
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                },
-                undefined,
-              ]
-            }
-            width={20}
-          />
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "lineHeight": 20,
-                "textAlignVertical": "center",
-                "textTransform": "none",
-              }
-            }
-          >
-            Step of Faith
-          </Text>
-        </View>
+          Step of Faith
+        </Text>
       </View>
     </View>
     <View
@@ -5294,6 +4803,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -5303,39 +4820,18 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#FF5532"
-                fill="#FF5532"
-              />
-            </View>
+            <SvgMock
+              color="#FF5532"
+              fill="#FF5532"
+            />
           </View>
         </View>
         <View
@@ -5371,6 +4867,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -5380,33 +4884,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>
@@ -5446,80 +4930,53 @@ Array [
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#3CC8E6",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "space-between",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingLeft": 20,
+            "paddingRight": 16,
+            "paddingVertical": 0,
           }
         }
         testID="STEPButton"
       >
-        <View
+        <SvgMock
+          color="#ffffff"
+          height={20}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "marginLeft": -10,
+                "marginRight": 10,
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderRadius": 18,
-                  "flexDirection": "row",
-                  "height": 36,
-                  "justifyContent": "space-between",
-                  "paddingLeft": 20,
-                  "paddingRight": 16,
-                  "paddingVertical": 0,
-                },
-                Object {
-                  "backgroundColor": "#3CC8E6",
-                },
-                null,
-                null,
-              ],
-              Object {
-                "borderRadius": 50,
-              },
+              undefined,
             ]
           }
+          width={20}
+        />
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
         >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Array [
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                },
-                undefined,
-              ]
-            }
-            width={20}
-          />
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "lineHeight": 20,
-                "textAlignVertical": "center",
-                "textTransform": "none",
-              }
-            }
-          >
-            Step of Faith
-          </Text>
-        </View>
+          Step of Faith
+        </Text>
       </View>
     </View>
     <View
@@ -5733,6 +5190,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -5742,39 +5207,18 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#FF5532"
-                fill="#FF5532"
-              />
-            </View>
+            <SvgMock
+              color="#FF5532"
+              fill="#FF5532"
+            />
           </View>
         </View>
         <View
@@ -5810,6 +5254,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -5819,33 +5271,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>
@@ -5885,80 +5317,53 @@ Array [
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#3CC8E6",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "space-between",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingLeft": 20,
+            "paddingRight": 16,
+            "paddingVertical": 0,
           }
         }
         testID="STEPButton"
       >
-        <View
+        <SvgMock
+          color="#ffffff"
+          height={20}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "marginLeft": -10,
+                "marginRight": 10,
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderRadius": 18,
-                  "flexDirection": "row",
-                  "height": 36,
-                  "justifyContent": "space-between",
-                  "paddingLeft": 20,
-                  "paddingRight": 16,
-                  "paddingVertical": 0,
-                },
-                Object {
-                  "backgroundColor": "#3CC8E6",
-                },
-                null,
-                null,
-              ],
-              Object {
-                "borderRadius": 50,
-              },
+              undefined,
             ]
           }
+          width={20}
+        />
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
         >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Array [
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                },
-                undefined,
-              ]
-            }
-            width={20}
-          />
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "lineHeight": 20,
-                "textAlignVertical": "center",
-                "textTransform": "none",
-              }
-            }
-          >
-            Step of Faith
-          </Text>
-        </View>
+          Step of Faith
+        </Text>
       </View>
     </View>
     <View
@@ -6172,6 +5577,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -6181,39 +5594,18 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#FF5532"
-                fill="#FF5532"
-              />
-            </View>
+            <SvgMock
+              color="#FF5532"
+              fill="#FF5532"
+            />
           </View>
         </View>
         <View
@@ -6249,6 +5641,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -6258,33 +5658,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>
@@ -6324,80 +5704,53 @@ Array [
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#3CC8E6",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "space-between",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingLeft": 20,
+            "paddingRight": 16,
+            "paddingVertical": 0,
           }
         }
         testID="STEPButton"
       >
-        <View
+        <SvgMock
+          color="#ffffff"
+          height={20}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "marginLeft": -10,
+                "marginRight": 10,
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderRadius": 18,
-                  "flexDirection": "row",
-                  "height": 36,
-                  "justifyContent": "space-between",
-                  "paddingLeft": 20,
-                  "paddingRight": 16,
-                  "paddingVertical": 0,
-                },
-                Object {
-                  "backgroundColor": "#3CC8E6",
-                },
-                null,
-                null,
-              ],
-              Object {
-                "borderRadius": 50,
-              },
+              undefined,
             ]
           }
+          width={20}
+        />
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
         >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Array [
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                },
-                undefined,
-              ]
-            }
-            width={20}
-          />
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "lineHeight": 20,
-                "textAlignVertical": "center",
-                "textTransform": "none",
-              }
-            }
-          >
-            Step of Faith
-          </Text>
-        </View>
+          Step of Faith
+        </Text>
       </View>
     </View>
     <View
@@ -6611,6 +5964,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -6620,39 +5981,18 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#FF5532"
-                fill="#FF5532"
-              />
-            </View>
+            <SvgMock
+              color="#FF5532"
+              fill="#FF5532"
+            />
           </View>
         </View>
         <View
@@ -6688,6 +6028,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -6697,33 +6045,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>
@@ -6763,80 +6091,53 @@ Array [
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#3CC8E6",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "space-between",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingLeft": 20,
+            "paddingRight": 16,
+            "paddingVertical": 0,
           }
         }
         testID="STEPButton"
       >
-        <View
+        <SvgMock
+          color="#ffffff"
+          height={20}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "marginLeft": -10,
+                "marginRight": 10,
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderRadius": 18,
-                  "flexDirection": "row",
-                  "height": 36,
-                  "justifyContent": "space-between",
-                  "paddingLeft": 20,
-                  "paddingRight": 16,
-                  "paddingVertical": 0,
-                },
-                Object {
-                  "backgroundColor": "#3CC8E6",
-                },
-                null,
-                null,
-              ],
-              Object {
-                "borderRadius": 50,
-              },
+              undefined,
             ]
           }
+          width={20}
+        />
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
         >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Array [
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                },
-                undefined,
-              ]
-            }
-            width={20}
-          />
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "lineHeight": 20,
-                "textAlignVertical": "center",
-                "textTransform": "none",
-              }
-            }
-          >
-            Step of Faith
-          </Text>
-        </View>
+          Step of Faith
+        </Text>
       </View>
     </View>
     <View
@@ -7029,6 +6330,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -7038,38 +6347,17 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#505256"
-              />
-            </View>
+            <SvgMock
+              color="#505256"
+            />
           </View>
         </View>
         <View
@@ -7105,6 +6393,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -7114,33 +6410,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>
@@ -7180,80 +6456,53 @@ Array [
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#3CC8E6",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "space-between",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingLeft": 20,
+            "paddingRight": 16,
+            "paddingVertical": 0,
           }
         }
         testID="STEPButton"
       >
-        <View
+        <SvgMock
+          color="#ffffff"
+          height={20}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "marginLeft": -10,
+                "marginRight": 10,
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderRadius": 18,
-                  "flexDirection": "row",
-                  "height": 36,
-                  "justifyContent": "space-between",
-                  "paddingLeft": 20,
-                  "paddingRight": 16,
-                  "paddingVertical": 0,
-                },
-                Object {
-                  "backgroundColor": "#3CC8E6",
-                },
-                null,
-                null,
-              ],
-              Object {
-                "borderRadius": 50,
-              },
+              undefined,
             ]
           }
+          width={20}
+        />
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
         >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Array [
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                },
-                undefined,
-              ]
-            }
-            width={20}
-          />
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "lineHeight": 20,
-                "textAlignVertical": "center",
-                "textTransform": "none",
-              }
-            }
-          >
-            Step of Faith
-          </Text>
-        </View>
+          Step of Faith
+        </Text>
       </View>
     </View>
     <View
@@ -7446,6 +6695,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -7455,38 +6712,17 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#505256"
-              />
-            </View>
+            <SvgMock
+              color="#505256"
+            />
           </View>
         </View>
         <View
@@ -7522,6 +6758,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -7531,33 +6775,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>
@@ -7597,80 +6821,53 @@ Array [
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#505256",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "space-between",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingLeft": 20,
+            "paddingRight": 16,
+            "paddingVertical": 0,
           }
         }
         testID="ANNOUNCEMENTButton"
       >
-        <View
+        <SvgMock
+          color="#ffffff"
+          height={20}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "marginLeft": -10,
+                "marginRight": 10,
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderRadius": 18,
-                  "flexDirection": "row",
-                  "height": 36,
-                  "justifyContent": "space-between",
-                  "paddingLeft": 20,
-                  "paddingRight": 16,
-                  "paddingVertical": 0,
-                },
-                Object {
-                  "backgroundColor": "#505256",
-                },
-                null,
-                null,
-              ],
-              Object {
-                "borderRadius": 50,
-              },
+              undefined,
             ]
           }
+          width={20}
+        />
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
         >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Array [
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                },
-                undefined,
-              ]
-            }
-            width={20}
-          />
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "lineHeight": 20,
-                "textAlignVertical": "center",
-                "textTransform": "none",
-              }
-            }
-          >
-            Announcement
-          </Text>
-        </View>
+          Announcement
+        </Text>
       </View>
     </View>
     <View
@@ -7889,6 +7086,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -7898,38 +7103,17 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#505256"
-              />
-            </View>
+            <SvgMock
+              color="#505256"
+            />
           </View>
         </View>
         <View
@@ -7965,6 +7149,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -7974,33 +7166,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>
@@ -8040,80 +7212,53 @@ Array [
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#505256",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "space-between",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingLeft": 20,
+            "paddingRight": 16,
+            "paddingVertical": 0,
           }
         }
         testID="ANNOUNCEMENTButton"
       >
-        <View
+        <SvgMock
+          color="#ffffff"
+          height={20}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "marginLeft": -10,
+                "marginRight": 10,
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderRadius": 18,
-                  "flexDirection": "row",
-                  "height": 36,
-                  "justifyContent": "space-between",
-                  "paddingLeft": 20,
-                  "paddingRight": 16,
-                  "paddingVertical": 0,
-                },
-                Object {
-                  "backgroundColor": "#505256",
-                },
-                null,
-                null,
-              ],
-              Object {
-                "borderRadius": 50,
-              },
+              undefined,
             ]
           }
+          width={20}
+        />
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
         >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Array [
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                },
-                undefined,
-              ]
-            }
-            width={20}
-          />
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "lineHeight": 20,
-                "textAlignVertical": "center",
-                "textTransform": "none",
-              }
-            }
-          >
-            Announcement
-          </Text>
-        </View>
+          Announcement
+        </Text>
       </View>
     </View>
     <View
@@ -8318,6 +7463,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -8327,39 +7480,18 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#FF5532"
-                fill="#FF5532"
-              />
-            </View>
+            <SvgMock
+              color="#FF5532"
+              fill="#FF5532"
+            />
           </View>
         </View>
         <View
@@ -8395,6 +7527,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -8404,33 +7544,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>
@@ -8470,80 +7590,53 @@ Array [
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#7076B5",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "space-between",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingLeft": 20,
+            "paddingRight": 16,
+            "paddingVertical": 0,
           }
         }
         testID="STORYButton"
       >
-        <View
+        <SvgMock
+          color="#ffffff"
+          height={20}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "marginLeft": -10,
+                "marginRight": 10,
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderRadius": 18,
-                  "flexDirection": "row",
-                  "height": 36,
-                  "justifyContent": "space-between",
-                  "paddingLeft": 20,
-                  "paddingRight": 16,
-                  "paddingVertical": 0,
-                },
-                Object {
-                  "backgroundColor": "#7076B5",
-                },
-                null,
-                null,
-              ],
-              Object {
-                "borderRadius": 50,
-              },
+              undefined,
             ]
           }
+          width={20}
+        />
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
         >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Array [
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                },
-                undefined,
-              ]
-            }
-            width={20}
-          />
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "lineHeight": 20,
-                "textAlignVertical": "center",
-                "textTransform": "none",
-              }
-            }
-          >
-            God Story
-          </Text>
-        </View>
+          God Story
+        </Text>
       </View>
     </View>
     <View
@@ -8794,6 +7887,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -8803,38 +7904,17 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#505256"
-              />
-            </View>
+            <SvgMock
+              color="#505256"
+            />
           </View>
         </View>
         <View
@@ -8870,6 +7950,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -8879,33 +7967,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>
@@ -8945,80 +8013,53 @@ Array [
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#3CC8E6",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "space-between",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingLeft": 20,
+            "paddingRight": 16,
+            "paddingVertical": 0,
           }
         }
         testID="STEPButton"
       >
-        <View
+        <SvgMock
+          color="#ffffff"
+          height={20}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "marginLeft": -10,
+                "marginRight": 10,
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderRadius": 18,
-                  "flexDirection": "row",
-                  "height": 36,
-                  "justifyContent": "space-between",
-                  "paddingLeft": 20,
-                  "paddingRight": 16,
-                  "paddingVertical": 0,
-                },
-                Object {
-                  "backgroundColor": "#3CC8E6",
-                },
-                null,
-                null,
-              ],
-              Object {
-                "borderRadius": 50,
-              },
+              undefined,
             ]
           }
+          width={20}
+        />
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
         >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Array [
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                },
-                undefined,
-              ]
-            }
-            width={20}
-          />
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "lineHeight": 20,
-                "textAlignVertical": "center",
-                "textTransform": "none",
-              }
-            }
-          >
-            Step of Faith
-          </Text>
-        </View>
+          Step of Faith
+        </Text>
       </View>
       <View
         style={
@@ -9266,6 +8307,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -9275,39 +8324,18 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#FF5532"
-                fill="#FF5532"
-              />
-            </View>
+            <SvgMock
+              color="#FF5532"
+              fill="#FF5532"
+            />
           </View>
         </View>
         <View
@@ -9343,6 +8371,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -9352,33 +8388,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>
@@ -9418,80 +8434,53 @@ Array [
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#7076B5",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "space-between",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingLeft": 20,
+            "paddingRight": 16,
+            "paddingVertical": 0,
           }
         }
         testID="STORYButton"
       >
-        <View
+        <SvgMock
+          color="#ffffff"
+          height={20}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "marginLeft": -10,
+                "marginRight": 10,
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderRadius": 18,
-                  "flexDirection": "row",
-                  "height": 36,
-                  "justifyContent": "space-between",
-                  "paddingLeft": 20,
-                  "paddingRight": 16,
-                  "paddingVertical": 0,
-                },
-                Object {
-                  "backgroundColor": "#7076B5",
-                },
-                null,
-                null,
-              ],
-              Object {
-                "borderRadius": 50,
-              },
+              undefined,
             ]
           }
+          width={20}
+        />
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
         >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Array [
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                },
-                undefined,
-              ]
-            }
-            width={20}
-          />
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "lineHeight": 20,
-                "textAlignVertical": "center",
-                "textTransform": "none",
-              }
-            }
-          >
-            God Story
-          </Text>
-        </View>
+          God Story
+        </Text>
       </View>
     </View>
     <View
@@ -9816,6 +8805,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -9825,38 +8822,17 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#505256"
-              />
-            </View>
+            <SvgMock
+              color="#505256"
+            />
           </View>
         </View>
         <View
@@ -9892,6 +8868,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -9901,33 +8885,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>
@@ -9967,80 +8931,53 @@ Array [
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#3CC8E6",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "space-between",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingLeft": 20,
+            "paddingRight": 16,
+            "paddingVertical": 0,
           }
         }
         testID="STEPButton"
       >
-        <View
+        <SvgMock
+          color="#ffffff"
+          height={20}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "marginLeft": -10,
+                "marginRight": 10,
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderRadius": 18,
-                  "flexDirection": "row",
-                  "height": 36,
-                  "justifyContent": "space-between",
-                  "paddingLeft": 20,
-                  "paddingRight": 16,
-                  "paddingVertical": 0,
-                },
-                Object {
-                  "backgroundColor": "#3CC8E6",
-                },
-                null,
-                null,
-              ],
-              Object {
-                "borderRadius": 50,
-              },
+              undefined,
             ]
           }
+          width={20}
+        />
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
         >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Array [
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                },
-                undefined,
-              ]
-            }
-            width={20}
-          />
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "lineHeight": 20,
-                "textAlignVertical": "center",
-                "textTransform": "none",
-              }
-            }
-          >
-            Step of Faith
-          </Text>
-        </View>
+          Step of Faith
+        </Text>
       </View>
     </View>
     <View
@@ -10254,6 +9191,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -10263,39 +9208,18 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#FF5532"
-                fill="#FF5532"
-              />
-            </View>
+            <SvgMock
+              color="#FF5532"
+              fill="#FF5532"
+            />
           </View>
         </View>
         <View
@@ -10331,6 +9255,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -10340,33 +9272,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>
@@ -10406,80 +9318,53 @@ Array [
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#7076B5",
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "space-between",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingLeft": 20,
+            "paddingRight": 16,
+            "paddingVertical": 0,
           }
         }
         testID="STORYButton"
       >
-        <View
+        <SvgMock
+          color="#ffffff"
+          height={20}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "marginLeft": -10,
+                "marginRight": 10,
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderRadius": 18,
-                  "flexDirection": "row",
-                  "height": 36,
-                  "justifyContent": "space-between",
-                  "paddingLeft": 20,
-                  "paddingRight": 16,
-                  "paddingVertical": 0,
-                },
-                Object {
-                  "backgroundColor": "#7076B5",
-                },
-                null,
-                null,
-              ],
-              Object {
-                "borderRadius": 50,
-              },
+              undefined,
             ]
           }
+          width={20}
+        />
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
         >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Array [
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                },
-                undefined,
-              ]
-            }
-            width={20}
-          />
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "lineHeight": 20,
-                "textAlignVertical": "center",
-                "textTransform": "none",
-              }
-            }
-          >
-            God Story
-          </Text>
-        </View>
+          God Story
+        </Text>
       </View>
     </View>
     <View
@@ -10717,6 +9602,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -10726,38 +9619,17 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
+                "height": 24,
                 "opacity": 1,
+                "width": 24,
               }
             }
             testID="LikeIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#505256"
-              />
-            </View>
+            <SvgMock
+              color="#505256"
+            />
           </View>
         </View>
         <View
@@ -10793,6 +9665,14 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 25,
+                "left": 25,
+                "right": 25,
+                "top": 25,
+              }
+            }
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -10802,33 +9682,13 @@ Array [
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="CommentIconButton"
           >
-            <View
-              hitSlop={
-                Object {
-                  "bottom": 25,
-                  "left": 25,
-                  "right": 25,
-                  "top": 25,
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock />
-            </View>
+            <SvgMock />
           </View>
         </View>
       </View>

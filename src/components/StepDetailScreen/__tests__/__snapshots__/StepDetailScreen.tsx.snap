@@ -56,42 +56,24 @@ exports[`Post is not null renders correctly with post 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#B4B6BA"
-            />
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+          />
         </View>
       </View>
       <View
@@ -470,42 +452,24 @@ exports[`Post is not null renders correctly with post with image 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#B4B6BA"
-            />
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+          />
         </View>
       </View>
       <View
@@ -884,42 +848,24 @@ exports[`Post is not null renders post without image 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#B4B6BA"
-            />
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+          />
         </View>
       </View>
       <View
@@ -1276,42 +1222,24 @@ exports[`Post is not null renders with an input 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#B4B6BA"
-            />
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+          />
         </View>
       </View>
       <View
@@ -1675,42 +1603,24 @@ exports[`markdown is empty string renders correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#B4B6BA"
-            />
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+          />
         </View>
       </View>
       <View
@@ -1883,42 +1793,24 @@ exports[`markdown is not null renders correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#B4B6BA"
-            />
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+          />
         </View>
       </View>
       <View
@@ -2146,42 +2038,24 @@ exports[`markdown is not null renders correctly on android 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#B4B6BA"
-            />
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+          />
         </View>
       </View>
       <View
@@ -2409,42 +2283,24 @@ exports[`markdown is not null renders correctly on android with bottom button pr
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#B4B6BA"
-            />
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+          />
         </View>
       </View>
       <View
@@ -2635,59 +2491,40 @@ exports[`markdown is not null renders correctly on android with bottom button pr
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                undefined,
-              ],
-            ]
-          }
-        >
-          BOTTOM BUTTON PROPS
-        </Text>
-      </View>
+        BOTTOM BUTTON PROPS
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -2749,42 +2586,24 @@ exports[`markdown is not null renders correctly with bottom button props 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#B4B6BA"
-            />
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+          />
         </View>
       </View>
       <View
@@ -2975,59 +2794,40 @@ exports[`markdown is not null renders correctly with bottom button props 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                undefined,
-              ],
-            ]
-          }
-        >
-          BOTTOM BUTTON PROPS
-        </Text>
-      </View>
+        BOTTOM BUTTON PROPS
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -3089,42 +2889,24 @@ exports[`markdown is null bottomButtonProps are not null renders correctly 1`] =
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#B4B6BA"
-            />
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+          />
         </View>
       </View>
       <View
@@ -3260,59 +3042,40 @@ exports[`markdown is null bottomButtonProps are not null renders correctly 1`] =
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                undefined,
-              ],
-            ]
-          }
-        >
-          BOTTOM BUTTON PROPS
-        </Text>
-      </View>
+        BOTTOM BUTTON PROPS
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -3374,42 +3137,24 @@ exports[`markdown is null bottomButtonProps are null renders correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#B4B6BA"
-            />
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+          />
         </View>
       </View>
       <View
@@ -3582,42 +3327,24 @@ exports[`markdown with <<name>> to change renders correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="BackButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <SvgMock
-              color="#B4B6BA"
-            />
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+          />
         </View>
       </View>
       <View

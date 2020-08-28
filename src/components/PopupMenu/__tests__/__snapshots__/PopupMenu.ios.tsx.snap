@@ -13,70 +13,54 @@ exports[`PopupMenu iOS renders correctly 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "justifyContent": "center",
       "opacity": 1,
     }
   }
   testID="IconButton"
 >
-  <View
+  <Text
+    allowFontScaling={false}
     style={
       Array [
         Object {
-          "backgroundColor": "transparent",
+          "color": undefined,
+          "fontSize": 12,
         },
-        null,
         Array [
           Object {
-            "alignItems": "center",
-            "justifyContent": "center",
+            "color": "#ffffff",
           },
-          undefined,
-        ],
-        null,
-      ]
-    }
-  >
-    <Text
-      allowFontScaling={false}
-      style={
-        Array [
           Object {
-            "color": undefined,
-            "fontSize": 12,
+            "fontSize": 18,
           },
           Array [
             Object {
-              "color": "#ffffff",
-            },
-            Object {
-              "fontSize": 18,
+              "margin": 10,
             },
             Array [
               Object {
-                "margin": 10,
+                "color": "#B4B6BA",
+                "margin": 0,
+                "paddingHorizontal": 10,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "margin": 0,
-                  "paddingHorizontal": 10,
-                },
-                undefined,
-              ],
+              undefined,
             ],
           ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-          Object {},
-        ]
-      }
-    >
-      
-    </Text>
-  </View>
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
 </View>
 `;
 
@@ -93,72 +77,54 @@ exports[`PopupMenu iOS renders disabled 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
-      "opacity": 1,
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "justifyContent": "center",
+      "opacity": 0.6,
     }
   }
   testID="IconButton"
 >
-  <View
+  <Text
+    allowFontScaling={false}
     style={
       Array [
         Object {
-          "backgroundColor": "transparent",
-        },
-        Object {
-          "opacity": 0.6,
+          "color": undefined,
+          "fontSize": 12,
         },
         Array [
           Object {
-            "alignItems": "center",
-            "justifyContent": "center",
+            "color": "#ffffff",
           },
-          undefined,
-        ],
-        null,
-      ]
-    }
-  >
-    <Text
-      allowFontScaling={false}
-      style={
-        Array [
           Object {
-            "color": undefined,
-            "fontSize": 12,
+            "fontSize": 18,
           },
           Array [
             Object {
-              "color": "#ffffff",
-            },
-            Object {
-              "fontSize": 18,
+              "margin": 10,
             },
             Array [
               Object {
-                "margin": 10,
+                "color": "#B4B6BA",
+                "margin": 0,
+                "paddingHorizontal": 10,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "margin": 0,
-                  "paddingHorizontal": 10,
-                },
-                undefined,
-              ],
+              undefined,
             ],
           ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-          Object {},
-        ]
-      }
-    >
-      
-    </Text>
-  </View>
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
 </View>
 `;
 
@@ -175,70 +141,54 @@ exports[`PopupMenu iOS renders for long press trigger 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "justifyContent": "center",
       "opacity": 1,
     }
   }
   testID="IconButton"
 >
-  <View
+  <Text
+    allowFontScaling={false}
     style={
       Array [
         Object {
-          "backgroundColor": "transparent",
+          "color": undefined,
+          "fontSize": 12,
         },
-        null,
         Array [
           Object {
-            "alignItems": "center",
-            "justifyContent": "center",
+            "color": "#ffffff",
           },
-          undefined,
-        ],
-        null,
-      ]
-    }
-  >
-    <Text
-      allowFontScaling={false}
-      style={
-        Array [
           Object {
-            "color": undefined,
-            "fontSize": 12,
+            "fontSize": 18,
           },
           Array [
             Object {
-              "color": "#ffffff",
-            },
-            Object {
-              "fontSize": 18,
+              "margin": 10,
             },
             Array [
               Object {
-                "margin": 10,
+                "color": "#B4B6BA",
+                "margin": 0,
+                "paddingHorizontal": 10,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "margin": 0,
-                  "paddingHorizontal": 10,
-                },
-                undefined,
-              ],
+              undefined,
             ],
           ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-          Object {},
-        ]
-      }
-    >
-      
-    </Text>
-  </View>
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
 </View>
 `;
 
@@ -255,74 +205,57 @@ exports[`PopupMenu iOS renders with button and icon props 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "justifyContent": "center",
+      "margin": 10,
       "opacity": 1,
     }
   }
   testID="IconButton"
 >
-  <View
+  <Text
+    allowFontScaling={false}
     style={
       Array [
         Object {
-          "backgroundColor": "transparent",
+          "color": undefined,
+          "fontSize": 12,
         },
-        null,
         Array [
           Object {
-            "alignItems": "center",
-            "justifyContent": "center",
+            "color": "#ffffff",
           },
           Object {
-            "margin": 10,
-          },
-        ],
-        null,
-      ]
-    }
-  >
-    <Text
-      allowFontScaling={false}
-      style={
-        Array [
-          Object {
-            "color": undefined,
-            "fontSize": 12,
+            "fontSize": 24,
           },
           Array [
             Object {
-              "color": "#ffffff",
-            },
-            Object {
-              "fontSize": 24,
+              "margin": 10,
             },
             Array [
               Object {
-                "margin": 10,
+                "color": "#B4B6BA",
+                "margin": 0,
+                "paddingHorizontal": 10,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "margin": 0,
-                  "paddingHorizontal": 10,
-                },
-                Object {
-                  "paddingVertical": 10,
-                },
-              ],
+              Object {
+                "paddingVertical": 10,
+              },
             ],
           ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-          Object {},
-        ]
-      }
-    >
-      
-    </Text>
-  </View>
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
 </View>
 `;
 

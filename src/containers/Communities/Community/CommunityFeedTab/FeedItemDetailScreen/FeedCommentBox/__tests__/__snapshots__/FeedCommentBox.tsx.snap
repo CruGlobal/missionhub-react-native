@@ -149,59 +149,47 @@ exports[`renders editing correctly 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "backgroundColor": "transparent",
           "opacity": 1,
         }
       }
       testID="IconButton"
     >
-      <View
+      <Text
+        allowFontScaling={false}
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "color": undefined,
+              "fontSize": 12,
             },
-            null,
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
             Array [
               Object {
-                "color": undefined,
-                "fontSize": 12,
+                "color": "#ffffff",
+              },
+              Object {
+                "fontSize": 16,
               },
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "margin": 10,
                 },
                 Object {
-                  "fontSize": 16,
+                  "color": "#ffffff",
                 },
-                Array [
-                  Object {
-                    "margin": 10,
-                  },
-                  Object {
-                    "color": "#ffffff",
-                  },
-                ],
               ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        
+      </Text>
     </View>
   </View>
   <View

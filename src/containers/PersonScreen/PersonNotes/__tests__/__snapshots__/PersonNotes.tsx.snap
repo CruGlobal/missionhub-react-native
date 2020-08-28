@@ -117,59 +117,40 @@ exports[`contact notes icon and prompt are shown if no notes 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                undefined,
-              ],
-            ]
-          }
-        >
-          ADD PRIVATE NOTES
-        </Text>
-      </View>
+        ADD PRIVATE NOTES
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -292,59 +273,40 @@ exports[`contact notes icon and prompt are shown if no notes as me 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                undefined,
-              ],
-            ]
-          }
-        >
-          ADD PRIVATE NOTES
-        </Text>
-      </View>
+        ADD PRIVATE NOTES
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -421,59 +383,40 @@ exports[`contact notes notes are shown 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#3CC8E6",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "lineHeight": 18,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-                "textTransform": "uppercase",
-              },
-              Array [
-                undefined,
-              ],
-            ]
-          }
-        >
-          EDIT PRIVATE NOTES
-        </Text>
-      </View>
+        EDIT PRIVATE NOTES
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -546,16 +489,15 @@ exports[`contact notes press bottom button saves and switches to not editing sta
     <RCTSafeAreaView
       emulateUnlessSupported={true}
       style={
-@@ -141,11 +116,11 @@
-                  undefined,
-                ],
-              ]
-            }
-          >
--           DONE
-+           EDIT PRIVATE NOTES
-          </Text>
-        </View>
+@@ -123,10 +98,10 @@
+                undefined,
+              ],
+            ]
+          }
+        >
+-         DONE
++         EDIT PRIVATE NOTES
+        </Text>
       </View>
     </RCTSafeAreaView>
   </View>"
@@ -628,16 +570,15 @@ exports[`contact notes press bottom button switches to editing state 1`] = `
     <RCTSafeAreaView
       emulateUnlessSupported={true}
       style={
-@@ -116,11 +141,11 @@
-                  undefined,
-                ],
-              ]
-            }
-          >
--           EDIT PRIVATE NOTES
-+           DONE
-          </Text>
-        </View>
+@@ -98,10 +123,10 @@
+                undefined,
+              ],
+            ]
+          }
+        >
+-         EDIT PRIVATE NOTES
++         DONE
+        </Text>
       </View>
     </RCTSafeAreaView>
   </View>"
@@ -719,16 +660,15 @@ exports[`contact notes press bottom button switches to editing state on android 
     <RCTSafeAreaView
       emulateUnlessSupported={true}
       style={
-@@ -118,11 +141,11 @@
-                  undefined,
-                ],
-              ]
-            }
-          >
--           EDIT PRIVATE NOTES
-+           DONE
-          </Text>
-        </View>
+@@ -100,10 +123,10 @@
+                undefined,
+              ],
+            ]
+          }
+        >
+-         EDIT PRIVATE NOTES
++         DONE
+        </Text>
       </View>
     </RCTSafeAreaView>
   </View>"

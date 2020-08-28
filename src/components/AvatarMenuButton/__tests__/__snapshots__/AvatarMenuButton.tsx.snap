@@ -13,7 +13,16 @@ exports[`renders correctly 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "borderRadius": 0,
+      "borderWidth": 0,
+      "height": 60,
+      "justifyContent": "center",
+      "margin": 0,
       "opacity": 1,
+      "paddingHorizontal": 20,
+      "paddingVertical": 10,
     }
   }
   testID="menuButton"
@@ -23,58 +32,37 @@ exports[`renders correctly 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
           "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
         },
-        null,
-        Object {},
-        null,
+        Array [
+          Object {
+            "borderRadius": 20,
+            "height": 42,
+            "width": 42,
+          },
+          Object {
+            "backgroundColor": "#B4B6BA",
+          },
+          undefined,
+        ],
       ]
     }
   >
-    <View
+    <Text
       style={
         Array [
           Object {
-            "alignItems": "center",
-            "justifyContent": "center",
+            "color": "#ffffff",
           },
-          Array [
-            Object {
-              "borderRadius": 20,
-              "height": 42,
-              "width": 42,
-            },
-            Object {
-              "backgroundColor": "#B4B6BA",
-            },
-            undefined,
-          ],
+          Object {
+            "fontSize": 26,
+            "fontWeight": "300",
+          },
         ]
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#ffffff",
-            },
-            Object {
-              "fontSize": 26,
-              "fontWeight": "300",
-            },
-          ]
-        }
-      >
-        
-      </Text>
-    </View>
+      
+    </Text>
   </View>
 </View>
 `;
