@@ -111,24 +111,26 @@ function PostTypeIcon({ type, size, color, style }: PostTypeIconProps) {
   }
 }
 
-interface PostTypeLabelProps {
-  type: FeedItemSubjectTypeEnum;
-  onPress?: (event: GestureResponderEvent) => void;
-  showText?: boolean;
-  size?: PostLabelSizeEnum;
-  communityName?: string;
-}
+type PostTypeLabelProps =
+  | {
+      type: FeedItemSubjectTypeEnum;
+      onPress?: (event: GestureResponderEvent) => void;
+      size?: Exclude<PostLabelSizeEnum, PostLabelSizeEnum.extraLarge>;
+      showText?: boolean;
+    }
+  | {
+      type: FeedItemSubjectTypeEnum;
+      size: PostLabelSizeEnum.extraLarge;
+      communityName: string;
+      isGlobal: boolean;
+    };
 
-const PostTypeLabel = ({
-  type,
-  onPress,
-  size = PostLabelSizeEnum.normal,
-  showText = true,
-  communityName,
-}: PostTypeLabelProps) => {
+const PostTypeLabel = (props: PostTypeLabelProps) => {
   const { t } = useTranslation('postTypes');
 
-  if (size === PostLabelSizeEnum.extraLarge) {
+  if (props.size === PostLabelSizeEnum.extraLarge) {
+    const { type, size, communityName, isGlobal } = props;
+
     return (
       <SafeAreaView style={[PostTypeBgStyle[type]]}>
         <Card style={[styles.headerCard, PostTypeBgStyle[type]]}>
@@ -141,12 +143,22 @@ const PostTypeLabel = ({
           <View style={styles.headerContainer}>
             <PostTypeIcon type={type} size={size} style={styles.headerIcon} />
             <Text style={styles.headerText}>{t(`header.${type}`)}</Text>
-            <Text style={styles.subheaderText}>{t(`subheader.${type}`)}</Text>
+            <Text style={styles.subheaderText}>
+              {t(`${isGlobal ? 'globalSubheader' : 'subheader'}.${type}`)}
+            </Text>
           </View>
         </Card>
       </SafeAreaView>
     );
   }
+
+  const {
+    type,
+    onPress,
+    size = PostLabelSizeEnum.normal,
+    showText = true,
+  } = props;
+
   if (onPress) {
     return (
       <Button
