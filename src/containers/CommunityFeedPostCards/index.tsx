@@ -30,7 +30,10 @@ import {
   MarkCommunityFeedItemsReadVariables,
   MarkCommunityFeedItemsRead,
 } from './__generated__/MarkCommunityFeedItemsRead';
-import { GetGlobalCommunityPostCards } from './__generated__/GetGlobalCommunityPostCards';
+import {
+  GetGlobalCommunityPostCards,
+  GetGlobalCommunityPostCards_globalCommunity_feedItems_nodes,
+} from './__generated__/GetGlobalCommunityPostCards';
 
 interface CommunityFeedPostCardsProps {
   communityId: string;
@@ -49,6 +52,12 @@ type LimitedPostCardTypes =
   | FeedItemSubjectTypeEnum.QUESTION
   | FeedItemSubjectTypeEnum.STORY
   | FeedItemSubjectTypeEnum.HELP_REQUEST
+  | FeedItemSubjectTypeEnum.ANNOUNCEMENT;
+
+type LimitedGlobalPostCardTypes =
+  | FeedItemSubjectTypeEnum.PRAYER_REQUEST
+  | FeedItemSubjectTypeEnum.STEP
+  | FeedItemSubjectTypeEnum.STORY
   | FeedItemSubjectTypeEnum.ANNOUNCEMENT;
 
 const getGroupPostCards = (
@@ -86,6 +95,35 @@ const getGroupPostCards = (
   return groups;
 };
 
+const getGlobalGroupPostCards = (
+  nodes: GetGlobalCommunityPostCards_globalCommunity_feedItems_nodes[],
+) => {
+  const groups: {
+    [key in LimitedGlobalPostCardTypes]: GetGlobalCommunityPostCards_globalCommunity_feedItems_nodes[];
+  } = {
+    [FeedItemSubjectTypeEnum.PRAYER_REQUEST]: [],
+    [FeedItemSubjectTypeEnum.STEP]: [],
+    [FeedItemSubjectTypeEnum.STORY]: [],
+    [FeedItemSubjectTypeEnum.ANNOUNCEMENT]: [],
+  };
+  nodes.forEach(i => {
+    const subject = i.subject;
+    if (subject.__typename === 'Step') {
+      groups[FeedItemSubjectTypeEnum.STEP].push(i);
+    } else if (subject.__typename === 'Post') {
+      const feedType = mapPostTypeToFeedType(subject.postType);
+      if (
+        feedType === FeedItemSubjectTypeEnum.PRAYER_REQUEST ||
+        feedType === FeedItemSubjectTypeEnum.STORY ||
+        feedType === FeedItemSubjectTypeEnum.ANNOUNCEMENT
+      ) {
+        groups[feedType].push(i);
+      }
+    }
+  });
+  return groups;
+};
+
 export const CommunityFeedPostCards = ({
   communityId,
   feedRefetch,
@@ -104,6 +142,9 @@ export const CommunityFeedPostCards = ({
   );
   console.log(globalData);
   const groups = getGroupPostCards(data?.community.feedItems.nodes || []);
+  const globalGroups = getGlobalGroupPostCards(
+    globalData?.globalCommunity.feedItems.nodes || [],
+  );
 
   const [markCommunityFeedItemsAsRead] = useMutation<
     MarkCommunityFeedItemsRead,
@@ -136,7 +177,7 @@ export const CommunityFeedPostCards = ({
         testID={`PostCard_${type}`}
         type={type}
         onPress={() => navToFeedType(type)}
-        items={globalData?.globalCommunity.feedItems.nodes}
+        items={globalGroups[type]}
       />
     ) : (
       <PostTypeCardWithPeople
