@@ -7,7 +7,6 @@ import {
   ANALYTICS_GR_MASTER_PERSON_ID,
 } from '../constants';
 import { updateAnalyticsContext } from '../actions/analytics';
-import { store } from '../store';
 
 import { AUTH_PERSON } from './queries';
 import {
@@ -32,7 +31,9 @@ export const loadAuthPerson = async (fetchPolicy: FetchPolicy) => {
   const { person } = data.currentUser;
   const { globalRegistryMdmId, theKeyUid, fbUid } = person;
 
-  store.dispatch(
+  // Prevents circular dependency from breaking tests
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  require('../store').store.dispatch(
     updateAnalyticsContext({
       [ANALYTICS_GR_MASTER_PERSON_ID]: globalRegistryMdmId ?? undefined,
       [ANALYTICS_SSO_GUID]: theKeyUid ?? undefined,

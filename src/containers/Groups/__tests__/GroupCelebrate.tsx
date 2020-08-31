@@ -23,7 +23,6 @@ jest.mock('../../CommunityFeed', () => ({
 
 MockDate.set('2017-06-18');
 
-const myId = '123';
 const orgId = '1';
 const org: Organization = {
   id: orgId,
@@ -31,7 +30,6 @@ const org: Organization = {
 
 const initialState = {
   organizations: { all: [org] },
-  auth: { person: { id: myId } },
 };
 
 beforeEach(() => {

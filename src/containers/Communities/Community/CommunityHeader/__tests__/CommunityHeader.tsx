@@ -20,19 +20,15 @@ jest.mock('../../../../../actions/navigation');
 
 const communityId = '1';
 
-const initialState = { auth: { person: { id: '2' } } };
-
 describe('CommunityHeader', () => {
   it('should render loading state', () => {
     renderWithContext(<CommunityHeader />, {
-      initialState,
       navParams: { communityId },
     }).snapshot();
   });
 
   it('should render global community loading', () => {
     renderWithContext(<CommunityHeader />, {
-      initialState,
       navParams: { communityId: GLOBAL_COMMUNITY_ID },
     }).snapshot();
   });
@@ -41,7 +37,6 @@ describe('CommunityHeader', () => {
     const { recordSnapshot, diffSnapshot } = renderWithContext(
       <CommunityHeader />,
       {
-        initialState,
         navParams: { communityId },
       },
     );
@@ -55,7 +50,6 @@ describe('CommunityHeader', () => {
     const { recordSnapshot, diffSnapshot } = renderWithContext(
       <CommunityHeader />,
       {
-        initialState,
         navParams: { communityId: GLOBAL_COMMUNITY_ID },
       },
     );
@@ -66,7 +60,6 @@ describe('CommunityHeader', () => {
   });
   it('should navigate to the community profile screen', () => {
     const { getByTestId } = renderWithContext(<CommunityHeader />, {
-      initialState,
       navParams: { communityId },
     });
 
@@ -77,7 +70,6 @@ describe('CommunityHeader', () => {
   });
   it('should navigate to the community members screen', () => {
     const { getByTestId } = renderWithContext(<CommunityHeader />, {
-      initialState,
       navParams: { communityId },
     });
 
@@ -88,7 +80,6 @@ describe('CommunityHeader', () => {
   });
   it('should not navigate to the community members screen for global community', () => {
     const { getByTestId } = renderWithContext(<CommunityHeader />, {
-      initialState,
       navParams: { communityId: GLOBAL_COMMUNITY_ID },
     });
 
@@ -98,7 +89,6 @@ describe('CommunityHeader', () => {
 
   it('should navigate back to main tabs', () => {
     const { getByTestId } = renderWithContext(<CommunityHeader />, {
-      initialState,
       navParams: { communityId },
     });
 

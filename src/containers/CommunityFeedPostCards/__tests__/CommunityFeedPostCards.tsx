@@ -23,13 +23,8 @@ jest.mock('../../../components/PostTypeLabel', () => ({
   PostTypeCardWithPeople: 'PostTypeCardWithPeople',
 }));
 
-const myId = '123';
 const communityId = '456';
 const mockFeedRefetch = jest.fn();
-
-const initialState = {
-  auth: { person: { id: myId } },
-};
 
 it('renders empty correctly', () => {
   renderWithContext(
@@ -38,7 +33,6 @@ it('renders empty correctly', () => {
       feedRefetch={mockFeedRefetch}
     />,
     {
-      initialState,
       mocks: { FeedItemConnection: () => ({ nodes: () => new MockList(0) }) },
     },
   ).snapshot();
@@ -51,7 +45,6 @@ it('renders with feed items correctly', async () => {
       feedRefetch={mockFeedRefetch}
     />,
     {
-      initialState,
       mocks: { FeedItemConnection: () => ({ nodes: () => new MockList(10) }) },
     },
   );
@@ -71,7 +64,6 @@ it('renders with global feed items correctly', async () => {
       feedRefetch={mockFeedRefetch}
     />,
     {
-      initialState,
       mocks: { FeedItemConnection: () => ({ nodes: () => new MockList(10) }) },
     },
   );
@@ -93,7 +85,6 @@ describe('navs to screens', () => {
         feedRefetch={mockFeedRefetch}
       />,
       {
-        initialState,
         mocks: {
           FeedItemConnection: () => ({ nodes: () => new MockList(1) }),
         },

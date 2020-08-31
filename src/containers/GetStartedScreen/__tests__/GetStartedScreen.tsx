@@ -12,7 +12,6 @@ jest.mock('../../../utils/hooks/useLogoutOnBack');
 jest.mock('../../../utils/hooks/useAnalytics');
 
 const initialState = {
-  auth: { person: { first_name: 'Roger' } },
   onboarding: { currentlyOnboarding: true },
 };
 const next = jest.fn();

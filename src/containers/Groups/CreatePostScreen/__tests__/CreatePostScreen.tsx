@@ -6,7 +6,6 @@ import { useMutation } from '@apollo/react-hooks';
 
 import {
   ACTIONS,
-  ORG_PERMISSIONS,
   SAVE_PENDING_POST,
   DELETE_PENDING_POST,
   PENDING_POST_RETRY,
@@ -39,12 +38,7 @@ jest.mock('../../../../actions/analytics');
 jest.mock('../../../../utils/hooks/useAnalytics');
 jest.mock('../../../../utils/hooks/useFeatureFlags');
 
-const myId = '5';
 const communityId = '1234';
-const orgPermission = {
-  organization_id: communityId,
-  permission_id: ORG_PERMISSIONS.OWNER,
-};
 const postType = PostTypeEnum.prayer_request;
 const post = mockFragment<CommunityFeedItem>(COMMUNITY_FEED_ITEM_FRAGMENT, {
   mocks: { FeedItem: () => ({ __typename: 'Post' }) },
@@ -57,7 +51,6 @@ const MOCK_VIDEO = 'file:/video.mov';
 const VIDEO_TYPE = 'video/mp4';
 
 const initialState = {
-  auth: { person: { id: myId, organizational_permissions: [orgPermission] } },
   communityPosts: { nextId: 0, pendingPosts: {} },
 };
 

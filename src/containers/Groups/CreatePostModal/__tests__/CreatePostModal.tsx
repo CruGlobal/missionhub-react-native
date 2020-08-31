@@ -27,9 +27,6 @@ const props = {
   adminOrOwner: false,
   onComplete,
 };
-const initialState = {
-  auth: { person: { id: '1' } },
-};
 
 const trackActionResults = { type: 'track action' };
 const navigatePushResults = { type: 'navigate push' };
@@ -41,9 +38,7 @@ beforeEach(() => {
 });
 
 it('renders correctly', async () => {
-  const { snapshot } = renderWithContext(<CreatePostModal {...props} />, {
-    initialState,
-  });
+  const { snapshot } = renderWithContext(<CreatePostModal {...props} />);
   await flushMicrotasksQueue();
   snapshot();
   expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
@@ -55,7 +50,6 @@ it('renders correctly for admin', async () => {
   (getAnalyticsPermissionType as jest.Mock).mockReturnValue('admin');
   const { snapshot } = renderWithContext(
     <CreatePostModal {...props} adminOrOwner={true} />,
-    { initialState },
   );
   await flushMicrotasksQueue();
   snapshot();
@@ -68,7 +62,6 @@ it('renders correctly for owner', async () => {
   (getAnalyticsPermissionType as jest.Mock).mockReturnValue('owner');
   const { snapshot } = renderWithContext(
     <CreatePostModal {...props} adminOrOwner={true} />,
-    { initialState },
   );
   await flushMicrotasksQueue();
   snapshot();
@@ -78,9 +71,7 @@ it('renders correctly for owner', async () => {
 });
 
 it('fires onPress and navigates | member', async () => {
-  const { getByTestId } = renderWithContext(<CreatePostModal {...props} />, {
-    initialState,
-  });
+  const { getByTestId } = renderWithContext(<CreatePostModal {...props} />);
   await flushMicrotasksQueue();
 
   fireEvent.press(getByTestId('STORYButton'));
@@ -102,7 +93,6 @@ it('fires onPress and navigates | owner', async () => {
   (getAnalyticsPermissionType as jest.Mock).mockReturnValue('owner');
   const { getByTestId } = renderWithContext(
     <CreatePostModal {...props} adminOrOwner={true} />,
-    { initialState },
   );
   await flushMicrotasksQueue();
 
@@ -122,9 +112,7 @@ it('fires onPress and navigates | owner', async () => {
 });
 
 it('closes modal when close button is pressed', async () => {
-  const { getByTestId } = renderWithContext(<CreatePostModal {...props} />, {
-    initialState,
-  });
+  const { getByTestId } = renderWithContext(<CreatePostModal {...props} />);
   await flushMicrotasksQueue();
 
   fireEvent.press(getByTestId('CloseButton'));

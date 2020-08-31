@@ -19,8 +19,12 @@ jest.mock('../../../../actions/navigation', () => ({
 }));
 jest.mock('../../../../utils/hooks/useAnalytics');
 jest.mock('../../../../selectors/people');
+jest.mock('../../../../auth/authStore', () => ({
+  isAuthenticated: () => true,
+}));
 
 const refreshItems = jest.fn();
+const myId = '1';
 const mockCommunityId = '1';
 const onComplete = jest.fn();
 const props = {
@@ -29,7 +33,6 @@ const props = {
   onComplete,
 };
 const initialState = {
-  auth: { person: { id: '1' } },
   people: { people: {} },
   drawer: { isOpen: false },
 };
@@ -37,6 +40,7 @@ const initialState = {
 it('renders correctly', async () => {
   const { snapshot } = renderWithContext(<CreatePostButton {...props} />, {
     initialState,
+    mocks: { User: () => ({ person: () => ({ id: myId }) }) },
   });
   await flushMicrotasksQueue();
   snapshot();
@@ -50,6 +54,7 @@ it('renders correctly for admin', async () => {
     initialState,
     mocks: {
       CommunityPermission: () => ({ permission: PermissionEnum.admin }),
+      User: () => ({ person: () => ({ id: myId }) }),
     },
   });
   await flushMicrotasksQueue();
@@ -63,6 +68,7 @@ it('renders correctly for owner', async () => {
     initialState,
     mocks: {
       CommunityPermission: () => ({ permission: PermissionEnum.owner }),
+      User: () => ({ person: () => ({ id: myId }) }),
     },
   });
   await flushMicrotasksQueue();

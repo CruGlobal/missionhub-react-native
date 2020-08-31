@@ -47,7 +47,6 @@ MockDate.set(mockDate);
 const navigatePushResult = { type: 'navigated' };
 
 const initialState = {
-  auth: { person: { id: myId } },
   swipe: { groupOnboarding: {} },
   communityPosts: { pendingPosts: {} },
 };

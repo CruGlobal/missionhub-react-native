@@ -26,7 +26,6 @@ jest.mock('../../../utils/common');
 jest.mock('react-native/Libraries/LogBox/LogBox');
 
 const myId = '1';
-const initialState = { auth: { person: { id: myId } } };
 const mocks = {
   User: () => ({
     person: () => ({
@@ -45,7 +44,6 @@ beforeEach(() => {
 
 it('renders empty correctly', async () => {
   const { snapshot } = renderWithContext(<PeopleScreen />, {
-    initialState,
     mocks: {
       ...mocks,
       PersonConnection: () => ({ nodes: () => [] }),
@@ -62,7 +60,6 @@ it('renders empty correctly', async () => {
 
 it('renders with people correctly', async () => {
   const { snapshot } = renderWithContext(<PeopleScreen />, {
-    initialState,
     mocks,
   });
 
@@ -76,7 +73,6 @@ it('renders with people correctly', async () => {
 
 it('should open main menu', () => {
   const { getByTestId } = renderWithContext(<PeopleScreen />, {
-    initialState,
     mocks,
   });
 
@@ -89,7 +85,6 @@ describe('handleAddContact', () => {
   describe('press header button', () => {
     it('should navigate to add person flow', () => {
       const { getByTestId } = renderWithContext(<PeopleScreen />, {
-        initialState,
         mocks,
       });
 
@@ -107,7 +102,6 @@ describe('handleAddContact', () => {
   describe('press bottom button', () => {
     it('should navigate to add person flow', () => {
       const { getByTestId } = renderWithContext(<PeopleScreen />, {
-        initialState,
         mocks: {
           ...mocks,
           PersonConnection: () => ({ nodes: () => [] }),

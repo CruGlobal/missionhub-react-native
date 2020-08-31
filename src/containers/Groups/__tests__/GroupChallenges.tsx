@@ -59,16 +59,6 @@ const org = {
 };
 
 const initialState = {
-  auth: {
-    person: {
-      organizational_permissions: [
-        {
-          organization_id: org.id,
-          permission_id: ORG_PERMISSIONS.ADMIN,
-        },
-      ],
-    },
-  },
   organizations: {
     all: [org],
   },
@@ -108,16 +98,6 @@ it('should render correctly for basic member', () => {
       navParams: { communityId: orgId },
       initialState: {
         ...initialState,
-        auth: {
-          person: {
-            organizational_permissions: [
-              {
-                organization_id: org.id,
-                permission_id: ORG_PERMISSIONS.USER,
-              },
-            ],
-          },
-        },
       },
     },
   ).snapshot();

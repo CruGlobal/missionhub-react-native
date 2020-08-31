@@ -14,14 +14,16 @@ import ImpactView from '..';
 
 jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../actions/impact');
+jest.mock('../../../auth/authStore', () => ({ isAuthenticated: () => true }));
 MockDate.set('2018-09-12 12:00:00 PM GMT+0');
 
 (getImpactSummary as jest.Mock).mockReturnValue({ type: 'getImpactSummary' });
 
 const communityId = '43';
 
+const myId = '1';
 const me = {
-  id: '1',
+  id: myId,
   type: 'person',
   first_name: 'ME',
   organizational_permissions: [
@@ -71,9 +73,6 @@ const org = {
 };
 
 const state = {
-  auth: {
-    person: me,
-  },
   impact: {
     summary: {
       [`${me.id}-`]: myImpact,
@@ -93,8 +92,13 @@ const state = {
 };
 
 describe('ImpactView', () => {
-  it('should refresh impact data', () => {
-    renderWithContext(<ImpactView personId={me.id} />, { initialState: state });
+  it('should refresh impact data', async () => {
+    renderWithContext(<ImpactView personId={me.id} />, {
+      initialState: state,
+      mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+    });
+
+    await flushMicrotasksQueue();
 
     expect(getImpactSummary).toHaveBeenCalledTimes(2);
     expect(useAnalytics).toHaveBeenCalledWith(['person', 'my impact'], {
@@ -104,8 +108,8 @@ describe('ImpactView', () => {
   });
 
   describe('ME person personal impact view', () => {
-    it('renders empty state', () => {
-      renderWithContext(<ImpactView personId={me.id} />, {
+    it('renders empty state', async () => {
+      const { snapshot } = renderWithContext(<ImpactView personId={me.id} />, {
         initialState: {
           ...state,
           impact: {
@@ -126,7 +130,12 @@ describe('ImpactView', () => {
             },
           },
         },
-      }).snapshot();
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+      });
+
+      await flushMicrotasksQueue();
+
+      snapshot();
 
       expect(useAnalytics).toHaveBeenCalledWith(['person', 'my impact'], {
         assignmentType: { personId: me.id, communityId: 'personal' },
@@ -134,8 +143,8 @@ describe('ImpactView', () => {
       });
     });
 
-    it('renders singular state', () => {
-      renderWithContext(<ImpactView personId={me.id} />, {
+    it('renders singular state', async () => {
+      const { snapshot } = renderWithContext(<ImpactView personId={me.id} />, {
         initialState: {
           ...state,
           impact: {
@@ -158,7 +167,12 @@ describe('ImpactView', () => {
             },
           },
         },
-      }).snapshot();
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+      });
+
+      await flushMicrotasksQueue();
+
+      snapshot();
 
       expect(useAnalytics).toHaveBeenCalledWith(['person', 'my impact'], {
         assignmentType: { personId: me.id, communityId: 'personal' },
@@ -166,10 +180,15 @@ describe('ImpactView', () => {
       });
     });
 
-    it('renders plural state', () => {
-      renderWithContext(<ImpactView personId={me.id} />, {
+    it('renders plural state', async () => {
+      const { snapshot } = renderWithContext(<ImpactView personId={me.id} />, {
         initialState: state,
-      }).snapshot();
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+      });
+
+      await flushMicrotasksQueue();
+
+      snapshot();
 
       expect(useAnalytics).toHaveBeenCalledWith(['person', 'my impact'], {
         assignmentType: { personId: me.id, communityId: 'personal' },
@@ -189,8 +208,8 @@ describe('ImpactView', () => {
       ],
     };
 
-    it('renders empty state', () => {
-      renderWithContext(
+    it('renders empty state', async () => {
+      const { snapshot } = renderWithContext(
         <ImpactView
           personId={meWithOrgPermission.id}
           communityId={communityId}
@@ -216,8 +235,13 @@ describe('ImpactView', () => {
               },
             },
           },
+          mocks: { User: () => ({ person: () => ({ id: myId }) }) },
         },
-      ).snapshot();
+      );
+
+      await flushMicrotasksQueue();
+
+      snapshot();
 
       expect(useAnalytics).toHaveBeenCalledWith(['person', 'my impact'], {
         assignmentType: {
@@ -228,8 +252,8 @@ describe('ImpactView', () => {
       });
     });
 
-    it('renders singular state', () => {
-      renderWithContext(
+    it('renders singular state', async () => {
+      const { snapshot } = renderWithContext(
         <ImpactView
           personId={meWithOrgPermission.id}
           communityId={communityId}
@@ -257,8 +281,13 @@ describe('ImpactView', () => {
               },
             },
           },
+          mocks: { User: () => ({ person: () => ({ id: myId }) }) },
         },
-      ).snapshot();
+      );
+
+      await flushMicrotasksQueue();
+
+      snapshot();
 
       expect(useAnalytics).toHaveBeenCalledWith(['person', 'my impact'], {
         assignmentType: {
@@ -269,16 +298,21 @@ describe('ImpactView', () => {
       });
     });
 
-    it('renders plural state', () => {
-      renderWithContext(
+    it('renders plural state', async () => {
+      const { snapshot } = renderWithContext(
         <ImpactView
           personId={meWithOrgPermission.id}
           communityId={communityId}
         />,
         {
           initialState: state,
+          mocks: { User: () => ({ person: () => ({ id: myId }) }) },
         },
-      ).snapshot();
+      );
+
+      await flushMicrotasksQueue();
+
+      snapshot();
 
       expect(useAnalytics).toHaveBeenCalledWith(['person', 'my impact'], {
         assignmentType: {
@@ -328,6 +362,7 @@ describe('ImpactView', () => {
               },
             },
           },
+          mocks: { User: () => ({ person: () => ({ id: myId }) }) },
         },
       );
 
@@ -373,6 +408,7 @@ describe('ImpactView', () => {
               },
             },
           },
+          mocks: { User: () => ({ person: () => ({ id: myId }) }) },
         },
       );
 
@@ -397,6 +433,7 @@ describe('ImpactView', () => {
         />,
         {
           initialState: state,
+          mocks: { User: () => ({ person: () => ({ id: myId }) }) },
         },
       );
 
@@ -415,29 +452,37 @@ describe('ImpactView', () => {
   });
 
   describe('user-created community impact', () => {
-    it('renders empty state', () => {
-      renderWithContext(<ImpactView communityId={communityId} />, {
-        initialState: {
-          ...state,
-          impact: {
-            ...state.impact,
-            summary: {
-              ...state.impact.summary,
-              [`-${communityId}`]: {
-                ...orgImpact,
-                steps_count: 0,
-                pathway_moved_count: 0,
-              },
-              '-': {
-                ...globalImpact,
-                steps_count: 0,
-                step_owners_count: 0,
-                pathway_moved_count: 0,
+    it('renders empty state', async () => {
+      const { snapshot } = renderWithContext(
+        <ImpactView communityId={communityId} />,
+        {
+          initialState: {
+            ...state,
+            impact: {
+              ...state.impact,
+              summary: {
+                ...state.impact.summary,
+                [`-${communityId}`]: {
+                  ...orgImpact,
+                  steps_count: 0,
+                  pathway_moved_count: 0,
+                },
+                '-': {
+                  ...globalImpact,
+                  steps_count: 0,
+                  step_owners_count: 0,
+                  pathway_moved_count: 0,
+                },
               },
             },
           },
+          mocks: { User: () => ({ person: () => ({ id: myId }) }) },
         },
-      }).snapshot();
+      );
+
+      await flushMicrotasksQueue();
+
+      snapshot();
 
       expect(useAnalytics).toHaveBeenCalledWith(['community', 'impact'], {
         assignmentType: undefined,
@@ -445,31 +490,39 @@ describe('ImpactView', () => {
       });
     });
 
-    it('renders singular state', () => {
-      renderWithContext(<ImpactView communityId={communityId} />, {
-        initialState: {
-          ...state,
-          impact: {
-            ...state.impact,
-            summary: {
-              ...state.impact.summary,
-              [`-${communityId}`]: {
-                ...orgImpact,
-                steps_count: 1,
-                receivers_count: 1,
-                pathway_moved_count: 1,
-              },
-              '-': {
-                ...globalImpact,
-                steps_count: 1,
-                receivers_count: 1,
-                step_owners_count: 1,
-                pathway_moved_count: 1,
+    it('renders singular state', async () => {
+      const { snapshot } = renderWithContext(
+        <ImpactView communityId={communityId} />,
+        {
+          initialState: {
+            ...state,
+            impact: {
+              ...state.impact,
+              summary: {
+                ...state.impact.summary,
+                [`-${communityId}`]: {
+                  ...orgImpact,
+                  steps_count: 1,
+                  receivers_count: 1,
+                  pathway_moved_count: 1,
+                },
+                '-': {
+                  ...globalImpact,
+                  steps_count: 1,
+                  receivers_count: 1,
+                  step_owners_count: 1,
+                  pathway_moved_count: 1,
+                },
               },
             },
           },
+          mocks: { User: () => ({ person: () => ({ id: myId }) }) },
         },
-      }).snapshot();
+      );
+
+      await flushMicrotasksQueue();
+
+      snapshot();
 
       expect(useAnalytics).toHaveBeenCalledWith(['community', 'impact'], {
         assignmentType: undefined,
@@ -477,10 +530,18 @@ describe('ImpactView', () => {
       });
     });
 
-    it('renders plural state', () => {
-      renderWithContext(<ImpactView communityId={communityId} />, {
-        initialState: state,
-      }).snapshot();
+    it('renders plural state', async () => {
+      const { snapshot } = renderWithContext(
+        <ImpactView communityId={communityId} />,
+        {
+          initialState: state,
+          mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+        },
+      );
+
+      await flushMicrotasksQueue();
+
+      snapshot();
 
       expect(useAnalytics).toHaveBeenCalledWith(['community', 'impact'], {
         assignmentType: undefined,
@@ -490,29 +551,37 @@ describe('ImpactView', () => {
   });
 
   describe('global community impact', () => {
-    it('renders empty state', () => {
-      renderWithContext(<ImpactView communityId={GLOBAL_COMMUNITY_ID} />, {
-        initialState: {
-          ...state,
-          impact: {
-            ...state.impact,
-            summary: {
-              ...state.impact.summary,
-              [`${me.id}-`]: {
-                ...myImpact,
-                steps_count: 0,
-                pathway_moved_count: 0,
-              },
-              '-': {
-                ...globalImpact,
-                steps_count: 0,
-                step_owners_count: 0,
-                pathway_moved_count: 0,
+    it('renders empty state', async () => {
+      const { snapshot } = renderWithContext(
+        <ImpactView communityId={GLOBAL_COMMUNITY_ID} />,
+        {
+          initialState: {
+            ...state,
+            impact: {
+              ...state.impact,
+              summary: {
+                ...state.impact.summary,
+                [`${me.id}-`]: {
+                  ...myImpact,
+                  steps_count: 0,
+                  pathway_moved_count: 0,
+                },
+                '-': {
+                  ...globalImpact,
+                  steps_count: 0,
+                  step_owners_count: 0,
+                  pathway_moved_count: 0,
+                },
               },
             },
           },
+          mocks: { User: () => ({ person: () => ({ id: myId }) }) },
         },
-      }).snapshot();
+      );
+
+      await flushMicrotasksQueue();
+
+      snapshot();
 
       expect(useAnalytics).toHaveBeenCalledWith(['community', 'impact'], {
         assignmentType: undefined,
@@ -520,31 +589,39 @@ describe('ImpactView', () => {
       });
     });
 
-    it('renders singular state', () => {
-      renderWithContext(<ImpactView communityId={GLOBAL_COMMUNITY_ID} />, {
-        initialState: {
-          ...state,
-          impact: {
-            ...state.impact,
-            summary: {
-              ...state.impact.summary,
-              [`${me.id}-`]: {
-                ...myImpact,
-                steps_count: 1,
-                receivers_count: 1,
-                pathway_moved_count: 1,
-              },
-              '-': {
-                ...globalImpact,
-                steps_count: 1,
-                receivers_count: 1,
-                step_owners_count: 1,
-                pathway_moved_count: 1,
+    it('renders singular state', async () => {
+      const { snapshot } = renderWithContext(
+        <ImpactView communityId={GLOBAL_COMMUNITY_ID} />,
+        {
+          initialState: {
+            ...state,
+            impact: {
+              ...state.impact,
+              summary: {
+                ...state.impact.summary,
+                [`${me.id}-`]: {
+                  ...myImpact,
+                  steps_count: 1,
+                  receivers_count: 1,
+                  pathway_moved_count: 1,
+                },
+                '-': {
+                  ...globalImpact,
+                  steps_count: 1,
+                  receivers_count: 1,
+                  step_owners_count: 1,
+                  pathway_moved_count: 1,
+                },
               },
             },
           },
+          mocks: { User: () => ({ person: () => ({ id: myId }) }) },
         },
-      }).snapshot();
+      );
+
+      await flushMicrotasksQueue();
+
+      snapshot();
 
       expect(useAnalytics).toHaveBeenCalledWith(['community', 'impact'], {
         assignmentType: undefined,
@@ -552,10 +629,18 @@ describe('ImpactView', () => {
       });
     });
 
-    it('renders plural state', () => {
-      renderWithContext(<ImpactView communityId={GLOBAL_COMMUNITY_ID} />, {
-        initialState: state,
-      }).snapshot();
+    it('renders plural state', async () => {
+      const { snapshot } = renderWithContext(
+        <ImpactView communityId={GLOBAL_COMMUNITY_ID} />,
+        {
+          initialState: state,
+          mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+        },
+      );
+
+      await flushMicrotasksQueue();
+
+      snapshot();
 
       expect(useAnalytics).toHaveBeenCalledWith(['community', 'impact'], {
         assignmentType: undefined,
