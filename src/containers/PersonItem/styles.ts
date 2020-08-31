@@ -25,7 +25,7 @@ export default StyleSheet.create({
   stage: {
     ...theme.textRegular12,
     paddingTop: 6,
-    color: theme.extraLightGrey,
+    color: theme.lightGrey,
   },
   addStage: {
     color: theme.secondaryColor,
