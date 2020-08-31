@@ -97,6 +97,8 @@ export const CommunityFeedItemContent = ({
   const aspectRatio = useAspectRatio(mediaData);
 
   const isGlobal = !community;
+  const communityId = community?.id;
+  const communityName = community?.name;
 
   const itemType = getFeedItemType(subject);
   const addToSteps =
@@ -124,7 +126,7 @@ export const CommunityFeedItemContent = ({
     await dispatch(reloadGroupChallengeFeed(communityId));
     dispatch(
       navigatePush(CHALLENGE_DETAIL_SCREEN, {
-        communityName: community?.name,
+        communityName,
         challengeId,
         orgId: communityId,
       }),
@@ -135,8 +137,8 @@ export const CommunityFeedItemContent = ({
     dispatch(
       navigatePush(COMMUNITY_FEED_WITH_TYPE_SCREEN, {
         type: itemType,
-        communityId: community?.id,
-        communityName: community?.name,
+        communityId,
+        communityName,
       }),
     );
   };
@@ -145,7 +147,7 @@ export const CommunityFeedItemContent = ({
     dispatch(
       navigatePush(ADD_POST_TO_STEPS_SCREEN, {
         feedItemId: feedItem.id,
-        communityId: community?.id,
+        communityId,
       }),
     );
 
@@ -279,7 +281,7 @@ export const CommunityFeedItemContent = ({
             <CommunityFeedItemName
               name={subjectPersonName}
               personId={subjectPerson?.id}
-              communityId={community?.id}
+              communityId={communityId}
               pressable={namePressable}
             />
           )}

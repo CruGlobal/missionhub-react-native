@@ -29,7 +29,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     marginBottom: 5,
   },
-  headerTitle: theme.textRegular14,
+  headerTitle: { ...theme.textRegular14, color: theme.white },
   headerIcon: {
     opacity: 0.4,
     position: 'absolute',
