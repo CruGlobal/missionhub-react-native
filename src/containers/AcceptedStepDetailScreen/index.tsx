@@ -81,10 +81,9 @@ const AcceptedStepDetailScreen = () => {
   const [deleteStep] = useMutation<DeleteStep, DeleteStepVariables>(
     DELETE_STEP_MUTATION,
     {
-      onCompleted: data => {
+      onCompleted: () => {
         dispatch(trackStepDeleted('Step Detail'));
-        data.deleteStep?.id &&
-          removeFromStepsList(data.deleteStep.id, personId);
+        step && removeFromStepsList(step.id, personId);
         step?.receiver && updatePersonGQL(step.receiver.id);
       },
     },
@@ -115,7 +114,6 @@ const AcceptedStepDetailScreen = () => {
 
   const handleRemoveStep = () => {
     step && deleteStep({ variables: { input: { id: step.id } } });
-    step && updatePersonGQL(step.receiver.id);
     dispatch(navigateBack());
   };
 
