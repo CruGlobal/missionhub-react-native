@@ -34,11 +34,13 @@ const CommunityFeedWithType = () => {
   const { t } = useTranslation();
   const communityId: string =
     useNavigationParam('communityId') || GLOBAL_COMMUNITY_ID;
-  const communityName: string =
-    useNavigationParam('communityName') || t('missionhubCommunity');
+  const navParamName: string | undefined = useNavigationParam('communityName');
   const type: FeedItemSubjectTypeEnum = useNavigationParam('type');
 
   const isGlobal = orgIsGlobal({ id: communityId });
+  const communityName = isGlobal
+    ? t('missionhubCommunity')
+    : navParamName || '';
 
   useAnalytics(['feed', 'card', getPostTypeAnalytics(type)], {
     permissionType: { communityId },
