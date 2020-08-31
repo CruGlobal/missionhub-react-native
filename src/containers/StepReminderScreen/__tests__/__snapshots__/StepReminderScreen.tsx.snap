@@ -69,59 +69,47 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
                       Object {
-                        "fontSize": 18,
+                        "color": "#B4B6BA",
                       },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                        },
-                      ],
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -138,18 +126,16 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Set a Reminder
@@ -192,20 +178,17 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
           Array [
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "color": "#B4B6BA",
             },
-            Array [
-              Object {
-                "fontSize": 12,
-                "lineHeight": 16,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "color": "#B4B6BA",
-              },
-            ],
           ]
         }
       >
@@ -223,30 +206,32 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#3CC8E6",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
+                    "borderBottomColor": "#B4B6BA",
+                    "borderBottomWidth": 1,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "paddingBottom": 6,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "borderBottomColor": "#B4B6BA",
-                      "borderBottomWidth": 1,
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                      "paddingBottom": 6,
-                      "textAlignVertical": "center",
-                    },
-                    Object {
-                      "color": "#007398",
-                    },
-                  ],
+                  Object {
+                    "color": "#007398",
+                  },
                 ],
               ]
             }
@@ -276,81 +261,58 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonDaily"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Daily
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Daily
+        </Text>
       </View>
       <View
         accessible={true}
@@ -364,81 +326,58 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonWeekly"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Weekly
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Weekly
+        </Text>
       </View>
       <View
         accessible={true}
@@ -452,81 +391,58 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonMonthly"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Monthly
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Monthly
+        </Text>
       </View>
     </View>
   </View>
@@ -552,63 +468,40 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
+          "opacity": 0.6,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
-              ],
-            ]
-          }
-        >
-          DONE
-        </Text>
-      </View>
+        DONE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -683,59 +576,47 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
                       Object {
-                        "fontSize": 18,
+                        "color": "#B4B6BA",
                       },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                        },
-                      ],
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -752,18 +633,16 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Set a Reminder
@@ -806,20 +685,17 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
           Array [
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "color": "#B4B6BA",
             },
-            Array [
-              Object {
-                "fontSize": 12,
-                "lineHeight": 16,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "color": "#B4B6BA",
-              },
-            ],
           ]
         }
       >
@@ -837,30 +713,32 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#3CC8E6",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
+                    "borderBottomColor": "#B4B6BA",
+                    "borderBottomWidth": 1,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "paddingBottom": 6,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "borderBottomColor": "#B4B6BA",
-                      "borderBottomWidth": 1,
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                      "paddingBottom": 6,
-                      "textAlignVertical": "center",
-                    },
-                    Object {
-                      "color": "#007398",
-                    },
-                  ],
+                  Object {
+                    "color": "#007398",
+                  },
                 ],
               ]
             }
@@ -890,81 +768,58 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonDaily"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Daily
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Daily
+        </Text>
       </View>
       <View
         accessible={true}
@@ -978,81 +833,58 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonWeekly"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Weekly
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Weekly
+        </Text>
       </View>
       <View
         accessible={true}
@@ -1066,81 +898,58 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonMonthly"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Monthly
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Monthly
+        </Text>
       </View>
     </View>
   </View>
@@ -1166,63 +975,40 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
-              ],
-            ]
-          }
-        >
-          DONE
-        </Text>
-      </View>
+        DONE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -1297,59 +1083,47 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
                       Object {
-                        "fontSize": 18,
+                        "color": "#B4B6BA",
                       },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                        },
-                      ],
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -1366,18 +1140,16 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Set a Reminder
@@ -1420,18 +1192,15 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
           Array [
             Object {
               "color": "#505256",
-            },
-            Object {
               "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
-            Array [
-              Object {
-                "fontSize": 12,
-                "lineHeight": 16,
-                "textAlignVertical": "center",
-              },
-              null,
-            ],
+            null,
           ]
         }
       >
@@ -1449,30 +1218,32 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#3CC8E6",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
+                    "borderBottomColor": "#B4B6BA",
+                    "borderBottomWidth": 1,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "paddingBottom": 6,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "borderBottomColor": "#B4B6BA",
-                      "borderBottomWidth": 1,
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                      "paddingBottom": 6,
-                      "textAlignVertical": "center",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -1502,79 +1273,57 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#3CC8E6",
+            "borderRadius": 35,
+            "borderWidth": 0,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonDaily"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#52C5DC",
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#ffffff",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#ffffff",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Daily
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Daily
+        </Text>
       </View>
       <View
         accessible={true}
@@ -1588,81 +1337,58 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonWeekly"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Weekly
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Weekly
+        </Text>
       </View>
       <View
         accessible={true}
@@ -1676,81 +1402,58 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonMonthly"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Monthly
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Monthly
+        </Text>
       </View>
     </View>
   </View>
@@ -1776,65 +1479,40 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
+          "opacity": 0.6,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            Object {
-              "opacity": 0.6,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
-              ],
-            ]
-          }
-        >
-          DONE
-        </Text>
-      </View>
+        DONE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -1909,59 +1587,47 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
                       Object {
-                        "fontSize": 18,
+                        "color": "#B4B6BA",
                       },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                        },
-                      ],
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -1978,18 +1644,16 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Set a Reminder
@@ -2032,20 +1696,17 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
           Array [
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "color": "#B4B6BA",
             },
-            Array [
-              Object {
-                "fontSize": 12,
-                "lineHeight": 16,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "color": "#B4B6BA",
-              },
-            ],
           ]
         }
       >
@@ -2063,30 +1724,32 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#3CC8E6",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
+                    "borderBottomColor": "#B4B6BA",
+                    "borderBottomWidth": 1,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "paddingBottom": 6,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "borderBottomColor": "#B4B6BA",
-                      "borderBottomWidth": 1,
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                      "paddingBottom": 6,
-                      "textAlignVertical": "center",
-                    },
-                    Object {
-                      "color": "#007398",
-                    },
-                  ],
+                  Object {
+                    "color": "#007398",
+                  },
                 ],
               ]
             }
@@ -2116,79 +1779,57 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#3CC8E6",
+            "borderRadius": 35,
+            "borderWidth": 0,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonDaily"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#52C5DC",
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#ffffff",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#ffffff",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Daily
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Daily
+        </Text>
       </View>
       <View
         accessible={true}
@@ -2202,81 +1843,58 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonWeekly"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Weekly
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Weekly
+        </Text>
       </View>
       <View
         accessible={true}
@@ -2290,81 +1908,58 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonMonthly"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Monthly
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Monthly
+        </Text>
       </View>
     </View>
   </View>
@@ -2390,63 +1985,40 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
-              ],
-            ]
-          }
-        >
-          DONE
-        </Text>
-      </View>
+        DONE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -2521,59 +2093,47 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
                       Object {
-                        "fontSize": 18,
+                        "color": "#B4B6BA",
                       },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                        },
-                      ],
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -2590,18 +2150,16 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Set a Reminder
@@ -2644,20 +2202,17 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
           Array [
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "color": "#B4B6BA",
             },
-            Array [
-              Object {
-                "fontSize": 12,
-                "lineHeight": 16,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "color": "#B4B6BA",
-              },
-            ],
           ]
         }
       >
@@ -2675,30 +2230,32 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#3CC8E6",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
+                    "borderBottomColor": "#B4B6BA",
+                    "borderBottomWidth": 1,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "paddingBottom": 6,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "borderBottomColor": "#B4B6BA",
-                      "borderBottomWidth": 1,
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                      "paddingBottom": 6,
-                      "textAlignVertical": "center",
-                    },
-                    Object {
-                      "color": "#007398",
-                    },
-                  ],
+                  Object {
+                    "color": "#007398",
+                  },
                 ],
               ]
             }
@@ -2728,79 +2285,57 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#3CC8E6",
+            "borderRadius": 35,
+            "borderWidth": 0,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonDaily"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#52C5DC",
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#ffffff",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#ffffff",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Daily
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Daily
+        </Text>
       </View>
       <View
         accessible={true}
@@ -2814,81 +2349,58 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonWeekly"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Weekly
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Weekly
+        </Text>
       </View>
       <View
         accessible={true}
@@ -2902,81 +2414,58 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonMonthly"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Monthly
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Monthly
+        </Text>
       </View>
     </View>
   </View>
@@ -3002,63 +2491,40 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
+          "opacity": 0.6,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
-              ],
-            ]
-          }
-        >
-          DONE
-        </Text>
-      </View>
+        DONE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -3133,59 +2599,47 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
                       Object {
-                        "fontSize": 18,
+                        "color": "#B4B6BA",
                       },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                        },
-                      ],
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -3202,18 +2656,16 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Set a Reminder
@@ -3256,20 +2708,17 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
           Array [
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "color": "#B4B6BA",
             },
-            Array [
-              Object {
-                "fontSize": 12,
-                "lineHeight": 16,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "color": "#B4B6BA",
-              },
-            ],
           ]
         }
       >
@@ -3287,30 +2736,32 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#3CC8E6",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
+                    "borderBottomColor": "#B4B6BA",
+                    "borderBottomWidth": 1,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "paddingBottom": 6,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "borderBottomColor": "#B4B6BA",
-                      "borderBottomWidth": 1,
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                      "paddingBottom": 6,
-                      "textAlignVertical": "center",
-                    },
-                    Object {
-                      "color": "#007398",
-                    },
-                  ],
+                  Object {
+                    "color": "#007398",
+                  },
                 ],
               ]
             }
@@ -3340,81 +2791,58 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonDaily"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Daily
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Daily
+        </Text>
       </View>
       <View
         accessible={true}
@@ -3428,81 +2856,58 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonWeekly"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Weekly
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Weekly
+        </Text>
       </View>
       <View
         accessible={true}
@@ -3516,81 +2921,58 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonMonthly"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Monthly
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Monthly
+        </Text>
       </View>
     </View>
   </View>
@@ -3616,63 +2998,40 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
+          "opacity": 0.6,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
-              ],
-            ]
-          }
-        >
-          DONE
-        </Text>
-      </View>
+        DONE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -3747,59 +3106,47 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
                       Object {
-                        "fontSize": 18,
+                        "color": "#B4B6BA",
                       },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                        },
-                      ],
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -3816,18 +3163,16 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Set a Reminder
@@ -3870,20 +3215,17 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
           Array [
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "color": "#B4B6BA",
             },
-            Array [
-              Object {
-                "fontSize": 12,
-                "lineHeight": 16,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "color": "#B4B6BA",
-              },
-            ],
           ]
         }
       >
@@ -3901,30 +3243,32 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#3CC8E6",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
+                    "borderBottomColor": "#B4B6BA",
+                    "borderBottomWidth": 1,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "paddingBottom": 6,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "borderBottomColor": "#B4B6BA",
-                      "borderBottomWidth": 1,
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                      "paddingBottom": 6,
-                      "textAlignVertical": "center",
-                    },
-                    Object {
-                      "color": "#007398",
-                    },
-                  ],
+                  Object {
+                    "color": "#007398",
+                  },
                 ],
               ]
             }
@@ -3954,81 +3298,58 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonDaily"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Daily
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Daily
+        </Text>
       </View>
       <View
         accessible={true}
@@ -4042,81 +3363,58 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonWeekly"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Weekly
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Weekly
+        </Text>
       </View>
       <View
         accessible={true}
@@ -4130,81 +3428,58 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonMonthly"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Monthly
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Monthly
+        </Text>
       </View>
     </View>
   </View>
@@ -4230,63 +3505,40 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
-              ],
-            ]
-          }
-        >
-          DONE
-        </Text>
-      </View>
+        DONE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -4361,59 +3613,47 @@ exports[`render no reminder in props renders correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
                       Object {
-                        "fontSize": 18,
+                        "color": "#B4B6BA",
                       },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                        },
-                      ],
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -4430,18 +3670,16 @@ exports[`render no reminder in props renders correctly 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Set a Reminder
@@ -4484,18 +3722,15 @@ exports[`render no reminder in props renders correctly 1`] = `
           Array [
             Object {
               "color": "#505256",
-            },
-            Object {
               "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
-            Array [
-              Object {
-                "fontSize": 12,
-                "lineHeight": 16,
-                "textAlignVertical": "center",
-              },
-              null,
-            ],
+            null,
           ]
         }
       >
@@ -4513,30 +3748,32 @@ exports[`render no reminder in props renders correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#3CC8E6",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
+                    "borderBottomColor": "#B4B6BA",
+                    "borderBottomWidth": 1,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "paddingBottom": 6,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "borderBottomColor": "#B4B6BA",
-                      "borderBottomWidth": 1,
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                      "paddingBottom": 6,
-                      "textAlignVertical": "center",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
+                  Object {
+                    "color": "#B4B6BA",
+                  },
                 ],
               ]
             }
@@ -4566,81 +3803,58 @@ exports[`render no reminder in props renders correctly 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonDaily"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Daily
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Daily
+        </Text>
       </View>
       <View
         accessible={true}
@@ -4654,81 +3868,58 @@ exports[`render no reminder in props renders correctly 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonWeekly"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Weekly
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Weekly
+        </Text>
       </View>
       <View
         accessible={true}
@@ -4742,81 +3933,58 @@ exports[`render no reminder in props renders correctly 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonMonthly"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Monthly
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Monthly
+        </Text>
       </View>
     </View>
   </View>
@@ -4842,65 +4010,40 @@ exports[`render no reminder in props renders correctly 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
+          "opacity": 0.6,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            Object {
-              "opacity": 0.6,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
-              ],
-            ]
-          }
-        >
-          DONE
-        </Text>
-      </View>
+        DONE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>
@@ -4975,59 +4118,47 @@ exports[`render reminder in props renders correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
                       Object {
-                        "fontSize": 18,
+                        "color": "#B4B6BA",
                       },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                        },
-                      ],
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -5044,18 +4175,16 @@ exports[`render reminder in props renders correctly 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Set a Reminder
@@ -5098,20 +4227,17 @@ exports[`render reminder in props renders correctly 1`] = `
           Array [
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "color": "#B4B6BA",
             },
-            Array [
-              Object {
-                "fontSize": 12,
-                "lineHeight": 16,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "color": "#B4B6BA",
-              },
-            ],
           ]
         }
       >
@@ -5129,30 +4255,32 @@ exports[`render reminder in props renders correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#3CC8E6",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Array [
                   Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
+                    "borderBottomColor": "#B4B6BA",
+                    "borderBottomWidth": 1,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                    "paddingBottom": 6,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
                   },
-                  Array [
-                    Object {
-                      "borderBottomColor": "#B4B6BA",
-                      "borderBottomWidth": 1,
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                      "paddingBottom": 6,
-                      "textAlignVertical": "center",
-                    },
-                    Object {
-                      "color": "#007398",
-                    },
-                  ],
+                  Object {
+                    "color": "#007398",
+                  },
                 ],
               ]
             }
@@ -5182,81 +4310,58 @@ exports[`render reminder in props renders correctly 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonDaily"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Daily
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Daily
+        </Text>
       </View>
       <View
         accessible={true}
@@ -5270,81 +4375,58 @@ exports[`render reminder in props renders correctly 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonWeekly"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Weekly
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Weekly
+        </Text>
       </View>
       <View
         accessible={true}
@@ -5358,81 +4440,58 @@ exports[`render reminder in props renders correctly 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 35,
+            "borderWidth": 1,
+            "height": 70,
+            "justifyContent": "center",
+            "margin": 8,
             "opacity": 1,
+            "paddingHorizontal": 0,
+            "paddingVertical": 0,
+            "width": 70,
           }
         }
         testID="ReminderRepeatButtonMonthly"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "borderRadius": 35,
-                  "height": 70,
-                  "margin": 8,
-                  "paddingHorizontal": 0,
-                  "paddingVertical": 0,
-                  "width": 70,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B4B6BA",
-                  "borderWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "color": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1,
-                      "lineHeight": 16,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Monthly
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          Monthly
+        </Text>
       </View>
     </View>
   </View>
@@ -5458,63 +4517,40 @@ exports[`render reminder in props renders correctly 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 650,
         }
       }
       testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
             Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
               undefined,
             ],
-            Object {
-              "borderRadius": 50,
-            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
-              ],
-            ]
-          }
-        >
-          DONE
-        </Text>
-      </View>
+        DONE
+      </Text>
     </View>
   </RCTSafeAreaView>
 </View>

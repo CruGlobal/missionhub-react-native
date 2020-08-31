@@ -5,11 +5,12 @@ import {
   ViewStyle,
   View,
   GestureResponderEvent,
+  Text,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import Button from '../Button';
-import { Text, Card } from '../common';
+import { Card } from '../common';
 import AnnouncementIcon from '../../../assets/images/announcementIcon.svg';
 import CareRequestIcon from '../../../assets/images/careRequestIcon.svg';
 import ChallengesIcon from '../../../assets/images/challengesIcon.svg';

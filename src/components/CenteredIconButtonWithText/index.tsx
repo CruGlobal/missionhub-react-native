@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
+import { StyleProp, ViewStyle, Text } from 'react-native';
 import { IconProps } from 'react-native-vector-icons/Icon';
 
-import { Flex, Text, IconButton } from '../common';
+import { Flex, IconButton } from '../common';
 
 import styles from './styles';
 

@@ -14,20 +14,22 @@ export default StyleSheet.create({
     paddingVertical: 50,
   },
   title: {
+    ...theme.textRegular16,
     color: theme.secondaryColor,
     fontSize: 32,
+    lineHeight: 32,
     textAlign: 'center',
     paddingBottom: 10,
   },
   text: {
+    ...theme.textRegular16,
     color: theme.white,
-    fontSize: 16,
     textAlign: 'center',
   },
   allowText: {
+    ...theme.textRegular16,
     flex: 1,
     color: theme.white,
-    fontSize: 16,
   },
   buttonWrap: {
     paddingTop: 20,
@@ -46,9 +48,8 @@ export default StyleSheet.create({
     borderColor: theme.secondaryColor,
   },
   buttonText: {
+    ...theme.textBold14,
     color: theme.white,
-    fontWeight: '500',
-    fontSize: 14,
     letterSpacing: 1.5,
   },
 });

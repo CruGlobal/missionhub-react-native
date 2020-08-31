@@ -8,18 +8,17 @@ export default StyleSheet.create({
     marginBottom: 38,
   },
   termsText: {
+    ...theme.textRegular12,
     color: theme.white,
-    fontSize: 12,
     textAlign: 'center',
     paddingHorizontal: 3,
   },
   termsTextLink: {
+    ...theme.textRegular12,
     color: theme.white,
-    fontSize: 12,
     textAlign: 'center',
     paddingHorizontal: 3,
     textDecorationLine: 'underline',
-    fontWeight: 'normal',
     letterSpacing: 0,
   },
 });

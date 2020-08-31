@@ -46,17 +46,9 @@ exports[`render assigned contact 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
+              "fontSize": 13,
             },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Array [
-              Object {
-                "fontSize": 13,
-              },
-              Object {},
-            ],
+            Object {},
           ]
         }
       >
@@ -66,18 +58,10 @@ exports[`render assigned contact 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
+              "fontSize": 13,
             },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Array [
-              Object {
-                "fontSize": 13,
-              },
-              Object {},
-              Object {},
-            ],
+            Object {},
+            Object {},
           ]
         }
       >
@@ -134,17 +118,9 @@ exports[`render unassigned contact 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
+              "fontSize": 13,
             },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Array [
-              Object {
-                "fontSize": 13,
-              },
-              Object {},
-            ],
+            Object {},
           ]
         }
       >
@@ -154,18 +130,10 @@ exports[`render unassigned contact 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
+              "fontSize": 13,
             },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Array [
-              Object {
-                "fontSize": 13,
-              },
-              Object {},
-              Object {},
-            ],
+            Object {},
+            Object {},
           ]
         }
       >
@@ -174,18 +142,10 @@ exports[`render unassigned contact 1`] = `
     </View>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#FF5532",
-            "fontSize": 13,
-          },
-        ]
+        Object {
+          "color": "#FF5532",
+          "fontSize": 13,
+        }
       }
     >
       Unassigned
@@ -228,17 +188,9 @@ exports[`render without last name 1`] = `
       style={
         Array [
           Object {
-            "color": "#505256",
+            "fontSize": 13,
           },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "fontSize": 13,
-            },
-            Object {},
-          ],
+          Object {},
         ]
       }
     >
@@ -282,17 +234,9 @@ exports[`render without touchable 1`] = `
       style={
         Array [
           Object {
-            "color": "#505256",
+            "fontSize": 13,
           },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "fontSize": 13,
-            },
-            Object {},
-          ],
+          Object {},
         ]
       }
     >
@@ -302,18 +246,10 @@ exports[`render without touchable 1`] = `
       style={
         Array [
           Object {
-            "color": "#505256",
+            "fontSize": 13,
           },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "fontSize": 13,
-            },
-            Object {},
-            Object {},
-          ],
+          Object {},
+          Object {},
         ]
       }
     >
@@ -322,18 +258,10 @@ exports[`render without touchable 1`] = `
   </View>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#FF5532",
-          "fontSize": 13,
-        },
-      ]
+      Object {
+        "color": "#FF5532",
+        "fontSize": 13,
+      }
     }
   >
     Unassigned

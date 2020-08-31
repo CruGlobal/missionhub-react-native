@@ -13,7 +13,18 @@ exports[`Different Categories renders correctly | coworker 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "center",
+      "backgroundColor": "#005A7F",
+      "borderRadius": 50,
+      "borderWidth": 0,
+      "height": 72,
+      "justifyContent": "center",
+      "margin": 0,
+      "marginVertical": 4,
       "opacity": 1,
+      "paddingHorizontal": 20,
+      "paddingVertical": 10,
+      "width": 650,
     }
   }
   testID="coworkerButton"
@@ -22,73 +33,37 @@ exports[`Different Categories renders correctly | coworker 1`] = `
     style={
       Array [
         Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
+          "paddingHorizontal": 10,
+          "width": "100%",
         },
-        null,
-        Array [
-          Object {
-            "backgroundColor": "#005A7F",
-            "height": 72,
-            "marginVertical": 4,
-            "width": 650,
-          },
-          null,
-        ],
         Object {
-          "borderRadius": 50,
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
         },
       ]
     }
   >
-    <View
+    <Text
       style={
-        Array [
-          Object {
-            "paddingHorizontal": 10,
-            "width": "100%",
-          },
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "flexDirection": "row",
-            "justifyContent": "space-between",
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Light",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-            },
-          ]
-        }
-      >
-        Coworker
-      </Text>
-      <SvgMock
-        color="#3CC8E6"
-      />
-    </View>
+      Coworker
+    </Text>
+    <SvgMock
+      color="#3CC8E6"
+    />
   </View>
 </View>
 `;
@@ -106,7 +81,18 @@ exports[`Different Categories renders correctly | family 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "center",
+      "backgroundColor": "#005A7F",
+      "borderRadius": 50,
+      "borderWidth": 0,
+      "height": 72,
+      "justifyContent": "center",
+      "margin": 0,
+      "marginVertical": 4,
       "opacity": 1,
+      "paddingHorizontal": 20,
+      "paddingVertical": 10,
+      "width": 650,
     }
   }
   testID="familyButton"
@@ -115,73 +101,37 @@ exports[`Different Categories renders correctly | family 1`] = `
     style={
       Array [
         Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
+          "paddingHorizontal": 10,
+          "width": "100%",
         },
-        null,
-        Array [
-          Object {
-            "backgroundColor": "#005A7F",
-            "height": 72,
-            "marginVertical": 4,
-            "width": 650,
-          },
-          null,
-        ],
         Object {
-          "borderRadius": 50,
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
         },
       ]
     }
   >
-    <View
+    <Text
       style={
-        Array [
-          Object {
-            "paddingHorizontal": 10,
-            "width": "100%",
-          },
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "flexDirection": "row",
-            "justifyContent": "space-between",
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Light",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-            },
-          ]
-        }
-      >
-        Family
-      </Text>
-      <SvgMock
-        color="#3CC8E6"
-      />
-    </View>
+      Family
+    </Text>
+    <SvgMock
+      color="#3CC8E6"
+    />
   </View>
 </View>
 `;
@@ -199,7 +149,18 @@ exports[`Different Categories renders correctly | friend 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "center",
+      "backgroundColor": "#005A7F",
+      "borderRadius": 50,
+      "borderWidth": 0,
+      "height": 72,
+      "justifyContent": "center",
+      "margin": 0,
+      "marginVertical": 4,
       "opacity": 1,
+      "paddingHorizontal": 20,
+      "paddingVertical": 10,
+      "width": 650,
     }
   }
   testID="friendButton"
@@ -208,73 +169,37 @@ exports[`Different Categories renders correctly | friend 1`] = `
     style={
       Array [
         Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
+          "paddingHorizontal": 10,
+          "width": "100%",
         },
-        null,
-        Array [
-          Object {
-            "backgroundColor": "#005A7F",
-            "height": 72,
-            "marginVertical": 4,
-            "width": 650,
-          },
-          null,
-        ],
         Object {
-          "borderRadius": 50,
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
         },
       ]
     }
   >
-    <View
+    <Text
       style={
-        Array [
-          Object {
-            "paddingHorizontal": 10,
-            "width": "100%",
-          },
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "flexDirection": "row",
-            "justifyContent": "space-between",
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Light",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-            },
-          ]
-        }
-      >
-        Friend
-      </Text>
-      <SvgMock
-        color="#3CC8E6"
-      />
-    </View>
+      Friend
+    </Text>
+    <SvgMock
+      color="#3CC8E6"
+    />
   </View>
 </View>
 `;
@@ -292,7 +217,18 @@ exports[`Different Categories renders correctly | neighbor 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "center",
+      "backgroundColor": "#005A7F",
+      "borderRadius": 50,
+      "borderWidth": 0,
+      "height": 72,
+      "justifyContent": "center",
+      "margin": 0,
+      "marginVertical": 4,
       "opacity": 1,
+      "paddingHorizontal": 20,
+      "paddingVertical": 10,
+      "width": 650,
     }
   }
   testID="neighborButton"
@@ -301,73 +237,37 @@ exports[`Different Categories renders correctly | neighbor 1`] = `
     style={
       Array [
         Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
+          "paddingHorizontal": 10,
+          "width": "100%",
         },
-        null,
-        Array [
-          Object {
-            "backgroundColor": "#005A7F",
-            "height": 72,
-            "marginVertical": 4,
-            "width": 650,
-          },
-          null,
-        ],
         Object {
-          "borderRadius": 50,
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
         },
       ]
     }
   >
-    <View
+    <Text
       style={
-        Array [
-          Object {
-            "paddingHorizontal": 10,
-            "width": "100%",
-          },
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "flexDirection": "row",
-            "justifyContent": "space-between",
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Light",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-            },
-          ]
-        }
-      >
-        Neighbor
-      </Text>
-      <SvgMock
-        color="#3CC8E6"
-      />
-    </View>
+      Neighbor
+    </Text>
+    <SvgMock
+      color="#3CC8E6"
+    />
   </View>
 </View>
 `;
@@ -385,7 +285,18 @@ exports[`Different Categories renders correctly | other 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "center",
+      "backgroundColor": "#005A7F",
+      "borderRadius": 50,
+      "borderWidth": 0,
+      "height": 72,
+      "justifyContent": "center",
+      "margin": 0,
+      "marginVertical": 4,
       "opacity": 1,
+      "paddingHorizontal": 20,
+      "paddingVertical": 10,
+      "width": 650,
     }
   }
   testID="otherButton"
@@ -394,73 +305,37 @@ exports[`Different Categories renders correctly | other 1`] = `
     style={
       Array [
         Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
+          "paddingHorizontal": 10,
+          "width": "100%",
         },
-        null,
-        Array [
-          Object {
-            "backgroundColor": "#005A7F",
-            "height": 72,
-            "marginVertical": 4,
-            "width": 650,
-          },
-          null,
-        ],
         Object {
-          "borderRadius": 50,
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
         },
       ]
     }
   >
-    <View
+    <Text
       style={
-        Array [
-          Object {
-            "paddingHorizontal": 10,
-            "width": "100%",
-          },
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "flexDirection": "row",
-            "justifyContent": "space-between",
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Light",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-            },
-          ]
-        }
-      >
-        Other
-      </Text>
-      <SvgMock
-        color="#3CC8E6"
-      />
-    </View>
+      Other
+    </Text>
+    <SvgMock
+      color="#3CC8E6"
+    />
   </View>
 </View>
 `;
@@ -478,7 +353,18 @@ exports[`onPress fires onPress when clicked 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "center",
+      "backgroundColor": "#005A7F",
+      "borderRadius": 50,
+      "borderWidth": 0,
+      "height": 72,
+      "justifyContent": "center",
+      "margin": 0,
+      "marginVertical": 4,
       "opacity": 1,
+      "paddingHorizontal": 20,
+      "paddingVertical": 10,
+      "width": 650,
     }
   }
   testID="friendButton"
@@ -487,73 +373,37 @@ exports[`onPress fires onPress when clicked 1`] = `
     style={
       Array [
         Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
+          "paddingHorizontal": 10,
+          "width": "100%",
         },
-        null,
-        Array [
-          Object {
-            "backgroundColor": "#005A7F",
-            "height": 72,
-            "marginVertical": 4,
-            "width": 650,
-          },
-          null,
-        ],
         Object {
-          "borderRadius": 50,
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
         },
       ]
     }
   >
-    <View
+    <Text
       style={
-        Array [
-          Object {
-            "paddingHorizontal": 10,
-            "width": "100%",
-          },
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "flexDirection": "row",
-            "justifyContent": "space-between",
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Light",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-            },
-          ]
-        }
-      >
-        Friend
-      </Text>
-      <SvgMock
-        color="#3CC8E6"
-      />
-    </View>
+      Friend
+    </Text>
+    <SvgMock
+      color="#3CC8E6"
+    />
   </View>
 </View>
 `;
@@ -571,7 +421,18 @@ exports[`render correctly | active 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "center",
+      "backgroundColor": "#3CC8E6",
+      "borderRadius": 50,
+      "borderWidth": 0,
+      "height": 72,
+      "justifyContent": "center",
+      "margin": 0,
+      "marginVertical": 4,
       "opacity": 1,
+      "paddingHorizontal": 20,
+      "paddingVertical": 10,
+      "width": 650,
     }
   }
   testID="familyButton"
@@ -580,75 +441,37 @@ exports[`render correctly | active 1`] = `
     style={
       Array [
         Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
+          "paddingHorizontal": 10,
+          "width": "100%",
         },
-        null,
-        Array [
-          Object {
-            "backgroundColor": "#005A7F",
-            "height": 72,
-            "marginVertical": 4,
-            "width": 650,
-          },
-          Object {
-            "backgroundColor": "#3CC8E6",
-          },
-        ],
         Object {
-          "borderRadius": 50,
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
         },
       ]
     }
   >
-    <View
+    <Text
       style={
-        Array [
-          Object {
-            "paddingHorizontal": 10,
-            "width": "100%",
-          },
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "flexDirection": "row",
-            "justifyContent": "space-between",
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Light",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-            },
-          ]
-        }
-      >
-        Family
-      </Text>
-      <SvgMock
-        color="#ffffff"
-      />
-    </View>
+      Family
+    </Text>
+    <SvgMock
+      color="#ffffff"
+    />
   </View>
 </View>
 `;
@@ -666,7 +489,18 @@ exports[`render correctly | non-active 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "center",
+      "backgroundColor": "#005A7F",
+      "borderRadius": 50,
+      "borderWidth": 0,
+      "height": 72,
+      "justifyContent": "center",
+      "margin": 0,
+      "marginVertical": 4,
       "opacity": 1,
+      "paddingHorizontal": 20,
+      "paddingVertical": 10,
+      "width": 650,
     }
   }
   testID="friendButton"
@@ -675,73 +509,37 @@ exports[`render correctly | non-active 1`] = `
     style={
       Array [
         Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
+          "paddingHorizontal": 10,
+          "width": "100%",
         },
-        null,
-        Array [
-          Object {
-            "backgroundColor": "#005A7F",
-            "height": 72,
-            "marginVertical": 4,
-            "width": 650,
-          },
-          null,
-        ],
         Object {
-          "borderRadius": 50,
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
         },
       ]
     }
   >
-    <View
+    <Text
       style={
-        Array [
-          Object {
-            "paddingHorizontal": 10,
-            "width": "100%",
-          },
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "flexDirection": "row",
-            "justifyContent": "space-between",
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Light",
+          "fontSize": 24,
+          "fontStyle": "normal",
+          "fontWeight": "300",
+          "lineHeight": 30,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-            },
-          ]
-        }
-      >
-        Friend
-      </Text>
-      <SvgMock
-        color="#3CC8E6"
-      />
-    </View>
+      Friend
+    </Text>
+    <SvgMock
+      color="#3CC8E6"
+    />
   </View>
 </View>
 `;

@@ -23,16 +23,12 @@ export default StyleSheet.create({
     flexDirection: 'row',
   },
   stage: {
+    ...theme.textRegular12,
     paddingTop: 6,
-    fontSize: 12,
-    lineHeight: 14,
-    color: theme.inactiveColor,
+    color: theme.lightGrey,
   },
   addStage: {
     color: theme.secondaryColor,
-  },
-  uncontacted: {
-    color: theme.red,
   },
   stageIconWrapper: {
     height: 70,
@@ -64,8 +60,8 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   badgeText: {
+    ...theme.textBold14,
     fontSize: 13,
-    fontWeight: 'bold',
     color: theme.white,
   },
   stepPlusIcon: {

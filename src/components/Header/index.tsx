@@ -5,9 +5,10 @@ import {
   StyleProp,
   View,
   SafeAreaView,
+  Text,
 } from 'react-native';
 
-import { Flex, Text } from '../common';
+import { Flex } from '../common';
 
 import styles from './styles';
 

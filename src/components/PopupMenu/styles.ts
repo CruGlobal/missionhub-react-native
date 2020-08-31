@@ -10,6 +10,6 @@ export default StyleSheet.create({
   icon: {
     margin: 0,
     paddingHorizontal: 10,
-    color: theme.grey1,
+    color: theme.lightGrey,
   },
 });

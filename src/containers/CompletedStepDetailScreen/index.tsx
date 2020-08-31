@@ -1,10 +1,9 @@
 import React from 'react';
-import { Image, View } from 'react-native';
+import { Image, View, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
 
-import { Text } from '../../components/common';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Linking } from 'react-native';
+import { Linking, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { Button, Flex, Text } from '../common';
+import { Button, Flex } from '../common';
 import { LINKS } from '../../constants';
 import { FlexProps } from '../Flex';
 

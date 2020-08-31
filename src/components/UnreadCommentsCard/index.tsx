@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Image, GestureResponderEvent } from 'react-native';
+import { View, Image, GestureResponderEvent, Text } from 'react-native';
 import i18n from 'i18next';
 
-import { Text, Card, Icon, IconButton } from '../../components/common';
+import { Card, Icon, IconButton } from '../../components/common';
 import theme from '../../theme';
 import COMMENTS from '../../../assets/images/comments.png';
 

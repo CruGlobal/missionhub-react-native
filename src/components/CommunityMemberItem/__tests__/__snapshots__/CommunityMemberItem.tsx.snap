@@ -81,18 +81,16 @@ exports[`render MemberOptionsMenu should not render menu if I am member 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Hayden Zieme
@@ -110,36 +108,32 @@ exports[`render MemberOptionsMenu should not render menu if I am member 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Member since
            
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
             testID="Text"
           >
@@ -160,73 +154,56 @@ exports[`render MemberOptionsMenu should not render menu if I am member 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "height": 32,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 32,
         }
       }
       testID="IconButton"
     >
-      <View
+      <Text
+        allowFontScaling={false}
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "color": undefined,
+              "fontSize": 12,
             },
-            null,
             Array [
               Object {
-                "alignItems": "center",
-                "justifyContent": "center",
+                "color": "#ffffff",
               },
               Object {
-                "height": 32,
-                "width": 32,
-              },
-            ],
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
+                "fontSize": 18,
               },
               Array [
                 Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
+                  "margin": 10,
                 },
                 Array [
                   Object {
-                    "margin": 10,
+                    "color": "#B4B6BA",
+                    "margin": 0,
+                    "paddingHorizontal": 10,
                   },
-                  Array [
-                    Object {
-                      "color": "#B2B0B2",
-                      "margin": 0,
-                      "paddingHorizontal": 10,
-                    },
-                    undefined,
-                  ],
+                  undefined,
                 ],
               ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        
+      </Text>
     </View>
   </View>
 </View>
@@ -313,18 +290,16 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Hayden Zieme
@@ -342,18 +317,16 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Owner
@@ -362,16 +335,16 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
               Array [
                 Object {
                   "color": "#505256",
-                },
-                Object {
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "fontWeight": "bold",
-                  },
-                  undefined,
-                ],
+                undefined,
               ]
             }
           >
@@ -383,16 +356,16 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
               Array [
                 Object {
                   "color": "#505256",
-                },
-                Object {
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "fontWeight": "bold",
-                  },
-                  undefined,
-                ],
+                undefined,
               ]
             }
           >
@@ -402,18 +375,16 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
            
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
             testID="Text"
           >
@@ -434,73 +405,56 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "height": 32,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 32,
         }
       }
       testID="IconButton"
     >
-      <View
+      <Text
+        allowFontScaling={false}
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "color": undefined,
+              "fontSize": 12,
             },
-            null,
             Array [
               Object {
-                "alignItems": "center",
-                "justifyContent": "center",
+                "color": "#ffffff",
               },
               Object {
-                "height": 32,
-                "width": 32,
-              },
-            ],
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
+                "fontSize": 18,
               },
               Array [
                 Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
+                  "margin": 10,
                 },
                 Array [
                   Object {
-                    "margin": 10,
+                    "color": "#B4B6BA",
+                    "margin": 0,
+                    "paddingHorizontal": 10,
                   },
-                  Array [
-                    Object {
-                      "color": "#B2B0B2",
-                      "margin": 0,
-                      "paddingHorizontal": 10,
-                    },
-                    undefined,
-                  ],
+                  undefined,
                 ],
               ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        
+      </Text>
     </View>
   </View>
 </View>
@@ -587,18 +541,16 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Hayden Zieme
@@ -616,36 +568,32 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Member since
            
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
             testID="Text"
           >
@@ -666,73 +614,56 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "height": 32,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 32,
         }
       }
       testID="IconButton"
     >
-      <View
+      <Text
+        allowFontScaling={false}
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "color": undefined,
+              "fontSize": 12,
             },
-            null,
             Array [
               Object {
-                "alignItems": "center",
-                "justifyContent": "center",
+                "color": "#ffffff",
               },
               Object {
-                "height": 32,
-                "width": 32,
-              },
-            ],
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
+                "fontSize": 18,
               },
               Array [
                 Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
+                  "margin": 10,
                 },
                 Array [
                   Object {
-                    "margin": 10,
+                    "color": "#B4B6BA",
+                    "margin": 0,
+                    "paddingHorizontal": 10,
                   },
-                  Array [
-                    Object {
-                      "color": "#B2B0B2",
-                      "margin": 0,
-                      "paddingHorizontal": 10,
-                    },
-                    undefined,
-                  ],
+                  undefined,
                 ],
               ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        
+      </Text>
     </View>
   </View>
 </View>
@@ -819,18 +750,16 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Hayden Zieme
@@ -848,36 +777,32 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Member since
            
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
             testID="Text"
           >
@@ -898,73 +823,56 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "height": 32,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 32,
         }
       }
       testID="IconButton"
     >
-      <View
+      <Text
+        allowFontScaling={false}
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "color": undefined,
+              "fontSize": 12,
             },
-            null,
             Array [
               Object {
-                "alignItems": "center",
-                "justifyContent": "center",
+                "color": "#ffffff",
               },
               Object {
-                "height": 32,
-                "width": 32,
-              },
-            ],
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
+                "fontSize": 18,
               },
               Array [
                 Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
+                  "margin": 10,
                 },
                 Array [
                   Object {
-                    "margin": 10,
+                    "color": "#B4B6BA",
+                    "margin": 0,
+                    "paddingHorizontal": 10,
                   },
-                  Array [
-                    Object {
-                      "color": "#B2B0B2",
-                      "margin": 0,
-                      "paddingHorizontal": 10,
-                    },
-                    undefined,
-                  ],
+                  undefined,
                 ],
               ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        
+      </Text>
     </View>
   </View>
 </View>
@@ -1051,18 +959,16 @@ exports[`render contacts count should render admin permissions 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Hayden Zieme
@@ -1080,18 +986,16 @@ exports[`render contacts count should render admin permissions 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Admin
@@ -1100,16 +1004,16 @@ exports[`render contacts count should render admin permissions 1`] = `
               Array [
                 Object {
                   "color": "#505256",
-                },
-                Object {
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "fontWeight": "bold",
-                  },
-                  undefined,
-                ],
+                undefined,
               ]
             }
           >
@@ -1119,18 +1023,16 @@ exports[`render contacts count should render admin permissions 1`] = `
            
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
             testID="Text"
           >
@@ -1151,73 +1053,56 @@ exports[`render contacts count should render admin permissions 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "height": 32,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 32,
         }
       }
       testID="IconButton"
     >
-      <View
+      <Text
+        allowFontScaling={false}
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "color": undefined,
+              "fontSize": 12,
             },
-            null,
             Array [
               Object {
-                "alignItems": "center",
-                "justifyContent": "center",
+                "color": "#ffffff",
               },
               Object {
-                "height": 32,
-                "width": 32,
-              },
-            ],
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
+                "fontSize": 18,
               },
               Array [
                 Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
+                  "margin": 10,
                 },
                 Array [
                   Object {
-                    "margin": 10,
+                    "color": "#B4B6BA",
+                    "margin": 0,
+                    "paddingHorizontal": 10,
                   },
-                  Array [
-                    Object {
-                      "color": "#B2B0B2",
-                      "margin": 0,
-                      "paddingHorizontal": 10,
-                    },
-                    undefined,
-                  ],
+                  undefined,
                 ],
               ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        
+      </Text>
     </View>
   </View>
 </View>
@@ -1304,18 +1189,16 @@ exports[`render contacts count should render member permissions 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Hayden Zieme
@@ -1333,36 +1216,32 @@ exports[`render contacts count should render member permissions 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Member since
            
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
             testID="Text"
           >
@@ -1383,73 +1262,56 @@ exports[`render contacts count should render member permissions 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "height": 32,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 32,
         }
       }
       testID="IconButton"
     >
-      <View
+      <Text
+        allowFontScaling={false}
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "color": undefined,
+              "fontSize": 12,
             },
-            null,
             Array [
               Object {
-                "alignItems": "center",
-                "justifyContent": "center",
+                "color": "#ffffff",
               },
               Object {
-                "height": 32,
-                "width": 32,
-              },
-            ],
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
+                "fontSize": 18,
               },
               Array [
                 Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
+                  "margin": 10,
                 },
                 Array [
                   Object {
-                    "margin": 10,
+                    "color": "#B4B6BA",
+                    "margin": 0,
+                    "paddingHorizontal": 10,
                   },
-                  Array [
-                    Object {
-                      "color": "#B2B0B2",
-                      "margin": 0,
-                      "paddingHorizontal": 10,
-                    },
-                    undefined,
-                  ],
+                  undefined,
                 ],
               ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        
+      </Text>
     </View>
   </View>
 </View>
@@ -1536,18 +1398,16 @@ exports[`render contacts count should render owner permissions 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         Hayden Zieme
@@ -1565,18 +1425,16 @@ exports[`render contacts count should render owner permissions 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
           Owner
@@ -1585,16 +1443,16 @@ exports[`render contacts count should render owner permissions 1`] = `
               Array [
                 Object {
                   "color": "#505256",
-                },
-                Object {
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "fontWeight": "bold",
-                  },
-                  undefined,
-                ],
+                undefined,
               ]
             }
           >
@@ -1606,16 +1464,16 @@ exports[`render contacts count should render owner permissions 1`] = `
               Array [
                 Object {
                   "color": "#505256",
-                },
-                Object {
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "fontWeight": "bold",
-                  },
-                  undefined,
-                ],
+                undefined,
               ]
             }
           >
@@ -1625,18 +1483,16 @@ exports[`render contacts count should render owner permissions 1`] = `
            
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
             testID="Text"
           >
@@ -1657,73 +1513,56 @@ exports[`render contacts count should render owner permissions 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "height": 32,
+          "justifyContent": "center",
           "opacity": 1,
+          "width": 32,
         }
       }
       testID="IconButton"
     >
-      <View
+      <Text
+        allowFontScaling={false}
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "color": undefined,
+              "fontSize": 12,
             },
-            null,
             Array [
               Object {
-                "alignItems": "center",
-                "justifyContent": "center",
+                "color": "#ffffff",
               },
               Object {
-                "height": 32,
-                "width": 32,
-              },
-            ],
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
+                "fontSize": 18,
               },
               Array [
                 Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
+                  "margin": 10,
                 },
                 Array [
                   Object {
-                    "margin": 10,
+                    "color": "#B4B6BA",
+                    "margin": 0,
+                    "paddingHorizontal": 10,
                   },
-                  Array [
-                    Object {
-                      "color": "#B2B0B2",
-                      "margin": 0,
-                      "paddingHorizontal": 10,
-                    },
-                    undefined,
-                  ],
+                  undefined,
                 ],
               ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        
+      </Text>
     </View>
   </View>
 </View>

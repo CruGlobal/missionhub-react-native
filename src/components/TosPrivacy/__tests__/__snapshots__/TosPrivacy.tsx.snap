@@ -16,20 +16,18 @@ exports[`renders tos and privacy 1`] = `
 >
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 12,
-          "paddingHorizontal": 3,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 12,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 16,
+        "paddingHorizontal": 3,
+        "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     By creating your MissionHub account you agree to our
@@ -58,74 +56,61 @@ exports[`renders tos and privacy 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "backgroundColor": "transparent",
           "opacity": 1,
         }
       }
       testID="ToSButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
-            Object {},
-            null,
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "letterSpacing": 0,
+              "lineHeight": 16,
+              "paddingHorizontal": 3,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textDecorationLine": "underline",
+              "textTransform": "none",
+            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 12,
-                  "fontWeight": "normal",
-                  "letterSpacing": 0,
-                  "paddingHorizontal": 3,
-                  "textAlign": "center",
-                  "textDecorationLine": "underline",
-                },
-              ],
-            ]
-          }
-        >
-          Terms of Service
-        </Text>
-      </View>
+        Terms of Service
+      </Text>
     </View>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 12,
-            "paddingHorizontal": 3,
-            "textAlign": "center",
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "paddingHorizontal": 3,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       and
@@ -142,57 +127,46 @@ exports[`renders tos and privacy 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "backgroundColor": "transparent",
           "opacity": 1,
         }
       }
       testID="PrivacyButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
-            Object {},
-            null,
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "letterSpacing": 0,
+              "lineHeight": 16,
+              "paddingHorizontal": 3,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textDecorationLine": "underline",
+              "textTransform": "none",
+            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 12,
-                  "fontWeight": "normal",
-                  "letterSpacing": 0,
-                  "paddingHorizontal": 3,
-                  "textAlign": "center",
-                  "textDecorationLine": "underline",
-                },
-              ],
-            ]
-          }
-        >
-          Privacy Policy
-        </Text>
-      </View>
+        Privacy Policy
+      </Text>
     </View>
   </View>
 </View>
@@ -214,20 +188,18 @@ exports[`renders trial tos and privacy 1`] = `
 >
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 12,
-          "paddingHorizontal": 3,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 12,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 16,
+        "paddingHorizontal": 3,
+        "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     By creating your MissionHub trial account you agree to our
@@ -256,74 +228,61 @@ exports[`renders trial tos and privacy 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "backgroundColor": "transparent",
           "opacity": 1,
         }
       }
       testID="ToSButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
-            Object {},
-            null,
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "letterSpacing": 0,
+              "lineHeight": 16,
+              "paddingHorizontal": 3,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textDecorationLine": "underline",
+              "textTransform": "none",
+            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 12,
-                  "fontWeight": "normal",
-                  "letterSpacing": 0,
-                  "paddingHorizontal": 3,
-                  "textAlign": "center",
-                  "textDecorationLine": "underline",
-                },
-              ],
-            ]
-          }
-        >
-          Terms of Service
-        </Text>
-      </View>
+        Terms of Service
+      </Text>
     </View>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 12,
-            "paddingHorizontal": 3,
-            "textAlign": "center",
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 16,
+          "paddingHorizontal": 3,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       and
@@ -340,57 +299,46 @@ exports[`renders trial tos and privacy 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "backgroundColor": "transparent",
           "opacity": 1,
         }
       }
       testID="PrivacyButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
-            Object {},
-            null,
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "letterSpacing": 0,
+              "lineHeight": 16,
+              "paddingHorizontal": 3,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textDecorationLine": "underline",
+              "textTransform": "none",
+            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 12,
-                  "fontWeight": "normal",
-                  "letterSpacing": 0,
-                  "paddingHorizontal": 3,
-                  "textAlign": "center",
-                  "textDecorationLine": "underline",
-                },
-              ],
-            ]
-          }
-        >
-          Privacy Policy
-        </Text>
-      </View>
+        Privacy Policy
+      </Text>
     </View>
   </View>
 </View>

@@ -11,10 +11,11 @@ export default StyleSheet.create({
     paddingHorizontal: 60,
   },
   headerTitle: {
+    ...theme.textAmatic48,
     color: theme.secondaryColor,
-    fontSize: 48,
   },
   text: {
+    ...theme.textRegular16,
     color: theme.white,
     fontSize: 24,
     textAlign: 'left',

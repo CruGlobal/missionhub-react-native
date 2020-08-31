@@ -11,15 +11,14 @@ export default StyleSheet.create({
     paddingHorizontal: 60,
   },
   descriptionText: {
+    ...theme.textLight24,
     color: theme.white,
     textAlign: 'left',
     paddingVertical: 10,
-    fontSize: 24,
-    lineHeight: 32,
   },
   headerText: {
+    ...theme.textAmatic48,
     color: theme.secondaryColor,
-    fontSize: 48,
   },
   filledButton: {
     backgroundColor: theme.secondaryColor,
@@ -36,9 +35,8 @@ export default StyleSheet.create({
     height: 48,
   },
   buttonText: {
+    ...theme.textBold14,
     color: theme.white,
-    fontWeight: '500',
-    fontSize: 14,
     paddingTop: 2,
     letterSpacing: 1.5,
   },

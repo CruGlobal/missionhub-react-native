@@ -74,21 +74,25 @@ exports[`renders completed step 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                },
-              ],
             ]
           }
         >
@@ -98,17 +102,16 @@ exports[`renders completed step 1`] = `
     </View>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Repellat quisquam recusandae alias consequuntur corporis.
@@ -126,50 +129,33 @@ exports[`renders completed step 1`] = `
     onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "opacity": 1,
+        "alignItems": "center",
+        "backgroundColor": "transparent",
+        "borderRadius": 0,
+        "borderWidth": 0,
+        "height": 60,
+        "justifyContent": "center",
+        "margin": 0,
+        "opacity": 0.6,
+        "paddingHorizontal": 4,
+        "paddingVertical": 4,
       }
     }
     testID="CompleteStepButton"
   >
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "transparent",
-            "borderRadius": 0,
-            "borderWidth": 0,
-            "height": 60,
-            "justifyContent": "center",
-            "margin": 0,
-            "paddingHorizontal": 20,
-            "paddingVertical": 10,
-          },
-          Object {
-            "opacity": 0.6,
-          },
-          Object {
-            "paddingHorizontal": 4,
-            "paddingVertical": 4,
-          },
-          null,
-        ]
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/checkIcon-grey.png",
+        }
       }
-    >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/checkIcon-grey.png",
-          }
+      style={
+        Object {
+          "height": 24,
+          "width": 24,
         }
-        style={
-          Object {
-            "height": 24,
-            "width": 24,
-          }
-        }
-      />
-    </View>
+      }
+    />
   </View>
 </View>
 `;
@@ -248,21 +234,25 @@ exports[`renders hiding checkbox 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                },
-              ],
             ]
           }
         >
@@ -272,17 +262,16 @@ exports[`renders hiding checkbox 1`] = `
     </View>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Repellat quisquam recusandae alias consequuntur corporis.
@@ -330,7 +319,7 @@ exports[`renders hiding checkbox 1`] = `
                     "fontSize": 18,
                   },
                   Object {
-                    "color": "#52C5DC",
+                    "color": "#3CC8E6",
                     "fontSize": 18,
                     "paddingRight": 8,
                   },
@@ -350,19 +339,16 @@ exports[`renders hiding checkbox 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#3CC8E6",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
-                Array [
-                  Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
-                  },
-                  undefined,
-                ],
+                undefined,
               ]
             }
           >
@@ -445,20 +431,20 @@ exports[`renders hiding name 1`] = `
             Array [
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "color": "#B4B6BA",
+                "paddingLeft": 4,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "paddingLeft": 4,
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
@@ -468,17 +454,16 @@ exports[`renders hiding name 1`] = `
     </View>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Repellat quisquam recusandae alias consequuntur corporis.
@@ -526,7 +511,7 @@ exports[`renders hiding name 1`] = `
                     "fontSize": 18,
                   },
                   Object {
-                    "color": "#52C5DC",
+                    "color": "#3CC8E6",
                     "fontSize": 18,
                     "paddingRight": 8,
                   },
@@ -546,19 +531,16 @@ exports[`renders hiding name 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#3CC8E6",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
-                Array [
-                  Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
-                  },
-                  undefined,
-                ],
+                undefined,
               ]
             }
           >
@@ -580,48 +562,33 @@ exports[`renders hiding name 1`] = `
     onStartShouldSetResponder={[Function]}
     style={
       Object {
+        "alignItems": "center",
+        "backgroundColor": "transparent",
+        "borderRadius": 0,
+        "borderWidth": 0,
+        "height": 60,
+        "justifyContent": "center",
+        "margin": 0,
         "opacity": 1,
+        "paddingHorizontal": 4,
+        "paddingVertical": 4,
       }
     }
     testID="CompleteStepButton"
   >
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "transparent",
-            "borderRadius": 0,
-            "borderWidth": 0,
-            "height": 60,
-            "justifyContent": "center",
-            "margin": 0,
-            "paddingHorizontal": 20,
-            "paddingVertical": 10,
-          },
-          null,
-          Object {
-            "paddingHorizontal": 4,
-            "paddingVertical": 4,
-          },
-          null,
-        ]
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/checkIcon-blue.png",
+        }
       }
-    >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/checkIcon-blue.png",
-          }
+      style={
+        Object {
+          "height": 24,
+          "width": 24,
         }
-        style={
-          Object {
-            "height": 24,
-            "width": 24,
-          }
-        }
-      />
-    </View>
+      }
+    />
   </View>
 </View>
 `;
@@ -700,21 +667,25 @@ exports[`renders me correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                },
-              ],
             ]
           }
         >
@@ -724,17 +695,16 @@ exports[`renders me correctly 1`] = `
     </View>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Repellat quisquam recusandae alias consequuntur corporis.
@@ -782,7 +752,7 @@ exports[`renders me correctly 1`] = `
                     "fontSize": 18,
                   },
                   Object {
-                    "color": "#52C5DC",
+                    "color": "#3CC8E6",
                     "fontSize": 18,
                     "paddingRight": 8,
                   },
@@ -802,19 +772,16 @@ exports[`renders me correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#3CC8E6",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
-                Array [
-                  Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
-                  },
-                  undefined,
-                ],
+                undefined,
               ]
             }
           >
@@ -836,48 +803,33 @@ exports[`renders me correctly 1`] = `
     onStartShouldSetResponder={[Function]}
     style={
       Object {
+        "alignItems": "center",
+        "backgroundColor": "transparent",
+        "borderRadius": 0,
+        "borderWidth": 0,
+        "height": 60,
+        "justifyContent": "center",
+        "margin": 0,
         "opacity": 1,
+        "paddingHorizontal": 4,
+        "paddingVertical": 4,
       }
     }
     testID="CompleteStepButton"
   >
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "transparent",
-            "borderRadius": 0,
-            "borderWidth": 0,
-            "height": 60,
-            "justifyContent": "center",
-            "margin": 0,
-            "paddingHorizontal": 20,
-            "paddingVertical": 10,
-          },
-          null,
-          Object {
-            "paddingHorizontal": 4,
-            "paddingVertical": 4,
-          },
-          null,
-        ]
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/checkIcon-blue.png",
+        }
       }
-    >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/checkIcon-blue.png",
-          }
+      style={
+        Object {
+          "height": 24,
+          "width": 24,
         }
-        style={
-          Object {
-            "height": 24,
-            "width": 24,
-          }
-        }
-      />
-    </View>
+      }
+    />
   </View>
 </View>
 `;
@@ -956,21 +908,25 @@ exports[`renders not me correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                },
-              ],
             ]
           }
         >
@@ -980,17 +936,16 @@ exports[`renders not me correctly 1`] = `
     </View>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
       }
     >
       Repellat quisquam recusandae alias consequuntur corporis.
@@ -1038,7 +993,7 @@ exports[`renders not me correctly 1`] = `
                     "fontSize": 18,
                   },
                   Object {
-                    "color": "#52C5DC",
+                    "color": "#3CC8E6",
                     "fontSize": 18,
                     "paddingRight": 8,
                   },
@@ -1058,19 +1013,16 @@ exports[`renders not me correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#3CC8E6",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
-                Array [
-                  Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
-                  },
-                  undefined,
-                ],
+                undefined,
               ]
             }
           >
@@ -1092,48 +1044,33 @@ exports[`renders not me correctly 1`] = `
     onStartShouldSetResponder={[Function]}
     style={
       Object {
+        "alignItems": "center",
+        "backgroundColor": "transparent",
+        "borderRadius": 0,
+        "borderWidth": 0,
+        "height": 60,
+        "justifyContent": "center",
+        "margin": 0,
         "opacity": 1,
+        "paddingHorizontal": 4,
+        "paddingVertical": 4,
       }
     }
     testID="CompleteStepButton"
   >
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "transparent",
-            "borderRadius": 0,
-            "borderWidth": 0,
-            "height": 60,
-            "justifyContent": "center",
-            "margin": 0,
-            "paddingHorizontal": 20,
-            "paddingVertical": 10,
-          },
-          null,
-          Object {
-            "paddingHorizontal": 4,
-            "paddingVertical": 4,
-          },
-          null,
-        ]
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/checkIcon-blue.png",
+        }
       }
-    >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/checkIcon-blue.png",
-          }
+      style={
+        Object {
+          "height": 24,
+          "width": 24,
         }
-        style={
-          Object {
-            "height": 24,
-            "width": 24,
-          }
-        }
-      />
-    </View>
+      }
+    />
   </View>
 </View>
 `;

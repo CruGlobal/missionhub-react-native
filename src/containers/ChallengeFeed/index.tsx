@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Animated, View } from 'react-native';
+import { Animated, View, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { Text } from '../../components/common';
 import ChallengeItem from '../../components/ChallengeItem';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,

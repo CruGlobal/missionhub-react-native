@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleProp, TextStyle } from 'react-native';
+import { StyleProp, TextStyle, Text } from 'react-native';
 import { useSelector } from 'react-redux';
 
-import { Flex, Text, Touchable } from '../common';
+import { Flex, Touchable } from '../common';
 import { RootState } from '../../reducers';
 import { contactAssignmentSelector } from '../../selectors/people';
 

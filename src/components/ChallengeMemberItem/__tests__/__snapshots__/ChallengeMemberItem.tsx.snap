@@ -89,20 +89,12 @@ exports[`render correctly | Me 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#ffffff",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 26,
+                "fontWeight": "300",
               },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 26,
-                  "fontWeight": "300",
-                },
-              ],
             ]
           }
         >
@@ -134,18 +126,16 @@ exports[`render correctly | Me 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-              ]
+              Object {
+                "color": "#005A7F",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
           >
             Me
@@ -154,35 +144,31 @@ exports[`render correctly | Me 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#B4B6BA",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
-                Array [
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 12,
-                  },
-                ],
               ]
             }
           >
             Joined 
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
               testID="Text"
             >
@@ -293,20 +279,12 @@ exports[`renders completed item correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#ffffff",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 26,
+                "fontWeight": "300",
               },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 26,
-                  "fontWeight": "300",
-                },
-              ],
             ]
           }
         >
@@ -338,18 +316,16 @@ exports[`renders completed item correctly 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-              ]
+              Object {
+                "color": "#005A7F",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
           >
             Me
@@ -358,35 +334,31 @@ exports[`renders completed item correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#B4B6BA",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
-                Array [
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 12,
-                  },
-                ],
               ]
             }
           >
             Completed 
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
               testID="Text"
             >
@@ -501,20 +473,12 @@ exports[`renders correctly | Not Me 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#ffffff",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 26,
+                "fontWeight": "300",
               },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 26,
-                  "fontWeight": "300",
-                },
-              ],
             ]
           }
         >
@@ -546,18 +510,16 @@ exports[`renders correctly | Not Me 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-              ]
+              Object {
+                "color": "#005A7F",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
           >
             Christian Huffman
@@ -566,35 +528,31 @@ exports[`renders correctly | Not Me 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#B4B6BA",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
-                Array [
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 12,
-                  },
-                ],
               ]
             }
           >
             Joined 
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
               testID="Text"
             >
@@ -705,20 +663,12 @@ exports[`renders full date if not in same week 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#ffffff",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 26,
+                "fontWeight": "300",
               },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 26,
-                  "fontWeight": "300",
-                },
-              ],
             ]
           }
         >
@@ -750,18 +700,16 @@ exports[`renders full date if not in same week 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-              ]
+              Object {
+                "color": "#005A7F",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
             }
           >
             Me
@@ -770,35 +718,31 @@ exports[`renders full date if not in same week 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#B4B6BA",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
                 },
-                Array [
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 12,
-                  },
-                ],
               ]
             }
           >
             Joined 
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
               }
               testID="Text"
             >

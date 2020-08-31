@@ -1,8 +1,9 @@
 import React, { ReactNode } from 'react';
+import { Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ApolloError } from 'apollo-client';
 
-import { Text, Touchable, Icon } from '../common';
+import { Touchable, Icon } from '../common';
 
 import { styles } from './styles';
 
@@ -32,7 +33,7 @@ export const ErrorNotice = ({
         .includes(specificError.condition)
         ? [
             ...acc,
-            <Text key={message} style={styles.white}>
+            <Text key={message} style={styles.text}>
               {specificError.message}
             </Text>,
           ]
@@ -43,11 +44,11 @@ export const ErrorNotice = ({
     // Wrapped refetch in function to avoid passing native event to variables argument
     <Touchable style={styles.errorContainer} onPress={() => refetch()}>
       {error.networkError ? (
-        <Text style={styles.white}>{t('offline')}</Text>
+        <Text style={styles.text}>{t('offline')}</Text>
       ) : matchedErrors && matchedErrors.length > 0 ? (
         matchedErrors
       ) : (
-        <Text style={styles.white}>{message}</Text>
+        <Text style={styles.text}>{message}</Text>
       )}
       <Icon name="refresh" />
     </Touchable>

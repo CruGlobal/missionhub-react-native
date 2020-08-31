@@ -7,6 +7,7 @@ export default StyleSheet.create({
     padding: 15,
   },
   skipBtnText: {
+    ...theme.textRegular14,
     color: theme.white,
   },
 });

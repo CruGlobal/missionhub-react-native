@@ -1,12 +1,12 @@
 import React, { useState, useRef } from 'react';
-import { View, SafeAreaView } from 'react-native';
+import { View, SafeAreaView, Text } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useTranslation } from 'react-i18next';
 import { RNCamera, RecordResponse } from 'react-native-camera';
 
 import { navigateBack } from '../../actions/navigation';
-import { Text, Touchable } from '../../components/common';
+import { Touchable } from '../../components/common';
 import CloseButton from '../../../assets/images/closeIcon.svg';
 import { useInterval } from '../../utils/hooks/useInterval';
 import theme from '../../theme';

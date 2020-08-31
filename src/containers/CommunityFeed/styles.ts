@@ -18,10 +18,7 @@ export default StyleSheet.create({
     backgroundColor: theme.extraLightGrey,
   },
   title: {
+    ...theme.textLight24,
     marginLeft: 15,
-    fontSize: 24,
-    fontWeight: '200',
-    fontFamily: 'SourceSansPro-Light',
-    color: theme.grey,
   },
 });

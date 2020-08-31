@@ -107,7 +107,7 @@ const NotificationCenterScreen = () => {
   const renderNull = () => (
     <Flex justify="center" align="center" style={{ marginTop: '50%' }}>
       <View style={styles.nullContainer}>
-        <NullNotificationsIcon color={theme.grey} />
+        <NullNotificationsIcon color={theme.darkGrey} />
       </View>
       <Text style={styles.nullTitle}>{t('nullTitle')}</Text>
       <Text style={styles.nullText}>{t('nullDescription')}</Text>

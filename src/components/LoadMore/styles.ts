@@ -6,7 +6,7 @@ export default StyleSheet.create({
   button: {
     paddingVertical: 7,
     borderWidth: 1,
-    borderColor: theme.grey1,
+    borderColor: theme.lightGrey,
     borderRadius: 25,
     width: 250,
     alignSelf: 'center',
@@ -14,6 +14,6 @@ export default StyleSheet.create({
   },
   text: {
     fontSize: 18,
-    color: theme.grey1,
+    color: theme.lightGrey,
   },
 });

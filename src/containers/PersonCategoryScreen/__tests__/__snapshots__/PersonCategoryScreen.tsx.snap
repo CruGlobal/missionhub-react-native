@@ -5,34 +5,32 @@ exports[`Edit Person fires onPress and updates person | no relationship_type 1`]
 - First value
 + Second value
 
-@@ -220,11 +220,13 @@
-                  \\"backgroundColor\\": \\"#005A7F\\",
-                  \\"height\\": 72,
-                  \\"marginVertical\\": 4,
-                  \\"width\\": 650,
-                },
--               null,
-+               Object {
-+                 \\"backgroundColor\\": \\"#3CC8E6\\",
-+               },
-              ],
-              Object {
-                \\"borderRadius\\": 50,
-              },
-            ]
-@@ -266,11 +268,11 @@
-              }
-            >
-              Family
-            </Text>
-            <SvgMock
--             color=\\"#3CC8E6\\"
-+             color=\\"#ffffff\\"
-            />
-          </View>
+@@ -177,11 +177,11 @@
+        onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+        onStartShouldSetResponder={[Function onStartShouldSetResponder]}
+        style={
+          Object {
+            \\"alignItems\\": \\"center\\",
+-           \\"backgroundColor\\": \\"#005A7F\\",
++           \\"backgroundColor\\": \\"#3CC8E6\\",
+            \\"borderRadius\\": 50,
+            \\"borderWidth\\": 0,
+            \\"height\\": 72,
+            \\"justifyContent\\": \\"center\\",
+            \\"margin\\": 0,
+@@ -225,11 +225,11 @@
+            }
+          >
+            Family
+          </Text>
+          <SvgMock
+-           color=\\"#3CC8E6\\"
++           color=\\"#ffffff\\"
+          />
         </View>
       </View>
-      <View"
+      <View
+        accessible={true}"
 `;
 
 exports[`Edit Person fires onPress and updates person | relationship_type 1`] = `
@@ -40,63 +38,58 @@ exports[`Edit Person fires onPress and updates person | relationship_type 1`] = 
 - First value
 + Second value
 
-@@ -220,13 +220,11 @@
-                  \\"backgroundColor\\": \\"#005A7F\\",
-                  \\"height\\": 72,
-                  \\"marginVertical\\": 4,
-                  \\"width\\": 650,
-                },
--               Object {
--                 \\"backgroundColor\\": \\"#3CC8E6\\",
--               },
-+               null,
-              ],
-              Object {
-                \\"borderRadius\\": 50,
-              },
-            ]
-@@ -268,11 +266,11 @@
-              }
-            >
-              Family
-            </Text>
-            <SvgMock
--             color=\\"#ffffff\\"
-+             color=\\"#3CC8E6\\"
-            />
-          </View>
+@@ -177,11 +177,11 @@
+        onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+        onStartShouldSetResponder={[Function onStartShouldSetResponder]}
+        style={
+          Object {
+            \\"alignItems\\": \\"center\\",
+-           \\"backgroundColor\\": \\"#3CC8E6\\",
++           \\"backgroundColor\\": \\"#005A7F\\",
+            \\"borderRadius\\": 50,
+            \\"borderWidth\\": 0,
+            \\"height\\": 72,
+            \\"justifyContent\\": \\"center\\",
+            \\"margin\\": 0,
+@@ -225,11 +225,11 @@
+            }
+          >
+            Family
+          </Text>
+          <SvgMock
+-           color=\\"#ffffff\\"
++           color=\\"#3CC8E6\\"
+          />
         </View>
       </View>
       <View
-@@ -311,12 +309,14 @@
-                Object {
-                  \\"backgroundColor\\": \\"#005A7F\\",
-                  \\"height\\": 72,
-                  \\"marginVertical\\": 4,
-                  \\"width\\": 650,
-+               },
-+               Object {
-+                 \\"backgroundColor\\": \\"#3CC8E6\\",
-                },
--               null,
-              ],
-              Object {
-                \\"borderRadius\\": 50,
-              },
-            ]
-@@ -358,11 +358,11 @@
-              }
-            >
-              Friend
-            </Text>
-            <SvgMock
--             color=\\"#3CC8E6\\"
-+             color=\\"#ffffff\\"
-            />
-          </View>
+        accessible={true}
+@@ -242,11 +242,11 @@
+        onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+        onStartShouldSetResponder={[Function onStartShouldSetResponder]}
+        style={
+          Object {
+            \\"alignItems\\": \\"center\\",
+-           \\"backgroundColor\\": \\"#005A7F\\",
++           \\"backgroundColor\\": \\"#3CC8E6\\",
+            \\"borderRadius\\": 50,
+            \\"borderWidth\\": 0,
+            \\"height\\": 72,
+            \\"justifyContent\\": \\"center\\",
+            \\"margin\\": 0,
+@@ -290,11 +290,11 @@
+            }
+          >
+            Friend
+          </Text>
+          <SvgMock
+-           color=\\"#3CC8E6\\"
++           color=\\"#ffffff\\"
+          />
         </View>
       </View>
-      <View"
+      <View
+        accessible={true}"
 `;
 
 exports[`Edit Person fires onPress and updates person with orgId | no relationship_type 1`] = `
@@ -104,34 +97,32 @@ exports[`Edit Person fires onPress and updates person with orgId | no relationsh
 - First value
 + Second value
 
-@@ -220,11 +220,13 @@
-                  \\"backgroundColor\\": \\"#005A7F\\",
-                  \\"height\\": 72,
-                  \\"marginVertical\\": 4,
-                  \\"width\\": 650,
-                },
--               null,
-+               Object {
-+                 \\"backgroundColor\\": \\"#3CC8E6\\",
-+               },
-              ],
-              Object {
-                \\"borderRadius\\": 50,
-              },
-            ]
-@@ -266,11 +268,11 @@
-              }
-            >
-              Family
-            </Text>
-            <SvgMock
--             color=\\"#3CC8E6\\"
-+             color=\\"#ffffff\\"
-            />
-          </View>
+@@ -177,11 +177,11 @@
+        onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+        onStartShouldSetResponder={[Function onStartShouldSetResponder]}
+        style={
+          Object {
+            \\"alignItems\\": \\"center\\",
+-           \\"backgroundColor\\": \\"#005A7F\\",
++           \\"backgroundColor\\": \\"#3CC8E6\\",
+            \\"borderRadius\\": 50,
+            \\"borderWidth\\": 0,
+            \\"height\\": 72,
+            \\"justifyContent\\": \\"center\\",
+            \\"margin\\": 0,
+@@ -225,11 +225,11 @@
+            }
+          >
+            Family
+          </Text>
+          <SvgMock
+-           color=\\"#3CC8E6\\"
++           color=\\"#ffffff\\"
+          />
         </View>
       </View>
-      <View"
+      <View
+        accessible={true}"
 `;
 
 exports[`Edit Person fires onPress and updates person with orgId | relationship_type 1`] = `
@@ -139,63 +130,58 @@ exports[`Edit Person fires onPress and updates person with orgId | relationship_
 - First value
 + Second value
 
-@@ -220,13 +220,11 @@
-                  \\"backgroundColor\\": \\"#005A7F\\",
-                  \\"height\\": 72,
-                  \\"marginVertical\\": 4,
-                  \\"width\\": 650,
-                },
--               Object {
--                 \\"backgroundColor\\": \\"#3CC8E6\\",
--               },
-+               null,
-              ],
-              Object {
-                \\"borderRadius\\": 50,
-              },
-            ]
-@@ -268,11 +266,11 @@
-              }
-            >
-              Family
-            </Text>
-            <SvgMock
--             color=\\"#ffffff\\"
-+             color=\\"#3CC8E6\\"
-            />
-          </View>
+@@ -177,11 +177,11 @@
+        onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+        onStartShouldSetResponder={[Function onStartShouldSetResponder]}
+        style={
+          Object {
+            \\"alignItems\\": \\"center\\",
+-           \\"backgroundColor\\": \\"#3CC8E6\\",
++           \\"backgroundColor\\": \\"#005A7F\\",
+            \\"borderRadius\\": 50,
+            \\"borderWidth\\": 0,
+            \\"height\\": 72,
+            \\"justifyContent\\": \\"center\\",
+            \\"margin\\": 0,
+@@ -225,11 +225,11 @@
+            }
+          >
+            Family
+          </Text>
+          <SvgMock
+-           color=\\"#ffffff\\"
++           color=\\"#3CC8E6\\"
+          />
         </View>
       </View>
       <View
-@@ -311,12 +309,14 @@
-                Object {
-                  \\"backgroundColor\\": \\"#005A7F\\",
-                  \\"height\\": 72,
-                  \\"marginVertical\\": 4,
-                  \\"width\\": 650,
-+               },
-+               Object {
-+                 \\"backgroundColor\\": \\"#3CC8E6\\",
-                },
--               null,
-              ],
-              Object {
-                \\"borderRadius\\": 50,
-              },
-            ]
-@@ -358,11 +358,11 @@
-              }
-            >
-              Friend
-            </Text>
-            <SvgMock
--             color=\\"#3CC8E6\\"
-+             color=\\"#ffffff\\"
-            />
-          </View>
+        accessible={true}
+@@ -242,11 +242,11 @@
+        onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+        onStartShouldSetResponder={[Function onStartShouldSetResponder]}
+        style={
+          Object {
+            \\"alignItems\\": \\"center\\",
+-           \\"backgroundColor\\": \\"#005A7F\\",
++           \\"backgroundColor\\": \\"#3CC8E6\\",
+            \\"borderRadius\\": 50,
+            \\"borderWidth\\": 0,
+            \\"height\\": 72,
+            \\"justifyContent\\": \\"center\\",
+            \\"margin\\": 0,
+@@ -290,11 +290,11 @@
+            }
+          >
+            Friend
+          </Text>
+          <SvgMock
+-           color=\\"#3CC8E6\\"
++           color=\\"#ffffff\\"
+          />
         </View>
       </View>
-      <View"
+      <View
+        accessible={true}"
 `;
 
 exports[`Edit Person renders correctly | no relationship_type 1`] = `
@@ -268,57 +254,45 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        undefined,
-                      ],
+                      undefined,
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -364,25 +338,20 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "maxWidth": 200,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "maxWidth": 280,
             },
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Light",
-                "fontSize": 24,
-                "fontWeight": "300",
-                "lineHeight": 30,
-                "maxWidth": 200,
-                "textAlign": "center",
-              },
-              Object {
-                "maxWidth": 280,
-              },
-            ],
           ]
         }
       >
@@ -401,7 +370,18 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#005A7F",
+          "borderRadius": 50,
+          "borderWidth": 0,
+          "height": 72,
+          "justifyContent": "center",
+          "margin": 0,
+          "marginVertical": 4,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 650,
         }
       }
       testID="familyButton"
@@ -410,73 +390,37 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "paddingHorizontal": 10,
+              "width": "100%",
             },
-            null,
-            Array [
-              Object {
-                "backgroundColor": "#005A7F",
-                "height": 72,
-                "marginVertical": 4,
-                "width": 650,
-              },
-              null,
-            ],
             Object {
-              "borderRadius": 50,
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
             },
           ]
         }
       >
-        <View
+        <Text
           style={
-            Array [
-              Object {
-                "paddingHorizontal": 10,
-                "width": "100%",
-              },
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                },
-              ]
-            }
-          >
-            Family
-          </Text>
-          <SvgMock
-            color="#3CC8E6"
-          />
-        </View>
+          Family
+        </Text>
+        <SvgMock
+          color="#3CC8E6"
+        />
       </View>
     </View>
     <View
@@ -491,7 +435,18 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#005A7F",
+          "borderRadius": 50,
+          "borderWidth": 0,
+          "height": 72,
+          "justifyContent": "center",
+          "margin": 0,
+          "marginVertical": 4,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 650,
         }
       }
       testID="friendButton"
@@ -500,73 +455,37 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "paddingHorizontal": 10,
+              "width": "100%",
             },
-            null,
-            Array [
-              Object {
-                "backgroundColor": "#005A7F",
-                "height": 72,
-                "marginVertical": 4,
-                "width": 650,
-              },
-              null,
-            ],
             Object {
-              "borderRadius": 50,
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
             },
           ]
         }
       >
-        <View
+        <Text
           style={
-            Array [
-              Object {
-                "paddingHorizontal": 10,
-                "width": "100%",
-              },
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                },
-              ]
-            }
-          >
-            Friend
-          </Text>
-          <SvgMock
-            color="#3CC8E6"
-          />
-        </View>
+          Friend
+        </Text>
+        <SvgMock
+          color="#3CC8E6"
+        />
       </View>
     </View>
     <View
@@ -581,7 +500,18 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#005A7F",
+          "borderRadius": 50,
+          "borderWidth": 0,
+          "height": 72,
+          "justifyContent": "center",
+          "margin": 0,
+          "marginVertical": 4,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 650,
         }
       }
       testID="neighborButton"
@@ -590,73 +520,37 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "paddingHorizontal": 10,
+              "width": "100%",
             },
-            null,
-            Array [
-              Object {
-                "backgroundColor": "#005A7F",
-                "height": 72,
-                "marginVertical": 4,
-                "width": 650,
-              },
-              null,
-            ],
             Object {
-              "borderRadius": 50,
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
             },
           ]
         }
       >
-        <View
+        <Text
           style={
-            Array [
-              Object {
-                "paddingHorizontal": 10,
-                "width": "100%",
-              },
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                },
-              ]
-            }
-          >
-            Neighbor
-          </Text>
-          <SvgMock
-            color="#3CC8E6"
-          />
-        </View>
+          Neighbor
+        </Text>
+        <SvgMock
+          color="#3CC8E6"
+        />
       </View>
     </View>
     <View
@@ -671,7 +565,18 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#005A7F",
+          "borderRadius": 50,
+          "borderWidth": 0,
+          "height": 72,
+          "justifyContent": "center",
+          "margin": 0,
+          "marginVertical": 4,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 650,
         }
       }
       testID="coworkerButton"
@@ -680,73 +585,37 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "paddingHorizontal": 10,
+              "width": "100%",
             },
-            null,
-            Array [
-              Object {
-                "backgroundColor": "#005A7F",
-                "height": 72,
-                "marginVertical": 4,
-                "width": 650,
-              },
-              null,
-            ],
             Object {
-              "borderRadius": 50,
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
             },
           ]
         }
       >
-        <View
+        <Text
           style={
-            Array [
-              Object {
-                "paddingHorizontal": 10,
-                "width": "100%",
-              },
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                },
-              ]
-            }
-          >
-            Coworker
-          </Text>
-          <SvgMock
-            color="#3CC8E6"
-          />
-        </View>
+          Coworker
+        </Text>
+        <SvgMock
+          color="#3CC8E6"
+        />
       </View>
     </View>
     <View
@@ -761,7 +630,18 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#005A7F",
+          "borderRadius": 50,
+          "borderWidth": 0,
+          "height": 72,
+          "justifyContent": "center",
+          "margin": 0,
+          "marginVertical": 4,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 650,
         }
       }
       testID="otherButton"
@@ -770,73 +650,37 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "paddingHorizontal": 10,
+              "width": "100%",
             },
-            null,
-            Array [
-              Object {
-                "backgroundColor": "#005A7F",
-                "height": 72,
-                "marginVertical": 4,
-                "width": 650,
-              },
-              null,
-            ],
             Object {
-              "borderRadius": 50,
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
             },
           ]
         }
       >
-        <View
+        <Text
           style={
-            Array [
-              Object {
-                "paddingHorizontal": 10,
-                "width": "100%",
-              },
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                },
-              ]
-            }
-          >
-            Other
-          </Text>
-          <SvgMock
-            color="#3CC8E6"
-          />
-        </View>
+          Other
+        </Text>
+        <SvgMock
+          color="#3CC8E6"
+        />
       </View>
     </View>
   </View>
@@ -913,57 +757,45 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        undefined,
-                      ],
+                      undefined,
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -1007,23 +839,18 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "maxWidth": 200,
-              "textAlign": "center",
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "maxWidth": 200,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
         }
       >
         How do you know each other?
@@ -1041,7 +868,18 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "borderWidth": 0,
+          "height": 72,
+          "justifyContent": "center",
+          "margin": 0,
+          "marginVertical": 4,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 650,
         }
       }
       testID="familyButton"
@@ -1050,75 +888,37 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "paddingHorizontal": 10,
+              "width": "100%",
             },
-            null,
-            Array [
-              Object {
-                "backgroundColor": "#005A7F",
-                "height": 72,
-                "marginVertical": 4,
-                "width": 650,
-              },
-              Object {
-                "backgroundColor": "#3CC8E6",
-              },
-            ],
             Object {
-              "borderRadius": 50,
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
             },
           ]
         }
       >
-        <View
+        <Text
           style={
-            Array [
-              Object {
-                "paddingHorizontal": 10,
-                "width": "100%",
-              },
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                },
-              ]
-            }
-          >
-            Family
-          </Text>
-          <SvgMock
-            color="#ffffff"
-          />
-        </View>
+          Family
+        </Text>
+        <SvgMock
+          color="#ffffff"
+        />
       </View>
     </View>
     <View
@@ -1133,7 +933,18 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#005A7F",
+          "borderRadius": 50,
+          "borderWidth": 0,
+          "height": 72,
+          "justifyContent": "center",
+          "margin": 0,
+          "marginVertical": 4,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 650,
         }
       }
       testID="friendButton"
@@ -1142,73 +953,37 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "paddingHorizontal": 10,
+              "width": "100%",
             },
-            null,
-            Array [
-              Object {
-                "backgroundColor": "#005A7F",
-                "height": 72,
-                "marginVertical": 4,
-                "width": 650,
-              },
-              null,
-            ],
             Object {
-              "borderRadius": 50,
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
             },
           ]
         }
       >
-        <View
+        <Text
           style={
-            Array [
-              Object {
-                "paddingHorizontal": 10,
-                "width": "100%",
-              },
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                },
-              ]
-            }
-          >
-            Friend
-          </Text>
-          <SvgMock
-            color="#3CC8E6"
-          />
-        </View>
+          Friend
+        </Text>
+        <SvgMock
+          color="#3CC8E6"
+        />
       </View>
     </View>
     <View
@@ -1223,7 +998,18 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#005A7F",
+          "borderRadius": 50,
+          "borderWidth": 0,
+          "height": 72,
+          "justifyContent": "center",
+          "margin": 0,
+          "marginVertical": 4,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 650,
         }
       }
       testID="neighborButton"
@@ -1232,73 +1018,37 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "paddingHorizontal": 10,
+              "width": "100%",
             },
-            null,
-            Array [
-              Object {
-                "backgroundColor": "#005A7F",
-                "height": 72,
-                "marginVertical": 4,
-                "width": 650,
-              },
-              null,
-            ],
             Object {
-              "borderRadius": 50,
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
             },
           ]
         }
       >
-        <View
+        <Text
           style={
-            Array [
-              Object {
-                "paddingHorizontal": 10,
-                "width": "100%",
-              },
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                },
-              ]
-            }
-          >
-            Neighbor
-          </Text>
-          <SvgMock
-            color="#3CC8E6"
-          />
-        </View>
+          Neighbor
+        </Text>
+        <SvgMock
+          color="#3CC8E6"
+        />
       </View>
     </View>
     <View
@@ -1313,7 +1063,18 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#005A7F",
+          "borderRadius": 50,
+          "borderWidth": 0,
+          "height": 72,
+          "justifyContent": "center",
+          "margin": 0,
+          "marginVertical": 4,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 650,
         }
       }
       testID="coworkerButton"
@@ -1322,73 +1083,37 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "paddingHorizontal": 10,
+              "width": "100%",
             },
-            null,
-            Array [
-              Object {
-                "backgroundColor": "#005A7F",
-                "height": 72,
-                "marginVertical": 4,
-                "width": 650,
-              },
-              null,
-            ],
             Object {
-              "borderRadius": 50,
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
             },
           ]
         }
       >
-        <View
+        <Text
           style={
-            Array [
-              Object {
-                "paddingHorizontal": 10,
-                "width": "100%",
-              },
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                },
-              ]
-            }
-          >
-            Coworker
-          </Text>
-          <SvgMock
-            color="#3CC8E6"
-          />
-        </View>
+          Coworker
+        </Text>
+        <SvgMock
+          color="#3CC8E6"
+        />
       </View>
     </View>
     <View
@@ -1403,7 +1128,18 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#005A7F",
+          "borderRadius": 50,
+          "borderWidth": 0,
+          "height": 72,
+          "justifyContent": "center",
+          "margin": 0,
+          "marginVertical": 4,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 650,
         }
       }
       testID="otherButton"
@@ -1412,73 +1148,37 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "paddingHorizontal": 10,
+              "width": "100%",
             },
-            null,
-            Array [
-              Object {
-                "backgroundColor": "#005A7F",
-                "height": 72,
-                "marginVertical": 4,
-                "width": 650,
-              },
-              null,
-            ],
             Object {
-              "borderRadius": 50,
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
             },
           ]
         }
       >
-        <View
+        <Text
           style={
-            Array [
-              Object {
-                "paddingHorizontal": 10,
-                "width": "100%",
-              },
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                },
-              ]
-            }
-          >
-            Other
-          </Text>
-          <SvgMock
-            color="#3CC8E6"
-          />
-        </View>
+          Other
+        </Text>
+        <SvgMock
+          color="#3CC8E6"
+        />
       </View>
     </View>
   </View>
@@ -1490,34 +1190,32 @@ exports[`Onboarding fires onPress 1`] = `
 - First value
 + Second value
 
-@@ -225,11 +225,13 @@
-                  \\"backgroundColor\\": \\"#005A7F\\",
-                  \\"height\\": 72,
-                  \\"marginVertical\\": 4,
-                  \\"width\\": 650,
-                },
--               null,
-+               Object {
-+                 \\"backgroundColor\\": \\"#3CC8E6\\",
-+               },
-              ],
-              Object {
-                \\"borderRadius\\": 50,
-              },
-            ]
-@@ -271,11 +273,11 @@
-              }
-            >
-              Family
-            </Text>
-            <SvgMock
--             color=\\"#3CC8E6\\"
-+             color=\\"#ffffff\\"
-            />
-          </View>
+@@ -182,11 +182,11 @@
+        onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+        onStartShouldSetResponder={[Function onStartShouldSetResponder]}
+        style={
+          Object {
+            \\"alignItems\\": \\"center\\",
+-           \\"backgroundColor\\": \\"#005A7F\\",
++           \\"backgroundColor\\": \\"#3CC8E6\\",
+            \\"borderRadius\\": 50,
+            \\"borderWidth\\": 0,
+            \\"height\\": 72,
+            \\"justifyContent\\": \\"center\\",
+            \\"margin\\": 0,
+@@ -230,11 +230,11 @@
+            }
+          >
+            Family
+          </Text>
+          <SvgMock
+-           color=\\"#3CC8E6\\"
++           color=\\"#ffffff\\"
+          />
         </View>
       </View>
-      <View"
+      <View
+        accessible={true}"
 `;
 
 exports[`Onboarding renders correctly 1`] = `
@@ -1590,57 +1288,45 @@ exports[`Onboarding renders correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "transparent",
                 "opacity": 1,
               }
             }
             testID="IconButton"
           >
-            <View
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": undefined,
+                    "fontSize": 12,
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
                   Array [
                     Object {
-                      "color": undefined,
-                      "fontSize": 12,
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                     Array [
                       Object {
-                        "color": "#ffffff",
+                        "margin": 10,
                       },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        undefined,
-                      ],
+                      undefined,
                     ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -1686,25 +1372,20 @@ exports[`Onboarding renders correctly 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "maxWidth": 200,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "maxWidth": 280,
             },
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Light",
-                "fontSize": 24,
-                "fontWeight": "300",
-                "lineHeight": 30,
-                "maxWidth": 200,
-                "textAlign": "center",
-              },
-              Object {
-                "maxWidth": 280,
-              },
-            ],
           ]
         }
       >
@@ -1723,7 +1404,18 @@ exports[`Onboarding renders correctly 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#005A7F",
+          "borderRadius": 50,
+          "borderWidth": 0,
+          "height": 72,
+          "justifyContent": "center",
+          "margin": 0,
+          "marginVertical": 4,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 650,
         }
       }
       testID="familyButton"
@@ -1732,73 +1424,37 @@ exports[`Onboarding renders correctly 1`] = `
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "paddingHorizontal": 10,
+              "width": "100%",
             },
-            null,
-            Array [
-              Object {
-                "backgroundColor": "#005A7F",
-                "height": 72,
-                "marginVertical": 4,
-                "width": 650,
-              },
-              null,
-            ],
             Object {
-              "borderRadius": 50,
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
             },
           ]
         }
       >
-        <View
+        <Text
           style={
-            Array [
-              Object {
-                "paddingHorizontal": 10,
-                "width": "100%",
-              },
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                },
-              ]
-            }
-          >
-            Family
-          </Text>
-          <SvgMock
-            color="#3CC8E6"
-          />
-        </View>
+          Family
+        </Text>
+        <SvgMock
+          color="#3CC8E6"
+        />
       </View>
     </View>
     <View
@@ -1813,7 +1469,18 @@ exports[`Onboarding renders correctly 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#005A7F",
+          "borderRadius": 50,
+          "borderWidth": 0,
+          "height": 72,
+          "justifyContent": "center",
+          "margin": 0,
+          "marginVertical": 4,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 650,
         }
       }
       testID="friendButton"
@@ -1822,73 +1489,37 @@ exports[`Onboarding renders correctly 1`] = `
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "paddingHorizontal": 10,
+              "width": "100%",
             },
-            null,
-            Array [
-              Object {
-                "backgroundColor": "#005A7F",
-                "height": 72,
-                "marginVertical": 4,
-                "width": 650,
-              },
-              null,
-            ],
             Object {
-              "borderRadius": 50,
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
             },
           ]
         }
       >
-        <View
+        <Text
           style={
-            Array [
-              Object {
-                "paddingHorizontal": 10,
-                "width": "100%",
-              },
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                },
-              ]
-            }
-          >
-            Friend
-          </Text>
-          <SvgMock
-            color="#3CC8E6"
-          />
-        </View>
+          Friend
+        </Text>
+        <SvgMock
+          color="#3CC8E6"
+        />
       </View>
     </View>
     <View
@@ -1903,7 +1534,18 @@ exports[`Onboarding renders correctly 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#005A7F",
+          "borderRadius": 50,
+          "borderWidth": 0,
+          "height": 72,
+          "justifyContent": "center",
+          "margin": 0,
+          "marginVertical": 4,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 650,
         }
       }
       testID="neighborButton"
@@ -1912,73 +1554,37 @@ exports[`Onboarding renders correctly 1`] = `
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "paddingHorizontal": 10,
+              "width": "100%",
             },
-            null,
-            Array [
-              Object {
-                "backgroundColor": "#005A7F",
-                "height": 72,
-                "marginVertical": 4,
-                "width": 650,
-              },
-              null,
-            ],
             Object {
-              "borderRadius": 50,
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
             },
           ]
         }
       >
-        <View
+        <Text
           style={
-            Array [
-              Object {
-                "paddingHorizontal": 10,
-                "width": "100%",
-              },
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                },
-              ]
-            }
-          >
-            Neighbor
-          </Text>
-          <SvgMock
-            color="#3CC8E6"
-          />
-        </View>
+          Neighbor
+        </Text>
+        <SvgMock
+          color="#3CC8E6"
+        />
       </View>
     </View>
     <View
@@ -1993,7 +1599,18 @@ exports[`Onboarding renders correctly 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#005A7F",
+          "borderRadius": 50,
+          "borderWidth": 0,
+          "height": 72,
+          "justifyContent": "center",
+          "margin": 0,
+          "marginVertical": 4,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 650,
         }
       }
       testID="coworkerButton"
@@ -2002,73 +1619,37 @@ exports[`Onboarding renders correctly 1`] = `
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "paddingHorizontal": 10,
+              "width": "100%",
             },
-            null,
-            Array [
-              Object {
-                "backgroundColor": "#005A7F",
-                "height": 72,
-                "marginVertical": 4,
-                "width": 650,
-              },
-              null,
-            ],
             Object {
-              "borderRadius": 50,
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
             },
           ]
         }
       >
-        <View
+        <Text
           style={
-            Array [
-              Object {
-                "paddingHorizontal": 10,
-                "width": "100%",
-              },
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                },
-              ]
-            }
-          >
-            Coworker
-          </Text>
-          <SvgMock
-            color="#3CC8E6"
-          />
-        </View>
+          Coworker
+        </Text>
+        <SvgMock
+          color="#3CC8E6"
+        />
       </View>
     </View>
     <View
@@ -2083,7 +1664,18 @@ exports[`Onboarding renders correctly 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#005A7F",
+          "borderRadius": 50,
+          "borderWidth": 0,
+          "height": 72,
+          "justifyContent": "center",
+          "margin": 0,
+          "marginVertical": 4,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 650,
         }
       }
       testID="otherButton"
@@ -2092,73 +1684,37 @@ exports[`Onboarding renders correctly 1`] = `
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "paddingHorizontal": 10,
+              "width": "100%",
             },
-            null,
-            Array [
-              Object {
-                "backgroundColor": "#005A7F",
-                "height": 72,
-                "marginVertical": 4,
-                "width": 650,
-              },
-              null,
-            ],
             Object {
-              "borderRadius": 50,
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
             },
           ]
         }
       >
-        <View
+        <Text
           style={
-            Array [
-              Object {
-                "paddingHorizontal": 10,
-                "width": "100%",
-              },
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                },
-              ]
-            }
-          >
-            Other
-          </Text>
-          <SvgMock
-            color="#3CC8E6"
-          />
-        </View>
+          Other
+        </Text>
+        <SvgMock
+          color="#3CC8E6"
+        />
       </View>
     </View>
   </View>

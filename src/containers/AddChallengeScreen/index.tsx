@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { View, Keyboard, StatusBar, ScrollView, Image } from 'react-native';
+import {
+  View,
+  Keyboard,
+  StatusBar,
+  ScrollView,
+  Image,
+  Text,
+} from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import moment from 'moment';
 
-import { Text, Input, Button } from '../../components/common';
+import { Input, Button } from '../../components/common';
 import DatePicker from '../../components/DatePicker';
 import theme from '../../theme';
 import DeprecatedBackButton from '../DeprecatedBackButton';
@@ -119,7 +126,7 @@ const AddChallengeScreen = () => {
         selectionColor={theme.secondaryColor}
         placeholder={t(isEdit ? 'titlePlaceholderEdit' : 'titlePlaceholderAdd')}
         placeholderTextColor={
-          isEditing === 'title' ? theme.lightGrey : theme.parakeetBlue
+          isEditing === 'title' ? theme.lightGrey : theme.secondaryColor
         }
         style={textInput}
       />
@@ -163,7 +170,7 @@ const AddChallengeScreen = () => {
           selectionColor={theme.secondaryColor}
           placeholder={t('detailPlaceholder')}
           placeholderTextColor={
-            isEditing === 'detail' ? theme.lightGrey : theme.parakeetBlue
+            isEditing === 'detail' ? theme.lightGrey : theme.secondaryColor
           }
           style={detailInput}
         />
@@ -187,7 +194,7 @@ const AddChallengeScreen = () => {
               testID="editButton"
               text={t('save').toUpperCase()}
               onPress={saveChallenge}
-              buttonTextStyle={{ color: theme.parakeetBlue, fontSize: 14 }}
+              buttonTextStyle={{ color: theme.secondaryColor, fontSize: 14 }}
               style={{ marginRight: 10 }}
             />
           ) : (

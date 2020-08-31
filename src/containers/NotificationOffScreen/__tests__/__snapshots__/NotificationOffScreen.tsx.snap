@@ -29,39 +29,35 @@ exports[`notification types renders for JOIN_CHALLENGE 1`] = `
   </View>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 32,
-          "paddingBottom": 10,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#3CC8E6",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 32,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 32,
+        "paddingBottom": 10,
+        "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     Notifications are off
   </Text>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 16,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 16,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 24,
+        "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     To receive updates about community challenges, please turn notifications on.
@@ -85,68 +81,49 @@ exports[`notification types renders for JOIN_CHALLENGE 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
+          "margin": 8,
           "opacity": 1,
+          "width": 680,
         }
       }
       testID="allowButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#007398",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
-            Array [
-              Object {
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "backgroundColor": "#52C5DC",
-              },
-            ],
             Object {
-              "borderRadius": 50,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1.5,
+              "lineHeight": 18,
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                },
-              ],
-            ]
-          }
-        >
-          GO TO SETTINGS
-        </Text>
-      </View>
+        GO TO SETTINGS
+      </Text>
     </View>
     <View
       accessible={true}
@@ -160,75 +137,53 @@ exports[`notification types renders for JOIN_CHALLENGE 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderColor": "#3CC8E6",
+          "borderRadius": 50,
+          "borderWidth": 1,
+          "height": 48,
+          "justifyContent": "center",
+          "margin": 8,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 680,
         }
       }
       testID="notNowButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
-            Array [
-              Object {
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "backgroundColor": "transparent",
-                "borderColor": "#52C5DC",
-                "borderWidth": 1,
-              },
-            ],
             Object {
-              "borderRadius": 50,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1.5,
+              "lineHeight": 18,
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                },
-              ],
-            ]
-          }
-        >
-          NOT NOW
-        </Text>
-      </View>
+        NOT NOW
+      </Text>
     </View>
   </View>
 </View>
@@ -263,39 +218,35 @@ exports[`notification types renders for JOIN_COMMUNITY 1`] = `
   </View>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 32,
-          "paddingBottom": 10,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#3CC8E6",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 32,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 32,
+        "paddingBottom": 10,
+        "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     Notifications are off
   </Text>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 16,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 16,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 24,
+        "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     To receive updates from your MissionHub community, please turn notifications on.
@@ -319,68 +270,49 @@ exports[`notification types renders for JOIN_COMMUNITY 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
+          "margin": 8,
           "opacity": 1,
+          "width": 680,
         }
       }
       testID="allowButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#007398",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
-            Array [
-              Object {
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "backgroundColor": "#52C5DC",
-              },
-            ],
             Object {
-              "borderRadius": 50,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1.5,
+              "lineHeight": 18,
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                },
-              ],
-            ]
-          }
-        >
-          GO TO SETTINGS
-        </Text>
-      </View>
+        GO TO SETTINGS
+      </Text>
     </View>
     <View
       accessible={true}
@@ -394,75 +326,53 @@ exports[`notification types renders for JOIN_COMMUNITY 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderColor": "#3CC8E6",
+          "borderRadius": 50,
+          "borderWidth": 1,
+          "height": 48,
+          "justifyContent": "center",
+          "margin": 8,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 680,
         }
       }
       testID="notNowButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
-            Array [
-              Object {
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "backgroundColor": "transparent",
-                "borderColor": "#52C5DC",
-                "borderWidth": 1,
-              },
-            ],
             Object {
-              "borderRadius": 50,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1.5,
+              "lineHeight": 18,
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                },
-              ],
-            ]
-          }
-        >
-          NOT NOW
-        </Text>
-      </View>
+        NOT NOW
+      </Text>
     </View>
   </View>
 </View>
@@ -497,39 +407,35 @@ exports[`notification types renders for LOGIN 1`] = `
   </View>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 32,
-          "paddingBottom": 10,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#3CC8E6",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 32,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 32,
+        "paddingBottom": 10,
+        "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     Notifications are off
   </Text>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 16,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 16,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 24,
+        "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     To receive reminders to take steps of faith, please turn notifications on.
@@ -553,68 +459,49 @@ exports[`notification types renders for LOGIN 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
+          "margin": 8,
           "opacity": 1,
+          "width": 680,
         }
       }
       testID="allowButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#007398",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
-            Array [
-              Object {
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "backgroundColor": "#52C5DC",
-              },
-            ],
             Object {
-              "borderRadius": 50,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1.5,
+              "lineHeight": 18,
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                },
-              ],
-            ]
-          }
-        >
-          GO TO SETTINGS
-        </Text>
-      </View>
+        GO TO SETTINGS
+      </Text>
     </View>
     <View
       accessible={true}
@@ -628,75 +515,53 @@ exports[`notification types renders for LOGIN 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderColor": "#3CC8E6",
+          "borderRadius": 50,
+          "borderWidth": 1,
+          "height": 48,
+          "justifyContent": "center",
+          "margin": 8,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 680,
         }
       }
       testID="notNowButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
-            Array [
-              Object {
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "backgroundColor": "transparent",
-                "borderColor": "#52C5DC",
-                "borderWidth": 1,
-              },
-            ],
             Object {
-              "borderRadius": 50,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1.5,
+              "lineHeight": 18,
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                },
-              ],
-            ]
-          }
-        >
-          NOT NOW
-        </Text>
-      </View>
+        NOT NOW
+      </Text>
     </View>
   </View>
 </View>
@@ -731,39 +596,35 @@ exports[`notification types renders for ONBOARDING 1`] = `
   </View>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 32,
-          "paddingBottom": 10,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#3CC8E6",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 32,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 32,
+        "paddingBottom": 10,
+        "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     Notifications are off
   </Text>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 16,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 16,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 24,
+        "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     To receive reminders to take steps of faith, please turn notifications on.
@@ -787,68 +648,49 @@ exports[`notification types renders for ONBOARDING 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
+          "margin": 8,
           "opacity": 1,
+          "width": 680,
         }
       }
       testID="allowButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#007398",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
-            Array [
-              Object {
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "backgroundColor": "#52C5DC",
-              },
-            ],
             Object {
-              "borderRadius": 50,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1.5,
+              "lineHeight": 18,
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                },
-              ],
-            ]
-          }
-        >
-          GO TO SETTINGS
-        </Text>
-      </View>
+        GO TO SETTINGS
+      </Text>
     </View>
     <View
       accessible={true}
@@ -862,75 +704,53 @@ exports[`notification types renders for ONBOARDING 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderColor": "#3CC8E6",
+          "borderRadius": 50,
+          "borderWidth": 1,
+          "height": 48,
+          "justifyContent": "center",
+          "margin": 8,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 680,
         }
       }
       testID="notNowButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
-            Array [
-              Object {
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "backgroundColor": "transparent",
-                "borderColor": "#52C5DC",
-                "borderWidth": 1,
-              },
-            ],
             Object {
-              "borderRadius": 50,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1.5,
+              "lineHeight": 18,
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                },
-              ],
-            ]
-          }
-        >
-          NOT NOW
-        </Text>
-      </View>
+        NOT NOW
+      </Text>
     </View>
   </View>
 </View>
@@ -965,39 +785,35 @@ exports[`notification types renders for SET_REMINDER 1`] = `
   </View>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 32,
-          "paddingBottom": 10,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#3CC8E6",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 32,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 32,
+        "paddingBottom": 10,
+        "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     Notifications are off
   </Text>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 16,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 16,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 24,
+        "textAlign": "center",
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     To receive reminders to take steps of faith, please turn notifications on.
@@ -1021,68 +837,49 @@ exports[`notification types renders for SET_REMINDER 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
+          "margin": 8,
           "opacity": 1,
+          "width": 680,
         }
       }
       testID="allowButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#007398",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
-            Array [
-              Object {
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "backgroundColor": "#52C5DC",
-              },
-            ],
             Object {
-              "borderRadius": 50,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1.5,
+              "lineHeight": 18,
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                },
-              ],
-            ]
-          }
-        >
-          GO TO SETTINGS
-        </Text>
-      </View>
+        GO TO SETTINGS
+      </Text>
     </View>
     <View
       accessible={true}
@@ -1096,75 +893,53 @@ exports[`notification types renders for SET_REMINDER 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderColor": "#3CC8E6",
+          "borderRadius": 50,
+          "borderWidth": 1,
+          "height": 48,
+          "justifyContent": "center",
+          "margin": 8,
           "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+          "width": 680,
         }
       }
       testID="notNowButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
-            null,
-            Array [
-              Object {
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "backgroundColor": "transparent",
-                "borderColor": "#52C5DC",
-                "borderWidth": 1,
-              },
-            ],
             Object {
-              "borderRadius": 50,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1.5,
+              "lineHeight": 18,
+              "textAlignVertical": "center",
+              "textTransform": "uppercase",
             },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                },
-              ],
-            ]
-          }
-        >
-          I DON'T WANT REMINDERS
-        </Text>
-      </View>
+        I DON'T WANT REMINDERS
+      </Text>
     </View>
   </View>
 </View>

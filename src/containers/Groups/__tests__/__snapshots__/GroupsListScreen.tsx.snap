@@ -5,7 +5,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 - First value
 + Second value
 
-@@ -351,11 +351,11 @@
+@@ -307,11 +307,11 @@
               \\"nodes\\": Array [],
             },
             \\"report\\": Object {
@@ -18,7 +18,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
             \\"unreadCommentsCount\\": 0,
           },
           Object {
-@@ -635,11 +635,291 @@
+@@ -591,11 +591,291 @@
               \\"contactCount\\": 26992,
               \\"memberCount\\": 35653,
               \\"unassignedCount\\": 89588,
@@ -310,7 +310,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
       disableVirtualization={false}
       getItem={[Function anonymous]}
       getItemCount={[Function anonymous]}
-@@ -696,11 +976,11 @@
+@@ -652,11 +932,11 @@
                   \\"nodes\\": Array [],
                 },
                 \\"report\\": Object {
@@ -323,7 +323,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
                 \\"unreadCommentsCount\\": 0,
               }
             }
-@@ -1051,11 +1331,11 @@
+@@ -1007,11 +1287,11 @@
           />
         </View>
         <View
@@ -404,53 +404,41 @@ exports[`GroupsListScreen renders with communities 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="menuButton"
         >
-          <View
+          <Image
+            resizeMode="cover"
+            source={
+              Object {
+                "uri": "aut delectus aut",
+              }
+            }
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "borderRadius": 20,
+                  "height": 42,
+                  "width": 42,
                 },
-                null,
-                Object {},
-                null,
+                Object {
+                  "backgroundColor": "rgb(122, 19, 115)",
+                },
+                undefined,
               ]
             }
-          >
-            <Image
-              resizeMode="cover"
-              source={
-                Object {
-                  "uri": "aut delectus aut",
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "borderRadius": 20,
-                    "height": 42,
-                    "width": 42,
-                  },
-                  Object {
-                    "backgroundColor": "rgb(122, 19, 115)",
-                  },
-                  undefined,
-                ]
-              }
-            />
-          </View>
+          />
         </View>
       </View>
       <View
@@ -470,23 +458,25 @@ exports[`GroupsListScreen renders with communities 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                Object {
-                  "fontSize": 16,
-                  "fontWeight": "400",
-                  "lineHeight": 24,
-                },
-              ],
             ]
           }
         >
@@ -535,74 +525,55 @@ exports[`GroupsListScreen renders with communities 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "backgroundColor": "#005A7F",
+            "borderRadius": 0,
+            "borderRightColor": "#007398",
+            "borderRightWidth": 1,
+            "borderWidth": 0,
+            "flexBasis": 40,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingVertical": 13,
           }
         }
         testID="joinCommunity"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "alignSelf": "stretch",
-                  "backgroundColor": "#005A7F",
-                  "flexBasis": 40,
-                  "justifyContent": "center",
-                  "paddingVertical": 13,
-                },
-                Object {
-                  "borderRightColor": "#007398",
-                  "borderRightWidth": 1,
-                },
-              ],
-              null,
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
+              },
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                    "fontWeight": "bold",
-                  },
-                ],
-              ]
-            }
-          >
-            JOIN A COMMUNITY
-          </Text>
-        </View>
+          JOIN A COMMUNITY
+        </Text>
       </View>
     </View>
     <View
@@ -624,68 +595,53 @@ exports[`GroupsListScreen renders with communities 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "backgroundColor": "#005A7F",
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "flexBasis": 40,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingVertical": 13,
           }
         }
         testID="createCommunity"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
               Object {
-                "alignItems": "center",
-                "alignSelf": "stretch",
-                "backgroundColor": "#005A7F",
-                "flexBasis": 40,
-                "justifyContent": "center",
-                "paddingVertical": 13,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                    "fontWeight": "bold",
-                  },
-                ],
-              ]
-            }
-          >
-            CREATE A COMMUNITY
-          </Text>
-        </View>
+          CREATE A COMMUNITY
+        </Text>
       </View>
     </View>
   </View>
@@ -1469,7 +1425,16 @@ exports[`GroupsListScreen renders with only global community 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             }
           }
           testID="menuButton"
@@ -1479,66 +1444,37 @@ exports[`GroupsListScreen renders with only global community 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
                   "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
                 },
-                null,
-                Object {},
-                null,
+                Array [
+                  Object {
+                    "borderRadius": 20,
+                    "height": 42,
+                    "width": 42,
+                  },
+                  Object {
+                    "backgroundColor": "#B4B6BA",
+                  },
+                  undefined,
+                ],
               ]
             }
           >
-            <View
+            <Text
               style={
                 Array [
                   Object {
-                    "alignItems": "center",
-                    "justifyContent": "center",
+                    "color": "#ffffff",
                   },
-                  Array [
-                    Object {
-                      "borderRadius": 20,
-                      "height": 42,
-                      "width": 42,
-                    },
-                    Object {
-                      "backgroundColor": "#B4B6BA",
-                    },
-                    undefined,
-                  ],
+                  Object {
+                    "fontSize": 26,
+                    "fontWeight": "300",
+                  },
                 ]
               }
             >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 26,
-                        "fontWeight": "300",
-                      },
-                    ],
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -1559,23 +1495,25 @@ exports[`GroupsListScreen renders with only global community 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
               Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                Object {
-                  "fontSize": 16,
-                  "fontWeight": "400",
-                  "lineHeight": 24,
-                },
-              ],
             ]
           }
         >
@@ -1624,74 +1562,55 @@ exports[`GroupsListScreen renders with only global community 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "backgroundColor": "#005A7F",
+            "borderRadius": 0,
+            "borderRightColor": "#007398",
+            "borderRightWidth": 1,
+            "borderWidth": 0,
+            "flexBasis": 40,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingVertical": 13,
           }
         }
         testID="joinCommunity"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "alignSelf": "stretch",
-                  "backgroundColor": "#005A7F",
-                  "flexBasis": 40,
-                  "justifyContent": "center",
-                  "paddingVertical": 13,
-                },
-                Object {
-                  "borderRightColor": "#007398",
-                  "borderRightWidth": 1,
-                },
-              ],
-              null,
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
+              },
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                    "fontWeight": "bold",
-                  },
-                ],
-              ]
-            }
-          >
-            JOIN A COMMUNITY
-          </Text>
-        </View>
+          JOIN A COMMUNITY
+        </Text>
       </View>
     </View>
     <View
@@ -1713,68 +1632,53 @@ exports[`GroupsListScreen renders with only global community 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "backgroundColor": "#005A7F",
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "flexBasis": 40,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
             "opacity": 1,
+            "paddingHorizontal": 20,
+            "paddingVertical": 13,
           }
         }
         testID="createCommunity"
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
               Object {
-                "alignItems": "center",
-                "alignSelf": "stretch",
-                "backgroundColor": "#005A7F",
-                "flexBasis": 40,
-                "justifyContent": "center",
-                "paddingVertical": 13,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlignVertical": "center",
+                "textTransform": "uppercase",
               },
-              null,
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                    "fontWeight": "bold",
-                  },
-                ],
-              ]
-            }
-          >
-            CREATE A COMMUNITY
-          </Text>
-        </View>
+          CREATE A COMMUNITY
+        </Text>
       </View>
     </View>
   </View>

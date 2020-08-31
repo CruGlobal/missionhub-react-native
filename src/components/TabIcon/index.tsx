@@ -1,9 +1,9 @@
 import React from 'react';
 import i18next from 'i18next';
 import { useQuery } from '@apollo/react-hooks';
+import { Text } from 'react-native';
 
 import Flex from '../Flex';
-import { Text } from '../common';
 import { isAndroid } from '../../utils/common';
 import PeopleIcon from '../../../assets/images/mainNav/peopleIcon.svg';
 import StepsIcon from '../../../assets/images/mainNav/stepsIcon.svg';

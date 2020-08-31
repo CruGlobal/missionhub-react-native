@@ -10,6 +10,7 @@ import {
   SAVE_PENDING_POST,
   DELETE_PENDING_POST,
   PENDING_POST_FAILED,
+  PENDING_POST_RETRY,
 } from '../../constants';
 
 const pendingCreatePost: StoredCreatePost = {
@@ -107,6 +108,34 @@ describe('PENDING_POST_FAILED', () => {
     expect(
       communityPosts(initialState, {
         type: PENDING_POST_FAILED,
+        storageId: '1',
+      }),
+    ).toMatchSnapshot();
+  });
+});
+
+describe('PENDING_POST_RETRY', () => {
+  const initialStateFailed = {
+    ...initialState,
+    pendingPosts: {
+      [pendingCreatePost.storageId]: { ...pendingCreatePost, failed: true },
+      [pendingUpdatePost.storageId]: { ...pendingUpdatePost, failed: true },
+    },
+  };
+
+  it('marks pending create post as not failed', () => {
+    expect(
+      communityPosts(initialStateFailed, {
+        type: PENDING_POST_RETRY,
+        storageId: '0',
+      }),
+    ).toMatchSnapshot();
+  });
+
+  it('marks pending update post as not failed', () => {
+    expect(
+      communityPosts(initialStateFailed, {
+        type: PENDING_POST_RETRY,
         storageId: '1',
       }),
     ).toMatchSnapshot();

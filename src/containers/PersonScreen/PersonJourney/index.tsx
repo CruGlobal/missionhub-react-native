@@ -49,18 +49,13 @@ export const PersonJourney = ({
   const journeyItems = useSelector(
     ({ journey }: RootState) => journey['personal'][personId] || undefined,
   );
-
   useAnalytics(['person', person.id === myId ? 'my journey' : 'our journey'], {
     assignmentType: { personId },
   });
 
   useEffect(() => {
-    getInteractions();
-  }, []);
-
-  const getInteractions = () => {
     dispatch(getJourney(person.id));
-  };
+  }, []);
 
   const handleEditInteraction = (interaction: {
     _type: string;
@@ -101,6 +96,9 @@ export const PersonJourney = ({
           actions={[
             { text: t('edit'), onPress: () => handleEditInteraction(item) },
           ]}
+          buttonProps={{
+            style: { flex: 1 },
+          }}
           triggerOnLongPress={true}
         >
           {content}

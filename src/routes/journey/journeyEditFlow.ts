@@ -20,13 +20,15 @@ export const JourneyEditFlowScreens = {
     ({ text, id, type, personId }: AddStepScreenNextProps) => async (
       dispatch: ThunkDispatch<RootState, never, AnyAction>,
     ) => {
-      (await type) === EDIT_JOURNEY_STEP
-        ? id && text && dispatch(updateChallengeNote(id, text))
-        : dispatch(editComment(id, text));
+      dispatch(navigateBack());
+
+      if (type === EDIT_JOURNEY_STEP) {
+        id && text && (await dispatch(updateChallengeNote(id, text)));
+      } else {
+        await dispatch(editComment(id, text));
+      }
 
       dispatch(getJourney(personId));
-
-      dispatch(navigateBack());
     },
   ),
 };

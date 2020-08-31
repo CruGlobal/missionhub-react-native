@@ -13,7 +13,7 @@ export default StyleSheet.create({
     marginVertical: 8,
   },
   title: {
-    fontSize: 12,
+    ...theme.textRegular12,
     color: theme.lightGrey,
     textAlign: 'center',
   },

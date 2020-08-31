@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Alert, View } from 'react-native';
+import { Alert, View, Text } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 
-import { Flex, Card, Button, Text } from '../../components/common';
+import { Flex, Card, Button } from '../../components/common';
 import CommentItem from '../CommentItem';
 import ReportItemLabel from '../../components/ReportItemLabel';
 import {

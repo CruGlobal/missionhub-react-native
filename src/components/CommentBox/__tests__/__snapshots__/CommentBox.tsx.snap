@@ -5,8 +5,8 @@ exports[`click submit button calls onSubmit prop 1`] = `
 - First value
 + Second value
 
-@@ -98,11 +98,11 @@
-              \\"paddingVertical\\": 6,
+@@ -101,11 +101,11 @@
+              \\"textTransform\\": \\"none\\",
             },
           ]
         }
@@ -18,7 +18,7 @@ exports[`click submit button calls onSubmit prop 1`] = `
     <View
       accessible={true}
       focusable={true}
-@@ -119,9 +119,9 @@
+@@ -122,9 +122,9 @@
         }
       }
       testID=\\"SubmitButton\\"
@@ -41,18 +41,14 @@ exports[`handles start edit 1`] = `
 - First value
 + Second value
 
-@@ -9,52 +9,82 @@
+@@ -9,45 +9,71 @@
       }
     }
   >
     <View
       style={
--       Array [
-        Object {
--           \\"alignItems\\": \\"center\\",
--           \\"justifyContent\\": \\"center\\",
--         },
-+         \\"backgroundColor\\": \\"#505256\\",
++       Object {
++         \\"backgroundColor\\": \\"#B4B6BA\\",
 +         \\"borderRadius\\": 25,
 +       }
 +     }
@@ -69,81 +65,72 @@ exports[`handles start edit 1`] = `
 +       onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +       style={
 +         Object {
++           \\"backgroundColor\\": \\"transparent\\",
 +           \\"opacity\\": 1,
 +         }
 +       }
 +       testID=\\"IconButton\\"
 +     >
-+       <View
++       <Text
++         allowFontScaling={false}
 +         style={
             Array [
               Object {
+-           \\"alignItems\\": \\"center\\",
+-           \\"justifyContent\\": \\"center\\",
++               \\"color\\": undefined,
++               \\"fontSize\\": 12,
+              },
+              Array [
+                Object {
 -             \\"borderRadius\\": 18,
 -             \\"height\\": 36,
 -             \\"width\\": 36,
--           },
--           Object {
++                 \\"color\\": \\"#ffffff\\",
+                },
+                Object {
 -             \\"backgroundColor\\": \\"#B4B6BA\\",
-+               \\"backgroundColor\\": \\"transparent\\",
-              },
++                 \\"fontSize\\": 16,
+                },
 -           undefined,
 -         ],
-+             null,
+-       ]
+-     }
+-   >
+-     <Text
+-       style={
+                Array [
++                 Object {
++                   \\"margin\\": 10,
++                 },
+                  Object {
+                    \\"color\\": \\"#ffffff\\",
+                  },
++               ],
++             ],
+              Object {
+-             \\"fontSize\\": 20,
+-             \\"fontWeight\\": \\"300\\",
++               \\"fontFamily\\": \\"icomoon\\",
++               \\"fontStyle\\": \\"normal\\",
++               \\"fontWeight\\": \\"normal\\",
+              },
 +             Object {},
-+             null,
             ]
           }
         >
-          <Text
-+           allowFontScaling={false}
-            style={
-              Array [
-                Object {
--             \\"color\\": \\"#505256\\",
-+                 \\"color\\": undefined,
-+                 \\"fontSize\\": 12,
-+               },
-+               Array [
-+                 Object {
-+                   \\"color\\": \\"#ffffff\\",
-                  },
-                  Object {
--             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                   \\"fontSize\\": 16,
-                  },
-                  Array [
-                    Object {
--               \\"color\\": \\"#ffffff\\",
-+                     \\"margin\\": 10,
-                    },
-                    Object {
--               \\"fontSize\\": 20,
--               \\"fontWeight\\": \\"300\\",
-+                     \\"color\\": \\"#ffffff\\",
-                    },
-+                 ],
-                ],
-+               Object {
-+                 \\"fontFamily\\": \\"icomoon\\",
-+                 \\"fontStyle\\": \\"normal\\",
-+                 \\"fontWeight\\": \\"normal\\",
-+               },
-+               Object {},
-              ]
-            }
-          >
 -       
-+           
-          </Text>
-+       </View>
-+     </View>
-    </View>
++         
+        </Text>
+      </View>
++   </View>
     <View
       style={
         Object {
           \\"backgroundColor\\": \\"#ECEEF2\\",
-@@ -98,11 +128,11 @@
-              \\"paddingVertical\\": 6,
+          \\"borderRadius\\": 8,
+@@ -101,11 +127,11 @@
+              \\"textTransform\\": \\"none\\",
             },
           ]
         }
@@ -155,7 +142,7 @@ exports[`handles start edit 1`] = `
     <View
       accessible={true}
       focusable={true}
-@@ -119,9 +149,9 @@
+@@ -122,9 +148,9 @@
         }
       }
       testID=\\"SubmitButton\\"
@@ -173,8 +160,8 @@ exports[`renders with disabled submit button 1`] = `
 - First value
 + Second value
 
-@@ -98,11 +98,11 @@
-              \\"paddingVertical\\": 6,
+@@ -101,11 +101,11 @@
+              \\"textTransform\\": \\"none\\",
             },
           ]
         }
@@ -186,7 +173,7 @@ exports[`renders with disabled submit button 1`] = `
     <View
       accessible={true}
       focusable={true}
-@@ -119,9 +119,9 @@
+@@ -122,9 +122,9 @@
         }
       }
       testID=\\"SubmitButton\\"
@@ -204,8 +191,8 @@ exports[`renders with text entered 1`] = `
 - First value
 + Second value
 
-@@ -98,11 +98,11 @@
-              \\"paddingVertical\\": 6,
+@@ -101,11 +101,11 @@
+              \\"textTransform\\": \\"none\\",
             },
           ]
         }
@@ -217,7 +204,7 @@ exports[`renders with text entered 1`] = `
     <View
       accessible={true}
       focusable={true}
-@@ -119,9 +119,9 @@
+@@ -122,9 +122,9 @@
         }
       }
       testID=\\"SubmitButton\\"
@@ -267,20 +254,12 @@ exports[`renders without actions 1`] = `
       style={
         Array [
           Object {
-            "color": "#505256",
+            "color": "#ffffff",
           },
           Object {
-            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 20,
+            "fontWeight": "300",
           },
-          Array [
-            Object {
-              "color": "#ffffff",
-            },
-            Object {
-              "fontSize": 20,
-              "fontWeight": "300",
-            },
-          ],
         ]
       }
     >
@@ -306,7 +285,7 @@ exports[`renders without actions 1`] = `
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
       placeholder="Placeholder"
-      placeholderTextColor="#B2B0B2"
+      placeholderTextColor="#B4B6BA"
       rejectResponderTermination={true}
       returnKeyType="done"
       selectionColor="#005A7F"
@@ -314,21 +293,32 @@ exports[`renders without actions 1`] = `
         Array [
           Object {
             "backgroundColor": "transparent",
-            "borderBottomColor": "#52C5DC",
+            "borderBottomColor": "#3CC8E6",
             "borderBottomWidth": 1,
             "color": "#ffffff",
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
             "letterSpacing": 0.25,
+            "lineHeight": 24,
             "paddingVertical": 5,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
           Object {
             "borderBottomWidth": 0,
-            "color": "#4E4C4E",
+            "color": "#505256",
             "flex": 1,
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
             "paddingHorizontal": 12,
             "paddingVertical": 6,
+            "textAlignVertical": "center",
+            "textTransform": "none",
           },
         ]
       }

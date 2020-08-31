@@ -5,31 +5,43 @@ exports[`for person renders null if contact assignment is not found 1`] = `""`;
 exports[`for person renders null if stage is not found 1`] = `""`;
 
 exports[`for person renders stage 1`] = `
-<MyText
+<Text
   style={
     Object {
       "color": "#ffffff",
+      "fontFamily": "SourceSansPro-Regular",
       "fontSize": 14,
+      "fontStyle": "normal",
+      "fontWeight": "normal",
       "letterSpacing": 0.25,
+      "lineHeight": 20,
+      "textAlignVertical": "center",
+      "textTransform": "none",
     }
   }
 >
   Curios
-</MyText>
+</Text>
 `;
 
 exports[`for self renders null if stage is not found 1`] = `""`;
 
 exports[`for self renders stage 1`] = `
-<MyText
+<Text
   style={
     Object {
       "color": "#ffffff",
+      "fontFamily": "SourceSansPro-Regular",
       "fontSize": 14,
+      "fontStyle": "normal",
+      "fontWeight": "normal",
       "letterSpacing": 0.25,
+      "lineHeight": 20,
+      "textAlignVertical": "center",
+      "textTransform": "none",
     }
   }
 >
   Forgiven
-</MyText>
+</Text>
 `;

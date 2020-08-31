@@ -6,13 +6,6 @@ export default StyleSheet.create({
   cardContent: {
     flex: 1,
   },
-  postText: {
-    fontSize: 16,
-    lineHeight: 24,
-  },
-  topLeft: {
-    justifyContent: 'flex-start',
-  },
   clearNotificationWrap: {
     position: 'absolute',
     top: -5,
@@ -24,7 +17,7 @@ export default StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 2,
     elevation: 4,
-    backgroundColor: theme.grey,
+    backgroundColor: theme.darkGrey,
     borderRadius: 20,
   },
   clearNotificationIcon: {

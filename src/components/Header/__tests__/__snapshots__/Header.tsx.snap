@@ -47,19 +47,7 @@ exports[`renders with center content 1`] = `
         ]
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {},
-          ]
-        }
-      >
+      <Text>
         Center
       </Text>
     </View>
@@ -117,19 +105,7 @@ exports[`renders with left content 1`] = `
         ]
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {},
-          ]
-        }
-      >
+      <Text>
         Left
       </Text>
     </View>
@@ -255,19 +231,7 @@ exports[`renders with right content 1`] = `
         ]
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {},
-          ]
-        }
-      >
+      <Text>
         Right
       </Text>
     </View>
@@ -386,21 +350,18 @@ exports[`renders with styles 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
+              "color": "white",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "color": "red",
             },
-            Array [
-              Object {
-                "color": "white",
-                "fontSize": 14,
-                "fontWeight": "500",
-              },
-              Object {
-                "color": "red",
-              },
-            ],
           ]
         }
       >
@@ -478,19 +439,16 @@ exports[`renders with title 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
-            },
-            Object {
+              "color": "white",
               "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
-            Array [
-              Object {
-                "color": "white",
-                "fontSize": 14,
-                "fontWeight": "500",
-              },
-              undefined,
-            ],
+            undefined,
           ]
         }
       >
@@ -569,18 +527,10 @@ exports[`renders with title and subtitle 1`] = `
       <Text
         numberOfLines={1}
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 12,
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+          }
         }
       >
         Subtitle
@@ -588,18 +538,10 @@ exports[`renders with title and subtitle 1`] = `
       <Text
         numberOfLines={1}
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 20,
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontSize": 20,
+          }
         }
       >
         Title

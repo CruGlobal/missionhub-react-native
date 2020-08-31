@@ -13,17 +13,16 @@ exports[`render label 1`] = `
 >
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#A0A2A6",
-        },
-      ]
+      Object {
+        "color": "#ECEEF2",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 14,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 20,
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     Label
@@ -32,17 +31,16 @@ exports[`render label 1`] = `
   <Text
     numberOfLines={1}
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#505256",
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 16,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 24,
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     Test User
@@ -50,17 +48,16 @@ exports[`render label 1`] = `
   <Text
     numberOfLines={1}
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#505256",
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 16,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 24,
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
     }
   >
     Test Community

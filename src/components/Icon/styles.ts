@@ -4,6 +4,6 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   icon: {
-    color: theme.iconColor,
+    color: theme.white,
   },
 });
