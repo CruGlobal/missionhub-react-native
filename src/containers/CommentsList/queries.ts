@@ -13,7 +13,7 @@ export const DELETE_FEED_ITEM_COMMENT_MUTATION = gql`
 export const REPORT_FEED_ITEM_COMMENT_MUTATION = gql`
   mutation ReportFeedItemComment($id: ID!) {
     createContentComplaint(
-      input: { subjectId: $id, subjectType: CommunityCelebrationItemComment }
+      input: { subjectId: $id, subjectType: FeedItemComment }
     ) {
       contentComplaint {
         id
