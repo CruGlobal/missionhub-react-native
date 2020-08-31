@@ -6,16 +6,12 @@ Array [
     "_type": "accepted_challenge",
     "completed_at": "2018-02-09T00:00:00",
     "id": "1",
-    "organization": Object {
-      "id": "1",
-    },
     "title": "Step in org",
   },
   Object {
     "_type": "accepted_challenge",
     "completed_at": "2018-02-10T00:00:00",
     "id": "2",
-    "organization": null,
     "title": "Step in personal org",
   },
   Object {
@@ -32,9 +28,6 @@ Array [
       },
     ],
     "isFirstInteraction": true,
-    "organization": Object {
-      "id": "1",
-    },
   },
   Object {
     "_type": "interaction",
@@ -46,9 +39,6 @@ Array [
         "id": "1",
       },
     ],
-    "organization": Object {
-      "id": "2",
-    },
   },
   Object {
     "_type": "interaction",
@@ -60,9 +50,6 @@ Array [
         "id": "3",
       },
     ],
-    "organization": Object {
-      "id": "1",
-    },
   },
   Object {
     "_type": "interaction",
@@ -74,7 +61,6 @@ Array [
         "id": "1",
       },
     ],
-    "organization": null,
   },
   Object {
     "_type": "pathway_progression_audit",
@@ -93,9 +79,6 @@ Array [
       "_type": "pathway_stage",
       "id": "1",
       "name": "Uninterested",
-    },
-    "organization": Object {
-      "id": "1",
     },
     "person": Object {
       "id": "2",
@@ -119,9 +102,6 @@ Array [
       "id": "1",
       "name": "Uninterested",
     },
-    "organization": Object {
-      "id": "2",
-    },
     "person": Object {
       "id": "2",
     },
@@ -143,9 +123,6 @@ Array [
       "_type": "pathway_stage",
       "id": "1",
       "name": "Uninterested",
-    },
-    "organization": Object {
-      "id": "1",
     },
     "person": Object {
       "id": "2",
@@ -169,7 +146,6 @@ Array [
       "id": "1",
       "name": "Uninterested",
     },
-    "organization": null,
     "person": Object {
       "id": "2",
     },
@@ -179,7 +155,6 @@ Array [
     "created_at": "2018-02-07T00:00:00",
     "id": "1",
     "survey": Object {
-      "organization_id": "1",
       "title": "Survey in org",
     },
   },
@@ -188,7 +163,6 @@ Array [
     "created_at": "2018-02-08T00:00:00",
     "id": "2",
     "survey": Object {
-      "organization_id": "2",
       "title": "Survey in another org",
     },
   },

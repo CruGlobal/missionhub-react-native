@@ -1,21 +1,33 @@
-import { LOGOUT, UPDATE_JOURNEY_ITEMS } from '../constants';
+import { LOGOUT, UPDATE_JOURNEY_ITEMS, LogoutAction } from '../constants';
 
-const initialState = {
+export interface JourneyItem {
+  id: string;
+}
+
+export interface JourneyState {
+  personal: { [key: string]: JourneyItem[] };
+}
+
+const initialState: JourneyState = {
   personal: {},
 };
 
-// @ts-ignore
-function journeyReducer(state = initialState, action) {
+export interface UpdateJourneyItemsAction {
+  type: typeof UPDATE_JOURNEY_ITEMS;
+  personId: string;
+  journeyItems: JourneyItem[];
+}
+
+function journeyReducer(
+  state = initialState,
+  action: UpdateJourneyItemsAction | LogoutAction,
+) {
   switch (action.type) {
     case UPDATE_JOURNEY_ITEMS: {
-      const orgId = action.orgId || 'personal';
-      // @ts-ignore
-      const org = state[orgId] || {};
-
       return {
         ...state,
-        [orgId]: {
-          ...org,
+        personal: {
+          ...state.personal,
           [action.personId]: action.journeyItems,
         },
       };
