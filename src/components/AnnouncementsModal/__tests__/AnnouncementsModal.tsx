@@ -3,18 +3,21 @@ import { Linking } from 'react-native';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { MockList } from 'graphql-tools';
+import DeviceInfo from 'react-native-device-info';
 
 import { trackAction } from '../../../actions/analytics';
 import { renderWithContext } from '../../../../testUtils';
 import AnnouncementsModal, { GET_ANNOUNCEMENT, HANDLE_ANNOUNCEMENT } from '..';
 
 jest.mock('../../../actions/analytics');
+jest.mock('react-native-device-info');
 
 const initialState = {};
 const trackActionResponse = { type: 'tracked action' };
 
 beforeEach(() => {
   Linking.openURL = jest.fn().mockReturnValue(Promise.resolve());
+  (DeviceInfo.getVersion as jest.Mock).mockReturnValue('5.4.1');
   (trackAction as jest.Mock).mockReturnValue(trackActionResponse);
 });
 
@@ -27,7 +30,9 @@ it('renders correctly', async () => {
   });
   await flushMicrotasksQueue();
 
-  expect(useQuery).toHaveBeenCalledWith(GET_ANNOUNCEMENT);
+  expect(useQuery).toHaveBeenCalledWith(GET_ANNOUNCEMENT, {
+    variables: { version: '5.4.1' },
+  });
 });
 
 it('Should not render if there are no announcements', async () => {
@@ -39,7 +44,9 @@ it('Should not render if there are no announcements', async () => {
   });
   await flushMicrotasksQueue();
   snapshot();
-  expect(useQuery).toHaveBeenCalledWith(GET_ANNOUNCEMENT);
+  expect(useQuery).toHaveBeenCalledWith(GET_ANNOUNCEMENT, {
+    variables: { version: '5.4.1' },
+  });
 });
 
 describe('User clicks the close button', () => {
@@ -274,6 +281,8 @@ describe('User clicks the Modal Action Button', () => {
         input: { announcementId: '24', announcementActionId: '18' },
       },
     });
-    expect(useQuery).toHaveBeenCalledWith(GET_ANNOUNCEMENT);
+    expect(useQuery).toHaveBeenCalledWith(GET_ANNOUNCEMENT, {
+      variables: { version: '5.4.1' },
+    });
   });
 });

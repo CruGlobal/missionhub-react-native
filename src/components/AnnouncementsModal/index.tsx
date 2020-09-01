@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Modal, Text, Linking } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useQuery, useMutation } from '@apollo/react-hooks';
+import DeviceInfo from 'react-native-device-info';
 import gql from 'graphql-tag';
 
 import { Button, Flex } from '../../components/common';
@@ -11,6 +12,7 @@ import { trackAction as analyticsTrackAction } from '../../actions/analytics';
 import styles from './styles';
 import {
   GetAnnouncement,
+  GetAnnouncementVariables,
   GetAnnouncement_announcement_actions_nodes,
 } from './__generated__/GetAnnouncement';
 import {
@@ -19,8 +21,8 @@ import {
 } from './__generated__/markAnnouncementAsRead';
 
 export const GET_ANNOUNCEMENT = gql`
-  query GetAnnouncement {
-    announcement {
+  query GetAnnouncement($version: String) {
+    announcement(version: $version) {
       id
       body
       title
@@ -54,9 +56,11 @@ const AnnouncementsModal = () => {
     bodyText,
   } = styles;
   const { t } = useTranslation();
+  const currentAppVersion = DeviceInfo.getVersion();
   const { data: { announcement = null } = {}, loading } = useQuery<
-    GetAnnouncement
-  >(GET_ANNOUNCEMENT);
+    GetAnnouncement,
+    GetAnnouncementVariables
+  >(GET_ANNOUNCEMENT, { variables: { version: currentAppVersion } });
   const [handleAnnouncementAction] = useMutation<
     markAnnouncementAsRead,
     markAnnouncementAsReadVariables
