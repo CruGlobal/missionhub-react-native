@@ -118,8 +118,7 @@ export function savePersonNote(
   };
 }
 
-// @ts-ignore
-export function getPersonNote(personId, myId) {
+export function getPersonNote(personId: string, myId: string) {
   // @ts-ignore
   return dispatch => {
     const query = { person_id: personId, include: 'person_notes' };

@@ -14,6 +14,7 @@ import AppleIcon from './appleIcon.svg';
 import GoogleIcon from './googleIcon.svg';
 import FacebookIcon from './facebookIcon.svg';
 import { styles } from './styles';
+import theme from '../../../theme';
 
 export enum SocialAuthButtonsType {
   SignIn,
@@ -59,7 +60,7 @@ export const SocialAuthButtons = ({
               },
             })
           }
-          borderColor="#3CC8E6"
+          borderColor={theme.secondaryColor}
         />
       ) : null}
       {appleAuth.isSupported ? renderAppleButton() : null}

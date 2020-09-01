@@ -27,6 +27,14 @@ export const useAuthPerson = (): AuthPerson_currentUser_person => {
   return data?.currentUser.person ?? emptyAuthPerson;
 };
 
+export const useAuthUser = () => {
+  const { data } = useQuery<AuthPerson>(AUTH_PERSON, {
+    fetchPolicy: 'cache-first',
+    skip: !isAuthenticated(),
+  });
+  return data?.currentUser;
+};
+
 export const useIsAnonymousUser = (): boolean => {
   const [isAnonymousUser, setIsAnonymousUser] = useState(false);
 
