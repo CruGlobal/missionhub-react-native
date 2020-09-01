@@ -45,7 +45,7 @@ export default StyleSheet.create({
   },
   textInput: {
     ...theme.textLight24,
-    color: theme.lightGrey,
+    color: theme.darkGrey,
     borderBottomWidth: 0,
     paddingHorizontal: 35,
     paddingTop: 20,
