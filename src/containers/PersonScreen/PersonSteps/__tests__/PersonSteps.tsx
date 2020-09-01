@@ -14,13 +14,19 @@ import {
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import { PersonCollapsibleHeaderContext } from '../../PersonTabs';
 import { PersonSteps } from '..';
+import { getAuthPerson } from '../../../../auth/authUtilities';
 
 jest.mock('../../../../actions/steps');
 jest.mock('../../../../actions/misc');
 jest.mock('../../../../components/StepItem', () => 'StepItem');
 jest.mock('../../../../utils/hooks/useAnalytics');
+jest.mock('../../../../auth/authStore', () => ({
+  isAuthenticated: () => true,
+}));
+jest.mock('../../../../auth/authUtilities');
 
 const myId = '123';
+(getAuthPerson as jest.Mock).mockReturnValue({ id: myId });
 const orgId = '1111';
 const contactAssignment = {
   assigned_to: { id: myId },
@@ -66,11 +72,6 @@ const initialState = {
   swipe: {
     stepsContact: true,
   },
-  auth: {
-    person: {
-      id: myId,
-    },
-  },
   people: {
     people: {
       [mePerson.id]: mePerson,
@@ -90,23 +91,34 @@ beforeEach(() => {
   });
 });
 
-it('renders correctly when no steps', () => {
-  renderWithContext(
+it('renders correctly when no steps', async () => {
+  const { snapshot } = renderWithContext(
     <PersonSteps collapsibleHeaderContext={PersonCollapsibleHeaderContext} />,
     {
       initialState,
       navParams: {
         personId: person.id,
       },
+      mocks: {
+        User: () => ({ person: () => ({ id: myId }) }),
+        StepConnection: () => ({
+          nodes: [],
+          pageInfo: { totalCount: 0 },
+        }),
+      },
     },
-  ).snapshot();
+  );
+
+  await flushMicrotasksQueue();
+
+  snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps'], {
     assignmentType: { personId: person.id },
   });
 });
 
-it('renders correctly when me and no steps', () => {
+it('renders correctly when me and no steps', async () => {
   const { getByText, snapshot } = renderWithContext(
     <PersonSteps collapsibleHeaderContext={PersonCollapsibleHeaderContext} />,
     {
@@ -114,8 +126,18 @@ it('renders correctly when me and no steps', () => {
       navParams: {
         personId: mePerson.id,
       },
+      mocks: {
+        User: () => ({ person: () => ({ id: myId }) }),
+        StepConnection: () => ({
+          nodes: [],
+          pageInfo: { totalCount: 0 },
+        }),
+      },
     },
   );
+
+  await flushMicrotasksQueue();
+
   snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps'], {
@@ -221,7 +243,7 @@ it('renders correctly with completed steps', async () => {
 
 describe('handleCreateStep', () => {
   describe('for me', () => {
-    it('navigates to select my steps flow', () => {
+    it('navigates to select my steps flow', async () => {
       const { getByTestId } = renderWithContext(
         <PersonSteps
           collapsibleHeaderContext={PersonCollapsibleHeaderContext}
@@ -231,8 +253,11 @@ describe('handleCreateStep', () => {
           navParams: {
             personId: mePerson.id,
           },
+          mocks: { User: () => ({ person: () => ({ id: myId }) }) },
         },
       );
+
+      await flushMicrotasksQueue();
 
       fireEvent.press(getByTestId('bottomButton'));
 
@@ -261,7 +286,7 @@ describe('handleCreateStep', () => {
   });
 
   describe('for contact with stage', () => {
-    it('navigates to select person steps flow', () => {
+    it('navigates to select person steps flow', async () => {
       const { getByTestId } = renderWithContext(
         <PersonSteps
           collapsibleHeaderContext={PersonCollapsibleHeaderContext}
@@ -271,8 +296,11 @@ describe('handleCreateStep', () => {
           navParams: {
             personId: personWithStage.id,
           },
+          mocks: { User: () => ({ person: () => ({ id: myId }) }) },
         },
       );
+
+      await flushMicrotasksQueue();
 
       fireEvent.press(getByTestId('bottomButton'));
 
