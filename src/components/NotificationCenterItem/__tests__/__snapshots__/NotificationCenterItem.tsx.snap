@@ -415,7 +415,160 @@ exports[`ReportedNotificationItem renders correctly | without community photo 1`
 </View>
 `;
 
-exports[`different notification types Announcement renders correctly | Announcement 1`] = `
+exports[`different notification types Announcement renders correctly | New Post Announcement 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
+      "opacity": 1,
+      "paddingVertical": 15,
+    }
+  }
+  testID="notificationButton"
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "maxWidth": 350,
+        "paddingHorizontal": 20,
+      }
+    }
+  >
+    <SvgMock />
+    <View
+      style={
+        Object {
+          "left": 50,
+          "position": "absolute",
+          "top": 30,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "borderRadius": 18,
+              "flexDirection": "row",
+              "height": 36,
+              "justifyContent": "space-between",
+              "paddingLeft": 20,
+              "paddingRight": 16,
+              "paddingVertical": 0,
+            },
+            Object {
+              "backgroundColor": "#505256",
+            },
+            Object {
+              "width": 20,
+            },
+            Object {
+              "alignItems": "center",
+              "borderRadius": 12,
+              "height": 24,
+              "justifyContent": "center",
+              "paddingLeft": 0,
+              "paddingRight": 0,
+              "width": 24,
+            },
+          ]
+        }
+        testID="ANNOUNCEMENTLabel"
+      >
+        <SvgMock
+          color="#ffffff"
+          height={15}
+          style={
+            Array [
+              Object {
+                "marginLeft": 0,
+                "marginRight": 0,
+              },
+              undefined,
+            ]
+          }
+          width={15}
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
+        >
+          Bleh 2.0
+        </Text>
+        <Text>
+           posted a new announcement.
+        </Text>
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
+        }
+        testID="Text"
+      >
+        March 5, 2018 3:36 AM
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`different notification types Announcement renders correctly | Story Trigger Announcement 1`] = `
 <View
   accessible={true}
   focusable={true}
@@ -924,7 +1077,7 @@ exports[`different notification types Comunity Challenge renders completed chall
       resizeMode="cover"
       source={
         Object {
-          "uri": "omnis et porro",
+          "uri": "eum dicta eum",
         }
       }
       style={
@@ -935,7 +1088,7 @@ exports[`different notification types Comunity Challenge renders completed chall
             "width": 48,
           },
           Object {
-            "backgroundColor": "rgb(135, 144, 67)",
+            "backgroundColor": "rgb(139, 115, 155)",
           },
           undefined,
         ]
@@ -1073,7 +1226,7 @@ exports[`different notification types Comunity Challenge renders completed chall
         }
         testID="Text"
       >
-        August 19, 2018 2:06 PM
+        April 12, 2011 4:18 AM
       </Text>
     </View>
   </View>
@@ -1226,7 +1379,7 @@ exports[`different notification types Comunity Challenge renders correctly | Com
         }
         testID="Text"
       >
-        December 28, 2017 5:58 PM
+        August 19, 2018 2:06 PM
       </Text>
     </View>
   </View>
@@ -1546,7 +1699,7 @@ exports[`different notification types Comunity Challenge renders with default co
         }
         testID="Text"
       >
-        December 28, 2017 5:58 PM
+        August 19, 2018 2:06 PM
       </Text>
     </View>
   </View>
@@ -1589,7 +1742,7 @@ exports[`different notification types Prayed For You Notification renders correc
       resizeMode="cover"
       source={
         Object {
-          "uri": "libero qui recusandae",
+          "uri": "incidunt accusantium sed",
         }
       }
       style={
@@ -1600,7 +1753,7 @@ exports[`different notification types Prayed For You Notification renders correc
             "width": 48,
           },
           Object {
-            "backgroundColor": "rgb(152, 123, 130)",
+            "backgroundColor": "rgb(156, 159, 115)",
           },
           undefined,
         ]
@@ -1738,7 +1891,7 @@ exports[`different notification types Prayed For You Notification renders correc
         }
         testID="Text"
       >
-        March 5, 2018 3:36 AM
+        December 28, 2017 5:58 PM
       </Text>
     </View>
   </View>

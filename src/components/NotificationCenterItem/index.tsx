@@ -97,9 +97,10 @@ export const NotificationCenterItem = ({
       trigger === NotificationTriggerEnum.community_challenge_created_alert ||
       trigger === NotificationTriggerEnum.completed_challenge_notification ||
       (trigger === NotificationTriggerEnum.story_notification &&
+        iconType === FeedItemSubjectTypeEnum.ANNOUNCEMENT) ||
+      (trigger === NotificationTriggerEnum.new_announcement_post &&
         iconType === FeedItemSubjectTypeEnum.ANNOUNCEMENT)
     );
-
   const {
     data: {
       community: { name: communityName = '', communityPhotoUrl = null } = {},
@@ -115,7 +116,6 @@ export const NotificationCenterItem = ({
       skip: shouldSkip,
     },
   );
-
   const renderIcon = () => {
     // Comments and Challenges don't return a FeedItemSubjectType, so we have to check
     // for them seperately
@@ -217,12 +217,20 @@ export const NotificationCenterItem = ({
           <Avatar person={subjectPerson ?? undefined} size="medium" />
         );
       case NotificationTriggerEnum.new_announcement_post:
-        return (
+        return communityPhotoUrl ? (
+          <Image
+            source={{ uri: communityPhotoUrl }}
+            style={styles.wrapStyle}
+            resizeMode="cover"
+          />
+        ) : communityId === GLOBAL_COMMUNITY_ID ? (
           <Image
             source={MHAvatar}
             style={styles.wrapStyle}
             resizeMode="cover"
           />
+        ) : (
+          <DefaultCommunityAvatar />
         );
 
       default:
