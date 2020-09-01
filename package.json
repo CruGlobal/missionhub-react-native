@@ -30,7 +30,8 @@
     "codepush-ios-staging": "appcenter codepush release-react -a Cru/MissionHub-iOS --plist-file ios/MissionHub/Info.plist",
     "codepush-android-staging": "appcenter codepush release-react -a Cru/MissionHub-Android",
     "onesky:upload": "babel-node ./bin/oneskyUpload.js",
-    "onesky:download": "babel-node ./bin/oneskyDownload.js"
+    "onesky:download": "babel-node ./bin/oneskyDownload.js",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.5",
@@ -69,6 +70,8 @@
     "jsonapi-datastore": "^0.4.0-beta",
     "lodash.debounce": "^4.0.8",
     "moment": "^2.24.0",
+    "patch-package": "^6.2.2",
+    "postinstall-postinstall": "^2.1.0",
     "prop-types": "^15.7.2",
     "qs": "^6.7.0",
     "random-string": "^0.2.0",
