@@ -196,10 +196,48 @@ describe('different notification types', () => {
         },
       },
     );
+    const mockNewAnnouncment = mockFragment<NotificationItem>(
+      NOTIFICATION_ITEM_FRAGMENT,
+      {
+        mocks: {
+          Notification: () => ({
+            screenData: () => ({
+              communityId: '1234',
+            }),
+            messageTemplate: () =>
+              '<<community_name>> posted a new announcement.',
+            trigger: () => NotificationTriggerEnum.new_announcement_post,
+            messageVariables: () => [
+              {
+                key: 'community_name',
+                value: 'Bleh 2.0',
+              },
+              {
+                key: 'post_type_enum',
+                value: PostTypeEnum.announcement,
+              },
+            ],
+          }),
+        },
+      },
+    );
 
-    it('renders correctly | Announcement', () => {
+    it('renders correctly | Story Trigger Announcement', () => {
       renderWithContext(
         <NotificationCenterItem event={mockAnnouncment} />,
+      ).snapshot();
+      expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_INFO, {
+        variables: {
+          communityId: mockAnnouncment.screenData.communityId,
+        },
+        fetchPolicy: 'cache-first',
+        skip: false,
+      });
+    });
+
+    it('renders correctly | New Post Announcement', () => {
+      renderWithContext(
+        <NotificationCenterItem event={mockNewAnnouncment} />,
       ).snapshot();
       expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_INFO, {
         variables: {
