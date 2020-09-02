@@ -36,6 +36,7 @@ export default StyleSheet.create({
     paddingHorizontal: 30,
     width: theme.fullWidth - 100,
     textAlign: 'center',
+    textTransform: 'lowercase',
   },
   cardText: {
     ...theme.textRegular16,

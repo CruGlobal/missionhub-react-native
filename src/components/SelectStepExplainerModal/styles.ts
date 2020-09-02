@@ -108,7 +108,7 @@ export default StyleSheet.create({
   },
   exampleTypesText: {
     ...theme.textRegular12,
-    color: theme.accentColor,
+    color: theme.primaryColor,
     marginRight: 3,
     fontWeight: 'bold',
   },

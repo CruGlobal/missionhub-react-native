@@ -61,7 +61,6 @@ export default StyleSheet.create({
   },
   onboardingDescription: {
     ...theme.textRegular16,
-    color: theme.lightGrey,
     paddingHorizontal: 50,
     textAlign: 'center',
     paddingVertical: 5,
