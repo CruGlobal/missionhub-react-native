@@ -32,7 +32,10 @@ const TabIcon = ({ name, tintColor }: TabIconProps) => {
   const showNotification = () => {
     switch (name) {
       case 'notifications':
-        return notificationState?.lastReadDateTime !== latestNotification;
+        return (
+          notificationState?.lastReadDateTime !== latestNotification &&
+          latestNotification !== undefined
+        );
       default:
         return false;
     }
