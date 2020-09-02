@@ -102,7 +102,7 @@ exports[`renders me correctly 1`] = `
       <Text
         style={
           Object {
-            "color": "#ECEEF2",
+            "color": "#B4B6BA",
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 12,
             "fontStyle": "normal",
@@ -299,7 +299,7 @@ exports[`renders person correctly 1`] = `
       <Text
         style={
           Object {
-            "color": "#ECEEF2",
+            "color": "#B4B6BA",
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 12,
             "fontStyle": "normal",
@@ -501,7 +501,7 @@ exports[`renders person with no stage correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#ECEEF2",
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 12,
                 "fontStyle": "normal",
@@ -703,7 +703,7 @@ exports[`renders personal ministry with no steps correctly 1`] = `
       <Text
         style={
           Object {
-            "color": "#ECEEF2",
+            "color": "#B4B6BA",
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 12,
             "fontStyle": "normal",

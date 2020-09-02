@@ -27,6 +27,7 @@ import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { STEPS_QUERY } from '../StepsScreen/queries';
 import { PERSON_STEPS_QUERY } from '../PersonScreen/PersonSteps/queries';
 import { trackStepAdded } from '../../actions/analytics';
+import { updatePersonGQL } from '../../actions/person';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 import { isAndroid } from '../../utils/common';
 import { RootState } from '../../reducers';
@@ -127,14 +128,16 @@ const AddStepScreen = ({ next }: AddStepScreenProps) => {
       return;
     }
 
-    isCreateStep &&
-      (await createCustomStep({
+    if (isCreateStep) {
+      await createCustomStep({
         variables: {
           title: finalText,
           stepType,
           receiverId: personId,
         },
-      }));
+      });
+      updatePersonGQL(personId);
+    }
 
     navigateNext(finalText);
   };

@@ -11,6 +11,7 @@ import {
   removeFromStepsList,
 } from '../../actions/steps';
 import { REFRESH_STEP_REMINDER_QUERY } from '../../actions/stepReminders';
+import { updatePersonGQL } from '../../actions/person';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { navigateBack } from '../../actions/navigation';
 import ReminderButton from '../../components/ReminderButton';
@@ -72,6 +73,7 @@ const AcceptedStepDetailScreen = () => {
               true,
             ),
           );
+        step?.receiver && updatePersonGQL(step.receiver.id);
       },
     },
   );
@@ -79,10 +81,10 @@ const AcceptedStepDetailScreen = () => {
   const [deleteStep] = useMutation<DeleteStep, DeleteStepVariables>(
     DELETE_STEP_MUTATION,
     {
-      onCompleted: data => {
+      onCompleted: () => {
         dispatch(trackStepDeleted('Step Detail'));
-        data.deleteStep?.id &&
-          removeFromStepsList(data.deleteStep.id, personId);
+        step && removeFromStepsList(step.id, personId);
+        step?.receiver && updatePersonGQL(step.receiver.id);
       },
     },
   );
