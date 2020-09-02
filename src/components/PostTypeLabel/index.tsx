@@ -22,7 +22,6 @@ import StepsOfFaithIcon from '../../../assets/images/stepsOfFaithIcon.svg';
 import DeprecatedBackButton from '../../containers/DeprecatedBackButton';
 import theme from '../../theme';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
-import { GetGlobalCommunityPostCards_globalCommunity_feedItems_nodes as GlobalCommunityItem } from '../../containers/CommunityFeedPostCards/__generated__/GetGlobalCommunityPostCards';
 import Avatar, { AvatarPerson } from '../Avatar';
 import Header from '../Header';
 
@@ -240,18 +239,28 @@ export const PostTypeCardWithPeople = ({
   people,
 }: PostTypeCardWithPeopleProps) => {
   const visiblePeople = people?.slice(0, 3) || [];
+  const num = getExtraCount(people?.length, false);
 
   return (
     <PostTypeCard type={type} onPress={onPress}>
-      {visiblePeople.map((person, index) => (
-        <Avatar
-          // eslint-disable-next-line react/no-array-index-key
-          key={`${person.id}-${index}`}
-          person={person}
-          size="extrasmall"
-          style={{ marginLeft: -12 }}
-        />
-      ))}
+      <>
+        {visiblePeople.map((person, index) => (
+          <Avatar
+            // eslint-disable-next-line react/no-array-index-key
+            key={`${person.id}-${index}`}
+            person={person}
+            size="extrasmall"
+            style={{ marginLeft: -12 }}
+          />
+        ))}
+        {num > 0 && (
+          <Avatar
+            customText={`+${num}`}
+            size="extrasmall"
+            style={[PostTypeBgStyle[type], { marginLeft: -12 }]}
+          />
+        )}
+      </>
     </PostTypeCard>
   );
 };
@@ -259,15 +268,15 @@ export const PostTypeCardWithPeople = ({
 interface PostTypeCardWithoutPeopleProps {
   type: FeedItemSubjectTypeEnum;
   onPress: (event: GestureResponderEvent) => void;
-  items?: GlobalCommunityItem[];
+  postsCount: number;
   testID?: string;
 }
 export const PostTypeCardWithoutPeople = ({
   type,
   onPress,
-  items,
+  postsCount,
 }: PostTypeCardWithoutPeopleProps) => {
-  const num = getExtraCount(items?.length, true);
+  const num = getExtraCount(postsCount, true);
 
   return (
     <PostTypeCard type={type} onPress={onPress}>

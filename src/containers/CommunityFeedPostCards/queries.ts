@@ -82,3 +82,15 @@ export const MARK_COMMUNITY_FEED_ITEMS_READ = gql`
     }
   }
 `;
+
+export const MARK_GLOBAL_FEED_ITEMS_READ = gql`
+  mutation MarkGlobalFeedItemsRead(
+    $input: MarkGlobalCommunityFeedItemsAsReadInput!
+  ) {
+    markGlobalCommunityFeedItemsAsRead(input: $input) {
+      globalCommunity {
+        __typename
+      }
+    }
+  }
+`;
