@@ -27,7 +27,7 @@ export const createNavigationProp = (params?: NavigationParams) => {
       },
     }),
   );
-  render(<Navigator />);
+  render(<Navigator />).unmount();
 
   if (!navigationProp) {
     throw 'Unable to get navigation screen prop';
