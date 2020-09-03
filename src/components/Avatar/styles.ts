@@ -4,5 +4,10 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   avatar: { alignItems: 'center', justifyContent: 'center' },
-  text: { color: theme.white },
+  text: {
+    ...theme.textRegular12,
+    color: theme.white,
+    textAlign: 'center',
+    textAlignVertical: 'bottom',
+  },
 });

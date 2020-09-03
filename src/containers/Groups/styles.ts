@@ -91,9 +91,6 @@ export default StyleSheet.create({
     fontSize: 12,
     color: theme.white,
   },
-  unreadTitle: {
-    fontWeight: '400',
-  },
   reportList: {
     paddingVertical: 15,
   },

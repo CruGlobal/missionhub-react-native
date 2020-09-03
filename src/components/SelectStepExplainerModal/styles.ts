@@ -110,7 +110,7 @@ export default StyleSheet.create({
     ...theme.textRegular12,
     color: theme.primaryColor,
     marginRight: 3,
-    fontWeight: 'bold',
+    fontFamily: 'SourceSansPro-Bold',
   },
 
   gotItButton: {
