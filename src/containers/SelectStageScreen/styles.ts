@@ -31,11 +31,13 @@ export default StyleSheet.create({
     color: theme.primaryColor,
     fontSize: 18,
     lineHeight: 24,
+    letterSpacing: 0,
     paddingBottom: 25,
     paddingTop: 45,
     paddingHorizontal: 30,
     width: theme.fullWidth - 100,
     textAlign: 'center',
+    textTransform: 'none',
   },
   cardText: {
     ...theme.textRegular16,

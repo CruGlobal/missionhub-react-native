@@ -114,10 +114,9 @@ exports[`should render correctly post details 1`] = `
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
@@ -126,10 +125,9 @@ exports[`should render correctly post details 1`] = `
                 },
                 Object {
                   "color": "#B4B6BA",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlignVertical": "center",
@@ -185,10 +183,9 @@ exports[`should render correctly post details 1`] = `
             Array [
               Object {
                 "color": "#505256",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
                 "textAlignVertical": "center",
@@ -212,7 +209,6 @@ exports[`should render correctly post details 1`] = `
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
             "fontStyle": "normal",
-            "fontWeight": "300",
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
@@ -368,10 +364,9 @@ exports[`should render correctly post details 1`] = `
               style={
                 Object {
                   "color": "#505256",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 16,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 20,
                   "textAlignVertical": "center",
@@ -401,7 +396,6 @@ exports[`should render correctly post details 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 12,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 16,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -471,7 +465,6 @@ exports[`should render correctly post details 1`] = `
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
                         "fontStyle": "normal",
-                        "fontWeight": "normal",
                         "lineHeight": 24,
                         "textAlignVertical": "center",
                         "textTransform": "none",
@@ -549,10 +542,9 @@ exports[`should render correctly post details 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -686,10 +678,9 @@ exports[`should render correctly while loading 1`] = `
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
@@ -698,10 +689,9 @@ exports[`should render correctly while loading 1`] = `
                 },
                 Object {
                   "color": "#B4B6BA",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlignVertical": "center",
@@ -746,10 +736,9 @@ exports[`should render correctly while loading 1`] = `
           Array [
             Object {
               "color": "#505256",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 20,
               "textAlignVertical": "center",
@@ -773,7 +762,6 @@ exports[`should render correctly while loading 1`] = `
           "fontFamily": "SourceSansPro-Light",
           "fontSize": 32,
           "fontStyle": "normal",
-          "fontWeight": "300",
           "lineHeight": 38,
           "marginHorizontal": 32,
           "marginVertical": 16,
@@ -831,10 +819,9 @@ exports[`should render correctly while loading 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -968,10 +955,9 @@ exports[`should render correctly without description and without reminder for me
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
@@ -980,10 +966,9 @@ exports[`should render correctly without description and without reminder for me
                 },
                 Object {
                   "color": "#B4B6BA",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlignVertical": "center",
@@ -1028,10 +1013,9 @@ exports[`should render correctly without description and without reminder for me
           Array [
             Object {
               "color": "#505256",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 20,
               "textAlignVertical": "center",
@@ -1055,7 +1039,6 @@ exports[`should render correctly without description and without reminder for me
           "fontFamily": "SourceSansPro-Light",
           "fontSize": 32,
           "fontStyle": "normal",
-          "fontWeight": "300",
           "lineHeight": 38,
           "marginHorizontal": 32,
           "marginVertical": 16,
@@ -1197,10 +1180,9 @@ exports[`should render correctly without description and without reminder for me
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -1334,10 +1316,9 @@ exports[`should render correctly without description and without reminder for ot
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
@@ -1346,10 +1327,9 @@ exports[`should render correctly without description and without reminder for ot
                 },
                 Object {
                   "color": "#B4B6BA",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlignVertical": "center",
@@ -1394,10 +1374,9 @@ exports[`should render correctly without description and without reminder for ot
           Array [
             Object {
               "color": "#505256",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 20,
               "textAlignVertical": "center",
@@ -1421,7 +1400,6 @@ exports[`should render correctly without description and without reminder for ot
           "fontFamily": "SourceSansPro-Light",
           "fontSize": 32,
           "fontStyle": "normal",
-          "fontWeight": "300",
           "lineHeight": 38,
           "marginHorizontal": 32,
           "marginVertical": 16,
@@ -1563,10 +1541,9 @@ exports[`should render correctly without description and without reminder for ot
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -1700,10 +1677,9 @@ exports[`with description, with reminder should render correctly 1`] = `
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
@@ -1712,10 +1688,9 @@ exports[`with description, with reminder should render correctly 1`] = `
                 },
                 Object {
                   "color": "#B4B6BA",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlignVertical": "center",
@@ -1771,10 +1746,9 @@ exports[`with description, with reminder should render correctly 1`] = `
             Array [
               Object {
                 "color": "#505256",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
                 "textAlignVertical": "center",
@@ -1798,7 +1772,6 @@ exports[`with description, with reminder should render correctly 1`] = `
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
             "fontStyle": "normal",
-            "fontWeight": "300",
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
@@ -2003,7 +1976,6 @@ exports[`with description, with reminder should render correctly 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 24,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -2058,10 +2030,9 @@ exports[`with description, with reminder should render correctly 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -2195,10 +2166,9 @@ exports[`with description, without reminder should render correctly 1`] = `
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
@@ -2207,10 +2177,9 @@ exports[`with description, without reminder should render correctly 1`] = `
                 },
                 Object {
                   "color": "#B4B6BA",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlignVertical": "center",
@@ -2266,10 +2235,9 @@ exports[`with description, without reminder should render correctly 1`] = `
             Array [
               Object {
                 "color": "#505256",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
                 "textAlignVertical": "center",
@@ -2293,7 +2261,6 @@ exports[`with description, without reminder should render correctly 1`] = `
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
             "fontStyle": "normal",
-            "fontWeight": "300",
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
@@ -2424,7 +2391,6 @@ exports[`with description, without reminder should render correctly 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 24,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -2479,10 +2445,9 @@ exports[`with description, without reminder should render correctly 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",

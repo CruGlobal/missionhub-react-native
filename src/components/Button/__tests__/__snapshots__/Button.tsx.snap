@@ -179,10 +179,9 @@ exports[`renders with image correctly 1`] = `
         Array [
           Object {
             "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
+            "fontFamily": "SourceSansPro-Bold",
             "fontSize": 14,
             "fontStyle": "normal",
-            "fontWeight": "bold",
             "letterSpacing": 1,
             "lineHeight": 18,
             "textAlign": "center",
@@ -231,10 +230,9 @@ exports[`renders with text correctly 1`] = `
       Array [
         Object {
           "color": "#ffffff",
-          "fontFamily": "SourceSansPro-Regular",
+          "fontFamily": "SourceSansPro-Bold",
           "fontSize": 14,
           "fontStyle": "normal",
-          "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 18,
           "textAlign": "center",

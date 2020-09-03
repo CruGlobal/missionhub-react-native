@@ -5,7 +5,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 - First value
 + Second value
 
-@@ -307,11 +307,11 @@
+@@ -301,11 +301,11 @@
               \\"nodes\\": Array [],
             },
             \\"report\\": Object {
@@ -18,7 +18,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
             \\"unreadCommentsCount\\": 0,
           },
           Object {
-@@ -591,11 +591,291 @@
+@@ -585,11 +585,291 @@
               \\"contactCount\\": 26992,
               \\"memberCount\\": 35653,
               \\"unassignedCount\\": 89588,
@@ -310,7 +310,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
       disableVirtualization={false}
       getItem={[Function anonymous]}
       getItemCount={[Function anonymous]}
-@@ -652,11 +932,11 @@
+@@ -646,11 +926,11 @@
                   \\"nodes\\": Array [],
                 },
                 \\"report\\": Object {
@@ -323,7 +323,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
                 \\"unreadCommentsCount\\": 0,
               }
             }
-@@ -1007,11 +1287,11 @@
+@@ -1001,11 +1281,11 @@
           />
         </View>
         <View
@@ -462,7 +462,6 @@ exports[`GroupsListScreen renders with communities 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -472,7 +471,6 @@ exports[`GroupsListScreen renders with communities 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -548,10 +546,9 @@ exports[`GroupsListScreen renders with communities 1`] = `
             Array [
               Object {
                 "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
@@ -560,10 +557,9 @@ exports[`GroupsListScreen renders with communities 1`] = `
               },
               Object {
                 "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 12,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlignVertical": "center",
@@ -616,10 +612,9 @@ exports[`GroupsListScreen renders with communities 1`] = `
             Array [
               Object {
                 "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
@@ -628,10 +623,9 @@ exports[`GroupsListScreen renders with communities 1`] = `
               },
               Object {
                 "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 12,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlignVertical": "center",
@@ -1465,10 +1459,17 @@ exports[`GroupsListScreen renders with only global community 1`] = `
                 Array [
                   Object {
                     "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "lineHeight": 16,
+                    "textAlign": "center",
+                    "textAlignVertical": "bottom",
+                    "textTransform": "none",
                   },
                   Object {
                     "fontSize": 26,
-                    "fontWeight": "300",
+                    "lineHeight": 20,
                   },
                 ]
               }
@@ -1499,7 +1500,6 @@ exports[`GroupsListScreen renders with only global community 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -1509,7 +1509,6 @@ exports[`GroupsListScreen renders with only global community 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -1585,10 +1584,9 @@ exports[`GroupsListScreen renders with only global community 1`] = `
             Array [
               Object {
                 "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
@@ -1597,10 +1595,9 @@ exports[`GroupsListScreen renders with only global community 1`] = `
               },
               Object {
                 "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 12,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlignVertical": "center",
@@ -1653,10 +1650,9 @@ exports[`GroupsListScreen renders with only global community 1`] = `
             Array [
               Object {
                 "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
@@ -1665,10 +1661,9 @@ exports[`GroupsListScreen renders with only global community 1`] = `
               },
               Object {
                 "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 12,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlignVertical": "center",

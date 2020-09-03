@@ -149,10 +149,9 @@ exports[`OnboardingAddPhotoScreen renders without image correctly 1`] = `
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
@@ -162,13 +161,13 @@ exports[`OnboardingAddPhotoScreen renders without image correctly 1`] = `
                 Array [
                   Object {
                     "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
+                    "fontFamily": "SourceSansPro-Bold",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
-                    "lineHeight": 20,
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
                     "textAlignVertical": "center",
-                    "textTransform": "none",
+                    "textTransform": "uppercase",
                   },
                   Object {
                     "color": "#3CC8E6",
@@ -197,7 +196,6 @@ exports[`OnboardingAddPhotoScreen renders without image correctly 1`] = `
           "fontFamily": "SourceSansPro-Light",
           "fontSize": 24,
           "fontStyle": "normal",
-          "fontWeight": "300",
           "lineHeight": 30,
           "marginTop": 48,
           "textAlignVertical": "center",
@@ -214,7 +212,6 @@ exports[`OnboardingAddPhotoScreen renders without image correctly 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 20,
           "marginHorizontal": 40,
           "marginTop": 12,
@@ -273,10 +270,9 @@ exports[`OnboardingAddPhotoScreen renders without image correctly 1`] = `
             Object {
               "backgroundColor": "rgba(0,0,0,0)",
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1.5,
               "lineHeight": 18,
               "textAlign": "center",
@@ -362,7 +358,7 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
       style={
         Object {
           \\"backgroundColor\\": \\"transparent\\",
-@@ -118,124 +85,95 @@
+@@ -118,169 +85,148 @@
                 \\"flex\\": 1,
                 \\"justifyContent\\": \\"center\\",
               },
@@ -414,39 +410,38 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
 -               Array [
           Object {
             \\"color\\": \\"#ffffff\\",
--                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                   \\"fontFamily\\": \\"SourceSansPro-Bold\\",
 -                   \\"fontSize\\": 14,
--                   \\"fontStyle\\": \\"normal\\",
--                   \\"fontWeight\\": \\"bold\\",
++           \\"fontFamily\\": \\"SourceSansPro-Light\\",
++           \\"fontSize\\": 24,
+            \\"fontStyle\\": \\"normal\\",
 -                   \\"letterSpacing\\": 1,
 -                   \\"lineHeight\\": 18,
 -                   \\"textAlign\\": \\"center\\",
--                   \\"textAlignVertical\\": \\"center\\",
++           \\"lineHeight\\": 30,
++           \\"marginTop\\": 24,
+            \\"textAlignVertical\\": \\"center\\",
 -                   \\"textTransform\\": \\"uppercase\\",
 -                 },
 -                 Array [
 -                   Object {
 -                     \\"color\\": \\"#ffffff\\",
--                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                     \\"fontFamily\\": \\"SourceSansPro-Bold\\",
 -                     \\"fontSize\\": 14,
-+           \\"fontFamily\\": \\"SourceSansPro-Light\\",
-+           \\"fontSize\\": 24,
-            \\"fontStyle\\": \\"normal\\",
--                     \\"fontWeight\\": \\"normal\\",
--                     \\"lineHeight\\": 20,
-+           \\"fontWeight\\": \\"300\\",
-+           \\"lineHeight\\": 30,
-+           \\"marginTop\\": 24,
-            \\"textAlignVertical\\": \\"center\\",
-            \\"textTransform\\": \\"none\\",
+-                     \\"fontStyle\\": \\"normal\\",
+-                     \\"letterSpacing\\": 1,
+-                     \\"lineHeight\\": 18,
+-                     \\"textAlignVertical\\": \\"center\\",
+-                     \\"textTransform\\": \\"uppercase\\",
 -                   },
 -                   Object {
 -                     \\"color\\": \\"#3CC8E6\\",
 -                   },
 -                 ],
 -               ]
-          }
-+       }
++           \\"textTransform\\": \\"none\\",
++         }
+        }
       >
 -             SKIP
 +       Profile Photo Added
@@ -481,7 +476,6 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
 -           \\"fontFamily\\": \\"SourceSansPro-Light\\",
 -           \\"fontSize\\": 24,
 -           \\"fontStyle\\": \\"normal\\",
--           \\"fontWeight\\": \\"300\\",
 -           \\"lineHeight\\": 30,
 -           \\"marginTop\\": 48,
 -           \\"textAlignVertical\\": \\"center\\",
@@ -500,7 +494,6 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
                 \\"fontSize\\": 14,
                 \\"fontStyle\\": \\"normal\\",
-                \\"fontWeight\\": \\"normal\\",
                 \\"lineHeight\\": 20,
 -           \\"marginHorizontal\\": 40,
 -           \\"marginTop\\": 12,
@@ -530,20 +523,21 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
         focusable={true}
         onClick={[Function onClick]}
         onResponderGrant={[Function onResponderGrant]}
-@@ -244,32 +182,40 @@
+        onResponderMove={[Function onResponderMove]}
+        onResponderRelease={[Function onResponderRelease]}
         onResponderTerminate={[Function onResponderTerminate]}
         onResponderTerminationRequest={[Function onResponderTerminationRequest]}
         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
-        style={
-          Object {
+-       style={
+-         Object {
 -           \\"opacity\\": 1,
 -         }
 -       }
 -       testID=\\"popupMenuButton\\"
 -     >
 -       <View
--         style={
--           Object {
+        style={
+          Object {
             \\"alignItems\\": \\"center\\",
             \\"backgroundColor\\": \\"#3CC8E6\\",
 -             \\"borderRadius\\": 24,
@@ -564,10 +558,9 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
 +           Array [
               Object {
 +               \\"color\\": \\"#ffffff\\",
-+               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++               \\"fontFamily\\": \\"SourceSansPro-Bold\\",
 +               \\"fontSize\\": 14,
 +               \\"fontStyle\\": \\"normal\\",
-+               \\"fontWeight\\": \\"bold\\",
 +               \\"letterSpacing\\": 1,
 +               \\"lineHeight\\": 18,
 +               \\"textAlign\\": \\"center\\",
@@ -577,10 +570,9 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
 +             Object {
                 \\"backgroundColor\\": \\"rgba(0,0,0,0)\\",
                 \\"color\\": \\"#ffffff\\",
-                \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+                \\"fontFamily\\": \\"SourceSansPro-Bold\\",
                 \\"fontSize\\": 14,
                 \\"fontStyle\\": \\"normal\\",
-@@ -277,14 +223,14 @@
                 \\"letterSpacing\\": 1.5,
                 \\"lineHeight\\": 18,
                 \\"textAlign\\": \\"center\\",

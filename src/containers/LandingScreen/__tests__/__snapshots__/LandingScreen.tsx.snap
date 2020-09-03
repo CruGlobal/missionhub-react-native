@@ -82,10 +82,9 @@ exports[`renders correctly 1`] = `
             Array [
               Object {
                 "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
@@ -94,10 +93,9 @@ exports[`renders correctly 1`] = `
               },
               Object {
                 "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1.5,
                 "lineHeight": 18,
                 "paddingTop": 2,
@@ -143,10 +141,9 @@ exports[`renders correctly 1`] = `
             Array [
               Object {
                 "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
@@ -155,10 +152,9 @@ exports[`renders correctly 1`] = `
               },
               Object {
                 "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1.5,
                 "lineHeight": 18,
                 "paddingTop": 2,
@@ -185,10 +181,9 @@ exports[`renders correctly 1`] = `
         style={
           Object {
             "color": "#3CC8E6",
-            "fontFamily": "SourceSansPro-Regular",
+            "fontFamily": "SourceSansPro-Bold",
             "fontSize": 14,
             "fontStyle": "normal",
-            "fontWeight": "bold",
             "letterSpacing": 1.5,
             "lineHeight": 18,
             "marginBottom": 20,
@@ -224,10 +219,9 @@ exports[`renders correctly 1`] = `
             Array [
               Object {
                 "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
@@ -237,10 +231,9 @@ exports[`renders correctly 1`] = `
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1.5,
                   "lineHeight": 18,
                   "paddingTop": 2,

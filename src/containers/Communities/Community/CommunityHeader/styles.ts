@@ -26,7 +26,6 @@ export default StyleSheet.create({
   },
   communityMembersText: {
     ...theme.textRegular14,
-    fontWeight: 'normal',
     color: theme.white,
   },
 });

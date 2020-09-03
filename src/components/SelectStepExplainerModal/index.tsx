@@ -43,7 +43,7 @@ const ExampleStepTypesSet = ({
       />
       <View style={styles.exampleTypesTextWrap}>
         <Text style={styles.exampleTypesText}>{num}</Text>
-        <CheckIcon color={theme.accentColor} width={10} height={10} />
+        <CheckIcon color={theme.primaryColor} width={10} height={10} />
       </View>
     </View>
   );

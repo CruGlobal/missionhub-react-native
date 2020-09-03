@@ -5,7 +5,7 @@ exports[`click submit button calls onSubmit prop 1`] = `
 - First value
 + Second value
 
-@@ -101,11 +101,11 @@
+@@ -106,11 +106,11 @@
               \\"textTransform\\": \\"none\\",
             },
           ]
@@ -18,7 +18,7 @@ exports[`click submit button calls onSubmit prop 1`] = `
     <View
       accessible={true}
       focusable={true}
-@@ -122,9 +122,9 @@
+@@ -127,9 +127,9 @@
         }
       }
       testID=\\"SubmitButton\\"
@@ -41,7 +41,7 @@ exports[`handles start edit 1`] = `
 - First value
 + Second value
 
-@@ -9,45 +9,71 @@
+@@ -9,51 +9,70 @@
       }
     }
   >
@@ -100,17 +100,24 @@ exports[`handles start edit 1`] = `
 -     <Text
 -       style={
                 Array [
-+                 Object {
+                  Object {
 +                   \\"margin\\": 10,
 +                 },
-                  Object {
++                 Object {
                     \\"color\\": \\"#ffffff\\",
+-             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-             \\"fontSize\\": 12,
+-             \\"fontStyle\\": \\"normal\\",
+-             \\"lineHeight\\": 16,
+-             \\"textAlign\\": \\"center\\",
+-             \\"textAlignVertical\\": \\"bottom\\",
+-             \\"textTransform\\": \\"none\\",
                   },
 +               ],
 +             ],
               Object {
 -             \\"fontSize\\": 20,
--             \\"fontWeight\\": \\"300\\",
+-             \\"lineHeight\\": 20,
 +               \\"fontFamily\\": \\"icomoon\\",
 +               \\"fontStyle\\": \\"normal\\",
 +               \\"fontWeight\\": \\"normal\\",
@@ -122,14 +129,13 @@ exports[`handles start edit 1`] = `
 -       
 +         
         </Text>
-      </View>
-+   </View>
++     </View>
+    </View>
     <View
       style={
         Object {
           \\"backgroundColor\\": \\"#ECEEF2\\",
-          \\"borderRadius\\": 8,
-@@ -101,11 +127,11 @@
+@@ -106,11 +125,11 @@
               \\"textTransform\\": \\"none\\",
             },
           ]
@@ -142,7 +148,7 @@ exports[`handles start edit 1`] = `
     <View
       accessible={true}
       focusable={true}
-@@ -122,9 +148,9 @@
+@@ -127,9 +146,9 @@
         }
       }
       testID=\\"SubmitButton\\"
@@ -160,7 +166,7 @@ exports[`renders with disabled submit button 1`] = `
 - First value
 + Second value
 
-@@ -101,11 +101,11 @@
+@@ -106,11 +106,11 @@
               \\"textTransform\\": \\"none\\",
             },
           ]
@@ -173,7 +179,7 @@ exports[`renders with disabled submit button 1`] = `
     <View
       accessible={true}
       focusable={true}
-@@ -122,9 +122,9 @@
+@@ -127,9 +127,9 @@
         }
       }
       testID=\\"SubmitButton\\"
@@ -191,7 +197,7 @@ exports[`renders with text entered 1`] = `
 - First value
 + Second value
 
-@@ -101,11 +101,11 @@
+@@ -106,11 +106,11 @@
               \\"textTransform\\": \\"none\\",
             },
           ]
@@ -204,7 +210,7 @@ exports[`renders with text entered 1`] = `
     <View
       accessible={true}
       focusable={true}
-@@ -122,9 +122,9 @@
+@@ -127,9 +127,9 @@
         }
       }
       testID=\\"SubmitButton\\"
@@ -255,10 +261,17 @@ exports[`renders without actions 1`] = `
         Array [
           Object {
             "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "lineHeight": 16,
+            "textAlign": "center",
+            "textAlignVertical": "bottom",
+            "textTransform": "none",
           },
           Object {
             "fontSize": 20,
-            "fontWeight": "300",
+            "lineHeight": 20,
           },
         ]
       }
@@ -299,7 +312,6 @@ exports[`renders without actions 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "letterSpacing": 0.25,
             "lineHeight": 24,
             "paddingVertical": 5,
@@ -313,7 +325,6 @@ exports[`renders without actions 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 20,
             "paddingHorizontal": 12,
             "paddingVertical": 6,

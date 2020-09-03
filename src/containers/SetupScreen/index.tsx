@@ -224,7 +224,7 @@ const SetupScreen = ({
       </View>
       <BottomButton
         testID="SaveBottomButton"
-        disabled={isLoading}
+        disabled={isLoading || !firstName}
         onPress={saveAndNavigateNext}
         text={t('continue')}
       />
