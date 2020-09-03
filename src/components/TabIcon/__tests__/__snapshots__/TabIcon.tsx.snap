@@ -123,6 +123,77 @@ exports[`renders correctly | NonAndroid 1`] = `
 </View>
 `;
 
+exports[`renders does not show notification dot if user has zero notifications 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "position": "relative",
+        },
+        Object {},
+      ]
+    }
+  >
+    <SvgMock
+      color="blue"
+      height={24}
+      width={24}
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#FF5532",
+            "borderColor": "#ffffff",
+            "borderRadius": 8,
+            "borderWidth": 2,
+            "height": 16,
+            "position": "absolute",
+            "right": -10,
+            "top": -3,
+            "width": 16,
+          },
+          Object {},
+        ]
+      }
+    />
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        },
+        Object {
+          "color": "blue",
+        },
+      ]
+    }
+  >
+    Notifications
+  </Text>
+</View>
+`;
+
 exports[`renders notifications 1`] = `
 <View
   style={
