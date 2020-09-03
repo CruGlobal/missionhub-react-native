@@ -73,7 +73,6 @@ exports[`OnboardingCard render celebrate card 1`] = `
           "fontFamily": "SourceSansPro-Light",
           "fontSize": 24,
           "fontStyle": "normal",
-          "fontWeight": "300",
           "lineHeight": 30,
           "paddingTop": 5,
           "textAlign": "center",
@@ -87,11 +86,10 @@ exports[`OnboardingCard render celebrate card 1`] = `
     <Text
       style={
         Object {
-          "color": "#B4B6BA",
+          "color": "#505256",
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 24,
           "paddingHorizontal": 50,
           "paddingVertical": 5,
@@ -200,7 +198,6 @@ exports[`OnboardingCard render challenges card | Admin 1`] = `
           "fontFamily": "SourceSansPro-Light",
           "fontSize": 24,
           "fontStyle": "normal",
-          "fontWeight": "300",
           "lineHeight": 30,
           "paddingTop": 5,
           "textAlign": "center",
@@ -214,11 +211,10 @@ exports[`OnboardingCard render challenges card | Admin 1`] = `
     <Text
       style={
         Object {
-          "color": "#B4B6BA",
+          "color": "#505256",
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 24,
           "paddingHorizontal": 50,
           "paddingVertical": 5,
@@ -325,7 +321,6 @@ exports[`OnboardingCard render challenges card | Member 1`] = `
           "fontFamily": "SourceSansPro-Light",
           "fontSize": 24,
           "fontStyle": "normal",
-          "fontWeight": "300",
           "lineHeight": 30,
           "paddingTop": 5,
           "textAlign": "center",
@@ -339,11 +334,10 @@ exports[`OnboardingCard render challenges card | Member 1`] = `
     <Text
       style={
         Object {
-          "color": "#B4B6BA",
+          "color": "#505256",
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 24,
           "paddingHorizontal": 50,
           "paddingVertical": 5,
@@ -450,7 +444,6 @@ exports[`OnboardingCard render challenges card hidden 1`] = `
           "fontFamily": "SourceSansPro-Light",
           "fontSize": 24,
           "fontStyle": "normal",
-          "fontWeight": "300",
           "lineHeight": 30,
           "paddingTop": 5,
           "textAlign": "center",
@@ -464,11 +457,10 @@ exports[`OnboardingCard render challenges card hidden 1`] = `
     <Text
       style={
         Object {
-          "color": "#B4B6BA",
+          "color": "#505256",
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 24,
           "paddingHorizontal": 50,
           "paddingVertical": 5,
@@ -575,7 +567,6 @@ exports[`OnboardingCard render impact card 1`] = `
           "fontFamily": "SourceSansPro-Light",
           "fontSize": 24,
           "fontStyle": "normal",
-          "fontWeight": "300",
           "lineHeight": 30,
           "paddingTop": 5,
           "textAlign": "center",
@@ -589,11 +580,10 @@ exports[`OnboardingCard render impact card 1`] = `
     <Text
       style={
         Object {
-          "color": "#B4B6BA",
+          "color": "#505256",
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 24,
           "paddingHorizontal": 50,
           "paddingVertical": 5,
@@ -702,7 +692,6 @@ exports[`OnboardingCard render steps card 1`] = `
           "fontFamily": "SourceSansPro-Light",
           "fontSize": 24,
           "fontStyle": "normal",
-          "fontWeight": "300",
           "lineHeight": 30,
           "paddingTop": 5,
           "textAlign": "center",
@@ -716,11 +705,10 @@ exports[`OnboardingCard render steps card 1`] = `
     <Text
       style={
         Object {
-          "color": "#B4B6BA",
+          "color": "#505256",
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 24,
           "paddingHorizontal": 50,
           "paddingVertical": 5,
@@ -829,7 +817,6 @@ exports[`handles press event from the close button 1`] = `
           "fontFamily": "SourceSansPro-Light",
           "fontSize": 24,
           "fontStyle": "normal",
-          "fontWeight": "300",
           "lineHeight": 30,
           "paddingTop": 5,
           "textAlign": "center",
@@ -843,11 +830,10 @@ exports[`handles press event from the close button 1`] = `
     <Text
       style={
         Object {
-          "color": "#B4B6BA",
+          "color": "#505256",
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 24,
           "paddingHorizontal": 50,
           "paddingVertical": 5,

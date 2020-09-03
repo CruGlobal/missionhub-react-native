@@ -62,7 +62,6 @@ exports[`Reported Post call handleDelete 1`] = `
 -             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -             \\"fontSize\\": 14,
 -             \\"fontStyle\\": \\"normal\\",
--             \\"fontWeight\\": \\"normal\\",
 -             \\"lineHeight\\": 20,
 -             \\"textAlignVertical\\": \\"center\\",
 -             \\"textTransform\\": \\"none\\",
@@ -86,13 +85,14 @@ exports[`Reported Post call handleDelete 1`] = `
 +         \\"fontFamily\\": \\"SourceSansPro-Light\\",
 +         \\"fontSize\\": 24,
           \\"fontStyle\\": \\"normal\\",
--             \\"fontWeight\\": \\"normal\\",
 -             \\"lineHeight\\": 24,
--             \\"textAlignVertical\\": \\"center\\",
--             \\"textTransform\\": \\"none\\",
--           }
--         }
--       >
++         \\"lineHeight\\": 30,
++         \\"paddingVertical\\": 20,
+          \\"textAlignVertical\\": \\"center\\",
+          \\"textTransform\\": \\"none\\",
+        }
+      }
+    >
 -         Roscoe Johnson
 -       </Text>
 -       <Text
@@ -103,13 +103,9 @@ exports[`Reported Post call handleDelete 1`] = `
 -             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -             \\"fontSize\\": 16,
 -             \\"fontStyle\\": \\"normal\\",
--             \\"fontWeight\\": \\"normal\\",
 -             \\"lineHeight\\": 24,
-+         \\"fontWeight\\": \\"300\\",
-+         \\"lineHeight\\": 30,
-+         \\"paddingVertical\\": 20,
-          \\"textAlignVertical\\": \\"center\\",
-          \\"textTransform\\": \\"none\\",
+-             \\"textAlignVertical\\": \\"center\\",
+-             \\"textTransform\\": \\"none\\",
 -           }
 -         }
 -       >
@@ -142,9 +138,9 @@ exports[`Reported Post call handleDelete 1`] = `
 -           \\"flexDirection\\": \\"row\\",
 -           \\"justifyContent\\": \\"flex-start\\",
 -           \\"paddingVertical\\": 8,
-        }
-      }
-    >
+-         }
+-       }
+-     >
 -       <Image
 -         resizeMode=\\"cover\\"
 -         source={
@@ -189,17 +185,15 @@ exports[`Reported Post call handleDelete 1`] = `
 -                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                 \\"fontSize\\": 16,
 -                 \\"fontStyle\\": \\"normal\\",
--                 \\"fontWeight\\": \\"normal\\",
 -                 \\"lineHeight\\": 24,
 -                 \\"textAlignVertical\\": \\"center\\",
 -                 \\"textTransform\\": \\"none\\",
 -               },
 -               Object {
 -                 \\"color\\": \\"#505256\\",
--                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Bold\\",
 -                 \\"fontSize\\": 16,
 -                 \\"fontStyle\\": \\"normal\\",
--                 \\"fontWeight\\": \\"bold\\",
 -                 \\"letterSpacing\\": 1,
 -                 \\"lineHeight\\": 20,
 -                 \\"textAlignVertical\\": \\"center\\",
@@ -214,22 +208,20 @@ exports[`Reported Post call handleDelete 1`] = `
     <Text
       style={
 -             Array [
+        Object {
+          \\"color\\": \\"#B4B6BA\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontSize\\": 12,
+-                 \\"fontStyle\\": \\"normal\\",
+-                 \\"lineHeight\\": 16,
+-                 \\"textAlignVertical\\": \\"center\\",
+-                 \\"textTransform\\": \\"none\\",
+-               },
 -               Object {
 -                 \\"color\\": \\"#B4B6BA\\",
 -                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                 \\"fontSize\\": 12,
 -                 \\"fontStyle\\": \\"normal\\",
--                 \\"fontWeight\\": \\"normal\\",
--                 \\"lineHeight\\": 16,
--                 \\"textAlignVertical\\": \\"center\\",
--                 \\"textTransform\\": \\"none\\",
--               },
-        Object {
-          \\"color\\": \\"#B4B6BA\\",
-          \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--                 \\"fontSize\\": 12,
--                 \\"fontStyle\\": \\"normal\\",
--                 \\"fontWeight\\": \\"normal\\",
 -                 \\"lineHeight\\": 16,
 -                 \\"textAlignVertical\\": \\"center\\",
 -                 \\"textTransform\\": \\"none\\",
@@ -255,18 +247,17 @@ exports[`Reported Post call handleDelete 1`] = `
 -       style={
 -         Object {
 -           \\"color\\": \\"#505256\\",
--           \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+          \\"fontFamily\\": \\"SourceSansPro-Regular\\",
           \\"fontSize\\": 16,
           \\"fontStyle\\": \\"normal\\",
-          \\"fontWeight\\": \\"normal\\",
 -           \\"justifyContent\\": \\"flex-start\\",
           \\"lineHeight\\": 24,
 -           \\"paddingBottom\\": 8,
           \\"textAlignVertical\\": \\"center\\",
           \\"textTransform\\": \\"none\\",
         }
-      }
-    >
+-       }
+-     >
 -       porro ut et
 -     </Text>
 -   </View>
@@ -290,8 +281,8 @@ exports[`Reported Post call handleDelete 1`] = `
 -             \\"flex\\": 1,
 -           },
 -         ]
--       }
--     >
+      }
+    >
 -       <View
 -         accessible={true}
 -         focusable={true}
@@ -321,10 +312,9 @@ exports[`Reported Post call handleDelete 1`] = `
 -             Array [
 -               Object {
 -                 \\"color\\": \\"#ffffff\\",
--                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Bold\\",
 -                 \\"fontSize\\": 14,
 -                 \\"fontStyle\\": \\"normal\\",
--                 \\"fontWeight\\": \\"bold\\",
 -                 \\"letterSpacing\\": 1,
 -                 \\"lineHeight\\": 18,
 -                 \\"textAlign\\": \\"center\\",
@@ -376,10 +366,9 @@ exports[`Reported Post call handleDelete 1`] = `
 -             Array [
 -               Object {
 -                 \\"color\\": \\"#ffffff\\",
--                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Bold\\",
 -                 \\"fontSize\\": 14,
 -                 \\"fontStyle\\": \\"normal\\",
--                 \\"fontWeight\\": \\"bold\\",
 -                 \\"letterSpacing\\": 1,
 -                 \\"lineHeight\\": 18,
 -                 \\"textAlign\\": \\"center\\",
@@ -461,7 +450,6 @@ exports[`Reported Post call handleIgnore 1`] = `
 -             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -             \\"fontSize\\": 14,
 -             \\"fontStyle\\": \\"normal\\",
--             \\"fontWeight\\": \\"normal\\",
 -             \\"lineHeight\\": 20,
 -             \\"textAlignVertical\\": \\"center\\",
 -             \\"textTransform\\": \\"none\\",
@@ -485,13 +473,14 @@ exports[`Reported Post call handleIgnore 1`] = `
 +         \\"fontFamily\\": \\"SourceSansPro-Light\\",
 +         \\"fontSize\\": 24,
           \\"fontStyle\\": \\"normal\\",
--             \\"fontWeight\\": \\"normal\\",
 -             \\"lineHeight\\": 24,
--             \\"textAlignVertical\\": \\"center\\",
--             \\"textTransform\\": \\"none\\",
--           }
--         }
--       >
++         \\"lineHeight\\": 30,
++         \\"paddingVertical\\": 20,
+          \\"textAlignVertical\\": \\"center\\",
+          \\"textTransform\\": \\"none\\",
+        }
+      }
+    >
 -         Roscoe Johnson
 -       </Text>
 -       <Text
@@ -502,13 +491,9 @@ exports[`Reported Post call handleIgnore 1`] = `
 -             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -             \\"fontSize\\": 16,
 -             \\"fontStyle\\": \\"normal\\",
--             \\"fontWeight\\": \\"normal\\",
 -             \\"lineHeight\\": 24,
-+         \\"fontWeight\\": \\"300\\",
-+         \\"lineHeight\\": 30,
-+         \\"paddingVertical\\": 20,
-          \\"textAlignVertical\\": \\"center\\",
-          \\"textTransform\\": \\"none\\",
+-             \\"textAlignVertical\\": \\"center\\",
+-             \\"textTransform\\": \\"none\\",
 -           }
 -         }
 -       >
@@ -541,9 +526,9 @@ exports[`Reported Post call handleIgnore 1`] = `
 -           \\"flexDirection\\": \\"row\\",
 -           \\"justifyContent\\": \\"flex-start\\",
 -           \\"paddingVertical\\": 8,
-        }
-      }
-    >
+-         }
+-       }
+-     >
 -       <Image
 -         resizeMode=\\"cover\\"
 -         source={
@@ -588,17 +573,15 @@ exports[`Reported Post call handleIgnore 1`] = `
 -                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                 \\"fontSize\\": 16,
 -                 \\"fontStyle\\": \\"normal\\",
--                 \\"fontWeight\\": \\"normal\\",
 -                 \\"lineHeight\\": 24,
 -                 \\"textAlignVertical\\": \\"center\\",
 -                 \\"textTransform\\": \\"none\\",
 -               },
 -               Object {
 -                 \\"color\\": \\"#505256\\",
--                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Bold\\",
 -                 \\"fontSize\\": 16,
 -                 \\"fontStyle\\": \\"normal\\",
--                 \\"fontWeight\\": \\"bold\\",
 -                 \\"letterSpacing\\": 1,
 -                 \\"lineHeight\\": 20,
 -                 \\"textAlignVertical\\": \\"center\\",
@@ -613,22 +596,20 @@ exports[`Reported Post call handleIgnore 1`] = `
     <Text
       style={
 -             Array [
+        Object {
+          \\"color\\": \\"#B4B6BA\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontSize\\": 12,
+-                 \\"fontStyle\\": \\"normal\\",
+-                 \\"lineHeight\\": 16,
+-                 \\"textAlignVertical\\": \\"center\\",
+-                 \\"textTransform\\": \\"none\\",
+-               },
 -               Object {
 -                 \\"color\\": \\"#B4B6BA\\",
 -                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                 \\"fontSize\\": 12,
 -                 \\"fontStyle\\": \\"normal\\",
--                 \\"fontWeight\\": \\"normal\\",
--                 \\"lineHeight\\": 16,
--                 \\"textAlignVertical\\": \\"center\\",
--                 \\"textTransform\\": \\"none\\",
--               },
-        Object {
-          \\"color\\": \\"#B4B6BA\\",
-          \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--                 \\"fontSize\\": 12,
--                 \\"fontStyle\\": \\"normal\\",
--                 \\"fontWeight\\": \\"normal\\",
 -                 \\"lineHeight\\": 16,
 -                 \\"textAlignVertical\\": \\"center\\",
 -                 \\"textTransform\\": \\"none\\",
@@ -654,18 +635,17 @@ exports[`Reported Post call handleIgnore 1`] = `
 -       style={
 -         Object {
 -           \\"color\\": \\"#505256\\",
--           \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+          \\"fontFamily\\": \\"SourceSansPro-Regular\\",
           \\"fontSize\\": 16,
           \\"fontStyle\\": \\"normal\\",
-          \\"fontWeight\\": \\"normal\\",
 -           \\"justifyContent\\": \\"flex-start\\",
           \\"lineHeight\\": 24,
 -           \\"paddingBottom\\": 8,
           \\"textAlignVertical\\": \\"center\\",
           \\"textTransform\\": \\"none\\",
         }
-      }
-    >
+-       }
+-     >
 -       porro ut et
 -     </Text>
 -   </View>
@@ -689,8 +669,8 @@ exports[`Reported Post call handleIgnore 1`] = `
 -             \\"flex\\": 1,
 -           },
 -         ]
--       }
--     >
+      }
+    >
 -       <View
 -         accessible={true}
 -         focusable={true}
@@ -720,10 +700,9 @@ exports[`Reported Post call handleIgnore 1`] = `
 -             Array [
 -               Object {
 -                 \\"color\\": \\"#ffffff\\",
--                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Bold\\",
 -                 \\"fontSize\\": 14,
 -                 \\"fontStyle\\": \\"normal\\",
--                 \\"fontWeight\\": \\"bold\\",
 -                 \\"letterSpacing\\": 1,
 -                 \\"lineHeight\\": 18,
 -                 \\"textAlign\\": \\"center\\",
@@ -775,10 +754,9 @@ exports[`Reported Post call handleIgnore 1`] = `
 -             Array [
 -               Object {
 -                 \\"color\\": \\"#ffffff\\",
--                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Bold\\",
 -                 \\"fontSize\\": 14,
 -                 \\"fontStyle\\": \\"normal\\",
--                 \\"fontWeight\\": \\"bold\\",
 -                 \\"letterSpacing\\": 1,
 -                 \\"lineHeight\\": 18,
 -                 \\"textAlign\\": \\"center\\",
@@ -817,7 +795,6 @@ exports[`Reported comment call handleDelete 1`] = `
         "fontFamily": "SourceSansPro-Light",
         "fontSize": 24,
         "fontStyle": "normal",
-        "fontWeight": "300",
         "lineHeight": 30,
         "paddingVertical": 20,
         "textAlignVertical": "center",
@@ -834,7 +811,6 @@ exports[`Reported comment call handleDelete 1`] = `
         "fontFamily": "SourceSansPro-Regular",
         "fontSize": 16,
         "fontStyle": "normal",
-        "fontWeight": "normal",
         "lineHeight": 24,
         "textAlignVertical": "center",
         "textTransform": "none",
@@ -865,7 +841,6 @@ exports[`Reported comment call handleIgnore 1`] = `
         "fontFamily": "SourceSansPro-Light",
         "fontSize": 24,
         "fontStyle": "normal",
-        "fontWeight": "300",
         "lineHeight": 30,
         "paddingVertical": 20,
         "textAlignVertical": "center",
@@ -882,7 +857,6 @@ exports[`Reported comment call handleIgnore 1`] = `
         "fontFamily": "SourceSansPro-Regular",
         "fontSize": 16,
         "fontStyle": "normal",
-        "fontWeight": "normal",
         "lineHeight": 24,
         "textAlignVertical": "center",
         "textTransform": "none",
@@ -952,7 +926,6 @@ exports[`renders correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 20,
             "textAlignVertical": "center",
             "textTransform": "none",
@@ -970,7 +943,6 @@ exports[`renders correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 24,
             "textAlignVertical": "center",
             "textTransform": "none",
@@ -987,7 +959,6 @@ exports[`renders correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 24,
             "textAlignVertical": "center",
             "textTransform": "none",
@@ -1079,7 +1050,6 @@ exports[`renders correctly 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 16,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -1099,7 +1069,6 @@ exports[`renders correctly 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 16,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -1119,7 +1088,6 @@ exports[`renders correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 12,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 16,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -1202,10 +1170,9 @@ exports[`renders correctly 1`] = `
             Array [
               Object {
                 "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
@@ -1257,10 +1224,9 @@ exports[`renders correctly 1`] = `
             Array [
               Object {
                 "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",

@@ -173,10 +173,9 @@ exports[`renders create step correctly 1`] = `
             Array [
               Object {
                 "color": "#505256",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
                 "textAlignVertical": "center",
@@ -217,7 +216,6 @@ exports[`renders create step correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -231,7 +229,6 @@ exports[`renders create step correctly 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 32,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 38,
               "minHeight": 90.5,
               "paddingHorizontal": 45,
@@ -285,10 +282,9 @@ exports[`renders create step correctly 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -481,10 +477,9 @@ exports[`renders create step correctly on android 1`] = `
             Array [
               Object {
                 "color": "#505256",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
                 "textAlignVertical": "center",
@@ -525,7 +520,6 @@ exports[`renders create step correctly on android 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -539,7 +533,6 @@ exports[`renders create step correctly on android 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 32,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 38,
               "minHeight": 90.5,
               "paddingHorizontal": 45,
@@ -593,10 +586,9 @@ exports[`renders create step correctly on android 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -789,10 +781,9 @@ exports[`renders create step in onboarding correctly 1`] = `
             Array [
               Object {
                 "color": "#505256",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
                 "textAlignVertical": "center",
@@ -833,7 +824,6 @@ exports[`renders create step in onboarding correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -847,7 +837,6 @@ exports[`renders create step in onboarding correctly 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 32,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 38,
               "minHeight": 90.5,
               "paddingHorizontal": 45,
@@ -901,10 +890,9 @@ exports[`renders create step in onboarding correctly 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -1097,7 +1085,6 @@ exports[`renders edit journey item correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -1111,7 +1098,6 @@ exports[`renders edit journey item correctly 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 32,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 38,
               "minHeight": 90.5,
               "paddingHorizontal": 45,
@@ -1165,10 +1151,9 @@ exports[`renders edit journey item correctly 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -1361,7 +1346,6 @@ exports[`renders edit journey item for me correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -1375,7 +1359,6 @@ exports[`renders edit journey item for me correctly 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 32,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 38,
               "minHeight": 90.5,
               "paddingHorizontal": 45,
@@ -1429,10 +1412,9 @@ exports[`renders edit journey item for me correctly 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -1625,7 +1607,6 @@ exports[`renders edit journey step correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -1639,7 +1620,6 @@ exports[`renders edit journey step correctly 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 32,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 38,
               "minHeight": 90.5,
               "paddingHorizontal": 45,
@@ -1693,10 +1673,9 @@ exports[`renders edit journey step correctly 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -1889,7 +1868,6 @@ exports[`renders edit journey step for me correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -1903,7 +1881,6 @@ exports[`renders edit journey step for me correctly 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 32,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 38,
               "minHeight": 90.5,
               "paddingHorizontal": 45,
@@ -1957,10 +1934,9 @@ exports[`renders edit journey step for me correctly 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -2132,10 +2108,9 @@ exports[`renders step note correctly 1`] = `
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
@@ -2145,20 +2120,19 @@ exports[`renders step note correctly 1`] = `
                 Array [
                   Object {
                     "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
+                    "fontFamily": "SourceSansPro-Bold",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
-                    "lineHeight": 20,
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
                     "textAlignVertical": "center",
-                    "textTransform": "none",
+                    "textTransform": "uppercase",
                   },
                   Object {
                     "color": "#B4B6BA",
-                    "fontFamily": "SourceSansPro-Regular",
+                    "fontFamily": "SourceSansPro-Bold",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlignVertical": "center",
@@ -2217,7 +2191,6 @@ exports[`renders step note correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -2231,7 +2204,6 @@ exports[`renders step note correctly 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 32,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 38,
               "minHeight": 90.5,
               "paddingHorizontal": 45,
@@ -2285,10 +2257,9 @@ exports[`renders step note correctly 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -2460,10 +2431,9 @@ exports[`renders step note correctly for me 1`] = `
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
@@ -2473,20 +2443,19 @@ exports[`renders step note correctly for me 1`] = `
                 Array [
                   Object {
                     "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
+                    "fontFamily": "SourceSansPro-Bold",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
-                    "lineHeight": 20,
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
                     "textAlignVertical": "center",
-                    "textTransform": "none",
+                    "textTransform": "uppercase",
                   },
                   Object {
                     "color": "#B4B6BA",
-                    "fontFamily": "SourceSansPro-Regular",
+                    "fontFamily": "SourceSansPro-Bold",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlignVertical": "center",
@@ -2545,7 +2514,6 @@ exports[`renders step note correctly for me 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -2559,7 +2527,6 @@ exports[`renders step note correctly for me 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 32,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 38,
               "minHeight": 90.5,
               "paddingHorizontal": 45,
@@ -2613,10 +2580,9 @@ exports[`renders step note correctly for me 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -2646,7 +2612,7 @@ exports[`updates text 1`] = `
 - First value
 + Second value
 
-@@ -258,11 +258,11 @@
+@@ -254,11 +254,11 @@
             ]
           }
           testID=\\"stepInput\\"

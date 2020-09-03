@@ -153,7 +153,6 @@ exports[`create methods calls onComplete 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -166,7 +165,6 @@ exports[`create methods calls onComplete 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 30,
               "marginBottom": 16,
               "paddingHorizontal": 32,
@@ -204,7 +202,6 @@ exports[`create methods calls onComplete 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 12,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 16,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -220,7 +217,6 @@ exports[`create methods calls onComplete 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -248,7 +244,6 @@ exports[`create methods calls onComplete 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 12,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 16,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -280,7 +275,6 @@ exports[`create methods calls onComplete 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "letterSpacing": 0.25,
                 "lineHeight": 24,
                 "paddingVertical": 5,
@@ -293,7 +287,6 @@ exports[`create methods calls onComplete 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "marginBottom": 26,
                 "paddingBottom": 70,
@@ -362,10 +355,9 @@ exports[`create methods calls onComplete 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -390,7 +382,7 @@ exports[`create methods changes date 1`] = `
 - First value
 + Second value
 
-@@ -175,11 +175,11 @@
+@@ -173,11 +173,11 @@
           testID=\\"titleInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
@@ -403,7 +395,7 @@ exports[`create methods changes date 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -222,11 +222,11 @@
+@@ -218,11 +218,11 @@
                   \\"textAlignVertical\\": \\"center\\",
                   \\"textTransform\\": \\"none\\",
                 }
@@ -423,7 +415,7 @@ exports[`create methods changes detail 1`] = `
 - First value
 + Second value
 
-@@ -299,11 +299,11 @@
+@@ -292,11 +292,11 @@
                 },
               ]
             }
@@ -443,7 +435,7 @@ exports[`create methods changes title 1`] = `
 - First value
 + Second value
 
-@@ -172,11 +172,11 @@
+@@ -170,11 +170,11 @@
               },
             ]
           }
@@ -463,7 +455,7 @@ exports[`create methods clears date 1`] = `
 - First value
 + Second value
 
-@@ -175,11 +175,11 @@
+@@ -173,11 +173,11 @@
           testID=\\"titleInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
@@ -476,7 +468,7 @@ exports[`create methods clears date 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -222,11 +222,11 @@
+@@ -218,11 +218,11 @@
                   \\"textAlignVertical\\": \\"center\\",
                   \\"textTransform\\": \\"none\\",
                 }
@@ -496,7 +488,7 @@ exports[`create methods fires onBlur | detailInput 1`] = `
 - First value
 + Second value
 
-@@ -261,11 +261,11 @@
+@@ -256,11 +256,11 @@
             multiline={true}
             onBlur={[Function onBlur]}
             onChangeText={[Function onChangeText]}
@@ -536,7 +528,7 @@ exports[`create methods focuses on press | detailInput 1`] = `
 - First value
 + Second value
 
-@@ -261,11 +261,11 @@
+@@ -256,11 +256,11 @@
             multiline={true}
             onBlur={[Function onBlur]}
             onChangeText={[Function onChangeText]}
@@ -576,7 +568,7 @@ exports[`create methods sets disable false 1`] = `
 - First value
 + Second value
 
-@@ -172,14 +172,14 @@
+@@ -170,14 +170,14 @@
               },
             ]
           }
@@ -593,7 +585,7 @@ exports[`create methods sets disable false 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -222,11 +222,11 @@
+@@ -218,11 +218,11 @@
                   \\"textAlignVertical\\": \\"center\\",
                   \\"textTransform\\": \\"none\\",
                 }
@@ -606,7 +598,7 @@ exports[`create methods sets disable false 1`] = `
         </DatePicker>
         <View
           style={
-@@ -342,11 +342,11 @@
+@@ -335,11 +335,11 @@
         onResponderTerminationRequest={[Function onResponderTerminationRequest]}
         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
         style={
@@ -619,7 +611,7 @@ exports[`create methods sets disable false 1`] = `
             \\"justifyContent\\": \\"center\\",
             \\"opacity\\": 0.6,
             \\"width\\": 650,
-@@ -368,13 +368,11 @@
+@@ -360,13 +360,11 @@
                 \\"textAlign\\": \\"center\\",
                 \\"textAlignVertical\\": \\"center\\",
                 \\"textTransform\\": \\"uppercase\\",
@@ -641,7 +633,7 @@ exports[`edit methods Saves challenge when user updates detail 1`] = `
 - First value
 + Second value
 
-@@ -364,11 +364,11 @@
+@@ -356,11 +356,11 @@
                 },
               ]
             }
@@ -807,10 +799,9 @@ exports[`edit methods calls onComplete 1`] = `
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
@@ -874,7 +865,6 @@ exports[`edit methods calls onComplete 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -887,7 +877,6 @@ exports[`edit methods calls onComplete 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 30,
               "marginBottom": 16,
               "paddingHorizontal": 32,
@@ -925,7 +914,6 @@ exports[`edit methods calls onComplete 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 12,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 16,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -941,7 +929,6 @@ exports[`edit methods calls onComplete 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -969,7 +956,6 @@ exports[`edit methods calls onComplete 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 12,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 16,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -1001,7 +987,6 @@ exports[`edit methods calls onComplete 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "letterSpacing": 0.25,
                 "lineHeight": 24,
                 "paddingVertical": 5,
@@ -1014,7 +999,6 @@ exports[`edit methods calls onComplete 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "marginBottom": 26,
                 "paddingBottom": 70,
@@ -1053,7 +1037,7 @@ exports[`edit methods disables button if user deletes title 1`] = `
 - First value
 + Second value
 
-@@ -237,11 +237,11 @@
+@@ -234,11 +234,11 @@
               },
             ]
           }
@@ -1221,7 +1205,6 @@ exports[`renders correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -1234,7 +1217,6 @@ exports[`renders correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 30,
               "marginBottom": 16,
               "paddingHorizontal": 32,
@@ -1272,7 +1254,6 @@ exports[`renders correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 12,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 16,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -1288,7 +1269,6 @@ exports[`renders correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -1316,7 +1296,6 @@ exports[`renders correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 12,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 16,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -1348,7 +1327,6 @@ exports[`renders correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "letterSpacing": 0.25,
                 "lineHeight": 24,
                 "paddingVertical": 5,
@@ -1361,7 +1339,6 @@ exports[`renders correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "marginBottom": 26,
                 "paddingBottom": 70,
@@ -1430,10 +1407,9 @@ exports[`renders correctly 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -1608,7 +1584,6 @@ exports[`renders correctly on android 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -1621,7 +1596,6 @@ exports[`renders correctly on android 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 30,
               "marginBottom": 16,
               "paddingHorizontal": 32,
@@ -1659,7 +1633,6 @@ exports[`renders correctly on android 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 12,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 16,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -1675,7 +1648,6 @@ exports[`renders correctly on android 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -1703,7 +1675,6 @@ exports[`renders correctly on android 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 12,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 16,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -1735,7 +1706,6 @@ exports[`renders correctly on android 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "letterSpacing": 0.25,
                 "lineHeight": 24,
                 "paddingVertical": 5,
@@ -1748,7 +1718,6 @@ exports[`renders correctly on android 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "marginBottom": 26,
                 "paddingBottom": 70,
@@ -1817,10 +1786,9 @@ exports[`renders correctly on android 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -1993,10 +1961,9 @@ exports[`renders edit challenge correctly 1`] = `
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
@@ -2060,7 +2027,6 @@ exports[`renders edit challenge correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -2073,7 +2039,6 @@ exports[`renders edit challenge correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 30,
               "marginBottom": 16,
               "paddingHorizontal": 32,
@@ -2111,7 +2076,6 @@ exports[`renders edit challenge correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 12,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 16,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -2127,7 +2091,6 @@ exports[`renders edit challenge correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -2155,7 +2118,6 @@ exports[`renders edit challenge correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 12,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 16,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -2187,7 +2149,6 @@ exports[`renders edit challenge correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "letterSpacing": 0.25,
                 "lineHeight": 24,
                 "paddingVertical": 5,
@@ -2200,7 +2161,6 @@ exports[`renders edit challenge correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "marginBottom": 26,
                 "paddingBottom": 70,

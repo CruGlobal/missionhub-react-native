@@ -90,10 +90,17 @@ exports[`render correctly | Me 1`] = `
             Array [
               Object {
                 "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "lineHeight": 16,
+                "textAlign": "center",
+                "textAlignVertical": "bottom",
+                "textTransform": "none",
               },
               Object {
                 "fontSize": 26,
-                "fontWeight": "300",
+                "lineHeight": 20,
               },
             ]
           }
@@ -131,7 +138,6 @@ exports[`render correctly | Me 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -148,7 +154,6 @@ exports[`render correctly | Me 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 16,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -164,7 +169,6 @@ exports[`render correctly | Me 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 16,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -280,10 +284,17 @@ exports[`renders completed item correctly 1`] = `
             Array [
               Object {
                 "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "lineHeight": 16,
+                "textAlign": "center",
+                "textAlignVertical": "bottom",
+                "textTransform": "none",
               },
               Object {
                 "fontSize": 26,
-                "fontWeight": "300",
+                "lineHeight": 20,
               },
             ]
           }
@@ -321,7 +332,6 @@ exports[`renders completed item correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -338,7 +348,6 @@ exports[`renders completed item correctly 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 16,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -354,7 +363,6 @@ exports[`renders completed item correctly 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 16,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -474,10 +482,17 @@ exports[`renders correctly | Not Me 1`] = `
             Array [
               Object {
                 "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "lineHeight": 16,
+                "textAlign": "center",
+                "textAlignVertical": "bottom",
+                "textTransform": "none",
               },
               Object {
                 "fontSize": 26,
-                "fontWeight": "300",
+                "lineHeight": 20,
               },
             ]
           }
@@ -515,7 +530,6 @@ exports[`renders correctly | Not Me 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -532,7 +546,6 @@ exports[`renders correctly | Not Me 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 16,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -548,7 +561,6 @@ exports[`renders correctly | Not Me 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 16,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -664,10 +676,17 @@ exports[`renders full date if not in same week 1`] = `
             Array [
               Object {
                 "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "lineHeight": 16,
+                "textAlign": "center",
+                "textAlignVertical": "bottom",
+                "textTransform": "none",
               },
               Object {
                 "fontSize": 26,
-                "fontWeight": "300",
+                "lineHeight": 20,
               },
             ]
           }
@@ -705,7 +724,6 @@ exports[`renders full date if not in same week 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -722,7 +740,6 @@ exports[`renders full date if not in same week 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 16,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -738,7 +755,6 @@ exports[`renders full date if not in same week 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 16,
                   "textAlignVertical": "center",
                   "textTransform": "none",

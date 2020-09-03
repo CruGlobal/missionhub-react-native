@@ -114,7 +114,6 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 20,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -292,7 +291,6 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -390,17 +388,15 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 24,
                       "textAlignVertical": "center",
                       "textTransform": "none",
                     },
                     Object {
                       "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
                       "letterSpacing": 1,
                       "lineHeight": 20,
                       "textAlignVertical": "center",
@@ -419,7 +415,6 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 12,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 16,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -429,7 +424,6 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 12,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 16,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -479,7 +473,6 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "fontStyle": "normal",
-                        "fontWeight": "normal",
                         "lineHeight": 18,
                         "textAlignVertical": "center",
                         "textTransform": "none",
@@ -559,7 +552,6 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 14,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
@@ -621,7 +613,6 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 14,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
@@ -811,7 +802,6 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -825,7 +815,6 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 20,
               "paddingHorizontal": 12,
               "paddingVertical": 6,
@@ -977,7 +966,6 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 20,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -1155,7 +1143,6 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -1253,17 +1240,15 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 24,
                       "textAlignVertical": "center",
                       "textTransform": "none",
                     },
                     Object {
                       "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
                       "letterSpacing": 1,
                       "lineHeight": 20,
                       "textAlignVertical": "center",
@@ -1282,7 +1267,6 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 12,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 16,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -1292,7 +1276,6 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 12,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 16,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -1342,7 +1325,6 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "fontStyle": "normal",
-                        "fontWeight": "normal",
                         "lineHeight": 18,
                         "textAlignVertical": "center",
                         "textTransform": "none",
@@ -1422,7 +1404,6 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 14,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
@@ -1486,7 +1467,6 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 14,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
@@ -1676,7 +1656,6 @@ exports[`edit/delete post edit and delete for my post 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -1690,7 +1669,6 @@ exports[`edit/delete post edit and delete for my post 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 20,
               "paddingHorizontal": 12,
               "paddingVertical": 6,
@@ -1842,7 +1820,6 @@ exports[`edit/delete post no options for not my post 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 20,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -2020,7 +1997,6 @@ exports[`edit/delete post no options for not my post 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -2084,17 +2060,15 @@ exports[`edit/delete post no options for not my post 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 24,
                       "textAlignVertical": "center",
                       "textTransform": "none",
                     },
                     Object {
                       "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
                       "letterSpacing": 1,
                       "lineHeight": 20,
                       "textAlignVertical": "center",
@@ -2113,7 +2087,6 @@ exports[`edit/delete post no options for not my post 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 12,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 16,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -2123,7 +2096,6 @@ exports[`edit/delete post no options for not my post 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 12,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 16,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -2173,7 +2145,6 @@ exports[`edit/delete post no options for not my post 1`] = `
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "fontStyle": "normal",
-                        "fontWeight": "normal",
                         "lineHeight": 18,
                         "textAlignVertical": "center",
                         "textTransform": "none",
@@ -2253,7 +2224,6 @@ exports[`edit/delete post no options for not my post 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 14,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
@@ -2315,7 +2285,6 @@ exports[`edit/delete post no options for not my post 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 14,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
@@ -2505,7 +2474,6 @@ exports[`edit/delete post no options for not my post 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -2519,7 +2487,6 @@ exports[`edit/delete post no options for not my post 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 20,
               "paddingHorizontal": 12,
               "paddingVertical": 6,
@@ -2562,7 +2529,7 @@ exports[`refresh calls refreshComments 1`] = `
 - First value
 + Second value
 
-@@ -116,11 +116,11 @@
+@@ -115,11 +115,11 @@
                     \\"textAlignVertical\\": \\"center\\",
                     \\"textTransform\\": \\"none\\",
                   }
@@ -2575,7 +2542,7 @@ exports[`refresh calls refreshComments 1`] = `
           </View>
           <View
             style={
-@@ -161,32 +161,32 @@
+@@ -160,32 +160,32 @@
       }
       data={
         Array [
@@ -2622,7 +2589,7 @@ exports[`refresh calls refreshComments 1`] = `
         ]
       }
       disableVirtualization={false}
-@@ -248,22 +248,22 @@
+@@ -247,22 +247,22 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -2647,7 +2614,7 @@ exports[`refresh calls refreshComments 1`] = `
                   ]
                 }
               />
-@@ -307,11 +307,11 @@
+@@ -304,11 +304,11 @@
                         \\"textTransform\\": \\"none\\",
                       },
                     ]
@@ -2660,7 +2627,7 @@ exports[`refresh calls refreshComments 1`] = `
                   style={
                     Array [
                       Object {
-@@ -336,23 +336,40 @@
+@@ -331,11 +331,11 @@
                       },
                     ]
                   }
@@ -2673,36 +2640,34 @@ exports[`refresh calls refreshComments 1`] = `
             </View>
           </View>
           <View
-            style={
-              Object {
-                \\"paddingHorizontal\\": 20,
-                \\"paddingVertical\\": 8,
-+             }
-+           }
-+         >
-+           <Text
-+             style={
-+               Object {
+@@ -347,10 +347,26 @@
+            }
+          >
+            <Text
+              style={
+                Object {
 +                 \\"color\\": \\"#3CC8E6\\",
-+                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                 \\"fontFamily\\": \\"SourceSansPro-Bold\\",
 +                 \\"fontSize\\": 16,
 +                 \\"fontStyle\\": \\"normal\\",
-+                 \\"fontWeight\\": \\"bold\\",
 +                 \\"letterSpacing\\": 1,
 +                 \\"lineHeight\\": 20,
 +                 \\"textAlignVertical\\": \\"center\\",
 +                 \\"textTransform\\": \\"uppercase\\",
-                }
-              }
-            >
++               }
++             }
++           >
 +             Completed a Challenge!
 +           </Text>
-            <Text
-              style={
-                Object {
++           <Text
++             style={
++               Object {
                   \\"color\\": \\"#505256\\",
                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-@@ -365,11 +382,11 @@
+                  \\"fontSize\\": 16,
+                  \\"fontStyle\\": \\"normal\\",
+                  \\"justifyContent\\": \\"flex-start\\",
+@@ -359,11 +375,11 @@
                   \\"textAlignVertical\\": \\"center\\",
                   \\"textTransform\\": \\"none\\",
                 }
@@ -2715,7 +2680,7 @@ exports[`refresh calls refreshComments 1`] = `
           <View
             style={
               Array [
-@@ -521,11 +538,12 @@
+@@ -513,11 +529,12 @@
                       }
                     }
                     testID=\\"LikeIconButton\\"
@@ -2729,7 +2694,7 @@ exports[`refresh calls refreshComments 1`] = `
                 </View>
                 <View
                   style={
-@@ -553,11 +571,11 @@
+@@ -544,11 +561,11 @@
                         \\"textTransform\\": \\"none\\",
                         \\"width\\": 30,
                       }
@@ -2742,7 +2707,7 @@ exports[`refresh calls refreshComments 1`] = `
                     accessible={true}
                     focusable={true}
                     hitSlop={
-@@ -609,28 +627,29 @@
+@@ -600,28 +617,29 @@
         >
           <CommentItem
             comment={
@@ -2780,7 +2745,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -641,28 +660,29 @@
+@@ -632,28 +650,29 @@
         >
           <CommentItem
             comment={
@@ -2818,7 +2783,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -682,22 +702,22 @@
+@@ -673,22 +692,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
@@ -2959,7 +2924,6 @@ exports[`renders correctly 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 20,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -3137,7 +3101,6 @@ exports[`renders correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -3201,17 +3164,15 @@ exports[`renders correctly 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 24,
                       "textAlignVertical": "center",
                       "textTransform": "none",
                     },
                     Object {
                       "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
                       "letterSpacing": 1,
                       "lineHeight": 20,
                       "textAlignVertical": "center",
@@ -3230,7 +3191,6 @@ exports[`renders correctly 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 12,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 16,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -3240,7 +3200,6 @@ exports[`renders correctly 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 12,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 16,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -3290,7 +3249,6 @@ exports[`renders correctly 1`] = `
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "fontStyle": "normal",
-                        "fontWeight": "normal",
                         "lineHeight": 18,
                         "textAlignVertical": "center",
                         "textTransform": "none",
@@ -3370,7 +3328,6 @@ exports[`renders correctly 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 14,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
@@ -3432,7 +3389,6 @@ exports[`renders correctly 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 14,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
@@ -3622,7 +3578,6 @@ exports[`renders correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -3636,7 +3591,6 @@ exports[`renders correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 20,
               "paddingHorizontal": 12,
               "paddingVertical": 6,
@@ -3788,7 +3742,6 @@ exports[`renders correctly with communityId passed in 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 20,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -3966,7 +3919,6 @@ exports[`renders correctly with communityId passed in 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -4030,17 +3982,15 @@ exports[`renders correctly with communityId passed in 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 24,
                       "textAlignVertical": "center",
                       "textTransform": "none",
                     },
                     Object {
                       "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
                       "letterSpacing": 1,
                       "lineHeight": 20,
                       "textAlignVertical": "center",
@@ -4059,7 +4009,6 @@ exports[`renders correctly with communityId passed in 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 12,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 16,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -4069,7 +4018,6 @@ exports[`renders correctly with communityId passed in 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 12,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 16,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -4119,7 +4067,6 @@ exports[`renders correctly with communityId passed in 1`] = `
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "fontStyle": "normal",
-                        "fontWeight": "normal",
                         "lineHeight": 18,
                         "textAlignVertical": "center",
                         "textTransform": "none",
@@ -4199,7 +4146,6 @@ exports[`renders correctly with communityId passed in 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 14,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
@@ -4261,7 +4207,6 @@ exports[`renders correctly with communityId passed in 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 14,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 20,
                       "paddingRight": 10,
                       "textAlign": "right",
@@ -4451,7 +4396,6 @@ exports[`renders correctly with communityId passed in 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -4465,7 +4409,6 @@ exports[`renders correctly with communityId passed in 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 20,
               "paddingHorizontal": 12,
               "paddingVertical": 6,
@@ -4617,7 +4560,6 @@ exports[`renders loading 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 20,
                   "textAlignVertical": "center",
                   "textTransform": "none",

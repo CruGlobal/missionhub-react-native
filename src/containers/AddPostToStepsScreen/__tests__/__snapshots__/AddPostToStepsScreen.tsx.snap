@@ -5,7 +5,7 @@ exports[`changes the title of the step and creates a new step 1`] = `
 - First value
 + Second value
 
-@@ -172,11 +172,11 @@
+@@ -170,11 +170,11 @@
               \\"textTransform\\": \\"none\\",
             }
           }
@@ -153,10 +153,9 @@ exports[`should render correctly | Care Step 1`] = `
             Array [
               Object {
                 "color": "#505256",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
                 "textAlignVertical": "center",
@@ -187,7 +186,6 @@ exports[`should render correctly | Care Step 1`] = `
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
             "fontStyle": "normal",
-            "fontWeight": "300",
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
@@ -271,10 +269,9 @@ exports[`should render correctly | Care Step 1`] = `
               style={
                 Object {
                   "color": "#505256",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 16,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 20,
                   "textAlignVertical": "center",
@@ -304,7 +301,6 @@ exports[`should render correctly | Care Step 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 12,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 16,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -374,7 +370,6 @@ exports[`should render correctly | Care Step 1`] = `
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
                         "fontStyle": "normal",
-                        "fontWeight": "normal",
                         "lineHeight": 24,
                         "textAlignVertical": "center",
                         "textTransform": "none",
@@ -452,10 +447,9 @@ exports[`should render correctly | Care Step 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -608,10 +602,9 @@ exports[`should render correctly | Pray Step 1`] = `
             Array [
               Object {
                 "color": "#505256",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
                 "textAlignVertical": "center",
@@ -642,7 +635,6 @@ exports[`should render correctly | Pray Step 1`] = `
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
             "fontStyle": "normal",
-            "fontWeight": "300",
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
@@ -725,10 +717,9 @@ exports[`should render correctly | Pray Step 1`] = `
               style={
                 Object {
                   "color": "#505256",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 16,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 20,
                   "textAlignVertical": "center",
@@ -758,7 +749,6 @@ exports[`should render correctly | Pray Step 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 12,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 16,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -828,7 +818,6 @@ exports[`should render correctly | Pray Step 1`] = `
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
                         "fontStyle": "normal",
-                        "fontWeight": "normal",
                         "lineHeight": 24,
                         "textAlignVertical": "center",
                         "textTransform": "none",
@@ -906,10 +895,9 @@ exports[`should render correctly | Pray Step 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -1062,10 +1050,9 @@ exports[`should render correctly | Share Step 1`] = `
             Array [
               Object {
                 "color": "#505256",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 20,
                 "textAlignVertical": "center",
@@ -1096,7 +1083,6 @@ exports[`should render correctly | Share Step 1`] = `
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
             "fontStyle": "normal",
-            "fontWeight": "300",
             "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
@@ -1180,10 +1166,9 @@ exports[`should render correctly | Share Step 1`] = `
               style={
                 Object {
                   "color": "#505256",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 16,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 20,
                   "textAlignVertical": "center",
@@ -1213,7 +1198,6 @@ exports[`should render correctly | Share Step 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 12,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 16,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -1283,7 +1267,6 @@ exports[`should render correctly | Share Step 1`] = `
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
                         "fontStyle": "normal",
-                        "fontWeight": "normal",
                         "lineHeight": 24,
                         "textAlignVertical": "center",
                         "textTransform": "none",
@@ -1361,10 +1344,9 @@ exports[`should render correctly | Share Step 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
