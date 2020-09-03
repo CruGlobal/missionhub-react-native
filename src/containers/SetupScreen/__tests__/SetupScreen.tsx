@@ -1,6 +1,10 @@
 import { Keyboard } from 'react-native';
 import React from 'react';
-import { fireEvent, GetByAPI } from 'react-native-testing-library';
+import {
+  fireEvent,
+  GetByAPI,
+  flushMicrotasksQueue,
+} from 'react-native-testing-library';
 import { useMutation } from '@apollo/react-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
@@ -10,14 +14,16 @@ import { createPerson } from '../../../actions/onboarding';
 import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
 import { UPDATE_PERSON, CREATE_PERSON } from '../queries';
 import SetupScreen from '..';
-import { IdentityProvider } from '../../../auth/constants';
+import { IdentityProvider, AuthError } from '../../../auth/constants';
 import { SignInWithAnonymousType } from '../../../auth/providers/useSignInWithAnonymous';
 import { useAuth } from '../../../auth/useAuth';
+import { getAuthPerson } from '../../../auth/authUtilities';
+import { isAuthenticated } from '../../../auth/authStore';
 
+const myId = '123';
 const personId = '1';
 const mockState = {
   onboarding: { currentlyOnboarding: true },
-  auth: { person: {} },
   people: { people: {} },
 };
 const nextResult = { type: 'testNext' };
@@ -33,33 +39,49 @@ jest.mock('../../../actions/person');
 jest.mock('../../../auth/useAuth');
 jest.mock('../../../utils/hooks/useLogoutOnBack');
 jest.mock('../../../utils/hooks/useAnalytics');
+jest.mock('../../../auth/authUtilities');
+jest.mock('../../../auth/authStore');
 Keyboard.dismiss = jest.fn();
 
 const authenticate = jest.fn();
-(useAuth as jest.Mock).mockReturnValue({ authenticate });
+(useAuth as jest.Mock).mockReturnValue({ authenticate, error: AuthError.None });
 
 beforeEach(() => {
   (createPerson as jest.Mock).mockReturnValue({
     type: 'createPerson',
-    response: { id: '1' },
+    response: { id: personId },
   });
   (useLogoutOnBack as jest.Mock).mockReturnValue(back);
 });
 
-it('renders isMe version correctly', () => {
-  renderWithContext(<SetupScreen next={next} isMe={true} />, {
-    initialState: mockState,
-  }).snapshot();
+it('renders isMe version correctly', async () => {
+  const { snapshot } = renderWithContext(
+    <SetupScreen next={next} isMe={true} />,
+    {
+      initialState: mockState,
+    },
+  );
+
+  await flushMicrotasksQueue();
+
+  snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'self name'], {
     sectionType: true,
   });
 });
 
-it('renders other person version correctly', () => {
-  renderWithContext(<SetupScreen next={next} isMe={false} />, {
-    initialState: mockState,
-  }).snapshot();
+it('renders other person version correctly', async () => {
+  const { snapshot } = renderWithContext(
+    <SetupScreen next={next} isMe={false} />,
+    {
+      initialState: mockState,
+    },
+  );
+
+  await flushMicrotasksQueue();
+
+  snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'contact name'], {
     sectionType: true,
@@ -145,6 +167,7 @@ describe('saveAndNavigateNext', () => {
 
   describe('create me', () => {
     it('should create person and call next', async () => {
+      (getAuthPerson as jest.Mock).mockReturnValue({ id: myId });
       const { getByTestId } = renderWithContext(
         <SetupScreen next={next} isMe={true} />,
         {
@@ -154,6 +177,9 @@ describe('saveAndNavigateNext', () => {
           },
         },
       );
+
+      await flushMicrotasksQueue();
+
       await fireEvent(getByTestId('InputFirstName'), 'onChangeText', firstName);
       await fireEvent(getByTestId('InputLastName'), 'onChangeText', lastName);
 
@@ -167,12 +193,13 @@ describe('saveAndNavigateNext', () => {
           lastName,
         },
       });
-      expect(next).toHaveBeenCalledWith({ personId });
+      expect(next).toHaveBeenCalledWith({ personId: myId });
     });
   });
 
   describe('create other person', () => {
     it('should create person and call next', async () => {
+      authenticate.mockReturnValue({ id: myId });
       const { getByTestId } = renderWithContext(
         <SetupScreen next={next} isMe={false} />,
         {
@@ -237,16 +264,16 @@ describe('saveAndNavigateNext', () => {
   });
 });
 
-it('calls callback from useLogoutOnBack', () => {
+it('calls callback from useLogoutOnBack', async () => {
+  (isAuthenticated as jest.Mock).mockReturnValue(true);
   const { getByTestId } = renderWithContext(
     <SetupScreen next={next} isMe={true} />,
     {
-      initialState: {
-        ...mockState,
-        auth: { person: { id: personId } },
-      },
+      initialState: mockState,
     },
   );
+
+  await flushMicrotasksQueue();
 
   // With the "id" set, press the back button
   fireEvent(getByTestId('DeprecatedBackButton'), 'customNavigate');
@@ -256,13 +283,15 @@ it('calls callback from useLogoutOnBack', () => {
 });
 
 describe('calls back without creating a person', () => {
-  it('calls callback from useLogoutOnBack', () => {
+  it('calls callback from useLogoutOnBack', async () => {
     const { getByTestId } = renderWithContext(
       <SetupScreen next={next} isMe={true} />,
       {
         initialState: mockState,
       },
     );
+
+    await flushMicrotasksQueue();
 
     fireEvent(getByTestId('DeprecatedBackButton'), 'customNavigate');
 

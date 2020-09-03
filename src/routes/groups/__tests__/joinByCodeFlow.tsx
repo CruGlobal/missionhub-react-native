@@ -20,8 +20,6 @@ jest.mock('../../../utils/hooks/useAnalytics', () => ({
   useAnalytics: jest.fn(),
 }));
 
-const initialState = { auth: { person: { id: '1' } } };
-
 const community = { id: '1', community_code: '123456' };
 
 beforeEach(() => {
@@ -38,7 +36,6 @@ const renderScreen = (
   navParams: any = {},
 ) => {
   const { store, getByType, snapshot } = renderWithContext(<Component />, {
-    initialState,
     navParams,
   });
 

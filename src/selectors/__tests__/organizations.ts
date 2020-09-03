@@ -1,8 +1,6 @@
 import { organizationSelector } from '../organizations';
 import { RootState } from '../../reducers';
 
-jest.mock('../../selectors/selectorUtils');
-
 const orgOne = { id: '95', community: true };
 const orgTwo = { id: '96', community: false };
 const orgThree = { id: '97', community: false };

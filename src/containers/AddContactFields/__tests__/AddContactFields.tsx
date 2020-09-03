@@ -64,7 +64,7 @@ beforeEach(() => {
   next.mockReturnValue({ type: 'next' });
 });
 
-it('renders correctly | No Person', () => {
+it('renders correctly | No Person', async () => {
   const { snapshot } = renderWithContext(
     <AddContactFields
       next={next}
@@ -76,10 +76,13 @@ it('renders correctly | No Person', () => {
       mocks: { User: () => ({ person: () => ({ id: myId }) }) },
     },
   );
+
+  await flushMicrotasksQueue();
+
   snapshot();
 });
 
-it('render correctly | With Person | With Picture', () => {
+it('render correctly | With Person | With Picture', async () => {
   const { snapshot } = renderWithContext(
     <AddContactFields
       next={next}
@@ -91,10 +94,13 @@ it('render correctly | With Person | With Picture', () => {
       mocks: { User: () => ({ person: () => ({ id: myId }) }) },
     },
   );
+
+  await flushMicrotasksQueue();
+
   snapshot();
 });
 
-it('render correctly | With Person | No Picture', () => {
+it('render correctly | With Person | No Picture', async () => {
   const { snapshot } = renderWithContext(
     <AddContactFields
       next={next}
@@ -110,10 +116,13 @@ it('render correctly | With Person | No Picture', () => {
       mocks: { User: () => ({ person: () => ({ id: myId }) }) },
     },
   );
+
+  await flushMicrotasksQueue();
+
   snapshot();
 });
 
-it('render correctly | With Person | No Stage', () => {
+it('render correctly | With Person | No Stage', async () => {
   const { snapshot } = renderWithContext(
     <AddContactFields
       next={next}
@@ -125,10 +134,13 @@ it('render correctly | With Person | No Stage', () => {
       mocks: { User: () => ({ person: () => ({ id: myId }) }) },
     },
   );
+
+  await flushMicrotasksQueue();
+
   snapshot();
 });
 
-it('render correctly | With Person | Not Me | No Person Category', () => {
+it('render correctly | With Person | Not Me | No Person Category', async () => {
   const { snapshot } = renderWithContext(
     <AddContactFields
       next={next}
@@ -143,10 +155,13 @@ it('render correctly | With Person | Not Me | No Person Category', () => {
       mocks: { User: () => ({ person: () => ({ id: myId }) }) },
     },
   );
+
+  await flushMicrotasksQueue();
+
   snapshot();
 });
 
-it('render correctly | With Person | Not Me | With Person Category', () => {
+it('render correctly | With Person | Not Me | With Person Category', async () => {
   const { snapshot } = renderWithContext(
     <AddContactFields
       next={next}
@@ -161,6 +176,9 @@ it('render correctly | With Person | Not Me | With Person Category', () => {
       mocks: { User: () => ({ person: () => ({ id: myId }) }) },
     },
   );
+
+  await flushMicrotasksQueue();
+
   snapshot();
 });
 

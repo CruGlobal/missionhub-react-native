@@ -30,7 +30,6 @@ jest.mock('../../../actions/steps', () => ({
 jest.mock('../../utils');
 jest.mock('../../../utils/hooks/useAnalytics');
 
-const myId = '111';
 const personId = '222';
 const contactName = 'Other';
 const orgId = '123';
@@ -46,11 +45,6 @@ const stepSuggestionId = '567';
 const onFlowComplete = jest.fn();
 
 const initialState = {
-  auth: {
-    person: {
-      id: myId,
-    },
-  },
   personId,
   people: {
     people: {

@@ -57,7 +57,7 @@ describe('for self', () => {
 describe('for person', () => {
   afterEach(() => {
     expect(personSelector).toHaveBeenCalledWith(
-      { people },
+      { people, stages },
       { personId: person.id },
     );
     expect(contactAssignmentSelector).toHaveBeenCalledWith({ person });

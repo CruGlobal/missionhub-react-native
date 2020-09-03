@@ -1864,11 +1864,7 @@ exports[`loading should render for self steps correctly 1`] = `
     </Text>
   </View>
   <RCTScrollView
-    ListFooterComponent={
-      <ForwardRef(SafeAreaView)>
-        <FooterLoading />
-      </ForwardRef(SafeAreaView)>
-    }
+    ListFooterComponent={<ForwardRef(SafeAreaView) />}
     ListHeaderComponent={
       <ErrorNotice
         message="Error loading step suggestions"
@@ -1887,7 +1883,19 @@ exports[`loading should render for self steps correctly 1`] = `
           "action": [Function],
           "icon": true,
           "key": "custom",
-          "text": "Create your own  Step",
+          "text": "Create your own Relate Step",
+        },
+        Object {
+          "action": [Function],
+          "icon": false,
+          "key": "10",
+          "text": "ut et ipsam",
+        },
+        Object {
+          "action": [Function],
+          "icon": false,
+          "key": "11",
+          "text": "explicabo eligendi occaecati",
         },
       ]
     }
@@ -1909,7 +1917,7 @@ exports[`loading should render for self steps correctly 1`] = `
     refreshControl={
       <MyRefreshControl
         onRefresh={[Function]}
-        refreshing={true}
+        refreshing={false}
       />
     }
     removeClippedSubviews={false}
@@ -1985,41 +1993,138 @@ exports[`loading should render for self steps correctly 1`] = `
               }
             }
           >
-            Create your own  Step
+            Create your own Relate Step
           </Text>
           <SvgMock />
         </View>
       </View>
       <View
         onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "elevation": 4,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginHorizontal": 20,
+              "marginVertical": 6,
+              "opacity": 1,
+              "padding": 20,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 2,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
+            }
+          >
+            ut et ipsam
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "elevation": 4,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginHorizontal": 20,
+              "marginVertical": 6,
+              "opacity": 1,
+              "padding": 20,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 2,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              }
+            }
+          >
+            explicabo eligendi occaecati
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "height": 0,
+          }
+        }
+      />
+      <View
+        onLayout={[Function]}
       >
         <RCTSafeAreaView
           emulateUnlessSupported={true}
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "padding": 10,
-                },
-                Object {
-                  "alignItems": "center",
-                  "justifyContent": "center",
-                },
-              ]
-            }
-          >
-            <ActivityIndicator
-              animating={true}
-              color="rgba(0, 0, 0, 1)"
-              hidesWhenStopped={true}
-              size="small"
-            />
-          </View>
-        </RCTSafeAreaView>
+        />
       </View>
     </View>
   </RCTScrollView>
+  <SelectStepExplainerModal
+    onClose={[Function]}
+  />
 </View>
 `;
 
@@ -3665,7 +3770,7 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
         }
       }
     >
-      Choose a step to take with Chyna this week...
+      Choose a step to take with Precious this week...
     </Text>
     <View
       style={
@@ -3990,14 +4095,14 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
         Object {
           "action": [Function],
           "icon": false,
-          "key": "5",
-          "text": "ut libero qui",
+          "key": "11",
+          "text": "ut et ipsam",
         },
         Object {
           "action": [Function],
           "icon": false,
-          "key": "6",
-          "text": "recusandae ut nulla",
+          "key": "12",
+          "text": "explicabo eligendi occaecati",
         },
       ]
     }
@@ -4150,7 +4255,7 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
               }
             }
           >
-            ut libero qui
+            ut et ipsam
           </Text>
         </View>
       </View>
@@ -4204,7 +4309,7 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
               }
             }
           >
-            recusandae ut nulla
+            explicabo eligendi occaecati
           </Text>
         </View>
       </View>
@@ -4239,7 +4344,7 @@ exports[`should load step suggestions 1`] = `
         }
       >
 -       Choose a step to take with them this week...
-+       Choose a step to take with Chyna this week...
++       Choose a step to take with Precious this week...
       </Text>
       <View
         style={
@@ -4277,7 +4382,7 @@ exports[`should load step suggestions 1`] = `
 +                 }
 +               }
 +             >
-+               0
++               89460
 +             </Text>
 +             <SvgMock
 +               color=\\"#007398\\"
@@ -4362,7 +4467,7 @@ exports[`should load step suggestions 1`] = `
 +                 }
 +               }
 +             >
-+               41919
++               0
 +             </Text>
 +             <SvgMock
 +               color=\\"#007398\\"
@@ -4406,7 +4511,7 @@ exports[`should load step suggestions 1`] = `
 +                 }
 +               }
 +             >
-+               0
++               87638
 +             </Text>
 +             <SvgMock
 +               color=\\"#007398\\"
@@ -4438,14 +4543,14 @@ exports[`should load step suggestions 1`] = `
 +         Object {
 +           \\"action\\": [Function action],
 +           \\"icon\\": false,
-+           \\"key\\": \\"5\\",
-+           \\"text\\": \\"ut libero qui\\",
++           \\"key\\": \\"11\\",
++           \\"text\\": \\"ut et ipsam\\",
 +         },
 +         Object {
 +           \\"action\\": [Function action],
 +           \\"icon\\": false,
-+           \\"key\\": \\"6\\",
-+           \\"text\\": \\"recusandae ut nulla\\",
++           \\"key\\": \\"12\\",
++           \\"text\\": \\"explicabo eligendi occaecati\\",
           },
         ]
       }
@@ -4525,7 +4630,7 @@ exports[`should load step suggestions 1`] = `
 +               }
 +             }
 +           >
-+             ut libero qui
++             ut et ipsam
 +           </Text>
 +         </View>
 +       </View>
@@ -4587,7 +4692,7 @@ exports[`should load step suggestions 1`] = `
 +               }
 +             }
 +           >
-+             recusandae ut nulla
++             explicabo eligendi occaecati
 +           </Text>
           </View>
 -         </RCTSafeAreaView>
@@ -4623,8 +4728,8 @@ exports[`should paginate 1`] = `
           }
         }
       >
--       Choose a step to take with Chyna this week...
-+       Choose a step to take with Connor this week...
+-       Choose a step to take with Precious this week...
++       Choose a step to take with Arvel this week...
       </Text>
       <View
         style={
@@ -4633,20 +4738,20 @@ exports[`should paginate 1`] = `
 @@ -654,10 +654,22 @@
             \\"action\\": [Function action],
             \\"icon\\": false,
-            \\"key\\": \\"6\\",
-            \\"text\\": \\"recusandae ut nulla\\",
+            \\"key\\": \\"12\\",
+            \\"text\\": \\"explicabo eligendi occaecati\\",
           },
 +         Object {
 +           \\"action\\": [Function action],
 +           \\"icon\\": false,
-+           \\"key\\": \\"8\\",
-+           \\"text\\": \\"debitis incidunt accusantium\\",
++           \\"key\\": \\"14\\",
++           \\"text\\": \\"eaque enim ipsum\\",
 +         },
 +         Object {
 +           \\"action\\": [Function action],
 +           \\"icon\\": false,
-+           \\"key\\": \\"9\\",
-+           \\"text\\": \\"sed libero repudiandae\\",
++           \\"key\\": \\"15\\",
++           \\"text\\": \\"inventore debitis libero\\",
 +         },
         ]
       }
@@ -4658,7 +4763,7 @@ exports[`should paginate 1`] = `
                 }
               }
             >
-              recusandae ut nulla
+              explicabo eligendi occaecati
 +           </Text>
 +         </View>
 +       </View>
@@ -4712,7 +4817,7 @@ exports[`should paginate 1`] = `
 +               }
 +             }
 +           >
-+             debitis incidunt accusantium
++             eaque enim ipsum
 +           </Text>
 +         </View>
 +       </View>
@@ -4766,7 +4871,7 @@ exports[`should paginate 1`] = `
 +               }
 +             }
 +           >
-+             sed libero repudiandae
++             inventore debitis libero
             </Text>
           </View>
         </View>
@@ -4779,7 +4884,7 @@ exports[`with explainer open opens explainer modal 1`] = `
 - First value
 + Second value
 
-@@ -879,6 +879,9 @@
+@@ -755,6 +755,9 @@
             emulateUnlessSupported={true}
           />
         </View>

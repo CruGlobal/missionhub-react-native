@@ -25,6 +25,9 @@ jest.mock('../../../../../../actions/navigation');
 jest.mock('../../../../../CommentItem', () => 'CommentItem');
 jest.mock('../../../../../../utils/hooks/useAnalytics');
 jest.mock('lodash.debounce', () => jest.fn().mockImplementation(fn => fn));
+jest.mock('../../../../../../auth/authStore', () => ({
+  isAuthenticated: () => true,
+}));
 
 MockDate.set('2019-04-12 12:00:00');
 
@@ -222,6 +225,7 @@ describe('edit/delete post', () => {
           }),
           subjectPerson: () => ({ id: myId }),
         }),
+        User: () => ({ person: () => ({ id: myId }) }),
       },
     });
     await flushMicrotasksQueue();

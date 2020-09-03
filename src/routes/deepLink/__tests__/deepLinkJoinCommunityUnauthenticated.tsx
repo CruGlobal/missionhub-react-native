@@ -34,10 +34,10 @@ jest.mock('../../../utils/hooks/useLogoutOnBack', () => ({
 const community = { id: '1', community_url: '1234567890123456' };
 
 const initialState = {
-  auth: { person: { id: '1' } },
   onboarding: {
     community,
   },
+  people: { people: {} },
 };
 
 beforeEach(() => {

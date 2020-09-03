@@ -41,6 +41,7 @@ jest.mock(
   '../../../components/SelectStepExplainerModal',
   () => 'SelectStepExplainerModal',
 );
+jest.mock('../../../auth/authStore', () => ({ isAuthenticated: () => true }));
 
 const mockMath = Object.create(global.Math);
 mockMath.random = () => 0;
@@ -55,7 +56,6 @@ const stepSuggestionId = '111';
 const text = 'Step Text';
 
 const initialState = {
-  auth: { person: { id: myId, user: { pathway_stage_id: stageId } } },
   onboarding: { personId },
   people: {
     people: { [personId]: person },

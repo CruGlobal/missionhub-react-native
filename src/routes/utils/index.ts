@@ -21,21 +21,18 @@ export const paramsForStageNavigation = async (
   orgId: string,
   getState: () => RootState,
 ) => {
-  const {
-    stages: { stages },
-    people,
-  } = getState();
+  const state = getState();
 
   const authPerson = getAuthPerson();
   const isMe = personId === authPerson?.id;
-  const person = isMe ? authPerson : personSelector({ people }, { personId });
+  const person = isMe ? authPerson : personSelector(state, { personId });
   const assignment = isMe
     ? null
     : selectContactAssignment(person, authPerson?.id);
   const stageId = getStageId(isMe, assignment, authPerson);
   const hasHitCount = await hasHitThreeSteps(personId);
   const isNotSure = hasNotSureStage(stageId);
-  const firstItemIndex = getStageIndex(stages, stageId);
+  const firstItemIndex = getStageIndex(state.stages.stages, stageId);
   const firstName = isMe ? authPerson?.firstName : person.first_name;
   const questionText = getQuestionText(isMe, isNotSure, firstName);
 

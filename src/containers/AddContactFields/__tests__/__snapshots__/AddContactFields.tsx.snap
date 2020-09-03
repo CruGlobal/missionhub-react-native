@@ -5,7 +5,7 @@ exports[`calls methods calls update firstName and changeFocusedField 1`] = `
 - First value
 + Second value
 
-@@ -76,11 +76,13 @@
+@@ -48,11 +48,13 @@
               \\"marginTop\\": 15,
               \\"textAlignVertical\\": \\"center\\",
               \\"textTransform\\": \\"none\\",
@@ -20,7 +20,7 @@ exports[`calls methods calls update firstName and changeFocusedField 1`] = `
           autoCorrect={false}
           autoFocus={true}
           blurOnSubmit={false}
-@@ -88,11 +90,11 @@
+@@ -60,11 +62,11 @@
           multiline={false}
           onBlur={[Function onBlur]}
           onChangeText={[Function onChangeText]}
@@ -40,7 +40,7 @@ exports[`calls methods calls update lastName and changeFocusedField 1`] = `
 - First value
 + Second value
 
-@@ -145,22 +145,24 @@
+@@ -117,22 +117,24 @@
               \\"marginTop\\": 15,
               \\"textAlignVertical\\": \\"center\\",
               \\"textTransform\\": \\"none\\",

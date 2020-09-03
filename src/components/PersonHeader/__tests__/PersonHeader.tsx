@@ -19,6 +19,7 @@ jest.mock('../../../actions/navigation', () => ({
 jest.mock('../../../actions/person', () => ({
   deleteContactAssignment: jest.fn(() => ({ type: 'deleteContactAssignment' })),
 }));
+jest.mock('../../../auth/authStore', () => ({ isAuthenticated: () => true }));
 
 ActionSheetIOS.showActionSheetWithOptions = jest.fn();
 Alert.alert = jest.fn();
@@ -36,18 +37,6 @@ it('should render loading', () => {
     />,
     {
       navParams: { personId },
-    },
-  ).snapshot();
-});
-
-it('should render me loading', () => {
-  renderWithContext(
-    <PersonHeader
-      collapsibleHeaderContext={PersonCollapsibleHeaderContext}
-      tabs={testPersonTabs}
-    />,
-    {
-      navParams: { personId: myId },
     },
   ).snapshot();
 });
@@ -150,7 +139,7 @@ it('should handle delete person', async () => {
   (ActionSheetIOS.showActionSheetWithOptions as jest.Mock).mock.calls[0][1](1);
 
   expect(Alert.alert).toHaveBeenCalledWith(
-    'Delete Hayden Zieme?',
+    'Delete Ezequiel Ortiz?',
     'Are you sure you want to delete this person?',
     [
       { style: 'cancel', text: 'Cancel' },

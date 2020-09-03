@@ -21,9 +21,6 @@ jest.mock('../../navigation');
 jest.mock('../../onboarding');
 jest.mock('../../analytics');
 jest.mock('../../misc');
-jest.mock('../key');
-jest.mock('../anonymous');
-jest.mock('../facebook');
 
 const mockStore = configureStore([thunk]);
 

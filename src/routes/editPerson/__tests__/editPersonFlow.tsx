@@ -8,7 +8,6 @@ import { EditPersonFlowScreens } from '../editPersonFlow';
 import { renderWithContext } from '../../../../testUtils';
 import { navigateBack, navigatePush } from '../../../actions/navigation';
 import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
-import { useIsMe } from '../../../utils/hooks/useIsMe';
 import { trackAction } from '../../../actions/analytics';
 import { getPersonDetails } from '../../../actions/person';
 import { UPDATE_PERSON } from '../../../containers/SetupScreen/queries';
@@ -22,11 +21,11 @@ jest.mock('../../../actions/organizations');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/person');
-jest.mock('../../../utils/hooks/useIsMe');
 jest.mock('../../../actions/selectStage');
 jest.mock('../../../actions/stages');
 jest.mock('react-native-device-info');
 jest.mock('react-navigation-drawer');
+jest.mock('../../../auth/authStore', () => ({ isAuthenticated: () => true }));
 
 const me = { id: '1' };
 const next = jest.fn();
@@ -71,7 +70,6 @@ const getStagesResult = { type: 'get stages', response: stages };
 
 beforeEach(() => {
   (trackAction as jest.Mock).mockReturnValue(trackActionResponse);
-  (useIsMe as jest.Mock).mockReturnValue(false);
   (navigateBack as jest.Mock).mockReturnValue(navigateBackResponse);
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResponse);
   (getStages as jest.Mock).mockReturnValue(getStagesResult);
@@ -90,7 +88,6 @@ describe('AddContactScreen next', () => {
       <WrappedAddContactScreen />,
       {
         initialState: {
-          auth: { person: me },
           drawer: { isOpen: false },
         },
         navParams: {},
@@ -114,7 +111,6 @@ describe('AddContactScreen next', () => {
       <WrappedAddContactScreen />,
       {
         initialState: {
-          auth: { person: { id: '1' } },
           drawer: { isOpen: false },
         },
         navParams: {
@@ -163,7 +159,6 @@ describe('AddContactScreen next', () => {
       <WrappedAddContactScreen />,
       {
         initialState: {
-          auth: { person: { id: '1' } },
           drawer: { isOpen: false },
         },
         navParams: {
@@ -210,7 +205,6 @@ describe('AddContactScreen next', () => {
       <WrappedAddContactScreen />,
       {
         initialState: {
-          auth: { person: { id: '1' } },
           drawer: { isOpen: false },
         },
         navParams: {
@@ -244,7 +238,7 @@ describe('AddContactScreen next', () => {
 });
 
 describe('SelectStageScreen next', () => {
-  it('navigates back after stage is selected', () => {
+  it('navigates back after stage is selected', async () => {
     jest.useFakeTimers();
     const onComplete = jest.fn();
     const WrappedSelectStageScreen =
@@ -254,7 +248,6 @@ describe('SelectStageScreen next', () => {
       <WrappedSelectStageScreen next={next} />,
       {
         initialState: {
-          auth: { person: me },
           drawer: { isOpen: false },
           people: { people: {} },
           stages: { stages },
@@ -268,8 +261,11 @@ describe('SelectStageScreen next', () => {
           orgId: undefined,
           onComplete,
         },
+        mocks: { User: () => ({ person: () => ({ id: me.id }) }) },
       },
     );
+
+    await flushMicrotasksQueue();
 
     fireEvent.press(getAllByTestId('stageSelectButton')[1]);
     jest.runAllTimers();

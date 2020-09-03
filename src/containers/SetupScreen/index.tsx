@@ -77,7 +77,7 @@ const SetupScreen = ({ next, isMe, hideSkipBtn = false }: SetupScreenProps) => {
     first_name: personFirstName,
     last_name: personLastName,
   } = useSelector(
-    ({ people }: RootState) => personSelector({ people }, { personId }) || {},
+    (state: RootState) => personSelector(state, { personId }) || {},
   );
 
   const [firstName, setFirstName] = useState(

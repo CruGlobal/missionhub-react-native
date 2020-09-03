@@ -5,7 +5,7 @@ exports[`renders correctly for Create Community 1`] = `
 - First value
 + Second value
 
-@@ -94,13 +94,59 @@
+@@ -94,17 +94,63 @@
       <Flex
         align=\\"center\\"
         justify=\\"center\\"
@@ -22,7 +22,12 @@ exports[`renders correctly for Create Community 1`] = `
 +         value={1}
 +       >
           <Image
-            source={1}
+            source={
+              Object {
+-             \\"testUri\\": \\"../../../assets/images/missionHubLogoWords.png\\",
++               \\"testUri\\": \\"../../../assets/images/MemberContacts_light.png\\",
+              }
+            }
           />
 +         <Text
 +           style={
@@ -167,7 +172,11 @@ exports[`renders correctly with logo 1`] = `
       value={1}
     >
       <Image
-        source={1}
+        source={
+          Object {
+            "testUri": "../../../assets/images/missionHubLogoWords.png",
+          }
+        }
       />
     </Flex>
     <Flex

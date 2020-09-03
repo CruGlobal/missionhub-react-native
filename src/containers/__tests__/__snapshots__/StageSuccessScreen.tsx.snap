@@ -185,7 +185,7 @@ exports[`renders correctly 1`] = `
           }
         }
       >
-        We are glad you are here, Test Fname!
+        We are glad you are here, Hayden!
       </Text>
     </View>
     <RCTSafeAreaView

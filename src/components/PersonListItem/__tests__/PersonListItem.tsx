@@ -3,13 +3,18 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import PersonListItem from '..';
+import { getAuthPerson } from '../../../auth/authUtilities';
+
+jest.mock('../../../auth/authUtilities');
+const myId = '1';
+(getAuthPerson as jest.Mock).mockReturnValue({ id: myId });
 
 const organization = { id: '1', name: 'Test Org' };
 const person = {
   id: '123',
   first_name: 'First',
   last_name: 'Last',
-  reverse_contact_assignments: [{ organization }],
+  reverse_contact_assignments: [{ organization, assigned_to: { id: myId } }],
 };
 
 it('render assigned contact', () => {

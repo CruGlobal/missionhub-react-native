@@ -780,7 +780,6 @@ exports[`renders other person version correctly 1`] = `
         }
         testID="InputFirstName"
         underlineColorAndroid="rgba(0,0,0,0)"
-        value=""
       />
     </View>
     <View
@@ -825,7 +824,6 @@ exports[`renders other person version correctly 1`] = `
         }
         testID="InputLastName"
         underlineColorAndroid="rgba(0,0,0,0)"
-        value=""
       />
     </View>
   </View>
@@ -895,13 +893,12 @@ exports[`setup screen methods should update first name 1`] = `
 - First value
 + Second value
 
-@@ -277,11 +277,11 @@
+@@ -277,10 +277,11 @@
               Object {},
             ]
           }
           testID=\\"InputFirstName\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
--         value=\\"\\"
 +         value=\\"TestFname\\"
         />
       </View>
@@ -915,13 +912,12 @@ exports[`setup screen methods should update last name 1`] = `
 - First value
 + Second value
 
-@@ -322,11 +322,11 @@
+@@ -321,10 +321,11 @@
               Object {},
             ]
           }
           testID=\\"InputLastName\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
--         value=\\"\\"
 +         value=\\"TestLname\\"
         />
       </View>

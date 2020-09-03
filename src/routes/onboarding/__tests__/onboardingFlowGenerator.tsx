@@ -55,7 +55,6 @@ const stageId = '3';
 const stepSuggestionId = '111';
 
 const initialState = {
-  auth: { person: { id: myId, user: { pathway_stage_id: stageId } } },
   people: {
     people: { [personId]: person },
   },

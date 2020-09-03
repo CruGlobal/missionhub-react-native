@@ -163,13 +163,25 @@ export function updatePersonAttributes(personId, personAttributes) {
   };
 }
 
-// @ts-ignore
-export function updatePerson(data) {
+export function updatePerson(data: {
+  id?: string;
+  firstName?: string;
+  lastName?: string;
+  userGender?: string;
+  emailId?: string;
+  email?: string;
+  phoneId?: string;
+  phone?: string;
+  orgPermission?: {
+    id: string;
+    permission_id?: string;
+    archive_date?: string;
+  };
+}) {
   const personInclude =
     'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
-  // @ts-ignore
-  return async dispatch => {
+  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     if (!(data && data.id)) {
       return dispatch({
         type: 'UPDATE_PERSON_FAIL',
@@ -350,9 +362,7 @@ export function deleteContactAssignment(personId: string) {
     dispatch: ThunkDispatch<RootState, never, AnyAction>,
     getState: () => RootState,
   ) => {
-    const { people } = getState();
-
-    const person = personSelector({ people }, { personId });
+    const person = personSelector(getState(), { personId });
     const { id: contactAssignmentId } =
       contactAssignmentSelector({ person }) || {};
 
@@ -372,7 +382,7 @@ export function deleteContactAssignment(personId: string) {
 
 export function navToPersonScreen(personId: string) {
   return (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
-    const isMe = useIsMe(personId);
+    const isMe = getAuthPerson().id === personId;
 
     dispatch(
       navigatePush(isMe ? ME_PERSON_TABS : PERSON_TABS, {

@@ -68,7 +68,7 @@ exports[`renders for me renders correctly 1`] = `
           }
         }
       >
-        Me, which stage best describes where you are on your journey?
+        Hayden, which stage best describes where you are on your journey?
       </Text>
       <RCTScrollView
         activeAnimationOptions={null}
@@ -185,7 +185,6 @@ exports[`renders for me renders correctly 1`] = `
             "flexDirection": "row",
             "flexGrow": 0,
             "height": 400,
-            "opacity": 0,
             "width": 825,
           }
         }
@@ -566,7 +565,7 @@ exports[`renders for me renders firstItem correctly 1`] = `
           }
         }
       >
-        Me, which stage best describes where you are on your journey?
+        Hayden, which stage best describes where you are on your journey?
       </Text>
       <RCTScrollView
         activeAnimationOptions={null}
@@ -683,7 +682,6 @@ exports[`renders for me renders firstItem correctly 1`] = `
             "flexDirection": "row",
             "flexGrow": 0,
             "height": 400,
-            "opacity": 0,
             "width": 825,
           }
         }

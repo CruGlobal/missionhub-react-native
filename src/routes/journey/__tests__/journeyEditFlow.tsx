@@ -26,7 +26,6 @@ const editCommentResult = { type: 'edit comment' };
 const getJourneyResult = { type: 'get journey' };
 
 const initialState = {
-  auth: { person: { id: personId } },
   drawer: {},
   analytics: {},
   onboarding: { currentlyOnboarding: false },

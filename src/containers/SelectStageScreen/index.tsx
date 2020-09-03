@@ -34,8 +34,7 @@ import { trackAction } from '../../actions/analytics';
 import { updatePersonGQL } from '../../actions/person';
 import { ACTIONS } from '../../constants';
 import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
-import { Stage, StagesState } from '../../reducers/stages';
-import { PeopleState } from '../../reducers/people';
+import { Stage } from '../../reducers/stages';
 import {
   personSelector,
   contactAssignmentSelector,
@@ -186,7 +185,7 @@ const SelectStageScreen = ({
           </Text>
         </View>
         <Button
-          testID={'stageSelectButton'}
+          testID="stageSelectButton"
           type="primary"
           onPress={() => setStage(item, isActive)}
           text={isActive ? activeButtonText : buttonText}
@@ -244,13 +243,7 @@ const SelectStageScreen = ({
 };
 
 const mapStateToProps = (
-  {
-    people,
-    stages,
-  }: {
-    people: PeopleState;
-    stages: StagesState;
-  },
+  state: RootState,
   {
     navigation: {
       state: {
@@ -260,14 +253,14 @@ const mapStateToProps = (
   }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
   any,
 ) => {
-  const person = personSelector({ people }, { personId }) || {};
+  const person = personSelector(state, { personId }) || {};
   const contactAssignment = contactAssignmentSelector({ person }) || {};
 
   return {
     personFirstName: person.first_name,
     contactAssignmentId: contactAssignment.id,
     onComplete,
-    stages: stages.stages,
+    stages: state.stages.stages,
   };
 };
 

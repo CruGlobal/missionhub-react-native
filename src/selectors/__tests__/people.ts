@@ -6,20 +6,15 @@ import {
   orgPermissionSelector,
 } from '../people';
 import { RootState } from '../../reducers';
+import { getAuthPerson } from '../../auth/authUtilities';
 
-jest.mock('../../selectors/selectorUtils', () => ({
-  removeHiddenOrgs: jest.fn().mockImplementation(orgs => orgs),
-}));
+jest.mock('../../auth/authUtilities');
 
-const auth = {
-  person: {
-    id: '23',
-    user: {},
-  },
-};
+const myId = '23';
+(getAuthPerson as jest.Mock).mockReturnValue({ id: myId });
 
 const reverse_contact_assignment = {
-  assigned_to: auth.person,
+  assigned_to: { id: myId },
 };
 
 const organizationOne = {
@@ -95,8 +90,8 @@ const organizationTwo = {
         { ...reverse_contact_assignment, organization: { id: '200' } },
       ],
     },
-    [auth.person.id]: {
-      id: auth.person.id,
+    [myId]: {
+      id: myId,
       type: 'person',
       first_name: 'ME in an org',
     },
@@ -125,12 +120,6 @@ const people = {
       first_name: 'Fname1',
       last_name: 'Lname1',
       reverse_contact_assignments: [{ ...reverse_contact_assignment }],
-    },
-    [auth.person.id]: {
-      id: auth.person.id,
-      type: 'person',
-      first_name: 'ME',
-      last_name: 'Lname',
     },
     ...unnamedOrganization.people,
     ...organizationOne.people,
@@ -163,19 +152,19 @@ describe('contactAssignmentSelector', () => {
             },
             {
               assigned_to: {
-                id: auth.person.id,
+                id: myId,
               },
               organization: organizationTwo,
             },
             {
               assigned_to: {
-                id: auth.person.id,
+                id: myId,
               },
               organization: { id: '102' },
             },
             {
               assigned_to: {
-                id: auth.person.id,
+                id: myId,
               },
               organization: organizationOne,
             },
@@ -192,7 +181,7 @@ describe('contactAssignmentSelector', () => {
       }),
     ).toEqual({
       assigned_to: {
-        id: auth.person.id,
+        id: myId,
       },
       organization: organizationTwo,
     });
