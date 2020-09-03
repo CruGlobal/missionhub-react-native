@@ -178,7 +178,6 @@ exports[`renders does not show notification dot if user has zero notifications 1
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 20,
           "textAlignVertical": "center",
           "textTransform": "none",
