@@ -5,7 +5,7 @@ exports[`should change loading state 1`] = `
 - First value
 + Second value
 
-@@ -149,6 +149,7 @@
+@@ -145,6 +145,7 @@
           testID=\\"mfaCodeInput\\"
           value=\\"Roge\\"
         />
@@ -20,7 +20,7 @@ exports[`should change loading state 2`] = `
 - First value
 + Second value
 
-@@ -149,7 +149,6 @@
+@@ -145,7 +145,6 @@
           testID=\\"mfaCodeInput\\"
           value=\\"Roge\\"
         />
@@ -88,10 +88,9 @@ exports[`should render correctly 1`] = `
           buttonTextStyle={
             Object {
               "color": "#505256",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1.5,
               "lineHeight": 18,
               "textAlignVertical": "center",
@@ -123,7 +122,6 @@ exports[`should render correctly 1`] = `
           "fontFamily": "AmaticSC-Bold",
           "fontSize": 36,
           "fontStyle": "normal",
-          "fontWeight": "bold",
           "letterSpacing": 2,
           "lineHeight": 36,
           "paddingVertical": 10,
@@ -142,7 +140,6 @@ exports[`should render correctly 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 24,
           "paddingVertical": 10,
           "textAlign": "center",
@@ -161,7 +158,6 @@ exports[`should render correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 12,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 16,
             "textAlignVertical": "center",
             "textTransform": "none",

@@ -5,7 +5,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 - First value
 + Second value
 
-@@ -156,11 +156,11 @@
+@@ -154,11 +154,11 @@
                       \\"textTransform\\": \\"uppercase\\",
                     },
                   ]
@@ -18,7 +18,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
           </View>
         </View>
       </RCTSafeAreaView>
-@@ -170,10 +170,27 @@
+@@ -168,10 +168,27 @@
         Object {
           \\"backgroundColor\\": \\"#505256\\",
           \\"flex\\": 1,
@@ -46,15 +46,12 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
           style={
             Array [
               Object {
-@@ -200,13 +217,37 @@
-            style={
-              Object {
-                \\"borderRadius\\": 4,
+@@ -201,10 +218,34 @@
                 \\"height\\": \\"100%\\",
                 \\"width\\": \\"100%\\",
-+             }
-+           }
-+         />
+              }
+            }
+          />
 +         <View
 +           style={
 +             Array [
@@ -74,9 +71,9 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 +             source={
 +               Object {
 +                 \\"testUri\\": \\"../../../assets/images/cameraIcon.png\\",
-                }
-              }
-            />
++               }
++             }
++           />
 +         </View>
 +       </View>
       </View>
@@ -84,7 +81,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
         keyboardShouldPersistTaps=\\"handled\\"
         style={
           Object {
-@@ -227,27 +268,124 @@
+@@ -225,26 +266,122 @@
                   \\"flexDirection\\": \\"row\\",
                 },
               ]
@@ -113,7 +110,6 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 +                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                   \\"fontSize\\": 16,
 +                   \\"fontStyle\\": \\"normal\\",
-+                   \\"fontWeight\\": \\"normal\\",
 +                   \\"letterSpacing\\": 0.25,
 +                   \\"lineHeight\\": 24,
 +                   \\"paddingVertical\\": 5,
@@ -127,7 +123,6 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
                     \\"fontFamily\\": \\"SourceSansPro-Light\\",
                     \\"fontSize\\": 32,
                     \\"fontStyle\\": \\"normal\\",
-                    \\"fontWeight\\": \\"300\\",
                     \\"lineHeight\\": 38,
 +                   \\"paddingVertical\\": 0,
 +                   \\"textAlign\\": \\"left\\",
@@ -135,7 +130,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
                     \\"textTransform\\": \\"none\\",
 +                 },
 +               ]
-+             }
+              }
 +             testID=\\"nameInput\\"
 +             underlineColorAndroid=\\"transparent\\"
 +             value=\\"esse repellat quisquam\\"
@@ -156,7 +151,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 +                 \\"backgroundColor\\": \\"transparent\\",
 +                 \\"justifyContent\\": \\"center\\",
 +                 \\"opacity\\": 1,
-                }
++               }
               }
 +             testID=\\"IconButton\\"
             >
@@ -211,7 +206,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
               Array [
                 Object {
                   \\"marginHorizontal\\": 20,
-@@ -489,18 +627,18 @@
+@@ -478,18 +615,18 @@
               onResponderTerminate={[Function onResponderTerminate]}
               onResponderTerminationRequest={[Function onResponderTerminationRequest]}
               onStartShouldSetResponder={[Function onStartShouldSetResponder]}
@@ -232,7 +227,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
                 style={
                   Array [
                     Object {
-@@ -527,11 +665,11 @@
+@@ -514,11 +651,11 @@
                       \\"textTransform\\": \\"uppercase\\",
                     },
                   ]
@@ -245,7 +240,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
           </View>
           <View
             style={
-@@ -615,18 +753,18 @@
+@@ -600,18 +737,18 @@
               onResponderTerminate={[Function onResponderTerminate]}
               onResponderTerminationRequest={[Function onResponderTerminationRequest]}
               onStartShouldSetResponder={[Function onStartShouldSetResponder]}
@@ -266,7 +261,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
                 style={
                   Array [
                     Object {
-@@ -653,11 +791,11 @@
+@@ -636,11 +773,11 @@
                       \\"textTransform\\": \\"uppercase\\",
                     },
                   ]
@@ -286,7 +281,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 - First value
 + Second value
 
-@@ -156,11 +156,11 @@
+@@ -154,11 +154,11 @@
                       \\"textTransform\\": \\"uppercase\\",
                     },
                   ]
@@ -299,7 +294,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
           </View>
         </View>
       </RCTSafeAreaView>
-@@ -170,27 +170,10 @@
+@@ -168,27 +168,10 @@
         Object {
           \\"backgroundColor\\": \\"#505256\\",
           \\"flex\\": 1,
@@ -327,15 +322,12 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
         style={
           Array [
             Object {
-@@ -217,37 +200,13 @@
-          style={
-            Object {
-              \\"borderRadius\\": 4,
+@@ -218,34 +201,10 @@
               \\"height\\": \\"100%\\",
               \\"width\\": \\"100%\\",
--             }
--           }
--         />
+            }
+          }
+        />
 -         <View
 -           style={
 -             Array [
@@ -355,9 +347,9 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 -             source={
 -               Object {
 -                 \\"testUri\\": \\"../../../assets/images/cameraIcon.png\\",
-            }
-          }
-        />
+-               }
+-             }
+-           />
 -         </View>
 -       </View>
       </View>
@@ -365,7 +357,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
         keyboardShouldPersistTaps=\\"handled\\"
         style={
           Object {
-@@ -268,124 +227,27 @@
+@@ -266,122 +225,26 @@
                   \\"flexDirection\\": \\"row\\",
                 },
               ]
@@ -394,7 +386,6 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 -                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                   \\"fontSize\\": 16,
 -                   \\"fontStyle\\": \\"normal\\",
--                   \\"fontWeight\\": \\"normal\\",
 -                   \\"letterSpacing\\": 0.25,
 -                   \\"lineHeight\\": 24,
 -                   \\"paddingVertical\\": 5,
@@ -408,7 +399,6 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
                   \\"fontFamily\\": \\"SourceSansPro-Light\\",
                   \\"fontSize\\": 32,
                   \\"fontStyle\\": \\"normal\\",
-                  \\"fontWeight\\": \\"300\\",
                   \\"lineHeight\\": 38,
 -                   \\"paddingVertical\\": 0,
 -                   \\"textAlign\\": \\"left\\",
@@ -416,7 +406,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
                   \\"textTransform\\": \\"none\\",
 -                 },
 -               ]
--             }
+                }
 -             testID=\\"nameInput\\"
 -             underlineColorAndroid=\\"transparent\\"
 -             value=\\"esse repellat quisquam\\"
@@ -437,7 +427,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 -                 \\"backgroundColor\\": \\"transparent\\",
 -                 \\"justifyContent\\": \\"center\\",
 -                 \\"opacity\\": 1,
-                }
+-               }
               }
 -             testID=\\"IconButton\\"
             >
@@ -492,7 +482,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
               Array [
                 Object {
                   \\"marginHorizontal\\": 20,
-@@ -627,18 +489,18 @@
+@@ -615,18 +478,18 @@
               onResponderTerminate={[Function onResponderTerminate]}
               onResponderTerminationRequest={[Function onResponderTerminationRequest]}
               onStartShouldSetResponder={[Function onStartShouldSetResponder]}
@@ -513,7 +503,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
                 style={
                   Array [
                     Object {
-@@ -665,11 +527,11 @@
+@@ -651,11 +514,11 @@
                       \\"textTransform\\": \\"uppercase\\",
                     },
                   ]
@@ -526,7 +516,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
           </View>
           <View
             style={
-@@ -753,18 +615,18 @@
+@@ -737,18 +600,18 @@
               onResponderTerminate={[Function onResponderTerminate]}
               onResponderTerminationRequest={[Function onResponderTerminationRequest]}
               onStartShouldSetResponder={[Function onStartShouldSetResponder]}
@@ -547,7 +537,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
                 style={
                   Array [
                     Object {
-@@ -791,11 +653,11 @@
+@@ -773,11 +636,11 @@
                       \\"textTransform\\": \\"uppercase\\",
                     },
                   ]
@@ -595,7 +585,7 @@ exports[`CommunityProfile should render correctly 1`] = `
         style={
           Object {
             \\"flex\\": 1,
-@@ -172,11 +188,13 @@
+@@ -171,11 +187,13 @@
                   \\"lineHeight\\": 38,
                   \\"textAlignVertical\\": \\"center\\",
                   \\"textTransform\\": \\"none\\",
@@ -610,7 +600,7 @@ exports[`CommunityProfile should render correctly 1`] = `
             style={
               Array [
                 Object {
-@@ -228,11 +246,13 @@
+@@ -225,11 +243,13 @@
                     \\"lineHeight\\": 16,
                     \\"textAlignVertical\\": \\"center\\",
                     \\"textTransform\\": \\"none\\",
@@ -625,12 +615,13 @@ exports[`CommunityProfile should render correctly 1`] = `
               style={
                 Array [
                   Object {},
-@@ -257,10 +277,27 @@
+@@ -252,10 +272,26 @@
+                    \\"textTransform\\": \\"none\\",
                   }
                 }
               >
                 Created
-              </Text>
++             </Text>
 +             <Text
 +               style={
 +                 Object {
@@ -638,7 +629,6 @@ exports[`CommunityProfile should render correctly 1`] = `
 +                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                   \\"fontSize\\": 12,
 +                   \\"fontStyle\\": \\"normal\\",
-+                   \\"fontWeight\\": \\"normal\\",
 +                   \\"lineHeight\\": 16,
 +                   \\"textAlignVertical\\": \\"center\\",
 +                   \\"textTransform\\": \\"none\\",
@@ -647,13 +637,12 @@ exports[`CommunityProfile should render correctly 1`] = `
 +               testID=\\"Text\\"
 +             >
 +               September 19, 2010
-+             </Text>
+              </Text>
             </View>
           </View>
           <View
             style={
-              Array [
-@@ -312,11 +349,13 @@
+@@ -306,11 +342,13 @@
                     \\"lineHeight\\": 16,
                     \\"textAlignVertical\\": \\"center\\",
                     \\"textTransform\\": \\"none\\",
@@ -668,7 +657,7 @@ exports[`CommunityProfile should render correctly 1`] = `
           <View
             style={
               Array [
-@@ -382,11 +421,13 @@
+@@ -374,11 +412,13 @@
                     \\"lineHeight\\": 38,
                     \\"textAlignVertical\\": \\"center\\",
                     \\"textTransform\\": \\"none\\",
@@ -683,7 +672,7 @@ exports[`CommunityProfile should render correctly 1`] = `
               accessible={true}
               focusable={true}
               onClick={[Function onClick]}
-@@ -507,11 +548,11 @@
+@@ -495,11 +535,11 @@
                     \\"textAlignVertical\\": \\"center\\",
                     \\"textTransform\\": \\"none\\",
                   }
@@ -869,7 +858,6 @@ Array [
                 "fontFamily": "SourceSansPro-Light",
                 "fontSize": 32,
                 "fontStyle": "normal",
-                "fontWeight": "300",
                 "lineHeight": 38,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -909,7 +897,6 @@ Array [
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 16,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -925,7 +912,6 @@ Array [
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 16,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -951,7 +937,6 @@ Array [
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 16,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -993,7 +978,6 @@ Array [
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 16,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -1009,7 +993,6 @@ Array [
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 16,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -1063,7 +1046,6 @@ Array [
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 16,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -1079,7 +1061,6 @@ Array [
                   "fontFamily": "SourceSansPro-Light",
                   "fontSize": 32,
                   "fontStyle": "normal",
-                  "fontWeight": "300",
                   "lineHeight": 38,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -1113,10 +1094,9 @@ Array [
                 Array [
                   Object {
                     "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
+                    "fontFamily": "SourceSansPro-Bold",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
@@ -1125,10 +1105,9 @@ Array [
                   },
                   Object {
                     "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
+                    "fontFamily": "SourceSansPro-Bold",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlignVertical": "center",
@@ -1186,7 +1165,6 @@ Array [
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 16,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -1202,7 +1180,6 @@ Array [
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 20,
                   "marginRight": 5,
                   "textAlignVertical": "center",
@@ -1239,10 +1216,9 @@ Array [
                 Array [
                   Object {
                     "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
+                    "fontFamily": "SourceSansPro-Bold",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
@@ -1251,10 +1227,9 @@ Array [
                   },
                   Object {
                     "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
+                    "fontFamily": "SourceSansPro-Bold",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlignVertical": "center",
@@ -1301,7 +1276,6 @@ Array [
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 12,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 16,
                 "textAlignVertical": "center",
                 "textTransform": "none",

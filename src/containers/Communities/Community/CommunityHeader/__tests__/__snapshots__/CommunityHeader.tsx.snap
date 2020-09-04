@@ -22,7 +22,7 @@ exports[`CommunityHeader should render community details 1`] = `
               Object {
                 \\"bottom\\": 0,
                 \\"left\\": 0,
-@@ -207,11 +211,11 @@
+@@ -206,11 +210,11 @@
                 \\"textAlignVertical\\": \\"center\\",
                 \\"textTransform\\": \\"none\\",
               }
@@ -35,7 +35,7 @@ exports[`CommunityHeader should render community details 1`] = `
             style={
               Array [
                 Object {},
-@@ -272,11 +276,11 @@
+@@ -269,11 +273,11 @@
                       \\"textTransform\\": \\"none\\",
                     },
                   ]
@@ -55,7 +55,7 @@ exports[`CommunityHeader should render global community details 1`] = `
 - First value
 + Second value
 
-@@ -245,11 +245,11 @@
+@@ -242,11 +242,11 @@
                       \\"textTransform\\": \\"none\\",
                     },
                   ]
@@ -248,7 +248,6 @@ exports[`CommunityHeader should render global community loading 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -297,10 +296,9 @@ exports[`CommunityHeader should render global community loading 1`] = `
                 Array [
                   Object {
                     "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
+                    "fontFamily": "SourceSansPro-Bold",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
@@ -312,7 +310,6 @@ exports[`CommunityHeader should render global community loading 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -368,7 +365,6 @@ exports[`CommunityHeader should render global community loading 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -407,7 +403,6 @@ exports[`CommunityHeader should render global community loading 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -446,7 +441,6 @@ exports[`CommunityHeader should render global community loading 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -667,7 +661,6 @@ exports[`CommunityHeader should render loading state 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -716,10 +709,9 @@ exports[`CommunityHeader should render loading state 1`] = `
                 Array [
                   Object {
                     "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
+                    "fontFamily": "SourceSansPro-Bold",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
@@ -731,7 +723,6 @@ exports[`CommunityHeader should render loading state 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -787,7 +778,6 @@ exports[`CommunityHeader should render loading state 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -826,7 +816,6 @@ exports[`CommunityHeader should render loading state 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -865,7 +854,6 @@ exports[`CommunityHeader should render loading state 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
