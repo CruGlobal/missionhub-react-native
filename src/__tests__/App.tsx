@@ -94,7 +94,7 @@ it('calls actions onBeforeLift', async () => {
 
   expect(configureNotificationHandler).toHaveBeenCalledWith();
   expect(setupFirebaseDynamicLinks).toHaveBeenCalledWith();
-  expect(getFeatureFlags).not.toHaveBeenCalledWith();
+  expect(getFeatureFlags).toHaveBeenCalledWith();
 });
 
 it('shows offline alert if network request failed', () => {

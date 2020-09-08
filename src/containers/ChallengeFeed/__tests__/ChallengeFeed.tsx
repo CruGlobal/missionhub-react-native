@@ -120,8 +120,8 @@ const initialState = {
 };
 
 describe('Challenge Feed rendering', () => {
-  it('renders correctly for challenge feed', () => {
-    renderWithContext(
+  it('renders correctly for challenge feed', async () => {
+    const { snapshot } = renderWithContext(
       <ChallengeFeed
         {...props}
         items={challengeItems}
@@ -129,14 +129,19 @@ describe('Challenge Feed rendering', () => {
       />,
       {
         initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
-    ).snapshot();
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
     expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
   });
 
-  it('renders correctly on android', () => {
+  it('renders correctly on android', async () => {
     ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
-    renderWithContext(
+    const { snapshot } = renderWithContext(
       <ChallengeFeed
         {...props}
         items={challengeItems}
@@ -144,12 +149,17 @@ describe('Challenge Feed rendering', () => {
       />,
       {
         initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
-    ).snapshot();
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
   });
 
-  it('renders with extra padding', () => {
-    renderWithContext(
+  it('renders with extra padding', async () => {
+    const { snapshot } = renderWithContext(
       <ChallengeFeed
         {...props}
         items={challengeItems}
@@ -158,14 +168,19 @@ describe('Challenge Feed rendering', () => {
       />,
       {
         initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
-    ).snapshot();
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
     expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
   });
 
-  it('renders with extra padding on android', () => {
+  it('renders with extra padding on android', async () => {
     ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
-    renderWithContext(
+    const { snapshot } = renderWithContext(
       <ChallengeFeed
         {...props}
         items={challengeItems}
@@ -174,8 +189,13 @@ describe('Challenge Feed rendering', () => {
       />,
       {
         initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
-    ).snapshot();
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
   });
 
   it('renders null component | Member', () => {
@@ -222,8 +242,8 @@ describe('Challenge Feed rendering', () => {
     expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
   });
 
-  it('renders challenges without header', () => {
-    renderWithContext(
+  it('renders challenges without header', async () => {
+    const { snapshot } = renderWithContext(
       <ChallengeFeed
         {...props}
         items={challengeItems}
@@ -231,8 +251,13 @@ describe('Challenge Feed rendering', () => {
       />,
       {
         initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
-    ).snapshot();
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
     expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
   });
 
@@ -255,8 +280,8 @@ describe('Challenge Feed rendering', () => {
     expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
   });
 
-  it('renders null with header', () => {
-    renderWithContext(
+  it('renders null with header', async () => {
+    const { snapshot } = renderWithContext(
       <ChallengeFeed
         {...props}
         items={[{ title: '', data: [] }]}
@@ -264,8 +289,13 @@ describe('Challenge Feed rendering', () => {
       />,
       {
         initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
-    ).snapshot();
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
     expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
   });
 });

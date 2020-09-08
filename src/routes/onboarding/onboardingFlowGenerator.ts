@@ -25,9 +25,8 @@ import {
 import PersonCategoryScreen, {
   PERSON_CATEGORY_SCREEN,
 } from '../../containers/PersonCategoryScreen';
-import GetStartedScreen, {
-  GET_STARTED_SCREEN,
-} from '../../containers/GetStartedScreen';
+import GetStartedScreen from '../../containers/GetStartedScreen';
+import { GET_STARTED_SCREEN } from '../../containers/GetStartedScreen/constants';
 import SelectStageScreen, {
   SELECT_STAGE_SCREEN,
 } from '../../containers/SelectStageScreen';
@@ -61,6 +60,10 @@ import { OnboardingState } from '../../reducers/onboarding';
 import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
 import { RootState } from '../../reducers';
 import { getAuthPerson } from '../../auth/authUtilities';
+
+jest.mock('../../auth/authUtilities');
+
+(getAuthPerson as jest.Mock).mockReturnValue({ id: '123' });
 
 export const onboardingFlowGenerator = ({
   startScreen = WELCOME_SCREEN,

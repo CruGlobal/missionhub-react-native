@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import { Alert, Keyboard } from 'react-native';
 import React from 'react';
 import MockDate from 'mockdate';
@@ -25,6 +26,7 @@ jest.mock('react-native-device-info');
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../utils/hooks/useAnalytics');
+jest.mock('../../../auth/authStore', () => ({ isAuthenticated: () => true }));
 
 const myId = '123123';
 const next = jest.fn();
@@ -119,11 +121,16 @@ it('renders edit journey step correctly', () => {
   });
 });
 
-it('renders edit journey step for me correctly', () => {
-  renderWithContext(<AddStepScreen next={next} />, {
+it('renders edit journey step for me correctly', async () => {
+  const { snapshot } = renderWithContext(<AddStepScreen next={next} />, {
     initialState: { auth, onboarding },
     navParams: editMyJourneyStepParams,
-  }).snapshot();
+    mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+  });
+
+  await flushMicrotasksQueue();
+
+  snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['my journey', 'edit'], {
     sectionType: true,
@@ -143,11 +150,16 @@ it('renders edit journey item correctly', () => {
   });
 });
 
-it('renders edit journey item for me correctly', () => {
-  renderWithContext(<AddStepScreen next={next} />, {
+it('renders edit journey item for me correctly', async () => {
+  const { snapshot } = renderWithContext(<AddStepScreen next={next} />, {
     initialState: { auth, onboarding },
     navParams: editMyJourneyItemParams,
-  }).snapshot();
+    mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+  });
+
+  await flushMicrotasksQueue();
+
+  snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['my journey', 'edit'], {
     sectionType: true,
@@ -167,11 +179,16 @@ it('renders step note correctly', () => {
   });
 });
 
-it('renders step note correctly for me', () => {
-  renderWithContext(<AddStepScreen next={next} />, {
+it('renders step note correctly for me', async () => {
+  const { snapshot } = renderWithContext(<AddStepScreen next={next} />, {
     initialState: { auth, onboarding },
     navParams: myStepNoteParams,
-  }).snapshot();
+    mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+  });
+
+  await flushMicrotasksQueue();
+
+  snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['step note', 'add'], {
     sectionType: true,

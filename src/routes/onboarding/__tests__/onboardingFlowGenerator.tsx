@@ -10,7 +10,7 @@ import {
   SETUP_PERSON_SCREEN,
 } from '../../../containers/SetupScreen';
 import { ONBOARDING_ADD_PHOTO_SCREEN } from '../../../containers/OnboardingAddPhotoScreen';
-import { GET_STARTED_SCREEN } from '../../../containers/GetStartedScreen';
+import { GET_STARTED_SCREEN } from '../../../containers/GetStartedScreen/constants';
 import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
 import { STAGE_SUCCESS_SCREEN } from '../../../containers/StageSuccessScreen';
 import { SELECT_STEP_SCREEN } from '../../../containers/SelectStepScreen';
