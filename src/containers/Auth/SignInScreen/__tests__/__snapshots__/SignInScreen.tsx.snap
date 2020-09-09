@@ -5,7 +5,7 @@ exports[`key login button is pressed key login is called 1`] = `
 - First value
 + Second value
 
-@@ -100,11 +100,11 @@
+@@ -97,11 +97,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -18,7 +18,7 @@ exports[`key login button is pressed key login is called 1`] = `
       <View
         style={
           Object {
-@@ -134,11 +134,11 @@
+@@ -130,11 +130,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -31,7 +31,7 @@ exports[`key login button is pressed key login is called 1`] = `
           buttonTextStyle={
             Object {
               \\"color\\": \\"#3CC8E6\\",
-@@ -163,138 +163,44 @@
+@@ -158,136 +158,44 @@
           text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
@@ -110,7 +110,6 @@ exports[`key login button is pressed key login is called 1`] = `
 -                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                 \\"fontSize\\": 16,
 -                 \\"fontStyle\\": \\"normal\\",
--                 \\"fontWeight\\": \\"normal\\",
 -                 \\"lineHeight\\": 24,
 -                 \\"textAlignVertical\\": \\"center\\",
 -                 \\"textTransform\\": \\"none\\",
@@ -138,14 +137,17 @@ exports[`key login button is pressed key login is called 1`] = `
 -               \\"justifyContent\\": \\"flex-start\\",
 -               \\"margin\\": 4,
 -               \\"width\\": \\"100%\\",
--             },
++               \\"height\\": 48,
++               \\"width\\": 650,
+              },
 -             Object {
 -               \\"backgroundColor\\": \\"#3B5998\\",
 -               \\"borderColor\\": undefined,
 -               \\"borderWidth\\": undefined,
 -             },
--           ]
--         }
++             undefined,
+            ]
+          }
 -         testID=\\"socialAuthButton\\"
 -       >
 -         <View
@@ -165,19 +167,15 @@ exports[`key login button is pressed key login is called 1`] = `
 -                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                 \\"fontSize\\": 16,
 -                 \\"fontStyle\\": \\"normal\\",
--                 \\"fontWeight\\": \\"normal\\",
 -                 \\"lineHeight\\": 24,
 -                 \\"textAlignVertical\\": \\"center\\",
 -                 \\"textTransform\\": \\"none\\",
-+               \\"height\\": 48,
-+               \\"width\\": 650,
-              },
+-               },
 -               Object {
 -                 \\"color\\": \\"white\\",
 -               },
-+             undefined,
-            ]
-          }
+-             ]
+-           }
 -         >
 -           Sign in with Facebook
 -         </Text>
@@ -198,7 +196,7 @@ exports[`key login button is pressed mfa_required is returned from the Key shoul
 - First value
 + Second value
 
-@@ -100,11 +100,11 @@
+@@ -97,11 +97,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -211,7 +209,7 @@ exports[`key login button is pressed mfa_required is returned from the Key shoul
       <View
         style={
           Object {
-@@ -163,138 +163,44 @@
+@@ -158,136 +158,44 @@
           text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
@@ -290,200 +288,6 @@ exports[`key login button is pressed mfa_required is returned from the Key shoul
 -                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                 \\"fontSize\\": 16,
 -                 \\"fontStyle\\": \\"normal\\",
--                 \\"fontWeight\\": \\"normal\\",
--                 \\"lineHeight\\": 24,
--                 \\"textAlignVertical\\": \\"center\\",
--                 \\"textTransform\\": \\"none\\",
--               },
--               Object {
--                 \\"color\\": \\"black\\",
--               },
--             ]
--           }
--         >
--           Sign in with Google
--         </Text>
--       </Button>
--       <Button
--         onPress={[Function onPress]}
-+         onPress={[Function handlePress]}
-+         pill={true}
-          style={
-            Array [
-              Object {
-                \\"alignItems\\": \\"center\\",
--               \\"borderRadius\\": 24,
--               \\"flexDirection\\": \\"row\\",
--               \\"height\\": 50,
--               \\"justifyContent\\": \\"flex-start\\",
--               \\"margin\\": 4,
--               \\"width\\": \\"100%\\",
-+               \\"height\\": 48,
-+               \\"width\\": 650,
-              },
--             Object {
--               \\"backgroundColor\\": \\"#3B5998\\",
--               \\"borderColor\\": undefined,
--               \\"borderWidth\\": undefined,
--             },
-+             undefined,
-            ]
-          }
--         testID=\\"socialAuthButton\\"
--       >
--         <View
--           style={
--             Object {
--               \\"width\\": 70,
--             }
--           }
--         >
--           <SvgMock />
--         </View>
--         <Text
--           style={
--             Array [
--               Object {
--                 \\"color\\": \\"#ffffff\\",
--                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--                 \\"fontSize\\": 16,
--                 \\"fontStyle\\": \\"normal\\",
--                 \\"fontWeight\\": \\"normal\\",
--                 \\"lineHeight\\": 24,
--                 \\"textAlignVertical\\": \\"center\\",
--                 \\"textTransform\\": \\"none\\",
--               },
--               Object {
--                 \\"color\\": \\"white\\",
--               },
--             ]
--           }
--         >
--           Sign in with Facebook
--         </Text>
--       </Button>
--     </View>
--   </View>
-+         testID=\\"bottomButton\\"
-+         text=\\"LOGIN\\"
-+         type=\\"secondary\\"
-+       />
-+     </RCTSafeAreaView>
-+   </Flex>
-  </View>"
-`;
-
-exports[`key login button is pressed should not call next when an auth error is thrown 1`] = `
-"Snapshot Diff:
-- First value
-+ Second value
-
-@@ -100,11 +100,11 @@
-          onSubmitEditing={[Function focusPassword]}
-          placeholder=\\"Email\\"
-          placeholderTextColor=\\"white\\"
-          returnKeyType=\\"next\\"
-          testID=\\"emailInput\\"
--         value=\\"\\"
-+         value=\\"klas&jflk@lkjasdf.com\\"
-        />
-      </View>
-      <View
-        style={
-          Object {
-@@ -134,11 +134,11 @@
-          placeholder=\\"Password\\"
-          placeholderTextColor=\\"white\\"
-          returnKeyType=\\"done\\"
-          secureTextEntry={true}
-          testID=\\"passwordInput\\"
--         value=\\"\\"
-+         value=\\"this&is=unsafe\\"
-        />
-        <Button
-          buttonTextStyle={
-            Object {
-              \\"color\\": \\"#3CC8E6\\",
-@@ -163,138 +163,44 @@
-          text=\\"Forgot Password?\\"
-          type=\\"transparent\\"
-        />
-      </View>
-    </Flex>
--   <View
--     forwardedRef={[Function ref]}
--     onLayout={[Function anonymous]}
--     pointerEvents=\\"box-none\\"
--     style={
--       Object {
--         \\"alignItems\\": \\"center\\",
--         \\"flex\\": 1,
--         \\"justifyContent\\": \\"center\\",
--         \\"marginHorizontal\\": 38,
--         \\"paddingBottom\\": 0,
--         \\"paddingLeft\\": 0,
--         \\"paddingRight\\": 0,
--         \\"paddingTop\\": 20,
--       }
--     }
-+   <Flex
-+     align=\\"stretch\\"
-+     justify=\\"end\\"
-    >
--     <View
-+     <RCTSafeAreaView
-+       emulateUnlessSupported={true}
-        style={
-          Object {
--           \\"width\\": \\"100%\\",
-+           \\"bottom\\": 20,
-+           \\"left\\": 50,
-+           \\"position\\": \\"absolute\\",
-          }
-        }
-      >
-        <Button
--         onPress={[Function onPress]}
--         style={
-+         buttonTextStyle={
-            Array [
--             Object {
--               \\"alignItems\\": \\"center\\",
--               \\"borderRadius\\": 24,
--               \\"flexDirection\\": \\"row\\",
--               \\"height\\": 50,
--               \\"justifyContent\\": \\"flex-start\\",
--               \\"margin\\": 4,
--               \\"width\\": \\"100%\\",
--             },
--             Object {
--               \\"backgroundColor\\": \\"white\\",
--               \\"borderColor\\": undefined,
--               \\"borderWidth\\": undefined,
--             },
-+             undefined,
-            ]
-          }
--         testID=\\"socialAuthButton\\"
--       >
--         <View
--           style={
--             Object {
--               \\"width\\": 70,
--             }
--           }
--         >
--           <SvgMock />
--         </View>
--         <Text
--           style={
--             Array [
--               Object {
--                 \\"color\\": \\"#ffffff\\",
--                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--                 \\"fontSize\\": 16,
--                 \\"fontStyle\\": \\"normal\\",
--                 \\"fontWeight\\": \\"normal\\",
 -                 \\"lineHeight\\": 24,
 -                 \\"textAlignVertical\\": \\"center\\",
 -                 \\"textTransform\\": \\"none\\",
@@ -538,19 +342,209 @@ exports[`key login button is pressed should not call next when an auth error is 
 -                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                 \\"fontSize\\": 16,
 -                 \\"fontStyle\\": \\"normal\\",
--                 \\"fontWeight\\": \\"normal\\",
 -                 \\"lineHeight\\": 24,
 -                 \\"textAlignVertical\\": \\"center\\",
 -                 \\"textTransform\\": \\"none\\",
+-               },
+-               Object {
+-                 \\"color\\": \\"white\\",
 +               \\"height\\": 48,
 +               \\"width\\": 650,
               },
--               Object {
--                 \\"color\\": \\"white\\",
--               },
 +             undefined,
             ]
           }
+-         >
+-           Sign in with Facebook
+-         </Text>
+-       </Button>
+-     </View>
+-   </View>
++         testID=\\"bottomButton\\"
++         text=\\"LOGIN\\"
++         type=\\"secondary\\"
++       />
++     </RCTSafeAreaView>
++   </Flex>
+  </View>"
+`;
+
+exports[`key login button is pressed should not call next when an auth error is thrown 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -97,11 +97,11 @@
+          onSubmitEditing={[Function focusPassword]}
+          placeholder=\\"Email\\"
+          placeholderTextColor=\\"white\\"
+          returnKeyType=\\"next\\"
+          testID=\\"emailInput\\"
+-         value=\\"\\"
++         value=\\"klas&jflk@lkjasdf.com\\"
+        />
+      </View>
+      <View
+        style={
+          Object {
+@@ -130,11 +130,11 @@
+          placeholder=\\"Password\\"
+          placeholderTextColor=\\"white\\"
+          returnKeyType=\\"done\\"
+          secureTextEntry={true}
+          testID=\\"passwordInput\\"
+-         value=\\"\\"
++         value=\\"this&is=unsafe\\"
+        />
+        <Button
+          buttonTextStyle={
+            Object {
+              \\"color\\": \\"#3CC8E6\\",
+@@ -158,136 +158,44 @@
+          text=\\"Forgot Password?\\"
+          type=\\"transparent\\"
+        />
+      </View>
+    </Flex>
+-   <View
+-     forwardedRef={[Function ref]}
+-     onLayout={[Function anonymous]}
+-     pointerEvents=\\"box-none\\"
+-     style={
+-       Object {
+-         \\"alignItems\\": \\"center\\",
+-         \\"flex\\": 1,
+-         \\"justifyContent\\": \\"center\\",
+-         \\"marginHorizontal\\": 38,
+-         \\"paddingBottom\\": 0,
+-         \\"paddingLeft\\": 0,
+-         \\"paddingRight\\": 0,
+-         \\"paddingTop\\": 20,
+-       }
+-     }
++   <Flex
++     align=\\"stretch\\"
++     justify=\\"end\\"
+    >
+-     <View
++     <RCTSafeAreaView
++       emulateUnlessSupported={true}
+        style={
+          Object {
+-           \\"width\\": \\"100%\\",
++           \\"bottom\\": 20,
++           \\"left\\": 50,
++           \\"position\\": \\"absolute\\",
+          }
+        }
+      >
+        <Button
+-         onPress={[Function onPress]}
+-         style={
++         buttonTextStyle={
+            Array [
+-             Object {
+-               \\"alignItems\\": \\"center\\",
+-               \\"borderRadius\\": 24,
+-               \\"flexDirection\\": \\"row\\",
+-               \\"height\\": 50,
+-               \\"justifyContent\\": \\"flex-start\\",
+-               \\"margin\\": 4,
+-               \\"width\\": \\"100%\\",
+-             },
+-             Object {
+-               \\"backgroundColor\\": \\"white\\",
+-               \\"borderColor\\": undefined,
+-               \\"borderWidth\\": undefined,
+-             },
++             undefined,
+            ]
+          }
+-         testID=\\"socialAuthButton\\"
+-       >
+-         <View
+-           style={
+-             Object {
+-               \\"width\\": 70,
+-             }
+-           }
+-         >
+-           <SvgMock />
+-         </View>
+-         <Text
+-           style={
+-             Array [
+-               Object {
+-                 \\"color\\": \\"#ffffff\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontSize\\": 16,
+-                 \\"fontStyle\\": \\"normal\\",
+-                 \\"lineHeight\\": 24,
+-                 \\"textAlignVertical\\": \\"center\\",
+-                 \\"textTransform\\": \\"none\\",
+-               },
+-               Object {
+-                 \\"color\\": \\"black\\",
+-               },
+-             ]
+-           }
+-         >
+-           Sign in with Google
+-         </Text>
+-       </Button>
+-       <Button
+-         onPress={[Function onPress]}
++         onPress={[Function handlePress]}
++         pill={true}
+          style={
+            Array [
+              Object {
+                \\"alignItems\\": \\"center\\",
+-               \\"borderRadius\\": 24,
+-               \\"flexDirection\\": \\"row\\",
+-               \\"height\\": 50,
+-               \\"justifyContent\\": \\"flex-start\\",
+-               \\"margin\\": 4,
+-               \\"width\\": \\"100%\\",
++               \\"height\\": 48,
++               \\"width\\": 650,
+              },
+-             Object {
+-               \\"backgroundColor\\": \\"#3B5998\\",
+-               \\"borderColor\\": undefined,
+-               \\"borderWidth\\": undefined,
+-             },
++             undefined,
+            ]
+          }
+-         testID=\\"socialAuthButton\\"
+-       >
+-         <View
+-           style={
+-             Object {
+-               \\"width\\": 70,
+-             }
+-           }
+-         >
+-           <SvgMock />
+-         </View>
+-         <Text
+-           style={
+-             Array [
+-               Object {
+-                 \\"color\\": \\"#ffffff\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontSize\\": 16,
+-                 \\"fontStyle\\": \\"normal\\",
+-                 \\"lineHeight\\": 24,
+-                 \\"textAlignVertical\\": \\"center\\",
+-                 \\"textTransform\\": \\"none\\",
+-               },
+-               Object {
+-                 \\"color\\": \\"white\\",
+-               },
+-             ]
+-           }
 -         >
 -           Sign in with Facebook
 -         </Text>
@@ -571,7 +565,7 @@ exports[`keyboard listeners should hide sign in logo when the keyboard is shown 
 - First value
 + Second value
 
-@@ -44,32 +44,10 @@
+@@ -43,31 +43,10 @@
     </View>
     <Header
       left={<DeprecatedBackButton />}
@@ -587,7 +581,6 @@ exports[`keyboard listeners should hide sign in logo when the keyboard is shown 
 -           \\"fontFamily\\": \\"AmaticSC-Bold\\",
 -           \\"fontSize\\": 48,
 -           \\"fontStyle\\": \\"normal\\",
--           \\"fontWeight\\": \\"bold\\",
 -           \\"letterSpacing\\": 2,
 -           \\"lineHeight\\": 48,
 -           \\"textAlignVertical\\": \\"center\\",
@@ -611,7 +604,7 @@ exports[`keyboard listeners should show sign in logo when the keyboard is hidden
 - First value
 + Second value
 
-@@ -44,10 +44,32 @@
+@@ -43,10 +43,31 @@
     </View>
     <Header
       left={<DeprecatedBackButton />}
@@ -627,7 +620,6 @@ exports[`keyboard listeners should show sign in logo when the keyboard is hidden
 +           \\"fontFamily\\": \\"AmaticSC-Bold\\",
 +           \\"fontSize\\": 48,
 +           \\"fontStyle\\": \\"normal\\",
-+           \\"fontWeight\\": \\"bold\\",
 +           \\"letterSpacing\\": 2,
 +           \\"lineHeight\\": 48,
 +           \\"textAlignVertical\\": \\"center\\",
@@ -681,7 +673,6 @@ exports[`renders correctly 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 24,
           "textAlignVertical": "center",
           "textTransform": "none",
@@ -705,7 +696,6 @@ exports[`renders correctly 1`] = `
           "fontFamily": "AmaticSC-Bold",
           "fontSize": 48,
           "fontStyle": "normal",
-          "fontWeight": "bold",
           "letterSpacing": 2,
           "lineHeight": 48,
           "textAlignVertical": "center",
@@ -733,7 +723,6 @@ exports[`renders correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 12,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 16,
             "textAlignVertical": "center",
             "textTransform": "none",
@@ -768,7 +757,6 @@ exports[`renders correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 12,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 16,
             "textAlignVertical": "center",
             "textTransform": "none",
@@ -794,7 +782,6 @@ exports[`renders correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 24,
             "paddingVertical": 10,
             "textAlign": "left",
@@ -877,7 +864,6 @@ exports[`renders correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -930,7 +916,6 @@ exports[`renders correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -984,7 +969,6 @@ exports[`renders correctly for forced logout 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 24,
           "textAlignVertical": "center",
           "textTransform": "none",
@@ -1008,7 +992,6 @@ exports[`renders correctly for forced logout 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 24,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 32,
           "paddingLeft": 30,
           "paddingRight": 80,
@@ -1039,7 +1022,6 @@ Please sign in so we know it's you.
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 12,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 16,
             "textAlignVertical": "center",
             "textTransform": "none",
@@ -1074,7 +1056,6 @@ Please sign in so we know it's you.
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 12,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 16,
             "textAlignVertical": "center",
             "textTransform": "none",
@@ -1100,7 +1081,6 @@ Please sign in so we know it's you.
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 24,
             "paddingVertical": 10,
             "textAlign": "left",
@@ -1183,7 +1163,6 @@ Please sign in so we know it's you.
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -1236,7 +1215,6 @@ Please sign in so we know it's you.
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",

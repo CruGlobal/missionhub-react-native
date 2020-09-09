@@ -83,7 +83,6 @@ exports[`CommunityMembers renders with content 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "marginBottom": 20,
               "marginTop": 15,
@@ -184,7 +183,6 @@ exports[`CommunityMembers renders with content 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 24,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -211,7 +209,6 @@ exports[`CommunityMembers renders with content 1`] = `
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 12,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
                       "lineHeight": 16,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -227,7 +224,6 @@ exports[`CommunityMembers renders with content 1`] = `
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 12,
                         "fontStyle": "normal",
-                        "fontWeight": "normal",
                         "lineHeight": 16,
                         "textAlignVertical": "center",
                         "textTransform": "none",
@@ -287,10 +283,9 @@ exports[`CommunityMembers renders with content 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -452,7 +447,7 @@ exports[`CommunityMembers should load next page 1`] = `
       disableVirtualization={false}
       getItem={[Function anonymous]}
       getItemCount={[Function anonymous]}
-@@ -105,11 +141,11 @@
+@@ -104,11 +140,11 @@
                 \\"textAlignVertical\\": \\"center\\",
                 \\"textTransform\\": \\"none\\",
               }
@@ -465,7 +460,7 @@ exports[`CommunityMembers should load next page 1`] = `
         <View
           onLayout={[Function onLayout]}
           style={null}
-@@ -397,10 +433,306 @@
+@@ -390,10 +426,300 @@
                         }
                       }
                       testID=\\"Text\\"
@@ -567,7 +562,6 @@ exports[`CommunityMembers should load next page 1`] = `
 +                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                     \\"fontSize\\": 16,
 +                     \\"fontStyle\\": \\"normal\\",
-+                     \\"fontWeight\\": \\"normal\\",
 +                     \\"lineHeight\\": 24,
 +                     \\"textAlignVertical\\": \\"center\\",
 +                     \\"textTransform\\": \\"none\\",
@@ -594,7 +588,6 @@ exports[`CommunityMembers should load next page 1`] = `
 +                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                       \\"fontSize\\": 12,
 +                       \\"fontStyle\\": \\"normal\\",
-+                       \\"fontWeight\\": \\"normal\\",
 +                       \\"lineHeight\\": 16,
 +                       \\"textAlignVertical\\": \\"center\\",
 +                       \\"textTransform\\": \\"none\\",
@@ -610,7 +603,6 @@ exports[`CommunityMembers should load next page 1`] = `
 +                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                         \\"fontSize\\": 12,
 +                         \\"fontStyle\\": \\"normal\\",
-+                         \\"fontWeight\\": \\"normal\\",
 +                         \\"lineHeight\\": 16,
 +                         \\"textAlignVertical\\": \\"center\\",
 +                         \\"textTransform\\": \\"none\\",
@@ -715,7 +707,6 @@ exports[`CommunityMembers should load next page 1`] = `
 +                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                     \\"fontSize\\": 16,
 +                     \\"fontStyle\\": \\"normal\\",
-+                     \\"fontWeight\\": \\"normal\\",
 +                     \\"lineHeight\\": 24,
 +                     \\"textAlignVertical\\": \\"center\\",
 +                     \\"textTransform\\": \\"none\\",
@@ -742,7 +733,6 @@ exports[`CommunityMembers should load next page 1`] = `
 +                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                       \\"fontSize\\": 12,
 +                       \\"fontStyle\\": \\"normal\\",
-+                       \\"fontWeight\\": \\"normal\\",
 +                       \\"lineHeight\\": 16,
 +                       \\"textAlignVertical\\": \\"center\\",
 +                       \\"textTransform\\": \\"none\\",
@@ -758,7 +748,6 @@ exports[`CommunityMembers should load next page 1`] = `
 +                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                         \\"fontSize\\": 12,
 +                         \\"fontStyle\\": \\"normal\\",
-+                         \\"fontWeight\\": \\"normal\\",
 +                         \\"lineHeight\\": 16,
 +                         \\"textAlignVertical\\": \\"center\\",
 +                         \\"textTransform\\": \\"none\\",
@@ -836,7 +825,6 @@ exports[`CommunityMembers should render empty state 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "marginBottom": 20,
               "marginTop": 15,
@@ -916,10 +904,9 @@ exports[`CommunityMembers should render empty state 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -1091,7 +1078,6 @@ exports[`CommunityMembers should render loading state 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "marginBottom": 20,
               "marginTop": 15,
@@ -1171,10 +1157,9 @@ exports[`CommunityMembers should render loading state 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",

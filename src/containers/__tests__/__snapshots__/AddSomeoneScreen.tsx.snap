@@ -148,10 +148,9 @@ exports[`renders correctly 1`] = `
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
@@ -161,13 +160,13 @@ exports[`renders correctly 1`] = `
                 Array [
                   Object {
                     "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
+                    "fontFamily": "SourceSansPro-Bold",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
-                    "lineHeight": 20,
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
                     "textAlignVertical": "center",
-                    "textTransform": "none",
+                    "textTransform": "uppercase",
                   },
                   undefined,
                 ],
@@ -230,7 +229,6 @@ exports[`renders correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 24,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 32,
             "paddingVertical": 10,
             "textAlign": "left",
@@ -282,10 +280,9 @@ Take a moment and pray. Who do you want to take steps of faith with?
             Array [
               Object {
                 "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
@@ -388,10 +385,9 @@ exports[`renders without back button correctly 1`] = `
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
@@ -401,13 +397,13 @@ exports[`renders without back button correctly 1`] = `
                 Array [
                   Object {
                     "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
+                    "fontFamily": "SourceSansPro-Bold",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
-                    "lineHeight": 20,
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
                     "textAlignVertical": "center",
-                    "textTransform": "none",
+                    "textTransform": "uppercase",
                   },
                   undefined,
                 ],
@@ -470,7 +466,6 @@ exports[`renders without back button correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 24,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 32,
             "paddingVertical": 10,
             "textAlign": "left",
@@ -522,10 +517,9 @@ Take a moment and pray. Who do you want to take steps of faith with?
             Array [
               Object {
                 "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",
@@ -722,7 +716,6 @@ exports[`renders without skip button correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 24,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 32,
             "paddingVertical": 10,
             "textAlign": "left",
@@ -774,10 +767,9 @@ Take a moment and pray. Who do you want to take steps of faith with?
             Array [
               Object {
                 "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",

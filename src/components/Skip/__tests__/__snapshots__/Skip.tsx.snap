@@ -25,10 +25,9 @@ exports[`render skip 1`] = `
       Array [
         Object {
           "color": "#ffffff",
-          "fontFamily": "SourceSansPro-Regular",
+          "fontFamily": "SourceSansPro-Bold",
           "fontSize": 14,
           "fontStyle": "normal",
-          "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 18,
           "textAlign": "center",
@@ -38,13 +37,13 @@ exports[`render skip 1`] = `
         Array [
           Object {
             "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
+            "fontFamily": "SourceSansPro-Bold",
             "fontSize": 14,
             "fontStyle": "normal",
-            "fontWeight": "normal",
-            "lineHeight": 20,
+            "letterSpacing": 1,
+            "lineHeight": 18,
             "textAlignVertical": "center",
-            "textTransform": "none",
+            "textTransform": "uppercase",
           },
           undefined,
         ],
@@ -81,10 +80,9 @@ exports[`renders disabled 1`] = `
       Array [
         Object {
           "color": "#ffffff",
-          "fontFamily": "SourceSansPro-Regular",
+          "fontFamily": "SourceSansPro-Bold",
           "fontSize": 14,
           "fontStyle": "normal",
-          "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 18,
           "textAlign": "center",
@@ -94,13 +92,13 @@ exports[`renders disabled 1`] = `
         Array [
           Object {
             "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
+            "fontFamily": "SourceSansPro-Bold",
             "fontSize": 14,
             "fontStyle": "normal",
-            "fontWeight": "normal",
-            "lineHeight": 20,
+            "letterSpacing": 1,
+            "lineHeight": 18,
             "textAlignVertical": "center",
-            "textTransform": "none",
+            "textTransform": "uppercase",
           },
           undefined,
         ],
@@ -137,10 +135,9 @@ exports[`renders skip with style 1`] = `
       Array [
         Object {
           "color": "#ffffff",
-          "fontFamily": "SourceSansPro-Regular",
+          "fontFamily": "SourceSansPro-Bold",
           "fontSize": 14,
           "fontStyle": "normal",
-          "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 18,
           "textAlign": "center",
@@ -150,13 +147,13 @@ exports[`renders skip with style 1`] = `
         Array [
           Object {
             "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
+            "fontFamily": "SourceSansPro-Bold",
             "fontSize": 14,
             "fontStyle": "normal",
-            "fontWeight": "normal",
-            "lineHeight": 20,
+            "letterSpacing": 1,
+            "lineHeight": 18,
             "textAlignVertical": "center",
-            "textTransform": "none",
+            "textTransform": "uppercase",
           },
           undefined,
         ],
@@ -193,10 +190,9 @@ exports[`renders skip with text style 1`] = `
       Array [
         Object {
           "color": "#ffffff",
-          "fontFamily": "SourceSansPro-Regular",
+          "fontFamily": "SourceSansPro-Bold",
           "fontSize": 14,
           "fontStyle": "normal",
-          "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 18,
           "textAlign": "center",
@@ -206,13 +202,13 @@ exports[`renders skip with text style 1`] = `
         Array [
           Object {
             "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
+            "fontFamily": "SourceSansPro-Bold",
             "fontSize": 14,
             "fontStyle": "normal",
-            "fontWeight": "normal",
-            "lineHeight": 20,
+            "letterSpacing": 1,
+            "lineHeight": 18,
             "textAlignVertical": "center",
-            "textTransform": "none",
+            "textTransform": "uppercase",
           },
           Object {
             "padding": 5,

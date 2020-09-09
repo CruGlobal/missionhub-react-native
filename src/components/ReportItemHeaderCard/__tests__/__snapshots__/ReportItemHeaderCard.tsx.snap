@@ -71,7 +71,6 @@ exports[`renders correctly 1`] = `
         "fontFamily": "SourceSansPro-Regular",
         "fontSize": 14,
         "fontStyle": "normal",
-        "fontWeight": "normal",
         "lineHeight": 20,
         "marginLeft": 15,
         "textAlignVertical": "center",

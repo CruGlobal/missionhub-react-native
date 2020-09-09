@@ -13,7 +13,7 @@ import labels from './labels';
 import analytics, { AnalyticsState } from './analytics';
 import swipe, { SwipeState } from './swipe';
 import drawer, { DrawerState } from './drawer';
-import journey from './journey';
+import journey, { JourneyState } from './journey';
 import stepReminders, { StepReminderState } from './stepReminders';
 
 export type RootState = {
@@ -23,8 +23,7 @@ export type RootState = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   groups: any; // TODO: Fill out these reducer type states
   impact: ImpactState;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  journey: any;
+  journey: JourneyState;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   labels: any;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

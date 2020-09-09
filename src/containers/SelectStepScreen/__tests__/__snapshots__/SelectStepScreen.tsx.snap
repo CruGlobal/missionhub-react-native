@@ -166,10 +166,9 @@ exports[`in onboarding renders correctly 1`] = `
                 Array [
                   Object {
                     "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
+                    "fontFamily": "SourceSansPro-Bold",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
@@ -179,13 +178,13 @@ exports[`in onboarding renders correctly 1`] = `
                   Array [
                     Object {
                       "color": "#ffffff",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 14,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "lineHeight": 20,
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
                       "textAlignVertical": "center",
-                      "textTransform": "none",
+                      "textTransform": "uppercase",
                     },
                     undefined,
                   ],
@@ -244,7 +243,6 @@ exports[`in onboarding renders correctly 1`] = `
           "fontFamily": "SourceSansPro-Light",
           "fontSize": 24,
           "fontStyle": "normal",
-          "fontWeight": "300",
           "lineHeight": 30,
           "marginHorizontal": 30,
           "marginVertical": 35,
@@ -310,7 +308,6 @@ exports[`in onboarding renders correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -403,7 +400,6 @@ exports[`in onboarding renders correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -468,7 +464,6 @@ exports[`in onboarding renders correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -533,7 +528,6 @@ exports[`in onboarding renders correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -669,7 +663,6 @@ exports[`in onboarding renders correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -719,7 +712,7 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 - First value
 + Second value
 
-@@ -251,307 +251,10 @@
+@@ -249,303 +249,10 @@
           }
         }
       >
@@ -779,7 +772,6 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 -                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                     \\"fontSize\\": 14,
 -                     \\"fontStyle\\": \\"normal\\",
--                     \\"fontWeight\\": \\"normal\\",
 -                     \\"lineHeight\\": 20,
 -                     \\"textAlignVertical\\": \\"center\\",
 -                     \\"textTransform\\": \\"none\\",
@@ -872,7 +864,6 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 -                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                     \\"fontSize\\": 14,
 -                     \\"fontStyle\\": \\"normal\\",
--                     \\"fontWeight\\": \\"normal\\",
 -                     \\"lineHeight\\": 20,
 -                     \\"textAlignVertical\\": \\"center\\",
 -                     \\"textTransform\\": \\"none\\",
@@ -937,7 +928,6 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 -                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                     \\"fontSize\\": 14,
 -                     \\"fontStyle\\": \\"normal\\",
--                     \\"fontWeight\\": \\"normal\\",
 -                     \\"lineHeight\\": 20,
 -                     \\"textAlignVertical\\": \\"center\\",
 -                     \\"textTransform\\": \\"none\\",
@@ -1002,7 +992,6 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 -                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                     \\"fontSize\\": 14,
 -                     \\"fontStyle\\": \\"normal\\",
--                     \\"fontWeight\\": \\"normal\\",
 -                     \\"lineHeight\\": 20,
 -                     \\"textAlignVertical\\": \\"center\\",
 -                     \\"textTransform\\": \\"none\\",
@@ -1220,7 +1209,6 @@ exports[`loading should render correctly 1`] = `
           "fontFamily": "SourceSansPro-Light",
           "fontSize": 24,
           "fontStyle": "normal",
-          "fontWeight": "300",
           "lineHeight": 30,
           "marginHorizontal": 30,
           "marginVertical": 35,
@@ -1286,7 +1274,6 @@ exports[`loading should render correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -1379,7 +1366,6 @@ exports[`loading should render correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -1444,7 +1430,6 @@ exports[`loading should render correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -1509,7 +1494,6 @@ exports[`loading should render correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -1645,7 +1629,6 @@ exports[`loading should render correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -1850,7 +1833,6 @@ exports[`loading should render for self steps correctly 1`] = `
           "fontFamily": "SourceSansPro-Light",
           "fontSize": 24,
           "fontStyle": "normal",
-          "fontWeight": "300",
           "lineHeight": 30,
           "marginHorizontal": 30,
           "marginVertical": 35,
@@ -1986,7 +1968,6 @@ exports[`loading should render for self steps correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -2041,7 +2022,6 @@ exports[`loading should render for self steps correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -2095,7 +2075,6 @@ exports[`loading should render for self steps correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -2294,10 +2273,9 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
                 Array [
                   Object {
                     "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
+                    "fontFamily": "SourceSansPro-Bold",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
@@ -2307,13 +2285,13 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
                   Array [
                     Object {
                       "color": "#ffffff",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 14,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "lineHeight": 20,
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
                       "textAlignVertical": "center",
-                      "textTransform": "none",
+                      "textTransform": "uppercase",
                     },
                     undefined,
                   ],
@@ -2372,7 +2350,6 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
           "fontFamily": "SourceSansPro-Light",
           "fontSize": 24,
           "fontStyle": "normal",
-          "fontWeight": "300",
           "lineHeight": 30,
           "marginHorizontal": 30,
           "marginVertical": 35,
@@ -2438,7 +2415,6 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -2531,7 +2507,6 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -2596,7 +2571,6 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -2661,7 +2635,6 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -2797,7 +2770,6 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -3021,10 +2993,9 @@ exports[`loading skip button should render skip button correctly 1`] = `
                 Array [
                   Object {
                     "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
+                    "fontFamily": "SourceSansPro-Bold",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
@@ -3034,13 +3005,13 @@ exports[`loading skip button should render skip button correctly 1`] = `
                   Array [
                     Object {
                       "color": "#ffffff",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 14,
                       "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "lineHeight": 20,
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
                       "textAlignVertical": "center",
-                      "textTransform": "none",
+                      "textTransform": "uppercase",
                     },
                     undefined,
                   ],
@@ -3099,7 +3070,6 @@ exports[`loading skip button should render skip button correctly 1`] = `
           "fontFamily": "SourceSansPro-Light",
           "fontSize": 24,
           "fontStyle": "normal",
-          "fontWeight": "300",
           "lineHeight": 30,
           "marginHorizontal": 30,
           "marginVertical": 35,
@@ -3165,7 +3135,6 @@ exports[`loading skip button should render skip button correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -3258,7 +3227,6 @@ exports[`loading skip button should render skip button correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -3323,7 +3291,6 @@ exports[`loading skip button should render skip button correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -3388,7 +3355,6 @@ exports[`loading skip button should render skip button correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -3524,7 +3490,6 @@ exports[`loading skip button should render skip button correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -3760,7 +3725,6 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
           "fontFamily": "SourceSansPro-Light",
           "fontSize": 24,
           "fontStyle": "normal",
-          "fontWeight": "300",
           "lineHeight": 30,
           "marginHorizontal": 30,
           "marginVertical": 35,
@@ -3826,7 +3790,6 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -3919,7 +3882,6 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -3984,7 +3946,6 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -4049,7 +4010,6 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 20,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -4193,7 +4153,6 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -4248,7 +4207,6 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -4302,7 +4260,6 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -4337,7 +4294,7 @@ exports[`should load step suggestions 1`] = `
 - First value
 + Second value
 
-@@ -196,11 +196,11 @@
+@@ -195,11 +195,11 @@
             \\"textAlignVertical\\": \\"center\\",
             \\"textTransform\\": \\"none\\",
           }
@@ -4350,7 +4307,7 @@ exports[`should load step suggestions 1`] = `
         style={
           Object {
             \\"flexDirection\\": \\"row\\",
-@@ -268,10 +268,41 @@
+@@ -266,10 +266,41 @@
                   ]
                 }
               >
@@ -4392,7 +4349,7 @@ exports[`should load step suggestions 1`] = `
               style={
                 Array [
                   Object {
-@@ -362,12 +393,43 @@
+@@ -359,12 +390,43 @@
                 }
               >
                 Pray
@@ -4436,12 +4393,14 @@ exports[`should load step suggestions 1`] = `
           focusable={true}
           onClick={[Function onClick]}
           onResponderGrant={[Function onResponderGrant]}
-@@ -427,12 +489,43 @@
+@@ -421,11 +483,42 @@
+                    undefined,
+                  ]
                 }
               >
                 Care
-              </Text>
-            </View>
++             </Text>
++           </View>
 +           <View
 +             style={
 +               Array [
@@ -4468,24 +4427,23 @@ exports[`should load step suggestions 1`] = `
 +               }
 +             >
 +               0
-+             </Text>
+              </Text>
 +             <SvgMock
 +               color=\\"#007398\\"
 +             />
             </View>
           </View>
-+       </View>
+        </View>
         <View
           accessible={true}
-          focusable={true}
-          onClick={[Function onClick]}
-          onResponderGrant={[Function onResponderGrant]}
-@@ -492,20 +585,47 @@
+@@ -485,22 +578,49 @@
+                    undefined,
+                  ]
                 }
               >
                 Share
-              </Text>
-            </View>
++             </Text>
++           </View>
 +           <View
 +             style={
 +               Array [
@@ -4512,7 +4470,7 @@ exports[`should load step suggestions 1`] = `
 +               }
 +             >
 +               87638
-+             </Text>
+              </Text>
 +             <SvgMock
 +               color=\\"#007398\\"
 +             />
@@ -4520,7 +4478,7 @@ exports[`should load step suggestions 1`] = `
           </View>
         </View>
       </View>
-+   </View>
+    </View>
     <RCTScrollView
 -     ListFooterComponent={
 -       <ForwardRef(SafeAreaView)>
@@ -4533,7 +4491,7 @@ exports[`should load step suggestions 1`] = `
           message=\\"Error loading step suggestions\\"
           refetch={[Function anonymous]}
         />
-@@ -521,10 +641,22 @@
+@@ -516,10 +636,22 @@
           Object {
             \\"action\\": [Function action],
             \\"icon\\": true,
@@ -4556,7 +4514,7 @@ exports[`should load step suggestions 1`] = `
       }
       disableVirtualization={false}
       getItem={[Function anonymous]}
-@@ -542,11 +674,11 @@
+@@ -537,11 +669,11 @@
       onScrollBeginDrag={[Function anonymous]}
       onScrollEndDrag={[Function anonymous]}
       refreshControl={
@@ -4569,19 +4527,19 @@ exports[`should load step suggestions 1`] = `
       removeClippedSubviews={false}
       renderItem={[Function anonymous]}
       scrollEventThrottle={50}
-@@ -624,36 +756,130 @@
+@@ -618,36 +750,128 @@
             </Text>
             <SvgMock />
           </View>
         </View>
         <View
 -         onLayout={[Function anonymous]}
--       >
--         <RCTSafeAreaView
--           emulateUnlessSupported={true}
 +         onLayout={[Function onLayout]}
 +         style={null}
         >
+-         <RCTSafeAreaView
+-           emulateUnlessSupported={true}
+-         >
           <View
 +           accessible={true}
 +           focusable={true}
@@ -4618,12 +4576,11 @@ exports[`should load step suggestions 1`] = `
 +         >
 +           <Text
 +             style={
-+               Object {
+                Object {
 +                 \\"color\\": \\"#505256\\",
 +                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                 \\"fontSize\\": 16,
 +                 \\"fontStyle\\": \\"normal\\",
-+                 \\"fontWeight\\": \\"normal\\",
 +                 \\"lineHeight\\": 24,
 +                 \\"textAlignVertical\\": \\"center\\",
 +                 \\"textTransform\\": \\"none\\",
@@ -4649,7 +4606,7 @@ exports[`should load step suggestions 1`] = `
 +           onResponderTerminationRequest={[Function onResponderTerminationRequest]}
 +           onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +           style={
-              Object {
++             Object {
                 \\"alignItems\\": \\"center\\",
 -                   \\"justifyContent\\": \\"center\\",
 +               \\"backgroundColor\\": \\"#ffffff\\",
@@ -4669,8 +4626,8 @@ exports[`should load step suggestions 1`] = `
 -               ]
 +               \\"shadowOpacity\\": 0.3,
 +               \\"shadowRadius\\": 2,
-+             }
-            }
+              }
++           }
           >
 -             <ActivityIndicator
 -               animating={true}
@@ -4685,7 +4642,6 @@ exports[`should load step suggestions 1`] = `
 +                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                 \\"fontSize\\": 16,
 +                 \\"fontStyle\\": \\"normal\\",
-+                 \\"fontWeight\\": \\"normal\\",
 +                 \\"lineHeight\\": 24,
 +                 \\"textAlignVertical\\": \\"center\\",
 +                 \\"textTransform\\": \\"none\\",
@@ -4722,7 +4678,7 @@ exports[`should paginate 1`] = `
 - First value
 + Second value
 
-@@ -196,11 +196,11 @@
+@@ -195,11 +195,11 @@
             \\"textAlignVertical\\": \\"center\\",
             \\"textTransform\\": \\"none\\",
           }
@@ -4735,7 +4691,7 @@ exports[`should paginate 1`] = `
         style={
           Object {
             \\"flexDirection\\": \\"row\\",
-@@ -654,10 +654,22 @@
+@@ -649,10 +649,22 @@
             \\"action\\": [Function action],
             \\"icon\\": false,
             \\"key\\": \\"12\\",
@@ -4758,7 +4714,7 @@ exports[`should paginate 1`] = `
       disableVirtualization={false}
       getItem={[Function anonymous]}
       getItemCount={[Function anonymous]}
-@@ -860,10 +872,118 @@
+@@ -852,10 +864,116 @@
                   \\"textTransform\\": \\"none\\",
                 }
               }
@@ -4810,7 +4766,6 @@ exports[`should paginate 1`] = `
 +                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                 \\"fontSize\\": 16,
 +                 \\"fontStyle\\": \\"normal\\",
-+                 \\"fontWeight\\": \\"normal\\",
 +                 \\"lineHeight\\": 24,
 +                 \\"textAlignVertical\\": \\"center\\",
 +                 \\"textTransform\\": \\"none\\",
@@ -4864,7 +4819,6 @@ exports[`should paginate 1`] = `
 +                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                 \\"fontSize\\": 16,
 +                 \\"fontStyle\\": \\"normal\\",
-+                 \\"fontWeight\\": \\"normal\\",
 +                 \\"lineHeight\\": 24,
 +                 \\"textAlignVertical\\": \\"center\\",
 +                 \\"textTransform\\": \\"none\\",
@@ -4884,7 +4838,7 @@ exports[`with explainer open opens explainer modal 1`] = `
 - First value
 + Second value
 
-@@ -755,6 +755,9 @@
+@@ -747,6 +747,9 @@
             emulateUnlessSupported={true}
           />
         </View>

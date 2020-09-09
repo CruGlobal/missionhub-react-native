@@ -15,6 +15,7 @@ import {
 import locale from '../../../i18n/locales/en-US';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { trackStepAdded } from '../../../actions/analytics';
+import { updatePersonGQL } from '../../../actions/person';
 import * as common from '../../../utils/common';
 import AddStepScreen from '..';
 
@@ -25,6 +26,7 @@ MockDate.set(mockDate);
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/analytics');
+jest.mock('../../../actions/person');
 jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../auth/authStore', () => ({ isAuthenticated: () => true }));
 
@@ -274,6 +276,7 @@ it('saves step', async () => {
       },
     },
   });
+  expect(updatePersonGQL).toHaveBeenCalledWith(personId);
 });
 
 it('saves step with onSetComplete', async () => {

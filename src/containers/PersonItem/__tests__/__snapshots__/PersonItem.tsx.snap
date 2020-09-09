@@ -81,7 +81,6 @@ exports[`renders me correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 24,
             "textAlignVertical": "center",
             "textTransform": "none",
@@ -102,11 +101,10 @@ exports[`renders me correctly 1`] = `
       <Text
         style={
           Object {
-            "color": "#ECEEF2",
+            "color": "#B4B6BA",
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 12,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 16,
             "paddingTop": 6,
             "textAlignVertical": "center",
@@ -179,10 +177,9 @@ exports[`renders me correctly 1`] = `
         style={
           Object {
             "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
+            "fontFamily": "SourceSansPro-Bold",
             "fontSize": 13,
             "fontStyle": "normal",
-            "fontWeight": "bold",
             "letterSpacing": 1,
             "lineHeight": 18,
             "textAlignVertical": "center",
@@ -278,7 +275,6 @@ exports[`renders person correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 24,
             "textAlignVertical": "center",
             "textTransform": "none",
@@ -299,11 +295,10 @@ exports[`renders person correctly 1`] = `
       <Text
         style={
           Object {
-            "color": "#ECEEF2",
+            "color": "#B4B6BA",
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 12,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 16,
             "paddingTop": 6,
             "textAlignVertical": "center",
@@ -376,10 +371,9 @@ exports[`renders person correctly 1`] = `
         style={
           Object {
             "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
+            "fontFamily": "SourceSansPro-Bold",
             "fontSize": 13,
             "fontStyle": "normal",
-            "fontWeight": "bold",
             "letterSpacing": 1,
             "lineHeight": 18,
             "textAlignVertical": "center",
@@ -462,7 +456,6 @@ exports[`renders person with no stage correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 24,
             "textAlignVertical": "center",
             "textTransform": "none",
@@ -501,11 +494,10 @@ exports[`renders person with no stage correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#ECEEF2",
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 12,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 16,
                 "paddingTop": 6,
                 "textAlignVertical": "center",
@@ -583,10 +575,9 @@ exports[`renders person with no stage correctly 1`] = `
         style={
           Object {
             "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
+            "fontFamily": "SourceSansPro-Bold",
             "fontSize": 13,
             "fontStyle": "normal",
-            "fontWeight": "bold",
             "letterSpacing": 1,
             "lineHeight": 18,
             "textAlignVertical": "center",
@@ -682,7 +673,6 @@ exports[`renders personal ministry with no steps correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 24,
             "textAlignVertical": "center",
             "textTransform": "none",
@@ -703,11 +693,10 @@ exports[`renders personal ministry with no steps correctly 1`] = `
       <Text
         style={
           Object {
-            "color": "#ECEEF2",
+            "color": "#B4B6BA",
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 12,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 16,
             "paddingTop": 6,
             "textAlignVertical": "center",

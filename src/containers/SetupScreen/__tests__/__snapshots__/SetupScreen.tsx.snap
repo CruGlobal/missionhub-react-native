@@ -147,7 +147,6 @@ exports[`renders isMe version correctly 1`] = `
           "fontFamily": "AmaticSC-Bold",
           "fontSize": 36,
           "fontStyle": "normal",
-          "fontWeight": "bold",
           "letterSpacing": 2,
           "lineHeight": 36,
           "marginBottom": 10,
@@ -175,7 +174,6 @@ exports[`renders isMe version correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 12,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 16,
             "textAlignVertical": "center",
             "textTransform": "none",
@@ -207,7 +205,6 @@ exports[`renders isMe version correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -252,7 +249,6 @@ exports[`renders isMe version correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -287,7 +283,6 @@ exports[`renders isMe version correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 12,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 16,
             "paddingHorizontal": 3,
             "textAlign": "center",
@@ -333,10 +328,9 @@ exports[`renders isMe version correctly 1`] = `
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
@@ -348,7 +342,6 @@ exports[`renders isMe version correctly 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "letterSpacing": 0,
                   "lineHeight": 16,
                   "paddingHorizontal": 3,
@@ -370,7 +363,6 @@ exports[`renders isMe version correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 12,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 16,
               "paddingHorizontal": 3,
               "textAlign": "center",
@@ -404,10 +396,9 @@ exports[`renders isMe version correctly 1`] = `
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
@@ -419,7 +410,6 @@ exports[`renders isMe version correctly 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "letterSpacing": 0,
                   "lineHeight": 16,
                   "paddingHorizontal": 3,
@@ -464,7 +454,7 @@ exports[`renders isMe version correctly 1`] = `
           "borderRadius": 50,
           "height": 48,
           "justifyContent": "center",
-          "opacity": 1,
+          "opacity": 0.6,
           "width": 650,
         }
       }
@@ -475,10 +465,9 @@ exports[`renders isMe version correctly 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -648,10 +637,9 @@ exports[`renders other person version correctly 1`] = `
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
@@ -661,13 +649,13 @@ exports[`renders other person version correctly 1`] = `
                 Array [
                   Object {
                     "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
+                    "fontFamily": "SourceSansPro-Bold",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
-                    "lineHeight": 20,
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
                     "textAlignVertical": "center",
-                    "textTransform": "none",
+                    "textTransform": "uppercase",
                   },
                   undefined,
                 ],
@@ -707,7 +695,6 @@ exports[`renders other person version correctly 1`] = `
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 24,
             "fontStyle": "normal",
-            "fontWeight": "300",
             "lineHeight": 30,
             "maxWidth": 230,
             "textAlign": "center",
@@ -736,7 +723,6 @@ exports[`renders other person version correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 12,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 16,
             "textAlignVertical": "center",
             "textTransform": "none",
@@ -768,7 +754,6 @@ exports[`renders other person version correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -812,7 +797,6 @@ exports[`renders other person version correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -854,7 +838,7 @@ exports[`renders other person version correctly 1`] = `
           "borderRadius": 50,
           "height": 48,
           "justifyContent": "center",
-          "opacity": 1,
+          "opacity": 0.6,
           "width": 650,
         }
       }
@@ -865,10 +849,9 @@ exports[`renders other person version correctly 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -893,7 +876,7 @@ exports[`setup screen methods should update first name 1`] = `
 - First value
 + Second value
 
-@@ -277,10 +277,11 @@
+@@ -273,10 +273,11 @@
               Object {},
             ]
           }
@@ -912,7 +895,7 @@ exports[`setup screen methods should update last name 1`] = `
 - First value
 + Second value
 
-@@ -321,10 +321,11 @@
+@@ -316,10 +316,11 @@
               Object {},
             ]
           }

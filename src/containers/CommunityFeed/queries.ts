@@ -32,17 +32,7 @@ export const GET_GLOBAL_COMMUNITY_FEED = gql`
 export const GET_COMMUNITY_FEED = gql`
   query GetCommunityFeed(
     $communityId: ID!
-    $subjectType: [FeedItemSubjectTypeEnum!] = [
-      STORY
-      QUESTION
-      PRAYER_REQUEST
-      ANNOUNCEMENT
-      HELP_REQUEST
-      THOUGHT
-      STEP
-      ACCEPTED_COMMUNITY_CHALLENGE
-      COMMUNITY_PERMISSION
-    ]
+    $subjectType: [FeedItemSubjectTypeEnum!]
     $personIds: [ID!]
     $feedItemsCursor: String
     $commentsCursor: String # not used by this query but needed to make CommunityFeedItemCommentLike.comments fragment happy

@@ -6,7 +6,7 @@ import { flushMicrotasksQueue, fireEvent } from 'react-native-testing-library';
 import { useQuery } from '@apollo/react-hooks';
 import MockDate from 'mockdate';
 
-import { GLOBAL_COMMUNITY_ID } from '../../../constants';
+import { GLOBAL_COMMUNITY_ID, DEFAULT_SUBJECT_TYPES } from '../../../constants';
 import { navigatePush } from '../../../actions/navigation';
 import { renderWithContext } from '../../../../testUtils';
 import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from '../queries';
@@ -91,6 +91,7 @@ it('renders with items correctly', async () => {
       communityId,
       hasUnreadComments: undefined,
       personIds: undefined,
+      subjectType: DEFAULT_SUBJECT_TYPES,
     },
   });
   expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -141,6 +142,7 @@ it('renders with pending post correctly', async () => {
       communityId,
       hasUnreadComments: undefined,
       personIds: undefined,
+      subjectType: DEFAULT_SUBJECT_TYPES,
     },
   });
   expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -191,6 +193,7 @@ it('renders with pending post without Today items correctly', async () => {
       communityId,
       hasUnreadComments: undefined,
       personIds: undefined,
+      subjectType: DEFAULT_SUBJECT_TYPES,
     },
   });
   expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -267,6 +270,7 @@ describe('sections', () => {
         communityId,
         hasUnreadComments: undefined,
         personIds: undefined,
+        subjectType: DEFAULT_SUBJECT_TYPES,
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -304,6 +308,7 @@ describe('sections', () => {
         communityId: GLOBAL_COMMUNITY_ID,
         hasUnreadComments: undefined,
         personIds: undefined,
+        subjectType: DEFAULT_SUBJECT_TYPES,
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -338,6 +343,7 @@ describe('sections', () => {
         communityId,
         hasUnreadComments: undefined,
         personIds: undefined,
+        subjectType: DEFAULT_SUBJECT_TYPES,
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -372,6 +378,7 @@ describe('sections', () => {
         communityId,
         hasUnreadComments: undefined,
         personIds: undefined,
+        subjectType: DEFAULT_SUBJECT_TYPES,
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -408,6 +415,7 @@ describe('renders for member', () => {
         communityId,
         hasUnreadComments: undefined,
         personIds: [personId],
+        subjectType: DEFAULT_SUBJECT_TYPES,
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -441,6 +449,7 @@ describe('renders for member', () => {
         communityId,
         hasUnreadComments: undefined,
         personIds: [personId],
+        subjectType: DEFAULT_SUBJECT_TYPES,
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -495,6 +504,7 @@ describe('renders with clear notification', () => {
         communityId,
         hasUnreadComments: undefined,
         personIds: undefined,
+        subjectType: DEFAULT_SUBJECT_TYPES,
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -531,6 +541,7 @@ describe('renders for Unread Comments', () => {
         communityId,
         hasUnreadComments: true,
         personIds: undefined,
+        subjectType: DEFAULT_SUBJECT_TYPES,
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -566,6 +577,7 @@ describe('renders for Global Community', () => {
         communityId: GLOBAL_COMMUNITY_ID,
         hasUnreadComments: undefined,
         personIds: undefined,
+        subjectType: DEFAULT_SUBJECT_TYPES,
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {

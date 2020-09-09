@@ -121,7 +121,6 @@ exports[`renders correctly when me and no steps 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 24,
               "paddingTop": 10,
               "textAlignVertical": "center",
@@ -138,7 +137,6 @@ exports[`renders correctly when me and no steps 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 80,
               "paddingVertical": 10,
@@ -191,10 +189,9 @@ exports[`renders correctly when me and no steps 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -335,7 +332,6 @@ exports[`renders correctly when no steps 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 24,
               "paddingTop": 10,
               "textAlignVertical": "center",
@@ -352,7 +348,6 @@ exports[`renders correctly when no steps 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 80,
               "paddingVertical": 10,
@@ -405,10 +400,9 @@ exports[`renders correctly when no steps 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -471,10 +465,9 @@ exports[`renders correctly with completed steps 1`] = `
                   Object {
                     "backgroundColor": "transparent",
                     "color": "#B4B6BA",
-                    "fontFamily": "SourceSansPro-Regular",
+                    "fontFamily": "SourceSansPro-Bold",
                     "fontSize": 14,
                     "fontStyle": "normal",
-                    "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
@@ -705,10 +698,9 @@ exports[`renders correctly with completed steps 1`] = `
                 Object {
                   "backgroundColor": "transparent",
                   "color": "#B4B6BA",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
@@ -810,10 +802,9 @@ exports[`renders correctly with completed steps 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",
@@ -1037,10 +1028,9 @@ exports[`renders correctly with steps 1`] = `
           Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 1,
               "lineHeight": 18,
               "textAlign": "center",

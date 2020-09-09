@@ -5,7 +5,7 @@ exports[`Creating a post user types a post 1`] = `
 - First value
 + Second value
 
-@@ -114,12 +114,42 @@
+@@ -113,12 +113,42 @@
                 \\"flex\\": 1,
                 \\"justifyContent\\": \\"center\\",
               },
@@ -48,7 +48,7 @@ exports[`Creating a post user types a post 1`] = `
       style={
         Object {
           \\"backgroundColor\\": \\"#ECEEF2\\",
-@@ -250,11 +280,11 @@
+@@ -246,11 +276,11 @@
               },
             ]
           }
@@ -68,7 +68,7 @@ exports[`Select image should select an image 1`] = `
 - First value
 + Second value
 
-@@ -253,19 +253,10 @@
+@@ -249,19 +249,10 @@
           testID=\\"PostInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
@@ -88,7 +88,7 @@ exports[`Select image should select an image 1`] = `
           onClick={[Function onClick]}
           onResponderGrant={[Function onResponderGrant]}
           onResponderMove={[Function onResponderMove]}
-@@ -273,117 +264,28 @@
+@@ -269,115 +260,28 @@
           onResponderTerminate={[Function onResponderTerminate]}
           onResponderTerminationRequest={[Function onResponderTerminationRequest]}
           onStartShouldSetResponder={[Function onStartShouldSetResponder]}
@@ -107,37 +107,36 @@ exports[`Select image should select an image 1`] = `
         >
 -         <SvgMock
 -           style={
--             Object {
--               \\"height\\": 24,
--               \\"width\\": 24,
--             }
--           }
--         />
--         <Text
--           style={
 +         <Image
 +           resizeMode=\\"contain\\"
 +           source={
+              Object {
+-               \\"height\\": 24,
+-               \\"width\\": 24,
++               \\"uri\\": \\"data:image/jpeg;base64,base64image.jpeg\\",
+              }
+            }
+-         />
+-         <Text
+            style={
               Object {
 -               \\"color\\": \\"#505256\\",
 -               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -               \\"fontSize\\": 16,
 -               \\"fontStyle\\": \\"normal\\",
--               \\"fontWeight\\": \\"normal\\",
 -               \\"lineHeight\\": 24,
 -               \\"paddingHorizontal\\": 10,
 -               \\"textAlignVertical\\": \\"center\\",
 -               \\"textTransform\\": \\"none\\",
-+               \\"uri\\": \\"data:image/jpeg;base64,base64image.jpeg\\",
-              }
-            }
+-             }
+-           }
 -         >
 -           Record a 15-Second Video
 -         </Text>
 -       </View>
 -       <View
-            style={
-              Object {
+-         style={
+-           Object {
 -             \\"backgroundColor\\": \\"#ECEEF2\\",
 -             \\"height\\": 1,
 +               \\"aspectRatio\\": 2,
@@ -171,15 +170,15 @@ exports[`Select image should select an image 1`] = `
 -               \\"paddingHorizontal\\": 35,
 -               \\"paddingVertical\\": 20,
 -             }
--           }
+              }
 -         >
 -           <SvgMock
 -             style={
 -               Object {
 -                 \\"height\\": 24,
 -                 \\"width\\": 24,
-              }
             }
+-             }
           />
 -           <Text
 -             style={
@@ -188,7 +187,6 @@ exports[`Select image should select an image 1`] = `
 -                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                 \\"fontSize\\": 16,
 -                 \\"fontStyle\\": \\"normal\\",
--                 \\"fontWeight\\": \\"normal\\",
 -                 \\"lineHeight\\": 24,
 -                 \\"paddingHorizontal\\": 10,
 -                 \\"textAlignVertical\\": \\"center\\",
@@ -219,7 +217,7 @@ exports[`Select video should select a video 1`] = `
 - First value
 + Second value
 
-@@ -114,11 +114,41 @@
+@@ -113,11 +113,41 @@
                 \\"flex\\": 1,
                 \\"justifyContent\\": \\"center\\",
               },
@@ -261,12 +259,13 @@ exports[`Select video should select a video 1`] = `
     <View
       style={
         Object {
-@@ -252,138 +282,13 @@
+@@ -247,137 +277,14 @@
+            ]
           }
           testID=\\"PostInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
-        />
+-       />
 -       <View
 -         style={
 -           Object {
@@ -305,7 +304,7 @@ exports[`Select video should select a video 1`] = `
 -               \\"width\\": 24,
 -             }
 -           }
--         />
+        />
 -         <Text
 -           style={
 -             Object {
@@ -313,7 +312,6 @@ exports[`Select video should select a video 1`] = `
 -               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -               \\"fontSize\\": 16,
 -               \\"fontStyle\\": \\"normal\\",
--               \\"fontWeight\\": \\"normal\\",
 -               \\"lineHeight\\": 24,
 -               \\"paddingHorizontal\\": 10,
 -               \\"textAlignVertical\\": \\"center\\",
@@ -376,7 +374,6 @@ exports[`Select video should select a video 1`] = `
 -                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                 \\"fontSize\\": 16,
 -                 \\"fontStyle\\": \\"normal\\",
--                 \\"fontWeight\\": \\"normal\\",
 -                 \\"lineHeight\\": 24,
 -                 \\"paddingHorizontal\\": 10,
 -                 \\"textAlignVertical\\": \\"center\\",
@@ -411,7 +408,7 @@ exports[`Updating a post user types a post 1`] = `
 - First value
 + Second value
 
-@@ -302,11 +302,11 @@
+@@ -296,11 +296,11 @@
               },
             ]
           }
@@ -522,7 +519,6 @@ exports[`renders correctly for new post 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 20,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -624,7 +620,6 @@ exports[`renders correctly for new post 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -656,7 +651,6 @@ exports[`renders correctly for new post 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -665,11 +659,10 @@ exports[`renders correctly for new post 1`] = `
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
               "paddingHorizontal": 35,
@@ -729,7 +722,6 @@ exports[`renders correctly for new post 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
               "textAlignVertical": "center",
@@ -792,7 +784,6 @@ exports[`renders correctly for new post 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "paddingHorizontal": 10,
                 "textAlignVertical": "center",
@@ -914,7 +905,6 @@ exports[`renders correctly for new post and feature flag false 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 20,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -1016,7 +1006,6 @@ exports[`renders correctly for new post and feature flag false 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -1048,7 +1037,6 @@ exports[`renders correctly for new post and feature flag false 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -1057,11 +1045,10 @@ exports[`renders correctly for new post and feature flag false 1`] = `
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
               "paddingHorizontal": 35,
@@ -1127,7 +1114,6 @@ exports[`renders correctly for new post and feature flag false 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "paddingHorizontal": 10,
                 "textAlignVertical": "center",
@@ -1249,7 +1235,6 @@ exports[`renders correctly for update post with image 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 20,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -1298,10 +1283,9 @@ exports[`renders correctly for update post with image 1`] = `
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
@@ -1313,7 +1297,6 @@ exports[`renders correctly for update post with image 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 16,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 24,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -1403,7 +1386,6 @@ exports[`renders correctly for update post with image 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -1435,7 +1417,6 @@ exports[`renders correctly for update post with image 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -1444,11 +1425,10 @@ exports[`renders correctly for update post with image 1`] = `
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
               "paddingHorizontal": 35,
@@ -1595,7 +1575,6 @@ exports[`renders correctly for update post with video 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 20,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -1644,10 +1623,9 @@ exports[`renders correctly for update post with video 1`] = `
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
@@ -1659,7 +1637,6 @@ exports[`renders correctly for update post with video 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 16,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 24,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -1749,7 +1726,6 @@ exports[`renders correctly for update post with video 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -1781,7 +1757,6 @@ exports[`renders correctly for update post with video 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -1790,11 +1765,10 @@ exports[`renders correctly for update post with video 1`] = `
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
               "paddingHorizontal": 35,
@@ -1914,7 +1888,6 @@ exports[`renders correctly for update post without media 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 20,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -1963,10 +1936,9 @@ exports[`renders correctly for update post without media 1`] = `
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
@@ -1978,7 +1950,6 @@ exports[`renders correctly for update post without media 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 16,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 24,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -2068,7 +2039,6 @@ exports[`renders correctly for update post without media 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -2100,7 +2070,6 @@ exports[`renders correctly for update post without media 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -2109,11 +2078,10 @@ exports[`renders correctly for update post without media 1`] = `
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
               "paddingHorizontal": 35,
@@ -2173,7 +2141,6 @@ exports[`renders correctly for update post without media 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
               "textAlignVertical": "center",
@@ -2236,7 +2203,6 @@ exports[`renders correctly for update post without media 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "paddingHorizontal": 10,
                 "textAlignVertical": "center",
@@ -2358,7 +2324,6 @@ exports[`renders correctly for update post without media and feature flag false 
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 20,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -2407,10 +2372,9 @@ exports[`renders correctly for update post without media and feature flag false 
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
@@ -2422,7 +2386,6 @@ exports[`renders correctly for update post without media and feature flag false 
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 16,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 24,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -2512,7 +2475,6 @@ exports[`renders correctly for update post without media and feature flag false 
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -2544,7 +2506,6 @@ exports[`renders correctly for update post without media and feature flag false 
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -2553,11 +2514,10 @@ exports[`renders correctly for update post without media and feature flag false 
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
               "paddingHorizontal": 35,
@@ -2623,7 +2583,6 @@ exports[`renders correctly for update post without media and feature flag false 
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "paddingHorizontal": 10,
                 "textAlignVertical": "center",
@@ -2745,7 +2704,6 @@ exports[`renders correctly for update post without video if feature flag is fals
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 20,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -2794,10 +2752,9 @@ exports[`renders correctly for update post without video if feature flag is fals
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
@@ -2809,7 +2766,6 @@ exports[`renders correctly for update post without video if feature flag is fals
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 16,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 24,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -2899,7 +2855,6 @@ exports[`renders correctly for update post without video if feature flag is fals
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -2931,7 +2886,6 @@ exports[`renders correctly for update post without video if feature flag is fals
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -2940,11 +2894,10 @@ exports[`renders correctly for update post without video if feature flag is fals
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
               "paddingHorizontal": 35,
@@ -3010,7 +2963,6 @@ exports[`renders correctly for update post without video if feature flag is fals
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "paddingHorizontal": 10,
                 "textAlignVertical": "center",
@@ -3132,7 +3084,6 @@ exports[`renders for post types renders for announcement 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 20,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -3234,7 +3185,6 @@ exports[`renders for post types renders for announcement 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -3266,7 +3216,6 @@ exports[`renders for post types renders for announcement 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -3275,11 +3224,10 @@ exports[`renders for post types renders for announcement 1`] = `
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
               "paddingHorizontal": 35,
@@ -3339,7 +3287,6 @@ exports[`renders for post types renders for announcement 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
               "textAlignVertical": "center",
@@ -3402,7 +3349,6 @@ exports[`renders for post types renders for announcement 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "paddingHorizontal": 10,
                 "textAlignVertical": "center",
@@ -3524,7 +3470,6 @@ exports[`renders for post types renders for help request 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 20,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -3626,7 +3571,6 @@ exports[`renders for post types renders for help request 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -3658,7 +3602,6 @@ exports[`renders for post types renders for help request 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -3667,11 +3610,10 @@ exports[`renders for post types renders for help request 1`] = `
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
               "paddingHorizontal": 35,
@@ -3731,7 +3673,6 @@ exports[`renders for post types renders for help request 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
               "textAlignVertical": "center",
@@ -3794,7 +3735,6 @@ exports[`renders for post types renders for help request 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "paddingHorizontal": 10,
                 "textAlignVertical": "center",
@@ -3916,7 +3856,6 @@ exports[`renders for post types renders for prayer request 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 20,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -4018,7 +3957,6 @@ exports[`renders for post types renders for prayer request 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -4050,7 +3988,6 @@ exports[`renders for post types renders for prayer request 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -4059,11 +3996,10 @@ exports[`renders for post types renders for prayer request 1`] = `
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
               "paddingHorizontal": 35,
@@ -4123,7 +4059,6 @@ exports[`renders for post types renders for prayer request 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
               "textAlignVertical": "center",
@@ -4186,7 +4121,6 @@ exports[`renders for post types renders for prayer request 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "paddingHorizontal": 10,
                 "textAlignVertical": "center",
@@ -4308,7 +4242,6 @@ exports[`renders for post types renders for spiritual question 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 20,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -4410,7 +4343,6 @@ exports[`renders for post types renders for spiritual question 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -4442,7 +4374,6 @@ exports[`renders for post types renders for spiritual question 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -4451,11 +4382,10 @@ exports[`renders for post types renders for spiritual question 1`] = `
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
               "paddingHorizontal": 35,
@@ -4515,7 +4445,6 @@ exports[`renders for post types renders for spiritual question 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
               "textAlignVertical": "center",
@@ -4578,7 +4507,6 @@ exports[`renders for post types renders for spiritual question 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "paddingHorizontal": 10,
                 "textAlignVertical": "center",
@@ -4700,7 +4628,6 @@ exports[`renders for post types renders for story 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 20,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -4802,7 +4729,6 @@ exports[`renders for post types renders for story 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -4834,7 +4760,6 @@ exports[`renders for post types renders for story 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -4843,11 +4768,10 @@ exports[`renders for post types renders for story 1`] = `
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
               "paddingHorizontal": 35,
@@ -4907,7 +4831,6 @@ exports[`renders for post types renders for story 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
               "textAlignVertical": "center",
@@ -4970,7 +4893,6 @@ exports[`renders for post types renders for story 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "paddingHorizontal": 10,
                 "textAlignVertical": "center",
@@ -5092,7 +5014,6 @@ exports[`renders for post types renders for thought 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 20,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -5194,7 +5115,6 @@ exports[`renders for post types renders for thought 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -5226,7 +5146,6 @@ exports[`renders for post types renders for thought 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "letterSpacing": 0.25,
               "lineHeight": 24,
               "paddingVertical": 5,
@@ -5235,11 +5154,10 @@ exports[`renders for post types renders for thought 1`] = `
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
               "paddingHorizontal": 35,
@@ -5299,7 +5217,6 @@ exports[`renders for post types renders for thought 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 10,
               "textAlignVertical": "center",
@@ -5362,7 +5279,6 @@ exports[`renders for post types renders for thought 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "paddingHorizontal": 10,
                 "textAlignVertical": "center",

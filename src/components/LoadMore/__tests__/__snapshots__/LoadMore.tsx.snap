@@ -31,10 +31,9 @@ exports[`render load more button 1`] = `
       Array [
         Object {
           "color": "#ffffff",
-          "fontFamily": "SourceSansPro-Regular",
+          "fontFamily": "SourceSansPro-Bold",
           "fontSize": 14,
           "fontStyle": "normal",
-          "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 18,
           "textAlign": "center",

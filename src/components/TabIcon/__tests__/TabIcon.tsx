@@ -118,4 +118,33 @@ describe('renders', () => {
 
     snapshot();
   });
+  it('does not show notification dot if user has zero notifications', async () => {
+    const { snapshot } = renderWithContext(
+      <TabIcon name="notifications" tintColor={'blue'} />,
+      {
+        initialApolloState: {
+          notificationState: {
+            __typename: 'NotificationState',
+            lastReadDateTime: '',
+          },
+        },
+        mocks: {
+          NotificationConnection: () => ({
+            nodes: () =>
+              new MockList(1, () => ({
+                createdAt: undefined,
+              })),
+          }),
+        },
+      },
+    );
+
+    await flushMicrotasksQueue();
+    expect(useQuery).toHaveBeenCalledWith(GET_UNREAD_NOTIFICATION_STATUS, {
+      pollInterval: 30000,
+      skip: false,
+    });
+
+    snapshot();
+  });
 });

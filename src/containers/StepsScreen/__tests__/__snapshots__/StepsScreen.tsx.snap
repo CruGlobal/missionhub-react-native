@@ -5,7 +5,7 @@ exports[`handleRefresh refetches steps and checks for unread comments 1`] = `
 - First value
 + Second value
 
-@@ -350,14 +350,14 @@
+@@ -346,14 +346,14 @@
         onScrollBeginDrag={[Function anonymous]}
         onScrollEndDrag={[Function anonymous]}
         refreshControl={
@@ -138,7 +138,6 @@ exports[`renders empty screen correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -148,7 +147,6 @@ exports[`renders empty screen correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -206,7 +204,6 @@ exports[`renders empty screen correctly 1`] = `
             "fontFamily": "AmaticSC-Bold",
             "fontSize": 42,
             "fontStyle": "normal",
-            "fontWeight": "bold",
             "letterSpacing": 2,
             "lineHeight": 42,
             "paddingTop": 10,
@@ -224,7 +221,6 @@ exports[`renders empty screen correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 24,
             "textAlign": "center",
             "textAlignVertical": "center",
@@ -241,7 +237,6 @@ exports[`renders empty screen correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 24,
             "textAlign": "center",
             "textAlignVertical": "center",
@@ -293,10 +288,9 @@ exports[`renders empty screen correctly 1`] = `
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-Bold",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "bold",
                   "letterSpacing": 1,
                   "lineHeight": 18,
                   "textAlign": "center",
@@ -414,10 +408,17 @@ exports[`renders loading screen correctly 1`] = `
                 Array [
                   Object {
                     "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "lineHeight": 16,
+                    "textAlign": "center",
+                    "textAlignVertical": "bottom",
+                    "textTransform": "none",
                   },
                   Object {
                     "fontSize": 26,
-                    "fontWeight": "300",
+                    "lineHeight": 20,
                   },
                 ]
               }
@@ -448,7 +449,6 @@ exports[`renders loading screen correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -458,7 +458,6 @@ exports[`renders loading screen correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -558,7 +557,6 @@ exports[`renders loading screen correctly 1`] = `
               "fontFamily": "AmaticSC-Bold",
               "fontSize": 64,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "letterSpacing": 2,
               "lineHeight": 48,
               "paddingVertical": 0,
@@ -699,7 +697,6 @@ exports[`renders screen with steps correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -709,7 +706,6 @@ exports[`renders screen with steps correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -816,7 +812,6 @@ exports[`renders screen with steps correctly 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "paddingTop": 5,
               "textAlign": "center",
@@ -830,11 +825,10 @@ exports[`renders screen with steps correctly 1`] = `
         <Text
           style={
             Object {
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 24,
               "paddingHorizontal": 50,
               "paddingVertical": 5,
@@ -1033,7 +1027,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 - First value
 + Second value
 
-@@ -329,10 +329,54 @@
+@@ -325,10 +325,54 @@
                 \\"reminderType\\": \\"once\\",
               },
               \\"stepType\\": \\"bond\\",
@@ -1088,7 +1082,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
         disableVirtualization={false}
         getItem={[Function anonymous]}
         getItemCount={[Function anonymous]}
-@@ -432,9 +476,82 @@
+@@ -428,9 +472,82 @@
                 }
               }
               testID=\\"stepItem\\"

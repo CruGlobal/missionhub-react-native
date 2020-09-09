@@ -77,6 +77,18 @@ describe('label variations', () => {
     renderWithContext(
       <PostTypeLabel
         type={FeedItemSubjectTypeEnum.STORY}
+        isGlobal={false}
+        communityName="Community Name"
+        size={PostLabelSizeEnum.extraLarge}
+      />,
+    ).snapshot();
+  });
+
+  it('render extra large label global', () => {
+    renderWithContext(
+      <PostTypeLabel
+        type={FeedItemSubjectTypeEnum.STORY}
+        isGlobal={true}
         communityName="Community Name"
         size={PostLabelSizeEnum.extraLarge}
       />,

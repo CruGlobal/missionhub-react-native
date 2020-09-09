@@ -5,7 +5,7 @@ exports[`renders correctly for Create Community 1`] = `
 - First value
 + Second value
 
-@@ -94,17 +94,63 @@
+@@ -93,17 +93,61 @@
       <Flex
         align=\\"center\\"
         justify=\\"center\\"
@@ -36,7 +36,6 @@ exports[`renders correctly for Create Community 1`] = `
 +               \\"fontFamily\\": \\"AmaticSC-Bold\\",
 +               \\"fontSize\\": 36,
 +               \\"fontStyle\\": \\"normal\\",
-+               \\"fontWeight\\": \\"bold\\",
 +               \\"letterSpacing\\": 2,
 +               \\"lineHeight\\": 36,
 +               \\"textAlignVertical\\": \\"center\\",
@@ -53,7 +52,6 @@ exports[`renders correctly for Create Community 1`] = `
 +               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +               \\"fontSize\\": 16,
 +               \\"fontStyle\\": \\"normal\\",
-+               \\"fontWeight\\": \\"normal\\",
 +               \\"lineHeight\\": 24,
 +               \\"paddingVertical\\": 10,
 +               \\"textAlign\\": \\"center\\",
@@ -106,7 +104,6 @@ exports[`renders correctly with logo 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 24,
           "textAlignVertical": "center",
           "textTransform": "none",
@@ -243,7 +240,6 @@ exports[`renders correctly with logo 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 24,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -296,7 +292,6 @@ exports[`renders correctly with logo 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 24,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -349,7 +344,6 @@ exports[`renders correctly with logo 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 24,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -380,7 +374,6 @@ exports[`renders correctly with logo 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 12,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 16,
                 "paddingHorizontal": 3,
                 "textAlign": "center",
@@ -403,7 +396,6 @@ exports[`renders correctly with logo 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "letterSpacing": 0,
                   "lineHeight": 16,
                   "paddingHorizontal": 3,
@@ -425,7 +417,6 @@ exports[`renders correctly with logo 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 16,
                   "paddingHorizontal": 3,
                   "textAlign": "center",
@@ -443,7 +434,6 @@ exports[`renders correctly with logo 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "letterSpacing": 0,
                   "lineHeight": 16,
                   "paddingHorizontal": 3,
@@ -476,10 +466,9 @@ exports[`renders correctly with logo 1`] = `
         style={
           Object {
             "color": "#3CC8E6",
-            "fontFamily": "SourceSansPro-Regular",
+            "fontFamily": "SourceSansPro-Bold",
             "fontSize": 14,
             "fontStyle": "normal",
-            "fontWeight": "bold",
             "letterSpacing": 1.5,
             "lineHeight": 18,
             "marginBottom": 20,
@@ -496,10 +485,9 @@ exports[`renders correctly with logo 1`] = `
         buttonTextStyle={
           Object {
             "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
+            "fontFamily": "SourceSansPro-Bold",
             "fontSize": 14,
             "fontStyle": "normal",
-            "fontWeight": "bold",
             "letterSpacing": 1.5,
             "lineHeight": 18,
             "marginBottom": 20,

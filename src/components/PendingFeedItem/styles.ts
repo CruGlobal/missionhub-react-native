@@ -17,7 +17,7 @@ export default StyleSheet.create({
   text: theme.textRegular16,
   retryText: {
     ...theme.textRegular16,
-    fontWeight: 'bold',
+    fontFamily: 'SourceSansPro-Bold',
     color: theme.secondaryColor,
   },
 });

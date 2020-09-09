@@ -171,17 +171,15 @@ exports[`label variations render extra large label 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 20,
                   "textAlignVertical": "center",
                   "textTransform": "none",
                 },
                 Object {
-                  "color": "#505256",
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
                   "fontStyle": "normal",
-                  "fontWeight": "normal",
                   "lineHeight": 20,
                   "textAlignVertical": "center",
                   "textTransform": "none",
@@ -245,7 +243,6 @@ exports[`label variations render extra large label 1`] = `
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 24,
             "fontStyle": "normal",
-            "fontWeight": "300",
             "lineHeight": 30,
             "textAlign": "center",
             "textAlignVertical": "center",
@@ -262,7 +259,6 @@ exports[`label variations render extra large label 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 20,
             "paddingHorizontal": 35,
             "paddingTop": 10,
@@ -273,6 +269,281 @@ exports[`label variations render extra large label 1`] = `
         }
       >
         Share and celebrate when God does something amazing.
+      </Text>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`label variations render extra large label global 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#7076B5",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "borderRadius": 8,
+          "elevation": 4,
+          "flexDirection": "row",
+          "marginHorizontal": 16,
+          "marginVertical": 8,
+          "shadowColor": "#000000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.3,
+          "shadowRadius": 2,
+        },
+        Array [
+          Object {
+            "borderRadius": 0,
+            "flexDirection": "column",
+            "marginHorizontal": 0,
+            "marginVertical": 0,
+            "position": "relative",
+            "shadowOpacity": 0,
+          },
+          Object {
+            "backgroundColor": "#7076B5",
+          },
+        ],
+      ]
+    }
+  >
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+              "height": 56,
+              "paddingTop": 0,
+            },
+            Object {
+              "backgroundColor": "transparent",
+              "width": "100%",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "paddingLeft": 5,
+              },
+              Object {
+                "alignItems": "flex-start",
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "flex-start",
+                  "alignSelf": "flex-start",
+                  "justifyContent": "center",
+                },
+                undefined,
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "opacity": 1,
+                }
+              }
+              testID="IconButton"
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        undefined,
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "alignItems": "center",
+                "flex": 4,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            style={
+              Array [
+                Object {
+                  "color": "white",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "lineHeight": 20,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                },
+              ]
+            }
+          >
+            Community Name
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "paddingRight": 5,
+              },
+              Object {
+                "alignItems": "flex-end",
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        />
+      </View>
+    </RCTSafeAreaView>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "height": 120,
+          "marginBottom": 5,
+          "paddingHorizontal": 25,
+          "position": "relative",
+        }
+      }
+    >
+      <SvgMock
+        color="#ffffff"
+        height={200}
+        style={
+          Array [
+            Object {
+              "marginLeft": -10,
+              "marginRight": 10,
+            },
+            Object {
+              "bottom": -60,
+              "opacity": 0.4,
+              "position": "absolute",
+              "right": -40,
+            },
+          ]
+        }
+        width={200}
+      />
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "lineHeight": 30,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
+        }
+      >
+        God Stories
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "lineHeight": 20,
+            "paddingHorizontal": 35,
+            "paddingTop": 10,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
+        }
+      >
+        Celebrate what God is doing through the MissionHub Community
       </Text>
     </View>
   </View>
@@ -415,7 +686,6 @@ exports[`label variations renders large label 1`] = `
         "fontFamily": "SourceSansPro-Regular",
         "fontSize": 14,
         "fontStyle": "normal",
-        "fontWeight": "normal",
         "lineHeight": 20,
         "textAlignVertical": "center",
         "textTransform": "none",
@@ -571,7 +841,6 @@ exports[`post types cards renders Announcement Label 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 20,
           "textAlignVertical": "center",
           "textTransform": "none",
@@ -678,7 +947,6 @@ exports[`post types cards renders Community Need Label 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 20,
           "textAlignVertical": "center",
           "textTransform": "none",
@@ -785,7 +1053,6 @@ exports[`post types cards renders God Story Label 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 20,
           "textAlignVertical": "center",
           "textTransform": "none",
@@ -892,7 +1159,6 @@ exports[`post types cards renders On Your Mind Label 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 20,
           "textAlignVertical": "center",
           "textTransform": "none",
@@ -999,7 +1265,6 @@ exports[`post types cards renders Prayer Request Label 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 20,
           "textAlignVertical": "center",
           "textTransform": "none",
@@ -1106,7 +1371,6 @@ exports[`post types cards renders Spiritual Question Label 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 20,
           "textAlignVertical": "center",
           "textTransform": "none",
@@ -1213,7 +1477,6 @@ exports[`post types cards renders Step Of Faith Label 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 20,
           "textAlignVertical": "center",
           "textTransform": "none",
@@ -1411,6 +1674,13 @@ exports[`post types cards renders people 1`] = `
             Array [
               Object {
                 "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "lineHeight": 16,
+                "textAlign": "center",
+                "textAlignVertical": "bottom",
+                "textTransform": "none",
               },
               Object {
                 "fontSize": 12,
@@ -1441,7 +1711,6 @@ exports[`post types cards renders people 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 20,
           "textAlignVertical": "center",
           "textTransform": "none",
@@ -1564,6 +1833,13 @@ exports[`post types cards renders people with count only 1`] = `
             Array [
               Object {
                 "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "lineHeight": 16,
+                "textAlign": "center",
+                "textAlignVertical": "bottom",
+                "textTransform": "none",
               },
               Object {
                 "fontSize": 12,
@@ -1594,7 +1870,6 @@ exports[`post types cards renders people with count only 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 20,
           "textAlignVertical": "center",
           "textTransform": "none",
@@ -1625,7 +1900,6 @@ exports[`post types null states renders Announcement Null State 1`] = `
         "fontFamily": "SourceSansPro-Light",
         "fontSize": 32,
         "fontStyle": "normal",
-        "fontWeight": "300",
         "lineHeight": 38,
         "textAlign": "center",
         "textAlignVertical": "center",
@@ -1643,10 +1917,9 @@ exports[`post types null states renders Announcement Null State 1`] = `
         },
         Object {
           "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
+          "fontFamily": "SourceSansPro-Bold",
           "fontSize": 16,
           "fontStyle": "normal",
-          "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
           "textAlignVertical": "center",
@@ -1678,7 +1951,6 @@ exports[`post types null states renders Community Need Null State 1`] = `
         "fontFamily": "SourceSansPro-Light",
         "fontSize": 32,
         "fontStyle": "normal",
-        "fontWeight": "300",
         "lineHeight": 38,
         "textAlign": "center",
         "textAlignVertical": "center",
@@ -1696,10 +1968,9 @@ exports[`post types null states renders Community Need Null State 1`] = `
         },
         Object {
           "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
+          "fontFamily": "SourceSansPro-Bold",
           "fontSize": 16,
           "fontStyle": "normal",
-          "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
           "textAlignVertical": "center",
@@ -1731,7 +2002,6 @@ exports[`post types null states renders God Story Null State 1`] = `
         "fontFamily": "SourceSansPro-Light",
         "fontSize": 32,
         "fontStyle": "normal",
-        "fontWeight": "300",
         "lineHeight": 38,
         "textAlign": "center",
         "textAlignVertical": "center",
@@ -1749,10 +2019,9 @@ exports[`post types null states renders God Story Null State 1`] = `
         },
         Object {
           "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
+          "fontFamily": "SourceSansPro-Bold",
           "fontSize": 16,
           "fontStyle": "normal",
-          "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
           "textAlignVertical": "center",
@@ -1784,7 +2053,6 @@ exports[`post types null states renders On Your Mind Null State 1`] = `
         "fontFamily": "SourceSansPro-Light",
         "fontSize": 32,
         "fontStyle": "normal",
-        "fontWeight": "300",
         "lineHeight": 38,
         "textAlign": "center",
         "textAlignVertical": "center",
@@ -1802,10 +2070,9 @@ exports[`post types null states renders On Your Mind Null State 1`] = `
         },
         Object {
           "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
+          "fontFamily": "SourceSansPro-Bold",
           "fontSize": 16,
           "fontStyle": "normal",
-          "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
           "textAlignVertical": "center",
@@ -1837,7 +2104,6 @@ exports[`post types null states renders Prayer Request Null State 1`] = `
         "fontFamily": "SourceSansPro-Light",
         "fontSize": 32,
         "fontStyle": "normal",
-        "fontWeight": "300",
         "lineHeight": 38,
         "textAlign": "center",
         "textAlignVertical": "center",
@@ -1855,10 +2121,9 @@ exports[`post types null states renders Prayer Request Null State 1`] = `
         },
         Object {
           "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
+          "fontFamily": "SourceSansPro-Bold",
           "fontSize": 16,
           "fontStyle": "normal",
-          "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
           "textAlignVertical": "center",
@@ -1890,7 +2155,6 @@ exports[`post types null states renders Spiritual Question Null State 1`] = `
         "fontFamily": "SourceSansPro-Light",
         "fontSize": 32,
         "fontStyle": "normal",
-        "fontWeight": "300",
         "lineHeight": 38,
         "textAlign": "center",
         "textAlignVertical": "center",
@@ -1908,10 +2172,9 @@ exports[`post types null states renders Spiritual Question Null State 1`] = `
         },
         Object {
           "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
+          "fontFamily": "SourceSansPro-Bold",
           "fontSize": 16,
           "fontStyle": "normal",
-          "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
           "textAlignVertical": "center",
@@ -1943,7 +2206,6 @@ exports[`post types null states renders Step Of Faith Null State 1`] = `
         "fontFamily": "SourceSansPro-Light",
         "fontSize": 32,
         "fontStyle": "normal",
-        "fontWeight": "300",
         "lineHeight": 38,
         "textAlign": "center",
         "textAlignVertical": "center",
@@ -1961,10 +2223,9 @@ exports[`post types null states renders Step Of Faith Null State 1`] = `
         },
         Object {
           "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
+          "fontFamily": "SourceSansPro-Bold",
           "fontSize": 16,
           "fontStyle": "normal",
-          "fontWeight": "bold",
           "letterSpacing": 1,
           "lineHeight": 20,
           "textAlignVertical": "center",
@@ -2022,7 +2283,6 @@ exports[`post types renders Announcement Label 1`] = `
         "fontFamily": "SourceSansPro-Regular",
         "fontSize": 14,
         "fontStyle": "normal",
-        "fontWeight": "normal",
         "lineHeight": 20,
         "textAlignVertical": "center",
         "textTransform": "none",
@@ -2078,7 +2338,6 @@ exports[`post types renders Community Need Label 1`] = `
         "fontFamily": "SourceSansPro-Regular",
         "fontSize": 14,
         "fontStyle": "normal",
-        "fontWeight": "normal",
         "lineHeight": 20,
         "textAlignVertical": "center",
         "textTransform": "none",
@@ -2134,7 +2393,6 @@ exports[`post types renders God Story Label 1`] = `
         "fontFamily": "SourceSansPro-Regular",
         "fontSize": 14,
         "fontStyle": "normal",
-        "fontWeight": "normal",
         "lineHeight": 20,
         "textAlignVertical": "center",
         "textTransform": "none",
@@ -2190,7 +2448,6 @@ exports[`post types renders On Your Mind Label 1`] = `
         "fontFamily": "SourceSansPro-Regular",
         "fontSize": 14,
         "fontStyle": "normal",
-        "fontWeight": "normal",
         "lineHeight": 20,
         "textAlignVertical": "center",
         "textTransform": "none",
@@ -2246,7 +2503,6 @@ exports[`post types renders Prayer Request Label 1`] = `
         "fontFamily": "SourceSansPro-Regular",
         "fontSize": 14,
         "fontStyle": "normal",
-        "fontWeight": "normal",
         "lineHeight": 20,
         "textAlignVertical": "center",
         "textTransform": "none",
@@ -2302,7 +2558,6 @@ exports[`post types renders Spiritual Question Label 1`] = `
         "fontFamily": "SourceSansPro-Regular",
         "fontSize": 14,
         "fontStyle": "normal",
-        "fontWeight": "normal",
         "lineHeight": 20,
         "textAlignVertical": "center",
         "textTransform": "none",
@@ -2358,7 +2613,6 @@ exports[`post types renders Step Of Faith Label 1`] = `
         "fontFamily": "SourceSansPro-Regular",
         "fontSize": 14,
         "fontStyle": "normal",
-        "fontWeight": "normal",
         "lineHeight": 20,
         "textAlignVertical": "center",
         "textTransform": "none",
@@ -2414,7 +2668,6 @@ exports[`renders correctly 1`] = `
         "fontFamily": "SourceSansPro-Regular",
         "fontSize": 14,
         "fontStyle": "normal",
-        "fontWeight": "normal",
         "lineHeight": 20,
         "textAlignVertical": "center",
         "textTransform": "none",
@@ -2477,7 +2730,6 @@ exports[`renders pressable correctly 1`] = `
         "fontFamily": "SourceSansPro-Regular",
         "fontSize": 14,
         "fontStyle": "normal",
-        "fontWeight": "normal",
         "lineHeight": 20,
         "textAlignVertical": "center",
         "textTransform": "none",

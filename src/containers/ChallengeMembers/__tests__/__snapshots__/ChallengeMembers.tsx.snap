@@ -126,7 +126,6 @@ exports[`renders correctly for completed members 1`] = `
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 24,
             "fontStyle": "normal",
-            "fontWeight": "300",
             "lineHeight": 30,
             "paddingHorizontal": 20,
             "textAlignVertical": "center",
@@ -291,10 +290,17 @@ exports[`renders correctly for completed members 1`] = `
                           Array [
                             Object {
                               "color": "#ffffff",
+                              "fontFamily": "SourceSansPro-Regular",
+                              "fontSize": 12,
+                              "fontStyle": "normal",
+                              "lineHeight": 16,
+                              "textAlign": "center",
+                              "textAlignVertical": "bottom",
+                              "textTransform": "none",
                             },
                             Object {
                               "fontSize": 26,
-                              "fontWeight": "300",
+                              "lineHeight": 20,
                             },
                           ]
                         }
@@ -332,7 +338,6 @@ exports[`renders correctly for completed members 1`] = `
                               "fontFamily": "SourceSansPro-Regular",
                               "fontSize": 16,
                               "fontStyle": "normal",
-                              "fontWeight": "normal",
                               "lineHeight": 24,
                               "textAlignVertical": "center",
                               "textTransform": "none",
@@ -349,7 +354,6 @@ exports[`renders correctly for completed members 1`] = `
                                 "fontFamily": "SourceSansPro-Regular",
                                 "fontSize": 12,
                                 "fontStyle": "normal",
-                                "fontWeight": "normal",
                                 "lineHeight": 16,
                                 "textAlignVertical": "center",
                                 "textTransform": "none",
@@ -365,7 +369,6 @@ exports[`renders correctly for completed members 1`] = `
                                 "fontFamily": "SourceSansPro-Regular",
                                 "fontSize": 12,
                                 "fontStyle": "normal",
-                                "fontWeight": "normal",
                                 "lineHeight": 16,
                                 "textAlignVertical": "center",
                                 "textTransform": "none",
@@ -483,10 +486,17 @@ exports[`renders correctly for completed members 1`] = `
                           Array [
                             Object {
                               "color": "#ffffff",
+                              "fontFamily": "SourceSansPro-Regular",
+                              "fontSize": 12,
+                              "fontStyle": "normal",
+                              "lineHeight": 16,
+                              "textAlign": "center",
+                              "textAlignVertical": "bottom",
+                              "textTransform": "none",
                             },
                             Object {
                               "fontSize": 26,
-                              "fontWeight": "300",
+                              "lineHeight": 20,
                             },
                           ]
                         }
@@ -524,7 +534,6 @@ exports[`renders correctly for completed members 1`] = `
                               "fontFamily": "SourceSansPro-Regular",
                               "fontSize": 16,
                               "fontStyle": "normal",
-                              "fontWeight": "normal",
                               "lineHeight": 24,
                               "textAlignVertical": "center",
                               "textTransform": "none",
@@ -541,7 +550,6 @@ exports[`renders correctly for completed members 1`] = `
                                 "fontFamily": "SourceSansPro-Regular",
                                 "fontSize": 12,
                                 "fontStyle": "normal",
-                                "fontWeight": "normal",
                                 "lineHeight": 16,
                                 "textAlignVertical": "center",
                                 "textTransform": "none",
@@ -557,7 +565,6 @@ exports[`renders correctly for completed members 1`] = `
                                 "fontFamily": "SourceSansPro-Regular",
                                 "fontSize": 12,
                                 "fontStyle": "normal",
-                                "fontWeight": "normal",
                                 "lineHeight": 16,
                                 "textAlignVertical": "center",
                                 "textTransform": "none",
@@ -716,7 +723,6 @@ exports[`renders correctly for joined members 1`] = `
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 24,
             "fontStyle": "normal",
-            "fontWeight": "300",
             "lineHeight": 30,
             "paddingHorizontal": 20,
             "textAlignVertical": "center",
@@ -873,10 +879,17 @@ exports[`renders correctly for joined members 1`] = `
                           Array [
                             Object {
                               "color": "#ffffff",
+                              "fontFamily": "SourceSansPro-Regular",
+                              "fontSize": 12,
+                              "fontStyle": "normal",
+                              "lineHeight": 16,
+                              "textAlign": "center",
+                              "textAlignVertical": "bottom",
+                              "textTransform": "none",
                             },
                             Object {
                               "fontSize": 26,
-                              "fontWeight": "300",
+                              "lineHeight": 20,
                             },
                           ]
                         }
@@ -914,7 +927,6 @@ exports[`renders correctly for joined members 1`] = `
                               "fontFamily": "SourceSansPro-Regular",
                               "fontSize": 16,
                               "fontStyle": "normal",
-                              "fontWeight": "normal",
                               "lineHeight": 24,
                               "textAlignVertical": "center",
                               "textTransform": "none",
@@ -931,7 +943,6 @@ exports[`renders correctly for joined members 1`] = `
                                 "fontFamily": "SourceSansPro-Regular",
                                 "fontSize": 12,
                                 "fontStyle": "normal",
-                                "fontWeight": "normal",
                                 "lineHeight": 16,
                                 "textAlignVertical": "center",
                                 "textTransform": "none",
@@ -947,7 +958,6 @@ exports[`renders correctly for joined members 1`] = `
                                 "fontFamily": "SourceSansPro-Regular",
                                 "fontSize": 12,
                                 "fontStyle": "normal",
-                                "fontWeight": "normal",
                                 "lineHeight": 16,
                                 "textAlignVertical": "center",
                                 "textTransform": "none",
@@ -1106,7 +1116,6 @@ exports[`renders plural sentence for joined members 1`] = `
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 24,
             "fontStyle": "normal",
-            "fontWeight": "300",
             "lineHeight": 30,
             "paddingHorizontal": 20,
             "textAlignVertical": "center",
@@ -1271,10 +1280,17 @@ exports[`renders plural sentence for joined members 1`] = `
                           Array [
                             Object {
                               "color": "#ffffff",
+                              "fontFamily": "SourceSansPro-Regular",
+                              "fontSize": 12,
+                              "fontStyle": "normal",
+                              "lineHeight": 16,
+                              "textAlign": "center",
+                              "textAlignVertical": "bottom",
+                              "textTransform": "none",
                             },
                             Object {
                               "fontSize": 26,
-                              "fontWeight": "300",
+                              "lineHeight": 20,
                             },
                           ]
                         }
@@ -1312,7 +1328,6 @@ exports[`renders plural sentence for joined members 1`] = `
                               "fontFamily": "SourceSansPro-Regular",
                               "fontSize": 16,
                               "fontStyle": "normal",
-                              "fontWeight": "normal",
                               "lineHeight": 24,
                               "textAlignVertical": "center",
                               "textTransform": "none",
@@ -1329,7 +1344,6 @@ exports[`renders plural sentence for joined members 1`] = `
                                 "fontFamily": "SourceSansPro-Regular",
                                 "fontSize": 12,
                                 "fontStyle": "normal",
-                                "fontWeight": "normal",
                                 "lineHeight": 16,
                                 "textAlignVertical": "center",
                                 "textTransform": "none",
@@ -1345,7 +1359,6 @@ exports[`renders plural sentence for joined members 1`] = `
                                 "fontFamily": "SourceSansPro-Regular",
                                 "fontSize": 12,
                                 "fontStyle": "normal",
-                                "fontWeight": "normal",
                                 "lineHeight": 16,
                                 "textAlignVertical": "center",
                                 "textTransform": "none",
@@ -1463,10 +1476,17 @@ exports[`renders plural sentence for joined members 1`] = `
                           Array [
                             Object {
                               "color": "#ffffff",
+                              "fontFamily": "SourceSansPro-Regular",
+                              "fontSize": 12,
+                              "fontStyle": "normal",
+                              "lineHeight": 16,
+                              "textAlign": "center",
+                              "textAlignVertical": "bottom",
+                              "textTransform": "none",
                             },
                             Object {
                               "fontSize": 26,
-                              "fontWeight": "300",
+                              "lineHeight": 20,
                             },
                           ]
                         }
@@ -1504,7 +1524,6 @@ exports[`renders plural sentence for joined members 1`] = `
                               "fontFamily": "SourceSansPro-Regular",
                               "fontSize": 16,
                               "fontStyle": "normal",
-                              "fontWeight": "normal",
                               "lineHeight": 24,
                               "textAlignVertical": "center",
                               "textTransform": "none",
@@ -1521,7 +1540,6 @@ exports[`renders plural sentence for joined members 1`] = `
                                 "fontFamily": "SourceSansPro-Regular",
                                 "fontSize": 12,
                                 "fontStyle": "normal",
-                                "fontWeight": "normal",
                                 "lineHeight": 16,
                                 "textAlignVertical": "center",
                                 "textTransform": "none",
@@ -1537,7 +1555,6 @@ exports[`renders plural sentence for joined members 1`] = `
                                 "fontFamily": "SourceSansPro-Regular",
                                 "fontSize": 12,
                                 "fontStyle": "normal",
-                                "fontWeight": "normal",
                                 "lineHeight": 16,
                                 "textAlignVertical": "center",
                                 "textTransform": "none",
@@ -1696,7 +1713,6 @@ exports[`renders singular sentence for completed members 1`] = `
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 24,
             "fontStyle": "normal",
-            "fontWeight": "300",
             "lineHeight": 30,
             "paddingHorizontal": 20,
             "textAlignVertical": "center",
@@ -1853,10 +1869,17 @@ exports[`renders singular sentence for completed members 1`] = `
                           Array [
                             Object {
                               "color": "#ffffff",
+                              "fontFamily": "SourceSansPro-Regular",
+                              "fontSize": 12,
+                              "fontStyle": "normal",
+                              "lineHeight": 16,
+                              "textAlign": "center",
+                              "textAlignVertical": "bottom",
+                              "textTransform": "none",
                             },
                             Object {
                               "fontSize": 26,
-                              "fontWeight": "300",
+                              "lineHeight": 20,
                             },
                           ]
                         }
@@ -1894,7 +1917,6 @@ exports[`renders singular sentence for completed members 1`] = `
                               "fontFamily": "SourceSansPro-Regular",
                               "fontSize": 16,
                               "fontStyle": "normal",
-                              "fontWeight": "normal",
                               "lineHeight": 24,
                               "textAlignVertical": "center",
                               "textTransform": "none",
@@ -1911,7 +1933,6 @@ exports[`renders singular sentence for completed members 1`] = `
                                 "fontFamily": "SourceSansPro-Regular",
                                 "fontSize": 12,
                                 "fontStyle": "normal",
-                                "fontWeight": "normal",
                                 "lineHeight": 16,
                                 "textAlignVertical": "center",
                                 "textTransform": "none",
@@ -1927,7 +1948,6 @@ exports[`renders singular sentence for completed members 1`] = `
                                 "fontFamily": "SourceSansPro-Regular",
                                 "fontSize": 12,
                                 "fontStyle": "normal",
-                                "fontWeight": "normal",
                                 "lineHeight": 16,
                                 "textAlignVertical": "center",
                                 "textTransform": "none",

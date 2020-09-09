@@ -36,7 +36,6 @@ export default StyleSheet.create({
     flex: 1,
     fontSize: 12,
     lineHeight: 16,
-    fontWeight: 'bold',
     color: theme.white,
   },
   closeWrap: {

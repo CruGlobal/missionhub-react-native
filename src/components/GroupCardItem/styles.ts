@@ -31,8 +31,7 @@ export default StyleSheet.create({
     borderBottomRightRadius: borderRadius,
   },
   groupName: {
-    fontSize: 14,
-    fontWeight: 'bold',
+    ...theme.textBold14,
     color: theme.white,
   },
   groupNumber: {

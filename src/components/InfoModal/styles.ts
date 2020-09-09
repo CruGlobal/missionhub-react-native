@@ -35,11 +35,9 @@ export default StyleSheet.create({
     justifyContent: 'flex-end',
   },
   titleText: {
+    ...theme.textLight24,
     fontFamily: 'SourceSansPro-Light',
-    fontSize: 24,
-    lineHeight: 30,
     textAlign: 'center',
-    fontWeight: '300',
     color: '#333333',
   },
   bodyText: {

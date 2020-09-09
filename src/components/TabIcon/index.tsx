@@ -26,7 +26,7 @@ const TabIcon = ({ name, tintColor }: TabIconProps) => {
     skip: name != 'notifications',
     pollInterval: 30000,
   });
-  const latestNotification = nodes[0]?.createdAt;
+  const latestNotification = nodes[0]?.createdAt || '';
   const iconSize = isAndroid ? 22 : 24;
 
   const showNotification = () => {

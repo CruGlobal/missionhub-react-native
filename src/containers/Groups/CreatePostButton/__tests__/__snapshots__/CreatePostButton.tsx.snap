@@ -88,7 +88,6 @@ exports[`does render announcement for owner 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 20,
           "paddingLeft": 10,
           "textAlignVertical": "center",
@@ -107,7 +106,7 @@ exports[`onPress opens modal 1`] = `
 - First value
 + Second value
 
-@@ -16,10 +16,452 @@
+@@ -16,10 +16,446 @@
         \\"shadowOpacity\\": 0.3,
         \\"shadowRadius\\": 2,
       }
@@ -201,7 +200,6 @@ exports[`onPress opens modal 1`] = `
 +               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +               \\"fontSize\\": 14,
 +               \\"fontStyle\\": \\"normal\\",
-+               \\"fontWeight\\": \\"normal\\",
 +               \\"lineHeight\\": 20,
 +               \\"paddingBottom\\": 20,
 +               \\"textAlign\\": \\"center\\",
@@ -269,7 +267,6 @@ exports[`onPress opens modal 1`] = `
 +                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                   \\"fontSize\\": 14,
 +                   \\"fontStyle\\": \\"normal\\",
-+                   \\"fontWeight\\": \\"normal\\",
 +                   \\"lineHeight\\": 20,
 +                   \\"textAlignVertical\\": \\"center\\",
 +                   \\"textTransform\\": \\"none\\",
@@ -337,7 +334,6 @@ exports[`onPress opens modal 1`] = `
 +                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                   \\"fontSize\\": 14,
 +                   \\"fontStyle\\": \\"normal\\",
-+                   \\"fontWeight\\": \\"normal\\",
 +                   \\"lineHeight\\": 20,
 +                   \\"textAlignVertical\\": \\"center\\",
 +                   \\"textTransform\\": \\"none\\",
@@ -405,7 +401,6 @@ exports[`onPress opens modal 1`] = `
 +                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                   \\"fontSize\\": 14,
 +                   \\"fontStyle\\": \\"normal\\",
-+                   \\"fontWeight\\": \\"normal\\",
 +                   \\"lineHeight\\": 20,
 +                   \\"textAlignVertical\\": \\"center\\",
 +                   \\"textTransform\\": \\"none\\",
@@ -473,7 +468,6 @@ exports[`onPress opens modal 1`] = `
 +                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                   \\"fontSize\\": 14,
 +                   \\"fontStyle\\": \\"normal\\",
-+                   \\"fontWeight\\": \\"normal\\",
 +                   \\"lineHeight\\": 20,
 +                   \\"textAlignVertical\\": \\"center\\",
 +                   \\"textTransform\\": \\"none\\",
@@ -541,7 +535,6 @@ exports[`onPress opens modal 1`] = `
 +                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                   \\"fontSize\\": 14,
 +                   \\"fontStyle\\": \\"normal\\",
-+                   \\"fontWeight\\": \\"normal\\",
 +                   \\"lineHeight\\": 20,
 +                   \\"textAlignVertical\\": \\"center\\",
 +                   \\"textTransform\\": \\"none\\",
@@ -644,7 +637,6 @@ exports[`renders correctly 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 20,
           "paddingLeft": 10,
           "textAlignVertical": "center",
@@ -740,7 +732,6 @@ exports[`renders correctly for admin 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 20,
           "paddingLeft": 10,
           "textAlignVertical": "center",
@@ -836,7 +827,6 @@ exports[`renders correctly for owner 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 20,
           "paddingLeft": 10,
           "textAlignVertical": "center",
@@ -930,6 +920,13 @@ exports[`renders correctly with type 1`] = `
           Array [
             Object {
               "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "lineHeight": 16,
+              "textAlign": "center",
+              "textAlignVertical": "bottom",
+              "textTransform": "none",
             },
             Object {
               "fontSize": 12,
@@ -947,7 +944,6 @@ exports[`renders correctly with type 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 14,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 20,
           "paddingLeft": 10,
           "textAlignVertical": "center",

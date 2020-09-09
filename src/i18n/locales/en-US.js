@@ -117,6 +117,7 @@ export default {
     privacy: 'Privacy Policy',
     and: 'and',
     signIn: 'Sign In',
+    missionhubCommunity: 'MissionHub Community',
   },
   mainTabs: {
     takeAStepWithSomeone: 'Take a Step With Someone',
@@ -852,6 +853,12 @@ export default {
       THOUGHT:
         'Share a random thought, or pass on the meme that made you laugh until you cried.',
       STEP: 'Recognize your Community’s steps of faith.',
+    },
+    globalSubheader: {
+      STORY: 'Celebrate what God is doing through the MissionHub Community',
+      PRAYER_REQUEST: 'Join the MissionHub Community in prayer.',
+      ANNOUNCEMENT: 'Get the latest MissionHub news.',
+      STEP: "Recognize one anothers' steps of faith",
     },
     nullState: {
       STORY: 'Spur one another on toward love and good deeds.',

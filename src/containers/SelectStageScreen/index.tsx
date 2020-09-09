@@ -217,7 +217,7 @@ const SelectStageScreen = ({
         ]}
       />
       <View style={styles.container}>
-        <Header left={<DeprecatedBackButton />} />
+        <Header left={enableBackButton ? <DeprecatedBackButton /> : null} />
         <View style={styles.content}>
           <Text style={styles.title}>{headerText}</Text>
           {stages ? (

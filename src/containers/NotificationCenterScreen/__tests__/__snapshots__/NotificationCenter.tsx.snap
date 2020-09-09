@@ -5,7 +5,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 - First value
 + Second value
 
-@@ -154,58 +154,57 @@
+@@ -152,58 +152,57 @@
         Array [
           Object {
             \\"data\\": Array [
@@ -89,7 +89,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
             ],
             \\"id\\": 0,
             \\"name\\": \\"reportedActivity\\",
-@@ -520,11 +519,321 @@
+@@ -518,11 +517,321 @@
                   \\"id\\": \\"20\\",
                   \\"picture\\": \\"et facere placeat\\",
                 },
@@ -411,7 +411,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
           },
         ]
       }
-@@ -639,11 +948,11 @@
+@@ -636,11 +945,11 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -424,7 +424,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
                 style={
                   Object {
                     \\"borderRadius\\": 24,
-@@ -702,11 +1011,11 @@
+@@ -697,11 +1006,11 @@
                         \\"textAlignVertical\\": \\"center\\",
                         \\"textTransform\\": \\"none\\",
                       }
@@ -437,7 +437,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
                     has been reported.
                   </Text>
                   <Text
-@@ -739,11 +1048,11 @@
+@@ -732,11 +1041,11 @@
                       \\"textTransform\\": \\"none\\",
                     }
                   }
@@ -450,7 +450,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
             </View>
           </View>
         </View>
-@@ -784,11 +1093,11 @@
+@@ -777,11 +1086,11 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -463,7 +463,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
                 style={
                   Object {
                     \\"borderRadius\\": 24,
-@@ -831,11 +1140,11 @@
+@@ -823,11 +1132,11 @@
                       \\"textTransform\\": \\"none\\",
                     }
                   }
@@ -476,7 +476,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
                     style={
                       Object {
                         \\"color\\": \\"#505256\\",
-@@ -847,11 +1156,11 @@
+@@ -838,11 +1147,11 @@
                         \\"textAlignVertical\\": \\"center\\",
                         \\"textTransform\\": \\"none\\",
                       }
@@ -489,7 +489,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
                     has been reported.
                   </Text>
                   <Text
-@@ -884,11 +1193,11 @@
+@@ -873,11 +1182,11 @@
                       \\"textTransform\\": \\"none\\",
                     }
                   }
@@ -514,7 +514,7 @@ exports[`handles refresh 1`] = `
 - First value
 + Second value
 
-@@ -154,373 +154,372 @@
+@@ -152,373 +152,372 @@
         Array [
           Object {
             \\"data\\": Array [
@@ -1043,7 +1043,7 @@ exports[`handles refresh 1`] = `
               },
             ],
             \\"id\\": 2,
-@@ -639,11 +638,11 @@
+@@ -636,11 +635,11 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -1056,7 +1056,7 @@ exports[`handles refresh 1`] = `
                 style={
                   Object {
                     \\"borderRadius\\": 24,
-@@ -702,11 +701,11 @@
+@@ -697,11 +696,11 @@
                         \\"textAlignVertical\\": \\"center\\",
                         \\"textTransform\\": \\"none\\",
                       }
@@ -1069,7 +1069,7 @@ exports[`handles refresh 1`] = `
                     has been reported.
                   </Text>
                   <Text
-@@ -739,11 +738,11 @@
+@@ -732,11 +731,11 @@
                       \\"textTransform\\": \\"none\\",
                     }
                   }
@@ -1082,7 +1082,7 @@ exports[`handles refresh 1`] = `
             </View>
           </View>
         </View>
-@@ -784,11 +783,11 @@
+@@ -777,11 +776,11 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -1095,7 +1095,7 @@ exports[`handles refresh 1`] = `
                 style={
                   Object {
                     \\"borderRadius\\": 24,
-@@ -831,11 +830,11 @@
+@@ -823,11 +822,11 @@
                       \\"textTransform\\": \\"none\\",
                     }
                   }
@@ -1108,7 +1108,7 @@ exports[`handles refresh 1`] = `
                     style={
                       Object {
                         \\"color\\": \\"#505256\\",
-@@ -847,11 +846,11 @@
+@@ -838,11 +837,11 @@
                         \\"textAlignVertical\\": \\"center\\",
                         \\"textTransform\\": \\"none\\",
                       }
@@ -1121,7 +1121,7 @@ exports[`handles refresh 1`] = `
                     has been reported.
                   </Text>
                   <Text
-@@ -884,11 +883,11 @@
+@@ -873,11 +872,11 @@
                       \\"textTransform\\": \\"none\\",
                     }
                   }
@@ -1134,7 +1134,7 @@ exports[`handles refresh 1`] = `
             </View>
           </View>
         </View>
-@@ -965,22 +964,22 @@
+@@ -953,22 +952,22 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -1159,7 +1159,7 @@ exports[`handles refresh 1`] = `
                   ]
                 }
               />
-@@ -1061,11 +1060,11 @@
+@@ -1048,11 +1047,11 @@
                       \\"textTransform\\": \\"none\\",
                     }
                   }
@@ -1172,7 +1172,7 @@ exports[`handles refresh 1`] = `
                 <Text
                   style={
                     Object {
-@@ -1079,11 +1078,11 @@
+@@ -1065,11 +1064,11 @@
                       \\"textTransform\\": \\"none\\",
                     }
                   }
@@ -1185,7 +1185,7 @@ exports[`handles refresh 1`] = `
             </View>
           </View>
         </View>
-@@ -1124,22 +1123,22 @@
+@@ -1110,22 +1109,22 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -1210,7 +1210,7 @@ exports[`handles refresh 1`] = `
                   ]
                 }
               />
-@@ -1220,11 +1219,11 @@
+@@ -1205,11 +1204,11 @@
                       \\"textTransform\\": \\"none\\",
                     }
                   }
@@ -1223,7 +1223,7 @@ exports[`handles refresh 1`] = `
                 <Text
                   style={
                     Object {
-@@ -1238,11 +1237,11 @@
+@@ -1222,11 +1221,11 @@
                       \\"textTransform\\": \\"none\\",
                     }
                   }
@@ -1236,7 +1236,7 @@ exports[`handles refresh 1`] = `
             </View>
           </View>
         </View>
-@@ -1283,22 +1282,22 @@
+@@ -1267,22 +1266,22 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -1261,7 +1261,7 @@ exports[`handles refresh 1`] = `
                   ]
                 }
               />
-@@ -1379,11 +1378,11 @@
+@@ -1362,11 +1361,11 @@
                       \\"textTransform\\": \\"none\\",
                     }
                   }
@@ -1274,7 +1274,7 @@ exports[`handles refresh 1`] = `
                 <Text
                   style={
                     Object {
-@@ -1397,11 +1396,11 @@
+@@ -1379,11 +1378,11 @@
                       \\"textTransform\\": \\"none\\",
                     }
                   }
@@ -1287,7 +1287,7 @@ exports[`handles refresh 1`] = `
             </View>
           </View>
         </View>
-@@ -1442,22 +1441,22 @@
+@@ -1424,22 +1423,22 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -1312,7 +1312,7 @@ exports[`handles refresh 1`] = `
                   ]
                 }
               />
-@@ -1538,11 +1537,11 @@
+@@ -1519,11 +1518,11 @@
                       \\"textTransform\\": \\"none\\",
                     }
                   }
@@ -1325,7 +1325,7 @@ exports[`handles refresh 1`] = `
                 <Text
                   style={
                     Object {
-@@ -1556,11 +1555,11 @@
+@@ -1536,11 +1535,11 @@
                       \\"textTransform\\": \\"none\\",
                     }
                   }
@@ -1338,7 +1338,7 @@ exports[`handles refresh 1`] = `
             </View>
           </View>
         </View>
-@@ -1601,22 +1600,22 @@
+@@ -1581,22 +1580,22 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -1363,7 +1363,7 @@ exports[`handles refresh 1`] = `
                   ]
                 }
               />
-@@ -1697,11 +1696,11 @@
+@@ -1676,11 +1675,11 @@
                       \\"textTransform\\": \\"none\\",
                     }
                   }
@@ -1376,7 +1376,7 @@ exports[`handles refresh 1`] = `
                 <Text
                   style={
                     Object {
-@@ -1715,11 +1714,11 @@
+@@ -1693,11 +1692,11 @@
                       \\"textTransform\\": \\"none\\",
                     }
                   }
@@ -1505,7 +1505,6 @@ exports[`renders Earlier section correctly  1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -1515,7 +1514,6 @@ exports[`renders Earlier section correctly  1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -1702,7 +1700,6 @@ exports[`renders Earlier section correctly  1`] = `
                 "fontFamily": "SourceSansPro-Light",
                 "fontSize": 24,
                 "fontStyle": "normal",
-                "fontWeight": "300",
                 "lineHeight": 30,
                 "marginLeft": 10,
                 "padding": 10,
@@ -1793,7 +1790,6 @@ exports[`renders Earlier section correctly  1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 24,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -1807,10 +1803,9 @@ exports[`renders Earlier section correctly  1`] = `
                   style={
                     Object {
                       "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
                       "lineHeight": 24,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -1826,10 +1821,9 @@ exports[`renders Earlier section correctly  1`] = `
                   style={
                     Object {
                       "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
                       "lineHeight": 24,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -1846,7 +1840,6 @@ exports[`renders Earlier section correctly  1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 12,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 16,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -1938,7 +1931,6 @@ exports[`renders Earlier section correctly  1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 24,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -1952,10 +1944,9 @@ exports[`renders Earlier section correctly  1`] = `
                   style={
                     Object {
                       "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
                       "lineHeight": 24,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -1971,10 +1962,9 @@ exports[`renders Earlier section correctly  1`] = `
                   style={
                     Object {
                       "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
                       "lineHeight": 24,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -1991,7 +1981,6 @@ exports[`renders Earlier section correctly  1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 12,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 16,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -2028,7 +2017,6 @@ exports[`renders Earlier section correctly  1`] = `
                 "fontFamily": "SourceSansPro-Light",
                 "fontSize": 24,
                 "fontStyle": "normal",
-                "fontWeight": "300",
                 "lineHeight": 30,
                 "marginLeft": 10,
                 "padding": 10,
@@ -2168,7 +2156,6 @@ exports[`renders Earlier section correctly  1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 24,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -2186,7 +2173,6 @@ exports[`renders Earlier section correctly  1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 12,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 16,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -2330,7 +2316,6 @@ exports[`renders Today section correctly  1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -2340,7 +2325,6 @@ exports[`renders Today section correctly  1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -2527,7 +2511,6 @@ exports[`renders Today section correctly  1`] = `
                 "fontFamily": "SourceSansPro-Light",
                 "fontSize": 24,
                 "fontStyle": "normal",
-                "fontWeight": "300",
                 "lineHeight": 30,
                 "marginLeft": 10,
                 "padding": 10,
@@ -2618,7 +2601,6 @@ exports[`renders Today section correctly  1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 24,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -2632,10 +2614,9 @@ exports[`renders Today section correctly  1`] = `
                   style={
                     Object {
                       "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
                       "lineHeight": 24,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -2651,10 +2632,9 @@ exports[`renders Today section correctly  1`] = `
                   style={
                     Object {
                       "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
                       "lineHeight": 24,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -2671,7 +2651,6 @@ exports[`renders Today section correctly  1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 12,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 16,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -2763,7 +2742,6 @@ exports[`renders Today section correctly  1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 24,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -2777,10 +2755,9 @@ exports[`renders Today section correctly  1`] = `
                   style={
                     Object {
                       "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
                       "lineHeight": 24,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -2796,10 +2773,9 @@ exports[`renders Today section correctly  1`] = `
                   style={
                     Object {
                       "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
                       "lineHeight": 24,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -2816,7 +2792,6 @@ exports[`renders Today section correctly  1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 12,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 16,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -2853,7 +2828,6 @@ exports[`renders Today section correctly  1`] = `
                 "fontFamily": "SourceSansPro-Light",
                 "fontSize": 24,
                 "fontStyle": "normal",
-                "fontWeight": "300",
                 "lineHeight": 30,
                 "marginLeft": 10,
                 "padding": 10,
@@ -2993,7 +2967,6 @@ exports[`renders Today section correctly  1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 24,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -3011,7 +2984,6 @@ exports[`renders Today section correctly  1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 12,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 16,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -3155,7 +3127,6 @@ exports[`renders correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -3165,7 +3136,6 @@ exports[`renders correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -3633,7 +3603,6 @@ exports[`renders correctly 1`] = `
                 "fontFamily": "SourceSansPro-Light",
                 "fontSize": 24,
                 "fontStyle": "normal",
-                "fontWeight": "300",
                 "lineHeight": 30,
                 "marginLeft": 10,
                 "padding": 10,
@@ -3724,7 +3693,6 @@ exports[`renders correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 24,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -3738,10 +3706,9 @@ exports[`renders correctly 1`] = `
                   style={
                     Object {
                       "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
                       "lineHeight": 24,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -3757,10 +3724,9 @@ exports[`renders correctly 1`] = `
                   style={
                     Object {
                       "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
                       "lineHeight": 24,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -3777,7 +3743,6 @@ exports[`renders correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 12,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 16,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -3869,7 +3834,6 @@ exports[`renders correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 24,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -3883,10 +3847,9 @@ exports[`renders correctly 1`] = `
                   style={
                     Object {
                       "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
                       "lineHeight": 24,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -3902,10 +3865,9 @@ exports[`renders correctly 1`] = `
                   style={
                     Object {
                       "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
                       "lineHeight": 24,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -3922,7 +3884,6 @@ exports[`renders correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 12,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 16,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -3959,7 +3920,6 @@ exports[`renders correctly 1`] = `
                 "fontFamily": "SourceSansPro-Light",
                 "fontSize": 24,
                 "fontStyle": "normal",
-                "fontWeight": "300",
                 "lineHeight": 30,
                 "marginLeft": 10,
                 "padding": 10,
@@ -4099,7 +4059,6 @@ exports[`renders correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 24,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -4117,7 +4076,6 @@ exports[`renders correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 12,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 16,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -4258,7 +4216,6 @@ exports[`renders correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 24,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -4276,7 +4233,6 @@ exports[`renders correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 12,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 16,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -4417,7 +4373,6 @@ exports[`renders correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 24,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -4435,7 +4390,6 @@ exports[`renders correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 12,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 16,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -4576,7 +4530,6 @@ exports[`renders correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 24,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -4594,7 +4547,6 @@ exports[`renders correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 12,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 16,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -4735,7 +4687,6 @@ exports[`renders correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 24,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -4753,7 +4704,6 @@ exports[`renders correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 12,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 16,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -4893,7 +4843,6 @@ exports[`renders null for non-english users 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -4903,7 +4852,6 @@ exports[`renders null for non-english users 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -5006,7 +4954,6 @@ exports[`renders null for non-english users 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "paddingVertical": 30,
               "textAlignVertical": "center",
@@ -5023,7 +4970,6 @@ exports[`renders null for non-english users 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 24,
               "maxWidth": 300,
               "textAlign": "center",
@@ -5136,10 +5082,17 @@ exports[`renders with no data 1`] = `
                 Array [
                   Object {
                     "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "lineHeight": 16,
+                    "textAlign": "center",
+                    "textAlignVertical": "bottom",
+                    "textTransform": "none",
                   },
                   Object {
                     "fontSize": 26,
-                    "fontWeight": "300",
+                    "lineHeight": 20,
                   },
                 ]
               }
@@ -5170,7 +5123,6 @@ exports[`renders with no data 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -5180,7 +5132,6 @@ exports[`renders with no data 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -5283,7 +5234,6 @@ exports[`renders with no data 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "paddingVertical": 30,
               "textAlignVertical": "center",
@@ -5300,7 +5250,6 @@ exports[`renders with no data 1`] = `
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "normal",
               "lineHeight": 24,
               "maxWidth": 300,
               "textAlign": "center",
@@ -5431,7 +5380,6 @@ exports[`renders with refresh button 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 20,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -5441,7 +5389,6 @@ exports[`renders with refresh button 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
-                "fontWeight": "normal",
                 "lineHeight": 24,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -5591,7 +5538,6 @@ exports[`renders with refresh button 1`] = `
                 "fontFamily": "SourceSansPro-Light",
                 "fontSize": 24,
                 "fontStyle": "normal",
-                "fontWeight": "300",
                 "lineHeight": 30,
                 "marginLeft": 10,
                 "padding": 10,
@@ -5682,7 +5628,6 @@ exports[`renders with refresh button 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 24,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -5696,10 +5641,9 @@ exports[`renders with refresh button 1`] = `
                   style={
                     Object {
                       "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
                       "lineHeight": 24,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -5715,10 +5659,9 @@ exports[`renders with refresh button 1`] = `
                   style={
                     Object {
                       "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
                       "lineHeight": 24,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -5735,7 +5678,6 @@ exports[`renders with refresh button 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 12,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 16,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -5827,7 +5769,6 @@ exports[`renders with refresh button 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 16,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 24,
                     "textAlignVertical": "center",
                     "textTransform": "none",
@@ -5841,10 +5782,9 @@ exports[`renders with refresh button 1`] = `
                   style={
                     Object {
                       "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
                       "lineHeight": 24,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -5860,10 +5800,9 @@ exports[`renders with refresh button 1`] = `
                   style={
                     Object {
                       "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontFamily": "SourceSansPro-Bold",
                       "fontSize": 16,
                       "fontStyle": "normal",
-                      "fontWeight": "bold",
                       "lineHeight": 24,
                       "textAlignVertical": "center",
                       "textTransform": "none",
@@ -5880,7 +5819,6 @@ exports[`renders with refresh button 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 12,
                     "fontStyle": "normal",
-                    "fontWeight": "normal",
                     "lineHeight": 16,
                     "textAlignVertical": "center",
                     "textTransform": "none",

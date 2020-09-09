@@ -8,6 +8,7 @@ import {
   removeFromStepsList,
 } from '../../../actions/steps';
 import { navigateBack } from '../../../actions/navigation';
+import { updatePersonGQL } from '../../../actions/person';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { AcceptedStepDetail_step_receiver } from '../__generated__/AcceptedStepDetail';
 import {
@@ -21,6 +22,7 @@ import AcceptedStepDetailScreen from '..';
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/stepReminders');
 jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/person');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../components/ReminderButton', () => ({
   __esModule: true,
@@ -190,6 +192,7 @@ it('should complete step', async () => {
     'Step Detail',
     true,
   );
+  expect(updatePersonGQL).toHaveBeenCalledWith(otherId);
 
   expect(store.getActions()).toEqual([handleAfterCompleteStepResult]);
 });
@@ -203,6 +206,9 @@ it('should delete step', async () => {
       mocks: {
         Step: () => ({
           id: stepId,
+          receiver: () => ({
+            id: otherId,
+          }),
         }),
       },
     },
@@ -218,6 +224,7 @@ it('should delete step', async () => {
   expect(trackStepDeleted).toHaveBeenCalledWith('Step Detail');
   expect(removeFromStepsList).toHaveBeenCalledWith(stepId, otherId);
   expect(navigateBack).toHaveBeenCalled();
+  expect(updatePersonGQL).toHaveBeenCalledWith(otherId);
   expect(store.getActions()).toEqual([
     navigateBackResult,
     trackStepDeletedResult,
