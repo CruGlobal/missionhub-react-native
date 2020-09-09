@@ -63,7 +63,6 @@ exports[`PendingFeedItem renders failed post 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
             "fontStyle": "normal",
-            "fontWeight": "normal",
             "lineHeight": 24,
             "textAlignVertical": "center",
             "textTransform": "none",
@@ -93,10 +92,9 @@ exports[`PendingFeedItem renders failed post 1`] = `
           style={
             Object {
               "color": "#3CC8E6",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-Bold",
               "fontSize": 16,
               "fontStyle": "normal",
-              "fontWeight": "bold",
               "lineHeight": 24,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -194,7 +192,6 @@ exports[`PendingFeedItem renders pending post 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 16,
           "fontStyle": "normal",
-          "fontWeight": "normal",
           "lineHeight": 24,
           "textAlignVertical": "center",
           "textTransform": "none",

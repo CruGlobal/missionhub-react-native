@@ -61,7 +61,6 @@ export default StyleSheet.create({
   },
   onboardingDescription: {
     ...theme.textRegular16,
-    color: theme.lightGrey,
     paddingHorizontal: 50,
     textAlign: 'center',
     paddingVertical: 5,
@@ -91,9 +90,6 @@ export default StyleSheet.create({
     ...theme.textBold14,
     fontSize: 12,
     color: theme.white,
-  },
-  unreadTitle: {
-    fontWeight: '400',
   },
   reportList: {
     paddingVertical: 15,

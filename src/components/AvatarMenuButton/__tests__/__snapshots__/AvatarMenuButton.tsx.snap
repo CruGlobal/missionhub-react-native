@@ -53,10 +53,17 @@ exports[`renders correctly 1`] = `
         Array [
           Object {
             "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "lineHeight": 16,
+            "textAlign": "center",
+            "textAlignVertical": "bottom",
+            "textTransform": "none",
           },
           Object {
             "fontSize": 26,
-            "fontWeight": "300",
+            "lineHeight": 20,
           },
         ]
       }

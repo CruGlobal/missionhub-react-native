@@ -109,9 +109,11 @@ exports[`should render correctly 1`] = `
               "color": "#333333",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
-              "fontWeight": "300",
+              "fontStyle": "normal",
               "lineHeight": 30,
               "textAlign": "center",
+              "textAlignVertical": "center",
+              "textTransform": "none",
             },
             undefined,
           ]
@@ -154,10 +156,9 @@ exports[`should render correctly 1`] = `
             Array [
               Object {
                 "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-Bold",
                 "fontSize": 14,
                 "fontStyle": "normal",
-                "fontWeight": "bold",
                 "letterSpacing": 1,
                 "lineHeight": 18,
                 "textAlign": "center",

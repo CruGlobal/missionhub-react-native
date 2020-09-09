@@ -20,6 +20,6 @@ export default StyleSheet.create({
     maxWidth: 350,
   },
   itemText: theme.textRegular16,
-  boldedItemText: { ...theme.textRegular16, fontWeight: 'bold' },
+  boldedItemText: { ...theme.textRegular16, fontFamily: 'SourceSansPro-Bold' },
   wrapStyle: { width: 48, height: 48, borderRadius: 24 },
 });

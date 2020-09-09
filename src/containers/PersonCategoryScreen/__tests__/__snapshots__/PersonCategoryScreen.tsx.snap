@@ -5,7 +5,7 @@ exports[`Edit Person fires onPress and updates person | no relationship_type 1`]
 - First value
 + Second value
 
-@@ -177,11 +177,11 @@
+@@ -176,11 +176,11 @@
         onResponderTerminationRequest={[Function onResponderTerminationRequest]}
         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
         style={
@@ -18,7 +18,7 @@ exports[`Edit Person fires onPress and updates person | no relationship_type 1`]
             \\"height\\": 72,
             \\"justifyContent\\": \\"center\\",
             \\"margin\\": 0,
-@@ -225,11 +225,11 @@
+@@ -223,11 +223,11 @@
             }
           >
             Family
@@ -38,7 +38,7 @@ exports[`Edit Person fires onPress and updates person | relationship_type 1`] = 
 - First value
 + Second value
 
-@@ -177,11 +177,11 @@
+@@ -176,11 +176,11 @@
         onResponderTerminationRequest={[Function onResponderTerminationRequest]}
         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
         style={
@@ -51,7 +51,7 @@ exports[`Edit Person fires onPress and updates person | relationship_type 1`] = 
             \\"height\\": 72,
             \\"justifyContent\\": \\"center\\",
             \\"margin\\": 0,
-@@ -225,11 +225,11 @@
+@@ -223,11 +223,11 @@
             }
           >
             Family
@@ -64,7 +64,7 @@ exports[`Edit Person fires onPress and updates person | relationship_type 1`] = 
       </View>
       <View
         accessible={true}
-@@ -242,11 +242,11 @@
+@@ -240,11 +240,11 @@
         onResponderTerminationRequest={[Function onResponderTerminationRequest]}
         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
         style={
@@ -77,7 +77,7 @@ exports[`Edit Person fires onPress and updates person | relationship_type 1`] = 
             \\"height\\": 72,
             \\"justifyContent\\": \\"center\\",
             \\"margin\\": 0,
-@@ -290,11 +290,11 @@
+@@ -287,11 +287,11 @@
             }
           >
             Friend
@@ -97,7 +97,7 @@ exports[`Edit Person fires onPress and updates person with orgId | no relationsh
 - First value
 + Second value
 
-@@ -177,11 +177,11 @@
+@@ -176,11 +176,11 @@
         onResponderTerminationRequest={[Function onResponderTerminationRequest]}
         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
         style={
@@ -110,7 +110,7 @@ exports[`Edit Person fires onPress and updates person with orgId | no relationsh
             \\"height\\": 72,
             \\"justifyContent\\": \\"center\\",
             \\"margin\\": 0,
-@@ -225,11 +225,11 @@
+@@ -223,11 +223,11 @@
             }
           >
             Family
@@ -130,7 +130,7 @@ exports[`Edit Person fires onPress and updates person with orgId | relationship_
 - First value
 + Second value
 
-@@ -177,11 +177,11 @@
+@@ -176,11 +176,11 @@
         onResponderTerminationRequest={[Function onResponderTerminationRequest]}
         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
         style={
@@ -143,7 +143,7 @@ exports[`Edit Person fires onPress and updates person with orgId | relationship_
             \\"height\\": 72,
             \\"justifyContent\\": \\"center\\",
             \\"margin\\": 0,
-@@ -225,11 +225,11 @@
+@@ -223,11 +223,11 @@
             }
           >
             Family
@@ -156,7 +156,7 @@ exports[`Edit Person fires onPress and updates person with orgId | relationship_
       </View>
       <View
         accessible={true}
-@@ -242,11 +242,11 @@
+@@ -240,11 +240,11 @@
         onResponderTerminationRequest={[Function onResponderTerminationRequest]}
         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
         style={
@@ -169,7 +169,7 @@ exports[`Edit Person fires onPress and updates person with orgId | relationship_
             \\"height\\": 72,
             \\"justifyContent\\": \\"center\\",
             \\"margin\\": 0,
-@@ -290,11 +290,11 @@
+@@ -287,11 +287,11 @@
             }
           >
             Friend
@@ -342,7 +342,6 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "maxWidth": 200,
               "textAlign": "center",
@@ -409,7 +408,6 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -474,7 +472,6 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -539,7 +536,6 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -604,7 +600,6 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -669,7 +664,6 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -844,7 +838,6 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 24,
             "fontStyle": "normal",
-            "fontWeight": "300",
             "lineHeight": 30,
             "maxWidth": 200,
             "textAlign": "center",
@@ -907,7 +900,6 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -972,7 +964,6 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -1037,7 +1028,6 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -1102,7 +1092,6 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -1167,7 +1156,6 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -1190,7 +1178,7 @@ exports[`Onboarding fires onPress 1`] = `
 - First value
 + Second value
 
-@@ -182,11 +182,11 @@
+@@ -181,11 +181,11 @@
         onResponderTerminationRequest={[Function onResponderTerminationRequest]}
         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
         style={
@@ -1203,7 +1191,7 @@ exports[`Onboarding fires onPress 1`] = `
             \\"height\\": 72,
             \\"justifyContent\\": \\"center\\",
             \\"margin\\": 0,
-@@ -230,11 +230,11 @@
+@@ -228,11 +228,11 @@
             }
           >
             Family
@@ -1376,7 +1364,6 @@ exports[`Onboarding renders correctly 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "maxWidth": 200,
               "textAlign": "center",
@@ -1443,7 +1430,6 @@ exports[`Onboarding renders correctly 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -1508,7 +1494,6 @@ exports[`Onboarding renders correctly 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -1573,7 +1558,6 @@ exports[`Onboarding renders correctly 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -1638,7 +1622,6 @@ exports[`Onboarding renders correctly 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -1703,7 +1686,6 @@ exports[`Onboarding renders correctly 1`] = `
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontStyle": "normal",
-              "fontWeight": "300",
               "lineHeight": 30,
               "textAlignVertical": "center",
               "textTransform": "none",

@@ -149,10 +149,17 @@ exports[`renders person with custom text 1`] = `
       Array [
         Object {
           "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "lineHeight": 16,
+          "textAlign": "center",
+          "textAlignVertical": "bottom",
+          "textTransform": "none",
         },
         Object {
           "fontSize": 20,
-          "fontWeight": "300",
+          "lineHeight": 20,
         },
       ]
     }
@@ -191,6 +198,13 @@ exports[`renders text extrasmall 1`] = `
       Array [
         Object {
           "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "lineHeight": 16,
+          "textAlign": "center",
+          "textAlignVertical": "bottom",
+          "textTransform": "none",
         },
         Object {
           "fontSize": 12,
@@ -230,10 +244,17 @@ exports[`renders text large 1`] = `
       Array [
         Object {
           "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "lineHeight": 16,
+          "textAlign": "center",
+          "textAlignVertical": "bottom",
+          "textTransform": "none",
         },
         Object {
           "fontSize": 64,
-          "fontWeight": "300",
+          "lineHeight": 20,
         },
       ]
     }
@@ -270,10 +291,17 @@ exports[`renders text medium 1`] = `
       Array [
         Object {
           "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "lineHeight": 16,
+          "textAlign": "center",
+          "textAlignVertical": "bottom",
+          "textTransform": "none",
         },
         Object {
           "fontSize": 26,
-          "fontWeight": "300",
+          "lineHeight": 20,
         },
       ]
     }
@@ -310,10 +338,17 @@ exports[`renders text mediumSmall 1`] = `
       Array [
         Object {
           "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "lineHeight": 16,
+          "textAlign": "center",
+          "textAlignVertical": "bottom",
+          "textTransform": "none",
         },
         Object {
           "fontSize": 26,
-          "fontWeight": "300",
+          "lineHeight": 20,
         },
       ]
     }
@@ -350,10 +385,17 @@ exports[`renders text small 1`] = `
       Array [
         Object {
           "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 12,
+          "fontStyle": "normal",
+          "lineHeight": 16,
+          "textAlign": "center",
+          "textAlignVertical": "bottom",
+          "textTransform": "none",
         },
         Object {
           "fontSize": 20,
-          "fontWeight": "300",
+          "lineHeight": 20,
         },
       ]
     }

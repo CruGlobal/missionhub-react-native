@@ -2,6 +2,8 @@
 
 import Config from 'react-native-config';
 
+import { FeedItemSubjectTypeEnum } from '../__generated__/globalTypes';
+
 export const LOGOUT = 'app/LOGOUT';
 export type LogoutAction = { type: typeof LOGOUT };
 export const FIRST_NAME_CHANGED = 'app/FIRST_NAME_CHANGED';
@@ -480,3 +482,15 @@ export enum NOTIFICATION_PROMPT_TYPES {
   JOIN_COMMUNITY,
   JOIN_CHALLENGE,
 }
+
+export const DEFAULT_SUBJECT_TYPES = [
+  FeedItemSubjectTypeEnum.STORY,
+  FeedItemSubjectTypeEnum.QUESTION,
+  FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+  FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+  FeedItemSubjectTypeEnum.HELP_REQUEST,
+  FeedItemSubjectTypeEnum.THOUGHT,
+  FeedItemSubjectTypeEnum.STEP,
+  FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE,
+  FeedItemSubjectTypeEnum.COMMUNITY_PERMISSION,
+];

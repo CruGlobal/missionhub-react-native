@@ -36,10 +36,10 @@ const wrapStyles: { [key in AvatarSize]: StyleProp<ImageStyle> } = {
 };
 const textStyles: { [key in AvatarSize]: StyleProp<TextStyle> } = {
   extrasmall: { fontSize: 12 },
-  small: { fontSize: 20, fontWeight: '300' },
-  mediumSmall: { fontSize: 26, fontWeight: '300' },
-  medium: { fontSize: 26, fontWeight: '300' },
-  large: { fontSize: 64, fontWeight: '300' },
+  small: { fontSize: 20, lineHeight: 20 },
+  mediumSmall: { fontSize: 26, lineHeight: 20 },
+  medium: { fontSize: 26, lineHeight: 20 },
+  large: { fontSize: 64, lineHeight: 20 },
 };
 
 export interface AvatarProps {

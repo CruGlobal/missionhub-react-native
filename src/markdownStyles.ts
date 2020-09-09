@@ -11,6 +11,7 @@ const heading3Style = {
   lineHeight: 22,
   letterSpacing: 0,
   marginVertical: 16,
+  textTransform: 'none',
 };
 const strongStyle = {
   fontFamily: 'SourceSansPro-Bold',

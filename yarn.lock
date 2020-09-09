@@ -1826,33 +1826,27 @@
     invariant "^2.2.4"
 
 "@react-native-firebase/analytics@^7.2.1":
-  version "7.2.1"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/analytics/-/analytics-7.2.1.tgz#0f6d3af8e016a3a62e4cf2f08b973d1384c41d90"
-  integrity sha512-v0xgiwwdeelBboFDeNs0yrfvtZYmymZp5JyR3i87+waLH5VYFpqRT19Yxuk8jTgWSBfjm34TNqq+KVZ5k/rEmw==
+  version "7.6.1"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/analytics/-/analytics-7.6.1.tgz#0c0cc0173810a8bedbef1288ac3ce16a28e85f77"
+  integrity sha512-CTwjRFkSsxMQQjnDh/Zxzc45l9d34qBdHsr6ZqvaiV1pm81btzKP6OMS1qtPffGcBqR1zG6XJigObYxGzbN5rA==
 
-"@react-native-firebase/app-types@6.7.2":
-  version "6.7.2"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/app-types/-/app-types-6.7.2.tgz#d2e1530af5702e00578914b41468898c10d3289c"
-  integrity sha512-pIwc6e0ZINw6PJqNVsAxzOVJUDg6au2TdulY+ZOYQ11SPDs5I2n9likoGrElPmJjajT4s9h87uz/6PWP2k9PxQ==
-
-"@react-native-firebase/app@^8.1.0":
-  version "8.2.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-8.2.0.tgz#28db1958c8bd8028503b4d0a68a31a7c4caf61cc"
-  integrity sha512-V3s87BlDIyuhtK/1w+vwKdY5AlOCCBXovlorZU1wiyDH8Q942Cjxcx9tBc59+TLWqMYrYyFGAnAJxnIw3QzmmQ==
+"@react-native-firebase/app@^8.4.1":
+  version "8.4.1"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-8.4.1.tgz#69c941afa9a28bf28c4cfec8f53c3f82c35b06c5"
+  integrity sha512-EhEFgF5QBT6rtBqfK7m6LZmiEyWP6aLKLoCDvAaAmRNURXG0Ryr1T6KEjvrFuERnGkEk0KH/f2i1KB+BhThPWQ==
   dependencies:
-    "@react-native-firebase/app-types" "6.7.2"
     opencollective-postinstall "^2.0.1"
     superstruct "^0.6.2"
 
 "@react-native-firebase/dynamic-links@^7.3.1":
-  version "7.3.2"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/dynamic-links/-/dynamic-links-7.3.2.tgz#3976b2f67606fdb440c5e5d5b2e2e69675fa4d1d"
-  integrity sha512-cq/5APaQLrwRvMF0DCNNvVuomdOXMyanmey1ydDPKf7sTO7SaPgCZLFET3VZH42FgtrMPqmb5UgDHYdjD4kjGQ==
+  version "7.5.2"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/dynamic-links/-/dynamic-links-7.5.2.tgz#f4b622b3690d8198b4f5eb6b4ae74d1defd25eec"
+  integrity sha512-fVMyrGsQbB9Jlpe1vT4pmzCA1hLl0bYrFxJWo1xrlR/ZkhnCMgucY+bQp41uEtw4/+epMnPaeYtOahDLhojOqQ==
 
 "@react-native-firebase/perf@^7.2.3":
-  version "7.2.3"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/perf/-/perf-7.2.3.tgz#72e0580c9a7692047e0cf97a1da00d02d7865c68"
-  integrity sha512-G+piXeg+0bW36Lfx4/CzUojWdZOiwm4B4rcQkhloArRvOdn9F8+B8og6S8YP8cPtEJNExW/bWazIDNq6fdumyw==
+  version "7.4.2"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/perf/-/perf-7.4.2.tgz#9de1632d3db98a5771f5f2190549d75354600260"
+  integrity sha512-RnHyEKZUw5NJPXYP/AlAbvTohuuxRg98M+TBAPMjiO9hoYhxBUII7korei4NjSdLkqWitQKhPCiZ/OuUyPIGMg==
 
 "@react-navigation/core@^3.7.6":
   version "3.7.6"
