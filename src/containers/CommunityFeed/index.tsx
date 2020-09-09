@@ -18,6 +18,7 @@ import { PostTypeNullState } from '../../components/PostTypeLabel';
 import { PendingFeedItem } from '../../components/PendingFeedItem';
 import { getStatusBarHeight } from '../../utils/statusbar';
 import { RootState } from '../../reducers';
+import { DEFAULT_SUBJECT_TYPES } from '../../constants';
 import {
   StoredCreatePost,
   StoredUpdatePost,
@@ -107,19 +108,7 @@ export const CommunityFeed = ({
     communityId,
     personIds: (personId && [personId]) || undefined,
     hasUnreadComments: showUnreadOnly,
-    subjectType: filteredFeedType
-      ? [filteredFeedType]
-      : [
-          FeedItemSubjectTypeEnum.STORY,
-          FeedItemSubjectTypeEnum.QUESTION,
-          FeedItemSubjectTypeEnum.PRAYER_REQUEST,
-          FeedItemSubjectTypeEnum.ANNOUNCEMENT,
-          FeedItemSubjectTypeEnum.HELP_REQUEST,
-          FeedItemSubjectTypeEnum.THOUGHT,
-          FeedItemSubjectTypeEnum.STEP,
-          FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE,
-          FeedItemSubjectTypeEnum.COMMUNITY_PERMISSION,
-        ],
+    subjectType: filteredFeedType ? [filteredFeedType] : DEFAULT_SUBJECT_TYPES,
   };
 
   const pendingPosts = useSelector(({ communityPosts }: RootState) =>

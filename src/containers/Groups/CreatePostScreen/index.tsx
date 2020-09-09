@@ -26,6 +26,7 @@ import {
   DELETE_PENDING_POST,
   PENDING_POST_FAILED,
   PENDING_POST_RETRY,
+  DEFAULT_SUBJECT_TYPES,
 } from '../../../constants';
 import { mapPostTypeToFeedType } from '../../../utils/common';
 import { getPostTypeAnalytics } from '../../../utils/analytics';
@@ -50,7 +51,6 @@ import {
   PostTypeEnum,
   CreatePostInput,
   UpdatePostInput,
-  FeedItemSubjectTypeEnum,
 } from '../../../../__generated__/globalTypes';
 import { CommunityFeedItem_subject_Post } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { GET_COMMUNITY_FEED } from '../../CommunityFeed/queries';
@@ -197,34 +197,14 @@ export const useCreatePost = ({
             query: GET_COMMUNITY_FEED,
             variables: {
               communityId,
-              subjectType: [
-                FeedItemSubjectTypeEnum.STORY,
-                FeedItemSubjectTypeEnum.QUESTION,
-                FeedItemSubjectTypeEnum.PRAYER_REQUEST,
-                FeedItemSubjectTypeEnum.ANNOUNCEMENT,
-                FeedItemSubjectTypeEnum.HELP_REQUEST,
-                FeedItemSubjectTypeEnum.THOUGHT,
-                FeedItemSubjectTypeEnum.STEP,
-                FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE,
-                FeedItemSubjectTypeEnum.COMMUNITY_PERMISSION,
-              ],
+              subjectType: DEFAULT_SUBJECT_TYPES,
             },
           });
           cache.writeQuery({
             query: GET_COMMUNITY_FEED,
             variables: {
               communityId,
-              subjectType: [
-                FeedItemSubjectTypeEnum.STORY,
-                FeedItemSubjectTypeEnum.QUESTION,
-                FeedItemSubjectTypeEnum.PRAYER_REQUEST,
-                FeedItemSubjectTypeEnum.ANNOUNCEMENT,
-                FeedItemSubjectTypeEnum.HELP_REQUEST,
-                FeedItemSubjectTypeEnum.THOUGHT,
-                FeedItemSubjectTypeEnum.STEP,
-                FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE,
-                FeedItemSubjectTypeEnum.COMMUNITY_PERMISSION,
-              ],
+              subjectType: DEFAULT_SUBJECT_TYPES,
             },
             data: {
               ...originalData,
