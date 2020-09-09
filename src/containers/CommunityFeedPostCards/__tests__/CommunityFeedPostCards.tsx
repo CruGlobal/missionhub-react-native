@@ -23,6 +23,7 @@ jest.mock('../../../actions/navigation', () => ({
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../components/PostTypeLabel', () => ({
   PostTypeCardWithPeople: 'PostTypeCardWithPeople',
+  PostTypeCardWithoutPeople: 'PostTypeCardWithoutPeople',
 }));
 
 const myId = '123';
@@ -178,7 +179,7 @@ describe('navs to global screens', () => {
     expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_FEED_WITH_TYPE_SCREEN, {
       type,
       communityId: GLOBAL_COMMUNITY_ID,
-      communityName: expect.any(String),
+      communityName: undefined,
     });
     expect(useMutation).toHaveBeenMutatedWith(MARK_GLOBAL_FEED_ITEMS_READ, {
       variables: { input: { feedItemSubjectType: type } },
