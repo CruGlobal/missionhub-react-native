@@ -30,6 +30,7 @@ import {
 } from '../../../actions/onboarding';
 import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
 import { trackActionWithoutData } from '../../../actions/analytics';
+import { getAuthPerson } from '../../../auth/authUtilities';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/onboarding');
@@ -42,6 +43,9 @@ jest.mock('../../../utils/hooks/useLogoutOnBack', () => ({
 jest.mock('../../../utils/hooks/useAnalytics', () => ({
   useAnalytics: jest.fn(),
 }));
+jest.mock('../../../auth/authUtilities');
+
+(getAuthPerson as jest.Mock).mockReturnValue({ id: '123' });
 
 const mockMath = Object.create(global.Math);
 mockMath.random = () => 0;

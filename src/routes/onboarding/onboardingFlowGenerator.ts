@@ -61,10 +61,6 @@ import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
 import { RootState } from '../../reducers';
 import { getAuthPerson } from '../../auth/authUtilities';
 
-jest.mock('../../auth/authUtilities');
-
-(getAuthPerson as jest.Mock).mockReturnValue({ id: '123' });
-
 export const onboardingFlowGenerator = ({
   startScreen = WELCOME_SCREEN,
   hideSkipBtn,
