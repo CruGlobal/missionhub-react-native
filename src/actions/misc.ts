@@ -12,12 +12,11 @@ import {
 import { WARN } from '../utils/logging';
 import { apolloClient } from '../apolloClient';
 import { RootState } from '../reducers';
-import { useIsMe } from '../utils/hooks/useIsMe';
+import { getAuthPerson } from '../auth/authUtilities';
 
 import { trackActionWithoutData } from './analytics';
 import { navigatePush } from './navigation';
 import { GetFeatureFlags } from './__generated__/GetFeatureFlags';
-import { getAuthPerson } from '../auth/authUtilities';
 
 export const GET_FEATURE_FLAGS = gql`
   query GetFeatureFlags {

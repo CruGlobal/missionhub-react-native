@@ -1026,9 +1026,7 @@ Array [
                 "width": 30,
               }
             }
-          >
-            34556
-          </Text>
+          />
           <View
             accessible={true}
             focusable={true}
@@ -1389,9 +1387,7 @@ Array [
                 "width": 30,
               }
             }
-          >
-            93553
-          </Text>
+          />
           <View
             accessible={true}
             focusable={true}
@@ -6330,9 +6326,7 @@ Array [
                 "width": 30,
               }
             }
-          >
-            39658
-          </Text>
+          />
           <View
             accessible={true}
             focusable={true}
@@ -6697,9 +6691,7 @@ Array [
                 "width": 30,
               }
             }
-          >
-            34556
-          </Text>
+          />
           <View
             accessible={true}
             focusable={true}

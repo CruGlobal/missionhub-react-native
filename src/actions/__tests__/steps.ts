@@ -20,7 +20,6 @@ const mockStore = configureStore([thunk]);
 // @ts-ignore
 let store;
 
-const personId = '2123';
 const receiverId = '983547';
 const communityId = '123';
 const mockDate = '2018-02-14 11:30:00 UTC';

@@ -16,10 +16,6 @@ jest.mock('../analytics');
 jest.mock('../../auth/authStore');
 jest.mock('../../auth/authUtilities');
 
-const token =
-  'sfhaspofuasdnfpwqnfoiqwofiwqioefpqwnofuoweqfniuqweouiowqefonpqnowfpowqfneqowfenopnqwnfeo';
-const myId = '1';
-
 const navigateToMainTabsResult = { type: 'navigateToMainTabs' };
 const navigateResetResult = { type: 'navigateReset' };
 const startOnboardingResult = { type: 'startOnboarding' };

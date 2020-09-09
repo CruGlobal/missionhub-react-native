@@ -8,7 +8,6 @@ import { DrawerActions } from 'react-navigation-drawer';
 
 import { renderWithContext } from '../../../../testUtils';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-import { useIsMe } from '../../../utils/hooks/useIsMe';
 import { navigatePush, navigateBack } from '../../../actions/navigation';
 import {
   trackActionWithoutData,
@@ -18,7 +17,6 @@ import {
   CREATE_PERSON,
   UPDATE_PERSON,
 } from '../../../containers/SetupScreen/queries';
-import ImagePicker from '../../../components/ImagePicker';
 import { ACTIONS, LOAD_PERSON_DETAILS } from '../../../constants';
 import { GET_PERSON } from '../queries';
 import { getPersonDetails } from '../../../actions/person';
@@ -32,9 +30,9 @@ jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/person');
 jest.mock('../../../utils/hooks/useAnalytics');
-jest.mock('../../../utils/hooks/useIsMe');
 jest.mock('react-navigation-drawer');
 jest.mock('../../../components/ImagePicker', () => 'ImagePicker');
+jest.mock('../../../auth/authStore', () => ({ isAuthenticated: () => true }));
 
 const me = { id: '99' };
 const contactId = '23';
@@ -75,7 +73,6 @@ beforeEach(() => {
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResponse);
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResults);
   (navigateBack as jest.Mock).mockReturnValue(navigateBackResults);
-  (useIsMe as jest.Mock).mockReturnValue(false);
   (getPersonDetails as jest.Mock).mockReturnValue(getPersonDetailsResults);
   next.mockReturnValue(nextResponse);
   (DrawerActions.closeDrawer as jest.Mock).mockReturnValue(closeDrawerResults);
@@ -90,14 +87,17 @@ it('renders correctly | With Person', async () => {
       person,
     },
     mocks: {
-      Person: () => ({
-        firstName: person.firstName,
-        lastName: '',
-        id: person.id,
-        relationshipType: null,
-        stage: {
-          name: 'Forgiven',
-        },
+      Query: () => ({
+        person: () => ({
+          firstName: person.firstName,
+          lastName: '',
+          id: person.id,
+          relationshipType: null,
+          stage: {
+            name: 'Forgiven',
+          },
+        }),
+        currentUser: () => ({ person: () => ({ id: me.id }) }),
       }),
     },
   });
@@ -122,6 +122,7 @@ it('renders correctly | No Person', async () => {
       organization,
       person: {},
     },
+    mocks: { User: () => ({ person: () => ({ id: me.id }) }) },
   });
 
   await flushMicrotasksQueue();
@@ -157,6 +158,7 @@ describe('handleUpdateData', () => {
               name: 'Forgiven',
             },
           }),
+          User: () => ({ person: () => ({ id: me.id }) }),
         },
       },
     );
@@ -176,7 +178,7 @@ describe('handleUpdateData', () => {
 });
 
 describe('completeWithoutSave', () => {
-  it('calls next', () => {
+  it('calls next', async () => {
     const { getByTestId } = renderWithContext(
       <AddContactScreen next={next} />,
       {
@@ -185,8 +187,12 @@ describe('completeWithoutSave', () => {
           organization,
           person,
         },
+        mocks: { User: () => ({ person: () => ({ id: me.id }) }) },
       },
     );
+
+    await flushMicrotasksQueue();
+
     fireEvent.press(getByTestId('CloseButton'));
     expect(next).toHaveBeenCalledWith({
       personId: undefined,
@@ -224,8 +230,12 @@ describe('savePerson', () => {
               relationshipType: null,
               stage: null,
             }),
+            User: () => ({ person: () => ({ id: me.id }) }),
           },
         });
+
+        await flushMicrotasksQueue();
+
         recordSnapshot();
         fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
         fireEvent(getByTestId('contactFields'), 'onUpdateData');
@@ -281,9 +291,11 @@ describe('savePerson', () => {
                 relationshipType: null,
                 stage: null,
               }),
+              User: () => ({ person: () => ({ id: me.id }) }),
             },
           },
         );
+
         await flushMicrotasksQueue();
 
         fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
@@ -350,9 +362,11 @@ describe('savePerson', () => {
                   name: 'Forgiven',
                 },
               }),
+              User: () => ({ person: () => ({ id: me.id }) }),
             },
           },
         );
+
         await flushMicrotasksQueue();
 
         fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
@@ -400,8 +414,7 @@ describe('savePerson', () => {
       });
 
       it('updates users profile picture', async () => {
-        (useIsMe as jest.Mock).mockReturnValue(true);
-        const { getByType, getByTestId, snapshot, store } = renderWithContext(
+        const { getByTestId, snapshot, store } = renderWithContext(
           <AddContactScreen next={next} />,
           {
             initialState,
@@ -422,12 +435,16 @@ describe('savePerson', () => {
                 },
                 picture: null,
               }),
+              User: () => ({ person: () => ({ id: me.id }) }),
+              ID: () => me.id, // Make auth person and person id the same. Only specifying User without this causes useQuery to return undefined for data for some reason
             },
           },
         );
+
         await flushMicrotasksQueue();
+
         snapshot();
-        await fireEvent(getByType(ImagePicker), 'onSelectImage', {
+        await fireEvent(getByTestId('avatarImagePicker'), 'onSelectImage', {
           data: `data:image/jpeg;base64,${mockImage}`,
         });
         fireEvent(getByTestId('contactFields'), 'onUpdateData');
@@ -489,10 +506,13 @@ describe('savePerson', () => {
                   name: 'Forgiven',
                 },
               }),
+              User: () => ({ person: () => ({ id: me.id }) }),
             },
           },
         );
+
         await flushMicrotasksQueue();
+
         snapshot();
         fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
         fireEvent(getByTestId('contactFields'), 'onUpdateData');
@@ -553,10 +573,13 @@ describe('savePerson', () => {
                 },
                 picture: null,
               }),
+              User: () => ({ person: () => ({ id: me.id }) }),
             },
           },
         );
+
         await flushMicrotasksQueue();
+
         fireEvent.press(getByTestId('stageSelectButton'));
 
         expect(next).toHaveBeenCalledWith({
@@ -613,9 +636,11 @@ describe('savePerson', () => {
                   name: 'Forgiven',
                 },
               }),
+              User: () => ({ person: () => ({ id: me.id }) }),
             },
           },
         );
+
         await flushMicrotasksQueue();
 
         fireEvent(getByTestId('lastNameInput'), 'onChangeText', '');

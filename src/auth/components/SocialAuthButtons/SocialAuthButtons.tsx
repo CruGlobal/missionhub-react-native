@@ -7,6 +7,7 @@ import { isAndroid } from '../../../utils/common';
 import { useAuth } from '../../useAuth';
 import { IdentityProvider } from '../../constants';
 import { SignInWithTheKeyType } from '../../providers/useSignInWithTheKey';
+import theme from '../../../theme';
 
 import { SocialAuthButton } from './SocialAuthButton/SocialAuthButton';
 import EmailIcon from './emailIcon.svg';
@@ -14,7 +15,6 @@ import AppleIcon from './appleIcon.svg';
 import GoogleIcon from './googleIcon.svg';
 import FacebookIcon from './facebookIcon.svg';
 import { styles } from './styles';
-import theme from '../../../theme';
 
 export enum SocialAuthButtonsType {
   SignIn,

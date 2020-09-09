@@ -21,7 +21,6 @@ import {
 } from '../containers/PersonScreen/PersonTabs';
 import { personSelector, contactAssignmentSelector } from '../selectors/people';
 import { GET_PERSON } from '../containers/AddContactScreen/queries';
-import { useIsMe } from '../utils/hooks/useIsMe';
 import { getAuthPerson } from '../auth/authUtilities';
 
 import callApi from './api';

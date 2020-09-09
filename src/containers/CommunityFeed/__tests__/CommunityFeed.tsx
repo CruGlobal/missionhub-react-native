@@ -38,7 +38,6 @@ jest.mock('../../../components/PendingFeedItem', () => ({
   PendingFeedItem: 'PendingFeedItem',
 }));
 
-const myId = '123';
 const communityId = '456';
 const personId = '789';
 const mockDate = '2020-05-20 12:00:00 PM GMT+0';

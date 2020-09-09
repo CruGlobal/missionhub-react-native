@@ -51,7 +51,6 @@ const myId = '123';
 const personId = '321';
 const personFirstName = 'Someone';
 const person = { id: personId, first_name: personFirstName };
-const stageId = '3';
 const stepSuggestionId = '111';
 
 const initialState = {

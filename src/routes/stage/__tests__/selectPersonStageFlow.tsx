@@ -21,7 +21,6 @@ jest.mock('../../../actions/misc');
 jest.mock('../../../actions/journey');
 jest.mock('../../../actions/navigation');
 
-const myId = '111';
 const otherId = '222';
 const otherName = 'Other';
 const orgId = '123';
@@ -36,11 +35,13 @@ const person = {
 
 const people = { people: { [otherId]: person } };
 
-const store = configureStore([thunk])({
+const initialState = {
   people,
   stages: { stages: [stage] },
   onboarding: { currentlyOnboarding: false },
-});
+};
+
+const store = configureStore([thunk])(initialState);
 
 // @ts-ignore
 const buildAndCallNext = async (screen, navParams, nextProps) => {
@@ -111,10 +112,9 @@ describe('SelectStageScreen next', () => {
       });
 
       it('should select person', () => {
-        expect(personSelector).toHaveBeenCalledWith(
-          { people },
-          { personId: otherId },
-        );
+        expect(personSelector).toHaveBeenCalledWith(initialState, {
+          personId: otherId,
+        });
       });
 
       it('should update person', () => {
@@ -153,10 +153,9 @@ describe('SelectStageScreen next', () => {
       });
 
       it('should select person', () => {
-        expect(personSelector).toHaveBeenCalledWith(
-          { people },
-          { personId: otherId },
-        );
+        expect(personSelector).toHaveBeenCalledWith(initialState, {
+          personId: otherId,
+        });
       });
 
       it('should get person details', () => {
@@ -195,10 +194,9 @@ describe('SelectStageScreen next', () => {
       });
 
       it('should select person', () => {
-        expect(personSelector).toHaveBeenCalledWith(
-          { people },
-          { personId: otherId },
-        );
+        expect(personSelector).toHaveBeenCalledWith(initialState, {
+          personId: otherId,
+        });
       });
 
       it('should update person', () => {
@@ -256,10 +254,9 @@ describe('SelectStageScreen next', () => {
       });
 
       it('should select person', () => {
-        expect(personSelector).toHaveBeenCalledWith(
-          { people },
-          { personId: otherId },
-        );
+        expect(personSelector).toHaveBeenCalledWith(initialState, {
+          personId: otherId,
+        });
       });
 
       it('should get person details', () => {

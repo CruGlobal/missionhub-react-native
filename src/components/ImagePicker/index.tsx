@@ -33,6 +33,7 @@ interface ImagePickerProps {
   children: JSX.Element | JSX.Element[];
   circleOverlay?: boolean;
   showCropper?: boolean;
+  testID?: string;
 }
 
 function getType(image: Image) {

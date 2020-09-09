@@ -42,7 +42,7 @@ describe('SignUpScreen next', () => {
 
     expect(completeAction).toHaveBeenCalled();
   });
-  it('should navigate to sign in screen', async () => {
+  it('should navigate to sign in screen', () => {
     const Component = testFlow[SIGN_UP_SCREEN].screen;
 
     const { getByTestId } = renderWithContext(<Component />, {

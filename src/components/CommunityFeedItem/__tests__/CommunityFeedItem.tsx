@@ -379,7 +379,7 @@ describe('long-press card', () => {
         : null,
     };
 
-    fit('navigates to edit post screen', async () => {
+    it('navigates to edit post screen', async () => {
       ActionSheetIOS.showActionSheetWithOptions = jest.fn();
       Alert.alert = jest.fn();
 

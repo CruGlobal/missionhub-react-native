@@ -5,7 +5,7 @@ export const useMyId = () => {
   return authPerson.id;
 };
 
-export const useIsMe = (personId: string | undefined) => {
+export const useIsMe = (personId: string | undefined): boolean => {
   const authPersonId = useMyId();
-  return personId === authPersonId;
+  return !!personId && personId === authPersonId;
 };
