@@ -93,6 +93,17 @@ it('renders with items correctly', async () => {
       communityId,
       hasUnreadComments: undefined,
       personIds: undefined,
+      subjectType: [
+        FeedItemSubjectTypeEnum.STORY,
+        FeedItemSubjectTypeEnum.QUESTION,
+        FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+        FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+        FeedItemSubjectTypeEnum.HELP_REQUEST,
+        FeedItemSubjectTypeEnum.THOUGHT,
+        FeedItemSubjectTypeEnum.STEP,
+        FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE,
+        FeedItemSubjectTypeEnum.COMMUNITY_PERMISSION,
+      ],
     },
   });
   expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -143,6 +154,17 @@ it('renders with pending post correctly', async () => {
       communityId,
       hasUnreadComments: undefined,
       personIds: undefined,
+      subjectType: [
+        FeedItemSubjectTypeEnum.STORY,
+        FeedItemSubjectTypeEnum.QUESTION,
+        FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+        FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+        FeedItemSubjectTypeEnum.HELP_REQUEST,
+        FeedItemSubjectTypeEnum.THOUGHT,
+        FeedItemSubjectTypeEnum.STEP,
+        FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE,
+        FeedItemSubjectTypeEnum.COMMUNITY_PERMISSION,
+      ],
     },
   });
   expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -193,6 +215,17 @@ it('renders with pending post without Today items correctly', async () => {
       communityId,
       hasUnreadComments: undefined,
       personIds: undefined,
+      subjectType: [
+        FeedItemSubjectTypeEnum.STORY,
+        FeedItemSubjectTypeEnum.QUESTION,
+        FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+        FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+        FeedItemSubjectTypeEnum.HELP_REQUEST,
+        FeedItemSubjectTypeEnum.THOUGHT,
+        FeedItemSubjectTypeEnum.STEP,
+        FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE,
+        FeedItemSubjectTypeEnum.COMMUNITY_PERMISSION,
+      ],
     },
   });
   expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -269,6 +302,17 @@ describe('sections', () => {
         communityId,
         hasUnreadComments: undefined,
         personIds: undefined,
+        subjectType: [
+          FeedItemSubjectTypeEnum.STORY,
+          FeedItemSubjectTypeEnum.QUESTION,
+          FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+          FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+          FeedItemSubjectTypeEnum.HELP_REQUEST,
+          FeedItemSubjectTypeEnum.THOUGHT,
+          FeedItemSubjectTypeEnum.STEP,
+          FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE,
+          FeedItemSubjectTypeEnum.COMMUNITY_PERMISSION,
+        ],
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -306,6 +350,17 @@ describe('sections', () => {
         communityId: GLOBAL_COMMUNITY_ID,
         hasUnreadComments: undefined,
         personIds: undefined,
+        subjectType: [
+          FeedItemSubjectTypeEnum.STORY,
+          FeedItemSubjectTypeEnum.QUESTION,
+          FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+          FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+          FeedItemSubjectTypeEnum.HELP_REQUEST,
+          FeedItemSubjectTypeEnum.THOUGHT,
+          FeedItemSubjectTypeEnum.STEP,
+          FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE,
+          FeedItemSubjectTypeEnum.COMMUNITY_PERMISSION,
+        ],
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -340,6 +395,17 @@ describe('sections', () => {
         communityId,
         hasUnreadComments: undefined,
         personIds: undefined,
+        subjectType: [
+          FeedItemSubjectTypeEnum.STORY,
+          FeedItemSubjectTypeEnum.QUESTION,
+          FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+          FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+          FeedItemSubjectTypeEnum.HELP_REQUEST,
+          FeedItemSubjectTypeEnum.THOUGHT,
+          FeedItemSubjectTypeEnum.STEP,
+          FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE,
+          FeedItemSubjectTypeEnum.COMMUNITY_PERMISSION,
+        ],
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -374,6 +440,17 @@ describe('sections', () => {
         communityId,
         hasUnreadComments: undefined,
         personIds: undefined,
+        subjectType: [
+          FeedItemSubjectTypeEnum.STORY,
+          FeedItemSubjectTypeEnum.QUESTION,
+          FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+          FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+          FeedItemSubjectTypeEnum.HELP_REQUEST,
+          FeedItemSubjectTypeEnum.THOUGHT,
+          FeedItemSubjectTypeEnum.STEP,
+          FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE,
+          FeedItemSubjectTypeEnum.COMMUNITY_PERMISSION,
+        ],
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -410,6 +487,17 @@ describe('renders for member', () => {
         communityId,
         hasUnreadComments: undefined,
         personIds: [personId],
+        subjectType: [
+          FeedItemSubjectTypeEnum.STORY,
+          FeedItemSubjectTypeEnum.QUESTION,
+          FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+          FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+          FeedItemSubjectTypeEnum.HELP_REQUEST,
+          FeedItemSubjectTypeEnum.THOUGHT,
+          FeedItemSubjectTypeEnum.STEP,
+          FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE,
+          FeedItemSubjectTypeEnum.COMMUNITY_PERMISSION,
+        ],
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -443,6 +531,17 @@ describe('renders for member', () => {
         communityId,
         hasUnreadComments: undefined,
         personIds: [personId],
+        subjectType: [
+          FeedItemSubjectTypeEnum.STORY,
+          FeedItemSubjectTypeEnum.QUESTION,
+          FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+          FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+          FeedItemSubjectTypeEnum.HELP_REQUEST,
+          FeedItemSubjectTypeEnum.THOUGHT,
+          FeedItemSubjectTypeEnum.STEP,
+          FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE,
+          FeedItemSubjectTypeEnum.COMMUNITY_PERMISSION,
+        ],
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -497,6 +596,17 @@ describe('renders with clear notification', () => {
         communityId,
         hasUnreadComments: undefined,
         personIds: undefined,
+        subjectType: [
+          FeedItemSubjectTypeEnum.STORY,
+          FeedItemSubjectTypeEnum.QUESTION,
+          FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+          FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+          FeedItemSubjectTypeEnum.HELP_REQUEST,
+          FeedItemSubjectTypeEnum.THOUGHT,
+          FeedItemSubjectTypeEnum.STEP,
+          FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE,
+          FeedItemSubjectTypeEnum.COMMUNITY_PERMISSION,
+        ],
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -533,6 +643,17 @@ describe('renders for Unread Comments', () => {
         communityId,
         hasUnreadComments: true,
         personIds: undefined,
+        subjectType: [
+          FeedItemSubjectTypeEnum.STORY,
+          FeedItemSubjectTypeEnum.QUESTION,
+          FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+          FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+          FeedItemSubjectTypeEnum.HELP_REQUEST,
+          FeedItemSubjectTypeEnum.THOUGHT,
+          FeedItemSubjectTypeEnum.STEP,
+          FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE,
+          FeedItemSubjectTypeEnum.COMMUNITY_PERMISSION,
+        ],
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -568,6 +689,17 @@ describe('renders for Global Community', () => {
         communityId: GLOBAL_COMMUNITY_ID,
         hasUnreadComments: undefined,
         personIds: undefined,
+        subjectType: [
+          FeedItemSubjectTypeEnum.STORY,
+          FeedItemSubjectTypeEnum.QUESTION,
+          FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+          FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+          FeedItemSubjectTypeEnum.HELP_REQUEST,
+          FeedItemSubjectTypeEnum.THOUGHT,
+          FeedItemSubjectTypeEnum.STEP,
+          FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE,
+          FeedItemSubjectTypeEnum.COMMUNITY_PERMISSION,
+        ],
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {

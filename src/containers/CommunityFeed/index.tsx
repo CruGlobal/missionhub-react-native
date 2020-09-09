@@ -107,7 +107,19 @@ export const CommunityFeed = ({
     communityId,
     personIds: (personId && [personId]) || undefined,
     hasUnreadComments: showUnreadOnly,
-    subjectType: filteredFeedType ? [filteredFeedType] : undefined,
+    subjectType: filteredFeedType
+      ? [filteredFeedType]
+      : [
+          FeedItemSubjectTypeEnum.STORY,
+          FeedItemSubjectTypeEnum.QUESTION,
+          FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+          FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+          FeedItemSubjectTypeEnum.HELP_REQUEST,
+          FeedItemSubjectTypeEnum.THOUGHT,
+          FeedItemSubjectTypeEnum.STEP,
+          FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE,
+          FeedItemSubjectTypeEnum.COMMUNITY_PERMISSION,
+        ],
   };
 
   const pendingPosts = useSelector(({ communityPosts }: RootState) =>

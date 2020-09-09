@@ -50,6 +50,7 @@ import {
   PostTypeEnum,
   CreatePostInput,
   UpdatePostInput,
+  FeedItemSubjectTypeEnum,
 } from '../../../../__generated__/globalTypes';
 import { CommunityFeedItem_subject_Post } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { GET_COMMUNITY_FEED } from '../../CommunityFeed/queries';
@@ -161,11 +162,17 @@ export const useCreatePost = ({
             GetCommunityFeedVariables
           >({
             query: GET_COMMUNITY_FEED,
-            variables: { communityId },
+            variables: {
+              communityId,
+              subjectType: [mapPostTypeToFeedType(postType)],
+            },
           });
           cache.writeQuery({
             query: GET_COMMUNITY_FEED,
-            variables: { communityId },
+            variables: {
+              communityId,
+              subjectType: [mapPostTypeToFeedType(postType)],
+            },
             data: {
               ...originalData,
               community: {
@@ -183,31 +190,51 @@ export const useCreatePost = ({
         } catch {}
 
         try {
-          const originalFilteredData = cache.readQuery<
+          const originalData = cache.readQuery<
             GetCommunityFeed,
             GetCommunityFeedVariables
           >({
             query: GET_COMMUNITY_FEED,
             variables: {
               communityId,
-              subjectType: [mapPostTypeToFeedType(postType)],
+              subjectType: [
+                FeedItemSubjectTypeEnum.STORY,
+                FeedItemSubjectTypeEnum.QUESTION,
+                FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+                FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+                FeedItemSubjectTypeEnum.HELP_REQUEST,
+                FeedItemSubjectTypeEnum.THOUGHT,
+                FeedItemSubjectTypeEnum.STEP,
+                FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE,
+                FeedItemSubjectTypeEnum.COMMUNITY_PERMISSION,
+              ],
             },
           });
           cache.writeQuery({
             query: GET_COMMUNITY_FEED,
             variables: {
               communityId,
-              subjectType: mapPostTypeToFeedType(postType),
+              subjectType: [
+                FeedItemSubjectTypeEnum.STORY,
+                FeedItemSubjectTypeEnum.QUESTION,
+                FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+                FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+                FeedItemSubjectTypeEnum.HELP_REQUEST,
+                FeedItemSubjectTypeEnum.THOUGHT,
+                FeedItemSubjectTypeEnum.STEP,
+                FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE,
+                FeedItemSubjectTypeEnum.COMMUNITY_PERMISSION,
+              ],
             },
             data: {
-              ...originalFilteredData,
+              ...originalData,
               community: {
-                ...originalFilteredData?.community,
+                ...originalData?.community,
                 feedItems: {
-                  ...originalFilteredData?.community.feedItems,
+                  ...originalData?.community.feedItems,
                   nodes: [
                     data?.createPost?.post?.feedItem,
-                    ...(originalFilteredData?.community.feedItems.nodes || []),
+                    ...(originalData?.community.feedItems.nodes || []),
                   ],
                 },
               },
