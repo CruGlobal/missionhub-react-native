@@ -13,7 +13,7 @@ import { isAuthenticated } from '../../auth/authStore';
 import { apolloClient } from '../../apolloClient';
 
 import { LOCALE_AND_TIMEZONE_QUERY } from './queries';
-import { LocaleAndTimezone } from './__generated__/LocaleAndTimeZone';
+import { LocaleAndTimezone } from './__generated__/LocaleAndTimezone';
 
 function getTimezoneString() {
   return `${(new Date().getTimezoneOffset() / 60) * -1}`;

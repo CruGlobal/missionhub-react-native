@@ -18,7 +18,6 @@ import { isAndroid } from '../../utils/common';
 import {
   setAuthToken,
   getAnonymousUid,
-  deleteAllAuthTokens,
   setAppleId,
   deleteAnonymousUid,
 } from '../authStore';
