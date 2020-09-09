@@ -33,5 +33,16 @@ export const setAnonymousUid = (newAnonymousUid: string) =>
 export const deleteAnonymousUid = () =>
   SecureStore.deleteItemAsync(ANONYMOUS_UID_KEY);
 
+const APPLE_ID_KEY = 'appleId';
+export const getAppleId = () => SecureStore.getItemAsync(APPLE_ID_KEY);
+export const setAppleId = (newAppleId: string) =>
+  SecureStore.setItemAsync(APPLE_ID_KEY, newAppleId);
+export const deleteAppleId = () => SecureStore.deleteItemAsync(APPLE_ID_KEY);
+
 export const deleteAllAuthTokens = () =>
-  Promise.all([deleteAuthToken(), deleteRefreshToken(), deleteAnonymousUid()]);
+  Promise.all([
+    deleteAuthToken(),
+    deleteRefreshToken(),
+    deleteAnonymousUid(),
+    deleteAppleId(),
+  ]);

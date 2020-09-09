@@ -19,6 +19,8 @@ import {
   setAuthToken,
   getAnonymousUid,
   deleteAllAuthTokens,
+  setAppleId,
+  deleteAnonymousUid,
 } from '../authStore';
 import { AuthError } from '../constants';
 import { rollbar } from '../../utils/rollbar.config';
@@ -31,6 +33,7 @@ import {
 
 interface SignInWithAppleResponse {
   identityToken: string;
+  userId: string;
   firstName?: string;
   lastName?: string;
 }
@@ -77,6 +80,7 @@ export const useSignInWithApple = () => {
       if (appleAuthRequestResponse.identityToken) {
         return {
           identityToken: appleAuthRequestResponse.identityToken,
+          userId: appleAuthRequestResponse.user,
           firstName: appleAuthRequestResponse.fullName?.givenName ?? undefined,
           lastName: appleAuthRequestResponse.fullName?.familyName ?? undefined,
         };
@@ -104,6 +108,7 @@ export const useSignInWithApple = () => {
       if (response?.id_token) {
         return {
           identityToken: response.id_token,
+          userId: response.user?.email ?? 'apple user',
           firstName: response.user?.name?.firstName,
           lastName: response.user?.name?.lastName,
         };
@@ -127,13 +132,13 @@ export const useSignInWithApple = () => {
     }
   }, []);
 
-  const signInWithApple = useCallback(async () => {
+  const signInWithApple = useCallback(async (refreshUser?: string) => {
     setError(AuthError.None);
     setProviderAuthInProgress(true);
     try {
-      const { identityToken, firstName, lastName } = await (isAndroid
+      const { identityToken, userId, firstName, lastName } = await (isAndroid
         ? onAndroid()
-        : onIos());
+        : onIos(refreshUser));
       setProviderAuthInProgress(false);
       const anonymousUid = await getAnonymousUid();
       const { data } = await apiSignInWithApple({
@@ -147,7 +152,8 @@ export const useSignInWithApple = () => {
 
       if (data?.loginWithApple?.token) {
         await setAuthToken(data.loginWithApple.token);
-        await deleteAllAuthTokens();
+        await setAppleId(userId);
+        await deleteAnonymousUid();
       } else {
         throw new Error('apiSignInWithTheKey did not return an access token');
       }

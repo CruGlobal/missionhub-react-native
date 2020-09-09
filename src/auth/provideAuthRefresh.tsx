@@ -12,7 +12,13 @@ import {
   useSignInWithAnonymous,
   SignInWithAnonymousType,
 } from './providers/useSignInWithAnonymous';
-import { isAuthenticated, getRefreshToken, getAnonymousUid } from './authStore';
+import { useSignInWithApple } from './providers/useSignInWithApple';
+import {
+  isAuthenticated,
+  getRefreshToken,
+  getAnonymousUid,
+  getAppleId,
+} from './authStore';
 import { useAuthSuccess } from './authHooks';
 
 export let authRefresh: () => Promise<boolean>;
@@ -23,6 +29,8 @@ export const useProvideAuthRefresh = () => {
   const { signInWithFacebook } = useSignInWithFacebook();
 
   const { signInWithTheKey } = useSignInWithTheKey();
+
+  const { signInWithApple } = useSignInWithApple();
 
   const { signInWithAnonymous } = useSignInWithAnonymous();
 
@@ -46,6 +54,12 @@ export const useProvideAuthRefresh = () => {
     const { accessToken } = (await AccessToken.getCurrentAccessToken()) || {};
     if (accessToken) {
       await signInWithFacebook();
+      return true;
+    }
+
+    const appleId = await getAppleId();
+    if (appleId) {
+      await signInWithApple(appleId);
       return true;
     }
 
