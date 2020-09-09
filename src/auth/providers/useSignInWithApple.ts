@@ -18,7 +18,7 @@ import { isAndroid } from '../../utils/common';
 import {
   setAuthToken,
   getAnonymousUid,
-  setAppleId,
+  setAppleUserId,
   deleteAnonymousUid,
 } from '../authStore';
 import { AuthError } from '../constants';
@@ -151,7 +151,7 @@ export const useSignInWithApple = () => {
 
       if (data?.loginWithApple?.token) {
         await setAuthToken(data.loginWithApple.token);
-        await setAppleId(userId);
+        await setAppleUserId(userId);
         await deleteAnonymousUid();
       } else {
         throw new Error('apiSignInWithTheKey did not return an access token');

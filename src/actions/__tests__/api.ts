@@ -13,7 +13,7 @@ import { logout } from '../auth/auth';
 import {
   setAuthToken,
   getCachedAuthToken,
-  getRefreshToken,
+  getTheKeyRefreshToken,
 } from '../../auth/authStore';
 import { authRefresh } from '../../auth/provideAuthRefresh';
 
@@ -118,7 +118,7 @@ it('should handle invalid token', async () => {
 });
 
 it('should logout if KEY_REFRESH_TOKEN fails with invalid_grant', async () => {
-  (getRefreshToken as jest.Mock).mockReturnValue('refresh');
+  (getTheKeyRefreshToken as jest.Mock).mockReturnValue('refresh');
   await testCallApiWithError({
     request: refreshRequest,
     error: invalidGrantError,

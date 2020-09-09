@@ -18,12 +18,13 @@ const deleteAuthToken = () => {
 };
 export const isAuthenticated = () => cachedAuthToken !== null;
 
-const REFRESH_TOKEN_KEY = 'refreshToken';
-export const getRefreshToken = () =>
-  SecureStore.getItemAsync(REFRESH_TOKEN_KEY);
-export const setRefreshToken = (newRefreshToken: string) =>
-  SecureStore.setItemAsync(REFRESH_TOKEN_KEY, newRefreshToken);
-const deleteRefreshToken = () => SecureStore.deleteItemAsync(REFRESH_TOKEN_KEY);
+const The_KEY_REFRESH_TOKEN_KEY = 'theKeyRefreshToken';
+export const getTheKeyRefreshToken = () =>
+  SecureStore.getItemAsync(The_KEY_REFRESH_TOKEN_KEY);
+export const setTheKeyRefreshToken = (newRefreshToken: string) =>
+  SecureStore.setItemAsync(The_KEY_REFRESH_TOKEN_KEY, newRefreshToken);
+const deleteTheKeyRefreshToken = () =>
+  SecureStore.deleteItemAsync(The_KEY_REFRESH_TOKEN_KEY);
 
 const ANONYMOUS_UID_KEY = 'anonymousUid';
 export const getAnonymousUid = () =>
@@ -33,16 +34,16 @@ export const setAnonymousUid = (newAnonymousUid: string) =>
 export const deleteAnonymousUid = () =>
   SecureStore.deleteItemAsync(ANONYMOUS_UID_KEY);
 
-const APPLE_ID_KEY = 'appleId';
-export const getAppleId = () => SecureStore.getItemAsync(APPLE_ID_KEY);
-export const setAppleId = (newAppleId: string) =>
-  SecureStore.setItemAsync(APPLE_ID_KEY, newAppleId);
-export const deleteAppleId = () => SecureStore.deleteItemAsync(APPLE_ID_KEY);
+const APPLE_USER_ID_KEY = 'appleUserId';
+export const getAppleUserId = () => SecureStore.getItemAsync(APPLE_USER_ID_KEY);
+export const setAppleUserId = (newAppleUserId: string) =>
+  SecureStore.setItemAsync(APPLE_USER_ID_KEY, newAppleUserId);
+const deleteAppleUserId = () => SecureStore.deleteItemAsync(APPLE_USER_ID_KEY);
 
 export const deleteAllAuthTokens = () =>
   Promise.all([
     deleteAuthToken(),
-    deleteRefreshToken(),
+    deleteTheKeyRefreshToken(),
     deleteAnonymousUid(),
-    deleteAppleId(),
+    deleteAppleUserId(),
   ]);

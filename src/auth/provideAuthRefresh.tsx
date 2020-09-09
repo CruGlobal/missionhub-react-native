@@ -15,9 +15,9 @@ import {
 import { useSignInWithApple } from './providers/useSignInWithApple';
 import {
   isAuthenticated,
-  getRefreshToken,
+  getTheKeyRefreshToken,
   getAnonymousUid,
-  getAppleId,
+  getAppleUserId,
 } from './authStore';
 import { useAuthSuccess } from './authHooks';
 
@@ -41,7 +41,7 @@ export const useProvideAuthRefresh = () => {
       return false;
     }
 
-    if (await getRefreshToken()) {
+    if (await getTheKeyRefreshToken()) {
       await signInWithTheKey({ type: SignInWithTheKeyType.Refresh });
       return true;
     }
@@ -57,7 +57,7 @@ export const useProvideAuthRefresh = () => {
       return true;
     }
 
-    const appleId = await getAppleId();
+    const appleId = await getAppleUserId();
     if (appleId) {
       await signInWithApple(appleId);
       return true;

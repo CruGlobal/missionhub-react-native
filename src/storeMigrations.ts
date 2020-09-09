@@ -1,7 +1,7 @@
 import { RootState } from './reducers';
 import {
   setAuthToken,
-  setRefreshToken,
+  setTheKeyRefreshToken,
   setAnonymousUid,
 } from './auth/authStore';
 
@@ -68,7 +68,7 @@ export const migrations = {
   }) => {
     await Promise.all([
       ...(auth.token ? [setAuthToken(auth.token)] : []),
-      ...(auth.refreshToken ? [setRefreshToken(auth.refreshToken)] : []),
+      ...(auth.refreshToken ? [setTheKeyRefreshToken(auth.refreshToken)] : []),
       ...(auth.upgradeToken ? [setAnonymousUid(auth.upgradeToken)] : []),
     ]);
     return state;

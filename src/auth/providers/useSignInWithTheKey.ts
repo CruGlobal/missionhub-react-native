@@ -16,8 +16,8 @@ import { trackActionWithoutData } from '../../actions/analytics';
 import {
   setAuthToken,
   getAnonymousUid,
-  getRefreshToken,
-  setRefreshToken,
+  getTheKeyRefreshToken,
+  setTheKeyRefreshToken,
   deleteAnonymousUid,
 } from '../authStore';
 import { AuthError } from '../constants';
@@ -108,7 +108,7 @@ export const useSignInWithTheKey = () => {
       const { access_token, refresh_token } = ((await dispatch(
         callApi(request, {}, params),
       )) as unknown) as { access_token: string; refresh_token?: string };
-      refresh_token && setRefreshToken(refresh_token);
+      refresh_token && setTheKeyRefreshToken(refresh_token);
       return access_token;
     },
     [],
@@ -118,7 +118,7 @@ export const useSignInWithTheKey = () => {
     async (options: SignInWithTheKeyOptions) => {
       switch (options.type) {
         case SignInWithTheKeyType.Refresh: {
-          const refreshToken = await getRefreshToken();
+          const refreshToken = await getTheKeyRefreshToken();
           if (refreshToken) {
             return makeAccessTokenRequest(
               REQUESTS.KEY_REFRESH_TOKEN,
