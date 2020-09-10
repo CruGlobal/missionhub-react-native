@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import {
   SafeAreaView,
   StyleProp,
@@ -210,22 +210,13 @@ function getExtraCount(numPeople = 0, countOnly = false) {
   return num;
 }
 
-interface PostTypeCardWithPeopleProps {
+interface PostTypeCardProps {
   type: FeedItemSubjectTypeEnum;
   onPress: (event: GestureResponderEvent) => void;
-  people?: AvatarPerson[];
-  countOnly?: boolean;
-  testID?: string;
+  children: ReactElement | ReactElement[] | null;
 }
-export const PostTypeCardWithPeople = ({
-  type,
-  onPress,
-  people,
-  countOnly = false,
-}: PostTypeCardWithPeopleProps) => {
+const PostTypeCard = ({ type, onPress, children }: PostTypeCardProps) => {
   const { t } = useTranslation('postTypes');
-  const visiblePeople = people?.slice(0, 3) || [];
-  const num = getExtraCount(people?.length, countOnly);
 
   return (
     <Card
@@ -239,30 +230,77 @@ export const PostTypeCardWithPeople = ({
           size={PostLabelSizeEnum.large}
           style={{ marginLeft: 0, marginRight: 0 }}
         />
-        <View style={styles.peopleCardList}>
-          {!countOnly &&
-            visiblePeople.map((person, index) => (
-              <Avatar
-                // eslint-disable-next-line react/no-array-index-key
-                key={`${person.id}-${index}`}
-                person={person}
-                size="extrasmall"
-                style={{ marginLeft: -12 }}
-              />
-            ))}
-          {num > 0 && (
-            <Avatar
-              customText={`+${num}`}
-              size="extrasmall"
-              style={[PostTypeBgStyle[type], { marginLeft: -12 }]}
-            />
-          )}
-        </View>
+        <View style={styles.peopleCardList}>{children}</View>
       </View>
       <View style={styles.peopleCardBottom}>
         <Text style={styles.peopleCardText}>{t(`card.${type}`)}</Text>
       </View>
     </Card>
+  );
+};
+
+interface PostTypeCardWithPeopleProps {
+  type: FeedItemSubjectTypeEnum;
+  onPress: (event: GestureResponderEvent) => void;
+  people?: AvatarPerson[];
+  testID?: string;
+}
+export const PostTypeCardWithPeople = ({
+  type,
+  onPress,
+  people,
+}: PostTypeCardWithPeopleProps) => {
+  const visiblePeople = people?.slice(0, 3) || [];
+  const num = getExtraCount(people?.length, false);
+
+  return (
+    <PostTypeCard type={type} onPress={onPress}>
+      <>
+        {visiblePeople.map((person, index) => (
+          <Avatar
+            // eslint-disable-next-line react/no-array-index-key
+            key={`${person.id}-${index}`}
+            person={person}
+            size="extrasmall"
+            style={{ marginLeft: -12 }}
+          />
+        ))}
+        {num > 0 && (
+          <Avatar
+            customText={`+${num}`}
+            size="extrasmall"
+            style={[PostTypeBgStyle[type], { marginLeft: -12 }]}
+          />
+        )}
+      </>
+    </PostTypeCard>
+  );
+};
+
+interface PostTypeCardWithoutPeopleProps {
+  type: FeedItemSubjectTypeEnum;
+  onPress: (event: GestureResponderEvent) => void;
+  postsCount: number;
+  testID?: string;
+}
+export const PostTypeCardWithoutPeople = ({
+  type,
+  onPress,
+  postsCount,
+}: PostTypeCardWithoutPeopleProps) => {
+  const num = getExtraCount(postsCount, true);
+
+  return (
+    <PostTypeCard type={type} onPress={onPress}>
+      {(num > 0 && (
+        <Avatar
+          customText={`+${num}`}
+          size="extrasmall"
+          style={[PostTypeBgStyle[type], { marginLeft: -12 }]}
+        />
+      )) ||
+        null}
+    </PostTypeCard>
   );
 };
 

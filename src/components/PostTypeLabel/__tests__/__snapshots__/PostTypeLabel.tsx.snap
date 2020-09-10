@@ -747,7 +747,7 @@ exports[`label variations renders small label with no text 1`] = `
 </View>
 `;
 
-exports[`post types cards renders Announcement Label 1`] = `
+exports[`post types cards with people renders Announcement Label 1`] = `
 <View
   accessible={true}
   focusable={true}
@@ -853,7 +853,7 @@ exports[`post types cards renders Announcement Label 1`] = `
 </View>
 `;
 
-exports[`post types cards renders Community Need Label 1`] = `
+exports[`post types cards with people renders Community Need Label 1`] = `
 <View
   accessible={true}
   focusable={true}
@@ -959,7 +959,7 @@ exports[`post types cards renders Community Need Label 1`] = `
 </View>
 `;
 
-exports[`post types cards renders God Story Label 1`] = `
+exports[`post types cards with people renders God Story Label 1`] = `
 <View
   accessible={true}
   focusable={true}
@@ -1065,113 +1065,7 @@ exports[`post types cards renders God Story Label 1`] = `
 </View>
 `;
 
-exports[`post types cards renders On Your Mind Label 1`] = `
-<View
-  accessible={true}
-  focusable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "alignItems": "flex-start",
-      "backgroundColor": "#ffffff",
-      "borderRadius": 8,
-      "elevation": 4,
-      "flex": 1,
-      "flexDirection": "column",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "opacity": 1,
-      "shadowColor": "#000000",
-      "shadowOffset": Object {
-        "height": 2,
-        "width": 0,
-      },
-      "shadowOpacity": 0.3,
-      "shadowRadius": 2,
-    }
-  }
-  testID="THOUGHTCardWithPeople"
->
-  <View
-    style={
-      Array [
-        Object {
-          "backgroundColor": "#B4B6BA",
-        },
-        Object {
-          "borderTopLeftRadius": 8,
-          "borderTopRightRadius": 8,
-          "flexDirection": "row",
-          "paddingHorizontal": 12,
-          "paddingVertical": 13,
-        },
-      ]
-    }
-  >
-    <SvgMock
-      color="#ffffff"
-      height={24}
-      style={
-        Array [
-          Object {
-            "marginLeft": -10,
-            "marginRight": 10,
-          },
-          Object {
-            "marginLeft": 0,
-            "marginRight": 0,
-          },
-        ]
-      }
-      width={24}
-    />
-    <View
-      style={
-        Object {
-          "flex": 1,
-          "flexDirection": "row",
-          "justifyContent": "flex-end",
-        }
-      }
-    />
-  </View>
-  <View
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-        "borderBottomLeftRadius": 8,
-        "borderBottomRightRadius": 8,
-        "paddingHorizontal": 10,
-        "paddingVertical": 5,
-      }
-    }
-  >
-    <Text
-      style={
-        Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 14,
-          "fontStyle": "normal",
-          "lineHeight": 20,
-          "textAlignVertical": "center",
-          "textTransform": "none",
-        }
-      }
-    >
-      card.THOUGHT
-    </Text>
-  </View>
-</View>
-`;
-
-exports[`post types cards renders Prayer Request Label 1`] = `
+exports[`post types cards with people renders Prayer Request Label 1`] = `
 <View
   accessible={true}
   focusable={true}
@@ -1277,7 +1171,7 @@ exports[`post types cards renders Prayer Request Label 1`] = `
 </View>
 `;
 
-exports[`post types cards renders Spiritual Question Label 1`] = `
+exports[`post types cards with people renders Spiritual Question Label 1`] = `
 <View
   accessible={true}
   focusable={true}
@@ -1383,7 +1277,7 @@ exports[`post types cards renders Spiritual Question Label 1`] = `
 </View>
 `;
 
-exports[`post types cards renders Step Of Faith Label 1`] = `
+exports[`post types cards with people renders Step Of Faith Label 1`] = `
 <View
   accessible={true}
   focusable={true}
@@ -1489,7 +1383,7 @@ exports[`post types cards renders Step Of Faith Label 1`] = `
 </View>
 `;
 
-exports[`post types cards renders people 1`] = `
+exports[`post types cards with people renders people 1`] = `
 <View
   accessible={true}
   focusable={true}
@@ -1723,7 +1617,877 @@ exports[`post types cards renders people 1`] = `
 </View>
 `;
 
-exports[`post types cards renders people with count only 1`] = `
+exports[`post types cards with people renders people greater than 9 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "flex-start",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "column",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="STEPCardWithPeople"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#3CC8E6",
+        },
+        Object {
+          "borderTopLeftRadius": 8,
+          "borderTopRightRadius": 8,
+          "flexDirection": "row",
+          "paddingHorizontal": 12,
+          "paddingVertical": 13,
+        },
+      ]
+    }
+  >
+    <SvgMock
+      color="#ffffff"
+      height={24}
+      style={
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          Object {
+            "marginLeft": 0,
+            "marginRight": 0,
+          },
+        ]
+      }
+      width={24}
+    />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "alias consequuntur corporis",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "borderColor": "#ffffff",
+              "borderRadius": 12,
+              "borderWidth": 1,
+              "height": 24,
+              "width": 24,
+            },
+            Object {
+              "backgroundColor": "rgb(154, 199, 115)",
+            },
+            Object {
+              "marginLeft": -12,
+            },
+          ]
+        }
+      />
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "qui amet iure",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "borderColor": "#ffffff",
+              "borderRadius": 12,
+              "borderWidth": 1,
+              "height": 24,
+              "width": 24,
+            },
+            Object {
+              "backgroundColor": "rgb(161, 123, 130)",
+            },
+            Object {
+              "marginLeft": -12,
+            },
+          ]
+        }
+      />
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "ut nulla quam",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "borderColor": "#ffffff",
+              "borderRadius": 12,
+              "borderWidth": 1,
+              "height": 24,
+              "width": 24,
+            },
+            Object {
+              "backgroundColor": "rgb(152, 55, 155)",
+            },
+            Object {
+              "marginLeft": -12,
+            },
+          ]
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            Array [
+              Object {
+                "borderColor": "#ffffff",
+                "borderRadius": 12,
+                "borderWidth": 1,
+                "height": 24,
+                "width": 24,
+              },
+              Object {
+                "backgroundColor": "#B4B6BA",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "#3CC8E6",
+                },
+                Object {
+                  "marginLeft": -12,
+                },
+              ],
+            ],
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "lineHeight": 16,
+                "textAlign": "center",
+                "textAlignVertical": "bottom",
+                "textTransform": "none",
+              },
+              Object {
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          +9
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderBottomLeftRadius": 8,
+        "borderBottomRightRadius": 8,
+        "paddingHorizontal": 10,
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
+      }
+    >
+      Steps of Faith
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`post types cards without people renders Announcement Label 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "flex-start",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "column",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="ANNOUNCEMENTCardWithPeople"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#505256",
+        },
+        Object {
+          "borderTopLeftRadius": 8,
+          "borderTopRightRadius": 8,
+          "flexDirection": "row",
+          "paddingHorizontal": 12,
+          "paddingVertical": 13,
+        },
+      ]
+    }
+  >
+    <SvgMock
+      color="#ffffff"
+      height={24}
+      style={
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          Object {
+            "marginLeft": 0,
+            "marginRight": 0,
+          },
+        ]
+      }
+      width={24}
+    />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderBottomLeftRadius": 8,
+        "borderBottomRightRadius": 8,
+        "paddingHorizontal": 10,
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
+      }
+    >
+      Announcements
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`post types cards without people renders Community Need Label 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "flex-start",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "column",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="HELP_REQUESTCardWithPeople"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#FD726D",
+        },
+        Object {
+          "borderTopLeftRadius": 8,
+          "borderTopRightRadius": 8,
+          "flexDirection": "row",
+          "paddingHorizontal": 12,
+          "paddingVertical": 13,
+        },
+      ]
+    }
+  >
+    <SvgMock
+      color="#ffffff"
+      height={24}
+      style={
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          Object {
+            "marginLeft": 0,
+            "marginRight": 0,
+          },
+        ]
+      }
+      width={24}
+    />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderBottomLeftRadius": 8,
+        "borderBottomRightRadius": 8,
+        "paddingHorizontal": 10,
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
+      }
+    >
+      Community Needs
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`post types cards without people renders God Story Label 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "flex-start",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "column",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="STORYCardWithPeople"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#7076B5",
+        },
+        Object {
+          "borderTopLeftRadius": 8,
+          "borderTopRightRadius": 8,
+          "flexDirection": "row",
+          "paddingHorizontal": 12,
+          "paddingVertical": 13,
+        },
+      ]
+    }
+  >
+    <SvgMock
+      color="#ffffff"
+      height={24}
+      style={
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          Object {
+            "marginLeft": 0,
+            "marginRight": 0,
+          },
+        ]
+      }
+      width={24}
+    />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderBottomLeftRadius": 8,
+        "borderBottomRightRadius": 8,
+        "paddingHorizontal": 10,
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
+      }
+    >
+      God Stories
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`post types cards without people renders Prayer Request Label 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "flex-start",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "column",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="PRAYER_REQUESTCardWithPeople"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#A97398",
+        },
+        Object {
+          "borderTopLeftRadius": 8,
+          "borderTopRightRadius": 8,
+          "flexDirection": "row",
+          "paddingHorizontal": 12,
+          "paddingVertical": 13,
+        },
+      ]
+    }
+  >
+    <SvgMock
+      color="#ffffff"
+      height={24}
+      style={
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          Object {
+            "marginLeft": 0,
+            "marginRight": 0,
+          },
+        ]
+      }
+      width={24}
+    />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderBottomLeftRadius": 8,
+        "borderBottomRightRadius": 8,
+        "paddingHorizontal": 10,
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
+      }
+    >
+      Prayer Requests
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`post types cards without people renders Spiritual Question Label 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "flex-start",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "column",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="QUESTIONCardWithPeople"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#FFA178",
+        },
+        Object {
+          "borderTopLeftRadius": 8,
+          "borderTopRightRadius": 8,
+          "flexDirection": "row",
+          "paddingHorizontal": 12,
+          "paddingVertical": 13,
+        },
+      ]
+    }
+  >
+    <SvgMock
+      color="#ffffff"
+      height={24}
+      style={
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          Object {
+            "marginLeft": 0,
+            "marginRight": 0,
+          },
+        ]
+      }
+      width={24}
+    />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderBottomLeftRadius": 8,
+        "borderBottomRightRadius": 8,
+        "paddingHorizontal": 10,
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
+      }
+    >
+      Spiritual Questions
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`post types cards without people renders Step Of Faith Label 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "flex-start",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "column",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="STEPCardWithPeople"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#3CC8E6",
+        },
+        Object {
+          "borderTopLeftRadius": 8,
+          "borderTopRightRadius": 8,
+          "flexDirection": "row",
+          "paddingHorizontal": 12,
+          "paddingVertical": 13,
+        },
+      ]
+    }
+  >
+    <SvgMock
+      color="#ffffff"
+      height={24}
+      style={
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          Object {
+            "marginLeft": 0,
+            "marginRight": 0,
+          },
+        ]
+      }
+      width={24}
+    />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderBottomLeftRadius": 8,
+        "borderBottomRightRadius": 8,
+        "paddingHorizontal": 10,
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
+      }
+    >
+      Steps of Faith
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`post types cards without people renders post count 1`] = `
 <View
   accessible={true}
   focusable={true}
@@ -1848,6 +2612,165 @@ exports[`post types cards renders people with count only 1`] = `
           }
         >
           +6
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderBottomLeftRadius": 8,
+        "borderBottomRightRadius": 8,
+        "paddingHorizontal": 10,
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "lineHeight": 20,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
+      }
+    >
+      Steps of Faith
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`post types cards without people renders post count greater than 9 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "flex-start",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "column",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="STEPCardWithPeople"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#3CC8E6",
+        },
+        Object {
+          "borderTopLeftRadius": 8,
+          "borderTopRightRadius": 8,
+          "flexDirection": "row",
+          "paddingHorizontal": 12,
+          "paddingVertical": 13,
+        },
+      ]
+    }
+  >
+    <SvgMock
+      color="#ffffff"
+      height={24}
+      style={
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          Object {
+            "marginLeft": 0,
+            "marginRight": 0,
+          },
+        ]
+      }
+      width={24}
+    />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            Array [
+              Object {
+                "borderColor": "#ffffff",
+                "borderRadius": 12,
+                "borderWidth": 1,
+                "height": 24,
+                "width": 24,
+              },
+              Object {
+                "backgroundColor": "#B4B6BA",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "#3CC8E6",
+                },
+                Object {
+                  "marginLeft": -12,
+                },
+              ],
+            ],
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "lineHeight": 16,
+                "textAlign": "center",
+                "textAlignVertical": "bottom",
+                "textTransform": "none",
+              },
+              Object {
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          +9
         </Text>
       </View>
     </View>
