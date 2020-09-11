@@ -93,28 +93,28 @@ exports[`should load person data correctly 1`] = `
 - First value
 + Second value
 
-@@ -142,56 +142,33 @@
+@@ -142,57 +142,33 @@
             \\"alignItems\\": \\"center\\",
             \\"marginBottom\\": 24,
           }
         }
       >
 -       <View
--         style={
--           Array [
 +       <Image
 +         resizeMode=\\"cover\\"
 +         source={
-            Object {
--               \\"alignItems\\": \\"center\\",
--               \\"justifyContent\\": \\"center\\",
--             },
++           Object {
 +             \\"uri\\": \\"quisquam recusandae alias\\",
 +           }
 +         }
-+         style={
+          style={
             Array [
               Object {
+-               \\"alignItems\\": \\"center\\",
+-               \\"justifyContent\\": \\"center\\",
+-             },
+-             Array [
+-               Object {
                 \\"borderRadius\\": 48,
                 \\"height\\": 96,
                 \\"width\\": 96,
@@ -145,7 +145,8 @@ exports[`should load person data correctly 1`] = `
 -               },
 -               Object {
 -                 \\"fontSize\\": 64,
--                 \\"lineHeight\\": 20,
+-                 \\"height\\": 56,
+-                 \\"lineHeight\\": 64,
 -               },
 -             ]
 -           }
@@ -159,7 +160,7 @@ exports[`should load person data correctly 1`] = `
             Object {
               \\"color\\": \\"#ffffff\\",
               \\"fontFamily\\": \\"SourceSansPro-Light\\",
-@@ -201,11 +178,13 @@
+@@ -202,11 +178,13 @@
               \\"marginTop\\": 12,
               \\"textAlignVertical\\": \\"center\\",
               \\"textTransform\\": \\"none\\",
@@ -174,7 +175,7 @@ exports[`should load person data correctly 1`] = `
             Object {
               \\"color\\": \\"#ffffff\\",
               \\"fontFamily\\": \\"SourceSansPro-Bold\\",
-@@ -216,11 +195,13 @@
+@@ -217,11 +195,13 @@
               \\"marginTop\\": 4,
               \\"textAlignVertical\\": \\"center\\",
               \\"textTransform\\": \\"uppercase\\",
@@ -376,7 +377,8 @@ exports[`should render loading 1`] = `
               },
               Object {
                 "fontSize": 64,
-                "lineHeight": 20,
+                "height": 56,
+                "lineHeight": 64,
               },
             ]
           }
@@ -736,7 +738,8 @@ exports[`should render me loading 1`] = `
               },
               Object {
                 "fontSize": 64,
-                "lineHeight": 20,
+                "height": 56,
+                "lineHeight": 64,
               },
             ]
           }

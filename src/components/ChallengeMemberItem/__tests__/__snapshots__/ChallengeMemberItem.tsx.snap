@@ -100,7 +100,8 @@ exports[`render correctly | Me 1`] = `
               },
               Object {
                 "fontSize": 26,
-                "lineHeight": 20,
+                "height": 24,
+                "lineHeight": 26,
               },
             ]
           }
@@ -294,7 +295,8 @@ exports[`renders completed item correctly 1`] = `
               },
               Object {
                 "fontSize": 26,
-                "lineHeight": 20,
+                "height": 24,
+                "lineHeight": 26,
               },
             ]
           }
@@ -492,7 +494,8 @@ exports[`renders correctly | Not Me 1`] = `
               },
               Object {
                 "fontSize": 26,
-                "lineHeight": 20,
+                "height": 24,
+                "lineHeight": 26,
               },
             ]
           }
@@ -686,7 +689,8 @@ exports[`renders full date if not in same week 1`] = `
               },
               Object {
                 "fontSize": 26,
-                "lineHeight": 20,
+                "height": 24,
+                "lineHeight": 26,
               },
             ]
           }

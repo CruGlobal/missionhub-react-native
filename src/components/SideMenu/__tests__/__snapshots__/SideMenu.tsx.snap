@@ -926,7 +926,8 @@ exports[`renders correctly | Authenticated User 1`] = `
                   },
                   Object {
                     "fontSize": 26,
-                    "lineHeight": 20,
+                    "height": 24,
+                    "lineHeight": 26,
                   },
                 ]
               }
@@ -1784,7 +1785,8 @@ exports[`renders correctly | UnAuthed User 1`] = `
                   },
                   Object {
                     "fontSize": 26,
-                    "lineHeight": 20,
+                    "height": 24,
+                    "lineHeight": 26,
                   },
                 ]
               }
