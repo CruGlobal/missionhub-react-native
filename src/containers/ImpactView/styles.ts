@@ -16,6 +16,7 @@ export default StyleSheet.create({
   text: {
     ...theme.textRegular16,
     fontSize: 28,
+    lineHeight: 36,
     color: theme.white,
     width: 270,
   },
@@ -28,6 +29,6 @@ export default StyleSheet.create({
   bottomSection: {
     alignItems: 'center',
     paddingBottom: 40,
-    backgroundColor: theme.secondaryColor,
+    backgroundColor: '#3EB1C8',
   },
 });
