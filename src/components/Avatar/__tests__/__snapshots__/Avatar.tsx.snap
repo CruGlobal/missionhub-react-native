@@ -159,6 +159,7 @@ exports[`renders person with custom text 1`] = `
         },
         Object {
           "fontSize": 20,
+          "height": 19,
           "lineHeight": 20,
         },
       ]
@@ -208,6 +209,8 @@ exports[`renders text extrasmall 1`] = `
         },
         Object {
           "fontSize": 12,
+          "height": 12,
+          "lineHeight": 12,
         },
       ]
     }
@@ -254,7 +257,8 @@ exports[`renders text large 1`] = `
         },
         Object {
           "fontSize": 64,
-          "lineHeight": 20,
+          "height": 56,
+          "lineHeight": 64,
         },
       ]
     }
@@ -301,7 +305,8 @@ exports[`renders text medium 1`] = `
         },
         Object {
           "fontSize": 26,
-          "lineHeight": 20,
+          "height": 24,
+          "lineHeight": 26,
         },
       ]
     }
@@ -348,7 +353,8 @@ exports[`renders text mediumSmall 1`] = `
         },
         Object {
           "fontSize": 26,
-          "lineHeight": 20,
+          "height": 24,
+          "lineHeight": 26,
         },
       ]
     }
@@ -395,6 +401,7 @@ exports[`renders text small 1`] = `
         },
         Object {
           "fontSize": 20,
+          "height": 19,
           "lineHeight": 20,
         },
       ]

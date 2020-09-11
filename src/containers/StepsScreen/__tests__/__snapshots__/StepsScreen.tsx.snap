@@ -418,7 +418,8 @@ exports[`renders loading screen correctly 1`] = `
                   },
                   Object {
                     "fontSize": 26,
-                    "lineHeight": 20,
+                    "height": 24,
+                    "lineHeight": 26,
                   },
                 ]
               }
