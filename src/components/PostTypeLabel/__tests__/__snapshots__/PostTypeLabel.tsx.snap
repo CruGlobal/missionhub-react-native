@@ -1578,6 +1578,8 @@ exports[`post types cards with people renders people 1`] = `
               },
               Object {
                 "fontSize": 12,
+                "height": 12,
+                "lineHeight": 12,
               },
             ]
           }
@@ -2770,6 +2772,8 @@ exports[`post types cards without people renders post count greater than 9 1`] =
               },
               Object {
                 "fontSize": 12,
+                "height": 12,
+                "lineHeight": 12,
               },
             ]
           }
