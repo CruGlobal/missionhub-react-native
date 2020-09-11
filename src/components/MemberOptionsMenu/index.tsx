@@ -21,7 +21,7 @@ import { RootState } from '../../reducers';
 import styles from './styles';
 
 export const API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE =
-  'You must log in for admin or owner permissions';
+  'New owner has not created an account';
 
 // @ts-ignore
 @withTranslation('groupMemberOptions')
