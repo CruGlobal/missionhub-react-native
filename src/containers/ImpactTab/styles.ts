@@ -5,8 +5,10 @@ import theme from '../../theme';
 export default StyleSheet.create({
   backgroundWrapper: {
     position: 'absolute',
-    height: '100%',
-    width: '100%',
+    top: 260,
+    left: 0,
+    bottom: 0,
+    right: 0,
   },
   backgroundTop: {
     flex: 1,
