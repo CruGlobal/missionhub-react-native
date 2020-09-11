@@ -26,6 +26,7 @@ import {
   DELETE_PENDING_POST,
   PENDING_POST_FAILED,
   PENDING_POST_RETRY,
+  DEFAULT_SUBJECT_TYPES,
 } from '../../../constants';
 import { mapPostTypeToFeedType } from '../../../utils/common';
 import { getPostTypeAnalytics } from '../../../utils/analytics';
@@ -161,11 +162,17 @@ export const useCreatePost = ({
             GetCommunityFeedVariables
           >({
             query: GET_COMMUNITY_FEED,
-            variables: { communityId },
+            variables: {
+              communityId,
+              subjectType: [mapPostTypeToFeedType(postType)],
+            },
           });
           cache.writeQuery({
             query: GET_COMMUNITY_FEED,
-            variables: { communityId },
+            variables: {
+              communityId,
+              subjectType: [mapPostTypeToFeedType(postType)],
+            },
             data: {
               ...originalData,
               community: {
@@ -183,31 +190,31 @@ export const useCreatePost = ({
         } catch {}
 
         try {
-          const originalFilteredData = cache.readQuery<
+          const originalData = cache.readQuery<
             GetCommunityFeed,
             GetCommunityFeedVariables
           >({
             query: GET_COMMUNITY_FEED,
             variables: {
               communityId,
-              subjectType: [mapPostTypeToFeedType(postType)],
+              subjectType: DEFAULT_SUBJECT_TYPES,
             },
           });
           cache.writeQuery({
             query: GET_COMMUNITY_FEED,
             variables: {
               communityId,
-              subjectType: mapPostTypeToFeedType(postType),
+              subjectType: DEFAULT_SUBJECT_TYPES,
             },
             data: {
-              ...originalFilteredData,
+              ...originalData,
               community: {
-                ...originalFilteredData?.community,
+                ...originalData?.community,
                 feedItems: {
-                  ...originalFilteredData?.community.feedItems,
+                  ...originalData?.community.feedItems,
                   nodes: [
                     data?.createPost?.post?.feedItem,
-                    ...(originalFilteredData?.community.feedItems.nodes || []),
+                    ...(originalData?.community.feedItems.nodes || []),
                   ],
                 },
               },

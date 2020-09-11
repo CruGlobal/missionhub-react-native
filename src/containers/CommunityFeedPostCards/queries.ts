@@ -49,6 +49,28 @@ export const GET_COMMUNITY_POST_CARDS = gql`
   ${FEED_ITEM_STEP_CARD_FRAGMENT}
 `;
 
+export const GET_GLOBAL_COMMUNITY_POST_CARDS = gql`
+  query GetGlobalCommunityPostCards {
+    globalCommunity {
+      feedItems(sortBy: createdAt_DESC, first: 100, unread: true) {
+        nodes {
+          subject {
+            ... on Step {
+              id
+              __typename
+            }
+            ... on Post {
+              id
+              __typename
+              postType
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
 export const MARK_COMMUNITY_FEED_ITEMS_READ = gql`
   mutation MarkCommunityFeedItemsRead(
     $input: MarkCommunityFeedItemsAsReadInput!
@@ -56,6 +78,18 @@ export const MARK_COMMUNITY_FEED_ITEMS_READ = gql`
     markCommunityFeedItemsAsRead(input: $input) {
       community {
         id
+      }
+    }
+  }
+`;
+
+export const MARK_GLOBAL_FEED_ITEMS_READ = gql`
+  mutation MarkGlobalFeedItemsRead(
+    $input: MarkGlobalCommunityFeedItemsAsReadInput!
+  ) {
+    markGlobalCommunityFeedItemsAsRead(input: $input) {
+      globalCommunity {
+        __typename
       }
     }
   }

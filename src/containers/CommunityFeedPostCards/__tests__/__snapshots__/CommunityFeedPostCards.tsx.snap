@@ -190,39 +190,15 @@ exports[`renders with global feed items correctly 1`] = `
       }
     }
   >
-    <PostTypeCardWithPeople
+    <PostTypeCardWithoutPeople
       onPress={[Function]}
-      people={Array []}
+      postsCount={0}
       testID="PostCard_PRAYER_REQUEST"
       type="PRAYER_REQUEST"
     />
-    <PostTypeCardWithPeople
+    <PostTypeCardWithoutPeople
       onPress={[Function]}
-      people={
-        Array [
-          Object {
-            "__typename": "Person",
-            "firstName": "Janelle",
-            "fullName": "Janelle Upton",
-            "id": "11",
-            "picture": "explicabo exercitationem ut",
-          },
-          Object {
-            "__typename": "Person",
-            "firstName": "Coty",
-            "fullName": "Coty Vandervort",
-            "id": "13",
-            "picture": "ut ullam quos",
-          },
-          Object {
-            "__typename": "Person",
-            "firstName": "Caesar",
-            "fullName": "Caesar Will",
-            "id": "15",
-            "picture": "officia quaerat cumque",
-          },
-        ]
-      }
+      postsCount={1}
       testID="PostCard_STEP"
       type="STEP"
     />
@@ -234,32 +210,15 @@ exports[`renders with global feed items correctly 1`] = `
       }
     }
   >
-    <PostTypeCardWithPeople
+    <PostTypeCardWithoutPeople
       onPress={[Function]}
-      people={Array []}
+      postsCount={3}
       testID="PostCard_STORY"
       type="STORY"
     />
-    <PostTypeCardWithPeople
+    <PostTypeCardWithoutPeople
       onPress={[Function]}
-      people={
-        Array [
-          Object {
-            "__typename": "Person",
-            "firstName": "Alison",
-            "fullName": "Alison Goldner",
-            "id": "5",
-            "picture": "ipsum inventore debitis",
-          },
-          Object {
-            "__typename": "Person",
-            "firstName": "Helena",
-            "fullName": "Helena Osinski",
-            "id": "7",
-            "picture": "a velit provident",
-          },
-        ]
-      }
+      postsCount={0}
       testID="PostCard_ANNOUNCEMENT"
       type="ANNOUNCEMENT"
     />
