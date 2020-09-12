@@ -21,6 +21,7 @@ import {
 } from './authStore';
 import { useAuthSuccess } from './authHooks';
 
+// export for use outside of components. useProvideAuthRefresh will set this value
 export let authRefresh: () => Promise<boolean>;
 
 export const useProvideAuthRefresh = () => {
@@ -69,7 +70,7 @@ export const useProvideAuthRefresh = () => {
 
   authRefresh = async () => {
     const shouldRetry = await performRefresh();
-    await authSuccess();
+    shouldRetry && (await authSuccess());
     return shouldRetry;
   };
 };

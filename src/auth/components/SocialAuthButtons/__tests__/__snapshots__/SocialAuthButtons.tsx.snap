@@ -1,0 +1,436 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot for sign in type 1`] = `
+<View
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "black",
+        "borderColor": undefined,
+        "borderRadius": 24,
+        "borderWidth": undefined,
+        "flexDirection": "row",
+        "height": 50,
+        "justifyContent": "flex-start",
+        "margin": 4,
+        "opacity": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
+        "width": "100%",
+      }
+    }
+    testID="socialAuthButton"
+  >
+    <View
+      style={
+        Object {
+          "width": 70,
+        }
+      }
+    >
+      <SvgMock />
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          },
+          Object {
+            "color": "white",
+          },
+        ]
+      }
+    >
+      Sign in with Apple
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderColor": undefined,
+        "borderRadius": 24,
+        "borderWidth": undefined,
+        "flexDirection": "row",
+        "height": 50,
+        "justifyContent": "flex-start",
+        "margin": 4,
+        "opacity": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
+        "width": "100%",
+      }
+    }
+    testID="socialAuthButton"
+  >
+    <View
+      style={
+        Object {
+          "width": 70,
+        }
+      }
+    >
+      <SvgMock />
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          },
+          Object {
+            "color": "black",
+          },
+        ]
+      }
+    >
+      Sign in with Google
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#3B5998",
+        "borderColor": undefined,
+        "borderRadius": 24,
+        "borderWidth": undefined,
+        "flexDirection": "row",
+        "height": 50,
+        "justifyContent": "flex-start",
+        "margin": 4,
+        "opacity": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
+        "width": "100%",
+      }
+    }
+    testID="socialAuthButton"
+  >
+    <View
+      style={
+        Object {
+          "width": 70,
+        }
+      }
+    >
+      <SvgMock />
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          },
+          Object {
+            "color": "white",
+          },
+        ]
+      }
+    >
+      Sign in with Facebook
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`should match snapshot for sign up type 1`] = `
+<View
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": undefined,
+        "borderColor": "#3CC8E6",
+        "borderRadius": 24,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "height": 50,
+        "justifyContent": "flex-start",
+        "margin": 4,
+        "opacity": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
+        "width": "100%",
+      }
+    }
+    testID="socialAuthButton"
+  >
+    <View
+      style={
+        Object {
+          "width": 70,
+        }
+      }
+    >
+      <SvgMock />
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          },
+          Object {
+            "color": "white",
+          },
+        ]
+      }
+    >
+      Sign up with Email
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "black",
+        "borderColor": undefined,
+        "borderRadius": 24,
+        "borderWidth": undefined,
+        "flexDirection": "row",
+        "height": 50,
+        "justifyContent": "flex-start",
+        "margin": 4,
+        "opacity": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
+        "width": "100%",
+      }
+    }
+    testID="socialAuthButton"
+  >
+    <View
+      style={
+        Object {
+          "width": 70,
+        }
+      }
+    >
+      <SvgMock />
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          },
+          Object {
+            "color": "white",
+          },
+        ]
+      }
+    >
+      Sign up with Apple
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderColor": undefined,
+        "borderRadius": 24,
+        "borderWidth": undefined,
+        "flexDirection": "row",
+        "height": 50,
+        "justifyContent": "flex-start",
+        "margin": 4,
+        "opacity": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
+        "width": "100%",
+      }
+    }
+    testID="socialAuthButton"
+  >
+    <View
+      style={
+        Object {
+          "width": 70,
+        }
+      }
+    >
+      <SvgMock />
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          },
+          Object {
+            "color": "black",
+          },
+        ]
+      }
+    >
+      Sign up with Google
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#3B5998",
+        "borderColor": undefined,
+        "borderRadius": 24,
+        "borderWidth": undefined,
+        "flexDirection": "row",
+        "height": 50,
+        "justifyContent": "flex-start",
+        "margin": 4,
+        "opacity": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
+        "width": "100%",
+      }
+    }
+    testID="socialAuthButton"
+  >
+    <View
+      style={
+        Object {
+          "width": 70,
+        }
+      }
+    >
+      <SvgMock />
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "lineHeight": 24,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          },
+          Object {
+            "color": "white",
+          },
+        ]
+      }
+    >
+      Sign up with Facebook
+    </Text>
+  </View>
+</View>
+`;

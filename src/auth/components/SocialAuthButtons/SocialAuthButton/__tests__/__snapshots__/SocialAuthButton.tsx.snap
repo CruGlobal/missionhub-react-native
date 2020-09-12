@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": undefined,
+      "borderColor": undefined,
+      "borderRadius": 24,
+      "borderWidth": undefined,
+      "flexDirection": "row",
+      "height": 50,
+      "justifyContent": "flex-start",
+      "margin": 4,
+      "opacity": 1,
+      "paddingHorizontal": 20,
+      "paddingVertical": 10,
+      "width": "100%",
+    }
+  }
+  testID="socialAuthButton"
+>
+  <View
+    style={
+      Object {
+        "width": 70,
+      }
+    }
+  >
+    some icon component
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        },
+        Object {
+          "color": "white",
+        },
+      ]
+    }
+  >
+    Auth Button
+  </Text>
+</View>
+`;

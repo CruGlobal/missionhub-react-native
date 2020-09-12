@@ -23,6 +23,7 @@ export const warmAuthCache = async () => {
   }
 };
 
+// async function to load auth person using various fetch policies
 export const loadAuthPerson = async (fetchPolicy: FetchPolicy) => {
   const { data } = await apolloClient.query<AuthPerson>({
     query: AUTH_PERSON,
@@ -44,6 +45,7 @@ export const loadAuthPerson = async (fetchPolicy: FetchPolicy) => {
   return person;
 };
 
+// sync function to load auth person from Apollo cache
 export const getAuthPerson = (): AuthPerson_currentUser_person => {
   try {
     const data = apolloClient.readQuery<AuthPerson>({

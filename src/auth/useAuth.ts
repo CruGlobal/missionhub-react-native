@@ -59,6 +59,7 @@ export const useAuth = () => {
         await signInWithApple();
         break;
       case IdentityProvider.Google:
+        // TODO: add Google implementation
         break;
       case IdentityProvider.Facebook:
         await signInWithFacebook();
