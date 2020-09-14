@@ -151,14 +151,9 @@ export const CommunityFeedItem = ({
   const hasSubjectContent =
     isPost(subject) && (subject as PostSubject).content != '';
 
-  const copyAction = [
-    { text: t('copy.buttonText'), onPress: () => handleCopyPost() },
-  ];
+  const copyAction = [{ text: t('copy.buttonText'), onPress: handleCopyPost }];
   const meActions = [
-    {
-      text: t('edit.buttonText'),
-      onPress: () => editFeedItem(),
-    },
+    { text: t('edit.buttonText'), onPress: editFeedItem },
     {
       text: t('delete.buttonText'),
       onPress: () => deleteFeedItem(),
@@ -166,7 +161,7 @@ export const CommunityFeedItem = ({
     },
   ];
   const notMeActions = [
-    { text: t('report.buttonText'), onPress: () => handleReport() },
+    { text: t('report.buttonText'), onPress: handleReport },
   ];
 
   const menuActions =
