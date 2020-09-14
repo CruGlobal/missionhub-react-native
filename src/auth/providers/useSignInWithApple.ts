@@ -1,20 +1,11 @@
 import { useCallback, useState } from 'react';
-import appleAuth, {
-  AppleAuthRequestOperation,
-  AppleAuthRequestScope,
-  AppleAuthCredentialState,
+import {
+  appleAuth,
+  appleAuthAndroid,
 } from '@invertase/react-native-apple-authentication';
 import DeviceInfo from 'react-native-device-info';
-import AppleAuthenticationAndroid, {
-  NOT_CONFIGURED_ERROR,
-  SIGNIN_CANCELLED_ERROR,
-  SIGNIN_FAILED_ERROR,
-  ResponseType,
-  Scope,
-} from 'react-native-apple-authentication-android';
 import { useMutation } from '@apollo/react-hooks';
 
-import { isAndroid } from '../../utils/common';
 import {
   setAuthToken,
   getAnonymousUid,
@@ -57,12 +48,9 @@ export const useSignInWithApple = () => {
 
     const appleAuthRequestResponse = await appleAuth.performRequest({
       requestedOperation: refreshUser
-        ? AppleAuthRequestOperation.REFRESH
-        : AppleAuthRequestOperation.LOGIN,
-      requestedScopes: [
-        AppleAuthRequestScope.EMAIL,
-        AppleAuthRequestScope.FULL_NAME,
-      ],
+        ? appleAuth.Operation.REFRESH
+        : appleAuth.Operation.LOGIN,
+      requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME],
       user: refreshUser,
     });
 
@@ -72,7 +60,7 @@ export const useSignInWithApple = () => {
         // /!\ This method must be tested on a real device. On the iOS simulator it always throws an error.
         (await appleAuth.getCredentialStateForUser(
           appleAuthRequestResponse.user,
-        )) === AppleAuthCredentialState.AUTHORIZED;
+        )) === appleAuth.State.AUTHORIZED;
 
     // use credentialState response to ensure the user is authenticated
     if (credentialStateAuthorized) {
@@ -94,15 +82,15 @@ export const useSignInWithApple = () => {
   }, []);
 
   const onAndroid = useCallback(async (): Promise<SignInWithAppleResponse> => {
-    AppleAuthenticationAndroid.configure({
+    appleAuthAndroid.configure({
       clientId: 'com.missionhub.webauth',
       redirectUri: 'https://missionhub.com/auth',
-      scope: Scope.ALL,
-      responseType: ResponseType.ALL,
+      scope: appleAuthAndroid.Scope.ALL,
+      responseType: appleAuthAndroid.ResponseType.ALL,
     });
 
     try {
-      const response = await AppleAuthenticationAndroid.signIn();
+      const response = await appleAuthAndroid.signIn();
 
       if (response?.id_token) {
         return {
@@ -119,11 +107,11 @@ export const useSignInWithApple = () => {
     } catch (error) {
       if (error && error.message) {
         switch (error.message) {
-          case NOT_CONFIGURED_ERROR:
+          case appleAuthAndroid.Error.NOT_CONFIGURED:
             throw new Error('AppleAuthenticationAndroid not configured yet.');
-          case SIGNIN_FAILED_ERROR:
+          case appleAuthAndroid.Error.SIGNIN_FAILED:
             throw new Error('AppleAuthenticationAndroid sign in failed.');
-          case SIGNIN_CANCELLED_ERROR:
+          case appleAuthAndroid.Error.SIGNIN_CANCELLED:
             throw AuthError.None;
         }
       }
@@ -135,9 +123,19 @@ export const useSignInWithApple = () => {
     setError(AuthError.None);
     setProviderAuthInProgress(true);
     try {
-      const { identityToken, userId, firstName, lastName } = await (isAndroid
+      const {
+        identityToken,
+        userId,
+        firstName,
+        lastName,
+      } = await (appleAuth.isSupported
+        ? onIos(refreshUser)
+        : appleAuthAndroid.isSupported
         ? onAndroid()
-        : onIos(refreshUser));
+        : (() => {
+            throw new Error('Sign in with Apple is not supported');
+          })());
+
       setProviderAuthInProgress(false);
       const anonymousUid = await getAnonymousUid();
       const { data } = await apiSignInWithApple({

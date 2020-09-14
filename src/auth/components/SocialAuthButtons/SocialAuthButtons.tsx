@@ -1,9 +1,11 @@
 import React from 'react';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import appleAuth from '@invertase/react-native-apple-authentication';
+import {
+  appleAuth,
+  appleAuthAndroid,
+} from '@invertase/react-native-apple-authentication';
 
-import { isAndroid } from '../../../utils/common';
 import { useAuth } from '../../useAuth';
 import { IdentityProvider } from '../../constants';
 import { SignInWithTheKeyType } from '../../providers/useSignInWithTheKey';
@@ -85,7 +87,7 @@ export const SocialAuthButtons = ({
         onPress={() => authenticate({ provider: IdentityProvider.Facebook })}
         backgroundColor="#3B5998"
       />
-      {isAndroid ? renderAppleButton() : null}
+      {appleAuthAndroid.isSupported ? renderAppleButton() : null}
     </View>
   );
 };

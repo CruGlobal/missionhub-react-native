@@ -1615,10 +1615,10 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@invertase/react-native-apple-authentication@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@invertase/react-native-apple-authentication/-/react-native-apple-authentication-1.1.2.tgz#cf86364d89030f0b9970d04468fde2d204cab5df"
-  integrity sha512-eRwLOyxPtAP0ZEy1iaBf+Sle7upBnyqOkeXgScWNKLKsb4r6+6I6CvMuHNdMZ9ObSdUfAVgAbj5L09TbJRw0hQ==
+"@invertase/react-native-apple-authentication@^2.0.0-beta.1":
+  version "2.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@invertase/react-native-apple-authentication/-/react-native-apple-authentication-2.0.0-beta.1.tgz#ffc1ae333f73f9d537efa881949c49025a811bc6"
+  integrity sha512-lXNFdLH8DV/IO2YPrfnnIds8XUo8XaHMVqs0GnFOtcjTplSMZsxBl8WU6c4cSh673agCiEtv1fEG06sLCzxXSA==
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.0.0"
@@ -12054,11 +12054,6 @@ react-native-animatable@^1.3.2:
   integrity sha512-2ckIxZQAsvWn25Ho+DK3d1mXIgj7tITkrS4pYDvx96WyOttSvzzFeQnM2od0+FUMzILbdHDsDEqZvnz1DYNQ1w==
   dependencies:
     prop-types "^15.7.2"
-
-react-native-apple-authentication-android@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/react-native-apple-authentication-android/-/react-native-apple-authentication-android-1.0.6.tgz#1ff2a82bc33a4b7ed7ac48c64ee4e17193aa2b77"
-  integrity sha512-fRdvccyAxT7lm6+mJB9cEjSWbO9DcAuOqycwU1OdYYIh9Dc0iGhoscL8KRif0xAnkxk3413p1hLKJaCQNohjOA==
 
 react-native-appsflyer@^5.1.3:
   version "5.4.1"

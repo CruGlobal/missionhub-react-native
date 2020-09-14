@@ -469,7 +469,7 @@ PODS:
     - React-Core (= 0.63.2)
     - React-cxxreact (= 0.63.2)
     - React-jsi (= 0.63.2)
-  - RNAppleAuthentication (1.1.2):
+  - RNAppleAuthentication (2.0.0-beta.1):
     - React
   - RNCPushNotificationIOS (1.3.0):
     - React
@@ -890,7 +890,7 @@ SPEC CHECKSUMS:
   React-RCTText: 1b6773e776e4b33f90468c20fe3b16ca3e224bb8
   React-RCTVibration: 4d2e726957f4087449739b595f107c0d4b6c2d2d
   ReactCommon: a0a1edbebcac5e91338371b72ffc66aa822792ce
-  RNAppleAuthentication: 473b2c076f1a48a537610580a168c1fb6d0a90c6
+  RNAppleAuthentication: 62164f126111672834b0259cce8af2c16df9e79f
   RNCPushNotificationIOS: d5fd66aed4e03c6491ca0c6111a03d4f6455ff6c
   RNDateTimePicker: 83540fb5d71f28bd34990d8fabccb8d91e5d957e
   RNDeviceInfo: 5be12a5bfbb8da3528c43ee4373abd9c30d04616
