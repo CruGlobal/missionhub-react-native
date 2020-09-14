@@ -16,7 +16,7 @@ import {
 } from './__generated__/SignInWithFacebook';
 import { SIGN_IN_WITH_FACEBOOK_MUTATION } from './queries';
 
-const FACEBOOK_SCOPE = ['public_profile', 'email'];
+export const FACEBOOK_SCOPE = ['public_profile', 'email'];
 
 export const useSignInWithFacebook = () => {
   const [providerAuthInProgress, setProviderAuthInProgress] = useState(false);
