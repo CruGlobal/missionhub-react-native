@@ -248,7 +248,7 @@ export const useSignInWithTheKey = () => {
         setError(AuthError.Unknown);
         rollbar.error(error);
         dispatch(trackActionWithoutData(ACTIONS.SYSTEM_ERROR));
-        throw error;
+        throw AuthError.Unknown;
       }
     },
     [],

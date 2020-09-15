@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import { Linking } from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
 import Config from 'react-native-config';
@@ -17,6 +18,7 @@ import {
 import { REQUESTS } from '../../../api/routes';
 import callApi from '../../../actions/api';
 import { SIGN_IN_WITH_THE_KEY_MUTATION } from '../queries';
+import { AuthError } from '../../constants';
 
 jest.mock('../../authStore');
 jest.mock('../../../actions/api');
@@ -304,4 +306,97 @@ it('should sign in after forgot password', async () => {
   });
   expect(deleteAnonymousUid).toHaveBeenCalled();
   expect(setAuthToken).toHaveBeenCalledWith(token);
+});
+
+describe('handleError', () => {
+  it.each([
+    ['request canceled', AuthError.None, AuthError.None, false],
+    [
+      'invalid_request',
+      {
+        apiError: { error: 'invalid_request' },
+      },
+      AuthError.CredentialsIncorrect,
+      false,
+    ],
+    [
+      'invalid_credentials',
+      {
+        apiError: { thekey_authn_error: 'invalid_credentials' },
+      },
+      AuthError.CredentialsIncorrect,
+      false,
+    ],
+    [
+      'email_unverified',
+      {
+        apiError: { thekey_authn_error: 'email_unverified' },
+      },
+      AuthError.EmailUnverified,
+      false,
+    ],
+    [
+      'mfa_required',
+      {
+        apiError: { thekey_authn_error: 'mfa_required' },
+      },
+      AuthError.MfaRequired,
+      false,
+    ],
+    [
+      'mfa incorrect',
+      {
+        apiError: { thekey_authn_error: 'mfa_required' },
+      },
+      AuthError.MfaIncorrect,
+      true,
+    ],
+    ['unknown error', 'some unknown error', AuthError.Unknown, false],
+  ])(
+    'should handle %s',
+    // eslint-disable-next-line max-params
+    async (_, error, expectedAuthError, isMfaCodePresent) => {
+      (callApi as jest.Mock).mockReturnValueOnce(() => Promise.reject(error));
+
+      const { result } = renderHookWithContext(() => useSignInWithTheKey(), {
+        mocks: {
+          Mutation: () => ({
+            loginWithTheKey: () => ({ token }),
+          }),
+        },
+      });
+
+      await expect(
+        result.current.signInWithTheKey({
+          type: SignInWithTheKeyType.EmailPassword,
+          email,
+          password,
+          ...(isMfaCodePresent ? { mfaCode } : {}),
+        }),
+      ).rejects.toEqual(expectedAuthError);
+
+      expect(result.current.error).toEqual(expectedAuthError);
+
+      expect(callApi).toHaveBeenCalledWith(
+        REQUESTS.KEY_LOGIN,
+        {},
+        `grant_type=password&client_id=${
+          Config.THE_KEY_CLIENT_ID
+        }&scope=fullticket%20extended&username=${encodeURIComponent(
+          email,
+        )}&password=${encodeURIComponent(password)}${
+          isMfaCodePresent ? `&thekey_mfa_token=${mfaCode}` : ''
+        }`,
+      );
+      expect(setTheKeyRefreshToken).not.toHaveBeenCalled();
+      expect(callApi).not.toHaveBeenCalledWith(
+        REQUESTS.KEY_GET_TICKET,
+        { access_token: theKeyAccessToken },
+        {},
+      );
+      expect(useMutation).not.toHaveBeenMutated();
+      expect(deleteAnonymousUid).not.toHaveBeenCalled();
+      expect(setAuthToken).not.toHaveBeenCalled();
+    },
+  );
 });
