@@ -3886,7 +3886,8 @@ exports[`savePerson update existing person without org updates users profile pic
                         },
                         Object {
                           "fontSize": 64,
-                          "lineHeight": 20,
+                          "height": 56,
+                          "lineHeight": 64,
                         },
                       ]
                     }

@@ -300,7 +300,8 @@ exports[`renders correctly for completed members 1`] = `
                             },
                             Object {
                               "fontSize": 26,
-                              "lineHeight": 20,
+                              "height": 24,
+                              "lineHeight": 26,
                             },
                           ]
                         }
@@ -496,7 +497,8 @@ exports[`renders correctly for completed members 1`] = `
                             },
                             Object {
                               "fontSize": 26,
-                              "lineHeight": 20,
+                              "height": 24,
+                              "lineHeight": 26,
                             },
                           ]
                         }
@@ -889,7 +891,8 @@ exports[`renders correctly for joined members 1`] = `
                             },
                             Object {
                               "fontSize": 26,
-                              "lineHeight": 20,
+                              "height": 24,
+                              "lineHeight": 26,
                             },
                           ]
                         }
@@ -1290,7 +1293,8 @@ exports[`renders plural sentence for joined members 1`] = `
                             },
                             Object {
                               "fontSize": 26,
-                              "lineHeight": 20,
+                              "height": 24,
+                              "lineHeight": 26,
                             },
                           ]
                         }
@@ -1486,7 +1490,8 @@ exports[`renders plural sentence for joined members 1`] = `
                             },
                             Object {
                               "fontSize": 26,
-                              "lineHeight": 20,
+                              "height": 24,
+                              "lineHeight": 26,
                             },
                           ]
                         }
@@ -1879,7 +1884,8 @@ exports[`renders singular sentence for completed members 1`] = `
                             },
                             Object {
                               "fontSize": 26,
-                              "lineHeight": 20,
+                              "height": 24,
+                              "lineHeight": 26,
                             },
                           ]
                         }

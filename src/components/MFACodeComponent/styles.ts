@@ -31,6 +31,7 @@ export default StyleSheet.create({
   },
   doneButtonText: {
     ...theme.textBold14,
+    color: theme.white,
     letterSpacing: 1.5,
   },
   image: {

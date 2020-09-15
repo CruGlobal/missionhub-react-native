@@ -1,3 +1,5 @@
+/*eslint-disable max-lines */
+
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
@@ -9,6 +11,7 @@ import { FEED_ITEM_POST_CARD_FRAGMENT } from '../../../containers/CommunityFeedP
 import PostTypeLabel, {
   PostLabelSizeEnum,
   PostTypeCardWithPeople,
+  PostTypeCardWithoutPeople,
   PostTypeNullState,
 } from '..';
 
@@ -135,7 +138,7 @@ it('fires onPress when pressed', () => {
   expect(onPress).toHaveBeenCalled();
 });
 
-describe('post types cards', () => {
+describe('post types cards with people', () => {
   function card(type: FeedItemSubjectTypeEnum) {
     renderWithContext(
       <PostTypeCardWithPeople onPress={onPress} type={type} />,
@@ -156,10 +159,6 @@ describe('post types cards', () => {
   });
   it('renders Community Need Label', () => {
     card(FeedItemSubjectTypeEnum.HELP_REQUEST);
-    expect.hasAssertions();
-  });
-  it('renders On Your Mind Label', () => {
-    card(FeedItemSubjectTypeEnum.THOUGHT);
     expect.hasAssertions();
   });
   it('renders Announcement Label', () => {
@@ -191,13 +190,12 @@ describe('post types cards', () => {
     ).snapshot();
   });
 
-  it('renders people with count only', () => {
+  it('renders people greater than 9', () => {
     renderWithContext(
       <PostTypeCardWithPeople
         onPress={onPress}
         type={FeedItemSubjectTypeEnum.STEP}
-        people={people}
-        countOnly={true}
+        people={[...people, ...people, ...people]}
       />,
       { noWrappers: true },
     ).snapshot();
@@ -209,7 +207,79 @@ describe('post types cards', () => {
         onPress={onPress}
         type={FeedItemSubjectTypeEnum.STORY}
         people={people}
-        countOnly={true}
+      />,
+      { noWrappers: true },
+    );
+
+    fireEvent.press(getByTestId('STORYCardWithPeople'));
+    expect(onPress).toHaveBeenCalled();
+  });
+});
+
+describe('post types cards without people', () => {
+  function card(type: FeedItemSubjectTypeEnum) {
+    renderWithContext(
+      <PostTypeCardWithoutPeople
+        onPress={onPress}
+        type={type}
+        postsCount={0}
+      />,
+      { noWrappers: true },
+    ).snapshot();
+  }
+  it('renders God Story Label', () => {
+    card(FeedItemSubjectTypeEnum.STORY);
+    expect.hasAssertions();
+  });
+  it('renders Prayer Request Label', () => {
+    card(FeedItemSubjectTypeEnum.PRAYER_REQUEST);
+    expect.hasAssertions();
+  });
+  it('renders Spiritual Question Label', () => {
+    card(FeedItemSubjectTypeEnum.QUESTION);
+    expect.hasAssertions();
+  });
+  it('renders Community Need Label', () => {
+    card(FeedItemSubjectTypeEnum.HELP_REQUEST);
+    expect.hasAssertions();
+  });
+  it('renders Announcement Label', () => {
+    card(FeedItemSubjectTypeEnum.ANNOUNCEMENT);
+    expect.hasAssertions();
+  });
+  it('renders Step Of Faith Label', () => {
+    card(FeedItemSubjectTypeEnum.STEP);
+    expect.hasAssertions();
+  });
+
+  it('renders post count', () => {
+    renderWithContext(
+      <PostTypeCardWithoutPeople
+        onPress={onPress}
+        type={FeedItemSubjectTypeEnum.STEP}
+        postsCount={6}
+      />,
+      { noWrappers: true },
+    ).snapshot();
+  });
+
+  it('renders post count greater than 9', () => {
+    renderWithContext(
+      <PostTypeCardWithoutPeople
+        onPress={onPress}
+        type={FeedItemSubjectTypeEnum.STEP}
+        postsCount={10}
+      />,
+      { noWrappers: true },
+    ).snapshot();
+  });
+
+  it('fires onPress when pressed', () => {
+    const { getByTestId } = renderWithContext(
+      <PostTypeCardWithoutPeople
+        onPress={onPress}
+        type={FeedItemSubjectTypeEnum.STORY}
+        postsCount={6}
       />,
       { noWrappers: true },
     );

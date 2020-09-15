@@ -1,7 +1,6 @@
 import React from 'react';
 import { MockList } from 'graphql-tools';
 import { flushMicrotasksQueue, fireEvent } from 'react-native-testing-library';
-import { ReactTestInstance } from 'react-test-renderer';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 
 import { navigatePush } from '../../../actions/navigation';
@@ -9,6 +8,8 @@ import { renderWithContext } from '../../../../testUtils';
 import {
   GET_COMMUNITY_POST_CARDS,
   MARK_COMMUNITY_FEED_ITEMS_READ,
+  GET_GLOBAL_COMMUNITY_POST_CARDS,
+  MARK_GLOBAL_FEED_ITEMS_READ,
 } from '../queries';
 import { FeedItemSubjectTypeEnum } from '../../../../__generated__/globalTypes';
 import { COMMUNITY_FEED_WITH_TYPE_SCREEN } from '../../../containers/CommunityFeedWithType';
@@ -21,6 +22,7 @@ jest.mock('../../../actions/navigation', () => ({
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../components/PostTypeLabel', () => ({
   PostTypeCardWithPeople: 'PostTypeCardWithPeople',
+  PostTypeCardWithoutPeople: 'PostTypeCardWithoutPeople',
 }));
 
 const communityId = '456';
@@ -54,6 +56,10 @@ it('renders with feed items correctly', async () => {
 
   expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_POST_CARDS, {
     variables: { communityId },
+    skip: false,
+  });
+  expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_POST_CARDS, {
+    skip: true,
   });
 });
 
@@ -73,12 +79,15 @@ it('renders with global feed items correctly', async () => {
 
   expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_POST_CARDS, {
     variables: { communityId: GLOBAL_COMMUNITY_ID },
+    skip: true,
+  });
+  expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_POST_CARDS, {
+    skip: false,
   });
 });
 
 describe('navs to screens', () => {
-  let myGetByTestId: (testID: string) => ReactTestInstance;
-  beforeEach(() => {
+  async function check(type: FeedItemSubjectTypeEnum) {
     const { getByTestId } = renderWithContext(
       <CommunityFeedPostCards
         communityId={communityId}
@@ -90,11 +99,9 @@ describe('navs to screens', () => {
         },
       },
     );
-    myGetByTestId = getByTestId;
-  });
-  async function check(type: FeedItemSubjectTypeEnum) {
+
     await flushMicrotasksQueue();
-    await fireEvent.press(myGetByTestId(`PostCard_${type}`));
+    await fireEvent.press(getByTestId(`PostCard_${type}`));
     expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_FEED_WITH_TYPE_SCREEN, {
       type,
       communityId,
@@ -128,6 +135,50 @@ describe('navs to screens', () => {
   });
   it('navs to HELP_REQUEST', async () => {
     await check(FeedItemSubjectTypeEnum.HELP_REQUEST);
+    expect.hasAssertions();
+  });
+  it('navs to ANNOUNCEMENT', async () => {
+    await check(FeedItemSubjectTypeEnum.ANNOUNCEMENT);
+    expect.hasAssertions();
+  });
+});
+
+describe('navs to global screens', () => {
+  async function check(type: FeedItemSubjectTypeEnum) {
+    const { getByTestId } = renderWithContext(
+      <CommunityFeedPostCards
+        communityId={GLOBAL_COMMUNITY_ID}
+        feedRefetch={mockFeedRefetch}
+      />,
+      {
+        mocks: {
+          FeedItemConnection: () => ({ nodes: () => new MockList(1) }),
+        },
+      },
+    );
+
+    await flushMicrotasksQueue();
+    await fireEvent.press(getByTestId(`PostCard_${type}`));
+    expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_FEED_WITH_TYPE_SCREEN, {
+      type,
+      communityId: GLOBAL_COMMUNITY_ID,
+      communityName: undefined,
+    });
+    expect(useMutation).toHaveBeenMutatedWith(MARK_GLOBAL_FEED_ITEMS_READ, {
+      variables: { input: { feedItemSubjectType: type } },
+    });
+    expect(mockFeedRefetch).toHaveBeenCalled();
+  }
+  it('navs to PRAYER_REQUEST', async () => {
+    await check(FeedItemSubjectTypeEnum.PRAYER_REQUEST);
+    expect.hasAssertions();
+  });
+  it('navs to STEP', async () => {
+    await check(FeedItemSubjectTypeEnum.STEP);
+    expect.hasAssertions();
+  });
+  it('navs to STORY', async () => {
+    await check(FeedItemSubjectTypeEnum.STORY);
     expect.hasAssertions();
   });
   it('navs to ANNOUNCEMENT', async () => {

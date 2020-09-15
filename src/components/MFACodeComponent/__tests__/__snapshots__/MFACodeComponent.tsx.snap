@@ -87,7 +87,7 @@ exports[`should render correctly 1`] = `
         <Button
           buttonTextStyle={
             Object {
-              "color": "#505256",
+              "color": "#ffffff",
               "fontFamily": "SourceSansPro-Bold",
               "fontSize": 14,
               "fontStyle": "normal",

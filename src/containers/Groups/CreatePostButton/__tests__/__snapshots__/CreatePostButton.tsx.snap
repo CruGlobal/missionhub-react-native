@@ -930,6 +930,8 @@ exports[`renders correctly with type 1`] = `
             },
             Object {
               "fontSize": 12,
+              "height": 12,
+              "lineHeight": 12,
             },
           ]
         }
