@@ -31,10 +31,6 @@ jest.mock('@invertase/react-native-apple-authentication', () => ({
     ResponseType: { ALL: 'all' },
   },
 }));
-jest.mock('react-native-device-info', () => ({
-  useIsEmulator: () => false,
-  getBuildNumber: jest.fn(),
-}));
 
 const token = 'test access token';
 const anonymousUid = 'test anonymous user id';
