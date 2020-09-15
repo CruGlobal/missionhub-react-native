@@ -90,7 +90,7 @@ export type PushNotificationPayloadAndroid = RNPushNotificationPayload &
     | PushNotificationPayloadData
   );
 
-export type PushNotificationPayloadData =
+type PushNotificationPayloadData =
   | { screen: 'home' }
   | { screen: 'steps' }
   | { screen: 'person_steps'; person_id: string; organization_id?: string }

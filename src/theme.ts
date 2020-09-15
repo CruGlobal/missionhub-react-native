@@ -83,7 +83,7 @@ const baseTextStyle: TextStyle = {
   textTransform: 'none',
 };
 
-export const TEXT_STYLES: { [key: string]: TextStyle } = {
+const TEXT_STYLES: { [key: string]: TextStyle } = {
   LIGHT_32: {
     ...baseTextStyle,
     fontFamily: 'SourceSansPro-Light',

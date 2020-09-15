@@ -54,7 +54,7 @@ module.exports = {
     ],
     'import/newline-after-import': 'error',
     'import/no-duplicates': 'error',
-    'import/no-unused-modules': 'error',
+    'import/no-unused-modules': ['error', { unusedExports: true }],
     'import/no-named-as-default': 'off',
     'import/no-named-as-default-member': 'off',
 
