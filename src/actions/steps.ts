@@ -109,7 +109,7 @@ export const removeFromStepsList = (stepId: string, personId: string) => {
       },
     });
 
-  try {
+  /*try {
     const personStepsVariables = { personId, completed: false };
 
     const cachedPersonSteps = apolloClient.readQuery<
@@ -139,5 +139,5 @@ export const removeFromStepsList = (stepId: string, personId: string) => {
       });
   } catch {
     // This can fail if the query hasn't been run yet. We don't care about errors, there's nothing to remove if the query isn't cached.
-  }
+  }*/
 };
