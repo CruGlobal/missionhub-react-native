@@ -1,9 +1,9 @@
 import { useEffect, useRef, useMemo } from 'react';
 import { ScrollViewProps, ViewStyle, StyleSheet, Animated } from 'react-native';
 
-export type AnimationConfig = { animated?: boolean };
+type AnimationConfig = { animated?: boolean };
 
-export type CollapsibleHeaderProps = {
+type CollapsibleHeaderProps = {
   interpolatedHeaderTranslation: (
     from: number,
     to: number,
@@ -12,7 +12,7 @@ export type CollapsibleHeaderProps = {
   hideHeader: (options: AnimationConfig | unknown) => void;
 };
 
-export type CollapsibleHeaderViewProps<T extends ScrollViewProps> = T & {
+type CollapsibleHeaderViewProps<T extends ScrollViewProps> = T & {
   readonly headerHeight: number;
   readonly statusBarHeight?: number;
   readonly disableHeaderSnap?: boolean;

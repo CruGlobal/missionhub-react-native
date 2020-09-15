@@ -42,5 +42,3 @@ const GroupCommunityFeed = ({
 };
 
 export default GroupCommunityFeed;
-
-export const COMMUNITY_FEED = 'nav/COMMUNITY_FEED';

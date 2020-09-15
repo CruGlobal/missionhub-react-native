@@ -26,13 +26,16 @@ if (Platform.OS === 'ios' && !Platform.isPad && !Platform.isTVOS) {
   }
 }
 
+// eslint-disable-next-line import/no-unused-modules
 export const isIPhoneX = () => isIPhoneX_v;
+// eslint-disable-next-line import/no-unused-modules
 export const isIPhoneXMax = () => isIPhoneXMax_v;
+// eslint-disable-next-line import/no-unused-modules
 export const isIPhoneWithMonobrow = () => isIPhoneWithMonobrow_v;
 
 export function getStatusBarHeight(skipAndroid = false) {
   return Platform.select({
-    ios: isIPhoneWithMonobrow_v ? 44 : 20,
+    ios: isIPhoneWithMonobrow() ? 44 : 20,
     android: skipAndroid ? 0 : StatusBar.currentHeight,
     default: 0,
   });

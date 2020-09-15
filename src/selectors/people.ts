@@ -50,10 +50,7 @@ export const orgPermissionSelector = createSelector(
   (person, organization) => selectOrgPermission(person, organization),
 );
 
-export const selectOrgPermission = (
-  person?: Person,
-  organization?: Organization,
-) =>
+const selectOrgPermission = (person?: Person, organization?: Organization) =>
   organization && person?.organizational_permissions
     ? (person.organizational_permissions || []).find(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any

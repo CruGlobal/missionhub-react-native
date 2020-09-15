@@ -18,7 +18,7 @@ export interface Stage {
   localized_pathway_stages: LocalizedPathwayStage[];
 }
 
-export type StagesObj = Record<string, Stage>;
+type StagesObj = Record<string, Stage>;
 
 export interface StagesState {
   stages: Stage[];
