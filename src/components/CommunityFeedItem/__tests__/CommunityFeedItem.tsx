@@ -22,7 +22,7 @@ import {
 } from '../queries';
 import {
   CommunityFeedItem as CommunityFeedItemFragment,
-  CommunityFeedItem_subject_Post,
+  CommunityFeedItem_subject_Post as PostSubject,
 } from '../__generated__/CommunityFeedItem';
 import {
   PostTypeEnum,
@@ -30,6 +30,7 @@ import {
   PostStepStatusEnum,
   FeedItemSubjectEventEnum,
 } from '../../../../__generated__/globalTypes';
+import * as common from '../../../utils/common';
 import { CommunityFeedItem } from '..';
 
 jest.mock('../../../actions/analytics');
@@ -137,6 +138,7 @@ const initialState = { auth: { person: { id: myId } } };
 beforeEach(() => {
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
+  (common.copyText as jest.Mock) = jest.fn();
 });
 
 describe('global community', () => {
@@ -247,7 +249,7 @@ describe('Community', () => {
         feedItem={{
           ...storyPostItem,
           subject: {
-            ...(storyPostItem.subject as CommunityFeedItem_subject_Post),
+            ...(storyPostItem.subject as PostSubject),
             mediaExpiringUrl: null,
           },
         }}
@@ -378,7 +380,7 @@ describe('long-press card', () => {
         : null,
     };
 
-    it('navigates to edit post screen', () => {
+    it('copies post', () => {
       ActionSheetIOS.showActionSheetWithOptions = jest.fn();
       Alert.alert = jest.fn();
 
@@ -394,6 +396,29 @@ describe('long-press card', () => {
       fireEvent(getByTestId('popupMenuButton'), 'onLongPress');
       (ActionSheetIOS.showActionSheetWithOptions as jest.Mock).mock.calls[0][1](
         0,
+      );
+
+      expect(common.copyText).toHaveBeenCalledWith(
+        (myPost.subject as PostSubject).content,
+      );
+    });
+
+    it('navigates to edit post screen', () => {
+      ActionSheetIOS.showActionSheetWithOptions = jest.fn();
+      Alert.alert = jest.fn();
+
+      const { getByTestId } = renderWithContext(
+        <CommunityFeedItem
+          feedItem={myPost}
+          namePressable={false}
+          onEditPost={onEditPost}
+        />,
+        { initialState },
+      );
+
+      fireEvent(getByTestId('popupMenuButton'), 'onLongPress');
+      (ActionSheetIOS.showActionSheetWithOptions as jest.Mock).mock.calls[0][1](
+        1,
       );
 
       expect(navigatePush).toHaveBeenCalledWith(CREATE_POST_SCREEN, {
@@ -424,7 +449,7 @@ describe('long-press card', () => {
 
       fireEvent(getByTestId('popupMenuButton'), 'onLongPress');
       (ActionSheetIOS.showActionSheetWithOptions as jest.Mock).mock.calls[0][1](
-        1,
+        2,
       );
       await (Alert.alert as jest.Mock).mock.calls[0][2][1].onPress();
 
@@ -449,6 +474,29 @@ describe('long-press card', () => {
   });
 
   describe('post written by other', () => {
+    it('copies post', () => {
+      ActionSheetIOS.showActionSheetWithOptions = jest.fn();
+      Alert.alert = jest.fn();
+
+      const { getByTestId } = renderWithContext(
+        <CommunityFeedItem
+          feedItem={storyPostItem}
+          namePressable={false}
+          onEditPost={onEditPost}
+        />,
+        { initialState },
+      );
+
+      fireEvent(getByTestId('popupMenuButton'), 'onLongPress');
+      (ActionSheetIOS.showActionSheetWithOptions as jest.Mock).mock.calls[0][1](
+        0,
+      );
+
+      expect(common.copyText).toHaveBeenCalledWith(
+        (storyPostItem.subject as PostSubject).content,
+      );
+    });
+
     it('reports post', async () => {
       ActionSheetIOS.showActionSheetWithOptions = jest.fn();
       Alert.alert = jest.fn();
@@ -469,7 +517,7 @@ describe('long-press card', () => {
 
       fireEvent(getByTestId('popupMenuButton'), 'onLongPress');
       (ActionSheetIOS.showActionSheetWithOptions as jest.Mock).mock.calls[0][1](
-        0,
+        1,
       );
       await (Alert.alert as jest.Mock).mock.calls[0][2][1].onPress();
 
