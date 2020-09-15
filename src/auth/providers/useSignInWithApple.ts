@@ -162,7 +162,7 @@ export const useSignInWithApple = () => {
       } else {
         setError(AuthError.Unknown);
         rollbar.error(error);
-        throw error;
+        throw AuthError.Unknown;
       }
     } finally {
       setProviderAuthInProgress(false);

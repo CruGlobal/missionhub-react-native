@@ -12,6 +12,7 @@ import {
   FACEBOOK_SCOPE,
 } from '../useSignInWithFacebook';
 import { SIGN_IN_WITH_FACEBOOK_MUTATION } from '../queries';
+import { AuthError } from '../../constants';
 
 jest.mock('../../authStore');
 jest.mock('react-native-fbsdk', () => ({
@@ -21,6 +22,7 @@ jest.mock('react-native-fbsdk', () => ({
   },
   LoginManager: {
     logInWithPermissions: jest.fn(),
+    logOut: jest.fn(),
   },
 }));
 
@@ -93,4 +95,39 @@ it('should refresh Facebook auth', async () => {
   });
   expect(deleteAnonymousUid).toHaveBeenCalled();
   expect(setAuthToken).toHaveBeenCalledWith(token);
+});
+
+it('should handle missing token from API', async () => {
+  (AccessToken.getCurrentAccessToken as jest.Mock)
+    .mockResolvedValueOnce(null)
+    .mockResolvedValueOnce({ accessToken: facebookAccessToken });
+
+  const { result } = renderHookWithContext(() => useSignInWithFacebook(), {
+    mocks: {
+      Mutation: () => ({
+        loginWithFacebook: () => ({ token: null }),
+      }),
+    },
+  });
+
+  await expect(result.current.signInWithFacebook()).rejects.toEqual(
+    AuthError.Unknown,
+  );
+
+  expect(result.current.error).toEqual(AuthError.Unknown);
+
+  expect(AccessToken.refreshCurrentAccessTokenAsync).toHaveBeenCalled();
+  expect(LoginManager.logInWithPermissions).toHaveBeenCalledWith(
+    FACEBOOK_SCOPE,
+  );
+  expect(AccessToken.getCurrentAccessToken).toHaveBeenCalledTimes(2);
+  expect(useMutation).toHaveBeenMutatedWith(SIGN_IN_WITH_FACEBOOK_MUTATION, {
+    variables: {
+      accessToken: facebookAccessToken,
+      anonymousUid,
+    },
+  });
+  expect(deleteAnonymousUid).not.toHaveBeenCalled();
+  expect(setAuthToken).not.toHaveBeenCalledWith(token);
+  expect(LoginManager.logOut).toHaveBeenCalled();
 });

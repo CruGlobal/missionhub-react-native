@@ -13,6 +13,7 @@ import {
 } from '../../authStore';
 import { useSignInWithApple } from '../useSignInWithApple';
 import { SIGN_IN_WITH_APPLE_MUTATION } from '../queries';
+import { AuthError } from '../../constants';
 
 jest.mock('../../authStore');
 jest.mock('@invertase/react-native-apple-authentication', () => ({
@@ -129,6 +130,50 @@ describe('ios', () => {
     expect(deleteAnonymousUid).toHaveBeenCalled();
     expect(setAuthToken).toHaveBeenCalledWith(token);
     expect(setAppleUserId).toHaveBeenCalledWith(appleUserId);
+  });
+
+  it('should handle missing token from API', async () => {
+    (appleAuth.performRequest as jest.Mock).mockResolvedValue({
+      user: appleUserId,
+      identityToken: appleIdToken,
+      fullName: { givenName: firstName, familyName: lastName },
+    });
+    (appleAuth.getCredentialStateForUser as jest.Mock).mockResolvedValue(
+      appleAuth.State.AUTHORIZED,
+    );
+
+    const { result } = renderHookWithContext(() => useSignInWithApple(), {
+      mocks: {
+        Mutation: () => ({
+          loginWithApple: () => ({ token: null }),
+        }),
+      },
+    });
+
+    await expect(result.current.signInWithApple()).rejects.toEqual(
+      AuthError.Unknown,
+    );
+
+    expect(result.current.error).toEqual(AuthError.Unknown);
+
+    expect(appleAuth.performRequest).toHaveBeenCalledWith({
+      requestedOperation: appleAuth.Operation.LOGIN,
+      requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME],
+    });
+    expect(appleAuth.getCredentialStateForUser).toHaveBeenCalledWith(
+      appleUserId,
+    );
+    expect(useMutation).toHaveBeenMutatedWith(SIGN_IN_WITH_APPLE_MUTATION, {
+      variables: {
+        appleIdToken,
+        firstName,
+        lastName,
+        anonymousUid,
+      },
+    });
+    expect(deleteAnonymousUid).not.toHaveBeenCalled();
+    expect(setAuthToken).not.toHaveBeenCalledWith(token);
+    expect(setAppleUserId).not.toHaveBeenCalledWith(appleUserId);
   });
 });
 

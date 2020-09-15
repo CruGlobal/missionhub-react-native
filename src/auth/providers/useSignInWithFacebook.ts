@@ -79,7 +79,7 @@ export const useSignInWithFacebook = () => {
         rollbar.error(error);
         LoginManager.logOut();
       }
-      throw error;
+      throw AuthError.Unknown;
     } finally {
       setProviderAuthInProgress(false);
     }

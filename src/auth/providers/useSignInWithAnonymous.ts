@@ -105,7 +105,7 @@ export const useSignInWithAnonymous = () => {
       } catch (error) {
         setError(AuthError.Unknown);
         rollbar.error(error);
-        throw error;
+        throw AuthError.Unknown;
       }
     },
     [],

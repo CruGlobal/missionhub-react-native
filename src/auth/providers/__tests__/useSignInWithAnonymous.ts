@@ -14,6 +14,7 @@ import {
   setAuthToken,
   getAnonymousUid,
 } from '../../authStore';
+import { AuthError } from '../../constants';
 
 jest.mock('../../authStore');
 
@@ -70,4 +71,33 @@ it('should get a new access token using the refresh token', async () => {
     variables: { anonymousUid },
   });
   expect(setAuthToken).toHaveBeenCalledWith(token);
+});
+
+it('should handle missing token from API', async () => {
+  const { result } = renderHookWithContext(() => useSignInWithAnonymous(), {
+    mocks: {
+      Mutation: () => ({
+        createAnonymousUser: () => ({ token, anonymousUid: null }),
+      }),
+    },
+  });
+
+  await expect(
+    result.current.signInWithAnonymous({
+      type: SignInWithAnonymousType.Create,
+      firstName,
+      lastName,
+    }),
+  ).rejects.toEqual(AuthError.Unknown);
+
+  expect(result.current.error).toEqual(AuthError.Unknown);
+
+  expect(useMutation).toHaveBeenMutatedWith(SIGN_UP_WITH_ANONYMOUS_MUTATION, {
+    variables: {
+      firstName,
+      lastName,
+    },
+  });
+  expect(setAnonymousUid).not.toHaveBeenCalledWith(anonymousUid);
+  expect(setAuthToken).not.toHaveBeenCalledWith(token);
 });
