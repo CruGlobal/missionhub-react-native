@@ -3,7 +3,7 @@ import {
   appleAuth,
   appleAuthAndroid,
 } from '@invertase/react-native-apple-authentication';
-import DeviceInfo from 'react-native-device-info';
+import { useIsEmulator } from 'react-native-device-info';
 import { useMutation } from '@apollo/react-hooks';
 
 import {
@@ -32,6 +32,8 @@ export const useSignInWithApple = () => {
   const [providerAuthInProgress, setProviderAuthInProgress] = useState(false);
   const [error, setError] = useState(AuthError.None);
 
+  const isEmulator = useIsEmulator();
+
   const [apiSignInWithApple, { loading }] = useMutation<
     SignInWithApple,
     SignInWithAppleVariables
@@ -54,7 +56,7 @@ export const useSignInWithApple = () => {
       user: refreshUser,
     });
 
-    const credentialStateAuthorized = DeviceInfo.isEmulator()
+    const credentialStateAuthorized = isEmulator
       ? true
       : // get current authentication state for user
         // /!\ This method must be tested on a real device. On the iOS simulator it always throws an error.
