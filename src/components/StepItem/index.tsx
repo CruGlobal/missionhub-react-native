@@ -17,6 +17,7 @@ import { COMPLETED_STEP_DETAIL_SCREEN } from '../../containers/CompletedStepDeta
 import { navToPersonScreen } from '../../actions/person';
 import { handleAfterCompleteStep } from '../../actions/steps';
 import { COMPLETE_STEP_MUTATION } from '../../containers/AcceptedStepDetailScreen/queries';
+import { PERSON_STEPS_QUERY } from '../../containers/PersonScreen/PersonSteps/queries';
 import { CONTACT_STEPS } from '../../constants';
 import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
 import {
@@ -44,6 +45,12 @@ const StepItem = ({
   const [completeStep] = useMutation<CompleteStep, CompleteStepVariables>(
     COMPLETE_STEP_MUTATION,
     {
+      refetchQueries: [
+        {
+          query: PERSON_STEPS_QUERY,
+          variables: { personId: step.receiver.id, completed: false },
+        },
+      ],
       onCompleted: data => {
         data.markStepAsCompleted?.step &&
           dispatch(
