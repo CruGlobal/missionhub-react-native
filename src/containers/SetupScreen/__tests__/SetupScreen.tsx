@@ -10,7 +10,6 @@ import { useMutation } from '@apollo/react-hooks';
 import { renderWithContext } from '../../../../testUtils';
 import { useLogoutOnBack } from '../../../utils/hooks/useLogoutOnBack';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-import { createPerson } from '../../../actions/onboarding';
 import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
 import { UPDATE_PERSON, CREATE_PERSON } from '../queries';
 import SetupScreen from '..';
@@ -47,10 +46,6 @@ const authenticate = jest.fn();
 (useAuth as jest.Mock).mockReturnValue({ authenticate, error: AuthError.None });
 
 beforeEach(() => {
-  (createPerson as jest.Mock).mockReturnValue({
-    type: 'createPerson',
-    response: { id: personId },
-  });
   (useLogoutOnBack as jest.Mock).mockReturnValue(back);
 });
 

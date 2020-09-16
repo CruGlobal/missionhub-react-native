@@ -138,20 +138,6 @@ export function getPersonNote(personId: string, myId: string) {
 }
 
 // @ts-ignore
-export function getPersonJourneyDetails(id) {
-  // @ts-ignore
-  return dispatch => {
-    const query = {
-      person_id: id,
-      include:
-        'pathway_progression_audits.old_pathway_stage,pathway_progression_audits.new_pathway_stage,interactions.comment,answer_sheets.answers,answer_sheets.survey.active_survey_elements.question',
-    };
-    // @ts-ignore
-    return dispatch(callApi(REQUESTS.GET_PERSON_JOURNEY, query));
-  };
-}
-
-// @ts-ignore
 export function updatePersonAttributes(personId, personAttributes) {
   return {
     type: UPDATE_PERSON_ATTRIBUTES,

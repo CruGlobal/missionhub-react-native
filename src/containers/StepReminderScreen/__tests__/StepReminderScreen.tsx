@@ -10,7 +10,6 @@ import StepReminderScreen from '..';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/stepReminders');
-jest.mock('../../../selectors/stepReminders');
 jest.mock('../../../components/DatePicker', () => 'DatePicker');
 
 const mockDate = '2018-09-01';

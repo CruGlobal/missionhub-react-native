@@ -9,22 +9,15 @@ import {
   isAdminOrOwner,
   isOwner,
   openMainMenu,
-  getIconName,
   getPagination,
-  showAssignButton,
-  showUnassignButton,
-  showDeleteButton,
   getAssignedByName,
   getAssignedToName,
-  getPersonPhoneNumber,
-  getPersonEmailAddress,
   getStageIndex,
   getFirstNameAndLastInitial,
   getCommunityUrl,
   keyExtractorId,
   isAdmin,
   orgIsGlobal,
-  isOnboarding,
   mapPostTypeToFeedType,
   mapFeedTypeToPostType,
   getFeedItemType,
@@ -33,12 +26,10 @@ import {
 import {
   MAIN_MENU_DRAWER,
   DEFAULT_PAGE_LIMIT,
-  ACCEPTED_STEP,
   GLOBAL_COMMUNITY_ID,
   ORG_PERMISSIONS,
 } from '../../constants';
 import { createThunkStore } from '../../../testUtils';
-import { OnboardingState } from '../../reducers/onboarding';
 import {
   PermissionEnum,
   PostTypeEnum,
@@ -73,20 +64,6 @@ describe('buildTrackingObj', () => {
     subsection,
     level3,
     level4,
-  });
-});
-
-describe('isOnboarding', () => {
-  it('returns true', () => {
-    expect(
-      isOnboarding({ currentlyOnboarding: true } as OnboardingState),
-    ).toEqual(true);
-  });
-
-  it('returns false', () => {
-    expect(
-      isOnboarding({ currentlyOnboarding: false } as OnboardingState),
-    ).toEqual(false);
   });
 });
 
@@ -268,38 +245,6 @@ describe('openMainMenu', () => {
   });
 });
 
-describe('getIconName', () => {
-  it('should return steps icon', () => {
-    const item = { type: ACCEPTED_STEP };
-    // @ts-ignore
-    const result = getIconName(item.type);
-    expect(result).toBe('stepsIcon');
-  });
-  it('should return journey icon', () => {
-    const item = { type: 'pathway_progression_audit' };
-    // @ts-ignore
-    const result = getIconName(item.type);
-    expect(result).toBe('journeyIcon');
-  });
-  it('should return survey icon', () => {
-    const item = { type: 'answer_sheet' };
-    // @ts-ignore
-    const result = getIconName(item.type);
-    expect(result).toBe('surveyIcon');
-  });
-  it('should return interaction icon', () => {
-    const item = { type: 'interaction', interaction_type_id: '2' };
-    const result = getIconName(item.type, item.interaction_type_id);
-    expect(result).toBe('spiritualConversationIcon');
-  });
-  it('should return null', () => {
-    const item = { type: 'something_else' };
-    // @ts-ignore
-    const result = getIconName(item.type);
-    expect(result).toBe(null);
-  });
-});
-
 describe('getPagination', () => {
   let pagination = {
     hasNextPage: true,
@@ -347,118 +292,6 @@ describe('getPagination', () => {
   });
 });
 
-describe('showAssignButton', () => {
-  // @ts-ignore
-  let isCruOrg;
-  // @ts-ignore
-  let personIsCurrentUser;
-  // @ts-ignore
-  let contactAssignment;
-
-  const testShowAssignButton = () => {
-    // @ts-ignore
-    return showAssignButton(isCruOrg, personIsCurrentUser, contactAssignment);
-  };
-
-  it('should return false if not cru org', () => {
-    isCruOrg = false;
-    personIsCurrentUser = false;
-    contactAssignment = false;
-    expect(testShowAssignButton()).toEqual(false);
-  });
-  it('should return false if is current user', () => {
-    isCruOrg = true;
-    personIsCurrentUser = true;
-    contactAssignment = false;
-    expect(testShowAssignButton()).toEqual(false);
-  });
-  it('should return false if assigned to you', () => {
-    isCruOrg = true;
-    personIsCurrentUser = false;
-    contactAssignment = true;
-    expect(testShowAssignButton()).toEqual(false);
-  });
-  it('should return true if cru org, not current user, and not assigned to you', () => {
-    isCruOrg = true;
-    personIsCurrentUser = false;
-    contactAssignment = false;
-    expect(testShowAssignButton()).toEqual(true);
-  });
-});
-
-describe('showUnassignButton', () => {
-  // @ts-ignore
-  let isCruOrg;
-  // @ts-ignore
-  let contactAssignment;
-
-  const testShowUnassignButton = () => {
-    // @ts-ignore
-    return showUnassignButton(isCruOrg, contactAssignment);
-  };
-
-  it('should return false if not cru org', () => {
-    isCruOrg = false;
-    contactAssignment = true;
-    expect(testShowUnassignButton()).toEqual(false);
-  });
-  it('should return false if not assigned to you', () => {
-    isCruOrg = true;
-    contactAssignment = false;
-    expect(testShowUnassignButton()).toEqual(false);
-  });
-  it('should return true if cru org and assigned to you', () => {
-    isCruOrg = true;
-    contactAssignment = true;
-    expect(testShowUnassignButton()).toEqual(true);
-  });
-});
-
-describe('showDeleteButton', () => {
-  // @ts-ignore
-  let personIsCurrentUser;
-  // @ts-ignore
-  let contactAssignment;
-  // @ts-ignore
-  let orgPermission;
-
-  const testShowDeleteButton = () => {
-    return showDeleteButton(
-      // @ts-ignore
-      personIsCurrentUser,
-      // @ts-ignore
-      contactAssignment,
-      // @ts-ignore
-      orgPermission,
-    );
-  };
-
-  it('should return false if is current user', () => {
-    personIsCurrentUser = true;
-    contactAssignment = true;
-    orgPermission = false;
-    expect(testShowDeleteButton()).toEqual(false);
-  });
-  it('should return false if not assigned to you', () => {
-    personIsCurrentUser = false;
-    contactAssignment = false;
-    orgPermission = false;
-    expect(testShowDeleteButton()).toEqual(false);
-  });
-  it('should return false if not personal ministry', () => {
-    personIsCurrentUser = false;
-    contactAssignment = true;
-    orgPermission = true;
-    expect(testShowDeleteButton()).toEqual(false);
-  });
-  it('should return true if not current user, assigned to you, and is personal ministry', () => {
-    personIsCurrentUser = false;
-    contactAssignment = true;
-    orgPermission = false;
-    expect(testShowDeleteButton()).toEqual(true);
-  });
-});
-
 describe('getAssignedToName', () => {
   it('should return You if the user is the assigned_to', () => {
     expect(getAssignedToName(id, { assigned_to: { id } })).toEqual('You');
@@ -485,66 +318,6 @@ describe('getAssignedByName', () => {
       getAssignedByName('200', { assigned_by: { id: 'anything', first_name } }),
     ).toEqual(` by ${first_name}`);
   });
-});
-
-describe('getPersonPhoneNumber', () => {
-  const placeholder = { _placeHolder: true };
-  const nonPrimary = { number: '2' };
-  const primary = { primary: true, number: '3' };
-
-  it('should remove placeholders', () =>
-    expect(
-      getPersonPhoneNumber({
-        phone_numbers: [placeholder, nonPrimary],
-      }),
-    ).toEqual(nonPrimary));
-
-  it('should look for primary', () =>
-    expect(
-      getPersonPhoneNumber({
-        phone_numbers: [placeholder, nonPrimary, primary],
-      }),
-    ).toEqual(primary));
-
-  it('should grab first number if there is no primary', () =>
-    expect(
-      getPersonPhoneNumber({
-        phone_numbers: [nonPrimary, { number: '4' }],
-      }),
-    ).toEqual(nonPrimary));
-
-  it('does not crash if person does not have phone numbers', () =>
-    expect(getPersonPhoneNumber({})).toBe(null));
-});
-
-describe('getPersonEmailAddress', () => {
-  const placeholder = { _placeHolder: true };
-  const nonPrimary = { email: 'email2@test.com' };
-  const primary = { primary: true, email: 'email3@test.com' };
-
-  it('should remove placeholders', () =>
-    expect(
-      getPersonEmailAddress({
-        email_addresses: [placeholder, nonPrimary],
-      }),
-    ).toEqual(nonPrimary));
-
-  it('should look for primary', () =>
-    expect(
-      getPersonEmailAddress({
-        email_addresses: [placeholder, nonPrimary, primary],
-      }),
-    ).toEqual(primary));
-
-  it('should grab first email if there is no primary', () =>
-    expect(
-      getPersonEmailAddress({
-        email_addresses: [nonPrimary, { email: 'email4@test.com' }],
-      }),
-    ).toEqual(nonPrimary));
-
-  it('does not crash if person does not have email addresses', () =>
-    expect(getPersonEmailAddress({})).toBe(null));
 });
 
 describe('getStageIndex', () => {

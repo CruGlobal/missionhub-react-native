@@ -4,12 +4,10 @@ import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 
 import {
-  REMOVE_ORGANIZATION_MEMBER,
   ACTIONS,
   ORG_PERMISSIONS,
   ERROR_PERSON_PART_OF_ORG,
   GLOBAL_COMMUNITY_ID,
-  LOAD_PERSON_DETAILS,
   LOAD_ORGANIZATIONS,
 } from '../constants';
 import { REQUESTS } from '../api/routes';
@@ -93,74 +91,6 @@ export function refreshCommunity(orgId: string = GLOBAL_COMMUNITY_ID) {
     dispatch(getMe());
 
     return response;
-  };
-}
-
-export function addNewPerson(data: { [key: string]: any }) {
-  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
-    const myId = getAuthPerson().id;
-    if (!data || !data.firstName) {
-      return Promise.reject(
-        'Invalid Data from addNewPerson: no data or no firstName passed in',
-      );
-    }
-    const included = [];
-    if (data.assignToMe) {
-      included.push({
-        type: 'contact_assignment',
-        attributes: {
-          assigned_to_id: myId,
-          organization_id: data.orgId || undefined,
-        },
-      });
-    }
-    if (data.orgId) {
-      included.push({
-        type: 'organizational_permission',
-        attributes: {
-          organization_id: data.orgId,
-          permission_id: data.orgPermission && data.orgPermission.permission_id,
-        },
-      });
-    }
-    if (data.email) {
-      included.push({
-        type: 'email',
-        attributes: { email: data.email },
-      });
-    }
-    if (data.phone) {
-      included.push({
-        type: 'phone_number',
-        attributes: {
-          number: data.phone,
-          location: 'mobile',
-        },
-      });
-    }
-    const bodyData = {
-      data: {
-        type: 'person',
-        attributes: {
-          first_name: data.firstName,
-          last_name: data.lastName || undefined,
-          gender: data.gender || undefined,
-        },
-      },
-      included,
-    };
-    const query = {};
-    const results = await dispatch(
-      callApi(REQUESTS.ADD_NEW_PERSON, query, bodyData),
-    );
-
-    dispatch({
-      type: LOAD_PERSON_DETAILS,
-      orgId: data.orgId,
-      person: results.response,
-    });
-
-    return results;
   };
 }
 
@@ -427,13 +357,5 @@ export function generateNewLink(orgId: string) {
     dispatch(trackActionWithoutData(ACTIONS.NEW_INVITE_URL));
 
     return results;
-  };
-}
-
-export function removeOrganizationMember(personId: string, orgId: string) {
-  return {
-    type: REMOVE_ORGANIZATION_MEMBER,
-    personId,
-    orgId,
   };
 }
