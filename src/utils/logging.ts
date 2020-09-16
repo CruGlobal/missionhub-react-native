@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 
 const ENABLE_LOGS = true;
-const ENABLE_WARN = false;
 
 // @ts-ignore
 function getArgs(a, stringify = false) {
@@ -28,26 +27,6 @@ export const LOG = (...originalArgs) => {
       // @ts-ignore
       console.tron.display({
         name: 'Console',
-        value: args,
-        preview: typeof args[0] === 'string' ? args[0] : 'no preview',
-      });
-    }
-  }
-};
-
-// @ts-ignore
-export const WARN = (...originalArgs) => {
-  if (__DEV__) {
-    const args = getArgs(originalArgs, true);
-    if (ENABLE_WARN) {
-      console.warn(...args);
-    }
-
-    // @ts-ignore
-    if (console.tron) {
-      // @ts-ignore
-      console.tron.display({
-        name: 'Console WARN',
         value: args,
         preview: typeof args[0] === 'string' ? args[0] : 'no preview',
       });

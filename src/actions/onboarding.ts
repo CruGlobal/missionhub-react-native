@@ -1,28 +1,18 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import appsFlyer from 'react-native-appsflyer';
 
-import { Person } from '../reducers/people';
 import { OnboardingState } from '../reducers/onboarding';
 import { OrganizationsState } from '../reducers/organizations';
-import {
-  ACTIONS,
-  NOTIFICATION_PROMPT_TYPES,
-  LOAD_PERSON_DETAILS,
-} from '../constants';
+import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../constants';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
-import { REQUESTS } from '../api/routes';
 import { COMMUNITY_TABS } from '../containers/Communities/Community/constants';
 import { RootState } from '../reducers';
-import { getAuthPerson } from '../auth/authUtilities';
 
-import callApi from './api';
+import { navigatePush } from './navigation';
 import { checkNotifications } from './notifications';
 import { trackActionWithoutData } from './analytics';
 import { joinCommunity } from './organizations';
-import { navigatePush } from './navigation';
 
 export const START_ONBOARDING = 'START_ONBOARDING';
 export const FINISH_ONBOARDING = 'FINISH_ONBOARDING';
@@ -87,46 +77,11 @@ export const startOnboarding = () => (
   );
 };
 
-export const createPerson = (firstName: string, lastName: string) => async (
-  dispatch: ThunkDispatch<RootState, never, AnyAction>,
-) => {
-  const myId = getAuthPerson().id;
-
-  const data = {
-    data: {
-      type: 'person',
-      attributes: {
-        first_name: firstName,
-        last_name: lastName,
-      },
-    },
-    included: [
-      {
-        type: 'contact_assignment',
-        attributes: {
-          assigned_to_id: myId,
-        },
-      },
-    ],
-  };
-
-  const results = (await dispatch(
-    callApi(REQUESTS.ADD_NEW_PERSON, {}, data),
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  )) as any;
-
-  dispatch({
-    type: LOAD_PERSON_DETAILS,
-    person: results.response as Person,
-  });
-
-  return results;
-};
-
 export const skipAddPersonAndCompleteOnboarding = () => (
   dispatch: ThunkDispatch<RootState, never, AnyAction>,
 ) => {
   dispatch(skipOnboardingAddPerson());
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch<any>(
     checkNotifications(NOTIFICATION_PROMPT_TYPES.ONBOARDING, () =>
       dispatch(navigatePush(CELEBRATION_SCREEN)),
@@ -138,6 +93,7 @@ export const resetPersonAndCompleteOnboarding = () => (
   dispatch: ThunkDispatch<RootState, never, AnyAction>,
 ) => {
   dispatch(setOnboardingPersonId(''));
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch<any>(
     checkNotifications(NOTIFICATION_PROMPT_TYPES.ONBOARDING, () =>
       dispatch(navigatePush(CELEBRATION_SCREEN)),
