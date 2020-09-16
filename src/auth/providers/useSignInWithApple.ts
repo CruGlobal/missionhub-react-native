@@ -158,7 +158,7 @@ export const useSignInWithApple = () => {
       }
     } catch (error) {
       if (error === AuthError.None) {
-        throw error;
+        throw AuthError.None;
       } else {
         setError(AuthError.Unknown);
         rollbar.error(error);

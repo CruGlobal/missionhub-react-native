@@ -220,7 +220,7 @@ export const useSignInWithTheKey = () => {
       isMfaCodePresent: boolean,
     ) => {
       if (error === AuthError.None) {
-        throw error;
+        throw AuthError.None;
       }
 
       const apiError = error?.apiError;
