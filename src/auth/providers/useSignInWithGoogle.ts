@@ -35,15 +35,28 @@ export const useSignInWithGoogle = () => {
       offlineAccess: true,
     });
 
+    const ERROR_NO_AUTH_CODE = "Google authorization code doesn't exist";
+
     try {
-      return await GoogleSignin.signInSilently();
+      const { serverAuthCode } = await GoogleSignin.signInSilently();
+      if (!serverAuthCode) {
+        throw { code: ERROR_NO_AUTH_CODE };
+      }
+      return serverAuthCode;
     } catch (error) {
-      if (error.code === statusCodes.SIGN_IN_REQUIRED) {
+      if (
+        error.code === ERROR_NO_AUTH_CODE ||
+        error.code === statusCodes.SIGN_IN_REQUIRED
+      ) {
         try {
           await GoogleSignin.hasPlayServices({
             showPlayServicesUpdateDialog: true,
           });
-          return await GoogleSignin.signIn();
+          const { serverAuthCode } = await GoogleSignin.signIn();
+          if (!serverAuthCode) {
+            throw new Error(ERROR_NO_AUTH_CODE);
+          }
+          return serverAuthCode;
         } catch (error) {
           if (error.code === statusCodes.SIGN_IN_CANCELLED) {
             throw AuthError.None;
@@ -66,11 +79,7 @@ export const useSignInWithGoogle = () => {
     setProviderAuthInProgress(true);
 
     try {
-      const { serverAuthCode } = await performSignIn();
-
-      if (!serverAuthCode) {
-        throw Error("Google authorization code doesn't exist");
-      }
+      const serverAuthCode = await performSignIn();
 
       const anonymousUid = await getAnonymousUid();
       const { data } = await apiSignInWithGoogle({
