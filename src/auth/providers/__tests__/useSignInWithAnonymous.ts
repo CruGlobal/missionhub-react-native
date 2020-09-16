@@ -1,4 +1,6 @@
 import { useMutation } from '@apollo/react-hooks';
+import { act } from 'react-test-renderer';
+import { flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderHookWithContext } from '../../../../testUtils';
 import {
@@ -36,11 +38,13 @@ it('should create new anonymous user', async () => {
     },
   });
 
-  await result.current.signInWithAnonymous({
-    type: SignInWithAnonymousType.Create,
-    firstName,
-    lastName,
-  });
+  await act(() =>
+    result.current.signInWithAnonymous({
+      type: SignInWithAnonymousType.Create,
+      firstName,
+      lastName,
+    }),
+  );
 
   expect(useMutation).toHaveBeenMutatedWith(SIGN_UP_WITH_ANONYMOUS_MUTATION, {
     variables: {
@@ -63,9 +67,11 @@ it('should get a new access token using the refresh token', async () => {
     },
   });
 
-  await result.current.signInWithAnonymous({
-    type: SignInWithAnonymousType.Refresh,
-  });
+  await act(() =>
+    result.current.signInWithAnonymous({
+      type: SignInWithAnonymousType.Refresh,
+    }),
+  );
 
   expect(useMutation).toHaveBeenMutatedWith(SIGN_IN_WITH_ANONYMOUS_MUTATION, {
     variables: { anonymousUid },
@@ -83,12 +89,16 @@ it('should handle missing token from API', async () => {
   });
 
   await expect(
-    result.current.signInWithAnonymous({
-      type: SignInWithAnonymousType.Create,
-      firstName,
-      lastName,
-    }),
+    act(() =>
+      result.current.signInWithAnonymous({
+        type: SignInWithAnonymousType.Create,
+        firstName,
+        lastName,
+      }),
+    ),
   ).rejects.toEqual(AuthError.Unknown);
+
+  await flushMicrotasksQueue();
 
   expect(result.current.error).toEqual(AuthError.Unknown);
 
@@ -108,10 +118,14 @@ it('should handle missing refresh anonymous user id', async () => {
   const { result } = renderHookWithContext(() => useSignInWithAnonymous());
 
   await expect(
-    result.current.signInWithAnonymous({
-      type: SignInWithAnonymousType.Refresh,
-    }),
+    act(() =>
+      result.current.signInWithAnonymous({
+        type: SignInWithAnonymousType.Refresh,
+      }),
+    ),
   ).rejects.toEqual(AuthError.Unknown);
+
+  await flushMicrotasksQueue();
 
   expect(result.current.error).toEqual(AuthError.Unknown);
 

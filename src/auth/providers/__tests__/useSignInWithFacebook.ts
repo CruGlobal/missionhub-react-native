@@ -1,5 +1,7 @@
 import { useMutation } from '@apollo/react-hooks';
 import { AccessToken, LoginManager } from 'react-native-fbsdk';
+import { act } from 'react-test-renderer';
+import { flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderHookWithContext } from '../../../../testUtils';
 import {
@@ -52,7 +54,7 @@ it('should sign in wih Facebook', async () => {
     },
   });
 
-  await result.current.signInWithFacebook();
+  await act(() => result.current.signInWithFacebook());
 
   expect(AccessToken.refreshCurrentAccessTokenAsync).toHaveBeenCalled();
   expect(LoginManager.logInWithPermissions).toHaveBeenCalledWith(
@@ -82,7 +84,7 @@ it('should refresh Facebook auth', async () => {
     },
   });
 
-  await result.current.signInWithFacebook();
+  await act(() => result.current.signInWithFacebook());
 
   expect(AccessToken.refreshCurrentAccessTokenAsync).toHaveBeenCalled();
   expect(LoginManager.logInWithPermissions).not.toHaveBeenCalled();
@@ -110,9 +112,11 @@ it('should handle missing token from API', async () => {
     },
   });
 
-  await expect(result.current.signInWithFacebook()).rejects.toEqual(
+  await expect(act(() => result.current.signInWithFacebook())).rejects.toEqual(
     AuthError.Unknown,
   );
+
+  await flushMicrotasksQueue();
 
   expect(result.current.error).toEqual(AuthError.Unknown);
 

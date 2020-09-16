@@ -1,5 +1,5 @@
 import { flushMicrotasksQueue } from 'react-native-testing-library';
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react-hooks';
 
 import { renderHookWithContext } from '../../../testUtils';
 import {
@@ -126,7 +126,7 @@ describe('useAuthSuccess', () => {
     });
 
     const { result } = renderHookWithContext(() => useAuthSuccess());
-    await result.current();
+    await act(() => result.current());
 
     expect(loadAuthPerson).toHaveBeenCalledWith('network-only');
     expect(logInAnalytics).toHaveBeenCalled();

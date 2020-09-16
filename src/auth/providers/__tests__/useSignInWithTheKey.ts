@@ -2,6 +2,8 @@
 import { Linking } from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
 import Config from 'react-native-config';
+import { act } from 'react-test-renderer';
+import { flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderHookWithContext } from '../../../../testUtils';
 import {
@@ -121,12 +123,14 @@ it('should sign in wih The Key providing an MFA code', async () => {
     },
   });
 
-  await result.current.signInWithTheKey({
-    type: SignInWithTheKeyType.EmailPassword,
-    email,
-    password,
-    mfaCode,
-  });
+  await act(() =>
+    result.current.signInWithTheKey({
+      type: SignInWithTheKeyType.EmailPassword,
+      email,
+      password,
+      mfaCode,
+    }),
+  );
 
   expect(callApi).toHaveBeenCalledWith(
     REQUESTS.KEY_LOGIN,
@@ -175,9 +179,11 @@ it('should refresh The Key auth', async () => {
     },
   });
 
-  await result.current.signInWithTheKey({
-    type: SignInWithTheKeyType.Refresh,
-  });
+  await act(() =>
+    result.current.signInWithTheKey({
+      type: SignInWithTheKeyType.Refresh,
+    }),
+  );
 
   expect(callApi).toHaveBeenCalledWith(
     REQUESTS.KEY_REFRESH_TOKEN,
@@ -226,9 +232,11 @@ it('should sign up with The Key', async () => {
     },
   });
 
-  await result.current.signInWithTheKey({
-    type: SignInWithTheKeyType.SignUp,
-  });
+  await act(() =>
+    result.current.signInWithTheKey({
+      type: SignInWithTheKeyType.SignUp,
+    }),
+  );
 
   expect(Linking.openURL).toHaveBeenCalledWith(
     `${Config.THE_KEY_URL}login?action=signup&client_id=${Config.THE_KEY_CLIENT_ID}&response_type=code&redirect_uri=https://missionhub.com/auth&scope=fullticket%20extended&code_challenge_method=S256&code_challenge=cCKis6m4FKRN6dlJo9sJ4irCXlleTp7Sf1JRqvlVcn8`,
@@ -280,9 +288,11 @@ it('should sign in after forgot password', async () => {
     },
   });
 
-  await result.current.signInWithTheKey({
-    type: SignInWithTheKeyType.ForgotPassword,
-  });
+  await act(() =>
+    result.current.signInWithTheKey({
+      type: SignInWithTheKeyType.ForgotPassword,
+    }),
+  );
 
   expect(Linking.openURL).toHaveBeenCalledWith(
     `${Config.THE_KEY_URL}service/selfservice?target=displayForgotPassword&client_id=${Config.THE_KEY_CLIENT_ID}&response_type=code&redirect_uri=https://missionhub.com/auth&scope=fullticket%20extended&code_challenge_method=S256&code_challenge=cCKis6m4FKRN6dlJo9sJ4irCXlleTp7Sf1JRqvlVcn8`,
@@ -367,13 +377,17 @@ describe('handleError', () => {
       });
 
       await expect(
-        result.current.signInWithTheKey({
-          type: SignInWithTheKeyType.EmailPassword,
-          email,
-          password,
-          ...(isMfaCodePresent ? { mfaCode } : {}),
-        }),
+        act(() =>
+          result.current.signInWithTheKey({
+            type: SignInWithTheKeyType.EmailPassword,
+            email,
+            password,
+            ...(isMfaCodePresent ? { mfaCode } : {}),
+          }),
+        ),
       ).rejects.toEqual(expectedAuthError);
+
+      await flushMicrotasksQueue();
 
       expect(result.current.error).toEqual(expectedAuthError);
 
@@ -406,10 +420,14 @@ describe('handleError', () => {
     const { result } = renderHookWithContext(() => useSignInWithTheKey());
 
     await expect(
-      result.current.signInWithTheKey({
-        type: SignInWithTheKeyType.Refresh,
-      }),
+      act(() =>
+        result.current.signInWithTheKey({
+          type: SignInWithTheKeyType.Refresh,
+        }),
+      ),
     ).rejects.toEqual(AuthError.Unknown);
+
+    await flushMicrotasksQueue();
 
     expect(result.current.error).toEqual(AuthError.Unknown);
 

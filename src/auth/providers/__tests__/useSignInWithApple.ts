@@ -3,6 +3,8 @@ import {
   appleAuth,
   appleAuthAndroid,
 } from '@invertase/react-native-apple-authentication';
+import { act } from 'react-test-renderer';
+import { flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderHookWithContext } from '../../../../testUtils';
 import {
@@ -69,7 +71,7 @@ describe('ios', () => {
       },
     });
 
-    await result.current.signInWithApple();
+    await act(() => result.current.signInWithApple());
 
     expect(appleAuth.performRequest).toHaveBeenCalledWith({
       requestedOperation: appleAuth.Operation.LOGIN,
@@ -109,7 +111,7 @@ describe('ios', () => {
       },
     });
 
-    await result.current.signInWithApple(appleUserId);
+    await act(() => result.current.signInWithApple(appleUserId));
 
     expect(appleAuth.performRequest).toHaveBeenCalledWith({
       requestedOperation: appleAuth.Operation.REFRESH,
@@ -150,9 +152,11 @@ describe('ios', () => {
       },
     });
 
-    await expect(result.current.signInWithApple()).rejects.toEqual(
+    await expect(act(() => result.current.signInWithApple())).rejects.toEqual(
       AuthError.Unknown,
     );
+
+    await flushMicrotasksQueue();
 
     expect(result.current.error).toEqual(AuthError.Unknown);
 
@@ -197,7 +201,7 @@ describe('android', () => {
       },
     });
 
-    await result.current.signInWithApple();
+    await act(() => result.current.signInWithApple());
 
     expect(appleAuthAndroid.configure).toHaveBeenCalledWith({
       clientId: 'com.missionhub.webauth',
