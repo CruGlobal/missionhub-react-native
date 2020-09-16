@@ -10,7 +10,7 @@ import { COMPLETE_STEP_MUTATION } from '../../../containers/AcceptedStepDetailSc
 import { navigatePush } from '../../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../../containers/AcceptedStepDetailScreen';
 import { COMPLETED_STEP_DETAIL_SCREEN } from '../../../containers/CompletedStepDetailScreen';
-import { navToPersonScreen } from '../../../actions/person';
+import { navToPersonScreen, updatePersonGQL } from '../../../actions/person';
 import { handleAfterCompleteStep } from '../../../actions/steps';
 import { CONTACT_STEPS } from '../../../constants';
 import StepItem from '..';
@@ -20,6 +20,7 @@ jest.mock('../../../actions/navigation', () => ({
 }));
 jest.mock('../../../actions/person', () => ({
   navToPersonScreen: jest.fn().mockReturnValue({ type: 'navToPersonScreen' }),
+  updatePersonGQL: jest.fn(),
 }));
 jest.mock('../../../actions/steps', () => ({
   handleAfterCompleteStep: jest
@@ -131,6 +132,7 @@ it('should complete steps with checkbox', async () => {
     variables: { input: { id: mockStep.id } },
   });
   await flushMicrotasksQueue();
+  expect(updatePersonGQL).toHaveBeenCalledWith(mockStep.receiver.id);
   expect(handleAfterCompleteStep).toHaveBeenCalledWith(
     {
       id: mockStep.id,

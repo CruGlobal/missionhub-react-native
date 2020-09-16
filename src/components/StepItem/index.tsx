@@ -46,6 +46,7 @@ const StepItem = ({
     {
       onCompleted: data => {
         const step = data.markStepAsCompleted?.step;
+
         if (step) {
           updatePersonGQL(step.receiver.id);
           dispatch(
