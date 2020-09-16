@@ -1,6 +1,6 @@
 import { createStackNavigator } from 'react-navigation-stack';
 
-import { GET_STARTED_SCREEN } from '../../containers/GetStartedScreen';
+import { GET_STARTED_SCREEN } from '../../containers/GetStartedScreen/constants';
 
 import { onboardingFlowGenerator } from './onboardingFlowGenerator';
 

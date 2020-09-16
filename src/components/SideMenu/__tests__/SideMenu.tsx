@@ -17,13 +17,14 @@ import {
   ANALYTICS_SCREEN_TYPES,
 } from '../../../utils/hooks/useAnalytics';
 import SideMenu from '..';
+import { useIsAnonymousUser } from '../../../auth/authHooks';
 
 jest.mock('../../../utils/hooks/useIsMe');
 jest.mock('../../../utils/hooks/useCheckForUpdate');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('react-native-device-info');
-
+jest.mock('../../../auth/authHooks');
 jest.mock('../../IconButton', () => 'IconButton');
 jest.mock('react-navigation-drawer', () => ({
   DrawerActions: {
@@ -44,9 +45,10 @@ beforeEach(() => {
     .mockReturnValue(Promise.resolve(true));
 });
 
-it('renders correctly | Authenticated User', () => {
+it('renders correctly | anonymous User', () => {
+  (useIsAnonymousUser as jest.Mock).mockReturnValue(true);
   const { snapshot } = renderWithContext(<SideMenu />, {
-    initialState: { drawer: { isOpen: false }, auth: { upgradeToken: true } },
+    initialState: { drawer: { isOpen: false } },
   });
   snapshot();
   expect(useQuery).toHaveBeenCalledWith(GET_MY_AVATAR_AND_EMAIL);
@@ -55,11 +57,11 @@ it('renders correctly | Authenticated User', () => {
   });
 });
 
-it('renders correctly | UnAuthed User', () => {
+it('renders correctly | signed in User', () => {
+  (useIsAnonymousUser as jest.Mock).mockReturnValue(false);
   const { snapshot } = renderWithContext(<SideMenu />, {
     initialState: {
       drawer: { isOpen: false },
-      auth: { upgradeToken: false },
     },
   });
   snapshot();
@@ -72,7 +74,6 @@ it('render update button', async () => {
   const { snapshot } = renderWithContext(<SideMenu />, {
     initialState: {
       drawer: { isOpen: false },
-      auth: { upgradeToken: false },
     },
   });
   await flushMicrotasksQueue();
@@ -85,7 +86,7 @@ it('finds the close button', () => {
     callback();
   });
   const { getByTestId } = renderWithContext(<SideMenu />, {
-    initialState: { drawer: { isOpen: false }, auth: { upgradeToken: true } },
+    initialState: { drawer: { isOpen: false } },
   });
   expect(getByTestId('CloseButton')).toBeTruthy();
   expect(BackHandler.addEventListener).toHaveBeenCalled();
@@ -93,7 +94,7 @@ it('finds the close button', () => {
 
 it('should navigate to edit profile', async () => {
   const { getByTestId } = renderWithContext(<SideMenu />, {
-    initialState: { drawer: { isOpen: false }, auth: { upgradeToken: true } },
+    initialState: { drawer: { isOpen: false } },
   });
   await fireEvent.press(getByTestId('editButton'));
   expect(navigatePush).toHaveBeenCalledWith(EDIT_PERSON_FLOW, {
@@ -105,7 +106,7 @@ it('should open link to play or app store when user presses update button', asyn
   (useCheckForUpdate as jest.Mock).mockReturnValue(true);
 
   const { getByTestId } = renderWithContext(<SideMenu />, {
-    initialState: { drawer: { isOpen: false }, auth: { upgradeToken: true } },
+    initialState: { drawer: { isOpen: false } },
   });
   await flushMicrotasksQueue();
   await fireEvent.press(getByTestId('updateButton'));
@@ -115,7 +116,7 @@ it('should open link to play or app store when user presses update button', asyn
 it('should fire closedDrawer', async () => {
   const closedDrawerValue = [{ type: 'drawer closed' }];
   const { getByTestId, store } = renderWithContext(<SideMenu />, {
-    initialState: { drawer: { isOpen: false }, auth: { upgradeToken: true } },
+    initialState: { drawer: { isOpen: false } },
   });
   await fireEvent.press(getByTestId('CloseButton'));
   expect(store.getActions()).toEqual(closedDrawerValue);
@@ -125,7 +126,7 @@ it('unmounts and expect closeDrawer to fire if drawer is open', () => {
   const closedDrawerValue = [{ type: 'drawer closed' }];
   BackHandler.removeEventListener = jest.fn();
   const { unmount, store } = renderWithContext(<SideMenu />, {
-    initialState: { drawer: { isOpen: true }, auth: { upgradeToken: true } },
+    initialState: { drawer: { isOpen: true } },
   });
   unmount();
   expect(BackHandler.removeEventListener).toHaveBeenCalled();
@@ -135,7 +136,7 @@ it('unmounts and expect closeDrawer to fire if drawer is open', () => {
 it('unmounts and expect closeDrawer to not fire if drawer is not open', () => {
   BackHandler.removeEventListener = jest.fn();
   const { unmount, store } = renderWithContext(<SideMenu />, {
-    initialState: { drawer: { isOpen: false }, auth: { upgradeToken: true } },
+    initialState: { drawer: { isOpen: false } },
   });
   unmount();
   expect(BackHandler.removeEventListener).toHaveBeenCalled();
@@ -145,7 +146,7 @@ it('unmounts and expect closeDrawer to not fire if drawer is not open', () => {
 describe('menu items and links', () => {
   function getMenuButton(text: string) {
     const { getByText } = renderWithContext(<SideMenu />, {
-      initialState: { drawer: { isOpen: false }, auth: { upgradeToken: true } },
+      initialState: { drawer: { isOpen: false } },
     });
     return getByText(text);
   }

@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+<View
+  forwardedRef={[Function]}
+  onLayout={[Function]}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#FF5532",
+      "height": 68,
+      "justifyContent": "center",
+      "paddingBottom": 0,
+      "paddingLeft": 0,
+      "paddingRight": 0,
+      "paddingTop": 20,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 16,
+        "fontStyle": "normal",
+        "lineHeight": 24,
+        "textAlignVertical": "center",
+        "textTransform": "none",
+      }
+    }
+  >
+    Your Email or Password is Incorrect
+  </Text>
+</View>
+`;

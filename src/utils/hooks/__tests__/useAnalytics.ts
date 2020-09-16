@@ -1,8 +1,8 @@
 /* eslint-disable max-lines */
 
-import { useQuery } from '@apollo/react-hooks';
 import * as Redux from 'react-redux';
 import { useIsFocused } from 'react-navigation-hooks';
+import { flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderHookWithContext } from '../../../../testUtils';
 import { trackScreenChange } from '../../../actions/analytics';
@@ -16,10 +16,10 @@ import {
 } from '../../../constants';
 import { PermissionEnum } from '../../../../__generated__/globalTypes';
 
-jest.mock('@apollo/react-hooks');
 jest.mock('react-navigation-hooks');
 jest.mock('../../../actions/analytics');
 jest.mock('../useIsDrawerOpen');
+jest.mock('../../../auth/authStore', () => ({ isAuthenticated: () => true }));
 
 const trackScreenChangeResult = { type: 'track screen change' };
 
@@ -29,14 +29,12 @@ const personId = '321';
 const communityId = '444';
 
 const initialState = {
-  auth: { person: { id: myId } },
   onboarding: { currentlyOnboarding: true },
 };
 
 beforeEach(() => {
   (trackScreenChange as jest.Mock).mockReturnValue(trackScreenChangeResult);
   (Redux.useDispatch as jest.Mock) = jest.fn().mockReturnValue(jest.fn());
-  (useQuery as jest.Mock).mockReturnValue({});
 });
 
 const fireFocus = (isFocused: boolean, rerender: () => void) => {
@@ -521,14 +519,19 @@ describe('useAnalytics', () => {
     });
 
     describe('assignment type', () => {
-      it('set to "self"', () => {
+      it('set to "self"', async () => {
         const { rerender } = renderHookWithContext(
           () =>
             useAnalytics(screenFragments, {
               assignmentType: { personId: myId, communityId },
             }),
-          { initialState },
+          {
+            initialState,
+            mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+          },
         );
+
+        await flushMicrotasksQueue();
 
         expect(trackScreenChange).not.toHaveBeenCalled();
 
@@ -660,26 +663,21 @@ describe('useAnalytics', () => {
     });
 
     describe('permission type', () => {
-      it('set to "owner"', () => {
-        (useQuery as jest.Mock).mockReturnValue({
-          data: {
-            community: {
-              people: {
-                edges: [
-                  { communityPermission: { permission: PermissionEnum.owner } },
-                ],
-              },
-            },
-          },
-        });
-
+      it('set to "owner"', async () => {
         const { rerender } = renderHookWithContext(
           () =>
             useAnalytics(screenFragments, {
               permissionType: { communityId },
             }),
-          { initialState },
+          {
+            initialState,
+            mocks: {
+              CommunityPermission: () => ({ permission: PermissionEnum.owner }),
+            },
+          },
         );
+
+        await flushMicrotasksQueue();
 
         expect(trackScreenChange).not.toHaveBeenCalled();
 
@@ -691,26 +689,21 @@ describe('useAnalytics', () => {
       });
     });
 
-    it('set to "admin"', () => {
-      (useQuery as jest.Mock).mockReturnValue({
-        data: {
-          community: {
-            people: {
-              edges: [
-                { communityPermission: { permission: PermissionEnum.admin } },
-              ],
-            },
-          },
-        },
-      });
-
+    it('set to "admin"', async () => {
       const { rerender } = renderHookWithContext(
         () =>
           useAnalytics(screenFragments, {
             permissionType: { communityId },
           }),
-        { initialState },
+        {
+          initialState,
+          mocks: {
+            CommunityPermission: () => ({ permission: PermissionEnum.admin }),
+          },
+        },
       );
+
+      await flushMicrotasksQueue();
 
       expect(trackScreenChange).not.toHaveBeenCalled();
 
@@ -721,26 +714,21 @@ describe('useAnalytics', () => {
       });
     });
 
-    it('set to "member"', () => {
-      (useQuery as jest.Mock).mockReturnValue({
-        data: {
-          community: {
-            people: {
-              edges: [
-                { communityPermission: { permission: PermissionEnum.user } },
-              ],
-            },
-          },
-        },
-      });
-
+    it('set to "member"', async () => {
       const { rerender } = renderHookWithContext(
         () =>
           useAnalytics(screenFragments, {
             permissionType: { communityId },
           }),
-        { initialState },
+        {
+          initialState,
+          mocks: {
+            CommunityPermission: () => ({ permission: PermissionEnum.user }),
+          },
+        },
       );
+
+      await flushMicrotasksQueue();
 
       expect(trackScreenChange).not.toHaveBeenCalled();
 
@@ -751,30 +739,23 @@ describe('useAnalytics', () => {
       });
     });
 
-    it('set to ""', () => {
-      (useQuery as jest.Mock).mockReturnValue({
-        data: {
-          community: {
-            people: {
-              edges: [
-                {
-                  communityPermission: {
-                    permission: PermissionEnum.no_permissions,
-                  },
-                },
-              ],
-            },
-          },
-        },
-      });
-
+    it('set to ""', async () => {
       const { rerender } = renderHookWithContext(
         () =>
           useAnalytics(screenFragments, {
             permissionType: { communityId },
           }),
-        { initialState },
+        {
+          initialState,
+          mocks: {
+            CommunityPermission: () => ({
+              permission: PermissionEnum.no_permissions,
+            }),
+          },
+        },
       );
+
+      await flushMicrotasksQueue();
 
       expect(trackScreenChange).not.toHaveBeenCalled();
 

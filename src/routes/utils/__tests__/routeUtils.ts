@@ -2,31 +2,23 @@ import i18next from 'i18next';
 
 import { paramsForStageNavigation } from '../';
 import { apolloClient } from '../../../apolloClient';
+import { getAuthPerson } from '../../../auth/authUtilities';
 
 jest.mock('../../../apolloClient', () => ({
   apolloClient: {
     query: jest.fn(),
   },
 }));
+jest.mock('../../../auth/authUtilities');
 
 const myId = '111';
 const otherId = '222';
-const myName = 'Me';
+const myName = 'Me Fname';
 const otherName = 'Other';
 const orgId = '11';
 const stageId = '0';
 const notSureStageId = '6';
 const assignmentId = '33';
-
-const myPerson = {
-  id: myId,
-  first_name: myName,
-  user: { pathway_stage_id: stageId },
-};
-const myPersonNotSure = {
-  ...myPerson,
-  user: { pathway_stage_id: notSureStageId },
-};
 
 const reverseAssignment = {
   id: assignmentId,
@@ -50,7 +42,6 @@ const otherPersonNotSure = {
 };
 
 const baseState = {
-  auth: { person: myPerson },
   people: { people: { [otherId]: otherPerson } },
   stages: {
     stages: [{ id: stageId }, { id: notSureStageId }],
@@ -66,6 +57,10 @@ beforeEach(() => {
     data: {
       person: { steps: { pageInfo: { totalCount: 1 } } },
     },
+  });
+  (getAuthPerson as jest.Mock).mockReturnValue({
+    id: myId,
+    stage: { id: stageId },
   });
 });
 
@@ -83,18 +78,12 @@ describe('is Me, not "Not Sure" stage, step count not complete', () => {
 });
 
 describe('is Me, "Not Sure" stage, step count not complete', () => {
-  beforeEach(() => {
-    const newState = {
-      ...baseState,
-      auth: {
-        ...baseState.auth,
-        person: myPersonNotSure,
-      },
-    };
-    getState.mockReturnValue(newState);
-  });
-
   it('returns correct params', async () => {
+    (getAuthPerson as jest.Mock).mockReturnValue({
+      id: myId,
+      firstName: myName,
+      stage: { id: notSureStageId },
+    });
     const result = await paramsForStageNavigation(myId, orgId, getState);
 
     expect(result).toEqual({

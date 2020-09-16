@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { DrawerActions } from 'react-navigation-drawer';
 import {
   SafeAreaView,
@@ -19,7 +19,6 @@ import { useMyId } from '../../utils/hooks/useIsMe';
 import { useIsDrawerOpen } from '../../utils/hooks/useIsDrawerOpen';
 import Avatar from '../Avatar';
 import { Button } from '../common';
-import { AuthState } from '../../reducers/auth';
 import CloseButton from '../CloseButton';
 import EditIcon from '../../../assets/images/editIcon.svg';
 import { navigatePush } from '../../actions/navigation';
@@ -36,6 +35,7 @@ import {
   useAnalytics,
 } from '../../utils/hooks/useAnalytics';
 import theme from '../../theme';
+import { useIsAnonymousUser } from '../../auth/authHooks';
 
 import { GET_MY_AVATAR_AND_EMAIL } from './queries';
 import { GetMyAvatarAndEmail } from './__generated__/GetMyAvatarAndEmail';
@@ -47,9 +47,7 @@ const SideMenu = () => {
   const dispatch = useDispatch();
   const myId = useMyId();
 
-  const isSignedIn = useSelector(
-    ({ auth }: { auth: AuthState }) => !auth.upgradeToken,
-  );
+  const isAnonymousUser = useIsAnonymousUser();
 
   const needsToUpdate = useCheckForUpdate();
   const isOpen = useIsDrawerOpen();
@@ -175,7 +173,7 @@ const SideMenu = () => {
               <Text style={styles.personEmail}>{personEmail}</Text>
             </View>
           </View>
-          {!isSignedIn ? (
+          {isAnonymousUser ? (
             <View style={styles.notSignedInContainer}>
               <Button
                 style={styles.notSignedInButton}
@@ -208,7 +206,7 @@ const SideMenu = () => {
             ))}
           </View>
         ))}
-        {isSignedIn ? (
+        {!isAnonymousUser ? (
           <Text style={styles.signOutText} onPress={handleSignOut}>
             {t('signOut')}
           </Text>

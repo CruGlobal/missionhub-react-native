@@ -10,7 +10,7 @@ import {
   SETUP_PERSON_SCREEN,
 } from '../../../containers/SetupScreen';
 import { ONBOARDING_ADD_PHOTO_SCREEN } from '../../../containers/OnboardingAddPhotoScreen';
-import { GET_STARTED_SCREEN } from '../../../containers/GetStartedScreen';
+import { GET_STARTED_SCREEN } from '../../../containers/GetStartedScreen/constants';
 import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
 import { STAGE_SUCCESS_SCREEN } from '../../../containers/StageSuccessScreen';
 import { SELECT_STEP_SCREEN } from '../../../containers/SelectStepScreen';
@@ -30,6 +30,7 @@ import {
 } from '../../../actions/onboarding';
 import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
 import { trackActionWithoutData } from '../../../actions/analytics';
+import { getAuthPerson } from '../../../auth/authUtilities';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/onboarding');
@@ -42,6 +43,9 @@ jest.mock('../../../utils/hooks/useLogoutOnBack', () => ({
 jest.mock('../../../utils/hooks/useAnalytics', () => ({
   useAnalytics: jest.fn(),
 }));
+jest.mock('../../../auth/authUtilities');
+
+(getAuthPerson as jest.Mock).mockReturnValue({ id: '123' });
 
 const mockMath = Object.create(global.Math);
 mockMath.random = () => 0;
@@ -51,11 +55,9 @@ const myId = '123';
 const personId = '321';
 const personFirstName = 'Someone';
 const person = { id: personId, first_name: personFirstName };
-const stageId = '3';
 const stepSuggestionId = '111';
 
 const initialState = {
-  auth: { person: { id: myId, user: { pathway_stage_id: stageId } } },
   people: {
     people: { [personId]: person },
   },

@@ -1,41 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`a login button is clicked email signup button is pressed key sign in button fires sign in actions 1`] = `
-"Snapshot Diff:
-- First value
-+ Second value
-
-@@ -351,6 +351,7 @@
-          text=\\"SIGN IN\\"
-          type=\\"transparent\\"
-        />
-      </RCTSafeAreaView>
-    </Flex>
-+   <LoadingWheel />
-  </View>"
-`;
-
-exports[`a login button is clicked facebook signup button is pressed facebook button fires fb sign in actions 1`] = `
-"Snapshot Diff:
-- First value
-+ Second value
-
-@@ -351,6 +351,7 @@
-          text=\\"SIGN IN\\"
-          type=\\"transparent\\"
-        />
-      </RCTSafeAreaView>
-    </Flex>
-+   <LoadingWheel />
-  </View>"
-`;
-
 exports[`renders correctly for Create Community 1`] = `
 "Snapshot Diff:
 - First value
 + Second value
 
-@@ -60,17 +60,61 @@
+@@ -93,17 +93,61 @@
       <Flex
         align=\\"center\\"
         justify=\\"center\\"
@@ -110,6 +80,39 @@ exports[`renders correctly with logo 1`] = `
     }
   }
 >
+  <View
+    forwardedRef={[Function]}
+    onLayout={[Function]}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FF5532",
+        "height": 68,
+        "justifyContent": "center",
+        "paddingBottom": 0,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingTop": 20,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "lineHeight": 24,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
+      }
+    >
+      There was a problem signing in.
+    </Text>
+  </View>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -191,126 +194,170 @@ exports[`renders correctly with logo 1`] = `
         self="stretch"
         value={4}
       >
-        <Button
-          buttonTextStyle={
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Bold",
-              "fontSize": 16,
-              "fontStyle": "normal",
-              "letterSpacing": 1,
-              "lineHeight": 20,
-              "paddingTop": 2,
-              "textAlignVertical": "center",
-              "textTransform": "uppercase",
-            }
-          }
-          onPress={[Function]}
-          pill={true}
+        <View
           style={
             Object {
-              "backgroundColor": "transparent",
-              "borderColor": "#3CC8E6",
-              "borderWidth": 1,
-              "height": 48,
-              "margin": 8,
-              "width": 670,
+              "width": "100%",
             }
           }
-          testID="emailButton"
         >
-          <Flex
-            direction="row"
+          <Button
+            onPress={[Function]}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 24,
+                  "flexDirection": "row",
+                  "height": 50,
+                  "justifyContent": "flex-start",
+                  "margin": 4,
+                  "width": "100%",
+                },
+                Object {
+                  "backgroundColor": undefined,
+                  "borderColor": "#3CC8E6",
+                  "borderWidth": 1,
+                },
+              ]
+            }
+            testID="socialAuthButton"
           >
-            <Icon
-              name="emailIcon2"
-              size={21}
+            <View
               style={
                 Object {
-                  "marginRight": 10,
-                }
-              }
-              type="MissionHub"
-            />
-            <Text
-              style={
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Bold",
-                  "fontSize": 16,
-                  "fontStyle": "normal",
-                  "letterSpacing": 1,
-                  "lineHeight": 20,
-                  "paddingTop": 2,
-                  "textAlignVertical": "center",
-                  "textTransform": "uppercase",
+                  "width": 70,
                 }
               }
             >
-              SIGN UP WITH EMAIL
-            </Text>
-          </Flex>
-        </Button>
-        <Button
-          buttonTextStyle={
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Bold",
-              "fontSize": 16,
-              "fontStyle": "normal",
-              "letterSpacing": 1,
-              "lineHeight": 20,
-              "paddingTop": 2,
-              "textAlignVertical": "center",
-              "textTransform": "uppercase",
-            }
-          }
-          onPress={[Function]}
-          pill={true}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "borderColor": "#3CC8E6",
-              "borderWidth": 1,
-              "height": 48,
-              "margin": 8,
-              "width": 670,
-            }
-          }
-          testID="facebookButton"
-        >
-          <Flex
-            direction="row"
-          >
-            <Icon
-              name="facebookIcon"
-              size={21}
-              style={
-                Object {
-                  "marginRight": 10,
-                }
-              }
-              type="MissionHub"
-            />
+              <SvgMock />
+            </View>
             <Text
               style={
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                  Object {
+                    "color": "white",
+                  },
+                ]
+              }
+            >
+              Sign up with Email
+            </Text>
+          </Button>
+          <Button
+            onPress={[Function]}
+            style={
+              Array [
                 Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Bold",
-                  "fontSize": 16,
-                  "fontStyle": "normal",
-                  "letterSpacing": 1,
-                  "lineHeight": 20,
-                  "paddingTop": 2,
-                  "textAlignVertical": "center",
-                  "textTransform": "uppercase",
+                  "alignItems": "center",
+                  "borderRadius": 24,
+                  "flexDirection": "row",
+                  "height": 50,
+                  "justifyContent": "flex-start",
+                  "margin": 4,
+                  "width": "100%",
+                },
+                Object {
+                  "backgroundColor": "white",
+                  "borderColor": undefined,
+                  "borderWidth": undefined,
+                },
+              ]
+            }
+            testID="socialAuthButton"
+          >
+            <View
+              style={
+                Object {
+                  "width": 70,
                 }
               }
             >
-              SIGN UP WITH FACEBOOK
+              <SvgMock />
+            </View>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                  Object {
+                    "color": "black",
+                  },
+                ]
+              }
+            >
+              Sign up with Google
             </Text>
-          </Flex>
-        </Button>
+          </Button>
+          <Button
+            onPress={[Function]}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 24,
+                  "flexDirection": "row",
+                  "height": 50,
+                  "justifyContent": "flex-start",
+                  "margin": 4,
+                  "width": "100%",
+                },
+                Object {
+                  "backgroundColor": "#3B5998",
+                  "borderColor": undefined,
+                  "borderWidth": undefined,
+                },
+              ]
+            }
+            testID="socialAuthButton"
+          >
+            <View
+              style={
+                Object {
+                  "width": 70,
+                }
+              }
+            >
+              <SvgMock />
+            </View>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "lineHeight": 24,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                  },
+                  Object {
+                    "color": "white",
+                  },
+                ]
+              }
+            >
+              Sign up with Facebook
+            </Text>
+          </Button>
+        </View>
         <Flex
           direction="column"
           style={

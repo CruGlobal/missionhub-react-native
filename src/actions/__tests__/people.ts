@@ -1,21 +1,21 @@
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-
 import { getMyPeople } from '../people';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
+import { createThunkStore } from '../../../testUtils';
+import { getAuthPerson } from '../../auth/authUtilities';
 
 jest.mock('../api');
+jest.mock('../../auth/authUtilities');
 
-const mockStore = configureStore([thunk]);
-// @ts-ignore
-let store;
+const store = createThunkStore();
 
 const myId = 23;
-const mockUser = {
+const authPerson = {
   id: myId,
   name: 'Test User',
 };
+
+(getAuthPerson as jest.Mock).mockReturnValue(authPerson);
 
 describe('getMyPeople', () => {
   const peopleQuery = {
@@ -38,15 +38,9 @@ describe('getMyPeople', () => {
   ];
 
   it('should return one org with people', async () => {
-    // @ts-ignore
-    callApi.mockReturnValue({
+    (callApi as jest.Mock).mockReturnValue({
       type: REQUESTS.GET_PEOPLE_LIST.SUCCESS,
       response: peopleList,
-    });
-    store = mockStore({
-      auth: {
-        person: mockUser,
-      },
     });
 
     // @ts-ignore

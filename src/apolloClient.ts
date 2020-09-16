@@ -15,15 +15,11 @@ import { PersistentStorage, PersistedData } from 'apollo-cache-persist/types';
 import introspectionQueryResultData from '../schema.json';
 
 import { BASE_URL } from './api/utils';
-import { store } from './store';
-import {
-  EXPIRED_ACCESS_TOKEN,
-  INVALID_ACCESS_TOKEN,
-  UPDATE_TOKEN,
-} from './constants';
+import { EXPIRED_ACCESS_TOKEN, INVALID_ACCESS_TOKEN } from './constants';
 import { rollbar } from './utils/rollbar.config';
 import { typeDefs, resolvers, initializeLocalState } from './apolloLocalState';
-import { handleInvalidAccessToken } from './actions/auth/auth';
+import { getCachedAuthToken, setAuthToken } from './auth/authStore';
+import { authRefresh } from './auth/provideAuthRefresh';
 
 export let apolloClient: ApolloClient<NormalizedCacheObject>;
 
@@ -40,7 +36,7 @@ export const createApolloClient = async () => {
             )
           ) {
             (async () => {
-              const retry = await store.dispatch(handleInvalidAccessToken());
+              const retry = await authRefresh();
               retry && forward(operation);
             })();
           } else {
@@ -61,19 +57,18 @@ export const createApolloClient = async () => {
   );
 
   const authLink = new ApolloLink((operation, forward) => {
-    operation.setContext({
-      headers: { authorization: `Bearer ${store.getState().auth.token}` },
-    });
+    const authToken = getCachedAuthToken();
+    if (authToken && !operation.getContext().public) {
+      operation.setContext({
+        headers: { authorization: `Bearer ${authToken}` },
+      });
+    }
     return forward(operation).map(data => {
       const sessionHeader = operation
         .getContext()
         .response.headers.get('X-MH-Session');
 
-      sessionHeader &&
-        store.dispatch({
-          type: UPDATE_TOKEN,
-          token: sessionHeader,
-        });
+      sessionHeader && setAuthToken(sessionHeader);
       return data;
     });
   });

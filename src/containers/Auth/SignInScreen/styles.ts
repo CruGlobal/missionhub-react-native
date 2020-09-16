@@ -36,22 +36,6 @@ export default StyleSheet.create({
     ...theme.textRegular16,
     color: theme.white,
   },
-  facebookButton: {
-    backgroundColor: theme.transparent,
-    borderWidth: 1,
-    borderColor: theme.secondaryColor,
-    margin: 8,
-    width: theme.fullWidth - 80,
-    height: 48,
-  },
-  buttonText: {
-    ...theme.textBold16,
-    color: theme.white,
-    paddingTop: 2,
-  },
-  icon: {
-    marginRight: 10,
-  },
   forgotPasswordButton: {
     width: 130,
   },

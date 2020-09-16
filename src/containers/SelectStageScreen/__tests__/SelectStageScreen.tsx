@@ -5,7 +5,10 @@ import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { getStages } from '../../../actions/stages';
-import { trackAction } from '../../../actions/analytics';
+import {
+  trackAction,
+  updateAnalyticsContext,
+} from '../../../actions/analytics';
 import { updatePersonGQL } from '../../../actions/person';
 import {
   selectMyStage,
@@ -30,6 +33,7 @@ jest.mock('../../../components/common', () => ({
 jest.mock('../../DeprecatedBackButton', () => 'DeprecatedBackButton');
 jest.mock('../../../components/Header', () => 'Header');
 jest.mock('../../../utils/hooks/useAnalytics');
+jest.mock('../../../auth/authStore', () => ({ isAuthenticated: () => true }));
 
 const baseStage: Stage = {
   id: '1',
@@ -100,7 +104,6 @@ const unassignedPerson = {
 };
 
 const state = {
-  auth: { person: mePerson },
   people: {
     people: {
       [myId]: mePerson,
@@ -123,6 +126,7 @@ const onComplete = jest.fn();
 const handleScreenChange = jest.fn();
 
 const trackActionResult = { type: 'track action' };
+const updateAnalyticsContextResult = { type: 'updateAnalyticsContext' };
 const getStagesResult = { type: 'get stages', response: stages };
 const selectMyStageResult = { type: 'select my stage' };
 const selectPersonStageResult = { type: 'select person stage' };
@@ -131,11 +135,15 @@ const nextResult = { type: 'next' };
 
 beforeEach(() => {
   (trackAction as jest.Mock).mockReturnValue(trackActionResult);
+  (updateAnalyticsContext as jest.Mock).mockReturnValue(
+    updateAnalyticsContextResult,
+  );
   (getStages as jest.Mock).mockReturnValue(getStagesResult);
   (selectMyStage as jest.Mock).mockReturnValue(selectMyStageResult);
   (selectPersonStage as jest.Mock).mockReturnValue(selectPersonStageResult);
   (updateUserStage as jest.Mock).mockReturnValue(updateUserStageResult);
   (next as jest.Mock).mockReturnValue(nextResult);
+  (useAnalytics as jest.Mock).mockReturnValue(handleScreenChange);
   (useAnalytics as jest.Mock).mockReturnValue(handleScreenChange);
 });
 
@@ -198,11 +206,16 @@ describe('renders for me', () => {
     personId: myId,
   };
 
-  it('renders correctly', () => {
-    renderWithContext(<SelectStageScreen next={next} />, {
+  it('renders correctly', async () => {
+    const { snapshot } = renderWithContext(<SelectStageScreen next={next} />, {
       initialState: state,
       navParams: myNavParams,
-    }).snapshot();
+      mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+    });
+
+    await flushMicrotasksQueue();
+
+    snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('', {
       sectionType: true,
@@ -214,11 +227,16 @@ describe('renders for me', () => {
     expect(handleScreenChange).toHaveBeenCalledWith(['stage', 'stage 1']);
   });
 
-  it('renders firstItem correctly', () => {
-    renderWithContext(<SelectStageScreen next={next} />, {
+  it('renders firstItem correctly', async () => {
+    const { snapshot } = renderWithContext(<SelectStageScreen next={next} />, {
       initialState: state,
       navParams: { ...myNavParams, selectedStageId: 1 },
-    }).snapshot();
+      mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+    });
+
+    await flushMicrotasksQueue();
+
+    snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('', {
       sectionType: true,
@@ -279,6 +297,7 @@ const buildAndTestMount = async (
     {
       initialState,
       navParams,
+      mocks: { User: () => ({ person: () => ({ id: myId }) }) },
     },
   );
 

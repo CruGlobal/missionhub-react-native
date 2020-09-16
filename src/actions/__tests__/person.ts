@@ -1,7 +1,5 @@
 /* eslint-disable max-lines */
 
-import thunk from 'redux-thunk';
-import configureStore from 'redux-mock-store';
 import MockDate from 'mockdate';
 
 import {
@@ -33,30 +31,27 @@ import { navigatePush } from '../navigation';
 import { getMyCommunities } from '../organizations';
 import { PeopleState } from '../../reducers/people';
 import { OrganizationsState } from '../../reducers/organizations';
-import { AuthState } from '../../reducers/auth';
 import {
   ME_PERSON_TABS,
   PERSON_TABS,
 } from '../../containers/PersonScreen/PersonTabs';
 import { apolloClient } from '../../apolloClient';
 import { GET_PERSON } from '../../containers/AddContactScreen/queries';
+import { createThunkStore } from '../../../testUtils';
+import { getAuthPerson } from '../../auth/authUtilities';
 
 jest.mock('../api');
 jest.mock('../navigation');
 jest.mock('../organizations');
 jest.mock('../../selectors/organizations');
 jest.mock('../analytics');
+jest.mock('../../auth/authUtilities');
 
 const myId = '1';
+(getAuthPerson as jest.Mock).mockReturnValue({ id: myId });
 const personId = '2';
 const contactAssignmentId = '3';
 
-const mockStore = configureStore([thunk]);
-// @ts-ignore
-let store;
-let auth: AuthState;
-let organizations: OrganizationsState;
-let people: PeopleState;
 const expectedInclude =
   'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 const expectedIncludeWithContactAssignmentPerson =
@@ -70,20 +65,22 @@ const person = {
   ],
 };
 
+const organizations = ({
+  all: [],
+} as unknown) as OrganizationsState;
+const people: PeopleState = {
+  people: {
+    [myId]: mePerson,
+    [personId]: person,
+  },
+};
+const store = createThunkStore({
+  organizations,
+  people,
+});
+
 beforeEach(() => {
-  auth = { person: mePerson } as AuthState;
-  organizations = ({ all: [] } as unknown) as OrganizationsState;
-  people = {
-    people: {
-      [myId]: mePerson,
-      [personId]: person,
-    },
-  };
-  store = mockStore({
-    auth,
-    organizations,
-    people,
-  });
+  store.clearActions();
 });
 
 describe('get me', () => {
@@ -175,17 +172,17 @@ describe('updatePerson', () => {
   const updateInclude = expectedIncludeWithContactAssignmentPerson;
 
   it('should update first name', () => {
-    // @ts-ignore
-    store.dispatch(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    store.dispatch<any>(
       updatePerson({
-        id: 1,
+        id: '1',
         firstName: 'Test Fname',
       }),
     );
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_PERSON,
-      { personId: 1, include: updateInclude },
+      { personId: '1', include: updateInclude },
       {
         data: {
           type: 'person',
@@ -198,10 +195,10 @@ describe('updatePerson', () => {
   });
 
   it('should update last name', () => {
-    // @ts-ignore
-    store.dispatch(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    store.dispatch<any>(
       updatePerson({
-        id: 1,
+        id: '1',
         firstName: 'Test Fname',
         lastName: 'Test Lname',
       }),
@@ -209,7 +206,7 @@ describe('updatePerson', () => {
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_PERSON,
-      { personId: 1, include: updateInclude },
+      { personId: '1', include: updateInclude },
       {
         data: {
           type: 'person',
@@ -223,10 +220,10 @@ describe('updatePerson', () => {
   });
 
   it('should update gender', () => {
-    // @ts-ignore
-    store.dispatch(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    store.dispatch<any>(
       updatePerson({
-        id: 1,
+        id: '1',
         firstName: 'Test Fname',
         userGender: 'Male',
       }),
@@ -234,7 +231,7 @@ describe('updatePerson', () => {
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_PERSON,
-      { personId: 1, include: updateInclude },
+      { personId: '1', include: updateInclude },
       {
         data: {
           type: 'person',
@@ -248,25 +245,25 @@ describe('updatePerson', () => {
   });
 
   it('should update email only', () => {
-    // @ts-ignore
-    store.dispatch(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    store.dispatch<any>(
       updatePerson({
-        id: 1,
+        id: '1',
         email: 'a@a.com',
-        emailId: 2,
+        emailId: '2',
       }),
     );
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_PERSON,
-      { personId: 1, include: updateInclude },
+      { personId: '1', include: updateInclude },
       {
         data: {
           type: 'person',
         },
         included: [
           {
-            id: 2,
+            id: '2',
             type: 'email',
             attributes: { email: 'a@a.com' },
           },
@@ -276,27 +273,32 @@ describe('updatePerson', () => {
   });
 
   it('should update phone only', () => {
-    // @ts-ignore
-    store.dispatch(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    store.dispatch<any>(
       updatePerson({
-        id: 1,
+        id: '1',
         phone: '1234567890',
-        phoneId: 3,
+        phoneId: '3',
       }),
     );
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_PERSON,
-      { personId: 1, include: updateInclude },
+      {
+        personId: '1',
+        include: updateInclude,
+      },
       {
         data: {
           type: 'person',
         },
         included: [
           {
-            id: 3,
+            id: '3',
             type: 'phone_number',
-            attributes: { number: '1234567890' },
+            attributes: {
+              number: '1234567890',
+            },
           },
         ],
       },
@@ -422,8 +424,8 @@ describe('updateOrgPermission', () => {
   const permissionLevel = ORG_PERMISSIONS.USER;
 
   it('sends a request with org permission level set', () => {
-    // @ts-ignore
-    store.dispatch(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    store.dispatch<any>(
       updateOrgPermission(personId, orgPermissionId, permissionLevel),
     );
 

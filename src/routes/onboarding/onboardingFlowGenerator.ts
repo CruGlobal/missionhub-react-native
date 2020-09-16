@@ -4,7 +4,6 @@ import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import appsFlyer from 'react-native-appsflyer';
 
-import { AuthState } from '../../reducers/auth';
 import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
 import {
   skipAddPersonAndCompleteOnboarding,
@@ -26,9 +25,8 @@ import {
 import PersonCategoryScreen, {
   PERSON_CATEGORY_SCREEN,
 } from '../../containers/PersonCategoryScreen';
-import GetStartedScreen, {
-  GET_STARTED_SCREEN,
-} from '../../containers/GetStartedScreen';
+import GetStartedScreen from '../../containers/GetStartedScreen';
+import { GET_STARTED_SCREEN } from '../../containers/GetStartedScreen/constants';
 import SelectStageScreen, {
   SELECT_STAGE_SCREEN,
 } from '../../containers/SelectStageScreen';
@@ -61,6 +59,7 @@ import CelebrationScreen, {
 import { OnboardingState } from '../../reducers/onboarding';
 import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
 import { RootState } from '../../reducers';
+import { getAuthPerson } from '../../auth/authUtilities';
 
 export const onboardingFlowGenerator = ({
   startScreen = WELCOME_SCREEN,
@@ -89,30 +88,25 @@ export const onboardingFlowGenerator = ({
     ? {
         [GET_STARTED_SCREEN]: wrapNextAction(
           GetStartedScreen,
-          () => (
-            dispatch: ThunkDispatch<RootState, never, AnyAction>,
-            getState: () => { auth: AuthState },
-          ) =>
+          () => (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
             dispatch(
               navigatePush(SELECT_STAGE_SCREEN, {
                 section: 'onboarding',
                 subsection: 'self',
-                personId: getState().auth.person.id,
+                personId: getAuthPerson().id,
               }),
-            ),
+            );
+          },
           {
             logoutOnBack: startScreen === GET_STARTED_SCREEN,
           },
         ),
         [STAGE_SUCCESS_SCREEN]: wrapNextAction(
           StageSuccessScreen,
-          () => (
-            dispatch: ThunkDispatch<RootState, never, AnyAction>,
-            getState: () => { auth: AuthState },
-          ) =>
+          () => (dispatch: ThunkDispatch<RootState, never, AnyAction>) =>
             dispatch(
               navigatePush(SELECT_STEP_SCREEN, {
-                personId: getState().auth.person.id,
+                personId: getAuthPerson().id,
               }),
             ),
         ),
@@ -195,9 +189,8 @@ export const onboardingFlowGenerator = ({
     SuggestedStepDetailScreen,
     ({ personId }: { personId: string }) => (
       dispatch: ThunkDispatch<RootState, never, AnyAction>,
-      getState: () => any,
     ) => {
-      const isMe = personId === getState().auth.person.id;
+      const isMe = personId === getAuthPerson().id;
 
       if (isMe) {
         return dispatch(navigatePush(ADD_SOMEONE_SCREEN));
@@ -209,9 +202,8 @@ export const onboardingFlowGenerator = ({
     AddStepScreen,
     ({ personId }: AddStepScreenNextProps) => (
       dispatch: ThunkDispatch<RootState, never, AnyAction>,
-      getState: () => any,
     ) => {
-      const isMe = personId === getState().auth.person.id;
+      const isMe = personId === getAuthPerson().id;
 
       if (isMe) {
         return dispatch(navigatePush(ADD_SOMEONE_SCREEN));

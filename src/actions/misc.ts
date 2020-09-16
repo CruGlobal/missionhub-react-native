@@ -12,6 +12,7 @@ import {
 import { WARN } from '../utils/logging';
 import { apolloClient } from '../apolloClient';
 import { RootState } from '../reducers';
+import { getAuthPerson } from '../auth/authUtilities';
 
 import { trackActionWithoutData } from './analytics';
 import { navigatePush } from './navigation';
@@ -61,11 +62,8 @@ export const navigateToStageScreen = (
   personId: string,
   firstItemIndex?: number, //todo find a way to not pass this
   skipSelectSteps = false,
-) => (
-  dispatch: ThunkDispatch<RootState, never, AnyAction>,
-  getState: () => RootState,
-) => {
-  const isMe = getState().auth.person.id === personId;
+) => (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
+  const isMe = getAuthPerson().id === personId;
 
   if (isMe) {
     dispatch(
@@ -86,9 +84,8 @@ export const navigateToStageScreen = (
 };
 export const navigateToAddStepFlow = (personId: string) => (
   dispatch: ThunkDispatch<RootState, never, AnyAction>,
-  getState: () => RootState,
 ) => {
-  const isMe = getState().auth.person.id === personId;
+  const isMe = getAuthPerson().id === personId;
 
   if (isMe) {
     dispatch(navigatePush(ADD_MY_STEP_FLOW, { personId }));

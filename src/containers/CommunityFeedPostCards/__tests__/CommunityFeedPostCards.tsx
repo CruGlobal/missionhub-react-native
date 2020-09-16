@@ -1,7 +1,6 @@
 import React from 'react';
 import { MockList } from 'graphql-tools';
 import { flushMicrotasksQueue, fireEvent } from 'react-native-testing-library';
-import { ReactTestInstance } from 'react-test-renderer';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 
 import { navigatePush } from '../../../actions/navigation';
@@ -26,13 +25,8 @@ jest.mock('../../../components/PostTypeLabel', () => ({
   PostTypeCardWithoutPeople: 'PostTypeCardWithoutPeople',
 }));
 
-const myId = '123';
 const communityId = '456';
 const mockFeedRefetch = jest.fn();
-
-const initialState = {
-  auth: { person: { id: myId } },
-};
 
 it('renders empty correctly', () => {
   renderWithContext(
@@ -41,7 +35,6 @@ it('renders empty correctly', () => {
       feedRefetch={mockFeedRefetch}
     />,
     {
-      initialState,
       mocks: { FeedItemConnection: () => ({ nodes: () => new MockList(0) }) },
     },
   ).snapshot();
@@ -54,7 +47,6 @@ it('renders with feed items correctly', async () => {
       feedRefetch={mockFeedRefetch}
     />,
     {
-      initialState,
       mocks: { FeedItemConnection: () => ({ nodes: () => new MockList(10) }) },
     },
   );
@@ -78,7 +70,6 @@ it('renders with global feed items correctly', async () => {
       feedRefetch={mockFeedRefetch}
     />,
     {
-      initialState,
       mocks: { FeedItemConnection: () => ({ nodes: () => new MockList(10) }) },
     },
   );
@@ -96,25 +87,21 @@ it('renders with global feed items correctly', async () => {
 });
 
 describe('navs to screens', () => {
-  let myGetByTestId: (testID: string) => ReactTestInstance;
-  beforeEach(() => {
+  async function check(type: FeedItemSubjectTypeEnum) {
     const { getByTestId } = renderWithContext(
       <CommunityFeedPostCards
         communityId={communityId}
         feedRefetch={mockFeedRefetch}
       />,
       {
-        initialState,
         mocks: {
           FeedItemConnection: () => ({ nodes: () => new MockList(1) }),
         },
       },
     );
-    myGetByTestId = getByTestId;
-  });
-  async function check(type: FeedItemSubjectTypeEnum) {
+
     await flushMicrotasksQueue();
-    await fireEvent.press(myGetByTestId(`PostCard_${type}`));
+    await fireEvent.press(getByTestId(`PostCard_${type}`));
     expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_FEED_WITH_TYPE_SCREEN, {
       type,
       communityId,
@@ -157,25 +144,21 @@ describe('navs to screens', () => {
 });
 
 describe('navs to global screens', () => {
-  let myGetByTestId: (testID: string) => ReactTestInstance;
-  beforeEach(() => {
+  async function check(type: FeedItemSubjectTypeEnum) {
     const { getByTestId } = renderWithContext(
       <CommunityFeedPostCards
         communityId={GLOBAL_COMMUNITY_ID}
         feedRefetch={mockFeedRefetch}
       />,
       {
-        initialState,
         mocks: {
           FeedItemConnection: () => ({ nodes: () => new MockList(1) }),
         },
       },
     );
-    myGetByTestId = getByTestId;
-  });
-  async function check(type: FeedItemSubjectTypeEnum) {
+
     await flushMicrotasksQueue();
-    await fireEvent.press(myGetByTestId(`PostCard_${type}`));
+    await fireEvent.press(getByTestId(`PostCard_${type}`));
     expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_FEED_WITH_TYPE_SCREEN, {
       type,
       communityId: GLOBAL_COMMUNITY_ID,

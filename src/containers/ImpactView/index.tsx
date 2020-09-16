@@ -38,8 +38,8 @@ const ImpactView = ({
     skip: !personId,
   });
 
-  const organization = useSelector(({ organizations }: RootState) =>
-    organizationSelector({ organizations }, { orgId: communityId }),
+  const organization = useSelector((state: RootState) =>
+    organizationSelector(state, { orgId: communityId }),
   );
 
   const isOrgImpact = !personId;

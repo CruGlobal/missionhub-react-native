@@ -21,6 +21,7 @@ import {
 } from '../containers/PersonScreen/PersonTabs';
 import { personSelector, contactAssignmentSelector } from '../selectors/people';
 import { GET_PERSON } from '../containers/AddContactScreen/queries';
+import { getAuthPerson } from '../auth/authUtilities';
 
 import callApi from './api';
 import { trackActionWithoutData } from './analytics';
@@ -116,8 +117,7 @@ export function savePersonNote(
   };
 }
 
-// @ts-ignore
-export function getPersonNote(personId, myId) {
+export function getPersonNote(personId: string, myId: string) {
   // @ts-ignore
   return dispatch => {
     const query = { person_id: personId, include: 'person_notes' };
@@ -162,13 +162,25 @@ export function updatePersonAttributes(personId, personAttributes) {
   };
 }
 
-// @ts-ignore
-export function updatePerson(data) {
+export function updatePerson(data: {
+  id?: string;
+  firstName?: string;
+  lastName?: string;
+  userGender?: string;
+  emailId?: string;
+  email?: string;
+  phoneId?: string;
+  phone?: string;
+  orgPermission?: {
+    id: string;
+    permission_id?: string;
+    archive_date?: string;
+  };
+}) {
   const personInclude =
     'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
-  // @ts-ignore
-  return async dispatch => {
+  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     if (!(data && data.id)) {
       return dispatch({
         type: 'UPDATE_PERSON_FAIL',
@@ -319,7 +331,7 @@ export function updateOrgPermission(
 // @ts-ignore
 export function archiveOrgPermission(personId, orgPermissionId) {
   // @ts-ignore
-  return async (dispatch, getState) => {
+  return async dispatch => {
     const results = await dispatch(
       updatePerson({
         id: personId,
@@ -330,7 +342,7 @@ export function archiveOrgPermission(personId, orgPermissionId) {
       }),
     );
 
-    const myId = getState().auth.person.id;
+    const myId = getAuthPerson().id;
     dispatch(
       trackActionWithoutData(
         personId === myId
@@ -349,11 +361,9 @@ export function deleteContactAssignment(personId: string) {
     dispatch: ThunkDispatch<RootState, never, AnyAction>,
     getState: () => RootState,
   ) => {
-    const { auth, people } = getState();
-
-    const person = personSelector({ people }, { personId });
+    const person = personSelector(getState(), { personId });
     const { id: contactAssignmentId } =
-      contactAssignmentSelector({ auth }, { person }) || {};
+      contactAssignmentSelector({ person }) || {};
 
     await dispatch(
       callApi(REQUESTS.DELETE_CONTACT_ASSIGNMENT, {
@@ -370,13 +380,8 @@ export function deleteContactAssignment(personId: string) {
 }
 
 export function navToPersonScreen(personId: string) {
-  return (
-    dispatch: ThunkDispatch<RootState, never, AnyAction>,
-    getState: () => RootState,
-  ) => {
-    const { auth } = getState();
-
-    const isMe = auth.person.id === personId;
+  return (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
+    const isMe = getAuthPerson().id === personId;
 
     dispatch(
       navigatePush(isMe ? ME_PERSON_TABS : PERSON_TABS, {
@@ -386,6 +391,5 @@ export function navToPersonScreen(personId: string) {
   };
 }
 
-export const updatePersonGQL = (id: string) => {
+export const updatePersonGQL = (id: string) =>
   apolloClient.query({ query: GET_PERSON, variables: { id } });
-};

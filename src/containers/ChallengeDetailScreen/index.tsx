@@ -15,8 +15,6 @@ import {
   joinChallenge,
   updateChallenge,
 } from '../../actions/challenges';
-import { AuthState } from '../../reducers/auth';
-import { OrganizationsState } from '../../reducers/organizations';
 import DeprecatedBackButton from '../DeprecatedBackButton';
 import { Button, Touchable } from '../../components/common';
 import Header from '../../components/Header';
@@ -29,6 +27,8 @@ import theme from '../../theme';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import CHALLENGE_TARGET from '../../../assets/images/challengeDetailsTarget.png';
 import CHALLENGE_COMPLETE from '../../../assets/images/challengeComplete.png';
+import { RootState } from '../../reducers';
+import { useMyId } from '../../utils/hooks/useIsMe';
 
 import styles from './styles';
 
@@ -43,12 +43,10 @@ const ChallengeDetailScreen = () => {
   const fromNotificationCenterItem: boolean = useNavigationParam(
     'fromNotificationCenterItem',
   );
-  const auth = useSelector(({ auth }: { auth: AuthState }) => auth);
-  const myId = auth.person.id;
+  const myId = useMyId();
 
-  const challenge: ChallengeItem = useSelector(
-    ({ organizations }: { organizations: OrganizationsState }) =>
-      communityChallengeSelector({ organizations }, { orgId, challengeId }),
+  const challenge: ChallengeItem = useSelector((state: RootState) =>
+    communityChallengeSelector(state, { orgId, challengeId }),
   );
   const acceptedChallenge =
     challenge.accepted_community_challenges &&
