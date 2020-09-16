@@ -6,6 +6,7 @@ module.exports = {
     '<rootDir>/__mock__/react-native-code-push.js',
     '<rootDir>/__mock__/react-native-datetimepicker.ts',
     '<rootDir>/__mock__/react-native-firebase.ts',
+    '<rootDir>/__mock__/@react-native-community/google-signin.ts',
     '<rootDir>/__mock__/react-native-localize.ts',
     '<rootDir>/node_modules/react-native-gesture-handler/jestSetup.js',
     '<rootDir>/__mock__/rollbar-react-native.js',

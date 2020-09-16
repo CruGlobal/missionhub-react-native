@@ -1,4 +1,5 @@
 import { AccessToken } from 'react-native-fbsdk';
+import { GoogleSignin } from '@react-native-community/google-signin';
 
 import { renderHookWithContext } from '../../../testUtils';
 import { useProvideAuthRefresh, authRefresh } from '../provideAuthRefresh';
@@ -11,6 +12,7 @@ import {
 import { useSignInWithTheKey } from '../providers/useSignInWithTheKey';
 import { useSignInWithAnonymous } from '../providers/useSignInWithAnonymous';
 import { useSignInWithFacebook } from '../providers/useSignInWithFacebook';
+import { useSignInWithGoogle } from '../providers/useSignInWithGoogle';
 import { useSignInWithApple } from '../providers/useSignInWithApple';
 import { logout } from '../../actions/auth/auth';
 import { useAuthSuccess } from '../authHooks';
@@ -19,6 +21,7 @@ jest.mock('../authStore');
 jest.mock('../providers/useSignInWithTheKey');
 jest.mock('../providers/useSignInWithAnonymous');
 jest.mock('../providers/useSignInWithFacebook');
+jest.mock('../providers/useSignInWithGoogle');
 jest.mock('../providers/useSignInWithApple');
 jest.mock('react-native-fbsdk', () => ({
   AccessToken: { getCurrentAccessToken: jest.fn() },
@@ -36,6 +39,8 @@ const signInWithAnonymous = jest.fn();
 (useSignInWithAnonymous as jest.Mock).mockReturnValue({ signInWithAnonymous });
 const signInWithFacebook = jest.fn();
 (useSignInWithFacebook as jest.Mock).mockReturnValue({ signInWithFacebook });
+const signInWithGoogle = jest.fn();
+(useSignInWithGoogle as jest.Mock).mockReturnValue({ signInWithGoogle });
 const signInWithApple = jest.fn();
 (useSignInWithApple as jest.Mock).mockReturnValue({ signInWithApple });
 const authSuccess = jest.fn();
@@ -46,6 +51,7 @@ beforeEach(() => {
   (getTheKeyRefreshToken as jest.Mock).mockResolvedValue(null);
   (getAnonymousUid as jest.Mock).mockResolvedValue(null);
   (AccessToken.getCurrentAccessToken as jest.Mock).mockResolvedValue(null);
+  (GoogleSignin.isSignedIn as jest.Mock).mockResolvedValue(false);
   (getAppleUserId as jest.Mock).mockResolvedValue(null);
 
   renderHookWithContext(() => useProvideAuthRefresh());
@@ -81,6 +87,14 @@ it('should return true if a Facebook access token exists', async () => {
 
   expect(await authRefresh()).toEqual(true);
   expect(signInWithFacebook).toHaveBeenCalled();
+  expect(authSuccess).toHaveBeenCalled();
+});
+
+it('should return true if a Google sign in exists exists', async () => {
+  (GoogleSignin.isSignedIn as jest.Mock).mockResolvedValue(true);
+
+  expect(await authRefresh()).toEqual(true);
+  expect(signInWithGoogle).toHaveBeenCalled();
   expect(authSuccess).toHaveBeenCalled();
 });
 
