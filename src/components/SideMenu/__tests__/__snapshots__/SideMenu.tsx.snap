@@ -708,6 +708,7 @@ exports[`render update button 1`] = `
         }
       >
         <Text
+          onPress={[Function]}
           style={
             Object {
               "color": "#B4B6BA",
@@ -1625,6 +1626,7 @@ exports[`renders correctly | anonymous User 1`] = `
         }
       >
         <Text
+          onPress={[Function]}
           style={
             Object {
               "color": "#B4B6BA",
@@ -2376,6 +2378,7 @@ exports[`renders correctly | signed in User 1`] = `
         }
       >
         <Text
+          onPress={[Function]}
           style={
             Object {
               "color": "#B4B6BA",
