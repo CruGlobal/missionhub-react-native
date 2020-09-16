@@ -399,4 +399,24 @@ describe('handleError', () => {
       expect(setAuthToken).not.toHaveBeenCalled();
     },
   );
+
+  it('should handle missing refresh token', async () => {
+    (getTheKeyRefreshToken as jest.Mock).mockResolvedValue(null);
+
+    const { result } = renderHookWithContext(() => useSignInWithTheKey());
+
+    await expect(
+      result.current.signInWithTheKey({
+        type: SignInWithTheKeyType.Refresh,
+      }),
+    ).rejects.toEqual(AuthError.Unknown);
+
+    expect(result.current.error).toEqual(AuthError.Unknown);
+
+    expect(callApi).not.toHaveBeenCalled();
+    expect(setTheKeyRefreshToken).not.toHaveBeenCalled();
+    expect(useMutation).not.toHaveBeenMutated();
+    expect(deleteAnonymousUid).not.toHaveBeenCalled();
+    expect(setAuthToken).not.toHaveBeenCalledWith(token);
+  });
 });

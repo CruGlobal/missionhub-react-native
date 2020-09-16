@@ -101,3 +101,20 @@ it('should handle missing token from API', async () => {
   expect(setAnonymousUid).not.toHaveBeenCalledWith(anonymousUid);
   expect(setAuthToken).not.toHaveBeenCalledWith(token);
 });
+
+it('should handle missing refresh anonymous user id', async () => {
+  (getAnonymousUid as jest.Mock).mockResolvedValue(null);
+
+  const { result } = renderHookWithContext(() => useSignInWithAnonymous());
+
+  await expect(
+    result.current.signInWithAnonymous({
+      type: SignInWithAnonymousType.Refresh,
+    }),
+  ).rejects.toEqual(AuthError.Unknown);
+
+  expect(result.current.error).toEqual(AuthError.Unknown);
+
+  expect(useMutation).not.toHaveBeenMutated();
+  expect(setAuthToken).not.toHaveBeenCalledWith(token);
+});
