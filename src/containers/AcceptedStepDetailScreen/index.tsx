@@ -68,19 +68,22 @@ const AcceptedStepDetailScreen = () => {
         },
       ],
       onCompleted: data => {
-        data.markStepAsCompleted?.step &&
+        const step = data.markStepAsCompleted?.step;
+
+        if (step) {
+          updatePersonGQL(step.receiver.id);
           dispatch(
             handleAfterCompleteStep(
               {
-                id: data.markStepAsCompleted?.step?.id,
-                receiver: data.markStepAsCompleted?.step?.receiver,
-                community: data.markStepAsCompleted?.step?.community,
+                id: step.id,
+                receiver: step.receiver,
+                community: step.community,
               },
               'Step Detail',
               true,
             ),
           );
-        step?.receiver && updatePersonGQL(step.receiver.id);
+        }
       },
     },
   );

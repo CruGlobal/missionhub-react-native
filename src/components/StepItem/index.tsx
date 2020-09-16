@@ -14,10 +14,9 @@ import BLUE_CHECKBOX from '../../../assets/images/checkIcon-blue.png';
 import { navigatePush } from '../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../containers/AcceptedStepDetailScreen';
 import { COMPLETED_STEP_DETAIL_SCREEN } from '../../containers/CompletedStepDetailScreen';
-import { navToPersonScreen } from '../../actions/person';
+import { navToPersonScreen, updatePersonGQL } from '../../actions/person';
 import { handleAfterCompleteStep } from '../../actions/steps';
 import { COMPLETE_STEP_MUTATION } from '../../containers/AcceptedStepDetailScreen/queries';
-import { PERSON_STEPS_QUERY } from '../../containers/PersonScreen/PersonSteps/queries';
 import { CONTACT_STEPS } from '../../constants';
 import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
 import {
@@ -45,24 +44,21 @@ const StepItem = ({
   const [completeStep] = useMutation<CompleteStep, CompleteStepVariables>(
     COMPLETE_STEP_MUTATION,
     {
-      refetchQueries: [
-        {
-          query: PERSON_STEPS_QUERY,
-          variables: { personId: step.receiver.id, completed: false },
-        },
-      ],
       onCompleted: data => {
-        data.markStepAsCompleted?.step &&
+        const step = data.markStepAsCompleted?.step;
+        if (step) {
+          updatePersonGQL(step.receiver.id);
           dispatch(
             handleAfterCompleteStep(
               {
-                id: data.markStepAsCompleted?.step?.id,
-                receiver: data.markStepAsCompleted?.step?.receiver,
-                community: data.markStepAsCompleted?.step?.community,
+                id: step.id,
+                receiver: step.receiver,
+                community: step.community,
               },
               CONTACT_STEPS,
             ),
           );
+        }
       },
     },
   );
