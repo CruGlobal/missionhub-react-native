@@ -28,11 +28,21 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-		    <string>com.missionhub</string>
+			<string>com.missionhub</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>fb233292170040365</string>
-			    <string>com.missionhub</string>
+				<string>com.missionhub</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string></string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.208966923006-g1bc9nvue6vqdhahk35kjhb4p8dt62jg</string>
 			</array>
 		</dict>
 	</array>
@@ -70,16 +80,14 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) would like to allow you to add a photo into your profile or community</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>$(PRODUCT_NAME) would like to allow you to record audio to send to your community</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>$(PRODUCT_NAME) would like to allow you to add a photo into your profile or community</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>$(PRODUCT_NAME) would like to allow you to add a photo into your profile or community</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>$(PRODUCT_NAME) would like to allow you to record audio to send to your community</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AmaticSC-Bold.ttf</string>
@@ -111,6 +119,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>

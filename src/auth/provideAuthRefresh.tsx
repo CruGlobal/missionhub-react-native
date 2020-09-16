@@ -1,9 +1,11 @@
 import { AccessToken } from 'react-native-fbsdk';
 import { useDispatch } from 'react-redux';
+import { GoogleSignin } from '@react-native-community/google-signin';
 
 import { logout } from '../actions/auth/auth';
 
 import { useSignInWithFacebook } from './providers/useSignInWithFacebook';
+import { useSignInWithGoogle } from './providers/useSignInWithGoogle';
 import {
   useSignInWithTheKey,
   SignInWithTheKeyType,
@@ -28,6 +30,8 @@ export const useProvideAuthRefresh = () => {
   const dispatch = useDispatch();
 
   const { signInWithFacebook } = useSignInWithFacebook();
+
+  const { signInWithGoogle } = useSignInWithGoogle();
 
   const { signInWithTheKey } = useSignInWithTheKey();
 
@@ -61,6 +65,11 @@ export const useProvideAuthRefresh = () => {
     const appleId = await getAppleUserId();
     if (appleId) {
       await signInWithApple(appleId);
+      return true;
+    }
+
+    if (await GoogleSignin.isSignedIn()) {
+      await signInWithGoogle();
       return true;
     }
 
