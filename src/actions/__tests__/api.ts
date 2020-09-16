@@ -8,23 +8,24 @@ import {
   EXPIRED_ACCESS_TOKEN,
   INVALID_ACCESS_TOKEN,
   INVALID_GRANT,
-  UPDATE_TOKEN,
 } from '../../constants';
-import { logout, handleInvalidAccessToken } from '../auth/auth';
-import { AuthState } from '../../reducers/auth';
+import { logout } from '../auth/auth';
+import {
+  setAuthToken,
+  getCachedAuthToken,
+  getTheKeyRefreshToken,
+} from '../../auth/authStore';
+import { authRefresh } from '../../auth/provideAuthRefresh';
 
 jest.mock('../../api');
-jest.mock('../auth/anonymous');
 jest.mock('../auth/auth');
-jest.mock('../auth/facebook');
-jest.mock('../auth/key');
+jest.mock('../../reducers/nav', () => null);
+jest.mock('../../auth/authStore');
+jest.mock('../../auth/provideAuthRefresh', () => ({ authRefresh: jest.fn() }));
 
 const token = 'alsnjfjwqfpuqfeownposfnjnsaobjfaslkklnsfd';
 const refreshToken = 'refresh';
 const mockStore = configureStore([thunk]);
-const mockAuthState = {
-  token,
-};
 const mockActionResult = { type: 'mockActionResult' };
 
 const accessTokenQuery = { access_token: token };
@@ -45,7 +46,6 @@ const invalidGrantError = { apiError: { error: INVALID_GRANT } };
 global.APILOG = jest.fn();
 
 async function testCallApiWithError({
-  state = {},
   request,
   error,
   action,
@@ -55,7 +55,6 @@ async function testCallApiWithError({
   data = {},
   shouldReject = false,
 }: {
-  state?: Partial<AuthState>;
   request: ApiRouteConfigEntry;
   error: { apiError: { errors: { detail: string }[] } | { error: string } };
   action: () => void;
@@ -65,9 +64,9 @@ async function testCallApiWithError({
   data?: Record<string, never> | string;
   shouldReject?: boolean;
 }) {
-  const store = mockStore({ auth: { ...mockAuthState, ...state } });
   (API_CALLS[request.name] as jest.Mock).mockReturnValue(Promise.reject(error));
   (action as jest.Mock).mockReturnValue(mockActionResult);
+  const store = mockStore();
 
   if (!shouldReject) {
     // @ts-ignore
@@ -92,16 +91,17 @@ async function testCallApiWithError({
       query,
       type: request.FETCH,
     },
-    ...(actionShouldNotBeCalled ? [] : [mockActionResult]),
+    ...(actionShouldNotBeCalled || action === authRefresh
+      ? []
+      : [mockActionResult]),
   ]);
 }
 
 it('should handle expired token', async () => {
   await testCallApiWithError({
-    state: { refreshToken: 'refresh' },
     request: getMeRequest,
     error: expiredTokenError,
-    action: handleInvalidAccessToken,
+    action: authRefresh,
     query: accessTokenQuery,
   });
   expect.hasAssertions();
@@ -109,18 +109,17 @@ it('should handle expired token', async () => {
 
 it('should handle invalid token', async () => {
   await testCallApiWithError({
-    state: { refreshToken: 'refresh' },
     request: getMeRequest,
     error: invalidTokenError,
-    action: handleInvalidAccessToken,
+    action: authRefresh,
     query: accessTokenQuery,
   });
   expect.hasAssertions();
 });
 
 it('should logout if KEY_REFRESH_TOKEN fails with invalid_grant', async () => {
+  (getTheKeyRefreshToken as jest.Mock).mockReturnValue('refresh');
   await testCallApiWithError({
-    state: { refreshToken: 'refresh' },
     request: refreshRequest,
     error: invalidGrantError,
     action: logout,
@@ -143,7 +142,8 @@ it("should not logout if invalid_grant is returned and request wasn't KEY_REFRES
 });
 
 it('should update token if present in response', async () => {
-  const store = mockStore({ auth: { ...mockAuthState } });
+  (getCachedAuthToken as jest.Mock).mockReturnValue(token);
+  const store = mockStore();
   const newToken =
     'pfiqwfioqwioefiqowfejiqwfipoioqwefpiowqniopnifiooiwfemiopqwoimefimwqefponioqwfenoiwefinonoiwqefnoip';
 
@@ -172,9 +172,6 @@ it('should update token if present in response', async () => {
       type: getMeRequest.SUCCESS,
       results: { response: undefined, meta: undefined },
     },
-    {
-      type: UPDATE_TOKEN,
-      token: newToken,
-    },
   ]);
+  expect(setAuthToken).toHaveBeenCalledWith(newToken);
 });

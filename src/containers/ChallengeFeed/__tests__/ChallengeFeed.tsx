@@ -1,7 +1,7 @@
 /* eslint-disable max-lines */
 
 import React from 'react';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import MockDate from 'mockdate';
 
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
@@ -15,6 +15,7 @@ import { trackActionWithoutData } from '../../../actions/analytics';
 import { CHALLENGE_DETAIL_SCREEN } from '../../../containers/ChallengeDetailScreen';
 import * as common from '../../../utils/common';
 import ChallengeFeed from '..';
+import { PermissionEnum } from '../../../../__generated__/globalTypes';
 
 jest.mock('../../../selectors/people');
 jest.mock('../../../utils/hooks/useAnalytics');
@@ -25,6 +26,7 @@ jest.mock('../../../actions/challenges', () => ({
   joinChallenge: jest.fn(() => ({ type: 'join' })),
   updateChallenge: jest.fn(() => ({ type: 'update' })),
 }));
+jest.mock('../../../auth/authStore', () => ({ isAuthenticated: () => true }));
 
 const myId = '123';
 const organization = { id: '456' };
@@ -112,19 +114,14 @@ const props = {
 };
 
 const initialState = {
-  auth: {
-    person: {
-      id: myId,
-    },
-  },
   swipe: {
     groupOnboarding: { [GROUP_ONBOARDING_TYPES.challenges]: true },
   },
 };
 
 describe('Challenge Feed rendering', () => {
-  it('renders correctly for challenge feed', () => {
-    renderWithContext(
+  it('renders correctly for challenge feed', async () => {
+    const { snapshot } = renderWithContext(
       <ChallengeFeed
         {...props}
         items={challengeItems}
@@ -132,14 +129,19 @@ describe('Challenge Feed rendering', () => {
       />,
       {
         initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
-    ).snapshot();
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
     expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
   });
 
-  it('renders correctly on android', () => {
+  it('renders correctly on android', async () => {
     ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
-    renderWithContext(
+    const { snapshot } = renderWithContext(
       <ChallengeFeed
         {...props}
         items={challengeItems}
@@ -147,12 +149,17 @@ describe('Challenge Feed rendering', () => {
       />,
       {
         initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
-    ).snapshot();
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
   });
 
-  it('renders with extra padding', () => {
-    renderWithContext(
+  it('renders with extra padding', async () => {
+    const { snapshot } = renderWithContext(
       <ChallengeFeed
         {...props}
         items={challengeItems}
@@ -161,14 +168,19 @@ describe('Challenge Feed rendering', () => {
       />,
       {
         initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
-    ).snapshot();
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
     expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
   });
 
-  it('renders with extra padding on android', () => {
+  it('renders with extra padding on android', async () => {
     ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
-    renderWithContext(
+    const { snapshot } = renderWithContext(
       <ChallengeFeed
         {...props}
         items={challengeItems}
@@ -177,8 +189,13 @@ describe('Challenge Feed rendering', () => {
       />,
       {
         initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
-    ).snapshot();
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
   });
 
   it('renders null component | Member', () => {
@@ -225,8 +242,8 @@ describe('Challenge Feed rendering', () => {
     expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
   });
 
-  it('renders challenges without header', () => {
-    renderWithContext(
+  it('renders challenges without header', async () => {
+    const { snapshot } = renderWithContext(
       <ChallengeFeed
         {...props}
         items={challengeItems}
@@ -234,8 +251,13 @@ describe('Challenge Feed rendering', () => {
       />,
       {
         initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
-    ).snapshot();
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
     expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
   });
 
@@ -258,8 +280,8 @@ describe('Challenge Feed rendering', () => {
     expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
   });
 
-  it('renders null with header', () => {
-    renderWithContext(
+  it('renders null with header', async () => {
+    const { snapshot } = renderWithContext(
       <ChallengeFeed
         {...props}
         items={[{ title: '', data: [] }]}
@@ -267,8 +289,13 @@ describe('Challenge Feed rendering', () => {
       />,
       {
         initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
-    ).snapshot();
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
     expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
   });
 });
@@ -322,7 +349,7 @@ describe('item action methods', () => {
     expect(props.refreshCallback).toHaveBeenCalled();
   });
 
-  it('calls handleSelectRow', () => {
+  it('calls handleSelectRow', async () => {
     const { getAllByTestId } = renderWithContext(
       <ChallengeFeed
         {...props}
@@ -331,8 +358,13 @@ describe('item action methods', () => {
       />,
       {
         initialState,
+        mocks: {
+          CommunityPermission: () => ({ permission: PermissionEnum.owner }),
+        },
       },
     );
+
+    await flushMicrotasksQueue();
 
     fireEvent(
       getAllByTestId('ChallengeItemSelectButton')[0],
@@ -351,7 +383,7 @@ describe('item action methods', () => {
     );
   });
 
-  it('calls handleComplete', () => {
+  it('calls handleComplete', async () => {
     const accepted_community_challenges = {
       id: 'a1',
       person: { id: myId },
@@ -365,8 +397,11 @@ describe('item action methods', () => {
       />,
       {
         initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
     );
+
+    await flushMicrotasksQueue();
 
     fireEvent(
       getAllByTestId('ChallengeItemActionButton')[0],

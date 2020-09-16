@@ -1,26 +1,20 @@
 /* eslint-disable max-lines */
 
 import {
-  allAssignedPeopleSelector,
   personSelector,
   contactAssignmentSelector,
   orgPermissionSelector,
 } from '../people';
-import { AuthState } from '../../reducers/auth';
+import { RootState } from '../../reducers';
+import { getAuthPerson } from '../../auth/authUtilities';
 
-jest.mock('../../selectors/selectorUtils', () => ({
-  removeHiddenOrgs: jest.fn().mockImplementation(orgs => orgs),
-}));
+jest.mock('../../auth/authUtilities');
 
-const auth = {
-  person: {
-    id: '23',
-    user: {},
-  },
-};
+const myId = '23';
+(getAuthPerson as jest.Mock).mockReturnValue({ id: myId });
 
 const reverse_contact_assignment = {
-  assigned_to: auth.person,
+  assigned_to: { id: myId },
 };
 
 const organizationOne = {
@@ -96,8 +90,8 @@ const organizationTwo = {
         { ...reverse_contact_assignment, organization: { id: '200' } },
       ],
     },
-    [auth.person.id]: {
-      id: auth.person.id,
+    [myId]: {
+      id: myId,
       type: 'person',
       first_name: 'ME in an org',
     },
@@ -127,37 +121,17 @@ const people = {
       last_name: 'Lname1',
       reverse_contact_assignments: [{ ...reverse_contact_assignment }],
     },
-    [auth.person.id]: {
-      id: auth.person.id,
-      type: 'person',
-      first_name: 'ME',
-      last_name: 'Lname',
-    },
     ...unnamedOrganization.people,
     ...organizationOne.people,
     ...organizationTwo.people,
   },
 };
 
-describe('allAssignedPeopleSelector', () => {
-  it('should take the people object and transform it into a single array', () => {
-    expect(
-      allAssignedPeopleSelector({
-        people,
-        // @ts-ignore
-        auth,
-        // @ts-ignore
-        organizations: {
-          all: [unnamedOrganization, organizationOne, organizationTwo],
-        },
-      }),
-    ).toMatchSnapshot();
-  });
-});
-
 describe('personSelector', () => {
   it('should get a person in the personal org', () => {
-    expect(personSelector({ people }, { personId: '22' })).toMatchSnapshot();
+    expect(
+      personSelector(({ people } as unknown) as RootState, { personId: '22' }),
+    ).toMatchSnapshot();
   });
 });
 
@@ -167,7 +141,7 @@ describe('contactAssignmentSelector', () => {
 
   it('should get first contactAssignment for a person that is assigned to the current user', () => {
     expect(
-      contactAssignmentSelector({ auth } as { auth: AuthState }, {
+      contactAssignmentSelector({
         person: {
           reverse_contact_assignments: [
             {
@@ -178,19 +152,19 @@ describe('contactAssignmentSelector', () => {
             },
             {
               assigned_to: {
-                id: auth.person.id,
+                id: myId,
               },
               organization: organizationTwo,
             },
             {
               assigned_to: {
-                id: auth.person.id,
+                id: myId,
               },
               organization: { id: '102' },
             },
             {
               assigned_to: {
-                id: auth.person.id,
+                id: myId,
               },
               organization: organizationOne,
             },
@@ -207,7 +181,7 @@ describe('contactAssignmentSelector', () => {
       }),
     ).toEqual({
       assigned_to: {
-        id: auth.person.id,
+        id: myId,
       },
       organization: organizationTwo,
     });

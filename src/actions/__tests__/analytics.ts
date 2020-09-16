@@ -41,16 +41,19 @@ import {
 import { StepTypeEnum } from '../../../__generated__/globalTypes';
 import { mockFragment } from '../../../testUtils/apolloMockClient';
 import { StepAddedAnalytics } from '../__generated__/StepAddedAnalytics';
+import { getAuthPerson } from '../../auth/authUtilities';
 
 jest.mock('react-native-omniture', () => ({
   trackState: jest.fn(),
   trackAction: jest.fn(),
   loadMarketingCloudId: jest.fn(),
 }));
+jest.mock('../../auth/authUtilities');
 
 const mockStore = configureStore([thunk]);
 
 const myId = '1';
+(getAuthPerson as jest.Mock).mockReturnValue({ id: myId });
 const mcId = '7892387873247893297847894978497823';
 const ssoGuid = '74ba3670-b624-429c-8223-919b94e668fb';
 const grMasterPersonId = '686fb90b-0ae8-4b0a-8e62-f7437f425c59';
@@ -74,9 +77,6 @@ beforeEach(() => {
   };
   store = mockStore({
     analytics: analyticsContext,
-    auth: {
-      person: { id: myId, global_registry_mdm_id: grMasterPersonId },
-    },
   });
   (RNOmniture.trackState as jest.Mock) = jest.fn();
   (RNOmniture.trackAction as jest.Mock) = jest.fn();
@@ -166,9 +166,6 @@ describe('trackScreenChange', () => {
         ...analyticsContext,
         ...screenContext,
         [ANALYTICS_MCID]: '',
-      },
-      auth: {
-        person: { global_registry_mdm_id: grMasterPersonId },
       },
     });
 

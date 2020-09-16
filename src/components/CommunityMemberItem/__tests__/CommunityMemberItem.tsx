@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
@@ -14,9 +14,9 @@ jest.mock('../../../selectors/people');
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn().mockReturnValue({ type: 'navigatePush' }),
 }));
+jest.mock('../../../auth/authStore', () => ({ isAuthenticated: () => true }));
 
 const myId = '1';
-const me = { id: myId, full_name: 'Me' };
 
 const createdAt = '2020-05-25 13:00:00';
 
@@ -38,7 +38,6 @@ const ownerPermissions = { ...orgPerm, permission: PermissionEnum.owner };
 const organization = { id: '1234' };
 
 const initialState = {
-  auth: { person: me },
   organizations: { all: [organization] },
 };
 
@@ -55,53 +54,84 @@ describe('render contacts count', () => {
     expect(() =>
       renderWithContext(
         <CommunityMemberItem {...props} organization={organization} />,
-        { initialState },
+        {
+          initialState,
+          mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+        },
       ),
     ).not.toThrow();
   });
 
-  it('should render member permissions', () => {
-    renderWithContext(
+  it('should render member permissions', async () => {
+    const { snapshot } = renderWithContext(
       <CommunityMemberItem {...props} organization={organization} />,
-      { initialState },
-    ).snapshot();
+      {
+        initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+      },
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
   });
 
-  it('should render admin permissions', () => {
-    renderWithContext(
+  it('should render admin permissions', async () => {
+    const { snapshot } = renderWithContext(
       <CommunityMemberItem
         {...props}
         organization={organization}
         personOrgPermission={adminPermissions}
         myCommunityPermission={adminPermissions}
       />,
-      { initialState },
-    ).snapshot();
+      {
+        initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+      },
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
   });
 
-  it('should render owner permissions', () => {
-    renderWithContext(
+  it('should render owner permissions', async () => {
+    const { snapshot } = renderWithContext(
       <CommunityMemberItem
         {...props}
         organization={organization}
         personOrgPermission={ownerPermissions}
         myCommunityPermission={ownerPermissions}
       />,
-      { initialState },
-    ).snapshot();
+      {
+        initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+      },
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
   });
 });
 
 describe('render MemberOptionsMenu', () => {
-  it('should render menu if person is me', () => {
-    renderWithContext(
+  it('should render menu if person is me', async () => {
+    const { snapshot } = renderWithContext(
       <CommunityMemberItem {...props} person={{ ...member, id: myId }} />,
-      { initialState },
-    ).snapshot();
+      {
+        initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+      },
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
   });
 
-  it('should render menu if I am admin and person is not owner', () => {
-    renderWithContext(
+  it('should render menu if I am admin and person is not owner', async () => {
+    const { snapshot } = renderWithContext(
       <CommunityMemberItem
         {...props}
         personOrgPermission={memberPermissions}
@@ -109,31 +139,48 @@ describe('render MemberOptionsMenu', () => {
       />,
       {
         initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
-    ).snapshot();
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
   });
 
-  it('should not render menu if person is owner', () => {
-    renderWithContext(
+  it('should not render menu if person is owner', async () => {
+    const { snapshot } = renderWithContext(
       <CommunityMemberItem
         {...props}
         personOrgPermission={ownerPermissions}
         myCommunityPermission={adminPermissions}
       />,
-      { initialState },
-    ).snapshot();
+      {
+        initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+      },
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
   });
 
-  it('should not render menu if I am member', () => {
-    renderWithContext(
+  it('should not render menu if I am member', async () => {
+    const { snapshot } = renderWithContext(
       <CommunityMemberItem
         {...props}
         personOrgPermission={memberPermissions}
       />,
       {
         initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
-    ).snapshot();
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
   });
 });
 
@@ -141,7 +188,10 @@ describe('nav to person', () => {
   it('should nav to person', () => {
     const { getByTestId } = renderWithContext(
       <CommunityMemberItem {...props} person={{ ...member, id: myId }} />,
-      { initialState },
+      {
+        initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+      },
     );
 
     fireEvent.press(getByTestId('CommunityMemberItem'));

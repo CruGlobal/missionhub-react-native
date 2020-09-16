@@ -7,7 +7,6 @@ import {
   setOnboardingPersonId,
   setOnboardingCommunity,
   skipOnboardingAddPerson,
-  createMyPerson,
   createPerson,
   skipAddPersonAndCompleteOnboarding,
   resetPersonAndCompleteOnboarding,
@@ -29,11 +28,9 @@ import {
 } from '../../constants';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
-import { rollbar } from '../../utils/rollbar.config';
-import { getMe } from '../person';
 import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
 import { COMMUNITY_TABS } from '../../containers/Communities/Community/constants';
-import { updateLocaleAndTimezone } from '../auth/userData';
+import { createThunkStore } from '../../../testUtils';
 
 jest.mock('../api');
 jest.mock('../notifications');
@@ -42,12 +39,11 @@ jest.mock('../person');
 jest.mock('../organizations');
 jest.mock('../navigation');
 jest.mock('../auth/userData');
+jest.mock('../../auth/authUtilities', () => ({
+  getAuthPerson: () => ({ id: '1' }),
+}));
 
-const myId = '1';
-
-let store = configureStore([thunk])({
-  auth: { person: { id: myId } },
-});
+let store = createThunkStore();
 
 const navigatePushResponse = { type: 'navigate push' };
 const navigateBackResponse = { type: 'navigate back' };
@@ -121,53 +117,6 @@ describe('startOnboarding', () => {
     expect(store.getActions()).toEqual([
       trackActionWithoutDataResult,
       { type: START_ONBOARDING },
-    ]);
-  });
-});
-
-describe('createMyPerson', () => {
-  it('should send the correct API request', async () => {
-    const first_name = 'Roger';
-    const last_name = 'Goers';
-
-    (callApi as jest.Mock).mockReturnValue({
-      type: 'callApi',
-    });
-    (getMe as jest.Mock).mockReturnValue(() => ({
-      id: myId,
-      first_name,
-      last_name,
-      type: 'person',
-    }));
-    (updateLocaleAndTimezone as jest.Mock).mockReturnValue({
-      type: 'updateLocaleAndTimezone',
-    });
-
-    await store.dispatch<any>(createMyPerson('Roger', 'Goers'));
-
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.CREATE_MY_PERSON,
-      {},
-      {
-        code: expect.any(String),
-        first_name,
-        last_name,
-      },
-    );
-    expect(updateLocaleAndTimezone).toHaveBeenCalled();
-    expect(rollbar.setPerson).toHaveBeenCalledWith(myId);
-    expect(store.getActions()).toEqual([
-      { type: 'callApi' },
-      { type: 'updateLocaleAndTimezone' },
-      {
-        type: LOAD_PERSON_DETAILS,
-        person: {
-          type: 'person',
-          id: myId,
-          first_name,
-          last_name,
-        },
-      },
     ]);
   });
 });

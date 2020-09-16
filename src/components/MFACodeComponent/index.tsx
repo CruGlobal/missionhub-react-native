@@ -7,21 +7,27 @@ import LoadingWheel from '../../components/LoadingWheel';
 import DeprecatedBackButton from '../../containers/DeprecatedBackButton';
 import Header from '../Header';
 import theme from '../../theme';
+import { AuthError } from '../../auth/constants';
+import { AuthErrorNotice } from '../../auth/components/AuthErrorNotice/AuthErrorNotice';
 
 import styles from './styles';
+
+interface MFACodeComponentProps {
+  onChangeText: (text: string) => void;
+  value: string;
+  onSubmit: () => void;
+  loading: boolean;
+  error: AuthError;
+  testID?: string;
+}
 
 export const MFACodeComponent = ({
   onSubmit,
   onChangeText,
-  isLoading,
+  loading,
+  error,
   value,
-}: {
-  onChangeText: (text: string) => void;
-  value: string;
-  onSubmit: () => void;
-  isLoading: boolean;
-  testID?: string;
-}) => {
+}: MFACodeComponentProps) => {
   const { t } = useTranslation('mfaLogin');
 
   const {
@@ -35,6 +41,7 @@ export const MFACodeComponent = ({
 
   return (
     <View style={container}>
+      <AuthErrorNotice error={error} />
       <Header
         left={<DeprecatedBackButton />}
         right={
@@ -66,7 +73,7 @@ export const MFACodeComponent = ({
           />
         </View>
       </Flex>
-      {isLoading ? <LoadingWheel /> : null}
+      {loading ? <LoadingWheel /> : null}
     </View>
   );
 };

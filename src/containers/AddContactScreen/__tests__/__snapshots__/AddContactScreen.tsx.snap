@@ -1033,43 +1033,14 @@ exports[`renders correctly | With Person 1`] = `
                   Object {},
                   Object {
                     "alignItems": "center",
-                    "flex": 2,
-                    "justifyContent": "flex-end",
                   },
                 ]
               }
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "marginBottom": 30,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "color": "#ffffff",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 24,
-                      "fontStyle": "normal",
-                      "lineHeight": 30,
-                      "maxWidth": 230,
-                      "textAlign": "center",
-                      "textAlignVertical": "center",
-                      "textTransform": "none",
-                    }
-                  }
-                >
-                  Who would you like to take steps of faith with this week?
-                </Text>
-              </View>
-            </View>
+            />
             <Text
               style={
                 Object {
-                  "color": "#3CC8E6",
+                  "color": "#B4B6BA",
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
@@ -1079,7 +1050,9 @@ exports[`renders correctly | With Person 1`] = `
                   "textTransform": "none",
                 }
               }
-            />
+            >
+              First Name
+            </Text>
             <TextInput
               allowFontScaling={true}
               autoCorrect={false}
@@ -1092,7 +1065,7 @@ exports[`renders correctly | With Person 1`] = `
               onFocus={[Function]}
               onSubmitEditing={[Function]}
               placeholder="First Name (Required)"
-              placeholderTextColor="#ffffff"
+              placeholderTextColor="#3CC8E6"
               rejectResponderTermination={true}
               returnKeyType="next"
               selectionColor="#3CC8E6"
@@ -1113,14 +1086,14 @@ exports[`renders correctly | With Person 1`] = `
                     "textTransform": "none",
                   },
                   Object {
-                    "borderBottomColor": "#3CC8E6",
-                    "color": "#ffffff",
+                    "borderBottomColor": "#ECEEF2",
+                    "color": "#3CC8E6",
                   },
                 ]
               }
               testID="firstNameInput"
               underlineColorAndroid="rgba(0,0,0,0)"
-              value=""
+              value="Christian"
             />
           </View>
           <View
@@ -1136,7 +1109,7 @@ exports[`renders correctly | With Person 1`] = `
             <Text
               style={
                 Object {
-                  "color": "#3CC8E6",
+                  "color": "#B4B6BA",
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
                   "fontStyle": "normal",
@@ -1158,7 +1131,7 @@ exports[`renders correctly | With Person 1`] = `
               onChangeText={[Function]}
               onFocus={[Function]}
               placeholder="Last Name (optional)"
-              placeholderTextColor="#ffffff"
+              placeholderTextColor="#3CC8E6"
               rejectResponderTermination={true}
               returnKeyType="done"
               selectionColor="#3CC8E6"
@@ -1179,8 +1152,8 @@ exports[`renders correctly | With Person 1`] = `
                     "textTransform": "none",
                   },
                   Object {
-                    "borderBottomColor": "#3CC8E6",
-                    "color": "#ffffff",
+                    "borderBottomColor": "#ECEEF2",
+                    "color": "#3CC8E6",
                   },
                 ]
               }
@@ -1188,6 +1161,145 @@ exports[`renders correctly | With Person 1`] = `
               underlineColorAndroid="rgba(0,0,0,0)"
               value=""
             />
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flexDirection": "column",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
+              }
+            >
+              Stage
+            </Text>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "borderBottomWidth": 1,
+                  "borderColor": "#ECEEF2",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                }
+              }
+            >
+              <Text
+                onPress={[Function]}
+                style={
+                  Object {
+                    "alignItems": "flex-start",
+                    "color": "#3CC8E6",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "lineHeight": 24,
+                    "marginVertical": 10,
+                    "textAlignVertical": "center",
+                    "textTransform": "none",
+                    "width": "100%",
+                  }
+                }
+                testID="stageSelectButton"
+              >
+                Forgiven
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flexDirection": "column",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "lineHeight": 16,
+                  "marginTop": 15,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                }
+              }
+            >
+              How do you know each other?
+            </Text>
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="popupMenuButton"
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "borderBottomWidth": 1,
+                    "borderColor": "#ECEEF2",
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "alignItems": "flex-start",
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "lineHeight": 24,
+                      "marginVertical": 10,
+                      "textAlignVertical": "center",
+                      "textTransform": "none",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  Choose a category
+                </Text>
+                <SvgMock
+                  color="#B4B6BA"
+                />
+              </View>
+            </View>
           </View>
         </View>
       </View>
@@ -1216,9 +1328,8 @@ exports[`renders correctly | With Person 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "backgroundColor": "#005A7F",
+          "backgroundColor": "#3CC8E6",
           "borderRadius": 50,
-          "color": "#ffffff",
           "height": 48,
           "justifyContent": "center",
           "opacity": 1,
@@ -1242,11 +1353,7 @@ exports[`renders correctly | With Person 1`] = `
               "textTransform": "uppercase",
             },
             Array [
-              Object {
-                "backgroundColor": "#005A7F",
-                "color": "#ffffff",
-                "opacity": 1,
-              },
+              null,
             ],
           ]
         }
@@ -3741,6 +3848,7 @@ exports[`savePerson update existing person without org updates users profile pic
               <ImagePicker
                 circleOverlay={true}
                 onSelectImage={[Function]}
+                testID="avatarImagePicker"
               >
                 <View
                   style={
@@ -3756,7 +3864,7 @@ exports[`savePerson update existing person without org updates users profile pic
                           "width": 96,
                         },
                         Object {
-                          "backgroundColor": "rgb(155, 101, 11)",
+                          "backgroundColor": "rgb(144, 216, 216)",
                         },
                         undefined,
                       ],
@@ -3784,7 +3892,7 @@ exports[`savePerson update existing person without org updates users profile pic
                       ]
                     }
                   >
-                    e
+                    r
                   </Text>
                 </View>
                 <View

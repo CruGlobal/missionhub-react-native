@@ -77,7 +77,6 @@ beforeEach(() => {
 describe('AddStepScreen next', () => {
   beforeEach(() => {
     initialState = {
-      auth: { person: { id: myId, user: { pathway_stage_id: '0' } } },
       onboarding: { currentlyOnboarding: false },
       drawer: {},
     };

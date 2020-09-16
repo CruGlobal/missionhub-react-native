@@ -2,6 +2,8 @@ import { createSelector } from 'reselect';
 import moment from 'moment';
 import i18n from 'i18next';
 
+import { RootState } from '../reducers';
+
 import { organizationSelector } from './organizations';
 
 export const challengesSelector = createSelector(
@@ -47,18 +49,19 @@ export const challengesSelector = createSelector(
 );
 
 export const communityChallengeSelector = createSelector(
-  // @ts-ignore
-  ({ organizations }, { orgId }) =>
-    organizationSelector({ organizations }, { orgId }),
-  // @ts-ignore
-  (_, { challengeId }) => challengeId,
+  (state: RootState, { orgId }: { orgId: string }) =>
+    organizationSelector(state, { orgId }),
+  (_, { challengeId }: { challengeId: string }) => challengeId,
   (org, challengeId) => {
     const challenge = (org.challengeItems || []).find(
-      // @ts-ignore
-      c => c.id === challengeId,
+      (c: { id: string }) => c.id === challengeId,
     );
     return (
-      (challenge && { ...challenge, isPast: challengeIsPast(challenge) }) || {}
+      (challenge && {
+        ...challenge,
+        isPast: challengeIsPast(challenge),
+      }) ||
+      {}
     );
   },
 );

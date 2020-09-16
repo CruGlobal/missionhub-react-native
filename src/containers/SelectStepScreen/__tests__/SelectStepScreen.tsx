@@ -16,13 +16,13 @@ jest.mock(
   '../../../components/SelectStepExplainerModal',
   () => 'SelectStepExplainerModal',
 );
+jest.mock('../../../auth/authStore', () => ({ isAuthenticated: () => true }));
 
 const next = jest.fn(() => () => ({}));
 const orgId = '4234234';
 const me = { id: '89123', first_name: 'roger' };
 const personId = '252342354234';
 const state = {
-  auth: { person: me },
   onboarding: { currentlyOnboarding: false },
 };
 const initialApolloState = {
@@ -53,11 +53,16 @@ describe('loading', () => {
     });
   });
 
-  it('should render for self steps correctly', () => {
-    renderWithContext(<SelectStepScreen next={next} />, {
+  it('should render for self steps correctly', async () => {
+    const { snapshot } = renderWithContext(<SelectStepScreen next={next} />, {
       initialState: state,
       navParams: { personId: me.id, orgId, enableSkipButton },
-    }).snapshot();
+      mocks: { User: () => ({ person: () => ({ id: me.id }) }) },
+    });
+
+    await flushMicrotasksQueue();
+
+    snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('add step', {
       sectionType: true,

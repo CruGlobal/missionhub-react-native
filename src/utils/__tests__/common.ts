@@ -24,8 +24,6 @@ import {
   keyExtractorId,
   isAdmin,
   orgIsGlobal,
-  isAuthenticated,
-  personIsCurrentUser,
   isOnboarding,
   mapPostTypeToFeedType,
   mapFeedTypeToPostType,
@@ -40,7 +38,6 @@ import {
   ORG_PERMISSIONS,
 } from '../../constants';
 import { createThunkStore } from '../../../testUtils';
-import { AuthState } from '../../reducers/auth';
 import { OnboardingState } from '../../reducers/onboarding';
 import {
   PermissionEnum,
@@ -76,33 +73,6 @@ describe('buildTrackingObj', () => {
     subsection,
     level3,
     level4,
-  });
-});
-
-describe('isAuthenticated', () => {
-  it('returns true', () => {
-    expect(isAuthenticated({ token: 'abcd' } as AuthState)).toEqual(true);
-    expect(isAuthenticated({ token: 'undefined' } as AuthState)).toEqual(true);
-    expect(isAuthenticated({ token: 'null' } as AuthState)).toEqual(true);
-  });
-
-  it('returns false', () => {
-    expect(isAuthenticated({ token: '' } as AuthState)).toEqual(false);
-    expect(isAuthenticated({ token: undefined } as AuthState)).toEqual(false);
-  });
-});
-
-describe('personIsCurrentUser', () => {
-  const myId = '1';
-  const otherId = '2';
-  const authState = { person: { id: myId } } as AuthState;
-
-  it('returns true', () => {
-    expect(personIsCurrentUser(myId, authState)).toEqual(true);
-  });
-
-  it('returns false', () => {
-    expect(personIsCurrentUser(otherId, authState)).toEqual(false);
   });
 });
 

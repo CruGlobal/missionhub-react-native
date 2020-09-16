@@ -5,6 +5,7 @@ import { Alert, View, AlertButton } from 'react-native';
 import i18n from 'i18next';
 import { ReactTestInstance } from 'react-test-renderer';
 import { useMutation } from '@apollo/react-hooks';
+import { flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
@@ -22,6 +23,7 @@ import CommentsList from '..';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../selectors/people');
+jest.mock('../../../auth/authStore', () => ({ isAuthenticated: () => true }));
 
 const myId = '1';
 const me: Person = { id: myId, first_name: 'Matt', last_name: 'Smith' };
@@ -126,7 +128,10 @@ describe('with comments', () => {
     let commentItem: ReactTestInstance;
     let permission_id: string;
 
-    const buildScreen = (comment: FeedItemCommentItem, isOwner = false) => {
+    const buildScreen = async (
+      comment: FeedItemCommentItem,
+      isOwner = false,
+    ) => {
       ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
         permission_id,
       });
@@ -141,8 +146,11 @@ describe('with comments', () => {
         />,
         {
           initialState,
+          mocks: { User: () => ({ person: () => ({ id: myId }) }) },
         },
       );
+
+      await flushMicrotasksQueue();
 
       commentItem = getByTestId('CommentItem');
     };
@@ -162,8 +170,8 @@ describe('with comments', () => {
     };
 
     describe('author actions', () => {
-      beforeEach(() => {
-        buildScreen(myComment);
+      beforeEach(async () => {
+        await buildScreen(myComment);
       });
 
       it('creates array', () => {
@@ -217,8 +225,8 @@ describe('with comments', () => {
     });
 
     describe('owner actions', () => {
-      beforeEach(() => {
-        buildScreen(comments[0], true);
+      beforeEach(async () => {
+        await buildScreen(comments[0], true);
       });
 
       it('creates array', () => {
@@ -263,8 +271,8 @@ describe('with comments', () => {
     });
 
     describe('user actions', () => {
-      beforeEach(() => {
-        buildScreen(comments[0]);
+      beforeEach(async () => {
+        await buildScreen(comments[0]);
       });
 
       it('creates array', () => {

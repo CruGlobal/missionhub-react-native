@@ -1,10 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleProp, TextStyle, Text } from 'react-native';
-import { useSelector } from 'react-redux';
+import { StyleProp, Text, TextStyle } from 'react-native';
 
 import { Flex, Touchable } from '../common';
-import { RootState } from '../../reducers';
 import { contactAssignmentSelector } from '../../selectors/people';
 
 import styles from './styles';
@@ -35,9 +33,8 @@ const PersonListItem = ({
   const handleSelect = () => {
     onSelect && onSelect(person);
   };
-  const isAssigned = useSelector(({ auth }: RootState) =>
-    contactAssignmentSelector({ auth }, { person }),
-  );
+  const isAssigned = contactAssignmentSelector({ person });
+
   const content = (
     <Flex align="center" direction="row" style={styles.row}>
       <Flex value={1} justify="start" direction="row">

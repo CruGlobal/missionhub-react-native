@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 
-import auth, { AuthState } from './auth';
 import communityPosts, { CommunityPostsState } from './communityPosts';
 import nav from './nav';
 import stages, { StagesState } from './stages';
@@ -19,7 +18,6 @@ import stepReminders, { StepReminderState } from './stepReminders';
 
 export type RootState = {
   analytics: AnalyticsState;
-  auth: AuthState;
   communityPosts: CommunityPostsState;
   drawer: DrawerState;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -41,7 +39,6 @@ export type RootState = {
 
 export default combineReducers({
   analytics,
-  auth,
   communityPosts,
   drawer,
   groups,

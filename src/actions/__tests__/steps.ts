@@ -20,7 +20,6 @@ apolloClient.writeQuery = jest.fn();
 const mockStore = configureStore([thunk]);
 let store: MockStore;
 
-const personId = '2123';
 const receiverId = '983547';
 const communityId = '123';
 const mockDate = '2018-02-14 11:30:00 UTC';
@@ -51,11 +50,6 @@ describe('completeStep', () => {
 
   beforeEach(() => {
     store = mockStore({
-      auth: {
-        person: {
-          id: personId,
-        },
-      },
       organizations: {
         all: [
           {

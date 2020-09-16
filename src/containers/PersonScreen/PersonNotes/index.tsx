@@ -17,6 +17,7 @@ import { CollapsibleViewContext } from '../../../components/CollapsibleView/Coll
 import { RootState } from '../../../reducers';
 import { useIsMe } from '../../../utils/hooks/useIsMe';
 import { personSelector } from '../../../selectors/people';
+import { useAuthUser } from '../../../auth/authHooks';
 
 import styles from './styles';
 
@@ -28,8 +29,8 @@ export const PersonNotes = ({ collapsibleHeaderContext }: PersonNotesProps) => {
   const personId: string = useNavigationParam('personId');
 
   const person = useSelector(
-    ({ people }: RootState) =>
-      personSelector({ people }, { personId }) || {
+    (state: RootState) =>
+      personSelector(state, { personId }) || {
         id: personId,
       },
   );
@@ -46,10 +47,14 @@ export const PersonNotes = ({ collapsibleHeaderContext }: PersonNotesProps) => {
   const notesInput = useRef<TextInput>(null);
 
   const isMe = useIsMe(personId);
-  const myUserId = useSelector(({ auth }: RootState) => auth.person.user.id);
+  const user = useAuthUser();
 
   const getNote = async () => {
-    const results = await dispatch(getPersonNote(personId, myUserId));
+    if (!user) {
+      return;
+    }
+
+    const results = await dispatch(getPersonNote(personId, user.id));
 
     setText(results ? results.content : undefined);
     setNoteId(results ? results.id : null);
@@ -58,14 +63,16 @@ export const PersonNotes = ({ collapsibleHeaderContext }: PersonNotesProps) => {
   const saveNote = () => {
     Keyboard.dismiss();
 
-    editing && dispatch(savePersonNote(person.id, text, noteId, myUserId));
+    editing &&
+      user?.id &&
+      dispatch(savePersonNote(person.id, text, noteId, user.id));
 
     setEditing(false);
   };
 
   useEffect(() => {
     getNote();
-  }, []);
+  }, [personId, user]);
 
   useEffect(() => {
     !isFocused && saveNote();

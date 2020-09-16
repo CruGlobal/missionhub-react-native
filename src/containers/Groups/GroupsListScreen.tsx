@@ -5,7 +5,7 @@ import {
   NativeScrollEvent,
   NativeSyntheticEvent,
 } from 'react-native';
-import { connect, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { TFunction } from 'i18next';
@@ -25,8 +25,6 @@ import {
   JOIN_BY_CODE_FLOW,
 } from '../../routes/constants';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
-import { SwipeState } from '../../reducers/swipe';
-import { AuthState } from '../../reducers/auth';
 import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
@@ -34,6 +32,8 @@ import {
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { COMMUNITY_TABS } from '../Communities/Community/constants';
 import AvatarMenuButton from '../../components/AvatarMenuButton';
+import { useIsAnonymousUser } from '../../auth/authHooks';
+import { RootState } from '../../reducers';
 
 import styles from './styles';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
@@ -42,11 +42,6 @@ import {
   GetCommunities_communities_nodes,
 } from './__generated__/GetCommunities';
 import { GET_COMMUNITIES_QUERY } from './queries';
-
-interface GroupsListScreenProps {
-  isAnonymousUser: boolean;
-  scrollToId: string | null;
-}
 
 const createGlobalCommunity = (t: TFunction, usersCount: number) =>
   ({
@@ -81,15 +76,18 @@ const getItemLayout = (_: unknown, index: number) => {
   return { length: ItemHeight, offset: ItemHeight * index, index };
 };
 
-const GroupsListScreen = ({
-  isAnonymousUser,
-  scrollToId,
-}: GroupsListScreenProps) => {
+const GroupsListScreen = () => {
   useAnalytics('communities', {
     screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
   });
   const dispatch = useDispatch();
   const { t } = useTranslation('groupsList');
+
+  const scrollToId = useSelector(
+    ({ swipe }: RootState) => swipe.groupScrollToId,
+  );
+  const isAnonymousUser = useIsAnonymousUser();
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);
   const [overflowBottom, setOverflowBottom] = useState(false);
@@ -264,15 +262,4 @@ const GroupsListScreen = ({
   );
 };
 
-const mapStateToProps = ({
-  auth,
-  swipe,
-}: {
-  auth: AuthState;
-  swipe: SwipeState;
-}) => ({
-  isAnonymousUser: !!auth.upgradeToken,
-  scrollToId: swipe.groupScrollToId,
-});
-
-export default connect(mapStateToProps)(GroupsListScreen);
+export default GroupsListScreen;

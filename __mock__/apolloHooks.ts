@@ -39,6 +39,7 @@ declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace jest {
     interface Matchers<R> {
+      toHaveBeenMutated(): R;
       toHaveBeenMutatedWith(
         mutation: DocumentNode,
         options?: MutationFunctionOptions,
@@ -46,6 +47,34 @@ declare global {
     }
   }
 }
+
+expect.extend({
+  toHaveBeenMutated(useMutation: UseMutation) {
+    const allCalls = (useMutation.mutateSpies || []).filter(
+      ({ spy }) => spy.mock.calls.length > 0,
+    );
+
+    if (this.isNot && allCalls.length !== 0) {
+      return {
+        pass: false,
+        message: () =>
+          "Expected useMutation's mutate function to not have been called",
+      };
+      expect(allCalls).toHaveLength(0);
+    } else if (allCalls.length === 0) {
+      return {
+        pass: false,
+        message: () =>
+          "Expected useMutation's mutate function to have been called",
+      };
+    }
+
+    // This point is reached when the above assertion was successful.
+    // The test should therefore always pass, that means it needs to be
+    // `true` when used normally, and `false` when `.not` was used.
+    return { pass: !this.isNot, message: () => '' };
+  },
+});
 
 expect.extend({
   toHaveBeenMutatedWith(

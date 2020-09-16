@@ -1,0 +1,13 @@
+diff --git a/node_modules/jest-expo/src/preset/setup.js b/node_modules/jest-expo/src/preset/setup.js
+index 4b2b8d0..62520b9 100644
+--- a/node_modules/jest-expo/src/preset/setup.js
++++ b/node_modules/jest-expo/src/preset/setup.js
+@@ -21,7 +21,7 @@ const mockImageLoader = {
+   enumerable: true,
+   get: () => ({
+     prefetchImage: jest.fn(),
+-    getSize: jest.fn((uri, success) => process.nextTick(() => success(320, 240))),
++    getSize: jest.fn(url => Promise.resolve({width: 320, height: 240})),
+   }),
+ };
+ Object.defineProperty(mockNativeModules, 'ImageLoader', mockImageLoader);

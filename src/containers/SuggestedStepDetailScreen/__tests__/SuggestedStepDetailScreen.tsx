@@ -26,7 +26,6 @@ const trackStepAddedResponse = { type: 'trackStepAdded' };
 const next = jest.fn();
 
 const initialState = {
-  auth: { person: { id: myId } },
   onboarding: { currentlyOnboarding: false },
 };
 
@@ -84,7 +83,6 @@ it('renders correctly in onboarding', async () => {
     <SuggestedStepDetailScreen next={next} />,
     {
       initialState: {
-        auth: { person: { id: myId } },
         onboarding: { currentlyOnboarding: true },
       },
       navParams: { stepSuggestionId, personId, orgId },

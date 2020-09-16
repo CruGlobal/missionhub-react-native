@@ -1,11 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import uuidv4 from 'uuid/v4';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import appsFlyer from 'react-native-appsflyer';
 
-import { AuthState } from '../reducers/auth';
 import { Person } from '../reducers/people';
 import { OnboardingState } from '../reducers/onboarding';
 import { OrganizationsState } from '../reducers/organizations';
@@ -14,19 +12,17 @@ import {
   NOTIFICATION_PROMPT_TYPES,
   LOAD_PERSON_DETAILS,
 } from '../constants';
-import { rollbar } from '../utils/rollbar.config';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { REQUESTS } from '../api/routes';
 import { COMMUNITY_TABS } from '../containers/Communities/Community/constants';
 import { RootState } from '../reducers';
+import { getAuthPerson } from '../auth/authUtilities';
 
 import callApi from './api';
-import { getMe } from './person';
-import { navigatePush } from './navigation';
 import { checkNotifications } from './notifications';
 import { trackActionWithoutData } from './analytics';
 import { joinCommunity } from './organizations';
-import { updateLocaleAndTimezone } from './auth/userData';
+import { navigatePush } from './navigation';
 
 export const START_ONBOARDING = 'START_ONBOARDING';
 export const FINISH_ONBOARDING = 'FINISH_ONBOARDING';
@@ -91,37 +87,11 @@ export const startOnboarding = () => (
   );
 };
 
-export function createMyPerson(firstName: string, lastName: string) {
-  const data = {
-    code: uuidv4(),
-    first_name: firstName,
-    last_name: lastName,
-  };
-
-  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
-    await dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, data));
-    // @ts-ignore
-    const me = ((await dispatch(getMe())) as unknown) as Person;
-    dispatch(updateLocaleAndTimezone());
-
-    rollbar.setPerson(me.id);
-
-    dispatch({
-      type: LOAD_PERSON_DETAILS,
-      person: me,
-    });
-
-    return me;
-  };
-}
-
 export const createPerson = (firstName: string, lastName: string) => async (
   dispatch: ThunkDispatch<RootState, never, AnyAction>,
-  getState: () => { auth: AuthState },
 ) => {
-  const {
-    person: { id: myId },
-  } = getState().auth;
+  const myId = getAuthPerson().id;
+
   const data = {
     data: {
       type: 'person',

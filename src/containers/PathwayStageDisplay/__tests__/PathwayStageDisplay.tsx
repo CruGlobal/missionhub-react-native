@@ -8,8 +8,10 @@ import {
   contactAssignmentSelector,
 } from '../../../selectors/people';
 import PathwayStageDisplay from '..';
+import { getAuthPerson } from '../../../auth/authUtilities';
 
 jest.mock('../../../selectors/people');
+jest.mock('../../../auth/authUtilities');
 
 const stages = {
   stages: [
@@ -21,6 +23,7 @@ const stages = {
 const people = {};
 
 const mockStore = configureStore([thunk]);
+const myId = '100';
 const person = { id: '51423423' };
 
 describe('for self', () => {
@@ -30,34 +33,21 @@ describe('for self', () => {
   });
 
   it('renders stage', () => {
+    (getAuthPerson as jest.Mock).mockReturnValue({
+      id: myId,
+      stage: { id: '3' },
+    });
     testSnapshotShallow(
-      <PathwayStageDisplay person={person} />,
-      mockStore({
-        auth: {
-          person: {
-            id: person.id,
-            user: {
-              pathway_stage_id: stages.stages[2].id,
-            },
-          },
-        },
-        stages,
-      }),
+      <PathwayStageDisplay person={{ id: myId }} />,
+      mockStore({ stages }),
     );
   });
 
   it('renders null if stage is not found', () => {
+    (getAuthPerson as jest.Mock).mockReturnValue({ id: myId, stage: null });
     testSnapshotShallow(
-      <PathwayStageDisplay person={person} />,
+      <PathwayStageDisplay person={{ id: myId }} />,
       mockStore({
-        auth: {
-          person: {
-            id: person.id,
-            user: {
-              pathway_stage_id: null,
-            },
-          },
-        },
         stages,
       }),
     );
@@ -67,18 +57,11 @@ describe('for self', () => {
 describe('for person', () => {
   afterEach(() => {
     expect(personSelector).toHaveBeenCalledWith(
-      { people },
+      { people, stages },
       { personId: person.id },
     );
-    expect(contactAssignmentSelector).toHaveBeenCalledWith(
-      { auth },
-      { person },
-    );
+    expect(contactAssignmentSelector).toHaveBeenCalledWith({ person });
   });
-
-  const auth = {
-    person: {},
-  };
 
   it('renders stage', () => {
     // @ts-ignore
@@ -91,7 +74,6 @@ describe('for person', () => {
     testSnapshotShallow(
       <PathwayStageDisplay person={person} />,
       mockStore({
-        auth,
         stages,
         people,
       }),
@@ -109,7 +91,6 @@ describe('for person', () => {
     testSnapshotShallow(
       <PathwayStageDisplay person={person} />,
       mockStore({
-        auth,
         stages,
         people,
       }),
@@ -125,7 +106,6 @@ describe('for person', () => {
     testSnapshotShallow(
       <PathwayStageDisplay person={person} />,
       mockStore({
-        auth,
         stages,
         people,
       }),

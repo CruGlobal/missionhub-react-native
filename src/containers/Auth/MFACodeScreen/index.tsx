@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { Keyboard, Alert } from 'react-native';
+import { Keyboard } from 'react-native';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { connect } from 'react-redux-legacy';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
-import { useTranslation } from 'react-i18next';
 import { AnyAction } from 'redux';
 
-import { keyLogin } from '../../../actions/auth/key';
-import { MFA_REQUIRED } from '../../../constants';
 import { MFACodeComponent } from '../../../components/MFACodeComponent';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { RootState } from '../../../reducers';
+import { useAuth } from '../../../auth/useAuth';
+import { SignInWithTheKeyType } from '../../../auth/providers/useSignInWithTheKey';
+import { IdentityProvider } from '../../../auth/constants';
 
 const MFACodeScreen = ({
   dispatch,
@@ -20,30 +20,26 @@ const MFACodeScreen = ({
   next: () => ThunkAction<void, RootState, never, AnyAction>;
 }) => {
   useAnalytics(['sign in', 'verification']);
-  const { t } = useTranslation('mfaLogin');
   const email: string = useNavigationParam('email');
   const password: string = useNavigationParam('password');
+  const { authenticate, loading, error } = useAuth();
 
   const [mfaCode, setMfaCode] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
 
   const completeMfa = async () => {
-    setIsLoading(true);
-
     try {
-      await dispatch(keyLogin(email, password, mfaCode));
-      Keyboard.dismiss();
+      await authenticate({
+        provider: IdentityProvider.TheKey,
+        theKeyOptions: {
+          type: SignInWithTheKeyType.EmailPassword,
+          email,
+          password,
+          mfaCode,
+        },
+      });
       dispatch(next());
-    } catch (error) {
-      setIsLoading(false);
-
-      if (error && error.apiError['thekey_authn_error'] === MFA_REQUIRED) {
-        Alert.alert(t('mfaIncorrect'));
-        return;
-      }
-
-      throw error;
-    }
+      Keyboard.dismiss();
+    } catch {}
   };
 
   return (
@@ -52,7 +48,8 @@ const MFACodeScreen = ({
       onChangeText={setMfaCode}
       value={mfaCode}
       onSubmit={completeMfa}
-      isLoading={isLoading}
+      loading={loading}
+      error={error}
     />
   );
 };

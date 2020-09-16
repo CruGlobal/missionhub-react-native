@@ -22,11 +22,6 @@ const editingComment = mockFragment<FeedItemEditingComment>(
 
 const onAddComplete = jest.fn();
 const onCancel = jest.fn();
-const initialState = {
-  auth: {
-    person: { id: '1' },
-  },
-};
 
 function render() {
   return renderWithContext(
@@ -36,7 +31,6 @@ function render() {
       onAddComplete={onAddComplete}
       onCancel={onCancel}
     />,
-    { initialState },
   );
 }
 
@@ -68,9 +62,6 @@ it('renders editing correctly', () => {
       onAddComplete={onAddComplete}
       onCancel={onCancel}
     />,
-    {
-      initialState,
-    },
   ).snapshot();
 });
 
@@ -91,9 +82,6 @@ it('calls update', async () => {
       onAddComplete={onAddComplete}
       onCancel={onCancel}
     />,
-    {
-      initialState,
-    },
   );
 
   const content = 'test update';
