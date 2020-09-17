@@ -46,31 +46,35 @@ export const useProvideAuthRefresh = () => {
       return false;
     }
 
-    if (await getTheKeyRefreshToken()) {
-      await signInWithTheKey({ type: SignInWithTheKeyType.Refresh });
-      return true;
-    }
-
     if (await getAnonymousUid()) {
       await signInWithAnonymous({ type: SignInWithAnonymousType.Refresh });
       return true;
     }
 
-    const { accessToken } = (await AccessToken.getCurrentAccessToken()) || {};
-    if (accessToken) {
-      await signInWithFacebook();
-      return true;
-    }
+    try {
+      if (await getTheKeyRefreshToken()) {
+        await signInWithTheKey({ type: SignInWithTheKeyType.Refresh });
+        return true;
+      }
 
-    const appleId = await getAppleUserId();
-    if (appleId) {
-      await signInWithApple(appleId);
-      return true;
-    }
+      const { accessToken } = (await AccessToken.getCurrentAccessToken()) || {};
+      if (accessToken) {
+        await signInWithFacebook();
+        return true;
+      }
 
-    if (await GoogleSignin.isSignedIn()) {
-      await signInWithGoogle();
-      return true;
+      const appleId = await getAppleUserId();
+      if (appleId) {
+        await signInWithApple(appleId);
+        return true;
+      }
+
+      if (await GoogleSignin.isSignedIn()) {
+        await signInWithGoogle();
+        return true;
+      }
+    } catch {
+      // On error, we should proceed to logout code below
     }
 
     dispatch(logout(true));
