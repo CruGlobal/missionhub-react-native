@@ -19,6 +19,9 @@ import {
   SignInWithGoogleVariables,
 } from './__generated__/SignInWithGoogle';
 
+export const webClientId =
+  '208966923006-psifsd9u6ia0bc5bbt8racvdqqrb4u05.apps.googleusercontent.com';
+
 export const useSignInWithGoogle = () => {
   const [providerAuthInProgress, setProviderAuthInProgress] = useState(false);
   const [error, setError] = useState(AuthError.None);
@@ -30,8 +33,7 @@ export const useSignInWithGoogle = () => {
 
   const performSignIn = useCallback(async () => {
     GoogleSignin.configure({
-      webClientId:
-        '208966923006-psifsd9u6ia0bc5bbt8racvdqqrb4u05.apps.googleusercontent.com',
+      webClientId,
       offlineAccess: true,
     });
 

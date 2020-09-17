@@ -12,7 +12,7 @@ import {
   getAnonymousUid,
   deleteAnonymousUid,
 } from '../../authStore';
-import { useSignInWithGoogle } from '../useSignInWithGoogle';
+import { useSignInWithGoogle, webClientId } from '../useSignInWithGoogle';
 import { SIGN_IN_WITH_GOOGLE_MUTATION } from '../queries';
 import { mockUserInfo } from '../../../../__mock__/@react-native-community/google-signin';
 import { AuthError } from '../../constants';
@@ -41,8 +41,7 @@ it('should sign in wih Google', async () => {
   await act(() => result.current.signInWithGoogle());
 
   expect(GoogleSignin.configure).toHaveBeenCalledWith({
-    webClientId:
-      '208966923006-psifsd9u6ia0bc5bbt8racvdqqrb4u05.apps.googleusercontent.com',
+    webClientId,
     offlineAccess: true,
   });
   expect(GoogleSignin.signInSilently).toHaveBeenCalled();
@@ -74,8 +73,7 @@ it('should refresh Google auth', async () => {
   await act(() => result.current.signInWithGoogle());
 
   expect(GoogleSignin.configure).toHaveBeenCalledWith({
-    webClientId:
-      '208966923006-psifsd9u6ia0bc5bbt8racvdqqrb4u05.apps.googleusercontent.com',
+    webClientId,
     offlineAccess: true,
   });
   expect(GoogleSignin.signInSilently).toHaveBeenCalled();
@@ -109,8 +107,7 @@ it('should handle missing token from API', async () => {
   expect(result.current.error).toEqual(AuthError.Unknown);
 
   expect(GoogleSignin.configure).toHaveBeenCalledWith({
-    webClientId:
-      '208966923006-psifsd9u6ia0bc5bbt8racvdqqrb4u05.apps.googleusercontent.com',
+    webClientId,
     offlineAccess: true,
   });
   expect(GoogleSignin.signInSilently).toHaveBeenCalled();

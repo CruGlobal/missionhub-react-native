@@ -90,7 +90,7 @@ it('should return true if a Facebook access token exists', async () => {
   expect(authSuccess).toHaveBeenCalled();
 });
 
-it('should return true if a Google sign in exists exists', async () => {
+it('should return true if a Google sign in exists', async () => {
   (GoogleSignin.isSignedIn as jest.Mock).mockResolvedValue(true);
 
   expect(await authRefresh()).toEqual(true);
