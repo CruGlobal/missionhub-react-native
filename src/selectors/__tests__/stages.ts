@@ -1,4 +1,4 @@
-import { stageSelector, localizedStageSelector } from '../stages';
+import { localizedStageSelector } from '../stages';
 
 const stage = {
   id: '1',
@@ -16,54 +16,6 @@ const stage = {
     },
   ],
 };
-
-describe('stageSelector', () => {
-  it('should find a stage by id', () => {
-    expect(
-      stageSelector(
-        {
-          stages: {
-            stages: [stage],
-          },
-        },
-        {
-          stageId: '1',
-        },
-      ),
-    ).toMatchInlineSnapshot(`
-      Object {
-        "description": "Test Stage",
-        "icon_url": "",
-        "id": "1",
-        "localized_pathway_stages": Array [
-          Object {
-            "description": "English Description",
-            "locale": "en-TEST",
-            "name": "English Test",
-            "self_followup_description": "My English Description",
-          },
-        ],
-        "name": "Test",
-        "position": 0,
-        "self_followup_description": "My Test Stage",
-      }
-    `);
-  });
-  it('should return undefined when no stage is found', () => {
-    expect(
-      stageSelector(
-        {
-          stages: {
-            stages: [stage],
-          },
-        },
-        {
-          stageId: '2',
-        },
-      ),
-    ).toEqual(undefined);
-  });
-});
 
 describe('localizedStageSelector', () => {
   it('should find a localized stage by current app locale', () => {

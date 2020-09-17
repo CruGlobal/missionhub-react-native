@@ -30,7 +30,7 @@ interface ContextParams {
   noWrappers?: boolean;
 }
 
-export const createTestContext = ({
+const createTestContext = ({
   initialState,
   store = createThunkStore(initialState),
   navParams,

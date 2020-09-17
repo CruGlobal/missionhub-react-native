@@ -77,17 +77,6 @@ const resetStack = (actions: NavigationNavigateAction[], index = 0) => (
 
 // The reset home and reset login are handled by the login/logout auth actions
 
-export function navigateReplace(screen: string, props = {}) {
-  return (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
-    dispatch(
-      StackActions.replace({
-        routeName: screen,
-        params: props,
-      }),
-    );
-  };
-}
-
 export const navigateToMainTabs = (tabName = PEOPLE_TAB) => (
   dispatch: ThunkDispatch<RootState, never, AnyAction>,
 ) => {

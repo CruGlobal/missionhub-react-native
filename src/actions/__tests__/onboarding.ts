@@ -7,7 +7,6 @@ import {
   setOnboardingPersonId,
   setOnboardingCommunity,
   skipOnboardingAddPerson,
-  createPerson,
   skipAddPersonAndCompleteOnboarding,
   resetPersonAndCompleteOnboarding,
   joinStashedCommunity,
@@ -21,13 +20,7 @@ import { checkNotifications } from '../notifications';
 import { navigatePush, navigateBack } from '../navigation';
 import { joinCommunity } from '../organizations';
 import { trackActionWithoutData } from '../analytics';
-import {
-  ACTIONS,
-  NOTIFICATION_PROMPT_TYPES,
-  LOAD_PERSON_DETAILS,
-} from '../../constants';
-import callApi from '../api';
-import { REQUESTS } from '../../api/routes';
+import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
 import { COMMUNITY_TABS } from '../../containers/Communities/Community/constants';
 import { createThunkStore } from '../../../testUtils';
@@ -117,52 +110,6 @@ describe('startOnboarding', () => {
     expect(store.getActions()).toEqual([
       trackActionWithoutDataResult,
       { type: START_ONBOARDING },
-    ]);
-  });
-});
-
-describe('createPerson', () => {
-  it('should send the correct API request', async () => {
-    const myId = '1';
-    const person_id = '123456';
-    const first_name = 'Roger';
-    const last_name = 'Goers';
-
-    const person = { person_id, first_name, last_name };
-
-    (callApi as jest.Mock).mockReturnValue(() => ({
-      type: 'callApi',
-      response: person,
-    }));
-
-    await store.dispatch<any>(createPerson(first_name, last_name));
-
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.ADD_NEW_PERSON,
-      {},
-      {
-        data: {
-          type: 'person',
-          attributes: {
-            first_name,
-            last_name,
-          },
-        },
-        included: [
-          {
-            type: 'contact_assignment',
-            attributes: {
-              assigned_to_id: myId,
-            },
-          },
-        ],
-      },
-    );
-    expect(store.getActions()).toEqual([
-      {
-        type: LOAD_PERSON_DETAILS,
-        person,
-      },
     ]);
   });
 });

@@ -1,5 +1,6 @@
 /* eslint-disable import/export, @typescript-eslint/no-explicit-any */
 declare module 'fraql' {
+  // eslint-disable-next-line import/no-unused-modules
   export default function gql(literals: any, ...placeholders: any[]): any;
 
   export function toInlineFragment(doc: any): any;
@@ -13,6 +14,7 @@ declare module 'fraql/mock' {
   export declare function generateSchemaFromIntrospectionResult(
     introspectionResult: any,
   ): GraphQLSchema;
+  // eslint-disable-next-line import/no-unused-modules
   export interface Mocker {
     // TODO: was a `declare class` instead of interface. Needed to add `<TData>` to `mockFragment`
     // constructor(

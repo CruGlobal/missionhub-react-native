@@ -3,7 +3,6 @@ import React from 'react';
 import { renderWithContext } from '../../../../testUtils';
 import { personTabs } from '../PersonTabs';
 
-jest.mock('../../Groups/GroupCelebrate', () => 'CommunityFeed');
 jest.mock('../PersonSteps', () => ({
   // @ts-ignore
   ...jest.requireActual('../PersonSteps'),

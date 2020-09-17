@@ -18,7 +18,6 @@ import {
   removeAsAdmin,
   updateOrgPermission,
   deleteContactAssignment,
-  getPersonJourneyDetails,
   savePersonNote,
   getPersonNote,
   navToPersonScreen,
@@ -554,34 +553,6 @@ describe('deleteContactAssignment', () => {
 
     testDelete();
     expect.hasAssertions();
-  });
-});
-
-describe('getPersonJourneyDetails', () => {
-  const userId = 1;
-  const expectedQuery = {
-    person_id: userId,
-    include:
-      'pathway_progression_audits.old_pathway_stage,pathway_progression_audits.new_pathway_stage,interactions.comment,answer_sheets.answers,answer_sheets.survey.active_survey_elements.question',
-  };
-  const action = { type: 'got user' };
-
-  beforeEach(() => {
-    // @ts-ignore
-    callApi.mockReturnValue(action);
-  });
-
-  it('should get me', () => {
-    // @ts-ignore
-    store.dispatch(getPersonJourneyDetails(userId));
-
-    expect(callApi).toHaveBeenCalledWith(
-      // @ts-ignore
-      REQUESTS.GET_PERSON_JOURNEY,
-      expectedQuery,
-    );
-    // @ts-ignore
-    expect(store.getActions()[0]).toEqual(action);
   });
 });
 

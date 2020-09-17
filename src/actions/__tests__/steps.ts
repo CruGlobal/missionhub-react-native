@@ -1,12 +1,13 @@
 import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import { StackActions } from 'react-navigation';
 
 import { handleAfterCompleteStep } from '../steps';
 import { refreshImpact } from '../impact';
 import { trackAction } from '../analytics';
 import * as navigation from '../navigation';
 import * as date from '../../utils/date';
-import { ACTIONS, NAVIGATE_FORWARD, STEP_NOTE } from '../../constants';
+import { ACTIONS, STEP_NOTE } from '../../constants';
 import { COMPLETE_STEP_FLOW } from '../../routes/constants';
 import { getCelebrateFeed } from '../celebration';
 import { apolloClient } from '../../apolloClient';
@@ -69,7 +70,7 @@ describe('completeStep', () => {
     // Call `onSetComplete` within the navigate push
     (navigation.navigatePush as jest.Mock) = jest.fn((a, b) => {
       b.onSetComplete();
-      return { type: NAVIGATE_FORWARD, routeName: a, params: b };
+      return { type: StackActions.push, routeName: a, params: b };
     });
   });
 
@@ -99,7 +100,7 @@ describe('completeStep', () => {
     expect(store.getActions()).toEqual([
       impactResponse,
       {
-        type: NAVIGATE_FORWARD,
+        type: StackActions.push,
         routeName: COMPLETE_STEP_FLOW,
         params: {
           type: STEP_NOTE,
@@ -134,7 +135,7 @@ describe('completeStep', () => {
     expect(store.getActions()).toEqual([
       impactResponse,
       {
-        type: NAVIGATE_FORWARD,
+        type: StackActions.push,
         routeName: COMPLETE_STEP_FLOW,
         params: {
           type: STEP_NOTE,

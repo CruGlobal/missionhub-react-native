@@ -13,12 +13,13 @@ import { isAndroid } from '../../utils/common';
 
 import { ReminderButton as Reminder } from './__generated__/ReminderButton';
 
-export interface ReminderButtonProps {
+interface ReminderButtonProps {
   stepId: string;
   reminder: Reminder | null;
   children: ReactNode;
   testID?: string;
 }
+
 const ReminderButton = ({
   stepId,
   reminder,

@@ -3,7 +3,6 @@ import React from 'react';
 import { renderWithContext } from '../../../../../../../testUtils';
 import { communityMemberTabs } from '../CommunityMemberTabs';
 
-jest.mock('../../../../../Groups/GroupCelebrate', () => 'CommunityFeed');
 jest.mock('../../../../../ImpactTab/ImpactTab', () => ({
   ImpactTab: 'ImpactTab',
 }));

@@ -7,7 +7,6 @@ import configureStore, { MockStore } from 'redux-mock-store';
 import { apolloClient } from '../../apolloClient';
 import { trackActionWithoutData } from '../analytics';
 import {
-  openCommunicationLink,
   navigateToStageScreen,
   navigateToAddStepFlow,
   GET_FEATURE_FLAGS,
@@ -15,7 +14,7 @@ import {
 } from '../misc';
 import { updatePersonAttributes } from '../person';
 import { reloadJourney } from '../journey';
-import { navigatePush, navigateReplace } from '../navigation';
+import { navigatePush } from '../navigation';
 import {
   contactAssignmentSelector,
   orgPermissionSelector,
@@ -49,15 +48,12 @@ apolloClient.query = jest.fn();
 const trackActionResult = { type: 'tracked' };
 const reloadJourneyResult = { type: 'reloaded journey' };
 const navigatePushResult = { type: 'navigated forward' };
-const navigateReplaceResult = { type: 'route replaced' };
 const updatePersonAttributesResult = { type: 'updated person' };
 const hasOrgPermissionsResult = false;
 const buildTrackingObjResult = { tracking: 'tracking' };
 
 const myId = '111';
 const personId = '100';
-const url = 'url';
-const action = { type: 'link action' };
 const person = { id: personId, first_name: 'Fred' };
 const contactAssignment = { id: '1908' };
 const orgPermission = { id: '1234' };
@@ -85,7 +81,6 @@ beforeEach(() => {
     onComplete && onComplete(stage);
     return navigatePushResult;
   });
-  (navigateReplace as jest.Mock).mockReturnValue(navigateReplaceResult);
 });
 
 describe('getFeatureFlags', () => {
@@ -93,38 +88,6 @@ describe('getFeatureFlags', () => {
 
   expect(apolloClient.query).toHaveBeenCalledWith({
     query: GET_FEATURE_FLAGS,
-  });
-});
-
-describe('openCommunicationLink', () => {
-  it('should test link, then open it, then track an action', async () => {
-    ReactNative.Linking.canOpenURL = jest
-      .fn()
-      .mockReturnValue(Promise.resolve(true));
-
-    // @ts-ignore
-    await store.dispatch(openCommunicationLink(url, action));
-
-    expect(ReactNative.Linking.canOpenURL).toHaveBeenCalledWith(url);
-    expect(ReactNative.Linking.openURL).toHaveBeenCalledWith(url);
-    expect(trackActionWithoutData).toHaveBeenCalledWith(action);
-    // @ts-ignore
-    expect(store.getActions()).toEqual([trackActionResult]);
-  });
-
-  it('should not open link if it is not supported', async () => {
-    // @ts-ignore
-    global.WARN = jest.fn();
-    ReactNative.Linking.canOpenURL = jest
-      .fn()
-      .mockReturnValue(Promise.resolve(false));
-
-    // @ts-ignore
-    await store.dispatch(openCommunicationLink(url, action));
-
-    expect(ReactNative.Linking.canOpenURL).toHaveBeenCalledWith(url);
-    expect(ReactNative.Linking.openURL).not.toHaveBeenCalled();
-    expect(trackActionWithoutData).not.toHaveBeenCalled();
   });
 });
 
