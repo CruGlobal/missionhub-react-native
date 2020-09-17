@@ -16,7 +16,7 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
         "createdAt": "2010-09-19T03:58:30.504Z",
         "id": "1",
         "person": Object {
-          "fullName": "Branson Gutkowski",
+          "fullName": "Branson Gutmann",
           "id": "2",
           "picture": "repellat ratione ut",
         },
@@ -91,7 +91,7 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
                 "width": 36,
               },
               Object {
-                "backgroundColor": "rgb(161, 161, 152)",
+                "backgroundColor": "rgb(152, 152, 152)",
               },
               undefined,
             ]
@@ -138,7 +138,7 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
                   }
                 }
               >
-                Branson Gutkowski
+                Branson Gutmann
               </Text>
             </View>
             <Text
@@ -429,7 +429,7 @@ exports[`with comments with next page renders correctly 1`] = `
         "createdAt": "2010-09-19T03:58:30.504Z",
         "id": "1",
         "person": Object {
-          "fullName": "Branson Gutkowski",
+          "fullName": "Branson Gutmann",
           "id": "2",
           "picture": "repellat ratione ut",
         },
@@ -503,7 +503,7 @@ exports[`with comments with next page renders correctly 1`] = `
                 "width": 36,
               },
               Object {
-                "backgroundColor": "rgb(161, 161, 152)",
+                "backgroundColor": "rgb(152, 152, 152)",
               },
               undefined,
             ]
@@ -550,7 +550,7 @@ exports[`with comments with next page renders correctly 1`] = `
                   }
                 }
               >
-                Branson Gutkowski
+                Branson Gutmann
               </Text>
             </View>
             <Text
@@ -841,7 +841,7 @@ exports[`with comments with next page without next page renders correctly 1`] = 
         "createdAt": "2010-09-19T03:58:30.504Z",
         "id": "1",
         "person": Object {
-          "fullName": "Branson Gutkowski",
+          "fullName": "Branson Gutmann",
           "id": "2",
           "picture": "repellat ratione ut",
         },
@@ -915,7 +915,7 @@ exports[`with comments with next page without next page renders correctly 1`] = 
                 "width": 36,
               },
               Object {
-                "backgroundColor": "rgb(161, 161, 152)",
+                "backgroundColor": "rgb(152, 152, 152)",
               },
               undefined,
             ]
@@ -962,7 +962,7 @@ exports[`with comments with next page without next page renders correctly 1`] = 
                   }
                 }
               >
-                Branson Gutkowski
+                Branson Gutmann
               </Text>
             </View>
             <Text

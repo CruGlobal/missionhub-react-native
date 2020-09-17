@@ -418,9 +418,9 @@ exports[`CommunityMembers should load next page 1`] = `
 +             \\"__typename\\": \\"Person\\",
 +             \\"createdAt\\": \\"2010-11-26T00:55:36.529Z\\",
 +             \\"firstName\\": \\"Shad\\",
-+             \\"fullName\\": \\"Shad Farrell\\",
++             \\"fullName\\": \\"Shad Fay\\",
 +             \\"id\\": \\"8\\",
-+             \\"lastName\\": \\"Farrell\\",
++             \\"lastName\\": \\"Fay\\",
 +             \\"picture\\": \\"accusantium sed libero\\",
 +           },
 +         },
@@ -536,7 +536,7 @@ exports[`CommunityMembers should load next page 1`] = `
 +                     \\"width\\": 36,
 +                   },
 +                   Object {
-+                     \\"backgroundColor\\": \\"rgb(167, 199, 67)\\",
++                     \\"backgroundColor\\": \\"rgb(123, 192, 67)\\",
 +                   },
 +                   Object {
 +                     \\"marginRight\\": 8,
@@ -568,7 +568,7 @@ exports[`CommunityMembers should load next page 1`] = `
 +                   }
 +                 }
 +               >
-+                 Shad Farrell
++                 Shad Fay
 +               </Text>
 +               <View
 +                 style={

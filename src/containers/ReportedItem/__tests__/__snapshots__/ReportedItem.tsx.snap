@@ -93,7 +93,7 @@ exports[`Reported Post call handleDelete 1`] = `
         }
       }
     >
--         Roscoe Johnson
+-         Roscoe Johnston
 -       </Text>
 -       <Text
 -         numberOfLines={1}
@@ -481,7 +481,7 @@ exports[`Reported Post call handleIgnore 1`] = `
         }
       }
     >
--         Roscoe Johnson
+-         Roscoe Johnston
 -       </Text>
 -       <Text
 -         numberOfLines={1}

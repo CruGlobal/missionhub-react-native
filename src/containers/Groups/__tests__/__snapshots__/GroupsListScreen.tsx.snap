@@ -69,7 +69,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Ronaldo\\",
-+                 \\"lastName\\": \\"Gorczany\\",
++                 \\"lastName\\": \\"Gottlieb\\",
 +               },
 +             ],
 +           },
@@ -92,7 +92,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Haylie\\",
-+                 \\"lastName\\": \\"Macejkovic\\",
++                 \\"lastName\\": \\"MacGyver\\",
 +               },
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
@@ -204,7 +204,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"April\\",
-+                 \\"lastName\\": \\"Fritsch\\",
++                 \\"lastName\\": \\"Funk\\",
 +               },
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
@@ -237,7 +237,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Dax\\",
-+                 \\"lastName\\": \\"Gulgowski\\",
++                 \\"lastName\\": \\"Gusikowski\\",
                 },
 +             ],
 +           },
@@ -433,7 +433,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   "width": 42,
                 },
                 Object {
-                  "backgroundColor": "rgb(122, 19, 115)",
+                  "backgroundColor": "rgb(123, 197, 115)",
                 },
                 undefined,
               ]
@@ -670,12 +670,12 @@ exports[`GroupsListScreen renders with communities 1`] = `
               Object {
                 "__typename": "Person",
                 "firstName": "Hannah",
-                "lastName": "Lemke",
+                "lastName": "Lesch",
               },
               Object {
                 "__typename": "Person",
                 "firstName": "Clinton",
-                "lastName": "Pollich",
+                "lastName": "Pouros",
               },
             ],
           },
@@ -703,7 +703,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
               Object {
                 "__typename": "Person",
                 "firstName": "Nelson",
-                "lastName": "Mueller",
+                "lastName": "Muller",
               },
             ],
           },
@@ -754,7 +754,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
               Object {
                 "__typename": "Person",
                 "firstName": "Breana",
-                "lastName": "Ledner",
+                "lastName": "Leffler",
               },
               Object {
                 "__typename": "Person",
@@ -810,7 +810,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
               Object {
                 "__typename": "Person",
                 "firstName": "Bartholome",
-                "lastName": "Lemke",
+                "lastName": "Lesch",
               },
               Object {
                 "__typename": "Person",
@@ -894,12 +894,12 @@ exports[`GroupsListScreen renders with communities 1`] = `
               Object {
                 "__typename": "Person",
                 "firstName": "Frances",
-                "lastName": "Hegmann",
+                "lastName": "Heidenreich",
               },
               Object {
                 "__typename": "Person",
                 "firstName": "Khalid",
-                "lastName": "Rohan",
+                "lastName": "Rolfson",
               },
             ],
           },
@@ -922,12 +922,12 @@ exports[`GroupsListScreen renders with communities 1`] = `
               Object {
                 "__typename": "Person",
                 "firstName": "Nettie",
-                "lastName": "Herman",
+                "lastName": "Hermann",
               },
               Object {
                 "__typename": "Person",
                 "firstName": "Favian",
-                "lastName": "Ruecker",
+                "lastName": "Runolfsdottir",
               },
             ],
           },
@@ -1025,12 +1025,12 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   Object {
                     "__typename": "Person",
                     "firstName": "Hannah",
-                    "lastName": "Lemke",
+                    "lastName": "Lesch",
                   },
                   Object {
                     "__typename": "Person",
                     "firstName": "Clinton",
-                    "lastName": "Pollich",
+                    "lastName": "Pouros",
                   },
                 ],
               },
@@ -1068,7 +1068,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   Object {
                     "__typename": "Person",
                     "firstName": "Nelson",
-                    "lastName": "Mueller",
+                    "lastName": "Muller",
                   },
                 ],
               },
@@ -1139,7 +1139,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   Object {
                     "__typename": "Person",
                     "firstName": "Breana",
-                    "lastName": "Ledner",
+                    "lastName": "Leffler",
                   },
                   Object {
                     "__typename": "Person",
@@ -1215,7 +1215,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   Object {
                     "__typename": "Person",
                     "firstName": "Bartholome",
-                    "lastName": "Lemke",
+                    "lastName": "Lesch",
                   },
                   Object {
                     "__typename": "Person",
@@ -1329,12 +1329,12 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   Object {
                     "__typename": "Person",
                     "firstName": "Frances",
-                    "lastName": "Hegmann",
+                    "lastName": "Heidenreich",
                   },
                   Object {
                     "__typename": "Person",
                     "firstName": "Khalid",
-                    "lastName": "Rohan",
+                    "lastName": "Rolfson",
                   },
                 ],
               },

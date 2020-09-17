@@ -336,7 +336,7 @@ exports[`renders empty correctly 1`] = `
                   "width": 42,
                 },
                 Object {
-                  "backgroundColor": "rgb(127, 155, 180)",
+                  "backgroundColor": "rgb(144, 123, 125)",
                 },
                 undefined,
               ]
@@ -435,7 +435,7 @@ exports[`renders empty correctly 1`] = `
         Object {
           "__typename": "Person",
           "firstName": "Hayden",
-          "fullName": "Clotilde Sanford",
+          "fullName": "Clotilde Satterfield",
           "id": "1",
           "lastName": "Zieme",
           "picture": "et porro ut",
@@ -503,7 +503,7 @@ exports[`renders empty correctly 1`] = `
             Object {
               "__typename": "Person",
               "firstName": "Hayden",
-              "fullName": "Clotilde Sanford",
+              "fullName": "Clotilde Satterfield",
               "id": "1",
               "lastName": "Zieme",
               "picture": "et porro ut",
@@ -1119,9 +1119,9 @@ exports[`renders with people correctly 1`] = `
         Object {
           "__typename": "Person",
           "firstName": "Heather",
-          "fullName": "Heather Hahn",
+          "fullName": "Heather Haley",
           "id": "9",
-          "lastName": "Hahn",
+          "lastName": "Haley",
           "picture": "totam voluptates explicabo",
           "relationshipType": "friend",
           "stage": Object {
@@ -1142,9 +1142,9 @@ exports[`renders with people correctly 1`] = `
         Object {
           "__typename": "Person",
           "firstName": "Marlene",
-          "fullName": "Marlene Ledner",
+          "fullName": "Marlene Leffler",
           "id": "11",
-          "lastName": "Ledner",
+          "lastName": "Leffler",
           "picture": "sint non voluptates",
           "relationshipType": "neighbor",
           "stage": Object {
@@ -1188,9 +1188,9 @@ exports[`renders with people correctly 1`] = `
         Object {
           "__typename": "Person",
           "firstName": "Shad",
-          "fullName": "Shad Farrell",
+          "fullName": "Shad Fay",
           "id": "15",
-          "lastName": "Farrell",
+          "lastName": "Fay",
           "picture": "ut ab voluptas",
           "relationshipType": "friend",
           "stage": Object {
@@ -1257,9 +1257,9 @@ exports[`renders with people correctly 1`] = `
         Object {
           "__typename": "Person",
           "firstName": "Haylee",
-          "fullName": "Haylee Klocko",
+          "fullName": "Haylee Koch",
           "id": "21",
-          "lastName": "Klocko",
+          "lastName": "Koch",
           "picture": "est placeat ex",
           "relationshipType": "neighbor",
           "stage": Object {
@@ -1453,9 +1453,9 @@ exports[`renders with people correctly 1`] = `
             Object {
               "__typename": "Person",
               "firstName": "Heather",
-              "fullName": "Heather Hahn",
+              "fullName": "Heather Haley",
               "id": "9",
-              "lastName": "Hahn",
+              "lastName": "Haley",
               "picture": "totam voluptates explicabo",
               "relationshipType": "friend",
               "stage": Object {
@@ -1485,9 +1485,9 @@ exports[`renders with people correctly 1`] = `
             Object {
               "__typename": "Person",
               "firstName": "Marlene",
-              "fullName": "Marlene Ledner",
+              "fullName": "Marlene Leffler",
               "id": "11",
-              "lastName": "Ledner",
+              "lastName": "Leffler",
               "picture": "sint non voluptates",
               "relationshipType": "neighbor",
               "stage": Object {
@@ -1549,9 +1549,9 @@ exports[`renders with people correctly 1`] = `
             Object {
               "__typename": "Person",
               "firstName": "Shad",
-              "fullName": "Shad Farrell",
+              "fullName": "Shad Fay",
               "id": "15",
-              "lastName": "Farrell",
+              "lastName": "Fay",
               "picture": "ut ab voluptas",
               "relationshipType": "friend",
               "stage": Object {
