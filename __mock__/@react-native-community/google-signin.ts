@@ -44,5 +44,3 @@ NativeModules.RNGoogleSignin = {
   configure: jest.fn(),
   currentUserAsync: jest.fn(),
 };
-
-export { NativeModules };
