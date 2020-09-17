@@ -1470,10 +1470,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@brainly/onesky-utils@^1.3.1":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@brainly/onesky-utils/-/onesky-utils-1.4.0.tgz#4892ba2999bc227cd9c1a93f4feb6c7068ef45c3"
-  integrity sha512-hDbDdTBVFHHwjt5odydiRWkzU0jHnc+1ftbxdPT79YmNSkcsrs37Sd9VQVs/n92aagIGKk2Ga0dl13vIymwGug==
+"@brainly/onesky-utils@^1.4.1":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@brainly/onesky-utils/-/onesky-utils-1.4.1.tgz#ee2d15567e9c617b534295fdd50abea9a3a7593e"
+  integrity sha512-Vi4u1xGUxS0IKqNZkHsgrd9z53/6P3oqdCV6Ao7O9itScnYjXfy00tZoagmAbrLtqbwsI4O08HjVQ2aYwW5vSg==
   dependencies:
     md5 "^2.0.0"
     request "^2.88.0"
