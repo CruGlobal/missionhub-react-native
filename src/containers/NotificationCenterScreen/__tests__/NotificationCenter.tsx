@@ -143,7 +143,7 @@ it('handles refresh', async () => {
   diffSnapshot();
 });
 
-it('renders Today section correctly ', async () => {
+it('renders Today section correctly', async () => {
   const { snapshot } = renderWithContext(<NotificationCenterScreen />, {
     mocks: {
       NotificationConnection: () => ({
@@ -169,7 +169,7 @@ it('renders Today section correctly ', async () => {
   snapshot();
 });
 
-it('renders Earlier section correctly ', async () => {
+it('renders Earlier section correctly', async () => {
   const { snapshot } = renderWithContext(<NotificationCenterScreen />, {
     mocks: {
       NotificationConnection: () => ({

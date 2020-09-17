@@ -44,7 +44,7 @@ const testDeepLink = async ({
 
 describe('setupFirebaseDynamicLinks', () => {
   describe('unauthenticated', () => {
-    it('should handle a link that launched the app ', async () => {
+    it('should handle a link that launched the app', async () => {
       expect(
         await testDeepLink({
           auth: false,
@@ -76,7 +76,7 @@ describe('setupFirebaseDynamicLinks', () => {
         ]
       `);
     });
-    it('should handle a link that was opened while the app was running ', async () => {
+    it('should handle a link that was opened while the app was running', async () => {
       expect(
         await testDeepLink({
           auth: false,
@@ -110,7 +110,7 @@ describe('setupFirebaseDynamicLinks', () => {
     });
   });
   describe('authenticated', () => {
-    it('should handle a link that launched the app ', async () => {
+    it('should handle a link that launched the app', async () => {
       expect(
         await testDeepLink({
           auth: true,

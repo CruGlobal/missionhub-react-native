@@ -3,12 +3,12 @@ import { TextStyle, Text } from 'react-native';
 
 import styles from './styles';
 
-interface ItemHeaderText {
+interface ItemHeaderTextProps {
   text: string;
   style?: TextStyle;
 }
 
-export default function ItemHeaderText({ text, style }: ItemHeaderText) {
+export default function ItemHeaderText({ text, style }: ItemHeaderTextProps) {
   return (
     <Text style={[styles.name, style]} numberOfLines={2}>
       {text}

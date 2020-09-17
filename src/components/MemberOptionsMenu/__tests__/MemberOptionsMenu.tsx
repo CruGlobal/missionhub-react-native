@@ -115,7 +115,7 @@ describe('MemberOptionsMenu', () => {
     expect.hasAssertions();
   });
 
-  describe(' looking at member, when I am owner', () => {
+  describe('looking at member, when I am owner', () => {
     beforeEach(
       () =>
         (props = {

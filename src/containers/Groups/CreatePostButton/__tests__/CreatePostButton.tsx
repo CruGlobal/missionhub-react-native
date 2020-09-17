@@ -136,7 +136,7 @@ it('onPress opens modal', async () => {
   diffSnapshot();
 });
 
-it('onPress navigates for PRAYER_REQUEST ', async () => {
+it('onPress navigates for PRAYER_REQUEST', async () => {
   const { getByTestId } = renderWithContext(
     <CreatePostButton
       {...props}
@@ -155,7 +155,7 @@ it('onPress navigates for PRAYER_REQUEST ', async () => {
   });
 });
 
-it('onPress navigates for QUESTION ', async () => {
+it('onPress navigates for QUESTION', async () => {
   const { getByTestId } = renderWithContext(
     <CreatePostButton {...props} type={FeedItemSubjectTypeEnum.QUESTION} />,
     { initialState },
@@ -171,7 +171,7 @@ it('onPress navigates for QUESTION ', async () => {
   });
 });
 
-it('onPress navigates for STORY ', async () => {
+it('onPress navigates for STORY', async () => {
   const { getByTestId } = renderWithContext(
     <CreatePostButton {...props} type={FeedItemSubjectTypeEnum.STORY} />,
     { initialState },
@@ -187,7 +187,7 @@ it('onPress navigates for STORY ', async () => {
   });
 });
 
-it('onPress navigates for HELP_REQUEST ', async () => {
+it('onPress navigates for HELP_REQUEST', async () => {
   const { getByTestId } = renderWithContext(
     <CreatePostButton {...props} type={FeedItemSubjectTypeEnum.HELP_REQUEST} />,
     { initialState },
@@ -203,7 +203,7 @@ it('onPress navigates for HELP_REQUEST ', async () => {
   });
 });
 
-it('onPress navigates for THOUGHT ', async () => {
+it('onPress navigates for THOUGHT', async () => {
   const { getByTestId } = renderWithContext(
     <CreatePostButton {...props} type={FeedItemSubjectTypeEnum.THOUGHT} />,
     { initialState },
@@ -219,7 +219,7 @@ it('onPress navigates for THOUGHT ', async () => {
   });
 });
 
-it('onPress navigates for ANNOUNCEMENT ', async () => {
+it('onPress navigates for ANNOUNCEMENT', async () => {
   const { getByTestId } = renderWithContext(
     <CreatePostButton {...props} type={FeedItemSubjectTypeEnum.ANNOUNCEMENT} />,
     {

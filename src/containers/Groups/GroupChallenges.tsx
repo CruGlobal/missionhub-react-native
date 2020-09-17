@@ -12,11 +12,9 @@ import {
   createChallenge,
 } from '../../actions/challenges';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { TrackStateContext } from '../../actions/analytics';
 import BottomButton from '../../components/BottomButton';
 import { organizationSelector } from '../../selectors/organizations';
 import { isAdminOrOwner } from '../../utils/common';
-import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
 import { challengesSelector } from '../../selectors/challenges';
 import { navigatePush } from '../../actions/navigation';
 import { refreshCommunity } from '../../actions/organizations';
@@ -32,8 +30,6 @@ import {
   getMyCommunityPermissionVariables,
 } from './CreatePostButton/__generated__/getMyCommunityPermission';
 import { GET_MY_COMMUNITY_PERMISSION_QUERY } from './CreatePostButton/queries';
-
-type permissionType = TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 
 const GroupChallenges = () => {
   const { t } = useTranslation('groupsChallenge');

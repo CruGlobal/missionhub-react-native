@@ -21,7 +21,6 @@ import { AnyAction } from 'redux';
 
 import {
   ACTIONS,
-  ANALYTICS_PERMISSION_TYPE,
   SAVE_PENDING_POST,
   DELETE_PENDING_POST,
   PENDING_POST_FAILED,
@@ -43,7 +42,6 @@ import theme from '../../../theme';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import {
   trackActionWithoutData,
-  TrackStateContext,
   trackAction,
 } from '../../../actions/analytics';
 import { navigateBack, navigatePush } from '../../../actions/navigation';
@@ -77,8 +75,6 @@ import { CREATE_POST, UPDATE_POST } from './queries';
 import styles from './styles';
 import { CreatePost, CreatePostVariables } from './__generated__/CreatePost';
 import { UpdatePost, UpdatePostVariables } from './__generated__/UpdatePost';
-
-type permissionType = TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 
 interface CreatePostScreenParams {
   onComplete: () => void;
