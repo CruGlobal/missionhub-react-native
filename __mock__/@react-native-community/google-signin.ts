@@ -18,6 +18,7 @@ export const mockUserInfo = {
 };
 
 jest.mock('@react-native-community/google-signin', () => ({
+  // @ts-ignore
   ...jest.requireActual('@react-native-community/google-signin'),
   GoogleSignin: {
     configure: jest.fn(),

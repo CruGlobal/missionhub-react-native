@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Animated, View, Text } from 'react-native';
+import { Animated, View, Text, SectionListData } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 import { useQuery } from '@apollo/react-hooks';
@@ -85,7 +85,7 @@ const ChallengeFeed = ({
   const renderSectionHeader = ({
     section: { title },
   }: {
-    section: { title: string };
+    section: SectionListData<ChallengeItemInterface>;
   }) => (
     <View style={styles.header}>
       <Text style={styles.title}>{title}</Text>

@@ -78,7 +78,11 @@ export const createApolloClient = async () => {
     credentials: 'same-origin',
   });
 
-  const link = ApolloLink.from([rollbarLink, authLink, uploadLink]);
+  const link = ApolloLink.from([
+    rollbarLink,
+    authLink,
+    (uploadLink as unknown) as ApolloLink,
+  ]);
 
   const fragmentMatcher = new IntrospectionFragmentMatcher({
     introspectionQueryResultData: introspectionQueryResultData as IntrospectionResultData,
