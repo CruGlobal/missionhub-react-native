@@ -3,15 +3,6 @@ import { ScrollViewProps, ViewStyle, StyleSheet, Animated } from 'react-native';
 
 type AnimationConfig = { animated?: boolean };
 
-type CollapsibleHeaderProps = {
-  interpolatedHeaderTranslation: (
-    from: number,
-    to: number,
-  ) => Animated.AnimatedInterpolation;
-  showHeader: (options: AnimationConfig | unknown) => void;
-  hideHeader: (options: AnimationConfig | unknown) => void;
-};
-
 type CollapsibleHeaderViewProps<T extends ScrollViewProps> = T & {
   readonly headerHeight: number;
   readonly statusBarHeight?: number;

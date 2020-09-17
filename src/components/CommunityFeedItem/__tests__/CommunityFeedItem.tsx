@@ -181,7 +181,7 @@ describe('global community', () => {
 });
 
 describe('Community', () => {
-  it('renders post correctly without add to steps button ', async () => {
+  it('renders post correctly without add to steps button', async () => {
     const { snapshot } = renderWithContext(
       <CommunityFeedItem
         feedItem={storyPostItem}

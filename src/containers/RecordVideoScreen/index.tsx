@@ -25,7 +25,7 @@ export const RecordVideoScreen = () => {
   const { t } = useTranslation('recordVideo');
   const camera = useRef<RNCamera>(null);
   const dispatch = useDispatch();
-  const onEndRecord: (response: RecordResponse) => void = useNavigationParam(
+  const onEndRecord: RecordVideoScreenNavParams['onEndRecord'] = useNavigationParam(
     'onEndRecord',
   );
   const [videoState, setVideoState] = useState<VideoState>('NOT_RECORDING');

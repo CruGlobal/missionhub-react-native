@@ -5,12 +5,6 @@ import { Organization } from '../reducers/organizations';
 import { RootState } from '../reducers';
 import { getAuthPerson } from '../auth/authUtilities';
 
-interface Org {
-  id: string;
-  people: Person[];
-  name: string;
-}
-
 export const personSelector = createSelector(
   ({ people }: RootState) => people.people,
   (_: RootState, { personId }: { personId?: string }) => personId,

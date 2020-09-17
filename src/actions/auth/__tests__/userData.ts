@@ -46,7 +46,7 @@ beforeEach(() => {
 });
 
 describe('updateLocaleAndTimezone', () => {
-  it('should update timezone ', async () => {
+  it('should update timezone', async () => {
     MockDate.set('2018-02-06');
     i18next.language = 'en-US';
 
