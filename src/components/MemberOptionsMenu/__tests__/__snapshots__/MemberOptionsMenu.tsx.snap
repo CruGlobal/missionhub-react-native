@@ -1,20 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MemberOptionsMenu  looking at member, when I am owner renders correctly 1`] = `
+exports[`MemberOptionsMenu for me, as owner renders correctly 1`] = `
 <withI18nextTranslation(PopupMenu)
   actions={
     Array [
       Object {
         "onPress": [Function],
-        "text": "Make Admin",
-      },
-      Object {
-        "onPress": [Function],
-        "text": "Make Owner",
-      },
-      Object {
-        "onPress": [Function],
-        "text": "Remove Member",
+        "text": "Leave Community",
       },
     ]
   }
@@ -29,13 +21,21 @@ exports[`MemberOptionsMenu  looking at member, when I am owner renders correctly
 />
 `;
 
-exports[`MemberOptionsMenu for me, as owner renders correctly 1`] = `
+exports[`MemberOptionsMenu looking at member, when I am owner renders correctly 1`] = `
 <withI18nextTranslation(PopupMenu)
   actions={
     Array [
       Object {
         "onPress": [Function],
-        "text": "Leave Community",
+        "text": "Make Admin",
+      },
+      Object {
+        "onPress": [Function],
+        "text": "Make Owner",
+      },
+      Object {
+        "onPress": [Function],
+        "text": "Remove Member",
       },
     ]
   }

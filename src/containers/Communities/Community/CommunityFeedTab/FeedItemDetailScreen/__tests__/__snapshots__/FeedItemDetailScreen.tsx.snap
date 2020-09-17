@@ -2522,7 +2522,7 @@ exports[`refresh calls refreshComments 1`] = `
 +           \\"id\\": \\"17\\",
             \\"person\\": Object {
               \\"__typename\\": \\"Person\\",
--             \\"fullName\\": \\"Kaden Ortiz\\",
+-             \\"fullName\\": \\"Kaden Osinski\\",
 -             \\"id\\": \\"7\\",
 -             \\"picture\\": \\"repudiandae esse blanditiis\\",
 +             \\"fullName\\": \\"Yasmin Olson\\",
@@ -2571,8 +2571,8 @@ exports[`refresh calls refreshComments 1`] = `
                       \\"width\\": 48,
                     },
                     Object {
--                     \\"backgroundColor\\": \\"rgb(152, 167, 125)\\",
-+                     \\"backgroundColor\\": \\"rgb(155, 121, 115)\\",
+-                     \\"backgroundColor\\": \\"rgb(161, 122, 130)\\",
++                     \\"backgroundColor\\": \\"rgb(154, 216, 115)\\",
                     },
                     undefined,
                   ]
@@ -2687,7 +2687,7 @@ exports[`refresh calls refreshComments 1`] = `
 +               \\"id\\": \\"17\\",
                 \\"person\\": Object {
                   \\"__typename\\": \\"Person\\",
--                 \\"fullName\\": \\"Kaden Ortiz\\",
+-                 \\"fullName\\": \\"Kaden Osinski\\",
 -                 \\"id\\": \\"7\\",
 -                 \\"picture\\": \\"repudiandae esse blanditiis\\",
 +                 \\"fullName\\": \\"Yasmin Olson\\",
@@ -2765,7 +2765,7 @@ exports[`refresh calls refreshComments 1`] = `
               \\"width\\": 36,
             },
             Object {
--             \\"backgroundColor\\": \\"rgb(197, 162, 115)\\",
+-             \\"backgroundColor\\": \\"rgb(167, 127, 180)\\",
 +             \\"backgroundColor\\": \\"rgb(161, 115, 125)\\",
             },
             undefined,
@@ -2958,7 +2958,7 @@ exports[`renders correctly 1`] = `
           "id": "5",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Mathias Larson",
+            "fullName": "Mathias Leannon",
             "id": "6",
             "picture": "debitis et saepe",
           },
@@ -3456,7 +3456,7 @@ exports[`renders correctly 1`] = `
               "id": "5",
               "person": Object {
                 "__typename": "Person",
-                "fullName": "Mathias Larson",
+                "fullName": "Mathias Leannon",
                 "id": "6",
                 "picture": "debitis et saepe",
               },
@@ -3776,7 +3776,7 @@ exports[`renders correctly with communityId passed in 1`] = `
           "id": "5",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Mathias Larson",
+            "fullName": "Mathias Leannon",
             "id": "6",
             "picture": "debitis et saepe",
           },
@@ -4274,7 +4274,7 @@ exports[`renders correctly with communityId passed in 1`] = `
               "id": "5",
               "person": Object {
                 "__typename": "Person",
-                "fullName": "Mathias Larson",
+                "fullName": "Mathias Leannon",
                 "id": "6",
                 "picture": "debitis et saepe",
               },

@@ -145,7 +145,7 @@ exports[`renders with feed items correctly 1`] = `
           Object {
             "__typename": "Person",
             "firstName": "Mathias",
-            "fullName": "Mathias Larson",
+            "fullName": "Mathias Leannon",
             "id": "3",
             "picture": "debitis et saepe",
           },
@@ -161,7 +161,7 @@ exports[`renders with feed items correctly 1`] = `
           Object {
             "__typename": "Person",
             "firstName": "Alison",
-            "fullName": "Alison Goldner",
+            "fullName": "Alison Goodwin",
             "id": "5",
             "picture": "ipsum inventore debitis",
           },
