@@ -74,12 +74,14 @@ export const useSignInWithFacebook = () => {
         throw new Error('apiSignInWithFacebook did not return an access token');
       }
     } catch (error) {
-      if (error !== AuthError.None) {
+      if (error === AuthError.None) {
+        throw AuthError.None;
+      } else {
         setError(AuthError.Unknown);
         rollbar.error(error);
         LoginManager.logOut();
+        throw AuthError.Unknown;
       }
-      throw AuthError.Unknown;
     } finally {
       setProviderAuthInProgress(false);
     }

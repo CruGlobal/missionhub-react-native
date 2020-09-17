@@ -13,12 +13,14 @@ import {
   SignInWithAnonymousType,
 } from '../providers/useSignInWithAnonymous';
 import { useSignInWithFacebook } from '../providers/useSignInWithFacebook';
+import { useSignInWithGoogle } from '../providers/useSignInWithGoogle';
 import { useSignInWithApple } from '../providers/useSignInWithApple';
 import { useAuthSuccess } from '../authHooks';
 
 jest.mock('../providers/useSignInWithTheKey');
 jest.mock('../providers/useSignInWithAnonymous');
 jest.mock('../providers/useSignInWithFacebook');
+jest.mock('../providers/useSignInWithGoogle');
 jest.mock('../providers/useSignInWithApple');
 jest.mock('../authHooks');
 
@@ -28,6 +30,8 @@ const signInWithAnonymous = jest.fn();
 (useSignInWithAnonymous as jest.Mock).mockReturnValue({ signInWithAnonymous });
 const signInWithFacebook = jest.fn();
 (useSignInWithFacebook as jest.Mock).mockReturnValue({ signInWithFacebook });
+const signInWithGoogle = jest.fn();
+(useSignInWithGoogle as jest.Mock).mockReturnValue({ signInWithGoogle });
 const signInWithApple = jest.fn();
 (useSignInWithApple as jest.Mock).mockReturnValue({ signInWithApple });
 const authSuccess = jest.fn();
@@ -49,7 +53,7 @@ it('should authenticate with Google', async () => {
     provider: IdentityProvider.Google,
   });
 
-  // TODO: add Google implementation
+  expect(signInWithGoogle).toHaveBeenCalled();
   expect(authSuccess).toHaveBeenCalled();
 });
 

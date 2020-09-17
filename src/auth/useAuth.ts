@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 
 import { useSignInWithApple } from './providers/useSignInWithApple';
 import { useSignInWithFacebook } from './providers/useSignInWithFacebook';
+import { useSignInWithGoogle } from './providers/useSignInWithGoogle';
 import {
   useSignInWithTheKey,
   SignInWithTheKeyOptions,
@@ -41,6 +42,11 @@ export const useAuth = () => {
     error: signInWithFacebookError,
   } = useSignInWithFacebook();
   const {
+    signInWithGoogle,
+    loading: signInWithGoogleLoading,
+    error: signInWithGoogleError,
+  } = useSignInWithGoogle();
+  const {
     signInWithTheKey,
     loading: signInWithTheKeyLoading,
     error: signInWithTheKeyError,
@@ -59,7 +65,8 @@ export const useAuth = () => {
         await signInWithApple();
         break;
       case IdentityProvider.Google:
-        // TODO: add Google implementation
+        await signInWithGoogle();
+        break;
         break;
       case IdentityProvider.Facebook:
         await signInWithFacebook();
@@ -78,11 +85,13 @@ export const useAuth = () => {
     authenticate,
     loading:
       signInWithAppleLoading ||
+      signInWithGoogleLoading ||
       signInWithFacebookLoading ||
       signInWithTheKeyLoading ||
       signInWithAnonymousLoading,
     error:
       signInWithAppleError ||
+      signInWithGoogleError ||
       signInWithFacebookError ||
       signInWithTheKeyError ||
       signInWithAnonymousError,

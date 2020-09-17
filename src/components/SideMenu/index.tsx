@@ -40,6 +40,7 @@ import { useIsAnonymousUser } from '../../auth/authHooks';
 import { GET_MY_AVATAR_AND_EMAIL } from './queries';
 import { GetMyAvatarAndEmail } from './__generated__/GetMyAvatarAndEmail';
 import styles from './styles';
+import { useDevMenu, DevMenu } from './DevMenu/DevMenu';
 
 const SideMenu = () => {
   useAnalytics('menu', { screenType: ANALYTICS_SCREEN_TYPES.drawer });
@@ -51,6 +52,7 @@ const SideMenu = () => {
 
   const needsToUpdate = useCheckForUpdate();
   const isOpen = useIsDrawerOpen();
+  const { isDevMenuVisible, onVersionNumberPress } = useDevMenu();
 
   useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress', onBackPress);
@@ -212,7 +214,7 @@ const SideMenu = () => {
           </Text>
         ) : null}
         <View style={styles.versionContainer}>
-          <Text style={styles.versionText}>{`${t(
+          <Text style={styles.versionText} onPress={onVersionNumberPress}>{`${t(
             'version',
           )} ${DeviceInfo.getVersion()}`}</Text>
           {needsToUpdate ? (
@@ -226,6 +228,7 @@ const SideMenu = () => {
             />
           ) : null}
         </View>
+        <DevMenu isDevMenuVisible={isDevMenuVisible} />
       </ScrollView>
     </SafeAreaView>
   );

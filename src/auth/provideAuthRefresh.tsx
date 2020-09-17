@@ -1,9 +1,11 @@
 import { AccessToken } from 'react-native-fbsdk';
 import { useDispatch } from 'react-redux';
+import { GoogleSignin } from '@react-native-community/google-signin';
 
 import { logout } from '../actions/auth/auth';
 
 import { useSignInWithFacebook } from './providers/useSignInWithFacebook';
+import { useSignInWithGoogle } from './providers/useSignInWithGoogle';
 import {
   useSignInWithTheKey,
   SignInWithTheKeyType,
@@ -29,6 +31,8 @@ export const useProvideAuthRefresh = () => {
 
   const { signInWithFacebook } = useSignInWithFacebook();
 
+  const { signInWithGoogle } = useSignInWithGoogle();
+
   const { signInWithTheKey } = useSignInWithTheKey();
 
   const { signInWithApple } = useSignInWithApple();
@@ -42,26 +46,35 @@ export const useProvideAuthRefresh = () => {
       return false;
     }
 
-    if (await getTheKeyRefreshToken()) {
-      await signInWithTheKey({ type: SignInWithTheKeyType.Refresh });
-      return true;
-    }
-
     if (await getAnonymousUid()) {
       await signInWithAnonymous({ type: SignInWithAnonymousType.Refresh });
       return true;
     }
 
-    const { accessToken } = (await AccessToken.getCurrentAccessToken()) || {};
-    if (accessToken) {
-      await signInWithFacebook();
-      return true;
-    }
+    try {
+      if (await getTheKeyRefreshToken()) {
+        await signInWithTheKey({ type: SignInWithTheKeyType.Refresh });
+        return true;
+      }
 
-    const appleId = await getAppleUserId();
-    if (appleId) {
-      await signInWithApple(appleId);
-      return true;
+      const { accessToken } = (await AccessToken.getCurrentAccessToken()) || {};
+      if (accessToken) {
+        await signInWithFacebook();
+        return true;
+      }
+
+      const appleId = await getAppleUserId();
+      if (appleId) {
+        await signInWithApple(appleId);
+        return true;
+      }
+
+      if (await GoogleSignin.isSignedIn()) {
+        await signInWithGoogle();
+        return true;
+      }
+    } catch {
+      // On error, we should proceed to logout code below
     }
 
     dispatch(logout(true));

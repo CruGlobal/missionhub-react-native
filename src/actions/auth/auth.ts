@@ -1,5 +1,6 @@
 import PushNotification from 'react-native-push-notification';
 import { LoginManager } from 'react-native-fbsdk';
+import { GoogleSignin } from '@react-native-community/google-signin';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
@@ -29,6 +30,9 @@ export function logout(forcedLogout = false) {
       rollbar.clearPerson();
       try {
         LoginManager.logOut();
+      } catch {}
+      try {
+        GoogleSignin.signOut();
       } catch {}
       await deleteAllAuthTokens();
     }

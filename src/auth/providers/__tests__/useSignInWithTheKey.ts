@@ -72,11 +72,13 @@ it('should sign in wih The Key', async () => {
     },
   });
 
-  await result.current.signInWithTheKey({
-    type: SignInWithTheKeyType.EmailPassword,
-    email,
-    password,
-  });
+  await act(() =>
+    result.current.signInWithTheKey({
+      type: SignInWithTheKeyType.EmailPassword,
+      email,
+      password,
+    }),
+  );
 
   expect(callApi).toHaveBeenCalledWith(
     REQUESTS.KEY_LOGIN,
