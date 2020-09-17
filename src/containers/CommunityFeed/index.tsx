@@ -247,7 +247,7 @@ export const CommunityFeed = ({
     ({
       section: { title },
     }: {
-      section: SectionListData<CommunityFeedSection>;
+      section: SectionListData<FeedItemFragment>;
     }) => (
       <View
         style={[
