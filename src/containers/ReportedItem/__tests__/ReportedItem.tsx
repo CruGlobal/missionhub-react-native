@@ -21,8 +21,6 @@ import ReportedItem from '..';
 
 jest.mock('../../../actions/navigation');
 
-const initialState = { auth: { person: { id: '1' } } };
-
 const mockReportedId = '1234';
 
 const reportedComment = mockFragment<ReportedItemFragment>(
@@ -54,7 +52,6 @@ beforeEach(() => {
 it('renders correctly', () => {
   const { snapshot } = renderWithContext(
     <ReportedItem reportedItem={reportedComment} />,
-    { initialState },
   );
   snapshot();
 });
@@ -64,7 +61,6 @@ describe('Reported comment', () => {
     Alert.alert = jest.fn();
     const { getByTestId, snapshot } = renderWithContext(
       <ReportedItem reportedItem={reportedComment} />,
-      { initialState },
     );
 
     await fireEvent.press(getByTestId('deleteButton'));
@@ -99,7 +95,6 @@ describe('Reported comment', () => {
   it('call handleIgnore', async () => {
     const { snapshot, getByTestId } = renderWithContext(
       <ReportedItem reportedItem={reportedComment} />,
-      { initialState },
     );
     await fireEvent.press(getByTestId('ignoreButton'));
     expect(useMutation).toHaveBeenMutatedWith(
@@ -123,9 +118,6 @@ describe('Reported Post', () => {
     Alert.alert = jest.fn();
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <ReportedItem reportedItem={reportedPost} />,
-      {
-        initialState,
-      },
     );
     recordSnapshot();
     await fireEvent.press(getByTestId('deleteButton'));
@@ -159,9 +151,6 @@ describe('Reported Post', () => {
   it('call handleIgnore', async () => {
     const { diffSnapshot, recordSnapshot, getByTestId } = renderWithContext(
       <ReportedItem reportedItem={reportedPost} />,
-      {
-        initialState,
-      },
     );
     recordSnapshot();
     await fireEvent.press(getByTestId('ignoreButton'));
@@ -203,7 +192,6 @@ it('opens post', () => {
   );
   const { getByTestId } = renderWithContext(
     <ReportedItem reportedItem={reportedPost} />,
-    { initialState },
   );
   fireEvent.press(getByTestId('openPostButton'));
 

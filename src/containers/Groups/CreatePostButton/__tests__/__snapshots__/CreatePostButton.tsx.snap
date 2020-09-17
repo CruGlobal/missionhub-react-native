@@ -60,7 +60,7 @@ exports[`does render announcement for owner 1`] = `
       resizeMode="cover"
       source={
         Object {
-          "uri": "repellat ratione ut",
+          "uri": "natus et eos",
         }
       }
       style={
@@ -73,7 +73,7 @@ exports[`does render announcement for owner 1`] = `
             "width": 24,
           },
           Object {
-            "backgroundColor": "rgb(72, 144, 67)",
+            "backgroundColor": "rgb(135, 154, 115)",
           },
           Object {
             "marginLeft": -15,
@@ -609,7 +609,7 @@ exports[`renders correctly 1`] = `
       resizeMode="cover"
       source={
         Object {
-          "uri": "ut sunt qui",
+          "uri": "velit omnis et",
         }
       }
       style={
@@ -622,7 +622,7 @@ exports[`renders correctly 1`] = `
             "width": 24,
           },
           Object {
-            "backgroundColor": "rgb(161, 161, 152)",
+            "backgroundColor": "rgb(161, 155, 115)",
           },
           Object {
             "marginLeft": -15,
@@ -704,7 +704,7 @@ exports[`renders correctly for admin 1`] = `
       resizeMode="cover"
       source={
         Object {
-          "uri": "repellat ratione ut",
+          "uri": "natus et eos",
         }
       }
       style={
@@ -717,7 +717,7 @@ exports[`renders correctly for admin 1`] = `
             "width": 24,
           },
           Object {
-            "backgroundColor": "rgb(72, 144, 67)",
+            "backgroundColor": "rgb(155, 154, 115)",
           },
           Object {
             "marginLeft": -15,
@@ -799,7 +799,7 @@ exports[`renders correctly for owner 1`] = `
       resizeMode="cover"
       source={
         Object {
-          "uri": "repellat ratione ut",
+          "uri": "natus et eos",
         }
       }
       style={
@@ -812,7 +812,7 @@ exports[`renders correctly for owner 1`] = `
             "width": 24,
           },
           Object {
-            "backgroundColor": "rgb(72, 144, 67)",
+            "backgroundColor": "rgb(155, 154, 115)",
           },
           Object {
             "marginLeft": -15,
@@ -930,6 +930,8 @@ exports[`renders correctly with type 1`] = `
             },
             Object {
               "fontSize": 12,
+              "height": 12,
+              "lineHeight": 12,
             },
           ]
         }

@@ -23,8 +23,7 @@ export const SelectPersonStageFlowScreens = {
       skipSelectSteps,
       contactAssignmentId,
     }) => (dispatch, getState) => {
-      const { people } = getState();
-      const person = personSelector({ people }, { personId });
+      const person = personSelector(getState(), { personId });
 
       dispatch(
         // @ts-ignore

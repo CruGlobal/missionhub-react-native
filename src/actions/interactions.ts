@@ -1,5 +1,6 @@
 import { ACTIONS } from '../constants';
 import { REQUESTS } from '../api/routes';
+import { getAuthPerson } from '../auth/authUtilities';
 
 import callApi from './api';
 import { trackAction, trackActionWithoutData } from './analytics';
@@ -19,10 +20,8 @@ export function addNewInteraction(
   organizationId,
 ) {
   // @ts-ignore
-  return async (dispatch, getState) => {
-    const {
-      person: { id: myId },
-    } = getState().auth;
+  return async dispatch => {
+    const myId = getAuthPerson().id;
     if (!personId) {
       return Promise.reject(
         'Invalid Data from addNewInteraction: no personId passed in',

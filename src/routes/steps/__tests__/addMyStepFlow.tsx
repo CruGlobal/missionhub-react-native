@@ -21,7 +21,6 @@ const stage = { id: '1' };
 const stepSuggestionId = '444';
 
 const initialState = {
-  auth: { person: { id: myId, user: { pathway_stage_id: '0' } } },
   people: { people: { [myId]: {} } },
   steps: { suggestedForMe: { [stage.id]: [stage] } },
   onboarding: { currentlyOnboarding: false },

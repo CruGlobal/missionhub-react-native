@@ -1,6 +1,6 @@
 import 'react-native';
 import React from 'react';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { useLogoutOnBack } from '../../../utils/hooks/useLogoutOnBack';
@@ -10,9 +10,9 @@ import GetStartedScreen from '..';
 jest.mock('react-native-device-info');
 jest.mock('../../../utils/hooks/useLogoutOnBack');
 jest.mock('../../../utils/hooks/useAnalytics');
+jest.mock('../../../auth/authStore', () => ({ isAuthenticated: () => true }));
 
 const initialState = {
-  auth: { person: { first_name: 'Roger' } },
   onboarding: { currentlyOnboarding: true },
 };
 const next = jest.fn();
@@ -24,10 +24,14 @@ beforeEach(() => {
   (useLogoutOnBack as jest.Mock).mockReturnValue(back);
 });
 
-it('renders correctly', () => {
-  renderWithContext(<GetStartedScreen next={next} />, {
+it('renders correctly', async () => {
+  const { snapshot } = renderWithContext(<GetStartedScreen next={next} />, {
     initialState,
-  }).snapshot();
+  });
+
+  await flushMicrotasksQueue();
+
+  snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(
     ['onboarding', 'personal greeting'],
@@ -35,12 +39,19 @@ it('renders correctly', () => {
   );
 });
 
-it('renders without back button correctly', () => {
+it('renders without back button correctly', async () => {
   (useLogoutOnBack as jest.Mock).mockReturnValue(null);
 
-  renderWithContext(<GetStartedScreen next={next} enableBackButton={false} />, {
-    initialState,
-  }).snapshot();
+  const { snapshot } = renderWithContext(
+    <GetStartedScreen next={next} enableBackButton={false} />,
+    {
+      initialState,
+    },
+  );
+
+  await flushMicrotasksQueue();
+
+  snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(
     ['onboarding', 'personal greeting'],

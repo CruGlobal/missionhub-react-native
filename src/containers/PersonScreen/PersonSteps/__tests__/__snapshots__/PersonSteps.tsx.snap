@@ -62,7 +62,7 @@ exports[`renders correctly when me and no steps 1`] = `
     refreshControl={
       <MyRefreshControl
         onRefresh={[Function]}
-        refreshing={true}
+        refreshing={false}
       />
     }
     renderItem={[Function]}
@@ -273,7 +273,7 @@ exports[`renders correctly when no steps 1`] = `
     refreshControl={
       <MyRefreshControl
         onRefresh={[Function]}
-        refreshing={true}
+        refreshing={false}
       />
     }
     renderItem={[Function]}
@@ -520,23 +520,23 @@ exports[`renders correctly with completed steps 1`] = `
               "__typename": "Step",
               "community": Object {
                 "__typename": "Community",
-                "id": "4",
+                "id": "7",
               },
               "completedAt": null,
-              "id": "2",
+              "id": "5",
               "receiver": Object {
                 "__typename": "Person",
-                "fullName": "Chyna Howe",
-                "id": "3",
+                "fullName": "Connor Kihn",
+                "id": "6",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
-                "id": "5",
-                "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
+                "id": "8",
+                "nextOccurrenceAt": "2014-09-11T09:20:29.756Z",
                 "reminderType": "once",
               },
-              "stepType": "care",
-              "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
+              "stepType": "learn",
+              "title": "Recusandae ut nulla quam ipsam nobis.",
             },
           ],
           "key": "active",
@@ -547,23 +547,23 @@ exports[`renders correctly with completed steps 1`] = `
               "__typename": "Step",
               "community": Object {
                 "__typename": "Community",
-                "id": "9",
+                "id": "12",
               },
               "completedAt": null,
-              "id": "7",
+              "id": "10",
               "receiver": Object {
                 "__typename": "Person",
-                "fullName": "Alek Lesch",
-                "id": "8",
+                "fullName": "Precious Rau",
+                "id": "11",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
-                "id": "10",
-                "nextOccurrenceAt": "2015-06-20T04:51:30.834Z",
+                "id": "13",
+                "nextOccurrenceAt": "2019-02-09T06:38:55.578Z",
                 "reminderType": "once",
               },
-              "stepType": "bond",
-              "title": "Ipsam nobis cupiditate sed dignissimos debitis.",
+              "stepType": "relate",
+              "title": "Blanditiis natus et eos itaque velit.",
             },
           ],
           "key": "completed",
@@ -628,23 +628,23 @@ exports[`renders correctly with completed steps 1`] = `
               "__typename": "Step",
               "community": Object {
                 "__typename": "Community",
-                "id": "4",
+                "id": "7",
               },
               "completedAt": null,
-              "id": "2",
+              "id": "5",
               "receiver": Object {
                 "__typename": "Person",
-                "fullName": "Chyna Howe",
-                "id": "3",
+                "fullName": "Connor Kihn",
+                "id": "6",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
-                "id": "5",
-                "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
+                "id": "8",
+                "nextOccurrenceAt": "2014-09-11T09:20:29.756Z",
                 "reminderType": "once",
               },
-              "stepType": "care",
-              "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
+              "stepType": "learn",
+              "title": "Recusandae ut nulla quam ipsam nobis.",
             }
           }
           testID="stepItem"
@@ -729,23 +729,23 @@ exports[`renders correctly with completed steps 1`] = `
               "__typename": "Step",
               "community": Object {
                 "__typename": "Community",
-                "id": "9",
+                "id": "12",
               },
               "completedAt": null,
-              "id": "7",
+              "id": "10",
               "receiver": Object {
                 "__typename": "Person",
-                "fullName": "Alek Lesch",
-                "id": "8",
+                "fullName": "Precious Rau",
+                "id": "11",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
-                "id": "10",
-                "nextOccurrenceAt": "2015-06-20T04:51:30.834Z",
+                "id": "13",
+                "nextOccurrenceAt": "2019-02-09T06:38:55.578Z",
                 "reminderType": "once",
               },
-              "stepType": "bond",
-              "title": "Ipsam nobis cupiditate sed dignissimos debitis.",
+              "stepType": "relate",
+              "title": "Blanditiis natus et eos itaque velit.",
             }
           }
           testID="stepItem"
@@ -875,23 +875,23 @@ exports[`renders correctly with steps 1`] = `
               "__typename": "Step",
               "community": Object {
                 "__typename": "Community",
-                "id": "4",
+                "id": "7",
               },
               "completedAt": null,
-              "id": "2",
+              "id": "5",
               "receiver": Object {
                 "__typename": "Person",
-                "fullName": "Chyna Howe",
-                "id": "3",
+                "fullName": "Connor Kihn",
+                "id": "6",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
-                "id": "5",
-                "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
+                "id": "8",
+                "nextOccurrenceAt": "2014-09-11T09:20:29.756Z",
                 "reminderType": "once",
               },
-              "stepType": "care",
-              "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
+              "stepType": "learn",
+              "title": "Recusandae ut nulla quam ipsam nobis.",
             },
           ],
           "key": "active",
@@ -955,23 +955,23 @@ exports[`renders correctly with steps 1`] = `
               "__typename": "Step",
               "community": Object {
                 "__typename": "Community",
-                "id": "4",
+                "id": "7",
               },
               "completedAt": null,
-              "id": "2",
+              "id": "5",
               "receiver": Object {
                 "__typename": "Person",
-                "fullName": "Chyna Howe",
-                "id": "3",
+                "fullName": "Connor Kihn",
+                "id": "6",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
-                "id": "5",
-                "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
+                "id": "8",
+                "nextOccurrenceAt": "2014-09-11T09:20:29.756Z",
                 "reminderType": "once",
               },
-              "stepType": "care",
-              "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
+              "stepType": "learn",
+              "title": "Recusandae ut nulla quam ipsam nobis.",
             }
           }
           testID="stepItem"
@@ -1058,30 +1058,30 @@ exports[`should paginate 1`] = `
 @@ -64,10 +64,32 @@
                   \\"reminderType\\": \\"once\\",
                 },
-                \\"stepType\\": \\"care\\",
-                \\"title\\": \\"Recusandae alias consequuntur corporis repellat ratione ut sunt.\\",
+                \\"stepType\\": \\"learn\\",
+                \\"title\\": \\"Recusandae ut nulla quam ipsam nobis.\\",
               },
 +             Object {
 +               \\"__typename\\": \\"Step\\",
 +               \\"community\\": Object {
 +                 \\"__typename\\": \\"Community\\",
-+                 \\"id\\": \\"9\\",
++                 \\"id\\": \\"12\\",
 +               },
 +               \\"completedAt\\": null,
-+               \\"id\\": \\"7\\",
++               \\"id\\": \\"10\\",
 +               \\"receiver\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Alek Lesch\\",
-+                 \\"id\\": \\"8\\",
++                 \\"fullName\\": \\"Precious Rau\\",
++                 \\"id\\": \\"11\\",
 +               },
 +               \\"reminder\\": Object {
 +                 \\"__typename\\": \\"StepReminder\\",
-+                 \\"id\\": \\"10\\",
-+                 \\"nextOccurrenceAt\\": \\"2015-06-20T04:51:30.834Z\\",
++                 \\"id\\": \\"13\\",
++                 \\"nextOccurrenceAt\\": \\"2019-02-09T06:38:55.578Z\\",
 +                 \\"reminderType\\": \\"once\\",
 +               },
-+               \\"stepType\\": \\"bond\\",
-+               \\"title\\": \\"Ipsam nobis cupiditate sed dignissimos debitis.\\",
++               \\"stepType\\": \\"relate\\",
++               \\"title\\": \\"Blanditiis natus et eos itaque velit.\\",
 +             },
             ],
             \\"key\\": \\"active\\",
@@ -1089,11 +1089,11 @@ exports[`should paginate 1`] = `
         ]
       }
 @@ -143,10 +165,43 @@
-                  \\"nextOccurrenceAt\\": \\"2010-09-08T06:46:37.996Z\\",
+                  \\"nextOccurrenceAt\\": \\"2014-09-11T09:20:29.756Z\\",
                   \\"reminderType\\": \\"once\\",
                 },
-                \\"stepType\\": \\"care\\",
-                \\"title\\": \\"Recusandae alias consequuntur corporis repellat ratione ut sunt.\\",
+                \\"stepType\\": \\"learn\\",
+                \\"title\\": \\"Recusandae ut nulla quam ipsam nobis.\\",
 +             }
 +           }
 +           testID=\\"stepItem\\"
@@ -1110,23 +1110,23 @@ exports[`should paginate 1`] = `
 +               \\"__typename\\": \\"Step\\",
 +               \\"community\\": Object {
 +                 \\"__typename\\": \\"Community\\",
-+                 \\"id\\": \\"9\\",
++                 \\"id\\": \\"12\\",
 +               },
 +               \\"completedAt\\": null,
-+               \\"id\\": \\"7\\",
++               \\"id\\": \\"10\\",
 +               \\"receiver\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Alek Lesch\\",
-+                 \\"id\\": \\"8\\",
++                 \\"fullName\\": \\"Precious Rau\\",
++                 \\"id\\": \\"11\\",
 +               },
 +               \\"reminder\\": Object {
 +                 \\"__typename\\": \\"StepReminder\\",
-+                 \\"id\\": \\"10\\",
-+                 \\"nextOccurrenceAt\\": \\"2015-06-20T04:51:30.834Z\\",
++                 \\"id\\": \\"13\\",
++                 \\"nextOccurrenceAt\\": \\"2019-02-09T06:38:55.578Z\\",
 +                 \\"reminderType\\": \\"once\\",
 +               },
-+               \\"stepType\\": \\"bond\\",
-+               \\"title\\": \\"Ipsam nobis cupiditate sed dignissimos debitis.\\",
++               \\"stepType\\": \\"relate\\",
++               \\"title\\": \\"Blanditiis natus et eos itaque velit.\\",
               }
             }
             testID=\\"stepItem\\"

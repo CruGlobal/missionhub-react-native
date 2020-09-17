@@ -169,7 +169,8 @@ exports[`render correctly | With Person | No Picture 1`] = `
                   },
                   Object {
                     "fontSize": 64,
-                    "lineHeight": 20,
+                    "height": 56,
+                    "lineHeight": 64,
                   },
                 ]
               }

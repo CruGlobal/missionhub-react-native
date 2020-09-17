@@ -28,8 +28,8 @@ import {
   //ID_SCHEMA,
 } from '../constants';
 import { AnalyticsState } from '../reducers/analytics';
-import { AuthState } from '../reducers/auth';
 import { RootState } from '../reducers';
+import { getAuthPerson } from '../auth/authUtilities';
 
 import { StepAddedAnalytics } from './__generated__/StepAddedAnalytics';
 
@@ -121,16 +121,11 @@ export function updateAnalyticsContext(
 }
 
 export function trackStepAdded(step?: StepAddedAnalytics | null) {
-  return (
-    dispatch: ThunkDispatch<RootState, never, AnyAction>,
-    getState: () => { auth: AuthState },
-  ) => {
+  return (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     if (!step) {
       return;
     }
-    const {
-      person: { id: myId },
-    } = getState().auth;
+    const myId = getAuthPerson().id;
 
     let trackedStep = `${step.stepType} | ${
       step.receiver.id === myId ? 'Y' : 'N' // Is self step?

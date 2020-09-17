@@ -6,12 +6,6 @@ import { FeedItemSubjectTypeEnum } from '../__generated__/globalTypes';
 
 export const LOGOUT = 'app/LOGOUT';
 export type LogoutAction = { type: typeof LOGOUT };
-export const FIRST_NAME_CHANGED = 'app/FIRST_NAME_CHANGED';
-export const LAST_NAME_CHANGED = 'app/LAST_NAME_CHANGED';
-export const PERSON_FIRST_NAME_CHANGED = 'app/PERSON_FIRST_NAME_CHANGED';
-export const PERSON_LAST_NAME_CHANGED = 'app/PERSON_LAST_NAME_CHANGED';
-export const ADD_STEP_REMINDER = 'app/ADD_STEP_REMINDER';
-export const REMOVE_STEP_REMINDER = 'app/REMOVE_STEP_REMINDER';
 export const PEOPLE_WITH_ORG_SECTIONS = 'app/PEOPLE_WITH_ORG_SECTIONS';
 export const GROUP_INVITE_INFO = 'app/GROUP_INVITE_INFO';
 export const GROUP_ONBOARDING_CARD = 'app/GROUP_ONBOARDING_CARD';
@@ -26,17 +20,10 @@ export const GET_ORGANIZATIONS_CONTACTS_REPORT =
   'app/GET_ORGANIZATIONS_CONTACTS_REPORT';
 export const RESET_STEP_COUNT = 'app/RESET_STEP_COUNT';
 export const UPDATE_STAGES = 'app/UPDATE_STAGES';
-export const UPDATE_ONBOARDING_PERSON = 'app/UPDATE_ONBOARDING_PERSON';
-export const RESET_ONBOARDING_PERSON = 'app/RESET_ONBOARDING_PERSON';
-export const FILTERED_CHALLENGES = 'app/FILTERED_CHALLENGES';
 export const UPDATE_CHALLENGE = 'app/UPDATE_CHALLENGE';
 export const GET_ORGANIZATION_PEOPLE = 'app/GET_ORGANIZATION_PEOPLE';
 export const RESET_CELEBRATION_PAGINATION = 'app/RESET_CELEBRATION_PAGINATION';
 export const RESET_CHALLENGE_PAGINATION = 'app/RESET_CHALLENGE_PAGINATION';
-export const SET_CELEBRATE_EDITING_COMMENT =
-  'app/SET_CELEBRATE_EDITING_COMMENT';
-export const RESET_CELEBRATE_EDITING_COMMENT =
-  'app/RESET_CELEBRATE_EDITING_COMMENT';
 export const RELOAD_APP = 'app/RELOAD_APP';
 
 export const GLOBAL_COMMUNITY_ID = '_global_community_id';
@@ -46,7 +33,6 @@ export const EDIT_JOURNEY_ITEM = 'editJourneyItem';
 export const STEP_NOTE = 'stepNote';
 export const CREATE_STEP = 'createStep';
 
-export const STEP_SUGGESTION = 'challenge_suggestion';
 export const ACCEPTED_STEP = 'accepted_challenge';
 
 export const STEPS_TAB = 'StepsTab';
@@ -54,15 +40,8 @@ export const PEOPLE_TAB = 'PeopleTab';
 export const COMMUNITIES_TAB = 'CommunitiesTab';
 export const NOTIFICATIONS_TAB = 'NotificationsTab';
 
-export const NAVIGATE_FORWARD = 'Navigation/PUSH';
-export const NAVIGATE_RESET = 'Navigation/RESET';
-export const NAVIGATE_BACK = 'Navigation/BACK';
-export const NAVIGATE_POP = 'Navigation/POP';
 export const MAIN_TABS = 'nav/MAIN_TABS';
 export const MAIN_MENU_DRAWER = 'nav/drawer/main';
-export const PERSON_MENU_DRAWER = 'nav/drawer/person';
-export const UPDATE_TOKEN = 'app/UPDATE_TOKEN';
-export const CLEAR_UPGRADE_TOKEN = 'app/CLEAR_UPGRADE_TOKEN';
 
 export const SAVE_PENDING_POST = 'app/SAVE_PENDING_POST';
 export const DELETE_PENDING_POST = 'app/DELETE_PENDING_POST';
@@ -78,15 +57,10 @@ export const CANNOT_EDIT_FIRST_NAME =
   'You are not allowed to edit first names of other MissionHub users';
 export const ERROR_PERSON_PART_OF_ORG =
   'this person already has permissions on this organization';
-export const MFA_REQUIRED = 'mfa_required';
-export const FACEBOOK_CANCELED_ERROR = 'Facebook login canceled by user';
 
 export const URL_ENCODED = 'application/x-www-form-urlencoded';
 export const URL_FORM_DATA = 'multipart/form-data';
 export const THE_KEY_CLIENT_ID = Config.THE_KEY_CLIENT_ID;
-
-export const CASEY = 'casey';
-export const JEAN = 'jean';
 
 export const LINKS = {
   blog: 'https://get.missionhub.com/blog/',
@@ -126,7 +100,6 @@ export const ANALYTICS_ASSIGNMENT_TYPE = 'cru.assignment-type';
 export const ANALYTICS_EDIT_MODE = 'cru.edit-mode';
 export const ANALYTICS_PERMISSION_TYPE = 'cru.permission-type';
 
-export const ID_SCHEMA = 'iglu:org.cru/ids/jsonschema/1-0-3';
 export const LOGGED_IN = 'logged in';
 export const NOT_LOGGED_IN = 'not logged in';
 
@@ -448,21 +421,6 @@ export const INTERACTION_TYPES = {
 };
 
 export const DEFAULT_PAGE_LIMIT = 25;
-
-export const CELEBRATEABLE_TYPES = {
-  validInteractionTypes: [
-    INTERACTION_TYPES.MHInteractionTypeDiscipleshipConversation.id,
-    INTERACTION_TYPES.MHInteractionTypeHolySpiritConversation.id,
-    INTERACTION_TYPES.MHInteractionTypePersonalDecision.id,
-    INTERACTION_TYPES.MHInteractionTypeGospelPresentation.id,
-    INTERACTION_TYPES.MHInteractionTypeSpiritualConversation.id,
-    INTERACTION_TYPES.MHInteractionTypeSomethingCoolHappened.id,
-  ],
-  challengeItemTypes: {
-    accepted: 'accepted_at',
-    completed: 'completed_at',
-  },
-};
 
 export const DAYS_OF_THE_WEEK = [
   'sunday',

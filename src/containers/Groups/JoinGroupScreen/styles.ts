@@ -30,6 +30,8 @@ export default StyleSheet.create({
   input: {
     ...theme.textRegular16,
     fontSize: 36,
+    lineHeight: 44,
+    height: 40,
     color: theme.white,
     textAlign: 'center',
     padding: 8,

@@ -18,6 +18,9 @@ jest.mock('react-navigation-hooks', () => ({
 }));
 jest.mock('../../../../actions/person');
 jest.mock('../../../../utils/hooks/useAnalytics');
+jest.mock('../../../../auth/authStore', () => ({
+  isAuthenticated: () => true,
+}));
 
 const personId = '141234';
 const orgId = '234';
@@ -33,7 +36,6 @@ const myUserId = '1';
 const note = { id: '988998', content: 'Roge rules' };
 
 const initialState = {
-  auth: { person: { id: myPersonId, user: { id: myUserId } } },
   people: {
     people: {
       [person.id]: person,
@@ -50,28 +52,44 @@ beforeEach(() => {
 });
 
 describe('contact notes', () => {
-  it('icon and prompt are shown if no notes', () => {
-    renderWithContext(
+  it('icon and prompt are shown if no notes', async () => {
+    (getPersonNote as jest.Mock).mockReturnValue(() => Promise.resolve());
+    const { snapshot } = renderWithContext(
       <PersonNotes collapsibleHeaderContext={PersonCollapsibleHeaderContext} />,
       {
         initialState,
         navParams: { personId },
+        mocks: {
+          User: () => ({ id: myUserId, person: () => ({ id: myPersonId }) }),
+        },
       },
-    ).snapshot();
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes'], {
       assignmentType: { personId },
     });
   });
 
-  it('icon and prompt are shown if no notes as me', () => {
-    renderWithContext(
+  it('icon and prompt are shown if no notes as me', async () => {
+    (getPersonNote as jest.Mock).mockReturnValue(() => Promise.resolve());
+    const { snapshot } = renderWithContext(
       <PersonNotes collapsibleHeaderContext={PersonCollapsibleHeaderContext} />,
       {
         initialState,
         navParams: { personId: myPersonId },
+        mocks: {
+          User: () => ({ id: myUserId, person: () => ({ id: myPersonId }) }),
+        },
       },
-    ).snapshot();
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes'], {
       assignmentType: { personId: myPersonId },
@@ -84,6 +102,9 @@ describe('contact notes', () => {
       {
         initialState,
         navParams: { personId },
+        mocks: {
+          User: () => ({ id: myUserId, person: () => ({ id: myPersonId }) }),
+        },
       },
     );
 
@@ -106,6 +127,9 @@ describe('contact notes', () => {
         {
           initialState,
           navParams: { personId },
+          mocks: {
+            User: () => ({ id: myUserId, person: () => ({ id: myPersonId }) }),
+          },
         },
       );
 
@@ -126,6 +150,9 @@ describe('contact notes', () => {
         {
           initialState,
           navParams: { personId },
+          mocks: {
+            User: () => ({ id: myUserId, person: () => ({ id: myPersonId }) }),
+          },
         },
       );
 
@@ -145,6 +172,9 @@ describe('contact notes', () => {
         {
           initialState,
           navParams: { personId },
+          mocks: {
+            User: () => ({ id: myUserId, person: () => ({ id: myPersonId }) }),
+          },
         },
       );
 
@@ -171,6 +201,9 @@ describe('contact notes', () => {
       {
         initialState,
         navParams: { personId },
+        mocks: {
+          User: () => ({ id: myUserId, person: () => ({ id: myPersonId }) }),
+        },
       },
     );
 

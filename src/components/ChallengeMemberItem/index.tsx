@@ -2,13 +2,12 @@ import React from 'react';
 import { Image, Text } from 'react-native';
 import moment from 'moment';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 
 import { Flex, Touchable, Card, DateComponent } from '../common';
-import { AuthState } from '../../reducers/auth';
 import Avatar from '../Avatar';
 import { ChallengeItem } from '../ChallengeStats';
 import CHALLENGE_COMPLETE_GREEN from '../../../assets/images/challengeCompleteGreen.png';
+import { useIsMe } from '../../utils/hooks/useIsMe';
 
 import styles from './styles';
 
@@ -31,8 +30,7 @@ const ChallengeMemberItem = ({
 }: ChallengeMemberItemProps) => {
   const { t } = useTranslation('challengeFeeds');
   const { completed_at, person } = item;
-  const auth = useSelector(({ auth }: { auth: AuthState }) => auth);
-  const isMe = person.id === auth.person.id;
+  const isMe = useIsMe(person.id);
   const todaysDate = moment().endOf('day');
   const isDateWithinWeek = todaysDate.isSame(moment(date).endOf('day'), 'week');
 

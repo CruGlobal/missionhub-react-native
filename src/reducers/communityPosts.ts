@@ -37,7 +37,7 @@ export interface CommunityPostsState {
   pendingPosts: { [key: string]: StoredCreatePost | StoredUpdatePost };
 }
 
-export const initialState: CommunityPostsState = {
+const initialState: CommunityPostsState = {
   nextId: 0,
   pendingPosts: {},
 };

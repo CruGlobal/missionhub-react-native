@@ -54,21 +54,12 @@ const communityId = '123';
 const communityCode = '333333';
 const communityUrl = 'abc123';
 
-const initialState = {
-  auth: {
-    person: {
-      id: '123',
-    },
-  },
-};
-
 // @ts-ignore
 common.copyText = jest.fn();
 
 describe('CommunityProfile', () => {
   it('should render loading state', () => {
     renderWithContext(<CommunityProfile />, {
-      initialState,
       navParams: { communityId },
     }).snapshot();
   });
@@ -77,7 +68,6 @@ describe('CommunityProfile', () => {
     const { recordSnapshot, diffSnapshot } = renderWithContext(
       <CommunityProfile />,
       {
-        initialState,
         navParams: { communityId },
         mocks: {
           Query: () => ({
@@ -107,7 +97,6 @@ describe('CommunityProfile', () => {
 
   it('renders without edit button', async () => {
     const { queryByTestId } = renderWithContext(<CommunityProfile />, {
-      initialState,
       navParams: { communityId },
       mocks: {
         Query: () => ({
@@ -133,7 +122,6 @@ describe('CommunityProfile', () => {
 
   it('renders with edit button', async () => {
     const { getByTestId } = renderWithContext(<CommunityProfile />, {
-      initialState,
       navParams: { communityId },
       mocks: {
         Query: () => ({
@@ -159,7 +147,6 @@ describe('CommunityProfile', () => {
 
   it('should handle copy code', async () => {
     const { getByTestId } = renderWithContext(<CommunityProfile />, {
-      initialState,
       navParams: { communityId },
       mocks: { Community: () => ({ communityCode }) },
     });
@@ -178,7 +165,6 @@ describe('CommunityProfile', () => {
 
   it('should handle copy link', async () => {
     const { getByTestId } = renderWithContext(<CommunityProfile />, {
-      initialState,
       navParams: { communityId },
       mocks: { Community: () => ({ communityCode, communityUrl }) },
     });
@@ -200,7 +186,6 @@ describe('CommunityProfile', () => {
 
   it('handle navigate back', () => {
     const { getByTestId } = renderWithContext(<CommunityProfile />, {
-      initialState,
       navParams: { communityId },
     });
 
@@ -214,7 +199,6 @@ describe('CommunityProfile', () => {
       const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(
         <CommunityProfile />,
         {
-          initialState,
           navParams: { communityId },
           mocks: {
             Community: () => ({
@@ -248,7 +232,6 @@ describe('CommunityProfile', () => {
 
     it('should handle new code', async () => {
       const { getByTestId } = renderWithContext(<CommunityProfile />, {
-        initialState,
         navParams: { communityId },
         mocks: {
           Community: () => ({
@@ -276,7 +259,6 @@ describe('CommunityProfile', () => {
 
     it('should handle new link', async () => {
       const { getByTestId } = renderWithContext(<CommunityProfile />, {
-        initialState,
         navParams: { communityId },
         mocks: {
           Community: () => ({
@@ -307,7 +289,6 @@ describe('CommunityProfile', () => {
       const { getByTestId, getAllByType } = renderWithContext(
         <CommunityProfile />,
         {
-          initialState,
           navParams: { communityId },
           mocks: {
             Community: () => ({
@@ -355,7 +336,6 @@ describe('CommunityProfile', () => {
       const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(
         <CommunityProfile />,
         {
-          initialState,
           navParams: { communityId },
           mocks: {
             Community: () => ({
@@ -384,7 +364,6 @@ describe('CommunityProfile', () => {
     it('handles save with name change', async () => {
       const name = 'New Name';
       const { getByTestId } = renderWithContext(<CommunityProfile />, {
-        initialState,
         navParams: { communityId },
         mocks: {
           Community: () => ({
@@ -413,7 +392,6 @@ describe('CommunityProfile', () => {
       const { getByTestId, getByType } = renderWithContext(
         <CommunityProfile />,
         {
-          initialState,
           navParams: { communityId },
           mocks: {
             Community: () => ({
@@ -444,7 +422,6 @@ describe('CommunityProfile', () => {
       const { getByTestId, getByType } = renderWithContext(
         <CommunityProfile />,
         {
-          initialState,
           navParams: { communityId },
           mocks: {
             Community: () => ({

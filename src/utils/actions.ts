@@ -10,7 +10,6 @@ import {
 import callApi from '../actions/api';
 import { REQUESTS } from '../api/routes';
 import { organizationSelector } from '../selectors/organizations';
-import { OrganizationsState } from '../reducers/organizations';
 import { RootState } from '../reducers';
 
 // Challenge and Celebrate action helpers
@@ -21,14 +20,8 @@ const GET_CELEBRATE_INCLUDE =
 export const CHALLENGE = 'challenge';
 export const CELEBRATE = 'celebrate';
 
-const getOrg = (
-  orgId: string,
-  getState: () => { organizations: OrganizationsState },
-) =>
-  organizationSelector(
-    { organizations: getState().organizations },
-    { orgId: orgId },
-  );
+const getOrg = (orgId: string, getState: () => RootState) =>
+  organizationSelector(getState(), { orgId: orgId });
 
 const getFeedType = (type: string, orgId: string) =>
   type === CHALLENGE
@@ -84,7 +77,7 @@ export function getFeed(
 ) {
   return (
     dispatch: ThunkDispatch<RootState, never, AnyAction>,
-    getState: () => { organizations: OrganizationsState },
+    getState: () => RootState,
   ) => {
     const org = getOrg(orgId, getState);
     const pagingType = getPaginationType(type);
@@ -107,7 +100,7 @@ export function getFeed(
 export function reloadFeed(type: string, orgId: string) {
   return (
     dispatch: ThunkDispatch<RootState, never, AnyAction>,
-    getState: () => { organizations: OrganizationsState },
+    getState: () => RootState,
   ) => {
     const org = getOrg(orgId, getState);
     const pagingType = getPaginationType(type);

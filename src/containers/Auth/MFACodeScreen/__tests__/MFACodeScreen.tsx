@@ -1,19 +1,21 @@
 import React from 'react';
-import { Alert } from 'react-native';
-import i18n from 'i18next';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../../testUtils';
-import { keyLogin } from '../../../../actions/auth/key';
-import { MFA_REQUIRED } from '../../../../constants';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import MFACodeScreen from '..';
+import { IdentityProvider, AuthError } from '../../../../auth/constants';
+import { SignInWithTheKeyType } from '../../../../auth/providers/useSignInWithTheKey';
+import { useAuth } from '../../../../auth/useAuth';
 
-jest.mock('../../../../actions/auth/key');
 jest.mock('../../../../components/MFACodeComponent', () => ({
   MFACodeComponent: 'MFACodeComponent',
 }));
 jest.mock('../../../../utils/hooks/useAnalytics');
+jest.mock('../../../../auth/useAuth');
+jest.mock('../../../../reducers/nav', () => null);
+
+const authenticate = jest.fn();
 
 const email = 'roger@test.com';
 const password = 'my password';
@@ -28,10 +30,23 @@ const renderConfig = {
   },
 };
 
+beforeEach(() => {
+  (useAuth as jest.Mock).mockReturnValue({ authenticate });
+});
+
 it('renders correctly', () => {
   renderWithContext(<MFACodeScreen next={next} />, renderConfig).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['sign in', 'verification']);
+});
+
+it('renders loading and error', () => {
+  (useAuth as jest.Mock).mockReturnValue({
+    authenticate,
+    loading: true,
+    error: AuthError.Unknown,
+  });
+  renderWithContext(<MFACodeScreen next={next} />, renderConfig).snapshot();
 });
 
 it('changes text', () => {
@@ -48,61 +63,50 @@ it('changes text', () => {
 
 describe('onSubmit', () => {
   const clickLoginButton = async () => {
-    const {
-      recordSnapshot,
-      getByTestId,
-      store,
-      diffSnapshot,
-    } = renderWithContext(<MFACodeScreen next={next} />, renderConfig);
+    const { getByTestId } = renderWithContext(
+      <MFACodeScreen next={next} />,
+      renderConfig,
+    );
 
     fireEvent.changeText(getByTestId('MFACodeComponent'), mfaCode);
-    recordSnapshot();
 
     const error = fireEvent(getByTestId('MFACodeComponent'), 'submit');
     await flushMicrotasksQueue();
 
-    diffSnapshot();
-
     return {
-      store,
       error,
     };
   };
 
   it('logs in with email, password, mfa code, and upgrade account', async () => {
-    const mockKeyLoginResult = { type: 'logged in with the Key' };
-    (keyLogin as jest.Mock).mockReturnValue(mockKeyLoginResult);
+    await clickLoginButton();
 
-    const { store } = await clickLoginButton();
-
-    expect(keyLogin).toHaveBeenCalledWith(email, password, mfaCode);
+    expect(authenticate).toHaveBeenCalledWith({
+      provider: IdentityProvider.TheKey,
+      theKeyOptions: {
+        type: SignInWithTheKeyType.EmailPassword,
+        email,
+        password,
+        mfaCode,
+      },
+    });
     expect(next).toHaveBeenCalled();
-    expect(store.getActions()).toEqual([mockKeyLoginResult]);
   });
 
-  it('shows error modal if mfa code is incorrect', async () => {
-    Alert.alert = jest.fn();
-    (keyLogin as jest.Mock).mockReturnValue(() =>
-      Promise.reject({ apiError: { thekey_authn_error: MFA_REQUIRED } }),
-    );
+  it("shouldn't navigate on error", async () => {
+    authenticate.mockRejectedValue(AuthError.Unknown);
 
     await clickLoginButton();
 
-    expect(keyLogin).toHaveBeenCalledWith(email, password, mfaCode);
-    expect(next).not.toHaveBeenCalled();
-    expect(Alert.alert).toHaveBeenCalledWith(i18n.t('mfaLogin:mfaIncorrect'));
-  });
-
-  it('it throws unexpected errors', async () => {
-    const expectedError = { apiError: { message: 'some error' } };
-    (keyLogin as jest.Mock).mockReturnValue(() =>
-      Promise.reject(expectedError),
-    );
-
-    const { error } = await clickLoginButton();
-    await expect(error).rejects.toEqual(expectedError);
-
-    expect(keyLogin).toHaveBeenCalledWith(email, password, mfaCode);
+    expect(authenticate).toHaveBeenCalledWith({
+      provider: IdentityProvider.TheKey,
+      theKeyOptions: {
+        type: SignInWithTheKeyType.EmailPassword,
+        email,
+        password,
+        mfaCode,
+      },
+    });
     expect(next).not.toHaveBeenCalled();
   });
 });

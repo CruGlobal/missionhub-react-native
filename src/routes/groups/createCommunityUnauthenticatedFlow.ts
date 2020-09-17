@@ -6,7 +6,7 @@ import { CREATE_GROUP_SCREEN } from '../../containers/Groups/CreateGroupScreen';
 import { authFlowGenerator } from '../auth/authFlowGenerator';
 import { SIGNUP_TYPES } from '../../containers/Auth/SignUpScreen';
 
-export const CreateCommunityUnauthenticatedFlowScreens = authFlowGenerator({
+const CreateCommunityUnauthenticatedFlowScreens = authFlowGenerator({
   completeAction: navigateNestedReset([
     {
       routeName: MAIN_TABS,

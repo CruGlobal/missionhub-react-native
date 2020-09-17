@@ -1,6 +1,10 @@
 import React from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
+import {
+  fireEvent,
+  flushMicrotasksQueue,
+  waitForElement,
+} from 'react-native-testing-library';
 import { DrawerActions } from 'react-navigation-drawer';
 
 import { ADD_CONTACT_SCREEN } from '../../../containers/AddContactScreen';
@@ -8,7 +12,6 @@ import { EditPersonFlowScreens } from '../editPersonFlow';
 import { renderWithContext } from '../../../../testUtils';
 import { navigateBack, navigatePush } from '../../../actions/navigation';
 import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
-import { useIsMe } from '../../../utils/hooks/useIsMe';
 import { trackAction } from '../../../actions/analytics';
 import { getPersonDetails } from '../../../actions/person';
 import { UPDATE_PERSON } from '../../../containers/SetupScreen/queries';
@@ -22,11 +25,11 @@ jest.mock('../../../actions/organizations');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/person');
-jest.mock('../../../utils/hooks/useIsMe');
 jest.mock('../../../actions/selectStage');
 jest.mock('../../../actions/stages');
 jest.mock('react-native-device-info');
 jest.mock('react-navigation-drawer');
+jest.mock('../../../auth/authStore', () => ({ isAuthenticated: () => true }));
 
 const me = { id: '1' };
 const next = jest.fn();
@@ -71,7 +74,6 @@ const getStagesResult = { type: 'get stages', response: stages };
 
 beforeEach(() => {
   (trackAction as jest.Mock).mockReturnValue(trackActionResponse);
-  (useIsMe as jest.Mock).mockReturnValue(false);
   (navigateBack as jest.Mock).mockReturnValue(navigateBackResponse);
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResponse);
   (getStages as jest.Mock).mockReturnValue(getStagesResult);
@@ -90,7 +92,6 @@ describe('AddContactScreen next', () => {
       <WrappedAddContactScreen />,
       {
         initialState: {
-          auth: { person: me },
           drawer: { isOpen: false },
         },
         navParams: {},
@@ -106,7 +107,6 @@ describe('AddContactScreen next', () => {
   });
 
   it('navigates back if edited and current user is the one being edited', async () => {
-    (useIsMe as jest.Mock).mockReturnValue(true);
     const WrappedAddContactScreen =
       EditPersonFlowScreens[ADD_CONTACT_SCREEN].screen;
 
@@ -114,7 +114,6 @@ describe('AddContactScreen next', () => {
       <WrappedAddContactScreen />,
       {
         initialState: {
-          auth: { person: { id: '1' } },
           drawer: { isOpen: false },
         },
         navParams: {
@@ -122,7 +121,7 @@ describe('AddContactScreen next', () => {
         },
         mocks: {
           Person: () => ({
-            id: me.id,
+            // id: me.id, // Specifying this causes useQuery to return undefined for data for some reason
             firstName: 'Christian',
             lastName: '',
             relationshipType: RelationshipTypeEnum.family,
@@ -133,9 +132,11 @@ describe('AddContactScreen next', () => {
         },
       },
     );
-    await flushMicrotasksQueue();
-    // This test fails with one flushMicrotaskQueue for some reason
-    await flushMicrotasksQueue();
+    await waitForElement(() => {
+      if (getByTestId('contactFields').props.person.firstName !== 'Christian') {
+        throw 'Name not loaded yet';
+      }
+    });
     await fireEvent.press(getByTestId('continueButton'));
     expect(useMutation).toHaveBeenMutatedWith(UPDATE_PERSON, {
       variables: {
@@ -163,7 +164,6 @@ describe('AddContactScreen next', () => {
       <WrappedAddContactScreen />,
       {
         initialState: {
-          auth: { person: { id: '1' } },
           drawer: { isOpen: false },
         },
         navParams: {
@@ -174,7 +174,7 @@ describe('AddContactScreen next', () => {
         },
         mocks: {
           Person: () => ({
-            id: '2',
+            // id: '2', // Specifying this causes useQuery to return undefined for data for some reason
             firstName: 'Christian',
             lastName: '',
             relationshipType: RelationshipTypeEnum.family,
@@ -182,12 +182,16 @@ describe('AddContactScreen next', () => {
         },
       },
     );
-    await flushMicrotasksQueue();
+    await waitForElement(() => {
+      if (getByTestId('contactFields').props.person.firstName !== 'Christian') {
+        throw 'Name not loaded yet';
+      }
+    });
     await fireEvent.press(getByTestId('continueButton'));
     expect(useMutation).toHaveBeenMutatedWith(UPDATE_PERSON, {
       variables: {
         input: {
-          id: '2',
+          id: '1',
           firstName: 'Christian',
           lastName: '',
           relationshipType: RelationshipTypeEnum.family,
@@ -210,7 +214,6 @@ describe('AddContactScreen next', () => {
       <WrappedAddContactScreen />,
       {
         initialState: {
-          auth: { person: { id: '1' } },
           drawer: { isOpen: false },
         },
         navParams: {
@@ -221,7 +224,7 @@ describe('AddContactScreen next', () => {
         },
         mocks: {
           Person: () => ({
-            id: '2',
+            // id: '2', // Specifying this causes useQuery to return undefined for data for some reason
             firstName: 'Christian',
             lastName: '',
             relationshipType: RelationshipTypeEnum.family,
@@ -229,11 +232,15 @@ describe('AddContactScreen next', () => {
         },
       },
     );
-    await flushMicrotasksQueue();
+    await waitForElement(() => {
+      if (getByTestId('contactFields').props.person.firstName !== 'Christian') {
+        throw 'Name not loaded yet';
+      }
+    });
     await fireEvent.press(getByTestId('stageSelectButton'));
     expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
       enableBackButton: false,
-      personId: '2',
+      personId: '1',
       section: 'people',
       subsection: 'person',
       orgId: undefined,
@@ -244,8 +251,9 @@ describe('AddContactScreen next', () => {
 });
 
 describe('SelectStageScreen next', () => {
-  it('navigates back after stage is selected', () => {
+  it('navigates back after stage is selected', async () => {
     jest.useFakeTimers();
+
     const onComplete = jest.fn();
     const WrappedSelectStageScreen =
       EditPersonFlowScreens[SELECT_STAGE_SCREEN].screen;
@@ -254,7 +262,6 @@ describe('SelectStageScreen next', () => {
       <WrappedSelectStageScreen next={next} />,
       {
         initialState: {
-          auth: { person: me },
           drawer: { isOpen: false },
           people: { people: {} },
           stages: { stages },
@@ -268,11 +275,18 @@ describe('SelectStageScreen next', () => {
           orgId: undefined,
           onComplete,
         },
+        mocks: { User: () => ({ person: () => ({ id: me.id }) }) },
       },
     );
 
+    await flushMicrotasksQueue();
+
     fireEvent.press(getAllByTestId('stageSelectButton')[1]);
+
     jest.runAllTimers();
+
+    await flushMicrotasksQueue();
+
     expect(selectPersonStage).toHaveBeenCalledWith(
       '2',
       me.id,

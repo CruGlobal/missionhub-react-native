@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
+import { useQuery } from '@apollo/react-hooks';
 
 import ChallengeFeed from '../ChallengeFeed';
 import {
@@ -20,13 +21,17 @@ import { challengesSelector } from '../../selectors/challenges';
 import { navigatePush } from '../../actions/navigation';
 import { refreshCommunity } from '../../actions/organizations';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
-import { orgPermissionSelector } from '../../selectors/people';
 import { ChallengeItem } from '../../components/ChallengeStats';
 import { CommunitiesCollapsibleHeaderContext } from '../Communities/Community/CommunityHeader/CommunityHeader';
-import { OrganizationsState } from '../../reducers/organizations';
 import { RootState } from '../../reducers';
+import { useMyId } from '../../utils/hooks/useIsMe';
 
 import styles from './styles';
+import {
+  getMyCommunityPermission,
+  getMyCommunityPermissionVariables,
+} from './CreatePostButton/__generated__/getMyCommunityPermission';
+import { GET_MY_COMMUNITY_PERMISSION_QUERY } from './CreatePostButton/queries';
 
 type permissionType = TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 
@@ -43,13 +48,16 @@ const GroupChallenges = () => {
     dispatch(getGroupChallengeFeed(communityId));
   };
 
-  const organization = useSelector(
-    ({ organizations }: { organizations: OrganizationsState }) =>
-      organizationSelector({ organizations }, { orgId: communityId }),
+  const organization = useSelector((state: RootState) =>
+    organizationSelector(state, { orgId: communityId }),
   );
-  const myOrgPermission = useSelector(({ auth }: RootState) =>
-    orgPermissionSelector({}, { person: auth.person, organization }),
-  );
+  const myId = useMyId();
+  const { data } = useQuery<
+    getMyCommunityPermission,
+    getMyCommunityPermissionVariables
+  >(GET_MY_COMMUNITY_PERMISSION_QUERY, {
+    variables: { id: organization.id, myId },
+  });
 
   useAnalytics(['community', 'challenges'], {
     permissionType: { communityId: organization.id },
@@ -64,7 +72,9 @@ const GroupChallenges = () => {
     ),
   );
 
-  const canCreate = isAdminOrOwner(myOrgPermission);
+  const canCreate = isAdminOrOwner(
+    data?.community.people.edges[0].communityPermission,
+  );
 
   const reloadItems = async () => {
     changeRefreshing(true);

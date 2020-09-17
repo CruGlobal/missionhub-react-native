@@ -42,16 +42,13 @@ const mockMath = Object.create(global.Math);
 mockMath.random = () => 0;
 global.Math = mockMath;
 
-const myId = '123';
 const personId = '321';
 const personFirstName = 'Someone';
 const person = { id: personId, first_name: personFirstName };
-const stageId = '3';
 const stepSuggestionId = '111';
 const text = 'Step Text';
 
 const initialState = {
-  auth: { person: { id: myId, user: { pathway_stage_id: stageId } } },
   onboarding: { personId },
   people: {
     people: { [personId]: person },

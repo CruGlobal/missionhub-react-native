@@ -28,7 +28,7 @@ exports[`ImpactView ME person impact view for org renders empty state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -57,7 +57,7 @@ exports[`ImpactView ME person impact view for org renders empty state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3CC8E6",
+          "backgroundColor": "#3EB1C8",
           "paddingBottom": 40,
         },
         Object {},
@@ -71,7 +71,7 @@ exports[`ImpactView ME person impact view for org renders empty state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -114,7 +114,7 @@ exports[`ImpactView ME person impact view for org renders plural state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -145,7 +145,7 @@ exports[`ImpactView ME person impact view for org renders plural state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3CC8E6",
+          "backgroundColor": "#3EB1C8",
           "paddingBottom": 40,
         },
         Object {},
@@ -159,7 +159,7 @@ exports[`ImpactView ME person impact view for org renders plural state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -202,7 +202,7 @@ exports[`ImpactView ME person impact view for org renders singular state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -233,7 +233,7 @@ exports[`ImpactView ME person impact view for org renders singular state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3CC8E6",
+          "backgroundColor": "#3EB1C8",
           "paddingBottom": 40,
         },
         Object {},
@@ -247,7 +247,7 @@ exports[`ImpactView ME person impact view for org renders singular state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -290,7 +290,7 @@ exports[`ImpactView ME person personal impact view renders empty state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -319,7 +319,7 @@ exports[`ImpactView ME person personal impact view renders empty state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3CC8E6",
+          "backgroundColor": "#3EB1C8",
           "paddingBottom": 40,
         },
         Object {},
@@ -333,7 +333,7 @@ exports[`ImpactView ME person personal impact view renders empty state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -376,7 +376,7 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -407,7 +407,7 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3CC8E6",
+          "backgroundColor": "#3EB1C8",
           "paddingBottom": 40,
         },
         Object {},
@@ -421,7 +421,7 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -464,7 +464,7 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -495,7 +495,7 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3CC8E6",
+          "backgroundColor": "#3EB1C8",
           "paddingBottom": 40,
         },
         Object {},
@@ -509,7 +509,7 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -552,7 +552,7 @@ exports[`ImpactView global community impact renders empty state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -581,7 +581,7 @@ exports[`ImpactView global community impact renders empty state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3CC8E6",
+          "backgroundColor": "#3EB1C8",
           "paddingBottom": 40,
         },
         Object {},
@@ -595,7 +595,7 @@ exports[`ImpactView global community impact renders empty state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -638,7 +638,7 @@ exports[`ImpactView global community impact renders plural state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -669,7 +669,7 @@ exports[`ImpactView global community impact renders plural state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3CC8E6",
+          "backgroundColor": "#3EB1C8",
           "paddingBottom": 40,
         },
         Object {},
@@ -683,7 +683,7 @@ exports[`ImpactView global community impact renders plural state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -726,7 +726,7 @@ exports[`ImpactView global community impact renders singular state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -757,7 +757,7 @@ exports[`ImpactView global community impact renders singular state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3CC8E6",
+          "backgroundColor": "#3EB1C8",
           "paddingBottom": 40,
         },
         Object {},
@@ -771,7 +771,7 @@ exports[`ImpactView global community impact renders singular state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -814,14 +814,14 @@ exports[`ImpactView member impact renders empty state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
         }
       }
     >
-      Here you will see all the steps Hayden has taken.
+      Here you will see all the steps Ezequiel has taken.
     </Text>
   </View>
   <Image
@@ -843,7 +843,7 @@ exports[`ImpactView member impact renders empty state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3CC8E6",
+          "backgroundColor": "#3EB1C8",
           "paddingBottom": 40,
         },
         Object {},
@@ -857,7 +857,7 @@ exports[`ImpactView member impact renders empty state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -900,14 +900,14 @@ exports[`ImpactView member impact renders plural state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
         }
       }
     >
-      In 2018, Hayden has taken 11 steps of faith with 6 people in their life.
+      In 2018, Ezequiel has taken 11 steps of faith with 6 people in their life.
 
 4 people reached a new stage on their spiritual journey.
     </Text>
@@ -931,7 +931,7 @@ exports[`ImpactView member impact renders plural state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3CC8E6",
+          "backgroundColor": "#3EB1C8",
           "paddingBottom": 40,
         },
         Object {},
@@ -945,7 +945,7 @@ exports[`ImpactView member impact renders plural state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -988,14 +988,14 @@ exports[`ImpactView member impact renders singular state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
         }
       }
     >
-      In 2018, Hayden has taken 1 step of faith with 1 person in their life.
+      In 2018, Ezequiel has taken 1 step of faith with 1 person in their life.
 
 1 person reached a new stage on their spiritual journey.
     </Text>
@@ -1019,7 +1019,7 @@ exports[`ImpactView member impact renders singular state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3CC8E6",
+          "backgroundColor": "#3EB1C8",
           "paddingBottom": 40,
         },
         Object {},
@@ -1033,7 +1033,7 @@ exports[`ImpactView member impact renders singular state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -1076,7 +1076,7 @@ exports[`ImpactView user-created community impact renders empty state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -1105,7 +1105,7 @@ exports[`ImpactView user-created community impact renders empty state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3CC8E6",
+          "backgroundColor": "#3EB1C8",
           "paddingBottom": 40,
         },
         Object {},
@@ -1119,7 +1119,7 @@ exports[`ImpactView user-created community impact renders empty state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -1162,7 +1162,7 @@ exports[`ImpactView user-created community impact renders plural state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -1193,7 +1193,7 @@ exports[`ImpactView user-created community impact renders plural state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3CC8E6",
+          "backgroundColor": "#3EB1C8",
           "paddingBottom": 40,
         },
         Object {},
@@ -1207,7 +1207,7 @@ exports[`ImpactView user-created community impact renders plural state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -1250,7 +1250,7 @@ exports[`ImpactView user-created community impact renders singular state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,
@@ -1281,7 +1281,7 @@ exports[`ImpactView user-created community impact renders singular state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3CC8E6",
+          "backgroundColor": "#3EB1C8",
           "paddingBottom": 40,
         },
         Object {},
@@ -1295,7 +1295,7 @@ exports[`ImpactView user-created community impact renders singular state 1`] = `
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 28,
           "fontStyle": "normal",
-          "lineHeight": 24,
+          "lineHeight": 36,
           "textAlignVertical": "center",
           "textTransform": "none",
           "width": 270,

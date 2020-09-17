@@ -22,13 +22,14 @@ import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScre
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { LOADING_SCREEN } from '../containers/LoadingScreen';
 import { REQUESTS } from '../api/routes';
-import { AuthState } from '../reducers/auth';
 import { NotificationsState } from '../reducers/notifications';
 import { COMMUNITY_TABS } from '../containers/Communities/Community/constants';
 import { COMMUNITY_CHALLENGES } from '../containers/Groups/GroupChallenges';
 import { RootState } from '../reducers';
 import { rollbar } from '../utils/rollbar.config';
 import { CHALLENGE_DETAIL_SCREEN } from '../containers/ChallengeDetailScreen';
+import { isAuthenticated } from '../auth/authStore';
+import { loadAuthPerson } from '../auth/authUtilities';
 
 import { refreshCommunity } from './organizations';
 import { navToPersonScreen } from './person';
@@ -89,7 +90,7 @@ export type PushNotificationPayloadAndroid = RNPushNotificationPayload &
     | PushNotificationPayloadData
   );
 
-export type PushNotificationPayloadData =
+type PushNotificationPayloadData =
   | { screen: 'home' }
   | { screen: 'steps' }
   | { screen: 'person_steps'; person_id: string; organization_id?: string }
@@ -157,19 +158,18 @@ export const checkNotifications = (
   }) => void,
 ) => async (
   dispatch: ThunkDispatch<RootState, never, AnyAction>,
-  getState: () => { auth: AuthState; notifications: NotificationsState },
+  getState: () => RootState,
 ) => {
   const skipNotificationOff =
     notificationType === NOTIFICATION_PROMPT_TYPES.LOGIN;
 
   let nativePermissionsEnabled = false;
   const {
-    auth: { token },
     notifications: { appHasShownPrompt },
   } = getState();
 
   //ONLY register if logged in
-  if (token) {
+  if (isAuthenticated()) {
     //if iOS, and notification prompt has not yet been shown,
     //navigate to NotificationPrimerScreen
     if (!isAndroid && !appHasShownPrompt) {
@@ -266,10 +266,7 @@ export function configureNotificationHandler() {
 }
 
 function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
-  return async (
-    dispatch: ThunkDispatch<RootState, never, AnyAction>,
-    getState: () => { auth: AuthState },
-  ) => {
+  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     if (
       isAndroid &&
       // A notification recieved in the background/app closed will not have a userInteraction, so it will be undefined
@@ -277,7 +274,8 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
     ) {
       return;
     }
-    const { person: me } = getState().auth;
+
+    const { id: myId } = await loadAuthPerson('cache-first');
 
     const notificationData = parseNotificationData(notification);
 
@@ -292,7 +290,7 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
         return dispatch(navToPersonScreen(personId));
       }
       case 'my_steps':
-        return dispatch(navToPersonScreen(me.id));
+        return dispatch(navToPersonScreen(myId));
       case 'add_a_person': {
         const { organization_id } = notificationData;
         return dispatch(

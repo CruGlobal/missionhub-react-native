@@ -1,12 +1,16 @@
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
+
 import { PEOPLE_WITH_ORG_SECTIONS } from '../constants';
 import { REQUESTS } from '../api/routes';
 import { Person } from '../reducers/people';
+import { getAuthPerson } from '../auth/authUtilities';
+import { RootState } from '../reducers';
 
 import callApi from './api';
 
 export function getMyPeople() {
-  // @ts-ignore
-  return async (dispatch, getState) => {
+  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     const peopleQuery = {
       filters: {
         assigned_tos: 'me',
@@ -21,7 +25,7 @@ export function getMyPeople() {
     const loadedPeople: Person[] = (
       await dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, peopleQuery))
     ).response;
-    const authPerson = getState().auth.person;
+    const authPerson = getAuthPerson();
 
     const people = [
       authPerson,

@@ -2,7 +2,7 @@
 
 import 'react-native';
 import React from 'react';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import {
@@ -20,6 +20,7 @@ jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/misc');
 jest.mock('../../../actions/person');
 jest.mock('../../../utils/common');
+jest.mock('../../../auth/authStore', () => ({ isAuthenticated: () => true }));
 
 const mePerson = mockFragment<PersonFragment>(PERSON_FRAGMENT, {
   mocks: { Stage: () => ({ position: 3 }) },
@@ -27,14 +28,6 @@ const mePerson = mockFragment<PersonFragment>(PERSON_FRAGMENT, {
 const person = mockFragment<PersonFragment>(PERSON_FRAGMENT, {
   mocks: { Stage: () => ({ position: 3 }) },
 });
-
-const initialState = {
-  auth: {
-    person: {
-      id: mePerson.id,
-    },
-  },
-};
 
 const mePersonWithoutSteps: PersonFragment = {
   ...mePerson,
@@ -82,12 +75,16 @@ beforeEach(() => {
   );
 });
 
-it('renders me correctly', () => {
+it('renders me correctly', async () => {
   (hasOrgPermissions as jest.Mock).mockReturnValue(false);
 
-  renderWithContext(<PersonItem person={mePerson} />, {
-    initialState,
-  }).snapshot();
+  const { snapshot } = renderWithContext(<PersonItem person={mePerson} />, {
+    mocks: { User: () => ({ person: () => ({ id: mePerson.id }) }) },
+  });
+
+  await flushMicrotasksQueue();
+
+  snapshot();
 
   expect(hasOrgPermissions).not.toHaveBeenCalled();
 });
@@ -95,9 +92,7 @@ it('renders me correctly', () => {
 it('renders person correctly', () => {
   (hasOrgPermissions as jest.Mock).mockReturnValue(false);
 
-  renderWithContext(<PersonItem person={person} />, {
-    initialState,
-  }).snapshot();
+  renderWithContext(<PersonItem person={person} />).snapshot();
 
   expect(hasOrgPermissions).not.toHaveBeenCalled();
 });
@@ -107,7 +102,6 @@ it('renders personal ministry with no steps correctly', () => {
 
   const { getByTestId, snapshot } = renderWithContext(
     <PersonItem person={personWithoutSteps} />,
-    { initialState },
   );
   snapshot();
   expect(getByTestId('stepIcon')).toBeTruthy();
@@ -117,7 +111,6 @@ it('renders personal ministry with no steps correctly', () => {
 it('renders person with no stage correctly', () => {
   const { snapshot } = renderWithContext(
     <PersonItem person={personWithoutStage} />,
-    { initialState },
   );
   snapshot();
 });
@@ -127,7 +120,6 @@ describe('handleChangeStage', () => {
     it('navigates to my stage screen without stage', () => {
       const { getByTestId, store } = renderWithContext(
         <PersonItem person={mePersonWithoutStage} />,
-        { initialState },
       );
 
       fireEvent.press(getByTestId('stageText'));
@@ -145,7 +137,6 @@ describe('handleChangeStage', () => {
     it('navigates to person stage screen without stage', () => {
       const { getByTestId, store } = renderWithContext(
         <PersonItem person={personWithoutStage} />,
-        { initialState },
       );
 
       fireEvent.press(getByTestId('stageText'));
@@ -164,7 +155,6 @@ describe('handleSelect', () => {
   it('navigate to person view for me', () => {
     const { getByTestId, store } = renderWithContext(
       <PersonItem person={mePerson} />,
-      { initialState },
     );
 
     fireEvent.press(getByTestId('personCard'));
@@ -176,7 +166,6 @@ describe('handleSelect', () => {
   it('navigate to person view for other', () => {
     const { getByTestId, store } = renderWithContext(
       <PersonItem person={person} />,
-      { initialState },
     );
 
     fireEvent.press(getByTestId('personCard'));
@@ -188,7 +177,6 @@ describe('handleSelect', () => {
   it('navigate to person view with no org if orgId === "personal"', () => {
     const { getByTestId, store } = renderWithContext(
       <PersonItem person={person} />,
-      { initialState },
     );
 
     fireEvent.press(getByTestId('personCard'));
@@ -202,7 +190,6 @@ describe('handleAddStep', () => {
   it('navigate to select step for me', () => {
     const { getByTestId, store } = renderWithContext(
       <PersonItem person={mePersonWithoutSteps} />,
-      { initialState },
     );
 
     fireEvent.press(getByTestId('stepIcon'));
@@ -214,7 +201,6 @@ describe('handleAddStep', () => {
   it('navigate to select step for other', () => {
     const { getByTestId, store } = renderWithContext(
       <PersonItem person={personWithoutSteps} />,
-      { initialState },
     );
 
     fireEvent.press(getByTestId('stepIcon'));
@@ -226,7 +212,6 @@ describe('handleAddStep', () => {
   it('navigate to select stage for other person without stage', () => {
     const { getByTestId, store } = renderWithContext(
       <PersonItem person={personWithoutStageOrSteps} />,
-      { initialState },
     );
 
     fireEvent.press(getByTestId('stepIcon'));

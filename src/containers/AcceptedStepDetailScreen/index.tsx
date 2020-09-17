@@ -19,6 +19,7 @@ import ReminderDateText from '../../components/ReminderDateText';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { trackStepDeleted } from '../../actions/analytics';
+import { PERSON_STEPS_QUERY } from '../PersonScreen/PersonSteps/queries';
 
 import styles from './styles';
 import {
@@ -60,20 +61,29 @@ const AcceptedStepDetailScreen = () => {
   const [completeStep] = useMutation<CompleteStep, CompleteStepVariables>(
     COMPLETE_STEP_MUTATION,
     {
+      refetchQueries: [
+        {
+          query: PERSON_STEPS_QUERY,
+          variables: { personId, completeStep: false },
+        },
+      ],
       onCompleted: data => {
-        data.markStepAsCompleted?.step &&
+        const step = data.markStepAsCompleted?.step;
+
+        if (step) {
+          updatePersonGQL(step.receiver.id);
           dispatch(
             handleAfterCompleteStep(
               {
-                id: data.markStepAsCompleted?.step?.id,
-                receiver: data.markStepAsCompleted?.step?.receiver,
-                community: data.markStepAsCompleted?.step?.community,
+                id: step.id,
+                receiver: step.receiver,
+                community: step.community,
               },
               'Step Detail',
               true,
             ),
           );
-        step?.receiver && updatePersonGQL(step.receiver.id);
+        }
       },
     },
   );

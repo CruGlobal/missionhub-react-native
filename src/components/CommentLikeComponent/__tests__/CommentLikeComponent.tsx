@@ -25,44 +25,55 @@ jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn().mockReturnValue({ type: 'navigatePush' }),
 }));
+jest.mock('../../../auth/authStore', () => ({ isAuthenticated: () => true }));
 
 const trackActionResponse = { type: 'tracked action' };
 
 const myId = '1';
 const feedItemId = '12';
-const initialState = { auth: { person: { id: myId } } };
 
 beforeEach(() => {
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResponse);
 });
 
-function render(mocks?: IMocks) {
-  return renderWithContext(
+async function render(mocks?: IMocks) {
+  const renderResult = renderWithContext(
     <CommentLikeComponent
       feedItem={mockFragment<CommunityFeedItemCommentLike>(
         COMMUNITY_FEED_ITEM_COMMENT_LIKE_FRAGMENT,
         mocks ? { mocks } : undefined,
       )}
     />,
-    { initialState },
+    { mocks: { User: () => ({ person: () => ({ id: myId }) }) } },
   );
+
+  await flushMicrotasksQueue();
+
+  return renderResult;
 }
 
-it('renders nothing with no subject person', () => {
-  render({ FeedItem: () => ({ subjectPerson: null }) }).snapshot();
+it('renders nothing with no subject person', async () => {
+  const { snapshot } = await render({
+    FeedItem: () => ({ subjectPerson: null }),
+  });
+  snapshot();
 });
 
 describe('with subject person', () => {
-  it('renders for me', () => {
-    render({ FeedItem: () => ({ subjectPerson: { id: myId } }) }).snapshot();
+  it('renders for me', async () => {
+    const { snapshot } = await render({
+      FeedItem: () => ({ subjectPerson: { id: myId } }),
+    });
+    snapshot();
   });
 
-  it('renders for someone else', () => {
-    render().snapshot();
+  it('renders for someone else', async () => {
+    const { snapshot } = await render();
+    snapshot();
   });
 
-  it('renders prayer request liked', () => {
-    render({
+  it('renders prayer request liked', async () => {
+    const { snapshot } = await render({
       FeedItem: () => ({
         subject: {
           __typename: 'Post',
@@ -70,11 +81,13 @@ describe('with subject person', () => {
         },
         liked: true,
       }),
-    }).snapshot();
+    });
+
+    snapshot();
   });
 
-  it('renders prayer request not liked', () => {
-    render({
+  it('renders prayer request not liked', async () => {
+    const { snapshot } = await render({
       FeedItem: () => ({
         subject: {
           __typename: 'Post',
@@ -82,21 +95,27 @@ describe('with subject person', () => {
         },
         liked: false,
       }),
-    }).snapshot();
+    });
+    snapshot();
   });
 
-  it('renders when not liked', () => {
-    render({ FeedItem: () => ({ liked: false }) }).snapshot();
+  it('renders when not liked', async () => {
+    const { snapshot } = await render({ FeedItem: () => ({ liked: false }) });
+    snapshot();
   });
 
-  it('renders 0 comments_count', () => {
-    render({ BasePageInfo: () => ({ totalCount: 0 }) }).snapshot();
+  it('renders 0 comments_count', async () => {
+    const { snapshot } = await render({
+      BasePageInfo: () => ({ totalCount: 0 }),
+    });
+    snapshot();
   });
 
-  it('renders 0 likes_count', () => {
-    render({
+  it('renders 0 likes_count', async () => {
+    const { snapshot } = await render({
       FeedItem: () => ({ subjectPerson: { id: myId }, likesCount: 0 }),
-    }).snapshot();
+    });
+    snapshot();
   });
 
   describe('onPress like button', () => {
@@ -108,8 +127,8 @@ describe('with subject person', () => {
         getByTestId: (id: string) => ReactTestInstance;
       };
 
-      beforeEach(() => {
-        screen = render({
+      beforeEach(async () => {
+        screen = await render({
           FeedItem: () => ({
             id: feedItemId,
             subjectPerson: { id: myId },
@@ -147,8 +166,8 @@ describe('with subject person', () => {
         getByTestId: (id: string) => ReactTestInstance;
       };
 
-      beforeEach(() => {
-        screen = render({
+      beforeEach(async () => {
+        screen = await render({
           FeedItem: () => ({
             id: feedItemId,
             subjectPerson: { id: myId },
@@ -178,8 +197,8 @@ describe('with subject person', () => {
     });
   });
 
-  it('onPress comment button', () => {
-    const { getByTestId } = render({
+  it('onPress comment button', async () => {
+    const { getByTestId } = await render({
       FeedItem: () => ({
         id: feedItemId,
       }),
@@ -205,7 +224,9 @@ describe('with subject person', () => {
           },
         })}
       />,
-      { initialState },
+      {
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+      },
     );
 
     fireEvent.press(getByTestId('CommentIconButton'));

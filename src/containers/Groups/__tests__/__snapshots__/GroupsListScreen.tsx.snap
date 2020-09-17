@@ -1469,7 +1469,8 @@ exports[`GroupsListScreen renders with only global community 1`] = `
                   },
                   Object {
                     "fontSize": 26,
-                    "lineHeight": 20,
+                    "height": 24,
+                    "lineHeight": 26,
                   },
                 ]
               }

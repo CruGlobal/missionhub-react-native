@@ -1,14 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render correctly 1`] = `
-<RCTScrollView
-  scrollEventThrottle={0.0001}
->
-  <View>
-    <ImpactView
-      communityId="1"
-      personId="2"
+Array [
+  <View
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 260,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#3CC8E6",
+          "flex": 1,
+        }
+      }
     />
-  </View>
-</RCTScrollView>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#3EB1C8",
+          "flex": 1,
+        }
+      }
+    />
+  </View>,
+  <RCTScrollView
+    scrollEventThrottle={0.0001}
+  >
+    <View>
+      <ImpactView
+        communityId="1"
+        personId="2"
+      />
+    </View>
+  </RCTScrollView>,
+]
 `;

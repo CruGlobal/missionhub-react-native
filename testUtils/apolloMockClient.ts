@@ -42,6 +42,17 @@ export const createApolloMockClient = (
     link: new SchemaLink({ schema }),
     typeDefs,
     resolvers,
+    defaultOptions: {
+      watchQuery: {
+        errorPolicy: 'all',
+        fetchPolicy: 'cache-and-network',
+        notifyOnNetworkStatusChange: true,
+      },
+      query: {
+        errorPolicy: 'all',
+        fetchPolicy: 'network-only',
+      },
+    },
   });
 
   initializeLocalState(apolloClient);

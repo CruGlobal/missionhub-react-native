@@ -1,3 +1,10 @@
+import { RootState } from './reducers';
+import {
+  setAuthToken,
+  setTheKeyRefreshToken,
+  setAnonymousUid,
+} from './auth/authStore';
+
 export const migrations = {
   // Move people and global impact reports into summary key and index by personId-orgId
   // @ts-ignore
@@ -48,4 +55,22 @@ export const migrations = {
       skippedAddingPerson: personProfile.hasCompletedOnboarding,
     },
   }),
+  // Move auth data to authStorage
+  3: async ({
+    auth,
+    ...state
+  }: RootState & {
+    auth: {
+      token?: string;
+      refreshToken: string;
+      upgradeToken: string | null;
+    };
+  }) => {
+    await Promise.all([
+      ...(auth.token ? [setAuthToken(auth.token)] : []),
+      ...(auth.refreshToken ? [setTheKeyRefreshToken(auth.refreshToken)] : []),
+      ...(auth.upgradeToken ? [setAnonymousUid(auth.upgradeToken)] : []),
+    ]);
+    return state;
+  },
 };

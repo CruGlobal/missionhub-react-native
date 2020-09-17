@@ -36,6 +36,7 @@ jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
 jest.mock('../../Avatar', () => 'Avatar');
 jest.mock('../../Card', () => 'Card');
+jest.mock('../../../auth/authStore', () => ({ isAuthenticated: () => true }));
 
 const communityId = '3';
 const communityName = 'Community Name';
@@ -132,8 +133,6 @@ const onEditPost = jest.fn();
 const trackActionResult = { type: 'tracked plain action' };
 const navigatePushResult = { type: 'navigate push' };
 
-const initialState = { auth: { person: { id: myId } } };
-
 beforeEach(() => {
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
@@ -148,7 +147,7 @@ describe('global community', () => {
         onEditPost={onEditPost}
       />,
       {
-        initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
     ).snapshot();
   });
@@ -162,7 +161,7 @@ describe('global community', () => {
         onEditPost={onEditPost}
       />,
       {
-        initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
     ).snapshot();
   });
@@ -175,7 +174,7 @@ describe('global community', () => {
         onEditPost={onEditPost}
       />,
       {
-        initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
     ).snapshot();
   });
@@ -190,7 +189,7 @@ describe('Community', () => {
         onEditPost={onEditPost}
       />,
       {
-        initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
     );
     await flushMicrotasksQueue();
@@ -205,7 +204,7 @@ describe('Community', () => {
         onEditPost={onEditPost}
       />,
       {
-        initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
     );
     await flushMicrotasksQueue();
@@ -234,7 +233,7 @@ describe('Community', () => {
         onEditPost={onEditPost}
       />,
       {
-        initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
     );
     await flushMicrotasksQueue();
@@ -254,7 +253,9 @@ describe('Community', () => {
         namePressable={false}
         onEditPost={onEditPost}
       />,
-      { initialState },
+      {
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+      },
     );
     await flushMicrotasksQueue();
     snapshot();
@@ -268,7 +269,7 @@ describe('Community', () => {
         onEditPost={onEditPost}
       />,
       {
-        initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
     );
     await flushMicrotasksQueue();
@@ -283,7 +284,7 @@ describe('Community', () => {
         onEditPost={onEditPost}
       />,
       {
-        initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
     );
     await flushMicrotasksQueue();
@@ -298,7 +299,7 @@ describe('Community', () => {
         onEditPost={onEditPost}
       />,
       {
-        initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
     );
     await flushMicrotasksQueue();
@@ -314,7 +315,7 @@ describe('Community', () => {
         onEditPost={onEditPost}
       />,
       {
-        initialState,
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
     );
     await flushMicrotasksQueue();
@@ -330,7 +331,7 @@ it('renders with name pressable correctly', async () => {
       onEditPost={onEditPost}
     />,
     {
-      initialState,
+      mocks: { User: () => ({ person: () => ({ id: myId }) }) },
     },
   );
   await flushMicrotasksQueue();
@@ -345,7 +346,7 @@ describe('press card', () => {
         namePressable={false}
         onEditPost={onEditPost}
       />,
-      { initialState },
+      { mocks: { User: () => ({ person: () => ({ id: myId }) }) } },
     );
 
     expect(getByTestId('CommunityFeedItem').props.onPress).toEqual(undefined);
@@ -358,7 +359,7 @@ describe('press card', () => {
         namePressable={false}
         onEditPost={onEditPost}
       />,
-      { initialState },
+      { mocks: { User: () => ({ person: () => ({ id: myId }) }) } },
     );
 
     fireEvent.press(getByTestId('CommunityFeedItem'));
@@ -378,7 +379,7 @@ describe('long-press card', () => {
         : null,
     };
 
-    it('navigates to edit post screen', () => {
+    it('navigates to edit post screen', async () => {
       ActionSheetIOS.showActionSheetWithOptions = jest.fn();
       Alert.alert = jest.fn();
 
@@ -388,8 +389,10 @@ describe('long-press card', () => {
           namePressable={false}
           onEditPost={onEditPost}
         />,
-        { initialState },
+        { mocks: { User: () => ({ person: () => ({ id: myId }) }) } },
       );
+
+      await flushMicrotasksQueue();
 
       fireEvent(getByTestId('popupMenuButton'), 'onLongPress');
       (ActionSheetIOS.showActionSheetWithOptions as jest.Mock).mock.calls[0][1](
@@ -414,8 +417,10 @@ describe('long-press card', () => {
           namePressable={false}
           onEditPost={onEditPost}
         />,
-        { initialState },
+        { mocks: { User: () => ({ person: () => ({ id: myId }) }) } },
       );
+
+      await flushMicrotasksQueue();
 
       // Used to fix unsupported subject type error
       if (storyPostItem.subject.__typename !== 'Post') {
@@ -459,7 +464,7 @@ describe('long-press card', () => {
           namePressable={false}
           onEditPost={onEditPost}
         />,
-        { initialState },
+        { mocks: { User: () => ({ person: () => ({ id: myId }) }) } },
       );
 
       // Used to fix unsupported subject type error
@@ -501,7 +506,7 @@ describe('clear notification button', () => {
         namePressable={false}
         onEditPost={onEditPost}
       />,
-      { initialState },
+      { mocks: { User: () => ({ person: () => ({ id: myId }) }) } },
     );
 
     fireEvent.press(getByTestId('ClearNotificationButton'));
@@ -533,7 +538,7 @@ describe('add to steps button', () => {
         namePressable={false}
         onEditPost={onEditPost}
       />,
-      { initialState },
+      { mocks: { User: () => ({ person: () => ({ id: myId }) }) } },
     );
     fireEvent.press(getByTestId('AddToMyStepsButton'));
 
@@ -565,7 +570,7 @@ describe('add to steps button', () => {
         namePressable={false}
         onEditPost={onEditPost}
       />,
-      { initialState },
+      { mocks: { User: () => ({ person: () => ({ id: myId }) }) } },
     );
 
     expect(queryByTestId('AddToMyStepsButton')).toBeFalsy();
@@ -585,7 +590,7 @@ describe('navigates to post type screen', () => {
         namePressable={false}
         onEditPost={onEditPost}
       />,
-      { initialState },
+      { mocks: { User: () => ({ person: () => ({ id: myId }) }) } },
     );
     fireEvent.press(getByTestId('STORYButton'));
 

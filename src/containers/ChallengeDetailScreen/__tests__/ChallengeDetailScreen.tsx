@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { ADD_CHALLENGE_SCREEN } from '../../AddChallengeScreen';
 import { renderWithContext } from '../../../../testUtils';
@@ -8,7 +8,6 @@ import {
   navigatePush,
   navigateToCommunityFeed,
 } from '../../../actions/navigation';
-import { AuthState } from '../../../reducers/auth';
 import { OrganizationsState } from '../../../reducers/organizations';
 import {
   getChallenge,
@@ -17,7 +16,6 @@ import {
   updateChallenge,
 } from '../../../actions/challenges';
 import { communityChallengeSelector } from '../../../selectors/challenges';
-import { ORG_PERMISSIONS } from '../../../constants';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import ChallengeDetailScreen from '..';
 
@@ -26,6 +24,7 @@ jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/challenges');
 jest.mock('../../../selectors/challenges');
 jest.mock('../../../selectors/people');
+jest.mock('../../../auth/authStore', () => ({ isAuthenticated: () => true }));
 
 const myId = '1111';
 const orgId = '123';
@@ -61,18 +60,7 @@ const joinedProps = {
   acceptedChallenge: joinedChallenge,
 };
 
-const orgPermission = {
-  organization_id: '456',
-  permission_id: ORG_PERMISSIONS.ADMIN,
-};
-
 const store = {
-  auth: {
-    person: {
-      id: myId,
-      organizational_permissions: [orgPermission],
-    },
-  } as AuthState,
   organizations: {
     all: [organization],
   } as OrganizationsState,
@@ -113,7 +101,7 @@ it('should render unjoined challenge correctly', () => {
   expect(getChallenge).toHaveBeenCalledWith(challengeId);
 });
 
-it('should render joined challenge correctly', () => {
+it('should render joined challenge correctly', async () => {
   const { snapshot } = renderWithContext(<ChallengeDetailScreen />, {
     initialState: store,
     navParams: {
@@ -121,13 +109,17 @@ it('should render joined challenge correctly', () => {
       challengeId,
       isAdmin: true,
     },
+    mocks: { User: () => ({ person: () => ({ id: myId }) }) },
   });
+
+  await flushMicrotasksQueue();
+
   snapshot();
   expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
   expect(getChallenge).toHaveBeenCalledWith(challengeId);
 });
 
-it('should render completed challenge correctly', () => {
+it('should render completed challenge correctly', async () => {
   ((communityChallengeSelector as unknown) as jest.Mock).mockReturnValue({
     ...challenge,
     accepted_community_challenges: [completedChallenge],
@@ -139,13 +131,17 @@ it('should render completed challenge correctly', () => {
       challengeId,
       isAdmin: true,
     },
+    mocks: { User: () => ({ person: () => ({ id: myId }) }) },
   });
+
+  await flushMicrotasksQueue();
+
   snapshot();
   expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
   expect(getChallenge).toHaveBeenCalledWith(challengeId);
 });
 
-it('should render without edit correctly', () => {
+it('should render without edit correctly', async () => {
   const { snapshot, queryByTestId } = renderWithContext(
     <ChallengeDetailScreen />,
     {
@@ -155,8 +151,12 @@ it('should render without edit correctly', () => {
         challengeId,
         isAdmin: false,
       },
+      mocks: { User: () => ({ person: () => ({ id: myId }) }) },
     },
   );
+
+  await flushMicrotasksQueue();
+
   snapshot();
   expect(queryByTestId('editButton')).toBeFalsy();
   expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
@@ -194,7 +194,10 @@ it('should call completeChallenge from press', async () => {
       challengeId,
       isAdmin: true,
     },
+    mocks: { User: () => ({ person: () => ({ id: myId }) }) },
   });
+
+  await flushMicrotasksQueue();
 
   expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
   expect(getChallenge).toHaveBeenCalledWith(challengeId);
@@ -257,8 +260,12 @@ it('should call navigateBack from press', async () => {
         challengeId,
         isAdmin: true,
       },
+      mocks: { User: () => ({ person: () => ({ id: myId }) }) },
     },
   );
+
+  await flushMicrotasksQueue();
+
   snapshot();
   expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
   expect(getChallenge).toHaveBeenCalledWith(challengeId);
@@ -277,8 +284,12 @@ it('should call navigateBack from community name press', async () => {
         isAdmin: true,
         communityName: 'Test',
       },
+      mocks: { User: () => ({ person: () => ({ id: myId }) }) },
     },
   );
+
+  await flushMicrotasksQueue();
+
   snapshot();
   await fireEvent.press(getByTestId('CommunityNameHeader'));
   expect(navigateBack).toHaveBeenCalled();
@@ -296,8 +307,12 @@ it('should call navigateToCommunityFeed from community name press', async () => 
         communityName: 'Test',
         fromNotificationCenterItem: true,
       },
+      mocks: { User: () => ({ person: () => ({ id: myId }) }) },
     },
   );
+
+  await flushMicrotasksQueue();
+
   snapshot();
   await fireEvent.press(getByTestId('CommunityNameHeader'));
   expect(navigateToCommunityFeed).toHaveBeenCalled();

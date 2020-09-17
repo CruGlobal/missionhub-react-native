@@ -1,12 +1,6 @@
 import { createSelector } from 'reselect';
 
-import { Stage, StagesState, LocalizedPathwayStage } from '../reducers/stages';
-
-export const stageSelector = createSelector(
-  ({ stages: { stages } }: { stages: StagesState }) => stages,
-  (_: { stages: StagesState }, { stageId }: { stageId: string }) => stageId,
-  (stages: Stage[], stageId) => stages.find(({ id }) => id === stageId),
-);
+import { Stage, LocalizedPathwayStage } from '../reducers/stages';
 
 export const localizedStageSelector = createSelector(
   (stage: Stage | undefined) => stage || {},

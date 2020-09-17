@@ -12,7 +12,7 @@ const API_CALLS: {
   [key: string]: (
     //eslint-disable-next-line @typescript-eslint/no-explicit-any
     queryParams: Record<string, string | unknown>,
-    data: Record<string, unknown>,
+    data: Record<string, unknown> | string | FormData,
   ) => Promise<{
     meta?: Record<string, unknown>;
     results?: Record<string, unknown>;
@@ -24,7 +24,7 @@ const API_CALLS: {
     ...acc,
     [key]: async (
       { access_token, ...q }: { access_token: string; [key: string]: string },
-      data: Record<string, unknown>,
+      data: Record<string, unknown> | string,
     ) => {
       const method = routeData.method || 'get';
 

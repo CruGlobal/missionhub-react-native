@@ -18,7 +18,6 @@ const menuActions: {
 }[] = [{ text: 'text', onPress: jest.fn() }];
 
 const initialState = {
-  auth: { person: me },
   celebrateComments: { editingCommentId: null },
 };
 

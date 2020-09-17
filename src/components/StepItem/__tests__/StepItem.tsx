@@ -10,7 +10,7 @@ import { COMPLETE_STEP_MUTATION } from '../../../containers/AcceptedStepDetailSc
 import { navigatePush } from '../../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../../containers/AcceptedStepDetailScreen';
 import { COMPLETED_STEP_DETAIL_SCREEN } from '../../../containers/CompletedStepDetailScreen';
-import { navToPersonScreen } from '../../../actions/person';
+import { navToPersonScreen, updatePersonGQL } from '../../../actions/person';
 import { handleAfterCompleteStep } from '../../../actions/steps';
 import { CONTACT_STEPS } from '../../../constants';
 import StepItem from '..';
@@ -20,6 +20,7 @@ jest.mock('../../../actions/navigation', () => ({
 }));
 jest.mock('../../../actions/person', () => ({
   navToPersonScreen: jest.fn().mockReturnValue({ type: 'navToPersonScreen' }),
+  updatePersonGQL: jest.fn(),
 }));
 jest.mock('../../../actions/steps', () => ({
   handleAfterCompleteStep: jest
@@ -38,16 +39,8 @@ const mockStep = {
   completedAt: null,
 };
 
-const initialState = {
-  auth: {
-    person: {
-      id: '1',
-    },
-  },
-};
-
 it('renders me correctly', () => {
-  renderWithContext(<StepItem step={mockStep} />, { initialState }).snapshot();
+  renderWithContext(<StepItem step={mockStep} />).snapshot();
 });
 
 it('renders not me correctly', () => {
@@ -58,7 +51,6 @@ it('renders not me correctly', () => {
         id: '2',
       }}
     />,
-    { initialState },
   ).snapshot();
 });
 
@@ -70,28 +62,22 @@ it('renders completed step', () => {
         completedAt: '2019-01-01',
       }}
     />,
-    { initialState },
   ).snapshot();
 });
 
 it('renders hiding name', () => {
-  renderWithContext(<StepItem step={mockStep} showName={false} />, {
-    initialState,
-  }).snapshot();
+  renderWithContext(<StepItem step={mockStep} showName={false} />).snapshot();
 });
 
 it('renders hiding checkbox', () => {
-  renderWithContext(<StepItem step={mockStep} showCheckbox={false} />, {
-    initialState,
-  }).snapshot();
+  renderWithContext(
+    <StepItem step={mockStep} showCheckbox={false} />,
+  ).snapshot();
 });
 
 it('should navigate to accepted step detail screen', () => {
   const { getByTestId } = renderWithContext(
     <StepItem step={{ ...mockStep, completedAt: null }} />,
-    {
-      initialState,
-    },
   );
   fireEvent.press(getByTestId('StepItemCard'));
   expect(navigatePush).toHaveBeenCalledWith(ACCEPTED_STEP_DETAIL_SCREEN, {
@@ -103,9 +89,6 @@ it('should navigate to accepted step detail screen', () => {
 it('should navigate to completed step detail screen', () => {
   const { getByTestId } = renderWithContext(
     <StepItem step={{ ...mockStep, completedAt: '2019-01-01' }} />,
-    {
-      initialState,
-    },
   );
   fireEvent.press(getByTestId('StepItemCard'));
   expect(navigatePush).toHaveBeenCalledWith(COMPLETED_STEP_DETAIL_SCREEN, {
@@ -115,22 +98,19 @@ it('should navigate to completed step detail screen', () => {
 });
 
 it('should navigate to person screen', () => {
-  const { getByTestId } = renderWithContext(<StepItem step={mockStep} />, {
-    initialState,
-  });
+  const { getByTestId } = renderWithContext(<StepItem step={mockStep} />);
   fireEvent.press(getByTestId('StepItemPersonButton'));
   expect(navToPersonScreen).toHaveBeenCalledWith(mockStep.receiver.id);
 });
 
 it('should complete steps with checkbox', async () => {
-  const { getByTestId } = renderWithContext(<StepItem step={mockStep} />, {
-    initialState,
-  });
+  const { getByTestId } = renderWithContext(<StepItem step={mockStep} />);
   fireEvent.press(getByTestId('CompleteStepButton'));
   expect(useMutation).toHaveBeenMutatedWith(COMPLETE_STEP_MUTATION, {
     variables: { input: { id: mockStep.id } },
   });
   await flushMicrotasksQueue();
+  expect(updatePersonGQL).toHaveBeenCalledWith(mockStep.receiver.id);
   expect(handleAfterCompleteStep).toHaveBeenCalledWith(
     {
       id: mockStep.id,

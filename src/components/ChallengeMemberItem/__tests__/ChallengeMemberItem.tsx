@@ -1,9 +1,11 @@
 import React from 'react';
 import MockDate from 'mockdate';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import ChallengeMemberItem from '..';
+
+jest.mock('../../../auth/authStore', () => ({ isAuthenticated: () => true }));
 
 const mockDate = '2020-02-29 12:00:00 PM GMT+0';
 MockDate.set(mockDate);
@@ -34,83 +36,69 @@ const completedItem = {
   completed_at: '2020-02-27',
 };
 
-it('render correctly | Me', () => {
-  renderWithContext(<ChallengeMemberItem {...props} />, {
-    initialState: {
-      auth: {
-        person: {
-          id: myId,
-        },
-      },
-    },
-  }).snapshot();
+it('render correctly | Me', async () => {
+  const { snapshot } = renderWithContext(<ChallengeMemberItem {...props} />, {
+    mocks: { User: () => ({ person: () => ({ id: myId }) }) },
+  });
+
+  await flushMicrotasksQueue();
+
+  snapshot();
 });
 
-it('renders correctly | Not Me', () => {
-  renderWithContext(<ChallengeMemberItem {...props} />, {
-    initialState: {
-      auth: {
-        person: {
-          id: '4',
-        },
-      },
-    },
-  }).snapshot();
+it('renders correctly | Not Me', async () => {
+  const { snapshot } = renderWithContext(<ChallengeMemberItem {...props} />, {
+    mocks: { User: () => ({ person: () => ({ id: '4' }) }) },
+  });
+
+  await flushMicrotasksQueue();
+
+  snapshot();
 });
 
-it('renders completed item correctly', () => {
-  renderWithContext(
+it('renders completed item correctly', async () => {
+  const { snapshot } = renderWithContext(
     <ChallengeMemberItem
       item={completedItem}
       date={date}
       onSelect={onSelect}
     />,
     {
-      initialState: {
-        auth: {
-          person: {
-            id: myId,
-          },
-        },
-      },
+      mocks: { User: () => ({ person: () => ({ id: myId }) }) },
     },
-  ).snapshot();
+  );
+
+  await flushMicrotasksQueue();
+
+  snapshot();
 });
 
-it('renders full date if not in same week', () => {
+it('renders full date if not in same week', async () => {
   const dateItem = {
     ...item,
     accepted_at: '2020-02-22',
   };
-  renderWithContext(
+  const { snapshot } = renderWithContext(
     <ChallengeMemberItem
       item={dateItem}
       date={'2020-02-22'}
       onSelect={onSelect}
     />,
     {
-      initialState: {
-        auth: {
-          person: {
-            id: myId,
-          },
-        },
-      },
+      mocks: { User: () => ({ person: () => ({ id: myId }) }) },
     },
-  ).snapshot();
+  );
+
+  await flushMicrotasksQueue();
+
+  snapshot();
 });
 
 it('fires onSelect when item is pressed', async () => {
   const { getByTestId } = renderWithContext(
     <ChallengeMemberItem {...props} />,
     {
-      initialState: {
-        auth: {
-          person: {
-            id: myId,
-          },
-        },
-      },
+      mocks: { User: () => ({ person: () => ({ id: myId }) }) },
     },
   );
 

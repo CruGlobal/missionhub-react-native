@@ -708,6 +708,7 @@ exports[`render update button 1`] = `
         }
       >
         <Text
+          onPress={[Function]}
           style={
             Object {
               "color": "#B4B6BA",
@@ -789,7 +790,7 @@ exports[`render update button 1`] = `
 </RCTSafeAreaView>
 `;
 
-exports[`renders correctly | Authenticated User 1`] = `
+exports[`renders correctly | anonymous User 1`] = `
 <RCTSafeAreaView
   emulateUnlessSupported={true}
   style={
@@ -926,7 +927,8 @@ exports[`renders correctly | Authenticated User 1`] = `
                   },
                   Object {
                     "fontSize": 26,
-                    "lineHeight": 20,
+                    "height": 24,
+                    "lineHeight": 26,
                   },
                 ]
               }
@@ -1624,6 +1626,7 @@ exports[`renders correctly | Authenticated User 1`] = `
         }
       >
         <Text
+          onPress={[Function]}
           style={
             Object {
               "color": "#B4B6BA",
@@ -1647,7 +1650,7 @@ exports[`renders correctly | Authenticated User 1`] = `
 </RCTSafeAreaView>
 `;
 
-exports[`renders correctly | UnAuthed User 1`] = `
+exports[`renders correctly | signed in User 1`] = `
 <RCTSafeAreaView
   emulateUnlessSupported={true}
   style={
@@ -1784,7 +1787,8 @@ exports[`renders correctly | UnAuthed User 1`] = `
                   },
                   Object {
                     "fontSize": 26,
-                    "lineHeight": 20,
+                    "height": 24,
+                    "lineHeight": 26,
                   },
                 ]
               }
@@ -2374,6 +2378,7 @@ exports[`renders correctly | UnAuthed User 1`] = `
         }
       >
         <Text
+          onPress={[Function]}
           style={
             Object {
               "color": "#B4B6BA",

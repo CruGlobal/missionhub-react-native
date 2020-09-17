@@ -104,6 +104,7 @@ const AddContactFields = ({
           <Flex align="center">
             {isMe ? (
               <ImagePicker
+                testID="avatarImagePicker"
                 onSelectImage={handleImageChange}
                 circleOverlay={true}
               >

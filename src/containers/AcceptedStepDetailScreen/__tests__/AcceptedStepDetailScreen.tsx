@@ -51,8 +51,6 @@ const handleAfterCompleteStepResult = { type: 'handle after completed step' };
 const trackStepDeletedResult = { type: 'track deleted step' };
 const navigateBackResult = { type: 'navigate back' };
 
-const initialState = { auth: { person: { id: myId } } };
-
 beforeEach(() => {
   (handleAfterCompleteStep as jest.Mock).mockReturnValue(
     handleAfterCompleteStepResult,
@@ -63,7 +61,6 @@ beforeEach(() => {
 
 it('should render correctly while loading', () => {
   renderWithContext(<AcceptedStepDetailScreen />, {
-    initialState,
     navParams: { stepId, personId: myId },
     mocks: {
       Step: () => ({
@@ -78,7 +75,6 @@ it('should render correctly while loading', () => {
 
 it('should render correctly without description and without reminder for me', async () => {
   const { snapshot } = renderWithContext(<AcceptedStepDetailScreen />, {
-    initialState,
     navParams: { stepId, personId: myId },
     mocks: {
       Step: () => ({
@@ -98,7 +94,6 @@ it('should render correctly without description and without reminder for me', as
 
 it('should render correctly without description and without reminder for other', async () => {
   const { snapshot } = renderWithContext(<AcceptedStepDetailScreen />, {
-    initialState,
     navParams: { stepId, personId: otherId },
     mocks: {
       Step: () => ({
@@ -118,7 +113,6 @@ it('should render correctly without description and without reminder for other',
 
 it('should render correctly post details', async () => {
   const { snapshot } = renderWithContext(<AcceptedStepDetailScreen />, {
-    initialState,
     navParams: { stepId, personId: otherId },
     mocks: {
       Step: () => ({
@@ -138,7 +132,6 @@ it('should render correctly post details', async () => {
 describe('with description, without reminder', () => {
   it('should render correctly', async () => {
     const { snapshot } = renderWithContext(<AcceptedStepDetailScreen />, {
-      initialState,
       navParams: { stepId, personId: otherId },
       mocks: {
         Step: () => ({ receiver: { id: otherId }, reminder: null, post: null }),
@@ -152,7 +145,6 @@ describe('with description, without reminder', () => {
 describe('with description, with reminder', () => {
   it('should render correctly', async () => {
     const { snapshot } = renderWithContext(<AcceptedStepDetailScreen />, {
-      initialState,
       navParams: { stepId, personId: otherId },
       mocks: {
         Step: () => ({ post: null }),
@@ -169,7 +161,6 @@ it('should complete step', async () => {
   const { getByTestId, store } = renderWithContext(
     <AcceptedStepDetailScreen />,
     {
-      initialState,
       navParams: { stepId, personId: otherId },
       mocks: {
         Step: () => ({
@@ -211,7 +202,6 @@ it('should delete step', async () => {
   const { getByTestId, store } = renderWithContext(
     <AcceptedStepDetailScreen />,
     {
-      initialState,
       navParams: { stepId, personId: otherId },
       mocks: {
         Step: () => ({
@@ -244,7 +234,6 @@ it('should delete step', async () => {
 it('should delete reminder', async () => {
   const reminderId = '1234';
   const { getByTestId } = renderWithContext(<AcceptedStepDetailScreen />, {
-    initialState,
     navParams: { stepId, personId: otherId },
     mocks: {
       Step: () => ({
