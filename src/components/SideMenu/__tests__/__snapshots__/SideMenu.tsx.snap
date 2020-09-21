@@ -920,15 +920,13 @@ exports[`renders correctly | anonymous User 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 12,
                     "fontStyle": "normal",
-                    "lineHeight": 16,
+                    "lineHeight": undefined,
                     "textAlign": "center",
                     "textAlignVertical": "bottom",
                     "textTransform": "none",
                   },
                   Object {
                     "fontSize": 26,
-                    "height": 24,
-                    "lineHeight": 26,
                   },
                 ]
               }
@@ -1780,15 +1778,13 @@ exports[`renders correctly | signed in User 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 12,
                     "fontStyle": "normal",
-                    "lineHeight": 16,
+                    "lineHeight": undefined,
                     "textAlign": "center",
                     "textAlignVertical": "bottom",
                     "textTransform": "none",
                   },
                   Object {
                     "fontSize": 26,
-                    "height": 24,
-                    "lineHeight": 26,
                   },
                 ]
               }

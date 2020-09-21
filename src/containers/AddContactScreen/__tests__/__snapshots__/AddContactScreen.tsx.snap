@@ -3879,15 +3879,13 @@ exports[`savePerson update existing person without org updates users profile pic
                           "fontFamily": "SourceSansPro-Regular",
                           "fontSize": 12,
                           "fontStyle": "normal",
-                          "lineHeight": 16,
+                          "lineHeight": undefined,
                           "textAlign": "center",
                           "textAlignVertical": "bottom",
                           "textTransform": "none",
                         },
                         Object {
                           "fontSize": 64,
-                          "height": 56,
-                          "lineHeight": 64,
                         },
                       ]
                     }

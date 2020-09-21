@@ -1571,15 +1571,13 @@ exports[`post types cards with people renders people 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 12,
                 "fontStyle": "normal",
-                "lineHeight": 16,
+                "lineHeight": undefined,
                 "textAlign": "center",
                 "textAlignVertical": "bottom",
                 "textTransform": "none",
               },
               Object {
                 "fontSize": 12,
-                "height": 12,
-                "lineHeight": 12,
               },
             ]
           }
@@ -1807,15 +1805,13 @@ exports[`post types cards with people renders people greater than 9 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 12,
                 "fontStyle": "normal",
-                "lineHeight": 16,
+                "lineHeight": undefined,
                 "textAlign": "center",
                 "textAlignVertical": "bottom",
                 "textTransform": "none",
               },
               Object {
                 "fontSize": 12,
-                "height": 12,
-                "lineHeight": 12,
               },
             ]
           }
@@ -2604,15 +2600,13 @@ exports[`post types cards without people renders post count 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 12,
                 "fontStyle": "normal",
-                "lineHeight": 16,
+                "lineHeight": undefined,
                 "textAlign": "center",
                 "textAlignVertical": "bottom",
                 "textTransform": "none",
               },
               Object {
                 "fontSize": 12,
-                "height": 12,
-                "lineHeight": 12,
               },
             ]
           }
@@ -2765,15 +2759,13 @@ exports[`post types cards without people renders post count greater than 9 1`] =
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 12,
                 "fontStyle": "normal",
-                "lineHeight": 16,
+                "lineHeight": undefined,
                 "textAlign": "center",
                 "textAlignVertical": "bottom",
                 "textTransform": "none",
               },
               Object {
                 "fontSize": 12,
-                "height": 12,
-                "lineHeight": 12,
               },
             ]
           }

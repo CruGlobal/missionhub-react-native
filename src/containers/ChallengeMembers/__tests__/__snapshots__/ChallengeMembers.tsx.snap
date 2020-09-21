@@ -293,15 +293,13 @@ exports[`renders correctly for completed members 1`] = `
                               "fontFamily": "SourceSansPro-Regular",
                               "fontSize": 12,
                               "fontStyle": "normal",
-                              "lineHeight": 16,
+                              "lineHeight": undefined,
                               "textAlign": "center",
                               "textAlignVertical": "bottom",
                               "textTransform": "none",
                             },
                             Object {
                               "fontSize": 26,
-                              "height": 24,
-                              "lineHeight": 26,
                             },
                           ]
                         }
@@ -490,15 +488,13 @@ exports[`renders correctly for completed members 1`] = `
                               "fontFamily": "SourceSansPro-Regular",
                               "fontSize": 12,
                               "fontStyle": "normal",
-                              "lineHeight": 16,
+                              "lineHeight": undefined,
                               "textAlign": "center",
                               "textAlignVertical": "bottom",
                               "textTransform": "none",
                             },
                             Object {
                               "fontSize": 26,
-                              "height": 24,
-                              "lineHeight": 26,
                             },
                           ]
                         }
@@ -884,15 +880,13 @@ exports[`renders correctly for joined members 1`] = `
                               "fontFamily": "SourceSansPro-Regular",
                               "fontSize": 12,
                               "fontStyle": "normal",
-                              "lineHeight": 16,
+                              "lineHeight": undefined,
                               "textAlign": "center",
                               "textAlignVertical": "bottom",
                               "textTransform": "none",
                             },
                             Object {
                               "fontSize": 26,
-                              "height": 24,
-                              "lineHeight": 26,
                             },
                           ]
                         }
@@ -1286,15 +1280,13 @@ exports[`renders plural sentence for joined members 1`] = `
                               "fontFamily": "SourceSansPro-Regular",
                               "fontSize": 12,
                               "fontStyle": "normal",
-                              "lineHeight": 16,
+                              "lineHeight": undefined,
                               "textAlign": "center",
                               "textAlignVertical": "bottom",
                               "textTransform": "none",
                             },
                             Object {
                               "fontSize": 26,
-                              "height": 24,
-                              "lineHeight": 26,
                             },
                           ]
                         }
@@ -1483,15 +1475,13 @@ exports[`renders plural sentence for joined members 1`] = `
                               "fontFamily": "SourceSansPro-Regular",
                               "fontSize": 12,
                               "fontStyle": "normal",
-                              "lineHeight": 16,
+                              "lineHeight": undefined,
                               "textAlign": "center",
                               "textAlignVertical": "bottom",
                               "textTransform": "none",
                             },
                             Object {
                               "fontSize": 26,
-                              "height": 24,
-                              "lineHeight": 26,
                             },
                           ]
                         }
@@ -1877,15 +1867,13 @@ exports[`renders singular sentence for completed members 1`] = `
                               "fontFamily": "SourceSansPro-Regular",
                               "fontSize": 12,
                               "fontStyle": "normal",
-                              "lineHeight": 16,
+                              "lineHeight": undefined,
                               "textAlign": "center",
                               "textAlignVertical": "bottom",
                               "textTransform": "none",
                             },
                             Object {
                               "fontSize": 26,
-                              "height": 24,
-                              "lineHeight": 26,
                             },
                           ]
                         }
