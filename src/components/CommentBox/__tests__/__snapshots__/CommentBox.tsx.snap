@@ -5,7 +5,7 @@ exports[`click submit button calls onSubmit prop 1`] = `
 - First value
 + Second value
 
-@@ -107,11 +107,11 @@
+@@ -105,11 +105,11 @@
               \\"textTransform\\": \\"none\\",
             },
           ]
@@ -18,7 +18,7 @@ exports[`click submit button calls onSubmit prop 1`] = `
     <View
       accessible={true}
       focusable={true}
-@@ -128,9 +128,9 @@
+@@ -126,9 +126,9 @@
         }
       }
       testID=\\"SubmitButton\\"
@@ -41,7 +41,7 @@ exports[`handles start edit 1`] = `
 - First value
 + Second value
 
-@@ -9,52 +9,70 @@
+@@ -9,50 +9,70 @@
       }
     }
   >
@@ -108,7 +108,7 @@ exports[`handles start edit 1`] = `
 -             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -             \\"fontSize\\": 12,
 -             \\"fontStyle\\": \\"normal\\",
--             \\"lineHeight\\": 16,
+-             \\"lineHeight\\": undefined,
 -             \\"textAlign\\": \\"center\\",
 -             \\"textAlignVertical\\": \\"bottom\\",
 -             \\"textTransform\\": \\"none\\",
@@ -117,8 +117,6 @@ exports[`handles start edit 1`] = `
 +             ],
               Object {
 -             \\"fontSize\\": 20,
--             \\"height\\": 19,
--             \\"lineHeight\\": 20,
 +               \\"fontFamily\\": \\"icomoon\\",
 +               \\"fontStyle\\": \\"normal\\",
 +               \\"fontWeight\\": \\"normal\\",
@@ -136,7 +134,7 @@ exports[`handles start edit 1`] = `
       style={
         Object {
           \\"backgroundColor\\": \\"#ECEEF2\\",
-@@ -107,11 +125,11 @@
+@@ -105,11 +125,11 @@
               \\"textTransform\\": \\"none\\",
             },
           ]
@@ -149,7 +147,7 @@ exports[`handles start edit 1`] = `
     <View
       accessible={true}
       focusable={true}
-@@ -128,9 +146,9 @@
+@@ -126,9 +146,9 @@
         }
       }
       testID=\\"SubmitButton\\"
@@ -167,7 +165,7 @@ exports[`renders with disabled submit button 1`] = `
 - First value
 + Second value
 
-@@ -107,11 +107,11 @@
+@@ -105,11 +105,11 @@
               \\"textTransform\\": \\"none\\",
             },
           ]
@@ -180,7 +178,7 @@ exports[`renders with disabled submit button 1`] = `
     <View
       accessible={true}
       focusable={true}
-@@ -128,9 +128,9 @@
+@@ -126,9 +126,9 @@
         }
       }
       testID=\\"SubmitButton\\"
@@ -198,7 +196,7 @@ exports[`renders with text entered 1`] = `
 - First value
 + Second value
 
-@@ -107,11 +107,11 @@
+@@ -105,11 +105,11 @@
               \\"textTransform\\": \\"none\\",
             },
           ]
@@ -211,7 +209,7 @@ exports[`renders with text entered 1`] = `
     <View
       accessible={true}
       focusable={true}
-@@ -128,9 +128,9 @@
+@@ -126,9 +126,9 @@
         }
       }
       testID=\\"SubmitButton\\"
@@ -265,15 +263,13 @@ exports[`renders without actions 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 12,
             "fontStyle": "normal",
-            "lineHeight": 16,
+            "lineHeight": undefined,
             "textAlign": "center",
             "textAlignVertical": "bottom",
             "textTransform": "none",
           },
           Object {
             "fontSize": 20,
-            "height": 19,
-            "lineHeight": 20,
           },
         ]
       }

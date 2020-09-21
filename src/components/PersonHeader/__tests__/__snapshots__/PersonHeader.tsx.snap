@@ -93,28 +93,28 @@ exports[`should load person data correctly 1`] = `
 - First value
 + Second value
 
-@@ -142,57 +142,33 @@
+@@ -142,55 +142,33 @@
             \\"alignItems\\": \\"center\\",
             \\"marginBottom\\": 24,
           }
         }
       >
 -       <View
+-         style={
+-           Array [
 +       <Image
 +         resizeMode=\\"cover\\"
 +         source={
-+           Object {
-+             \\"uri\\": \\"qui recusandae ut\\",
-+           }
-+         }
-          style={
-            Array [
-              Object {
+            Object {
 -               \\"alignItems\\": \\"center\\",
 -               \\"justifyContent\\": \\"center\\",
 -             },
--             Array [
--               Object {
++             \\"uri\\": \\"qui recusandae ut\\",
++           }
++         }
++         style={
+            Array [
+              Object {
                 \\"borderRadius\\": 48,
                 \\"height\\": 96,
                 \\"width\\": 96,
@@ -138,15 +138,13 @@ exports[`should load person data correctly 1`] = `
 -                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                 \\"fontSize\\": 12,
 -                 \\"fontStyle\\": \\"normal\\",
--                 \\"lineHeight\\": 16,
+-                 \\"lineHeight\\": undefined,
 -                 \\"textAlign\\": \\"center\\",
 -                 \\"textAlignVertical\\": \\"bottom\\",
 -                 \\"textTransform\\": \\"none\\",
 -               },
 -               Object {
 -                 \\"fontSize\\": 64,
--                 \\"height\\": 56,
--                 \\"lineHeight\\": 64,
 -               },
 -             ]
 -           }
@@ -160,7 +158,7 @@ exports[`should load person data correctly 1`] = `
             Object {
               \\"color\\": \\"#ffffff\\",
               \\"fontFamily\\": \\"SourceSansPro-Light\\",
-@@ -202,11 +178,13 @@
+@@ -200,11 +178,13 @@
               \\"marginTop\\": 12,
               \\"textAlignVertical\\": \\"center\\",
               \\"textTransform\\": \\"none\\",
@@ -175,7 +173,7 @@ exports[`should load person data correctly 1`] = `
             Object {
               \\"color\\": \\"#ffffff\\",
               \\"fontFamily\\": \\"SourceSansPro-Bold\\",
-@@ -217,11 +195,13 @@
+@@ -215,11 +195,13 @@
               \\"marginTop\\": 4,
               \\"textAlignVertical\\": \\"center\\",
               \\"textTransform\\": \\"uppercase\\",
@@ -370,15 +368,13 @@ exports[`should render loading 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 12,
                 "fontStyle": "normal",
-                "lineHeight": 16,
+                "lineHeight": undefined,
                 "textAlign": "center",
                 "textAlignVertical": "bottom",
                 "textTransform": "none",
               },
               Object {
                 "fontSize": 64,
-                "height": 56,
-                "lineHeight": 64,
               },
             ]
           }
