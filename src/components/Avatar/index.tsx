@@ -35,11 +35,11 @@ const wrapStyles: { [key in AvatarSize]: StyleProp<ImageStyle> } = {
   large: { width: 96, height: 96, borderRadius: 48 },
 };
 const textStyles: { [key in AvatarSize]: StyleProp<TextStyle> } = {
-  extrasmall: { fontSize: 12, lineHeight: 12, height: 12 },
-  small: { fontSize: 20, lineHeight: 20, height: 19 },
-  mediumSmall: { fontSize: 26, lineHeight: 26, height: 24 },
-  medium: { fontSize: 26, lineHeight: 26, height: 24 },
-  large: { fontSize: 64, lineHeight: 64, height: 56 },
+  extrasmall: { fontSize: 12 },
+  small: { fontSize: 20 },
+  mediumSmall: { fontSize: 26 },
+  medium: { fontSize: 26 },
+  large: { fontSize: 64 },
 };
 
 export interface AvatarProps {
