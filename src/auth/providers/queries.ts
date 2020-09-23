@@ -52,6 +52,7 @@ export const SIGN_IN_WITH_APPLE_MUTATION = gql`
       }
     ) {
       token
+      refreshToken
     }
   }
 `;
@@ -69,6 +70,15 @@ export const SIGN_IN_WITH_ANONYMOUS_MUTATION = gql`
   mutation SignInWithAnonymous($anonymousUid: String!) {
     loginWithAnonymous(input: { anonymousUid: $anonymousUid }) {
       token
+    }
+  }
+`;
+
+export const SIGN_IN_WITH_REFRESH_TOKEN_MUTATION = gql`
+  mutation SignInWithRefreshToken($refreshToken: String!) {
+    loginWithRefreshToken(input: { refreshToken: $refreshToken }) {
+      token
+      refreshToken
     }
   }
 `;
