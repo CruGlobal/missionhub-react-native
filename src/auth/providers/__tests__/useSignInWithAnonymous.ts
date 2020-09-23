@@ -80,6 +80,8 @@ it('should get a new access token using the refresh token', async () => {
 });
 
 it('should handle missing token from API', async () => {
+  (getAnonymousUid as jest.Mock).mockResolvedValue(anonymousUid);
+
   const { result } = renderHookWithContext(() => useSignInWithAnonymous(), {
     mocks: {
       Mutation: () => ({
@@ -108,8 +110,8 @@ it('should handle missing token from API', async () => {
       lastName,
     },
   });
-  expect(setAnonymousUid).not.toHaveBeenCalledWith(anonymousUid);
-  expect(setAuthToken).not.toHaveBeenCalledWith(token);
+  expect(setAnonymousUid).not.toHaveBeenCalled();
+  expect(setAuthToken).not.toHaveBeenCalled();
 });
 
 it('should handle missing refresh anonymous user id', async () => {
@@ -130,5 +132,5 @@ it('should handle missing refresh anonymous user id', async () => {
   expect(result.current.error).toEqual(AuthError.Unknown);
 
   expect(useMutation).not.toHaveBeenMutated();
-  expect(setAuthToken).not.toHaveBeenCalledWith(token);
+  expect(setAuthToken).not.toHaveBeenCalled();
 });
