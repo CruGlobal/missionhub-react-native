@@ -10,7 +10,6 @@ import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 
 import {
-  GCM_SENDER_ID,
   GLOBAL_COMMUNITY_ID,
   NOTIFICATION_PROMPT_TYPES,
   MAIN_TABS,
@@ -255,9 +254,6 @@ export function configureNotificationHandler() {
         console.log(error.message, error);
         !__DEV__ && rollbar.error(error);
       },
-
-      // ANDROID ONLY: GCM Sender ID
-      senderID: GCM_SENDER_ID,
 
       // we manually call this after to have access to a promise for the iOS prompt
       requestPermissions: false,
