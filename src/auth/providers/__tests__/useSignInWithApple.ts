@@ -9,6 +9,7 @@ import { flushMicrotasksQueue } from 'react-native-testing-library';
 import { renderHookWithContext } from '../../../../testUtils';
 import {
   setAuthToken,
+  setMissionHubRefreshToken,
   getAnonymousUid,
   deleteAnonymousUid,
   setAppleUserId,
@@ -42,6 +43,7 @@ const appleUserId = 'test apple user id';
 const firstName = 'Test first name';
 const lastName = 'Test last name';
 const email = 'appleemail@test.com';
+const missionhubRefreshToken = 'test refresh token';
 
 beforeEach(() => {
   (getAnonymousUid as jest.Mock).mockResolvedValue(anonymousUid);
@@ -66,7 +68,10 @@ describe('ios', () => {
     const { result } = renderHookWithContext(() => useSignInWithApple(), {
       mocks: {
         Mutation: () => ({
-          loginWithApple: () => ({ token }),
+          loginWithApple: () => ({
+            token,
+            refreshToken: missionhubRefreshToken,
+          }),
         }),
       },
     });
@@ -90,6 +95,9 @@ describe('ios', () => {
     });
     expect(deleteAnonymousUid).toHaveBeenCalled();
     expect(setAuthToken).toHaveBeenCalledWith(token);
+    expect(setMissionHubRefreshToken).toHaveBeenCalledWith(
+      missionhubRefreshToken,
+    );
     expect(setAppleUserId).toHaveBeenCalledWith(appleUserId);
   });
 
