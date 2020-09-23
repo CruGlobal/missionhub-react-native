@@ -17,11 +17,13 @@ import {
 import { useSignInWithApple } from './providers/useSignInWithApple';
 import {
   isAuthenticated,
+  getMissionHubRefreshToken,
   getTheKeyRefreshToken,
   getAnonymousUid,
   getAppleUserId,
 } from './authStore';
 import { useAuthSuccess } from './authHooks';
+import { useSignInWithRefreshToken } from './providers/useSignInWithRefreshToken';
 
 // export for use outside of components. useProvideAuthRefresh will set this value
 export let authRefresh: () => Promise<boolean>;
@@ -39,6 +41,8 @@ export const useProvideAuthRefresh = () => {
 
   const { signInWithAnonymous } = useSignInWithAnonymous();
 
+  const { signInWithRefreshToken } = useSignInWithRefreshToken();
+
   const authSuccess = useAuthSuccess();
 
   const performRefresh = async (): Promise<boolean> => {
@@ -52,6 +56,15 @@ export const useProvideAuthRefresh = () => {
     }
 
     try {
+      try {
+        if (await getMissionHubRefreshToken()) {
+          await signInWithRefreshToken();
+          return true;
+        }
+      } catch {
+        // On error, try refreshing with an auth provider
+      }
+
       if (await getTheKeyRefreshToken()) {
         await signInWithTheKey({ type: SignInWithTheKeyType.Refresh });
         return true;
