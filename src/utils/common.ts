@@ -4,6 +4,7 @@ import { BackHandler, Platform, Clipboard } from 'react-native';
 import { DrawerActions } from 'react-navigation-drawer';
 import Config from 'react-native-config';
 import i18n from 'i18next';
+import Toast from 'react-native-simple-toast';
 
 import {
   MAIN_MENU_DRAWER,
@@ -173,12 +174,11 @@ export function getCommunityUrl(link) {
   return link ? `${Config.COMMUNITY_URL}${link}` : '';
 }
 
-// @ts-ignore
-export function copyText(string) {
+export const copyText = (string: string) => {
   Clipboard.setString(string);
-  // @ts-ignore
+
   toast(i18n.t('copyMessage'));
-}
+};
 
 export const keyExtractorId = ({ id }: { id: string }) => id;
 
