@@ -11,25 +11,143 @@ exports[`CreateGroupScreen renders correctly 1`] = `
     }
   }
 >
-  <Analytics
-    screenName={
-      Array [
-        "communities",
-        "create",
-      ]
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
     }
-  />
-  <Header
-    left={
-      <IconButton
-        name="deleteIcon"
-        onPress={[Function]}
-        type="MissionHub"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "opacity": 1,
+            }
+          }
+          testID="IconButton"
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    undefined,
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flex": 4,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              },
+              undefined,
+            ]
+          }
+        >
+          Create Community
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
       />
-    }
-    title="Create Community"
-  />
-  <ScrollView
+    </View>
+  </RCTSafeAreaView>
+  <RCTScrollView
     keyboardShouldPersistTaps="handled"
     style={
       Object {
@@ -37,231 +155,215 @@ exports[`CreateGroupScreen renders correctly 1`] = `
       }
     }
   >
-    <ImagePicker
-      onSelectImage={[Function]}
-    >
-      <Flex
-        align="center"
-        justify="center"
+    <View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "backgroundColor": "#005A7F",
-            "borderRadius": 4,
-            "height": 399.375,
-            "marginHorizontal": 20,
-            "marginTop": 5,
+            "opacity": 1,
           }
         }
+        testID="popupMenuButton"
       >
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/cameraIcon.png",
-            }
-          }
-        />
-      </Flex>
-    </ImagePicker>
-    <KeyboardAvoidingView
-      enabled={true}
-      keyboardVerticalOffset={60}
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <Flex
-        style={
-          Object {
-            "marginTop": 5,
-            "paddingHorizontal": 30,
-            "paddingTop": 10,
-          }
-        }
-      >
-        <Text
+        <View
           style={
-            Object {
-              "color": "#3CC8E6",
-              "fontFamily": "AmaticSC-Bold",
-              "fontSize": 24,
-              "fontStyle": "normal",
-              "letterSpacing": 2,
-              "lineHeight": 24,
-              "marginBottom": 5,
-              "textAlign": "center",
-              "textAlignVertical": "center",
-              "textTransform": "lowercase",
-            }
+            Array [
+              Object {
+                "backgroundColor": "#005A7F",
+                "borderRadius": 4,
+                "height": 399.375,
+                "marginHorizontal": 20,
+                "marginTop": 5,
+              },
+              Object {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
+            ]
           }
         >
-          Community Name
-        </Text>
-        <Input
-          autoCorrect={true}
-          autoFocus={true}
-          blurOnSubmit={true}
-          maxLength={44}
-          onChangeText={[Function]}
-          placeholder=""
-          returnKeyType="done"
-          selectionColor="#ffffff"
+          <Image
+            source={
+              Object {
+                "testUri": "../../../assets/images/cameraIcon.png",
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      >
+        <View
           style={
+            Array [
+              Object {
+                "marginTop": 5,
+                "paddingHorizontal": 30,
+                "paddingTop": 10,
+              },
+              Object {},
+            ]
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#3CC8E6",
+                "fontFamily": "AmaticSC-Bold",
+                "fontSize": 24,
+                "fontStyle": "normal",
+                "letterSpacing": 2,
+                "lineHeight": 24,
+                "marginBottom": 5,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "textTransform": "lowercase",
+              }
+            }
+          >
+            Community Name
+          </Text>
+          <TextInput
+            allowFontScaling={true}
+            autoCorrect={true}
+            autoFocus={true}
+            blurOnSubmit={true}
+            maxLength={44}
+            multiline={false}
+            onChangeText={[Function]}
+            placeholder=""
+            placeholderTextColor="#505256"
+            rejectResponderTermination={true}
+            returnKeyType="done"
+            selectionColor="#ffffff"
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderBottomColor": "#3CC8E6",
+                  "borderBottomWidth": 1,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "letterSpacing": 0.25,
+                  "lineHeight": 24,
+                  "paddingVertical": 5,
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "lineHeight": 24,
+                  "textAlign": "center",
+                  "textAlignVertical": "center",
+                  "textTransform": "none",
+                },
+              ]
+            }
+            testID="communityName"
+            underlineColorAndroid="rgba(0,0,0,0)"
+            value=""
+          />
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#3CC8E6",
+          "borderRadius": 50,
+          "height": 48,
+          "justifyContent": "center",
+          "opacity": 0.6,
+          "width": 650,
+        }
+      }
+      testID="bottomButton"
+    >
+      <Text
+        style={
+          Array [
             Object {
               "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
-              "fontSize": 16,
+              "fontFamily": "SourceSansPro-Bold",
+              "fontSize": 14,
               "fontStyle": "normal",
-              "lineHeight": 24,
+              "letterSpacing": 1,
+              "lineHeight": 18,
               "textAlign": "center",
               "textAlignVertical": "center",
-              "textTransform": "none",
-            }
-          }
-          value=""
-        />
-      </Flex>
-    </KeyboardAvoidingView>
-  </ScrollView>
-  <BottomButton
-    disabled={true}
-    onPress={[Function]}
-    text="Create Community"
-  />
+              "textTransform": "uppercase",
+            },
+            Array [
+              undefined,
+            ],
+          ]
+        }
+      >
+        CREATE COMMUNITY
+      </Text>
+    </View>
+  </RCTSafeAreaView>
 </View>
 `;
 
 exports[`CreateGroupScreen should disable the button when creating a community 1`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "#007398",
-      "flex": 1,
-      "flexDirection": "column",
-      "justifyContent": "space-between",
-    }
-  }
->
-  <Analytics
-    screenName={
-      Array [
-        "communities",
-        "create",
-      ]
-    }
-  />
-  <Header
-    left={
-      <IconButton
-        name="deleteIcon"
-        onPress={[Function]}
-        type="MissionHub"
-      />
-    }
-    title="Create Community"
-  />
-  <ScrollView
-    keyboardShouldPersistTaps="handled"
-    style={
-      Object {
-        "flex": 1,
-      }
-    }
-  >
-    <ImagePicker
-      onSelectImage={[Function]}
-    >
-      <Flex
-        align="center"
-        justify="center"
-        style={
-          Object {
-            "backgroundColor": "#005A7F",
-            "borderRadius": 4,
-            "height": 399.375,
-            "marginHorizontal": 20,
-            "marginTop": 5,
-          }
-        }
-      >
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/cameraIcon.png",
-            }
-          }
-        />
-      </Flex>
-    </ImagePicker>
-    <KeyboardAvoidingView
-      enabled={true}
-      keyboardVerticalOffset={60}
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <Flex
-        style={
-          Object {
-            "marginTop": 5,
-            "paddingHorizontal": 30,
-            "paddingTop": 10,
-          }
-        }
-      >
-        <Text
-          style={
-            Object {
-              "color": "#3CC8E6",
-              "fontFamily": "AmaticSC-Bold",
-              "fontSize": 24,
-              "fontStyle": "normal",
-              "letterSpacing": 2,
-              "lineHeight": 24,
-              "marginBottom": 5,
-              "textAlign": "center",
-              "textAlignVertical": "center",
-              "textTransform": "lowercase",
-            }
-          }
-        >
-          Community Name
-        </Text>
-        <Input
-          autoCorrect={true}
-          autoFocus={true}
-          blurOnSubmit={true}
-          maxLength={44}
-          onChangeText={[Function]}
-          placeholder=""
-          returnKeyType="done"
-          selectionColor="#ffffff"
-          style={
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
-              "fontSize": 16,
-              "fontStyle": "normal",
-              "lineHeight": 24,
-              "textAlign": "center",
-              "textAlignVertical": "center",
-              "textTransform": "none",
-            }
-          }
-          value="Test"
-        />
-      </Flex>
-    </KeyboardAvoidingView>
-  </ScrollView>
-  <BottomButton
-    disabled={true}
-    onPress={[Function]}
-    text="Create Community"
-  />
-</View>
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -275,11 +275,11 @@
+                  },
+                ]
+              }
+              testID=\\"communityName\\"
+              underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+-             value=\\"\\"
++             value=\\"Test\\"
+            />
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>"
 `;
 
 exports[`CreateGroupScreen should update the image 1`] = `

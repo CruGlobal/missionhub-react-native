@@ -1,70 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DeepLinkConfirmJoinGroupScreen renders error correctly 1`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "#007398",
-      "flex": 1,
-    }
-  }
->
-  <Analytics
-    screenName={
-      Array [
-        "deep link",
-        "community",
-      ]
-    }
-  />
-  <Header
-    left={
-      <IconButton
-        name="deleteIcon"
-        onPress={[Function]}
-        type="MissionHub"
-      />
-    }
-    title="Join a Community"
-  />
-  <Flex
-    align="center"
-    justify="center"
-    style={
-      Object {
-        "marginTop": 5,
-        "minHeight": 400.2,
-      }
-    }
-    value={1}
-  >
-    <Flex
-      align="center"
-      justify="center"
-    >
-      <Text
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 16,
-            "fontStyle": "normal",
-            "lineHeight": 24,
-            "padding": 4,
-            "textAlign": "center",
-            "textAlignVertical": "center",
-            "textTransform": "none",
-          }
-        }
-      >
-        Sorry, we couldn't find your community.
-Double check your link.
-      </Text>
-    </Flex>
-  </Flex>
-</View>
-`;
-
 exports[`DeepLinkConfirmJoinGroupScreen renders group card correctly 1`] = `
 <View
   style={
@@ -74,59 +9,336 @@ exports[`DeepLinkConfirmJoinGroupScreen renders group card correctly 1`] = `
     }
   }
 >
-  <Analytics
-    screenName={
-      Array [
-        "deep link",
-        "community",
-      ]
-    }
-  />
-  <Header
-    left={
-      <IconButton
-        name="deleteIcon"
-        onPress={[Function]}
-        type="MissionHub"
-      />
-    }
-    title="Join a Community"
-  />
-  <Flex
-    align="center"
-    justify="center"
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Object {
-        "marginTop": 5,
-        "minHeight": 400.2,
+        "backgroundColor": "transparent",
       }
     }
-    value={1}
   >
-    <Flex
-      align="center"
-      justify="center"
-    >
-      <Text
-        style={
+    <View
+      style={
+        Array [
           Object {
-            "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 16,
-            "fontStyle": "normal",
-            "lineHeight": 24,
-            "padding": 4,
-            "textAlign": "center",
-            "textAlignVertical": "center",
-            "textTransform": "none",
-          }
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
         }
       >
-        Sorry, we couldn't find your community.
-Double check your link.
-      </Text>
-    </Flex>
-  </Flex>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "opacity": 1,
+            }
+          }
+          testID="IconButton"
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    undefined,
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flex": 4,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              },
+              undefined,
+            ]
+          }
+        >
+          Join a Community
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      />
+    </View>
+  </RCTSafeAreaView>
+  <View
+    style={
+      Array [
+        Object {
+          "marginTop": 5,
+          "minHeight": 400.2,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "borderRadius": 4,
+          "elevation": 4,
+          "flexDirection": "row",
+          "marginHorizontal": 16,
+          "marginVertical": 8,
+          "opacity": 1,
+          "shadowColor": "#000000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.3,
+          "shadowRadius": 2,
+        }
+      }
+      testID="CardButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#005A7F",
+              "borderRadius": 4,
+              "height": 403.875,
+            },
+            Object {
+              "flex": 1,
+            },
+          ]
+        }
+      >
+        <Image
+          resizeMode="cover"
+          source={
+            Object {
+              "uri": "www.missionhub.com",
+            }
+          }
+          style={
+            Object {
+              "borderRadius": 4,
+              "height": "100%",
+              "width": "100%",
+            }
+          }
+        />
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "rgba(0, 0, 0, 0.6)",
+                "borderBottomLeftRadius": 4,
+                "borderBottomRightRadius": 4,
+                "bottom": 0,
+                "left": 0,
+                "padding": 13,
+                "position": "absolute",
+                "right": 0,
+              },
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Bold",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlignVertical": "center",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              ORG NAME
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                }
+              }
+            >
+              Owner O (Owner)
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flexDirection": "column",
+                  "justifyContent": "center",
+                },
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "backgroundColor": "#FF5532",
+                  "borderRadius": 12,
+                  "margin": 5,
+                  "opacity": 1,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 5,
+                }
+              }
+              testID="JoinButton"
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Bold",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textAlign": "center",
+                      "textAlignVertical": "center",
+                      "textTransform": "uppercase",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                    },
+                  ]
+                }
+              >
+                JOIN
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
 </View>
 `;
 
@@ -139,38 +351,167 @@ exports[`DeepLinkConfirmJoinGroupScreen renders start correctly 1`] = `
     }
   }
 >
-  <Analytics
-    screenName={
-      Array [
-        "deep link",
-        "community",
-      ]
-    }
-  />
-  <Header
-    left={
-      <IconButton
-        name="deleteIcon"
-        onPress={[Function]}
-        type="MissionHub"
-      />
-    }
-    title="Join a Community"
-  />
-  <Flex
-    align="center"
-    justify="center"
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Object {
-        "marginTop": 5,
-        "minHeight": 400.2,
+        "backgroundColor": "transparent",
       }
     }
-    value={1}
   >
-    <Flex
-      align="center"
-      justify="center"
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "opacity": 1,
+            }
+          }
+          testID="IconButton"
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    undefined,
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flex": 4,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "lineHeight": 20,
+                "textAlignVertical": "center",
+                "textTransform": "none",
+              },
+              undefined,
+            ]
+          }
+        >
+          Join a Community
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      />
+    </View>
+  </RCTSafeAreaView>
+  <View
+    style={
+      Array [
+        Object {
+          "marginTop": 5,
+          "minHeight": 400.2,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+        ]
+      }
     >
       <Text
         style={
@@ -190,7 +531,7 @@ exports[`DeepLinkConfirmJoinGroupScreen renders start correctly 1`] = `
         Sorry, we couldn't find your community.
 Double check your link.
       </Text>
-    </Flex>
-  </Flex>
+    </View>
+  </View>
 </View>
 `;

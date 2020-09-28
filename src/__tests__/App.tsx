@@ -1,9 +1,5 @@
 import React from 'react';
 import ReactNative from 'react-native';
-// @ts-ignore
-import Adapter from 'enzyme-adapter-react-16/build/index';
-// @ts-ignore
-import Enzyme, { shallow } from 'enzyme/build/index';
 
 jest.mock('react-native-vector-icons/MaterialIcons', () => ({
   loadFont: jest.fn(),
@@ -23,8 +19,6 @@ import { setupFirebaseDynamicLinks } from '../actions/deepLink';
 import { getFeatureFlags } from '../actions/misc';
 import locale from '../i18n/locales/en-US';
 import { rollbar } from '../utils/rollbar.config';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 jest.mock('../AppNavigator', () => ({ AppNavigator: 'mockAppNavigator' }));
 jest.mock('../actions/misc');

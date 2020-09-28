@@ -41,8 +41,7 @@ class CreateGroupScreen extends Component {
     imageData: null,
   };
 
-  // @ts-ignore
-  onChangeText = text => this.setState({ name: text });
+  onChangeText = (text: string) => this.setState({ name: text });
 
   createCommunity = async () => {
     // @ts-ignore
@@ -171,6 +170,7 @@ class CreateGroupScreen extends Component {
               <Text style={styles.label}>{t('name')}</Text>
               <Input
                 ref={this.ref}
+                testID="communityName"
                 onChangeText={this.onChangeText}
                 value={name}
                 autoFocus={true}
@@ -186,6 +186,7 @@ class CreateGroupScreen extends Component {
           </KeyboardAvoidingView>
         </ScrollView>
         <BottomButton
+          testID="createCommunityButton"
           disabled={!name || isCreatingCommunity}
           onPress={this.createCommunity}
           text={t('createCommunity')}

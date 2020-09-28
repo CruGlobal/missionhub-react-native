@@ -1,12 +1,8 @@
 import React from 'react';
 import { Keyboard } from 'react-native';
+import { fireEvent } from 'react-native-testing-library';
 
-import {
-  renderShallow,
-  createMockNavState,
-  testSnapshotShallow,
-  createThunkStore,
-} from '../../../../../testUtils';
+import { renderWithContext } from '../../../../../testUtils';
 import {
   navigateBack,
   navigateToMainTabs,
@@ -27,7 +23,10 @@ const mockAddNewOrg = {
   response: { id: mockNewId },
 };
 
-jest.mock('../../../../actions/analytics');
+jest.mock('../../../../actions/analytics', () => ({
+  trackScreenChange: jest.fn(() => ({ type: 'trackScreenChange' })),
+  trackActionWithoutData: jest.fn(() => ({ type: 'trackActionWithoutData' })),
+}));
 jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'back' })),
   navigateNestedReset: jest.fn(() => ({ type: 'navigateNestedReset' })),
@@ -45,41 +44,27 @@ beforeEach(() => {
   );
 });
 
-// @ts-ignore
-let store;
-
-const state = {
+const initialState = {
   organizations: { all: [] },
+  onboarding: {},
+  drawer: {},
 };
 
 // @ts-ignore
-trackActionWithoutData.mockReturnValue({ type: 'tracked action without data' });
-
-beforeEach(() => {
-  store = createThunkStore(state);
-});
-
-// @ts-ignore
-function buildScreen(props) {
-  return renderShallow(
-    <CreateGroupScreen navigation={createMockNavState()} {...props} />,
-    // @ts-ignore
-    store,
+function buildScreen(props?: unknown) {
+  return renderWithContext(
+    <CreateGroupScreen navigation={{ state: {} }} {...props} />,
+    {
+      initialState,
+    },
   );
-}
-
-// @ts-ignore
-function buildScreenInstance(props) {
-  return buildScreen(props).instance();
 }
 
 describe('CreateGroupScreen', () => {
   it('renders correctly', () => {
-    testSnapshotShallow(
-      <CreateGroupScreen navigation={createMockNavState()} />,
-      // @ts-ignore
-      store,
-    );
+    renderWithContext(<CreateGroupScreen navigation={{ state: {} }} />, {
+      initialState,
+    }).snapshot();
   });
 
   it('should update the state', () => {
@@ -95,11 +80,12 @@ describe('CreateGroupScreen', () => {
   });
 
   it('should disable the button when creating a community', () => {
-    // @ts-ignore
-    const component = buildScreen();
-    component.setState({ name: 'Test', isCreatingCommunity: true });
+    const { recordSnapshot, getByTestId, diffSnapshot } = buildScreen();
+    recordSnapshot();
+    fireEvent.changeText(getByTestId('communityName'), 'Test');
+    fireEvent.press(getByTestId('createCommunityButton'));
 
-    expect(component.update()).toMatchSnapshot();
+    diffSnapshot();
   });
 
   it('should update the image', () => {

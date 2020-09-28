@@ -1,36 +1,38 @@
 import React from 'react';
 
-import { testSnapshot } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import Flex from '..';
 
 it('renders correctly', () => {
-  testSnapshot(<Flex />);
+  renderWithContext(<Flex />, { noWrappers: true }).snapshot();
 });
 
 it('renders align center correctly', () => {
-  testSnapshot(<Flex align="center" />);
+  renderWithContext(<Flex align="center" />, { noWrappers: true }).snapshot();
 });
 
 it('renders justify center correctly', () => {
-  testSnapshot(<Flex justify="center" />);
+  renderWithContext(<Flex justify="center" />, { noWrappers: true }).snapshot();
 });
 
 it('renders alignSelf center correctly', () => {
-  testSnapshot(<Flex self="center" />);
+  renderWithContext(<Flex self="center" />, { noWrappers: true }).snapshot();
 });
 
 it('renders value correctly', () => {
-  testSnapshot(<Flex value={1} />);
+  renderWithContext(<Flex value={1} />, { noWrappers: true }).snapshot();
 });
 
 it('renders direction correctly', () => {
-  testSnapshot(<Flex direction="row" />);
+  renderWithContext(<Flex direction="row" />, { noWrappers: true }).snapshot();
 });
 
 it('renders animation correctly', () => {
-  testSnapshot(<Flex animation="bounce" />);
+  renderWithContext(<Flex animation="bounce" />, {
+    noWrappers: true,
+  }).snapshot();
 });
 
 it('renders grow correctly', () => {
-  testSnapshot(<Flex grow={2} />);
+  renderWithContext(<Flex grow={2} />, { noWrappers: true }).snapshot();
 });
