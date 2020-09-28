@@ -406,7 +406,7 @@ describe('long-press card', () => {
       );
     });
 
-    it('navigates to edit post screen', () => {
+    it('navigates to edit post screen', async () => {
       ActionSheetIOS.showActionSheetWithOptions = jest.fn();
       Alert.alert = jest.fn();
 
@@ -416,8 +416,10 @@ describe('long-press card', () => {
           namePressable={false}
           onEditPost={onEditPost}
         />,
-        { initialState },
+        { mocks: { User: () => ({ person: () => ({ id: myId }) }) } },
       );
+
+      await flushMicrotasksQueue();
 
       fireEvent(getByTestId('popupMenuButton'), 'onLongPress');
       (ActionSheetIOS.showActionSheetWithOptions as jest.Mock).mock.calls[0][1](
@@ -489,7 +491,7 @@ describe('long-press card', () => {
           namePressable={false}
           onEditPost={onEditPost}
         />,
-        { initialState },
+        { mocks: { User: () => ({ person: () => ({ id: myId }) }) } },
       );
 
       fireEvent(getByTestId('popupMenuButton'), 'onLongPress');
