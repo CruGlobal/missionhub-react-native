@@ -1,7 +1,10 @@
 /* eslint-disable max-lines */
 
+import Clipboard from '@react-native-community/clipboard';
 import { DrawerActions } from 'react-navigation-drawer';
 import Config from 'react-native-config';
+import Toast from 'react-native-simple-toast';
+import i18next from 'i18next';
 
 import {
   buildTrackingObj,
@@ -22,6 +25,7 @@ import {
   mapFeedTypeToPostType,
   getFeedItemType,
   canModifyFeedItemSubject,
+  copyText,
 } from '../common';
 import {
   MAIN_MENU_DRAWER,
@@ -42,6 +46,9 @@ import {
   CommunityFeedItem_subject_AcceptedCommunityChallenge,
 } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 
+jest.mock('@react-native-community/clipboard', () => ({
+  setString: jest.fn(),
+}));
 jest.mock('react-navigation-drawer', () => ({
   DrawerActions: {
     openDrawer: jest.fn(),
@@ -358,6 +365,16 @@ describe('getCommunityUrl', () => {
     );
   });
   it('should handle null', () => expect(getCommunityUrl(null)).toEqual(''));
+});
+
+describe('copyText', () => {
+  it('should copy text', () => {
+    const text = 'test';
+    copyText(text);
+
+    expect(Clipboard.setString).toHaveBeenCalledWith(text);
+    expect(Toast.show).toHaveBeenCalledWith(i18next.t('copyMessage'));
+  });
 });
 
 describe('keyExtractorId', () => {

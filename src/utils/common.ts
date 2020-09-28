@@ -1,6 +1,7 @@
 /* eslint-disable max-lines */
 
-import { BackHandler, Platform, Clipboard } from 'react-native';
+import { BackHandler, Platform } from 'react-native';
+import Clipboard from '@react-native-community/clipboard';
 import { DrawerActions } from 'react-navigation-drawer';
 import Config from 'react-native-config';
 import i18n from 'i18next';
@@ -177,7 +178,7 @@ export function getCommunityUrl(link) {
 export const copyText = (string: string) => {
   Clipboard.setString(string);
 
-  toast(i18n.t('copyMessage'));
+  Toast.show(i18n.t('copyMessage'));
 };
 
 export const keyExtractorId = ({ id }: { id: string }) => id;

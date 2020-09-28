@@ -17,6 +17,7 @@ module.exports = {
     '<rootDir>/__mock__/init-i18next.js',
     '<rootDir>/__mock__/apolloClient.ts',
     '<rootDir>/__mock__/react-native-camera.ts',
+    '<rootDir>/__mock__/react-native-simple-toast.ts',
     '<rootDir>/__mock__/react-native-video.ts',
     require.resolve('jest-expo/src/preset/setup.js'),
   ],

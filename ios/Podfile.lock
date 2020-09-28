@@ -418,6 +418,9 @@ PODS:
   - react-native-fbsdk/Share (2.0.0):
     - FBSDKShareKit (~> 7.0)
     - React
+  - react-native-simple-toast (1.1.2):
+    - React
+    - Toast (~> 4.0.0)
   - react-native-version-check (3.4.1):
     - React
   - react-native-video (5.0.2):
@@ -537,6 +540,7 @@ PODS:
     - Rollbar (~> 1.5.0)
   - RSKImageCropper (2.3.0)
   - SSZipArchive (2.2.3)
+  - Toast (4.0.0)
   - UMAppLoader (1.2.0)
   - UMBarCodeScannerInterface (5.2.1)
   - UMCameraInterface (5.2.1)
@@ -609,6 +613,7 @@ DEPENDENCIES:
   - react-native-camera (from `../node_modules/react-native-camera`)
   - react-native-config (from `../node_modules/react-native-config`)
   - react-native-fbsdk (from `../node_modules/react-native-fbsdk`)
+  - react-native-simple-toast (from `../node_modules/react-native-simple-toast`)
   - react-native-version-check (from `../node_modules/react-native-version-check`)
   - react-native-video (from `../node_modules/react-native-video`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -697,6 +702,7 @@ SPEC REPOS:
     - Rollbar
     - RSKImageCropper
     - SSZipArchive
+    - Toast
     - YogaKit
 
 EXTERNAL SOURCES:
@@ -752,6 +758,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-config"
   react-native-fbsdk:
     :path: "../node_modules/react-native-fbsdk"
+  react-native-simple-toast:
+    :path: "../node_modules/react-native-simple-toast"
   react-native-version-check:
     :path: "../node_modules/react-native-version-check"
   react-native-video:
@@ -906,6 +914,7 @@ SPEC CHECKSUMS:
   react-native-camera: 55e1afb6d585314ca96ea5504e6b1ba7583c1d21
   react-native-config: 55548054279d92e0e4566ea15a8b9b81028ec342
   react-native-fbsdk: 00c15d138bba6d4efa628670886fc58cec858c19
+  react-native-simple-toast: 58b71ef003f01d2c0bf5dcd2fdccc75861dabade
   react-native-version-check: 40245490503879ff64f020b285ebc4075abd40c7
   react-native-video: d01ed7ff1e38fa7dcc6c15c94cf505e661b7bfd0
   React-RCTActionSheet: 910163b6b09685a35c4ebbc52b66d1bfbbe39fc5
@@ -939,6 +948,7 @@ SPEC CHECKSUMS:
   RollbarReactNative: 6a9f248d2cd1a767056e1ee1ef1061be2be50c5f
   RSKImageCropper: c337eacdcbed50e695e5153ff0c2b861b6ebfa84
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   UMAppLoader: 61049c8d55590b74e9ae1d5429bf68d96b4a2528
   UMBarCodeScannerInterface: e5e4c87797d3d01214e25cd1618866caf5d4f17f
   UMCameraInterface: 415ac060034edecacdbbaa739c223e3f276e0056
