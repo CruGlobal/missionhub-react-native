@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Animated, View, Text } from 'react-native';
+import { Animated, View, Text, SectionListData } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
+import { useQuery } from '@apollo/react-hooks';
 
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import ChallengeItem from '../../components/ChallengeItem';
@@ -11,18 +12,22 @@ import OnboardingCard, {
 } from '../Groups/OnboardingCard';
 import { navigatePush } from '../../actions/navigation';
 import { completeChallenge, joinChallenge } from '../../actions/challenges';
-import { orgPermissionSelector } from '../../selectors/people';
 import { isAdminOrOwner, isAndroid, keyExtractorId } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { CHALLENGE_DETAIL_SCREEN } from '../ChallengeDetailScreen';
 import { ACTIONS } from '../../constants';
 import NullStateComponent from '../../components/NullStateComponent';
 import TARGET from '../../../assets/images/challengeTarget.png';
-import { AuthState } from '../../reducers/auth';
 import { ChallengeItem as ChallengeItemInterface } from '../../components/ChallengeStats';
 import { SwipeState } from '../../reducers/swipe';
 import { Organization } from '../../reducers/organizations';
 import { CollapsibleScrollViewProps } from '../../components/CollapsibleView/CollapsibleView';
+import { useMyId } from '../../utils/hooks/useIsMe';
+import {
+  getMyCommunityPermission,
+  getMyCommunityPermissionVariables,
+} from '../Groups/CreatePostButton/__generated__/getMyCommunityPermission';
+import { GET_MY_COMMUNITY_PERMISSION_QUERY } from '../Groups/CreatePostButton/queries';
 
 import styles from './styles';
 
@@ -53,24 +58,21 @@ const ChallengeFeed = ({
   const { t } = useTranslation('challengeFeeds');
   useAnalytics(['challenge', 'feed']);
   const dispatch = useDispatch();
-  const auth = useSelector(({ auth }: { auth: AuthState }) => auth);
-  const myId = auth.person.id;
-  const person = auth.person;
-  const orgPerm = useSelector(() =>
-    orgPermissionSelector(
-      {},
-      {
-        person,
-        organization,
-      },
-    ),
-  );
+  const myId = useMyId();
+  const { data } = useQuery<
+    getMyCommunityPermission,
+    getMyCommunityPermissionVariables
+  >(GET_MY_COMMUNITY_PERMISSION_QUERY, {
+    variables: { id: organization.id, myId },
+  });
 
   const isOnboardingCardVisible = useSelector(
     ({ swipe }: { swipe: SwipeState }) => swipe.groupOnboarding.challenges,
   );
 
-  const adminOrOwner = isAdminOrOwner(orgPerm);
+  const adminOrOwner = isAdminOrOwner(
+    data?.community.people.edges[0].communityPermission,
+  );
   const [isListScrolled, setListScrolled] = useState(false);
   const getAcceptedChallenge = ({
     accepted_community_challenges,
@@ -83,7 +85,7 @@ const ChallengeFeed = ({
   const renderSectionHeader = ({
     section: { title },
   }: {
-    section: { title: string };
+    section: SectionListData<ChallengeItemInterface>;
   }) => (
     <View style={styles.header}>
       <Text style={styles.title}>{title}</Text>

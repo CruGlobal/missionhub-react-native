@@ -40,8 +40,8 @@ export const PersonJourney = ({
   const personId: string = useNavigationParam('personId');
 
   const person = useSelector(
-    ({ people }: RootState) =>
-      personSelector({ people }, { personId }) || {
+    (state: RootState) =>
+      personSelector(state, { personId }) || {
         id: personId,
       },
   );

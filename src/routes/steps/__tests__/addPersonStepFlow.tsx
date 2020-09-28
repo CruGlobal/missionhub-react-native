@@ -36,7 +36,6 @@ const stage = { id: '1' };
 const stepSuggestionId = '444';
 
 const initialState = {
-  auth: { person: me },
   onboarding: { personId: otherId, currentlyOnboarding: false },
   people: {
     people: { [person.id]: person },

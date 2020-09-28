@@ -1,26 +1,26 @@
-import configureStore from 'redux-mock-store';
+import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import { StackActions } from 'react-navigation';
 
 import { handleAfterCompleteStep } from '../steps';
 import { refreshImpact } from '../impact';
 import { trackAction } from '../analytics';
 import * as navigation from '../navigation';
 import * as date from '../../utils/date';
-import { ACTIONS, NAVIGATE_FORWARD, STEP_NOTE } from '../../constants';
+import { ACTIONS, STEP_NOTE } from '../../constants';
 import { COMPLETE_STEP_FLOW } from '../../routes/constants';
 import { getCelebrateFeed } from '../celebration';
 import { apolloClient } from '../../apolloClient';
 import { PERSON_STEPS_QUERY } from '../../containers/PersonScreen/PersonSteps/queries';
+import { STEPS_QUERY } from '../../containers/StepsScreen/queries';
 
 apolloClient.query = jest.fn();
 apolloClient.readQuery = jest.fn();
 apolloClient.writeQuery = jest.fn();
 
 const mockStore = configureStore([thunk]);
-// @ts-ignore
-let store;
+let store: MockStore;
 
-const personId = '2123';
 const receiverId = '983547';
 const communityId = '123';
 const mockDate = '2018-02-14 11:30:00 UTC';
@@ -37,7 +37,7 @@ beforeEach(() => {
 });
 
 describe('completeStep', () => {
-  const stepId = 34556;
+  const stepId = '34556';
   const stepCommunityId = '555';
   const step = {
     id: stepId,
@@ -51,11 +51,6 @@ describe('completeStep', () => {
 
   beforeEach(() => {
     store = mockStore({
-      auth: {
-        person: {
-          id: personId,
-        },
-      },
       organizations: {
         all: [
           {
@@ -70,21 +65,18 @@ describe('completeStep', () => {
       steps: { userStepCount: { [receiverId]: 2 } },
     });
 
-    // @ts-ignore
-    trackAction.mockReturnValue(trackActionResult);
-    // @ts-ignore
-    refreshImpact.mockReturnValue(impactResponse);
+    (trackAction as jest.Mock).mockReturnValue(trackActionResult);
+    (refreshImpact as jest.Mock).mockReturnValue(impactResponse);
     // Call `onSetComplete` within the navigate push
-    // @ts-ignore
-    navigation.navigatePush = jest.fn((a, b) => {
+    (navigation.navigatePush as jest.Mock) = jest.fn((a, b) => {
       b.onSetComplete();
-      return { type: NAVIGATE_FORWARD, routeName: a, params: b };
+      return { type: StackActions.push, routeName: a, params: b };
     });
   });
 
   it('completes step', async () => {
-    // @ts-ignore
-    await store.dispatch(handleAfterCompleteStep(step, screen));
+    //eslint-disable-next-line @typescript-eslint/no-explicit-any
+    await store.dispatch<any>(handleAfterCompleteStep(step, screen));
 
     expect(
       trackAction,
@@ -100,11 +92,15 @@ describe('completeStep', () => {
         completed: true,
       },
     });
-    // @ts-ignore
+    expect(apolloClient.readQuery).toHaveBeenCalledWith({ query: STEPS_QUERY });
+    expect(apolloClient.readQuery).toHaveBeenCalledWith({
+      query: PERSON_STEPS_QUERY,
+      variables: { personId: receiverId, completed: false },
+    });
     expect(store.getActions()).toEqual([
       impactResponse,
       {
-        type: NAVIGATE_FORWARD,
+        type: StackActions.push,
         routeName: COMPLETE_STEP_FLOW,
         params: {
           type: STEP_NOTE,
@@ -120,8 +116,8 @@ describe('completeStep', () => {
 
   it('completes step for personal ministry', async () => {
     const noCommunityStep = { ...step, community: undefined };
-    // @ts-ignore
-    await store.dispatch(handleAfterCompleteStep(noCommunityStep, screen));
+    //eslint-disable-next-line @typescript-eslint/no-explicit-any
+    await store.dispatch<any>(handleAfterCompleteStep(noCommunityStep, screen));
 
     expect(getCelebrateFeed).not.toHaveBeenCalled();
     expect(apolloClient.query).toHaveBeenCalledWith({
@@ -131,11 +127,15 @@ describe('completeStep', () => {
         completed: true,
       },
     });
-    // @ts-ignore
+    expect(apolloClient.readQuery).toHaveBeenCalledWith({ query: STEPS_QUERY });
+    expect(apolloClient.readQuery).toHaveBeenCalledWith({
+      query: PERSON_STEPS_QUERY,
+      variables: { personId: receiverId, completed: false },
+    });
     expect(store.getActions()).toEqual([
       impactResponse,
       {
-        type: NAVIGATE_FORWARD,
+        type: StackActions.push,
         routeName: COMPLETE_STEP_FLOW,
         params: {
           type: STEP_NOTE,

@@ -22,6 +22,7 @@ import {
   ANALYTICS_SCREEN_TYPES,
 } from '../../../utils/hooks/useAnalytics';
 import { COMMUNITY_TABS } from '../../Communities/Community/constants';
+import { useIsAnonymousUser } from '../../../auth/authHooks';
 
 jest.mock('react-navigation-hooks');
 jest.mock('../../../components/GroupCardItem', () => 'GroupCardItem');
@@ -31,6 +32,7 @@ jest.mock('../../../actions/swipe');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../utils/common');
 jest.mock('../../../utils/hooks/useAnalytics');
+jest.mock('../../../auth/authHooks');
 
 const auth = { upgradeToken: null };
 const swipe = { groupScrollToId: null };
@@ -207,10 +209,11 @@ describe('GroupsListScreen', () => {
     });
 
     it('navigates to Upgrade Account Screen if not signed in', () => {
+      (useIsAnonymousUser as jest.Mock).mockReturnValue(true);
+
       const { getByTestId, store } = renderWithContext(<GroupsListScreen />, {
         initialState: {
           ...initialState,
-          auth: { upgradeToken: 'aabbcc' },
         },
       });
 

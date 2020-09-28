@@ -19,7 +19,7 @@ import { wrapNextAction } from '../helpers';
 import { WELCOME_SCREEN } from '../../containers/WelcomeScreen';
 import SetupScreen, { SETUP_SCREEN } from '../../containers/SetupScreen';
 import { Organization } from '../../reducers/organizations';
-import { GET_STARTED_SCREEN } from '../../containers/GetStartedScreen';
+import { GET_STARTED_SCREEN } from '../../containers/GetStartedScreen/constants';
 import { RootState } from '../../reducers';
 
 import { onboardingFlowGenerator } from './onboardingFlowGenerator';

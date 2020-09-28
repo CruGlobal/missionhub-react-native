@@ -24,7 +24,7 @@ import SetupScreen, { SETUP_SCREEN } from '../../containers/SetupScreen';
 import { SIGN_IN_SCREEN } from '../../containers/Auth/SignInScreen';
 import { authFlowGenerator } from '../auth/authFlowGenerator';
 import { onboardingFlowGenerator } from '../onboarding/onboardingFlowGenerator';
-import { GET_STARTED_SCREEN } from '../../containers/GetStartedScreen';
+import { GET_STARTED_SCREEN } from '../../containers/GetStartedScreen/constants';
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../../containers/CelebrationScreen';

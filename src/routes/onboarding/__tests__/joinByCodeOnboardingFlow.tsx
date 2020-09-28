@@ -12,7 +12,7 @@ import {
 import { WELCOME_SCREEN } from '../../../containers/WelcomeScreen';
 import { SETUP_SCREEN } from '../../../containers/SetupScreen';
 import * as navigationActions from '../../../actions/navigation';
-import { GET_STARTED_SCREEN } from '../../../containers/GetStartedScreen';
+import { GET_STARTED_SCREEN } from '../../../containers/GetStartedScreen/constants';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../../containers/NotificationPrimerScreen';
 import { NOTIFICATION_OFF_SCREEN } from '../../../containers/NotificationOffScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
@@ -34,10 +34,10 @@ global.Math = mockMath;
 const community = { id: '1', community_code: '123456' };
 
 const initialState = {
-  auth: { person: { id: '1' } },
   onboarding: {
     community,
   },
+  people: { people: {} },
 };
 
 beforeEach(() => {

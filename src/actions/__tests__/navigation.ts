@@ -7,7 +7,6 @@ import {
   navigatePush,
   navigateBack,
   navigateReset,
-  navigateReplace,
   navigateNestedReset,
   navigateToMainTabs,
   navigateToFeedItemComments,
@@ -150,20 +149,6 @@ describe('navigateNestedReset', () => {
           { type: 'Navigation/NAVIGATE', routeName: screen1 },
           { type: 'Navigation/NAVIGATE', routeName: screen2, params: params2 },
         ],
-      },
-    ]);
-  });
-});
-
-describe('navigateReplace', () => {
-  it('should replace last route in navigation stack', () => {
-    store.dispatch<any>(navigateReplace(routeName, params));
-
-    expect(store.getActions()).toEqual([
-      {
-        type: 'Navigation/REPLACE',
-        routeName,
-        params,
       },
     ]);
   });

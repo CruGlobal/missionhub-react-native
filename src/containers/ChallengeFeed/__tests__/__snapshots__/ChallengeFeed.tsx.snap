@@ -236,7 +236,7 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
               }
             }
           >
-            Create a community challenge everyone can join.
+            Join each other in a challenge created for your community.
           </Text>
         </View>
         <View
@@ -4908,7 +4908,7 @@ exports[`Challenge Feed rendering renders null with header 1`] = `
               }
             }
           >
-            Create a community challenge everyone can join.
+            Join each other in a challenge created for your community.
           </Text>
         </View>
         <View

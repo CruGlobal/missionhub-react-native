@@ -94,20 +94,25 @@ export function handleAfterCompleteStep(
 }
 
 export const removeFromStepsList = (stepId: string, personId: string) => {
-  const cachedSteps = apolloClient.readQuery<StepsList>({
-    query: STEPS_QUERY,
-  });
-  cachedSteps &&
-    apolloClient.writeQuery<StepsList>({
+  try {
+    const cachedSteps = apolloClient.readQuery<StepsList>({
       query: STEPS_QUERY,
-      data: {
-        ...cachedSteps,
-        steps: {
-          ...cachedSteps.steps,
-          nodes: cachedSteps.steps.nodes.filter(({ id }) => id !== stepId),
-        },
-      },
     });
+
+    cachedSteps &&
+      apolloClient.writeQuery<StepsList>({
+        query: STEPS_QUERY,
+        data: {
+          ...cachedSteps,
+          steps: {
+            ...cachedSteps.steps,
+            nodes: cachedSteps.steps.nodes.filter(({ id }) => id !== stepId),
+          },
+        },
+      });
+  } catch {
+    // This can fail if the query hasn't been run yet. We don't care about errors, there's nothing to remove if the query isn't cached.
+  }
 
   try {
     const personStepsVariables = { personId, completed: false };

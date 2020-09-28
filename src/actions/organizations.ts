@@ -4,32 +4,24 @@ import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 
 import {
-  REMOVE_ORGANIZATION_MEMBER,
   ACTIONS,
   ORG_PERMISSIONS,
   ERROR_PERSON_PART_OF_ORG,
   GLOBAL_COMMUNITY_ID,
-  LOAD_PERSON_DETAILS,
   LOAD_ORGANIZATIONS,
 } from '../constants';
 import { REQUESTS } from '../api/routes';
-import { AuthState } from '../reducers/auth';
 import { Organization, OrganizationsState } from '../reducers/organizations';
 import { apolloClient } from '../apolloClient';
 import { GET_COMMUNITIES_QUERY } from '../containers/Groups/queries';
 import { RootState } from '../reducers';
+import { isAuthenticated } from '../auth/authStore';
+import { getAuthPerson } from '../auth/authUtilities';
 
 import { getMe, getPersonDetails } from './person';
 import callApi from './api';
 import { trackActionWithoutData } from './analytics';
 
-interface PersonInteractionReport {
-  person_id: string;
-  contact_count: number;
-  unassigned_count: number;
-  uncontacted_count: number;
-  contacts_with_interaction_count: number;
-}
 export interface ImageData {
   fileSize: number;
   fileName: string;
@@ -57,31 +49,10 @@ export function getMyCommunities() {
 }
 
 export function getMyOrganizations() {
-  return async (
-    dispatch: ThunkDispatch<RootState, never, AnyAction>,
-    getState: () => { auth: AuthState },
-  ) => {
+  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     const orgs: Organization[] = (
       await dispatch(callApi(REQUESTS.GET_ORGANIZATIONS, getOrganizationsQuery))
     ).response;
-    const orgOrder = getState().auth.person.user.organization_order;
-
-    if (orgOrder) {
-      orgs.sort((a, b) => {
-        const aIndex = orgOrder.indexOf(a.id);
-        const bIndex = orgOrder.indexOf(b.id);
-
-        if (aIndex === -1) {
-          return bIndex === -1 ? 0 : 1;
-        }
-
-        if (bIndex === -1) {
-          return aIndex === -1 ? 0 : -1;
-        }
-
-        return aIndex > bIndex ? 1 : -1;
-      });
-    }
 
     dispatch({
       type: LOAD_ORGANIZATIONS,
@@ -113,79 +84,6 @@ export function refreshCommunity(orgId: string = GLOBAL_COMMUNITY_ID) {
     dispatch(getMe());
 
     return response;
-  };
-}
-
-export function addNewPerson(data: { [key: string]: any }) {
-  return async (
-    dispatch: ThunkDispatch<RootState, never, AnyAction>,
-    getState: () => { auth: AuthState },
-  ) => {
-    const {
-      person: { id: myId },
-    } = getState().auth;
-    if (!data || !data.firstName) {
-      return Promise.reject(
-        'Invalid Data from addNewPerson: no data or no firstName passed in',
-      );
-    }
-    const included = [];
-    if (data.assignToMe) {
-      included.push({
-        type: 'contact_assignment',
-        attributes: {
-          assigned_to_id: myId,
-          organization_id: data.orgId || undefined,
-        },
-      });
-    }
-    if (data.orgId) {
-      included.push({
-        type: 'organizational_permission',
-        attributes: {
-          organization_id: data.orgId,
-          permission_id: data.orgPermission && data.orgPermission.permission_id,
-        },
-      });
-    }
-    if (data.email) {
-      included.push({
-        type: 'email',
-        attributes: { email: data.email },
-      });
-    }
-    if (data.phone) {
-      included.push({
-        type: 'phone_number',
-        attributes: {
-          number: data.phone,
-          location: 'mobile',
-        },
-      });
-    }
-    const bodyData = {
-      data: {
-        type: 'person',
-        attributes: {
-          first_name: data.firstName,
-          last_name: data.lastName || undefined,
-          gender: data.gender || undefined,
-        },
-      },
-      included,
-    };
-    const query = {};
-    const results = await dispatch(
-      callApi(REQUESTS.ADD_NEW_PERSON, query, bodyData),
-    );
-
-    dispatch({
-      type: LOAD_PERSON_DETAILS,
-      orgId: data.orgId,
-      person: results.response,
-    });
-
-    return results;
   };
 }
 
@@ -308,10 +206,7 @@ export function deleteOrganization(orgId: string) {
 }
 
 export function lookupOrgCommunityCode(code: string) {
-  return async (
-    dispatch: ThunkDispatch<RootState, never, AnyAction>,
-    getState: () => { auth: AuthState },
-  ) => {
+  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     const query = { community_code: code };
     const { response: org = {} } = await dispatch(
       callApi(REQUESTS.LOOKUP_COMMUNITY_CODE, query),
@@ -322,7 +217,7 @@ export function lookupOrgCommunityCode(code: string) {
       return null;
     }
 
-    if (getState().auth.token) {
+    if (isAuthenticated()) {
       const orgWithOwner = await dispatch(getOwner(org));
 
       // No need to get member count anymore since it's an authenticated route
@@ -352,10 +247,7 @@ export function lookupOrgCommunityCode(code: string) {
 }
 
 export function lookupOrgCommunityUrl(urlCode: string) {
-  return async (
-    dispatch: ThunkDispatch<RootState, never, AnyAction>,
-    getState: () => { auth: AuthState },
-  ) => {
+  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     const query = { community_url: urlCode };
     const { response: org = {} } = await dispatch(
       callApi(REQUESTS.LOOKUP_COMMUNITY_URL, query),
@@ -366,7 +258,7 @@ export function lookupOrgCommunityUrl(urlCode: string) {
       return null;
     }
 
-    if (getState().auth.token) {
+    if (isAuthenticated()) {
       const orgWithOwner = await dispatch(getOwner(org));
 
       return orgWithOwner;
@@ -394,12 +286,9 @@ function getOwner(org: Organization) {
 }
 
 export function joinCommunity(orgId: string, code?: string, url?: string) {
-  return async (
-    dispatch: ThunkDispatch<RootState, never, AnyAction>,
-    getState: () => { auth: AuthState },
-  ) => {
-    const myId = getState().auth.person.id;
-    const attributes: { [key: string]: string } = {
+  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
+    const myId = getAuthPerson().id;
+    const attributes: { [key: string]: string | undefined } = {
       organization_id: orgId,
       permission_id: ORG_PERMISSIONS.USER,
     };
@@ -461,13 +350,5 @@ export function generateNewLink(orgId: string) {
     dispatch(trackActionWithoutData(ACTIONS.NEW_INVITE_URL));
 
     return results;
-  };
-}
-
-export function removeOrganizationMember(personId: string, orgId: string) {
-  return {
-    type: REMOVE_ORGANIZATION_MEMBER,
-    personId,
-    orgId,
   };
 }

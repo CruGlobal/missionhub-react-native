@@ -28,6 +28,7 @@ import BottomButton from '../../../components/BottomButton';
 import Analytics from '../../Analytics';
 import { COMMUNITY_TABS } from '../../Communities/Community/constants';
 import { COMMUNITY_MEMBERS } from '../../Communities/Community/CommunityMembers/CommunityMembers';
+import { RootState } from '../../../reducers';
 
 import styles from './styles';
 
@@ -75,7 +76,10 @@ class CreateGroupScreen extends Component {
     const { organizations, dispatch } = this.props;
 
     if (orgId) {
-      const organization = organizationSelector({ organizations }, { orgId });
+      const organization = organizationSelector(
+        { organizations } as RootState,
+        { orgId },
+      );
 
       if (organization) {
         dispatch(

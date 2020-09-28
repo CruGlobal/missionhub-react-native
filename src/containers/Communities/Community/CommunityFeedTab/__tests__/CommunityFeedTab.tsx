@@ -19,7 +19,6 @@ const permissionType = PermissionEnum.owner;
 
 const initialState = {
   organizations: { all: [{ id: communityId }] },
-  auth: { person: { id: personId } },
 };
 
 (getAnalyticsPermissionType as jest.Mock).mockReturnValue(permissionType);

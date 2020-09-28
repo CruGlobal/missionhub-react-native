@@ -18,15 +18,15 @@ jest.mock('../journey');
 jest.mock('../api');
 jest.mock('../impact');
 jest.mock('../analytics');
+jest.mock('../../auth/authUtilities', () => ({
+  getAuthPerson: () => ({
+    id: '123',
+  }),
+}));
 
 beforeEach(
   () =>
     (store = configureStore([thunk])({
-      auth: {
-        person: {
-          id: '123',
-        },
-      },
       organizations: {
         all: [
           {

@@ -48,9 +48,8 @@ export const CommunityMembers = () => {
     CommunityMembersVariables
   >(COMMUNITY_MEMBERS_QUERY, { variables: { id: communityId } });
 
-  const organization: Organization = useSelector(
-    ({ organizations }: RootState) =>
-      organizationSelector({ organizations }, { orgId: communityId }),
+  const organization: Organization = useSelector((state: RootState) =>
+    organizationSelector(state, { orgId: communityId }),
   );
 
   const groupInviteInfo = useSelector(

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ActionSheetIOS } from 'react-native';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { JOURNEY_EDIT_FLOW } from '../../../../routes/constants';
 import {
@@ -28,6 +28,9 @@ jest.mock(
 );
 jest.mock('../../../../utils/hooks/useAnalytics');
 jest.mock('../../../../actions/navigation');
+jest.mock('../../../../auth/authStore', () => ({
+  isAuthenticated: () => true,
+}));
 
 (navigatePush as jest.Mock).mockReturnValue({ type: 'navigatePush' });
 
@@ -55,9 +58,6 @@ const mockJourneyList = [
 ];
 
 const initialState = {
-  auth: {
-    person: mockMePerson,
-  },
   swipe: {
     journey: false,
   },
@@ -118,8 +118,8 @@ describe('PersonJourney', () => {
     ).snapshot();
   });
 
-  it('renders screen with steps for me correctly', () => {
-    renderWithContext(
+  it('renders screen with steps for me correctly', async () => {
+    const { snapshot } = renderWithContext(
       <PersonJourney
         collapsibleHeaderContext={PersonCollapsibleHeaderContext}
       />,
@@ -131,8 +131,13 @@ describe('PersonJourney', () => {
             personal: { [myId]: mockJourneyList },
           },
         },
+        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
-    ).snapshot();
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith(['person', 'my journey'], {
       assignmentType: { personId: myId },

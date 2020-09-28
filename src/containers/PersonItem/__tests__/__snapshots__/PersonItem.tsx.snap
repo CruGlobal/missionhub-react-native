@@ -283,7 +283,7 @@ exports[`renders person correctly 1`] = `
         ]
       }
     >
-      Gideon Heathcote
+      Gideon Hegmann
     </Text>
     <View
       style={
@@ -464,7 +464,7 @@ exports[`renders person with no stage correctly 1`] = `
         ]
       }
     >
-      Gideon Heathcote
+      Gideon Hegmann
     </Text>
     <View
       style={
@@ -681,7 +681,7 @@ exports[`renders personal ministry with no steps correctly 1`] = `
         ]
       }
     >
-      Gideon Heathcote
+      Gideon Hegmann
     </Text>
     <View
       style={

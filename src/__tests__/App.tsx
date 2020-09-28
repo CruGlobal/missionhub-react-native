@@ -32,9 +32,6 @@ jest.mock('../actions/navigationInit');
 jest.mock('../actions/notifications');
 jest.mock('../actions/deepLink');
 
-jest.mock('react-native-default-preference', () => ({
-  get: jest.fn().mockReturnValue(Promise.reject()),
-}));
 // @ts-ignore
 global.window = {};
 
@@ -48,9 +45,7 @@ jest.mock('react-navigation-redux-helpers', () => ({
 
 jest.mock('../store', () => ({
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  store: require('../../testUtils').createThunkStore({
-    auth: { token: undefined },
-  }),
+  store: require('../../testUtils').createThunkStore(),
 
   persistor: {},
 }));
@@ -99,7 +94,7 @@ it('calls actions onBeforeLift', async () => {
 
   expect(configureNotificationHandler).toHaveBeenCalledWith();
   expect(setupFirebaseDynamicLinks).toHaveBeenCalledWith();
-  expect(getFeatureFlags).not.toHaveBeenCalledWith();
+  expect(getFeatureFlags).toHaveBeenCalledWith();
 });
 
 it('shows offline alert if network request failed', () => {

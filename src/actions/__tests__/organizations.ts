@@ -5,7 +5,6 @@ import thunk from 'redux-thunk';
 
 import {
   LOAD_ORGANIZATIONS,
-  REMOVE_ORGANIZATION_MEMBER,
   ACTIONS,
   ORG_PERMISSIONS,
   ERROR_PERSON_PART_OF_ORG,
@@ -17,7 +16,6 @@ import { trackActionWithoutData } from '../analytics';
 import {
   getMyOrganizations,
   refreshCommunity,
-  addNewPerson,
   getMyCommunities,
   transferOrgOwnership,
   addNewOrganization,
@@ -26,7 +24,6 @@ import {
   deleteOrganization,
   lookupOrgCommunityCode,
   generateNewCode,
-  removeOrganizationMember,
   generateNewLink,
   joinCommunity,
   lookupOrgCommunityUrl,
@@ -41,8 +38,11 @@ jest.mock('../api');
 jest.mock('../person');
 jest.mock('../challenges');
 jest.mock('../navigation');
-jest.mock('../../selectors/selectorUtils');
 jest.mock('../../selectors/organizations');
+jest.mock('../../auth/authUtilities', () => ({
+  getAuthPerson: () => ({ id: '1' }),
+}));
+jest.mock('../../auth/authStore', () => ({ isAuthenticated: () => true }));
 
 FormData = require('react-native/Libraries/Network/FormData');
 
@@ -129,27 +129,6 @@ describe('getMyOrganizations', () => {
       },
     ]);
   });
-
-  it('should sort by user order when specified', async () => {
-    store = mockStore({
-      auth: {
-        person: {
-          user: { organization_order: [org5.id, org4.id, org6.id, org3.id] },
-        },
-      },
-    });
-
-    await store.dispatch<any>(getMyOrganizations());
-
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
-    expect(store.getActions()).toEqual([
-      getMyOrganizationsResult,
-      {
-        type: LOAD_ORGANIZATIONS,
-        orgs: [org5, org4, org6, org3, org1, org2, org7, org8],
-      },
-    ]);
-  });
 });
 
 describe('refreshCommunity', () => {
@@ -186,94 +165,6 @@ describe('refreshCommunity', () => {
     expect(getMe).not.toHaveBeenCalled();
     expect(response).toEqual(globalCommunity);
     expect(store.getActions()).toEqual([]);
-  });
-});
-
-describe('addNewPerson', () => {
-  const firstName = 'Fred';
-  let data: { [key: string]: any } = { firstName };
-  let bodyData: { [key: string]: any } = {
-    data: {
-      type: 'person',
-      attributes: {
-        first_name: firstName,
-        last_name: undefined,
-        gender: undefined,
-      },
-    },
-    included: [],
-  };
-  const apiResponse = { type: 'api response' };
-
-  beforeEach(() => {
-    (callApi as jest.Mock).mockReturnValue(apiResponse);
-  });
-
-  it('adds person with only first name', () => {
-    store.dispatch<any>(addNewPerson(data));
-
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.ADD_NEW_PERSON, {}, bodyData);
-  });
-
-  it('adds person with includes', () => {
-    const lastName = 'Smith';
-    const gender = 'male';
-    const orgId = '123';
-    const orgPermission = { permission_id: '2' };
-    const email = 'fred.smith@cru.org';
-    const phone = '111-111-1111';
-
-    data = {
-      firstName,
-      lastName,
-      gender,
-      orgId,
-      orgPermission,
-      email,
-      phone,
-      assignToMe: true,
-    };
-    bodyData = {
-      data: {
-        type: 'person',
-        attributes: {
-          first_name: firstName,
-          last_name: lastName,
-          gender,
-        },
-      },
-      included: [
-        {
-          type: 'contact_assignment',
-          attributes: {
-            assigned_to_id: myId,
-            organization_id: orgId,
-          },
-        },
-        {
-          type: 'organizational_permission',
-          attributes: {
-            organization_id: orgId,
-            permission_id: orgPermission.permission_id,
-          },
-        },
-        {
-          type: 'email',
-          attributes: { email },
-        },
-        {
-          type: 'phone_number',
-          attributes: {
-            number: phone,
-            location: 'mobile',
-          },
-        },
-      ],
-    };
-
-    store.dispatch<any>(addNewPerson(data));
-
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.ADD_NEW_PERSON, {}, bodyData);
   });
 });
 
@@ -762,7 +653,7 @@ describe('joinCommunity', () => {
     ]);
   });
 
-  it('should pass on API error if the error is unrelated to preexisting membership ', async () => {
+  it('should pass on API error if the error is unrelated to preexisting membership', async () => {
     (callApi as jest.Mock).mockReturnValue(() =>
       Promise.reject({
         apiError: { errors: [{ detail: 'some error' }] },
@@ -811,18 +702,5 @@ describe('generateNewLink', () => {
       orgId,
     });
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.NEW_INVITE_URL);
-  });
-});
-
-describe('removeOrganizationMember', () => {
-  const personId = '234234';
-  const orgId = '48973546';
-
-  it('creates the correct action', () => {
-    expect(removeOrganizationMember(personId, orgId)).toEqual({
-      type: REMOVE_ORGANIZATION_MEMBER,
-      personId,
-      orgId,
-    });
   });
 });

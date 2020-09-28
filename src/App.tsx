@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { AppState, StatusBar, AppStateStatus, Alert } from 'react-native';
 import { Provider } from 'react-redux';
 import { Provider as ProviderLegacy } from 'react-redux-legacy';
@@ -6,7 +6,6 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { ApolloProvider } from '@apollo/react-hooks';
 import i18n from 'i18next';
 import * as RNOmniture from 'react-native-omniture';
-import DefaultPreference from 'react-native-default-preference';
 import codePush from 'react-native-code-push';
 import Config from 'react-native-config';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -27,7 +26,6 @@ import { store, persistor } from './store';
 import { LOG } from './utils/logging';
 import LoadingScreen from './containers/LoadingScreen';
 import AppWithNavigationState from './AppNavigator';
-import { codeLogin } from './actions/auth/anonymous';
 import {
   EXPIRED_ACCESS_TOKEN,
   INVALID_ACCESS_TOKEN,
@@ -35,19 +33,27 @@ import {
   NETWORK_REQUEST_FAILED,
 } from './constants';
 import { isAndroid } from './utils/common';
-import { resetToInitialRoute } from './actions/navigationInit';
 import { configureNotificationHandler } from './actions/notifications';
 import { PlatformKeyboardAvoidingView } from './components/common';
 import { setupFirebaseDynamicLinks } from './actions/deepLink';
 import theme from './theme';
 import { getFeatureFlags } from './actions/misc';
 import { createApolloClient } from './apolloClient';
+import { warmAuthCache } from './auth/authUtilities';
+import { isAuthenticated } from './auth/authStore';
+import { useProvideAuthRefresh } from './auth/provideAuthRefresh';
 
 appsFlyer.initSdk({
   devKey: 'QdbVaVHi9bHRchUTWtoaij',
   isDebug: __DEV__,
   appId: '447869440',
 });
+
+const RunAppHooks = () => {
+  useProvideAuthRefresh();
+
+  return null;
+};
 
 @codePush({
   deploymentKey: isAndroid
@@ -73,46 +79,15 @@ export default class App extends Component {
   onBeforeLift = async () => {
     const apolloClient = await createApolloClient();
     this.setState({ apolloClient });
+    await warmAuthCache();
 
-    this.checkOldAppToken();
     store.dispatch(configureNotificationHandler());
     store.dispatch(setupFirebaseDynamicLinks());
-    store.getState().auth.token && getFeatureFlags();
+    isAuthenticated() && getFeatureFlags();
     moment.locale(i18n.language.split('-')[0]);
     this.collectLifecycleData();
     AppState.addEventListener('change', this.handleAppStateChange);
   };
-
-  checkOldAppToken() {
-    const iOSKey = 'org.cru.missionhub.clientIdKey'; // key from the old iOS app
-    const androidKey = 'account.guest.secret'; // key from the old android app
-
-    const getKey = async (key: string) => {
-      const value = await DefaultPreference.get(key);
-      if (value) {
-        try {
-          // @ts-ignore
-          await store.dispatch(codeLogin(value));
-          // If we successfully logged in with the user's guest code, clear it out now
-          DefaultPreference.clear(key);
-          // @ts-ignore
-          store.dispatch(resetToInitialRoute(true));
-        } catch (e) {
-          // This happens when there is a problem with the code from the API call
-          // We don't want to clear out the key here
-        }
-      }
-    };
-    if (isAndroid) {
-      DefaultPreference.setName('com.missionhub.accounts.AccountManager').then(
-        () => {
-          getKey(androidKey);
-        },
-      );
-    } else {
-      getKey(iOSKey);
-    }
-  }
 
   initializeErrorHandling() {
     window.onunhandledrejection = ({ reason }: PromiseRejectionEvent) => {
@@ -216,7 +191,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <Fragment>
+      <>
         <StatusBar {...theme.statusBar.lightContent} />
         <ProviderLegacy store={store}>
           <Provider store={store}>
@@ -227,6 +202,7 @@ export default class App extends Component {
             >
               {this.state.apolloClient ? (
                 <ApolloProvider client={this.state.apolloClient}>
+                  <RunAppHooks />
                   {/* Wrap the whole navigation in a Keyboard avoiding view in order to fix issues with navigation */}
                   <PlatformKeyboardAvoidingView>
                     <AppWithNavigationState />
@@ -238,7 +214,7 @@ export default class App extends Component {
             </PersistGate>
           </Provider>
         </ProviderLegacy>
-      </Fragment>
+      </>
     );
   }
 }

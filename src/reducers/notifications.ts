@@ -4,13 +4,10 @@ import { REQUESTS } from '../api/routes';
 import { LOGOUT } from '../constants';
 import { HAS_SHOWN_NOTIFICATION_PROMPT } from '../actions/notifications';
 
-import { User } from './auth';
-
 export interface PushDevice {
   id: string;
   token: string;
   platform: 'GCM' | typeof Config.APNS_MODE;
-  user: User;
 }
 
 export interface NotificationsState {

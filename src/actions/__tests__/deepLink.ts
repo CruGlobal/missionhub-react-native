@@ -1,19 +1,20 @@
 import dynamicLinks from '@react-native-firebase/dynamic-links';
 import { AnyAction } from 'redux';
-import thunk from 'redux-thunk';
-import configureStore from 'redux-mock-store';
 
 import { startOnboarding } from '../onboarding';
 import { setupFirebaseDynamicLinks } from '../deepLink';
+import { isAuthenticated } from '../../auth/authStore';
+import { createThunkStore } from '../../../testUtils';
 
 jest.mock('../onboarding');
+jest.mock('../../auth/authStore');
 
-const mockStore = (auth: boolean) =>
-  configureStore([thunk])({ auth: { token: !!auth } });
+const store = createThunkStore();
 
 const startOnboardingResponse = { type: 'start onboarding' };
 
 beforeEach(() => {
+  store.clearActions();
   (startOnboarding as jest.Mock).mockReturnValue(startOnboardingResponse);
 });
 
@@ -26,6 +27,7 @@ const testDeepLink = async ({
   initialLink?: boolean;
   deepLinkUrl?: string;
 }) => {
+  (isAuthenticated as jest.Mock).mockReturnValue(auth);
   ((dynamicLinks as unknown) as jest.Mock).mockReturnValue({
     getInitialLink: initialLink
       ? jest.fn().mockResolvedValue({ url: deepLinkUrl })
@@ -35,8 +37,6 @@ const testDeepLink = async ({
       : jest.fn().mockImplementation(cb => cb({ url: deepLinkUrl })),
   });
 
-  const store = mockStore(auth);
-
   await store.dispatch((setupFirebaseDynamicLinks() as unknown) as AnyAction);
 
   return store.getActions();
@@ -44,7 +44,7 @@ const testDeepLink = async ({
 
 describe('setupFirebaseDynamicLinks', () => {
   describe('unauthenticated', () => {
-    it('should handle a link that launched the app ', async () => {
+    it('should handle a link that launched the app', async () => {
       expect(
         await testDeepLink({
           auth: false,
@@ -76,7 +76,7 @@ describe('setupFirebaseDynamicLinks', () => {
         ]
       `);
     });
-    it('should handle a link that was opened while the app was running ', async () => {
+    it('should handle a link that was opened while the app was running', async () => {
       expect(
         await testDeepLink({
           auth: false,
@@ -110,7 +110,7 @@ describe('setupFirebaseDynamicLinks', () => {
     });
   });
   describe('authenticated', () => {
-    it('should handle a link that launched the app ', async () => {
+    it('should handle a link that launched the app', async () => {
       expect(
         await testDeepLink({
           auth: true,

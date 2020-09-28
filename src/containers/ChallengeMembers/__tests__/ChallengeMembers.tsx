@@ -93,11 +93,6 @@ it('renders correctly for joined members', () => {
   renderWithContext(<ChallengeMembers />, {
     initialState: {
       organizations,
-      auth: {
-        person: {
-          id: '1234',
-        },
-      },
     },
     navParams: {
       challenge,
@@ -133,11 +128,6 @@ it('renders plural sentence for joined members', () => {
   renderWithContext(<ChallengeMembers />, {
     initialState: {
       organizations,
-      auth: {
-        person: {
-          id: '1234',
-        },
-      },
     },
     navParams: {
       challenge,
@@ -152,11 +142,6 @@ it('renders correctly for completed members', () => {
   renderWithContext(<ChallengeMembers />, {
     initialState: {
       organizations,
-      auth: {
-        person: {
-          id: '1234',
-        },
-      },
     },
     navParams: {
       challenge,
@@ -184,11 +169,6 @@ it('renders singular sentence for completed members', () => {
   renderWithContext(<ChallengeMembers />, {
     initialState: {
       organizations,
-      auth: {
-        person: {
-          id: '1234',
-        },
-      },
     },
     navParams: {
       challenge,
@@ -203,11 +183,6 @@ it('navigates to person screen when handleSelect fires', async () => {
   const { getByTestId } = renderWithContext(<ChallengeMembers />, {
     initialState: {
       organizations,
-      auth: {
-        person: {
-          id: '1234',
-        },
-      },
     },
     navParams: {
       challenge,

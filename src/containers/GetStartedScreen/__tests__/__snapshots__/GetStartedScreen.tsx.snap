@@ -166,7 +166,7 @@ exports[`renders correctly 1`] = `
           }
         }
       >
-        hi roger!
+        hi hayden!
       </Text>
       <Text
         style={
@@ -349,7 +349,7 @@ exports[`renders without back button correctly 1`] = `
           }
         }
       >
-        hi roger!
+        hi hayden!
       </Text>
       <Text
         style={

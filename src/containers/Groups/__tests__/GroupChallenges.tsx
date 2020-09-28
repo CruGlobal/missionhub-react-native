@@ -10,7 +10,6 @@ import {
 } from '../../../actions/challenges';
 import { navigatePush } from '../../../actions/navigation';
 import { ADD_CHALLENGE_SCREEN } from '../../AddChallengeScreen';
-import { ORG_PERMISSIONS } from '../../../constants';
 import ChallengeFeed from '../../ChallengeFeed';
 import { isAdminOrOwner } from '../../../utils/common';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
@@ -59,16 +58,6 @@ const org = {
 };
 
 const initialState = {
-  auth: {
-    person: {
-      organizational_permissions: [
-        {
-          organization_id: org.id,
-          permission_id: ORG_PERMISSIONS.ADMIN,
-        },
-      ],
-    },
-  },
   organizations: {
     all: [org],
   },
@@ -108,16 +97,6 @@ it('should render correctly for basic member', () => {
       navParams: { communityId: orgId },
       initialState: {
         ...initialState,
-        auth: {
-          person: {
-            organizational_permissions: [
-              {
-                organization_id: org.id,
-                permission_id: ORG_PERMISSIONS.USER,
-              },
-            ],
-          },
-        },
       },
     },
   ).snapshot();

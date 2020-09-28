@@ -1190,7 +1190,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
 </Card>
 `;
 
-exports[`Community renders post correctly without add to steps button  1`] = `
+exports[`Community renders post correctly without add to steps button 1`] = `
 <Card>
   <View
     style={
@@ -1314,9 +1314,9 @@ exports[`Community renders post correctly without add to steps button  1`] = `
               person={
                 Object {
                   "firstName": "Edythe",
-                  "fullName": "Edythe Haley",
+                  "fullName": "Edythe Halvorson",
                   "id": "8",
-                  "lastName": "Haley",
+                  "lastName": "Halvorson",
                   "picture": "qui nobis repellendus",
                 }
               }
@@ -1742,9 +1742,9 @@ exports[`Community renders post correctly without image 1`] = `
               person={
                 Object {
                   "firstName": "Edythe",
-                  "fullName": "Edythe Haley",
+                  "fullName": "Edythe Halvorson",
                   "id": "8",
-                  "lastName": "Haley",
+                  "lastName": "Halvorson",
                   "picture": "qui nobis repellendus",
                 }
               }
@@ -3000,9 +3000,9 @@ exports[`Community renders with clear notification button correctly 1`] = `
               person={
                 Object {
                   "firstName": "Edythe",
-                  "fullName": "Edythe Haley",
+                  "fullName": "Edythe Halvorson",
                   "id": "8",
-                  "lastName": "Haley",
+                  "lastName": "Halvorson",
                   "picture": "qui nobis repellendus",
                 }
               }
@@ -4525,9 +4525,9 @@ exports[`renders with name pressable correctly 1`] = `
               person={
                 Object {
                   "firstName": "Edythe",
-                  "fullName": "Edythe Haley",
+                  "fullName": "Edythe Halvorson",
                   "id": "8",
-                  "lastName": "Haley",
+                  "lastName": "Halvorson",
                   "picture": "qui nobis repellendus",
                 }
               }

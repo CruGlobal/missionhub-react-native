@@ -20,7 +20,7 @@ import {
 } from '../../constants';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
-import { useIsMe } from '../../utils/hooks/useIsMe';
+import { useIsMe, useMyId } from '../../utils/hooks/useIsMe';
 import { CREATE_PERSON, UPDATE_PERSON } from '../SetupScreen/queries';
 import {
   CreatePerson,
@@ -98,6 +98,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
 
   const isEdit = !!personId;
   const isMe = useIsMe(person.id);
+  const myId = useMyId();
   const handleUpdateData = (newData: PersonType) => {
     setPerson({ ...person, ...newData });
   };
@@ -120,7 +121,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
         personId: person?.id,
         relationshipType: person?.relationshipType,
         didSavePerson,
-        isMe: isMe,
+        isMe: person ? myId === person.id : isMe,
       }),
     );
   };

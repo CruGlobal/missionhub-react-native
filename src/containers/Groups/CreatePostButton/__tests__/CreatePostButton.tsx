@@ -19,8 +19,12 @@ jest.mock('../../../../actions/navigation', () => ({
 }));
 jest.mock('../../../../utils/hooks/useAnalytics');
 jest.mock('../../../../selectors/people');
+jest.mock('../../../../auth/authStore', () => ({
+  isAuthenticated: () => true,
+}));
 
 const refreshItems = jest.fn();
+const myId = '1';
 const mockCommunityId = '1';
 const onComplete = jest.fn();
 const props = {
@@ -29,7 +33,6 @@ const props = {
   onComplete,
 };
 const initialState = {
-  auth: { person: { id: '1' } },
   people: { people: {} },
   drawer: { isOpen: false },
 };
@@ -37,6 +40,7 @@ const initialState = {
 it('renders correctly', async () => {
   const { snapshot } = renderWithContext(<CreatePostButton {...props} />, {
     initialState,
+    mocks: { User: () => ({ person: () => ({ id: myId }) }) },
   });
   await flushMicrotasksQueue();
   snapshot();
@@ -50,6 +54,7 @@ it('renders correctly for admin', async () => {
     initialState,
     mocks: {
       CommunityPermission: () => ({ permission: PermissionEnum.admin }),
+      User: () => ({ person: () => ({ id: myId }) }),
     },
   });
   await flushMicrotasksQueue();
@@ -63,6 +68,7 @@ it('renders correctly for owner', async () => {
     initialState,
     mocks: {
       CommunityPermission: () => ({ permission: PermissionEnum.owner }),
+      User: () => ({ person: () => ({ id: myId }) }),
     },
   });
   await flushMicrotasksQueue();
@@ -130,7 +136,7 @@ it('onPress opens modal', async () => {
   diffSnapshot();
 });
 
-it('onPress navigates for PRAYER_REQUEST ', async () => {
+it('onPress navigates for PRAYER_REQUEST', async () => {
   const { getByTestId } = renderWithContext(
     <CreatePostButton
       {...props}
@@ -149,7 +155,7 @@ it('onPress navigates for PRAYER_REQUEST ', async () => {
   });
 });
 
-it('onPress navigates for QUESTION ', async () => {
+it('onPress navigates for QUESTION', async () => {
   const { getByTestId } = renderWithContext(
     <CreatePostButton {...props} type={FeedItemSubjectTypeEnum.QUESTION} />,
     { initialState },
@@ -165,7 +171,7 @@ it('onPress navigates for QUESTION ', async () => {
   });
 });
 
-it('onPress navigates for STORY ', async () => {
+it('onPress navigates for STORY', async () => {
   const { getByTestId } = renderWithContext(
     <CreatePostButton {...props} type={FeedItemSubjectTypeEnum.STORY} />,
     { initialState },
@@ -181,7 +187,7 @@ it('onPress navigates for STORY ', async () => {
   });
 });
 
-it('onPress navigates for HELP_REQUEST ', async () => {
+it('onPress navigates for HELP_REQUEST', async () => {
   const { getByTestId } = renderWithContext(
     <CreatePostButton {...props} type={FeedItemSubjectTypeEnum.HELP_REQUEST} />,
     { initialState },
@@ -197,7 +203,7 @@ it('onPress navigates for HELP_REQUEST ', async () => {
   });
 });
 
-it('onPress navigates for THOUGHT ', async () => {
+it('onPress navigates for THOUGHT', async () => {
   const { getByTestId } = renderWithContext(
     <CreatePostButton {...props} type={FeedItemSubjectTypeEnum.THOUGHT} />,
     { initialState },
@@ -213,7 +219,7 @@ it('onPress navigates for THOUGHT ', async () => {
   });
 });
 
-it('onPress navigates for ANNOUNCEMENT ', async () => {
+it('onPress navigates for ANNOUNCEMENT', async () => {
   const { getByTestId } = renderWithContext(
     <CreatePostButton {...props} type={FeedItemSubjectTypeEnum.ANNOUNCEMENT} />,
     {

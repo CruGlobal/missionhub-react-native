@@ -63,7 +63,6 @@ const organization = {
 const communityId = '123';
 
 const initialState = {
-  auth: { person: { id: '123' } },
   organizations: { all: [organization] },
   swipe: { groupInviteInfo: true },
   drawer: { isOpen: false },

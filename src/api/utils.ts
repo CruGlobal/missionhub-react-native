@@ -104,7 +104,7 @@ export default async function request(
   type: string,
   url: string,
   query: Record<string, unknown>,
-  data: Record<string, unknown> | undefined,
+  data: Record<string, unknown> | string | undefined,
   extra: RequestInit,
   stringify = true,
 ) {

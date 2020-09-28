@@ -1160,40 +1160,6 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                 What's on Your Mind
               </Text>
             </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "flex-end",
-                  "flex": 1,
-                  "justifyContent": "center",
-                }
-              }
-            >
-              <View
-                accessible={true}
-                focusable={true}
-                onClick={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Object {
-                    "opacity": 1,
-                    "paddingLeft": 30,
-                    "paddingRight": 12,
-                    "paddingVertical": 5,
-                  }
-                }
-                testID="popupMenuButton"
-              >
-                <SvgMock
-                  color="#B4B6BA"
-                />
-              </View>
-            </View>
           </View>
           <View
             style={
@@ -1420,9 +1386,7 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                       "width": 30,
                     }
                   }
-                >
-                  82914
-                </Text>
+                />
                 <View
                   accessible={true}
                   focusable={true}
@@ -2616,7 +2580,7 @@ exports[`refresh calls refreshComments 1`] = `
 +           \\"id\\": \\"17\\",
             \\"person\\": Object {
               \\"__typename\\": \\"Person\\",
--             \\"fullName\\": \\"Kaden Ortiz\\",
+-             \\"fullName\\": \\"Kaden Osinski\\",
 -             \\"id\\": \\"7\\",
 -             \\"picture\\": \\"repudiandae esse blanditiis\\",
 +             \\"fullName\\": \\"Yasmin Olson\\",
@@ -2665,8 +2629,8 @@ exports[`refresh calls refreshComments 1`] = `
                       \\"width\\": 48,
                     },
                     Object {
--                     \\"backgroundColor\\": \\"rgb(152, 167, 125)\\",
-+                     \\"backgroundColor\\": \\"rgb(155, 121, 115)\\",
+-                     \\"backgroundColor\\": \\"rgb(161, 122, 130)\\",
++                     \\"backgroundColor\\": \\"rgb(154, 216, 115)\\",
                     },
                     undefined,
                   ]
@@ -2781,7 +2745,7 @@ exports[`refresh calls refreshComments 1`] = `
 +               \\"id\\": \\"17\\",
                 \\"person\\": Object {
                   \\"__typename\\": \\"Person\\",
--                 \\"fullName\\": \\"Kaden Ortiz\\",
+-                 \\"fullName\\": \\"Kaden Osinski\\",
 -                 \\"id\\": \\"7\\",
 -                 \\"picture\\": \\"repudiandae esse blanditiis\\",
 +                 \\"fullName\\": \\"Yasmin Olson\\",
@@ -2867,7 +2831,7 @@ exports[`refresh calls refreshComments 1`] = `
               \\"width\\": 36,
             },
             Object {
--             \\"backgroundColor\\": \\"rgb(197, 162, 115)\\",
+-             \\"backgroundColor\\": \\"rgb(167, 127, 180)\\",
 +             \\"backgroundColor\\": \\"rgb(161, 115, 125)\\",
             },
             undefined,
@@ -3060,7 +3024,7 @@ exports[`renders correctly 1`] = `
           "id": "5",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Mathias Larson",
+            "fullName": "Mathias Leannon",
             "id": "6",
             "picture": "debitis et saepe",
           },
@@ -3596,7 +3560,7 @@ exports[`renders correctly 1`] = `
               "id": "5",
               "person": Object {
                 "__typename": "Person",
-                "fullName": "Mathias Larson",
+                "fullName": "Mathias Leannon",
                 "id": "6",
                 "picture": "debitis et saepe",
               },
@@ -3920,7 +3884,7 @@ exports[`renders correctly with communityId passed in 1`] = `
           "id": "5",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Mathias Larson",
+            "fullName": "Mathias Leannon",
             "id": "6",
             "picture": "debitis et saepe",
           },
@@ -4456,7 +4420,7 @@ exports[`renders correctly with communityId passed in 1`] = `
               "id": "5",
               "person": Object {
                 "__typename": "Person",
-                "fullName": "Mathias Larson",
+                "fullName": "Mathias Leannon",
                 "id": "6",
                 "picture": "debitis et saepe",
               },

@@ -16,7 +16,7 @@ import { SIGN_IN_SCREEN } from '../../../containers/Auth/SignInScreen';
 import { SETUP_SCREEN } from '../../../containers/SetupScreen';
 import { DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN } from '../../../containers/Groups/DeepLinkConfirmJoinGroupScreen';
 import { MFA_CODE_SCREEN } from '../../../containers/Auth/MFACodeScreen';
-import { GET_STARTED_SCREEN } from '../../../containers/GetStartedScreen';
+import { GET_STARTED_SCREEN } from '../../../containers/GetStartedScreen/constants';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 
 jest.mock('../../../actions/api');
@@ -34,10 +34,10 @@ jest.mock('../../../utils/hooks/useLogoutOnBack', () => ({
 const community = { id: '1', community_url: '1234567890123456' };
 
 const initialState = {
-  auth: { person: { id: '1' } },
   onboarding: {
     community,
   },
+  people: { people: {} },
 };
 
 beforeEach(() => {

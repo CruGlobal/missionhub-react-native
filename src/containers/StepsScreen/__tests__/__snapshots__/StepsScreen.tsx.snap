@@ -411,15 +411,13 @@ exports[`renders loading screen correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 12,
                     "fontStyle": "normal",
-                    "lineHeight": 16,
+                    "lineHeight": undefined,
                     "textAlign": "center",
                     "textAlignVertical": "bottom",
                     "textTransform": "none",
                   },
                   Object {
                     "fontSize": 26,
-                    "height": 24,
-                    "lineHeight": 26,
                   },
                 ]
               }
@@ -880,7 +878,7 @@ exports[`renders screen with steps correctly 1`] = `
             "id": "1",
             "receiver": Object {
               "__typename": "Person",
-              "fullName": "Heather Hahn",
+              "fullName": "Heather Haley",
               "id": "2",
             },
             "reminder": Object {
@@ -968,7 +966,7 @@ exports[`renders screen with steps correctly 1`] = `
                 "id": "1",
                 "receiver": Object {
                   "__typename": "Person",
-                  "fullName": "Heather Hahn",
+                  "fullName": "Heather Haley",
                   "id": "2",
                 },
                 "reminder": Object {
@@ -1044,7 +1042,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +             \\"id\\": \\"11\\",
 +             \\"receiver\\": Object {
 +               \\"__typename\\": \\"Person\\",
-+               \\"fullName\\": \\"Larue Johnston\\",
++               \\"fullName\\": \\"Larue Jones\\",
 +               \\"id\\": \\"12\\",
 +             },
 +             \\"reminder\\": Object {
@@ -1066,7 +1064,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +             \\"id\\": \\"15\\",
 +             \\"receiver\\": Object {
 +               \\"__typename\\": \\"Person\\",
-+               \\"fullName\\": \\"Edythe Haley\\",
++               \\"fullName\\": \\"Edythe Halvorson\\",
 +               \\"id\\": \\"16\\",
 +             },
 +             \\"reminder\\": Object {
@@ -1106,7 +1104,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +                 \\"id\\": \\"11\\",
 +                 \\"receiver\\": Object {
 +                   \\"__typename\\": \\"Person\\",
-+                   \\"fullName\\": \\"Larue Johnston\\",
++                   \\"fullName\\": \\"Larue Jones\\",
 +                   \\"id\\": \\"12\\",
 +                 },
 +                 \\"reminder\\": Object {
@@ -1139,7 +1137,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +                 \\"id\\": \\"15\\",
 +                 \\"receiver\\": Object {
 +                   \\"__typename\\": \\"Person\\",
-+                   \\"fullName\\": \\"Edythe Haley\\",
++                   \\"fullName\\": \\"Edythe Halvorson\\",
 +                   \\"id\\": \\"16\\",
 +                 },
 +                 \\"reminder\\": Object {
