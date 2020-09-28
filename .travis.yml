@@ -19,7 +19,7 @@ matrix:
       script:
         - yarn gql:codegen
         - yarn gql:schema
-        - yarn test:coverage --maxWorkers=4 --ci --silent
+        - yarn test:coverage --ci --silent --runInBand --logHeapUsage --noStackTrace
         - yarn lint
         - yarn lint:ts
         - yarn prettier:check
