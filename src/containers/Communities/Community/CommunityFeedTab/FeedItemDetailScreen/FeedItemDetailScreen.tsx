@@ -87,6 +87,11 @@ const FeedItemDetailScreen = () => {
   const isPost = (
     subject: FeedItemDetail_feedItem_subject,
   ): subject is PostSubject => subject.__typename === 'Post';
+  const canModify = canModifyFeedItemSubject(data?.feedItem.subject);
+  const hasSubjectContent =
+    data &&
+    isPost(data.feedItem.subject) &&
+    data.feedItem.subject.content != '';
 
   const [editingCommentId, setEditingCommentId] = useState<string>();
 
@@ -156,7 +161,38 @@ const FeedItemDetailScreen = () => {
   };
 
   const handleCopyPost = () =>
-    copyText((data?.feedItem.subject as PostSubject).content);
+    data &&
+    isPost(data.feedItem.subject) &&
+    hasSubjectContent &&
+    copyText(data.feedItem.subject.content);
+
+  const copyAction = [
+    {
+      text: t('communityFeedItems:copy.buttonText'),
+      onPress: handleCopyPost,
+    },
+  ];
+  const editAction = [
+    {
+      text: t('communityFeedItems:edit.buttonText'),
+      onPress: editFeedItem,
+    },
+  ];
+  const deleteAction = [
+    {
+      text: t('communityFeedItems:delete.buttonText'),
+      onPress: () => deleteFeedItem(() => dispatch(navigateBack())),
+      destructive: true,
+    },
+  ];
+
+  const menuActions = !canModify
+    ? []
+    : [
+        ...(hasSubjectContent ? copyAction : []),
+        ...(isMe ? editAction : []),
+        ...(isMe || isAdminOrOwner(communityPermission) ? deleteAction : []),
+      ];
 
   const renderHeader = () => (
     <SafeAreaView>
@@ -183,40 +219,6 @@ const FeedItemDetailScreen = () => {
       />
     </SafeAreaView>
   );
-
-  const canModify = canModifyFeedItemSubject(data?.feedItem.subject);
-  const hasSubjectContent =
-    data &&
-    isPost(data.feedItem.subject) &&
-    (data.feedItem.subject as PostSubject).content != '';
-
-  const copyAction = [
-    {
-      text: t('communityFeedItems:copy.buttonText'),
-      onPress: () => handleCopyPost(),
-    },
-  ];
-  const editAction = [
-    {
-      text: t('communityFeedItems:edit.buttonText'),
-      onPress: editFeedItem,
-    },
-  ];
-  const deleteAction = [
-    {
-      text: t('communityFeedItems:delete.buttonText'),
-      onPress: () => deleteFeedItem(() => dispatch(navigateBack())),
-      destructive: true,
-    },
-  ];
-
-  const menuActions = !canModify
-    ? []
-    : [
-        ...(hasSubjectContent ? copyAction : []),
-        ...(isMe ? editAction : []),
-        ...(isMe || isAdminOrOwner(communityPermission) ? deleteAction : []),
-      ];
 
   const renderCommentsList = () =>
     data ? (

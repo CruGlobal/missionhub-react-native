@@ -116,14 +116,13 @@ export const CommunityFeedItem = ({
     );
   }
   const deleteFeedItem = useDeleteFeedItem(feedItem, onEditPost);
-  const editFeedItem = useEditFeedItem(
-    feedItem.subject,
-    community?.id,
-    onEditPost,
-  );
+  const editFeedItem = useEditFeedItem(subject, community?.id, onEditPost);
 
   const isPost = (subject: CommunityFeedItem_subject): subject is PostSubject =>
     subject.__typename === 'Post';
+  const canModify = canModifyFeedItemSubject(subject);
+  const hasSubjectContent =
+    isPost(subject) && (subject as PostSubject).content != '';
 
   const handlePress = () =>
     dispatch(
@@ -145,11 +144,7 @@ export const CommunityFeedItem = ({
     ]);
 
   const handleCopyPost = () =>
-    copyText((feedItem.subject as PostSubject).content);
-
-  const canModify = canModifyFeedItemSubject(subject);
-  const hasSubjectContent =
-    isPost(subject) && (subject as PostSubject).content != '';
+    isPost(subject) && hasSubjectContent && copyText(subject.content);
 
   const copyAction = [{ text: t('copy.buttonText'), onPress: handleCopyPost }];
   const meActions = [
