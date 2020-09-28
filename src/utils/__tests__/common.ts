@@ -118,11 +118,6 @@ describe('hasOrgPermissions', () => {
       true,
     );
   });
-  it('should return false for no_permission | permission', () => {
-    expect(
-      hasOrgPermissions({ permission: PermissionEnum.no_permissions }),
-    ).toEqual(false);
-  });
 });
 
 describe('isAdminOrOwner', () => {
@@ -158,11 +153,6 @@ describe('isAdminOrOwner', () => {
   it('should return false for users | permission', () => {
     expect(isAdminOrOwner({ permission: PermissionEnum.user })).toEqual(false);
   });
-  it('should return false for no_permission | permission', () => {
-    expect(
-      isAdminOrOwner({ permission: PermissionEnum.no_permissions }),
-    ).toEqual(false);
-  });
 });
 
 describe('isOwner', () => {
@@ -190,11 +180,6 @@ describe('isOwner', () => {
   it('should return false for users | permission', () => {
     expect(isOwner({ permission: PermissionEnum.user })).toEqual(false);
   });
-  it('should return false for no_permission | permission', () => {
-    expect(isOwner({ permission: PermissionEnum.no_permissions })).toEqual(
-      false,
-    );
-  });
 });
 
 describe('isAdmin', () => {
@@ -221,11 +206,6 @@ describe('isAdmin', () => {
   });
   it('should return false for users | permission', () => {
     expect(isAdmin({ permission: PermissionEnum.user })).toEqual(false);
-  });
-  it('should return false for no_permissions | permission', () => {
-    expect(isAdmin({ permission: PermissionEnum.no_permissions })).toEqual(
-      false,
-    );
   });
 });
 

@@ -61,12 +61,6 @@ describe('getAnalyticsPermissionType', () => {
   it('returns member from permission', () => {
     expect(getAnalyticsPermissionType(PermissionEnum.user)).toEqual('member');
   });
-
-  it('returns empty string if no permissions', () => {
-    expect(getAnalyticsPermissionType(PermissionEnum.no_permissions)).toEqual(
-      '',
-    );
-  });
 });
 
 describe('getPostTypeAnalytics', () => {

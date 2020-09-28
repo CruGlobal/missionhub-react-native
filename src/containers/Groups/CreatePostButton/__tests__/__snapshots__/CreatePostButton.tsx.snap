@@ -1,6 +1,99 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`does not render announcement 1`] = `null`;
+exports[`does not render announcement 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
+      "elevation": 4,
+      "marginBottom": 5,
+      "marginTop": -5,
+      "paddingTop": 5,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 1,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ECEEF2",
+        "borderRadius": 20,
+        "borderWidth": 0,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "flex-start",
+        "margin": 0,
+        "marginHorizontal": 20,
+        "marginVertical": 20,
+        "opacity": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
+      }
+    }
+    testID="CreatePostButton"
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "velit omnis et",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "borderColor": "#ffffff",
+            "borderRadius": 12,
+            "borderWidth": 1,
+            "height": 24,
+            "width": 24,
+          },
+          Object {
+            "backgroundColor": "rgb(123, 155, 130)",
+          },
+          Object {
+            "marginLeft": -15,
+          },
+        ]
+      }
+    />
+    <Text
+      style={
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "lineHeight": 20,
+          "paddingLeft": 10,
+          "textAlignVertical": "center",
+          "textTransform": "none",
+        }
+      }
+    >
+      Make an Announcement
+    </Text>
+  </View>
+</View>
+`;
 
 exports[`does not render for Global Community 1`] = `null`;
 
@@ -106,7 +199,7 @@ exports[`onPress opens modal 1`] = `
 - First value
 + Second value
 
-@@ -16,10 +16,446 @@
+@@ -16,10 +16,587 @@
         \\"shadowOpacity\\": 0.3,
         \\"shadowRadius\\": 2,
       }
@@ -210,6 +303,41 @@ exports[`onPress opens modal 1`] = `
 +         >
 +           Choose a Post Type
 +         </Text>
++         <View
++           style={
++             Array [
++               Object {},
++               Object {
++                 \\"alignItems\\": \\"center\\",
++                 \\"flexDirection\\": \\"row\\",
++                 \\"justifyContent\\": \\"center\\",
++               },
++             ]
++           }
++         >
++           <SvgMock
++             color=\\"#ECEEF2\\"
++           />
++           <Text
++             style={
++               Object {
++                 \\"color\\": \\"#B4B6BA\\",
++                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                 \\"fontSize\\": 16,
++                 \\"fontStyle\\": \\"normal\\",
++                 \\"lineHeight\\": 24,
++                 \\"paddingHorizontal\\": 10,
++                 \\"textAlignVertical\\": \\"center\\",
++                 \\"textTransform\\": \\"none\\",
++               }
++             }
++           >
++             Post as You
++           </Text>
++           <SvgMock
++             color=\\"#ECEEF2\\"
++           />
++         </View>
 +         <View
 +           style={
 +             Object {
@@ -542,6 +670,112 @@ exports[`onPress opens modal 1`] = `
 +               }
 +             >
 +               What's on Your Mind
++             </Text>
++           </View>
++         </View>
++         <View
++           style={
++             Array [
++               Object {
++                 \\"marginTop\\": 20,
++               },
++               Object {
++                 \\"alignItems\\": \\"center\\",
++                 \\"flexDirection\\": \\"row\\",
++                 \\"justifyContent\\": \\"center\\",
++               },
++             ]
++           }
++         >
++           <SvgMock
++             color=\\"#ECEEF2\\"
++             width=\\"21\\"
++           />
++           <Text
++             style={
++               Object {
++                 \\"color\\": \\"#B4B6BA\\",
++                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                 \\"fontSize\\": 16,
++                 \\"fontStyle\\": \\"normal\\",
++                 \\"lineHeight\\": 24,
++                 \\"paddingHorizontal\\": 10,
++                 \\"textAlignVertical\\": \\"center\\",
++                 \\"textTransform\\": \\"none\\",
++               }
++             }
++           >
++             Post as Owner/Admin
++           </Text>
++           <SvgMock
++             color=\\"#ECEEF2\\"
++             width=\\"21\\"
++           />
++         </View>
++         <View
++           style={
++             Object {
++               \\"marginVertical\\": 10,
++             }
++           }
++         >
++           <View
++             accessible={true}
++             focusable={true}
++             onClick={[Function onClick]}
++             onResponderGrant={[Function onResponderGrant]}
++             onResponderMove={[Function onResponderMove]}
++             onResponderRelease={[Function onResponderRelease]}
++             onResponderTerminate={[Function onResponderTerminate]}
++             onResponderTerminationRequest={[Function onResponderTerminationRequest]}
++             onStartShouldSetResponder={[Function onStartShouldSetResponder]}
++             style={
++               Object {
++                 \\"alignItems\\": \\"center\\",
++                 \\"backgroundColor\\": \\"#505256\\",
++                 \\"borderRadius\\": 50,
++                 \\"borderWidth\\": 0,
++                 \\"flexDirection\\": \\"row\\",
++                 \\"height\\": 48,
++                 \\"justifyContent\\": \\"space-between\\",
++                 \\"margin\\": 0,
++                 \\"opacity\\": 1,
++                 \\"paddingHorizontal\\": 20,
++                 \\"paddingLeft\\": 20,
++                 \\"paddingRight\\": 16,
++                 \\"paddingVertical\\": 0,
++               }
++             }
++             testID=\\"ANNOUNCEMENTButton\\"
++           >
++             <SvgMock
++               color=\\"#ffffff\\"
++               height={24}
++               style={
++                 Array [
++                   Object {
++                     \\"marginLeft\\": -10,
++                     \\"marginRight\\": 10,
++                   },
++                   undefined,
++                 ]
++               }
++               width={24}
++             />
++             <Text
++               style={
++                 Object {
++                   \\"color\\": \\"#ffffff\\",
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   \\"fontSize\\": 14,
++                   \\"fontStyle\\": \\"normal\\",
++                   \\"lineHeight\\": 20,
++                   \\"textAlignVertical\\": \\"center\\",
++                   \\"textTransform\\": \\"none\\",
++                 }
++               }
++             >
++               Announcement
 +             </Text>
 +           </View>
 +         </View>

@@ -430,7 +430,7 @@ exports[`CommunityMembers should load next page 1`] = `
 +             \\"__typename\\": \\"CommunityPermission\\",
 +             \\"createdAt\\": \\"2015-06-20T04:51:30.834Z\\",
 +             \\"id\\": \\"9\\",
-+             \\"permission\\": \\"no_permissions\\",
++             \\"permission\\": \\"owner\\",
 +           },
 +           \\"node\\": Object {
 +             \\"__typename\\": \\"Person\\",

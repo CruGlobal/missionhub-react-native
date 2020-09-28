@@ -2671,7 +2671,7 @@ exports[`refresh calls refreshComments 1`] = `
                     accessible={true}
                     focusable={true}
                     hitSlop={
-@@ -600,28 +617,29 @@
+@@ -600,19 +617,19 @@
         >
           <CommentItem
             comment={
@@ -2698,18 +2698,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             isEditing={false}
             menuActions={
-              Array [
-                Object {
-+                 \\"destructive\\": true,
-                  \\"onPress\\": [Function onPress],
--                 \\"text\\": \\"Report to Owner\\",
-+                 \\"text\\": \\"Delete Comment\\",
-                },
-              ]
-            }
-            testID=\\"CommentItem\\"
-          />
-@@ -632,28 +650,29 @@
+@@ -632,19 +649,19 @@
         >
           <CommentItem
             comment={
@@ -2736,18 +2725,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             isEditing={false}
             menuActions={
-              Array [
-                Object {
-+                 \\"destructive\\": true,
-                  \\"onPress\\": [Function onPress],
--                 \\"text\\": \\"Report to Owner\\",
-+                 \\"text\\": \\"Delete Comment\\",
-                },
-              ]
-            }
-            testID=\\"CommentItem\\"
-          />
-@@ -673,22 +692,22 @@
+@@ -673,22 +690,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
@@ -3073,6 +3051,40 @@ exports[`renders correctly 1`] = `
               >
                 What's on Your Mind
               </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "flex-end",
+                  "flex": 1,
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                    "paddingLeft": 30,
+                    "paddingRight": 12,
+                    "paddingVertical": 5,
+                  }
+                }
+                testID="popupMenuButton"
+              >
+                <SvgMock
+                  color="#B4B6BA"
+                />
+              </View>
             </View>
           </View>
           <View
@@ -3434,8 +3446,9 @@ exports[`renders correctly 1`] = `
           menuActions={
             Array [
               Object {
+                "destructive": true,
                 "onPress": [Function],
-                "text": "Report to Owner",
+                "text": "Delete Comment",
               },
             ]
           }
@@ -3466,8 +3479,9 @@ exports[`renders correctly 1`] = `
           menuActions={
             Array [
               Object {
+                "destructive": true,
                 "onPress": [Function],
-                "text": "Report to Owner",
+                "text": "Delete Comment",
               },
             ]
           }
@@ -3892,6 +3906,40 @@ exports[`renders correctly with communityId passed in 1`] = `
                 What's on Your Mind
               </Text>
             </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "flex-end",
+                  "flex": 1,
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                    "paddingLeft": 30,
+                    "paddingRight": 12,
+                    "paddingVertical": 5,
+                  }
+                }
+                testID="popupMenuButton"
+              >
+                <SvgMock
+                  color="#B4B6BA"
+                />
+              </View>
+            </View>
           </View>
           <View
             style={
@@ -4252,8 +4300,9 @@ exports[`renders correctly with communityId passed in 1`] = `
           menuActions={
             Array [
               Object {
+                "destructive": true,
                 "onPress": [Function],
-                "text": "Report to Owner",
+                "text": "Delete Comment",
               },
             ]
           }
@@ -4284,8 +4333,9 @@ exports[`renders correctly with communityId passed in 1`] = `
           menuActions={
             Array [
               Object {
+                "destructive": true,
                 "onPress": [Function],
-                "text": "Report to Owner",
+                "text": "Delete Comment",
               },
             ]
           }
