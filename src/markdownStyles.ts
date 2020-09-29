@@ -2,15 +2,24 @@ import { Platform, StyleSheet } from 'react-native';
 
 import theme from './theme';
 
-const textStyle = theme.textRegular16;
-const heading1Style = { ...theme.textLight32, marginVertical: 10 };
-const heading2Style = { ...theme.textLight24, marginVertical: 10 };
+const bodyStyles = { ...theme.textRegular16 };
+const heading1Style = {
+  ...theme.textLight32,
+  marginVertical: 10,
+  paddingHorizontal: 32,
+};
+const heading2Style = {
+  ...theme.textLight24,
+  marginVertical: 10,
+  paddingHorizontal: 32,
+};
 const heading3Style = {
   ...theme.textBold16,
   fontSize: 20,
   lineHeight: 22,
   letterSpacing: 0,
   marginVertical: 16,
+  paddingHorizontal: 32,
   textTransform: 'none',
 };
 const strongStyle = {
@@ -38,8 +47,7 @@ const linkStyle = {
   textDecorationColor: theme.secondaryColor,
 };
 const blockQuoteStyle = {
-  left: -32,
-  width: theme.fullWidth,
+  width: '100%',
   backgroundColor: theme.extraLightGrey,
   paddingVertical: 16,
   paddingHorizontal: 32,
@@ -52,14 +60,9 @@ const horizontalLineStyle = {
   marginVertical: 8,
   marginHorizontal: 0,
 };
-const imageStyle = {
-  left: -32,
-  height: 200,
-  width: theme.fullWidth,
-};
 
 export default StyleSheet.create({
-  body: textStyle,
+  body: bodyStyles,
   heading1: heading1Style,
   heading2: heading2Style,
   heading3: heading3Style,
@@ -70,5 +73,4 @@ export default StyleSheet.create({
   link: linkStyle,
   blockquote: blockQuoteStyle,
   hr: horizontalLineStyle,
-  image: imageStyle,
 });
