@@ -2,10 +2,10 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import { wrapNextAction } from '../helpers';
 import { navigatePush } from '../../actions/navigation';
-import { updatePersonAttributes, getPersonDetails } from '../../actions/person';
+import { getPersonDetails } from '../../actions/person';
 import { reloadJourney } from '../../actions/journey';
-import { personSelector } from '../../selectors/people';
 import SelectStageScreen, {
+  SelectStageScreenProps,
   SELECT_STAGE_SCREEN,
 } from '../../containers/SelectStageScreen';
 import { SELECT_STEP_SCREEN } from '../../containers/SelectStepScreen';
@@ -16,29 +16,12 @@ export const SelectPersonStageFlowScreens = {
   [SELECT_STAGE_SCREEN]: wrapNextAction(
     SelectStageScreen,
     ({
-      stage,
       personId,
       orgId,
       isAlreadySelected,
       skipSelectSteps,
-      contactAssignmentId,
-    }) => (dispatch, getState) => {
-      const person = personSelector(getState(), { personId });
-
-      dispatch(
-        // @ts-ignore
-        contactAssignmentId
-          ? updatePersonAttributes(personId, {
-              reverse_contact_assignments: person.reverse_contact_assignments.map(
-                // @ts-ignore
-                assignment =>
-                  assignment.id === contactAssignmentId
-                    ? { ...assignment, pathway_stage_id: stage.id }
-                    : assignment,
-              ),
-            })
-          : getPersonDetails(personId),
-      );
+    }: Parameters<SelectStageScreenProps['next']>[0]) => dispatch => {
+      dispatch(getPersonDetails(personId));
       dispatch(reloadJourney(personId));
 
       dispatch(

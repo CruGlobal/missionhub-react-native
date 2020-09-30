@@ -5,6 +5,7 @@ import { navigatePush } from '../../actions/navigation';
 import { updatePersonAttributes } from '../../actions/person';
 import { reloadJourney } from '../../actions/journey';
 import SelectStageScreen, {
+  SelectStageScreenProps,
   SELECT_STAGE_SCREEN,
 } from '../../containers/SelectStageScreen';
 import { SELECT_STEP_SCREEN } from '../../containers/SelectStepScreen';
@@ -14,7 +15,11 @@ import { AddMyStepFlowScreens } from '../steps/addMyStepFlow';
 export const SelectMyStageFlowScreens = {
   [SELECT_STAGE_SCREEN]: wrapNextAction(
     SelectStageScreen,
-    ({ stage, personId, isAlreadySelected }) => dispatch => {
+    ({
+      stage,
+      personId,
+      isAlreadySelected,
+    }: Parameters<SelectStageScreenProps['next']>[0]) => dispatch => {
       dispatch(
         updatePersonAttributes(personId, {
           user: { pathway_stage_id: stage.id },

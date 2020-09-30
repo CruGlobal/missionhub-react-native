@@ -9,123 +9,195 @@ exports[`none selected renders with none highlighted 1`] = `
     }
   }
 >
-  <Button
-    buttonTextStyle={
-      Array [
-        Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 12,
-          "fontStyle": "normal",
-          "letterSpacing": 1,
-          "lineHeight": 16,
-          "textAlignVertical": "center",
-          "textTransform": "none",
-        },
-        Object {
-          "color": "#B4B6BA",
-        },
-      ]
-    }
-    onPress={[Function]}
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "borderRadius": 35,
-          "height": 70,
-          "margin": 8,
-          "paddingHorizontal": 0,
-          "paddingVertical": 0,
-          "width": 70,
-        },
-        Object {
-          "backgroundColor": "#ffffff",
-          "borderColor": "#B4B6BA",
-          "borderWidth": 1,
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderColor": "#B4B6BA",
+        "borderRadius": 35,
+        "borderWidth": 1,
+        "height": 70,
+        "justifyContent": "center",
+        "margin": 8,
+        "opacity": 1,
+        "paddingHorizontal": 0,
+        "paddingVertical": 0,
+        "width": 70,
+      }
     }
     testID="ReminderRepeatButtonDaily"
-    text="Daily"
-  />
-  <Button
-    buttonTextStyle={
-      Array [
-        Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 12,
-          "fontStyle": "normal",
-          "letterSpacing": 1,
-          "lineHeight": 16,
-          "textAlignVertical": "center",
-          "textTransform": "none",
-        },
-        Object {
-          "color": "#B4B6BA",
-        },
-      ]
-    }
-    onPress={[Function]}
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Bold",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "letterSpacing": 1,
+            "lineHeight": 18,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
+          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "letterSpacing": 1,
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            },
+            Object {
+              "color": "#B4B6BA",
+            },
+          ],
+        ]
+      }
+    >
+      Daily
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "borderRadius": 35,
-          "height": 70,
-          "margin": 8,
-          "paddingHorizontal": 0,
-          "paddingVertical": 0,
-          "width": 70,
-        },
-        Object {
-          "backgroundColor": "#ffffff",
-          "borderColor": "#B4B6BA",
-          "borderWidth": 1,
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderColor": "#B4B6BA",
+        "borderRadius": 35,
+        "borderWidth": 1,
+        "height": 70,
+        "justifyContent": "center",
+        "margin": 8,
+        "opacity": 1,
+        "paddingHorizontal": 0,
+        "paddingVertical": 0,
+        "width": 70,
+      }
     }
     testID="ReminderRepeatButtonWeekly"
-    text="Weekly"
-  />
-  <Button
-    buttonTextStyle={
-      Array [
-        Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 12,
-          "fontStyle": "normal",
-          "letterSpacing": 1,
-          "lineHeight": 16,
-          "textAlignVertical": "center",
-          "textTransform": "none",
-        },
-        Object {
-          "color": "#B4B6BA",
-        },
-      ]
-    }
-    onPress={[Function]}
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Bold",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "letterSpacing": 1,
+            "lineHeight": 18,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
+          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "letterSpacing": 1,
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            },
+            Object {
+              "color": "#B4B6BA",
+            },
+          ],
+        ]
+      }
+    >
+      Weekly
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "borderRadius": 35,
-          "height": 70,
-          "margin": 8,
-          "paddingHorizontal": 0,
-          "paddingVertical": 0,
-          "width": 70,
-        },
-        Object {
-          "backgroundColor": "#ffffff",
-          "borderColor": "#B4B6BA",
-          "borderWidth": 1,
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderColor": "#B4B6BA",
+        "borderRadius": 35,
+        "borderWidth": 1,
+        "height": 70,
+        "justifyContent": "center",
+        "margin": 8,
+        "opacity": 1,
+        "paddingHorizontal": 0,
+        "paddingVertical": 0,
+        "width": 70,
+      }
     }
     testID="ReminderRepeatButtonMonthly"
-    text="Monthly"
-  />
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Bold",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "letterSpacing": 1,
+            "lineHeight": 18,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
+          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "letterSpacing": 1,
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            },
+            Object {
+              "color": "#B4B6BA",
+            },
+          ],
+        ]
+      }
+    >
+      Monthly
+    </Text>
+  </View>
 </View>
 `;
 
@@ -138,121 +210,194 @@ exports[`starts with daily selected renders with daily highlighted 1`] = `
     }
   }
 >
-  <Button
-    buttonTextStyle={
-      Array [
-        Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 12,
-          "fontStyle": "normal",
-          "letterSpacing": 1,
-          "lineHeight": 16,
-          "textAlignVertical": "center",
-          "textTransform": "none",
-        },
-        Object {
-          "color": "#ffffff",
-        },
-      ]
-    }
-    onPress={[Function]}
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "borderRadius": 35,
-          "height": 70,
-          "margin": 8,
-          "paddingHorizontal": 0,
-          "paddingVertical": 0,
-          "width": 70,
-        },
-        Object {
-          "backgroundColor": "#3CC8E6",
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#3CC8E6",
+        "borderRadius": 35,
+        "borderWidth": 0,
+        "height": 70,
+        "justifyContent": "center",
+        "margin": 8,
+        "opacity": 1,
+        "paddingHorizontal": 0,
+        "paddingVertical": 0,
+        "width": 70,
+      }
     }
     testID="ReminderRepeatButtonDaily"
-    text="Daily"
-  />
-  <Button
-    buttonTextStyle={
-      Array [
-        Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 12,
-          "fontStyle": "normal",
-          "letterSpacing": 1,
-          "lineHeight": 16,
-          "textAlignVertical": "center",
-          "textTransform": "none",
-        },
-        Object {
-          "color": "#B4B6BA",
-        },
-      ]
-    }
-    onPress={[Function]}
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Bold",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "letterSpacing": 1,
+            "lineHeight": 18,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
+          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "letterSpacing": 1,
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            },
+            Object {
+              "color": "#ffffff",
+            },
+          ],
+        ]
+      }
+    >
+      Daily
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "borderRadius": 35,
-          "height": 70,
-          "margin": 8,
-          "paddingHorizontal": 0,
-          "paddingVertical": 0,
-          "width": 70,
-        },
-        Object {
-          "backgroundColor": "#ffffff",
-          "borderColor": "#B4B6BA",
-          "borderWidth": 1,
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderColor": "#B4B6BA",
+        "borderRadius": 35,
+        "borderWidth": 1,
+        "height": 70,
+        "justifyContent": "center",
+        "margin": 8,
+        "opacity": 1,
+        "paddingHorizontal": 0,
+        "paddingVertical": 0,
+        "width": 70,
+      }
     }
     testID="ReminderRepeatButtonWeekly"
-    text="Weekly"
-  />
-  <Button
-    buttonTextStyle={
-      Array [
-        Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 12,
-          "fontStyle": "normal",
-          "letterSpacing": 1,
-          "lineHeight": 16,
-          "textAlignVertical": "center",
-          "textTransform": "none",
-        },
-        Object {
-          "color": "#B4B6BA",
-        },
-      ]
-    }
-    onPress={[Function]}
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Bold",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "letterSpacing": 1,
+            "lineHeight": 18,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
+          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "letterSpacing": 1,
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            },
+            Object {
+              "color": "#B4B6BA",
+            },
+          ],
+        ]
+      }
+    >
+      Weekly
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "borderRadius": 35,
-          "height": 70,
-          "margin": 8,
-          "paddingHorizontal": 0,
-          "paddingVertical": 0,
-          "width": 70,
-        },
-        Object {
-          "backgroundColor": "#ffffff",
-          "borderColor": "#B4B6BA",
-          "borderWidth": 1,
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderColor": "#B4B6BA",
+        "borderRadius": 35,
+        "borderWidth": 1,
+        "height": 70,
+        "justifyContent": "center",
+        "margin": 8,
+        "opacity": 1,
+        "paddingHorizontal": 0,
+        "paddingVertical": 0,
+        "width": 70,
+      }
     }
     testID="ReminderRepeatButtonMonthly"
-    text="Monthly"
-  />
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Bold",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "letterSpacing": 1,
+            "lineHeight": 18,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
+          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "letterSpacing": 1,
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            },
+            Object {
+              "color": "#B4B6BA",
+            },
+          ],
+        ]
+      }
+    >
+      Monthly
+    </Text>
+  </View>
 </View>
 `;
 
@@ -265,121 +410,194 @@ exports[`starts with monthly selected renders with monthly highlighted 1`] = `
     }
   }
 >
-  <Button
-    buttonTextStyle={
-      Array [
-        Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 12,
-          "fontStyle": "normal",
-          "letterSpacing": 1,
-          "lineHeight": 16,
-          "textAlignVertical": "center",
-          "textTransform": "none",
-        },
-        Object {
-          "color": "#B4B6BA",
-        },
-      ]
-    }
-    onPress={[Function]}
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "borderRadius": 35,
-          "height": 70,
-          "margin": 8,
-          "paddingHorizontal": 0,
-          "paddingVertical": 0,
-          "width": 70,
-        },
-        Object {
-          "backgroundColor": "#ffffff",
-          "borderColor": "#B4B6BA",
-          "borderWidth": 1,
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderColor": "#B4B6BA",
+        "borderRadius": 35,
+        "borderWidth": 1,
+        "height": 70,
+        "justifyContent": "center",
+        "margin": 8,
+        "opacity": 1,
+        "paddingHorizontal": 0,
+        "paddingVertical": 0,
+        "width": 70,
+      }
     }
     testID="ReminderRepeatButtonDaily"
-    text="Daily"
-  />
-  <Button
-    buttonTextStyle={
-      Array [
-        Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 12,
-          "fontStyle": "normal",
-          "letterSpacing": 1,
-          "lineHeight": 16,
-          "textAlignVertical": "center",
-          "textTransform": "none",
-        },
-        Object {
-          "color": "#B4B6BA",
-        },
-      ]
-    }
-    onPress={[Function]}
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Bold",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "letterSpacing": 1,
+            "lineHeight": 18,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
+          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "letterSpacing": 1,
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            },
+            Object {
+              "color": "#B4B6BA",
+            },
+          ],
+        ]
+      }
+    >
+      Daily
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "borderRadius": 35,
-          "height": 70,
-          "margin": 8,
-          "paddingHorizontal": 0,
-          "paddingVertical": 0,
-          "width": 70,
-        },
-        Object {
-          "backgroundColor": "#ffffff",
-          "borderColor": "#B4B6BA",
-          "borderWidth": 1,
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderColor": "#B4B6BA",
+        "borderRadius": 35,
+        "borderWidth": 1,
+        "height": 70,
+        "justifyContent": "center",
+        "margin": 8,
+        "opacity": 1,
+        "paddingHorizontal": 0,
+        "paddingVertical": 0,
+        "width": 70,
+      }
     }
     testID="ReminderRepeatButtonWeekly"
-    text="Weekly"
-  />
-  <Button
-    buttonTextStyle={
-      Array [
-        Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 12,
-          "fontStyle": "normal",
-          "letterSpacing": 1,
-          "lineHeight": 16,
-          "textAlignVertical": "center",
-          "textTransform": "none",
-        },
-        Object {
-          "color": "#ffffff",
-        },
-      ]
-    }
-    onPress={[Function]}
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Bold",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "letterSpacing": 1,
+            "lineHeight": 18,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
+          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "letterSpacing": 1,
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            },
+            Object {
+              "color": "#B4B6BA",
+            },
+          ],
+        ]
+      }
+    >
+      Weekly
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "borderRadius": 35,
-          "height": 70,
-          "margin": 8,
-          "paddingHorizontal": 0,
-          "paddingVertical": 0,
-          "width": 70,
-        },
-        Object {
-          "backgroundColor": "#3CC8E6",
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#3CC8E6",
+        "borderRadius": 35,
+        "borderWidth": 0,
+        "height": 70,
+        "justifyContent": "center",
+        "margin": 8,
+        "opacity": 1,
+        "paddingHorizontal": 0,
+        "paddingVertical": 0,
+        "width": 70,
+      }
     }
     testID="ReminderRepeatButtonMonthly"
-    text="Monthly"
-  />
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Bold",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "letterSpacing": 1,
+            "lineHeight": 18,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
+          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "letterSpacing": 1,
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            },
+            Object {
+              "color": "#ffffff",
+            },
+          ],
+        ]
+      }
+    >
+      Monthly
+    </Text>
+  </View>
 </View>
 `;
 
@@ -392,120 +610,193 @@ exports[`starts with weekly selected renders with weekly highlighted 1`] = `
     }
   }
 >
-  <Button
-    buttonTextStyle={
-      Array [
-        Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 12,
-          "fontStyle": "normal",
-          "letterSpacing": 1,
-          "lineHeight": 16,
-          "textAlignVertical": "center",
-          "textTransform": "none",
-        },
-        Object {
-          "color": "#B4B6BA",
-        },
-      ]
-    }
-    onPress={[Function]}
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "borderRadius": 35,
-          "height": 70,
-          "margin": 8,
-          "paddingHorizontal": 0,
-          "paddingVertical": 0,
-          "width": 70,
-        },
-        Object {
-          "backgroundColor": "#ffffff",
-          "borderColor": "#B4B6BA",
-          "borderWidth": 1,
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderColor": "#B4B6BA",
+        "borderRadius": 35,
+        "borderWidth": 1,
+        "height": 70,
+        "justifyContent": "center",
+        "margin": 8,
+        "opacity": 1,
+        "paddingHorizontal": 0,
+        "paddingVertical": 0,
+        "width": 70,
+      }
     }
     testID="ReminderRepeatButtonDaily"
-    text="Daily"
-  />
-  <Button
-    buttonTextStyle={
-      Array [
-        Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 12,
-          "fontStyle": "normal",
-          "letterSpacing": 1,
-          "lineHeight": 16,
-          "textAlignVertical": "center",
-          "textTransform": "none",
-        },
-        Object {
-          "color": "#ffffff",
-        },
-      ]
-    }
-    onPress={[Function]}
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Bold",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "letterSpacing": 1,
+            "lineHeight": 18,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
+          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "letterSpacing": 1,
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            },
+            Object {
+              "color": "#B4B6BA",
+            },
+          ],
+        ]
+      }
+    >
+      Daily
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "borderRadius": 35,
-          "height": 70,
-          "margin": 8,
-          "paddingHorizontal": 0,
-          "paddingVertical": 0,
-          "width": 70,
-        },
-        Object {
-          "backgroundColor": "#3CC8E6",
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#3CC8E6",
+        "borderRadius": 35,
+        "borderWidth": 0,
+        "height": 70,
+        "justifyContent": "center",
+        "margin": 8,
+        "opacity": 1,
+        "paddingHorizontal": 0,
+        "paddingVertical": 0,
+        "width": 70,
+      }
     }
     testID="ReminderRepeatButtonWeekly"
-    text="Weekly"
-  />
-  <Button
-    buttonTextStyle={
-      Array [
-        Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 12,
-          "fontStyle": "normal",
-          "letterSpacing": 1,
-          "lineHeight": 16,
-          "textAlignVertical": "center",
-          "textTransform": "none",
-        },
-        Object {
-          "color": "#B4B6BA",
-        },
-      ]
-    }
-    onPress={[Function]}
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Bold",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "letterSpacing": 1,
+            "lineHeight": 18,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
+          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "letterSpacing": 1,
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            },
+            Object {
+              "color": "#ffffff",
+            },
+          ],
+        ]
+      }
+    >
+      Weekly
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "borderRadius": 35,
-          "height": 70,
-          "margin": 8,
-          "paddingHorizontal": 0,
-          "paddingVertical": 0,
-          "width": 70,
-        },
-        Object {
-          "backgroundColor": "#ffffff",
-          "borderColor": "#B4B6BA",
-          "borderWidth": 1,
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderColor": "#B4B6BA",
+        "borderRadius": 35,
+        "borderWidth": 1,
+        "height": 70,
+        "justifyContent": "center",
+        "margin": 8,
+        "opacity": 1,
+        "paddingHorizontal": 0,
+        "paddingVertical": 0,
+        "width": 70,
+      }
     }
     testID="ReminderRepeatButtonMonthly"
-    text="Monthly"
-  />
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Bold",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "letterSpacing": 1,
+            "lineHeight": 18,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+            "textTransform": "uppercase",
+          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "letterSpacing": 1,
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            },
+            Object {
+              "color": "#B4B6BA",
+            },
+          ],
+        ]
+      }
+    >
+      Monthly
+    </Text>
+  </View>
 </View>
 `;

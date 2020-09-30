@@ -1,12 +1,8 @@
 import React from 'react';
 import { Keyboard } from 'react-native';
+import { fireEvent } from 'react-native-testing-library';
 
-import {
-  renderShallow,
-  createMockNavState,
-  testSnapshotShallow,
-  createThunkStore,
-} from '../../../../../testUtils';
+import { renderWithContext } from '../../../../../testUtils';
 import {
   navigateBack,
   navigateToMainTabs,
@@ -27,7 +23,12 @@ const mockAddNewOrg = {
   response: { id: mockNewId },
 };
 
-jest.mock('../../../../actions/analytics');
+jest.spyOn(Keyboard, 'dismiss');
+
+jest.mock('../../../../actions/analytics', () => ({
+  trackScreenChange: jest.fn(() => ({ type: 'trackScreenChange' })),
+  trackActionWithoutData: jest.fn(() => ({ type: 'trackActionWithoutData' })),
+}));
 jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'back' })),
   navigateNestedReset: jest.fn(() => ({ type: 'navigateNestedReset' })),
@@ -45,122 +46,106 @@ beforeEach(() => {
   );
 });
 
-// @ts-ignore
-let store;
-
-const state = {
+const initialState = {
   organizations: { all: [] },
+  onboarding: {},
+  drawer: {},
 };
-
-// @ts-ignore
-trackActionWithoutData.mockReturnValue({ type: 'tracked action without data' });
-
-beforeEach(() => {
-  store = createThunkStore(state);
-});
-
-// @ts-ignore
-function buildScreen(props) {
-  return renderShallow(
-    <CreateGroupScreen navigation={createMockNavState()} {...props} />,
-    // @ts-ignore
-    store,
-  );
-}
-
-// @ts-ignore
-function buildScreenInstance(props) {
-  return buildScreen(props).instance();
-}
 
 describe('CreateGroupScreen', () => {
   it('renders correctly', () => {
-    testSnapshotShallow(
-      <CreateGroupScreen navigation={createMockNavState()} />,
-      // @ts-ignore
-      store,
-    );
+    renderWithContext(<CreateGroupScreen navigation={{ state: {} }} />, {
+      initialState,
+    }).snapshot();
   });
 
   it('should update the state', () => {
-    // @ts-ignore
-    const component = buildScreenInstance();
+    const { getByTestId } = renderWithContext(
+      <CreateGroupScreen navigation={{ state: {} }} />,
+      {
+        initialState,
+      },
+    );
 
-    const name = 'test';
-    // @ts-ignore
-    component.onChangeText(name);
+    const name = 'New Community name';
 
-    // @ts-ignore
-    expect(component.state.name).toEqual(name);
+    fireEvent.changeText(getByTestId('communityName'), name);
+
+    expect(getByTestId('communityName').props.value).toEqual(name);
   });
 
   it('should disable the button when creating a community', () => {
-    // @ts-ignore
-    const component = buildScreen();
-    component.setState({ name: 'Test', isCreatingCommunity: true });
+    const { recordSnapshot, getByTestId, diffSnapshot } = renderWithContext(
+      <CreateGroupScreen navigation={{ state: {} }} />,
+      {
+        initialState,
+      },
+    );
 
-    expect(component.update()).toMatchSnapshot();
+    recordSnapshot();
+    fireEvent.changeText(getByTestId('communityName'), 'Test');
+    fireEvent.press(getByTestId('createCommunityButton'));
+
+    diffSnapshot();
   });
 
   it('should update the image', () => {
-    // @ts-ignore
-    const screen = buildScreen();
-    const component = screen.instance();
+    const { getByTestId } = renderWithContext(
+      <CreateGroupScreen navigation={{ state: {} }} />,
+      {
+        initialState,
+      },
+    );
 
     const data = { uri: 'testuri' };
-    // @ts-ignore
-    component.handleImageChange(data);
+    fireEvent(getByTestId('createCommunityImagePicker'), 'onSelectImage', data);
 
-    // @ts-ignore
-    expect(component.state.imageData).toEqual(data);
-    expect(screen.update()).toMatchSnapshot();
+    expect(getByTestId('createCommunityImageDisplay').props.source).toEqual(
+      data,
+    );
   });
 
   it('should call navigate back', () => {
-    // @ts-ignore
-    const component = buildScreen();
-    const backButton = component.childAt(1).props().left;
-    backButton.props.onPress();
+    const { getByTestId } = renderWithContext(
+      <CreateGroupScreen navigation={{ state: {} }} />,
+      {
+        initialState,
+      },
+    );
+
+    fireEvent.press(getByTestId('backButton'));
 
     expect(navigateBack).toHaveBeenCalled();
   });
 
-  it('should call ref', () => {
-    // @ts-ignore
-    const instance = buildScreenInstance();
-    const ref = 'test';
-    // @ts-ignore
-    instance.ref(ref);
-    // @ts-ignore
-    expect(instance.nameInput).toEqual(ref);
-  });
+  it('should not call create community without name', () => {
+    const { getByTestId } = renderWithContext(
+      <CreateGroupScreen navigation={{ state: {} }} />,
+      {
+        initialState,
+      },
+    );
 
-  it('should not call create community without name', async () => {
-    Keyboard.dismiss = jest.fn();
-    // @ts-ignore
-    const component = buildScreen();
-    const result = await component
-      .childAt(3)
-      .props()
-      .onPress();
+    fireEvent.press(getByTestId('createCommunityButton'));
 
     expect(Keyboard.dismiss).toHaveBeenCalled();
-    expect(result).toBe(undefined);
+    expect(addNewOrganization).not.toHaveBeenCalled();
   });
 
   it('should call create community without org added to redux', async () => {
-    Keyboard.dismiss = jest.fn();
-    // @ts-ignore
-    const component = buildScreen();
-    const name = 'Tester';
-    component.setState({ name });
-    // @ts-ignore
-    organizationSelector.mockReturnValue(undefined);
+    ((organizationSelector as unknown) as jest.Mock).mockReturnValue(undefined);
 
-    await component
-      .childAt(3)
-      .props()
-      .onPress();
+    const { getByTestId } = renderWithContext(
+      <CreateGroupScreen navigation={{ state: {} }} />,
+      {
+        initialState,
+      },
+    );
+
+    const name = 'Test';
+
+    fireEvent.changeText(getByTestId('communityName'), name);
+    await fireEvent.press(getByTestId('createCommunityButton'));
 
     expect(Keyboard.dismiss).toHaveBeenCalled();
     expect(addNewOrganization).toHaveBeenCalledWith(name, null);
@@ -168,20 +153,20 @@ describe('CreateGroupScreen', () => {
   });
 
   it('should call create community with org added to redux', async () => {
-    Keyboard.dismiss = jest.fn();
-    // @ts-ignore
-    const component = buildScreen();
-    const name = 'Tester';
-    component.setState({ name });
-
     const org = { id: mockNewId };
-    // @ts-ignore
-    organizationSelector.mockReturnValue(org);
+    ((organizationSelector as unknown) as jest.Mock).mockReturnValue(org);
 
-    await component
-      .childAt(3)
-      .props()
-      .onPress();
+    const { getByTestId } = renderWithContext(
+      <CreateGroupScreen navigation={{ state: {} }} />,
+      {
+        initialState,
+      },
+    );
+
+    const name = 'Test';
+
+    fireEvent.changeText(getByTestId('communityName'), name);
+    await fireEvent.press(getByTestId('createCommunityButton'));
 
     expect(Keyboard.dismiss).toHaveBeenCalled();
     expect(addNewOrganization).toHaveBeenCalledWith(name, null);
@@ -206,23 +191,22 @@ describe('CreateGroupScreen', () => {
   });
 
   it('should call create community with org added to redux and image passed in', async () => {
-    Keyboard.dismiss = jest.fn();
-    // @ts-ignore
-    const component = buildScreen();
-    const name = 'Tester';
-    component.setState({ name });
-    const data = { uri: 'testuri' };
-    // @ts-ignore
-    component.instance().handleImageChange(data);
-
     const org = { id: mockNewId };
-    // @ts-ignore
-    organizationSelector.mockReturnValue(org);
+    ((organizationSelector as unknown) as jest.Mock).mockReturnValue(org);
 
-    await component
-      .childAt(3)
-      .props()
-      .onPress();
+    const { getByTestId } = renderWithContext(
+      <CreateGroupScreen navigation={{ state: {} }} />,
+      {
+        initialState,
+      },
+    );
+
+    const name = 'Test';
+    const data = { uri: 'testuri' };
+
+    fireEvent.changeText(getByTestId('communityName'), name);
+    fireEvent(getByTestId('createCommunityImagePicker'), 'onSelectImage', data);
+    await fireEvent.press(getByTestId('createCommunityButton'));
 
     expect(Keyboard.dismiss).toHaveBeenCalled();
     expect(addNewOrganization).toHaveBeenCalledWith(name, data);
