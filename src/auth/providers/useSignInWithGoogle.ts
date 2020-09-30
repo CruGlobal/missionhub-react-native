@@ -37,7 +37,7 @@ export const useSignInWithGoogle = () => {
       offlineAccess: true,
     });
 
-    const ERROR_NO_ID_TOKEN = "Google it token doesn't exist";
+    const ERROR_NO_ID_TOKEN = "Google id token doesn't exist";
 
     try {
       const { idToken } = await GoogleSignin.signInSilently();
