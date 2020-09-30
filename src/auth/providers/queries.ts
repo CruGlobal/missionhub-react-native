@@ -21,16 +21,8 @@ export const SIGN_IN_WITH_FACEBOOK_MUTATION = gql`
 `;
 
 export const SIGN_IN_WITH_GOOGLE_MUTATION = gql`
-  mutation SignInWithGoogle(
-    $authorizationCode: String!
-    $anonymousUid: String
-  ) {
-    loginWithGoogle(
-      input: {
-        authorizationCode: $authorizationCode
-        anonymousUid: $anonymousUid
-      }
-    ) {
+  mutation SignInWithGoogle($idToken: String!, $anonymousUid: String) {
+    loginWithGoogle(input: { idToken: $idToken, anonymousUid: $anonymousUid }) {
       token
     }
   }
