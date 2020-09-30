@@ -63,6 +63,7 @@ const horizontalLineStyle = {
 
 export default StyleSheet.create({
   body: bodyStyles,
+  plainText: { color: 'red' },
   heading1: heading1Style,
   heading2: heading2Style,
   heading3: heading3Style,

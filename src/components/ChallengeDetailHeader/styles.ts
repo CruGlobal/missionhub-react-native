@@ -16,7 +16,6 @@ export default StyleSheet.create({
   },
   detailSection: {
     paddingVertical: 14,
-    paddingHorizontal: 40,
   },
   title: theme.textLight24,
   subHeader: {
