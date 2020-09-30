@@ -1,45 +1,62 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import { fireEvent } from 'react-native-testing-library';
 
-import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import Card from '..';
+
+const content = 'Testing';
 
 const children = (
   <View>
-    <Text>Testing</Text>
+    <Text>{content}</Text>
   </View>
 );
 
 it('render card', () => {
-  testSnapshotShallow(<Card />);
+  renderWithContext(<Card />, { noWrappers: true }).snapshot();
 });
 
 it('render card with children', () => {
-  testSnapshotShallow(<Card>{children}</Card>);
+  renderWithContext(<Card>{children}</Card>, { noWrappers: true }).snapshot();
 });
 
 it('render touchable card', () => {
-  testSnapshotShallow(<Card onPress={jest.fn()} />);
+  renderWithContext(<Card onPress={jest.fn()} />, {
+    noWrappers: true,
+  }).snapshot();
 });
 
 it('render touchable card with children', () => {
-  testSnapshotShallow(<Card onPress={jest.fn()}>{children}</Card>);
+  renderWithContext(<Card onPress={jest.fn()}>{children}</Card>, {
+    noWrappers: true,
+  }).snapshot();
 });
 
 it('calls props.onPress when pressed', () => {
   const onPress = jest.fn();
-  const component = renderShallow(<Card onPress={onPress} />);
+  const { getByText } = renderWithContext(
+    <Card onPress={onPress}>{children}</Card>,
+    {
+      noWrappers: true,
+    },
+  );
 
-  component.simulate('press');
+  fireEvent.press(getByText(content));
 
   expect(onPress).toHaveBeenCalled();
 });
 
 it('calls props.onPress when pressed', () => {
   const onPress = jest.fn();
-  const component = renderShallow(<Card onPress={onPress} />);
+  const { getByText } = renderWithContext(
+    <Card onPress={onPress}>{children}</Card>,
+    {
+      noWrappers: true,
+    },
+  );
 
-  component.simulate('press');
+  fireEvent.press(getByText(content));
 
   expect(onPress).toHaveBeenCalled();
 });

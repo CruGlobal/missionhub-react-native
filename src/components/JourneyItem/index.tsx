@@ -19,12 +19,6 @@ const interactionsArr = Object.keys(INTERACTION_TYPES).map(
 // @ts-ignore
 @withTranslation('journeyItem')
 export default class JourneyItem extends Component {
-  // @ts-ignore
-  setNativeProps(nProps) {
-    // @ts-ignore
-    this._view.setNativeProps(nProps);
-  }
-
   renderDate() {
     // @ts-ignore
     const { item } = this.props;
@@ -248,12 +242,9 @@ export default class JourneyItem extends Component {
     );
   }
 
-  // @ts-ignore
-  ref = c => (this._view = c);
-
   render() {
     return (
-      <Flex ref={this.ref} direction="row" align="center" style={styles.row}>
+      <Flex direction="row" align="center" style={styles.row}>
         {this.renderIcon()}
         {this.renderContent()}
       </Flex>

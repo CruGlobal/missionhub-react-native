@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { testSnapshot } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { FooterLoading } from '..';
 
 it('renders correctly', () => {
-  testSnapshot(<FooterLoading />);
+  renderWithContext(<FooterLoading />, { noWrappers: true }).snapshot();
 });

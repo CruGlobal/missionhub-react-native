@@ -57,7 +57,7 @@ import styles, {
 
 const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
 
-interface SelectStageScreenProps {
+export interface SelectStageScreenProps {
   next: (props: {
     isMe: boolean;
     personId: string;

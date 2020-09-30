@@ -1,14 +1,8 @@
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
+import i18next from 'i18next';
 
-import {
-  renderShallow,
-  createMockNavState,
-  testSnapshotShallow,
-  renderWithContext,
-} from '../../../../../testUtils';
+import { renderWithContext } from '../../../../../testUtils';
 import { lookupOrgCommunityCode } from '../../../../actions/organizations';
 import JoinGroupScreen from '..';
 
@@ -31,12 +25,6 @@ jest.mock('../../../../actions/analytics', () => ({
 }));
 jest.mock('../../../../utils/hooks/useAnalytics');
 
-// @ts-ignore
-global.setTimeout = jest.fn();
-
-const mockStore = configureStore([thunk]);
-let store = mockStore();
-
 const mockCommunity = {
   id: '123',
   community_code: '123456',
@@ -49,62 +37,58 @@ const mockCommunity = {
 
 const mockNext = jest.fn(() => ({ type: 'nextTest' }));
 
-// @ts-ignore
-function buildScreen(props) {
-  const component = renderShallow(
-    <JoinGroupScreen
-      navigation={createMockNavState()}
-      {...props}
-      next={mockNext}
-    />,
-    store,
-  );
-  // @ts-ignore
-  component.instance().codeInput = { focus: jest.fn() };
-  return component;
-}
-
-// @ts-ignore
-function buildScreenInstance(props) {
-  return buildScreen(props).instance();
-}
-
-beforeEach(() => {
-  store = mockStore();
-});
+jest.spyOn(global, 'setTimeout');
 
 describe('JoinGroupScreen', () => {
   it('renders start correctly', () => {
-    testSnapshotShallow(
-      // @ts-ignore
-      <JoinGroupScreen navigation={createMockNavState()} />,
-      store,
+    renderWithContext(<JoinGroupScreen />).snapshot();
+  });
+
+  it('renders group card correctly', async () => {
+    (lookupOrgCommunityCode as jest.Mock).mockReturnValue(() =>
+      Promise.resolve(mockCommunity),
     );
+    const { snapshot, getByText, getByTestId } = renderWithContext(
+      // @ts-ignore
+      <JoinGroupScreen next={mockNext} />,
+    );
+
+    fireEvent.changeText(
+      getByTestId('joinInput'),
+      mockCommunity.community_code,
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
+
+    expect(() => getByText(mockCommunity.name.toUpperCase())).not.toThrow();
   });
 
-  it('renders group card correctly', () => {
-    // @ts-ignore
-    const component = buildScreen();
-    component.setState({ community: mockCommunity });
-    component.update();
+  it('renders error correctly', async () => {
+    (lookupOrgCommunityCode as jest.Mock).mockReturnValue(() =>
+      Promise.reject(),
+    );
 
-    expect(component).toMatchSnapshot();
-  });
+    const { getByText, getByTestId } = renderWithContext(
+      // @ts-ignore
+      <JoinGroupScreen next={mockNext} />,
+    );
 
-  it('renders error correctly', () => {
-    // @ts-ignore
-    const component = buildScreen();
-    component.setState({ error: 'error message' });
-    component.update();
+    fireEvent.changeText(
+      getByTestId('joinInput'),
+      mockCommunity.community_code,
+    );
 
-    expect(component).toMatchSnapshot();
+    await flushMicrotasksQueue();
+
+    expect(() =>
+      getByText(i18next.t('groupsJoinGroup:communityNotFound')),
+    ).not.toThrow();
   });
 
   it('mounts and then focuses', () => {
-    // @ts-ignore
-    const instance = buildScreenInstance();
-    // @ts-ignore
-    instance.componentDidMount();
+    renderWithContext(<JoinGroupScreen />);
 
     expect(global.setTimeout).toHaveBeenCalledWith(expect.any(Function), 350);
   });
@@ -117,7 +101,6 @@ describe('JoinGroupScreen', () => {
       const { getByTestId, snapshot } = renderWithContext(
         // @ts-ignore
         <JoinGroupScreen next={mockNext} />,
-        { store },
       );
       fireEvent.changeText(getByTestId('joinInput'), '123');
       snapshot();
@@ -127,38 +110,35 @@ describe('JoinGroupScreen', () => {
       const { getByTestId, snapshot } = renderWithContext(
         // @ts-ignore
         <JoinGroupScreen next={mockNext} />,
-        { store },
       );
-      fireEvent.changeText(getByTestId('joinInput'), '123456');
+      fireEvent.changeText(
+        getByTestId('joinInput'),
+        mockCommunity.community_code,
+      );
       snapshot();
       expect(lookupOrgCommunityCode).toHaveBeenCalled();
     });
   });
 
   it('should join community', async () => {
-    // @ts-ignore
-    const component = buildScreen();
+    (lookupOrgCommunityCode as jest.Mock).mockReturnValue(() =>
+      Promise.resolve(mockCommunity),
+    );
 
-    component.setState({ community: mockCommunity });
-    component.update();
+    const { getByTestId } = renderWithContext(
+      // @ts-ignore
+      <JoinGroupScreen next={mockNext} />,
+    );
 
-    await component
-      .childAt(2)
-      .childAt(0)
-      .childAt(0)
-      .props()
-      .onJoin();
+    fireEvent.changeText(
+      getByTestId('joinInput'),
+      mockCommunity.community_code,
+    );
+
+    await flushMicrotasksQueue();
+
+    fireEvent(getByTestId('groupCardItem'), 'onJoin');
 
     expect(mockNext).toHaveBeenCalledWith({ community: mockCommunity });
-  });
-
-  it('should call ref', () => {
-    // @ts-ignore
-    const instance = buildScreenInstance();
-    const ref = 'test';
-    // @ts-ignore
-    instance.ref(ref);
-    // @ts-ignore
-    expect(instance.codeInput).toEqual(ref);
   });
 });
