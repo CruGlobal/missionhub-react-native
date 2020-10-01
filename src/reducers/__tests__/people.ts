@@ -58,7 +58,7 @@ it('should add a person when it is loaded and the person does not exist', () => 
   expect(state.people).toMatchSnapshot();
 });
 
-it('should update attributes of a person ', () => {
+it('should update attributes of a person', () => {
   const state = people(
     {
       people: peopleArray,
@@ -72,7 +72,7 @@ it('should update attributes of a person ', () => {
   expect(state.people).toMatchSnapshot();
 });
 
-it('should delete a person ', () => {
+it('should delete a person', () => {
   const state = people(
     {
       people: peopleArray,

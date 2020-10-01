@@ -37,28 +37,28 @@ export const useSignInWithGoogle = () => {
       offlineAccess: true,
     });
 
-    const ERROR_NO_AUTH_CODE = "Google authorization code doesn't exist";
+    const ERROR_NO_ID_TOKEN = "Google id token doesn't exist";
 
     try {
-      const { serverAuthCode } = await GoogleSignin.signInSilently();
-      if (!serverAuthCode) {
-        throw { code: ERROR_NO_AUTH_CODE };
+      const { idToken } = await GoogleSignin.signInSilently();
+      if (!idToken) {
+        throw { code: ERROR_NO_ID_TOKEN };
       }
-      return serverAuthCode;
+      return idToken;
     } catch (error) {
       if (
-        error.code === ERROR_NO_AUTH_CODE ||
+        error.code === ERROR_NO_ID_TOKEN ||
         error.code === statusCodes.SIGN_IN_REQUIRED
       ) {
         try {
           await GoogleSignin.hasPlayServices({
             showPlayServicesUpdateDialog: true,
           });
-          const { serverAuthCode } = await GoogleSignin.signIn();
-          if (!serverAuthCode) {
-            throw new Error(ERROR_NO_AUTH_CODE);
+          const { idToken } = await GoogleSignin.signIn();
+          if (!idToken) {
+            throw new Error(ERROR_NO_ID_TOKEN);
           }
-          return serverAuthCode;
+          return idToken;
         } catch (error) {
           if (error.code === statusCodes.SIGN_IN_CANCELLED) {
             throw AuthError.None;
@@ -81,11 +81,11 @@ export const useSignInWithGoogle = () => {
     setProviderAuthInProgress(true);
 
     try {
-      const serverAuthCode = await performSignIn();
+      const idToken = await performSignIn();
 
       const anonymousUid = await getAnonymousUid();
       const { data } = await apiSignInWithGoogle({
-        variables: { authorizationCode: serverAuthCode, anonymousUid },
+        variables: { idToken: idToken, anonymousUid },
       });
 
       if (data?.loginWithGoogle?.token) {

@@ -1,130 +1,331 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MemberOptionsMenu  looking at member, when I am owner renders correctly 1`] = `
-<withI18nextTranslation(PopupMenu)
-  actions={
-    Array [
-      Object {
-        "onPress": [Function],
-        "text": "Make Admin",
-      },
-      Object {
-        "onPress": [Function],
-        "text": "Make Owner",
-      },
-      Object {
-        "onPress": [Function],
-        "text": "Remove Member",
-      },
-    ]
-  }
-  buttonProps={
+exports[`MemberOptionsMenu for me, as owner renders correctly 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
     Object {
-      "style": Object {
-        "height": 32,
-        "width": 32,
-      },
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "height": 32,
+      "justifyContent": "center",
+      "opacity": 1,
+      "width": 32,
     }
   }
-/>
+  testID="IconButton"
+>
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 12,
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 18,
+          },
+          Array [
+            Object {
+              "margin": 10,
+            },
+            Array [
+              Object {
+                "color": "#B4B6BA",
+                "margin": 0,
+                "paddingHorizontal": 10,
+              },
+              undefined,
+            ],
+          ],
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+</View>
 `;
 
-exports[`MemberOptionsMenu for me, as owner renders correctly 1`] = `
-<withI18nextTranslation(PopupMenu)
-  actions={
-    Array [
-      Object {
-        "onPress": [Function],
-        "text": "Leave Community",
-      },
-    ]
-  }
-  buttonProps={
+exports[`MemberOptionsMenu looking at member, when I am owner renders correctly 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
     Object {
-      "style": Object {
-        "height": 32,
-        "width": 32,
-      },
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "height": 32,
+      "justifyContent": "center",
+      "opacity": 1,
+      "width": 32,
     }
   }
-/>
+  testID="IconButton"
+>
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 12,
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 18,
+          },
+          Array [
+            Object {
+              "margin": 10,
+            },
+            Array [
+              Object {
+                "color": "#B4B6BA",
+                "margin": 0,
+                "paddingHorizontal": 10,
+              },
+              undefined,
+            ],
+          ],
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+</View>
 `;
 
 exports[`MemberOptionsMenu renders for admin looking at admin 1`] = `
-<withI18nextTranslation(PopupMenu)
-  actions={
-    Array [
-      Object {
-        "onPress": [Function],
-        "text": "Remove as Admin",
-      },
-      Object {
-        "onPress": [Function],
-        "text": "Remove Member",
-      },
-    ]
-  }
-  buttonProps={
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
     Object {
-      "style": Object {
-        "height": 32,
-        "width": 32,
-      },
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "height": 32,
+      "justifyContent": "center",
+      "opacity": 1,
+      "width": 32,
     }
   }
-/>
+  testID="IconButton"
+>
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 12,
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 18,
+          },
+          Array [
+            Object {
+              "margin": 10,
+            },
+            Array [
+              Object {
+                "color": "#B4B6BA",
+                "margin": 0,
+                "paddingHorizontal": 10,
+              },
+              undefined,
+            ],
+          ],
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+</View>
 `;
 
 exports[`MemberOptionsMenu renders for admin looking at member 1`] = `
-<withI18nextTranslation(PopupMenu)
-  actions={
-    Array [
-      Object {
-        "onPress": [Function],
-        "text": "Make Admin",
-      },
-      Object {
-        "onPress": [Function],
-        "text": "Remove Member",
-      },
-    ]
-  }
-  buttonProps={
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
     Object {
-      "style": Object {
-        "height": 32,
-        "width": 32,
-      },
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "height": 32,
+      "justifyContent": "center",
+      "opacity": 1,
+      "width": 32,
     }
   }
-/>
+  testID="IconButton"
+>
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 12,
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 18,
+          },
+          Array [
+            Object {
+              "margin": 10,
+            },
+            Array [
+              Object {
+                "color": "#B4B6BA",
+                "margin": 0,
+                "paddingHorizontal": 10,
+              },
+              undefined,
+            ],
+          ],
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+</View>
 `;
 
 exports[`MemberOptionsMenu renders for owner looking at admin 1`] = `
-<withI18nextTranslation(PopupMenu)
-  actions={
-    Array [
-      Object {
-        "onPress": [Function],
-        "text": "Remove as Admin",
-      },
-      Object {
-        "onPress": [Function],
-        "text": "Make Owner",
-      },
-      Object {
-        "onPress": [Function],
-        "text": "Remove Member",
-      },
-    ]
-  }
-  buttonProps={
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
     Object {
-      "style": Object {
-        "height": 32,
-        "width": 32,
-      },
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "height": 32,
+      "justifyContent": "center",
+      "opacity": 1,
+      "width": 32,
     }
   }
-/>
+  testID="IconButton"
+>
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 12,
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 18,
+          },
+          Array [
+            Object {
+              "margin": 10,
+            },
+            Array [
+              Object {
+                "color": "#B4B6BA",
+                "margin": 0,
+                "paddingHorizontal": 10,
+              },
+              undefined,
+            ],
+          ],
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+</View>
 `;

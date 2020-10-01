@@ -19,7 +19,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
                     \\"__typename\\": \\"Person\\",
 -                   \\"fullName\\": \\"Viva Hessel\\",
 -                   \\"id\\": \\"23\\",
-+                   \\"fullName\\": \\"Lelah Feeney\\",
++                   \\"fullName\\": \\"Lelah Feest\\",
 +                   \\"id\\": \\"55\\",
                   },
 -                 \\"content\\": \\"adipisci itaque culpa\\",
@@ -54,7 +54,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 -                 \\"__typename\\": \\"Post\\",
 -                 \\"author\\": Object {
 -                   \\"__typename\\": \\"Person\\",
--                   \\"fullName\\": \\"Nannie Ferry\\",
+-                   \\"fullName\\": \\"Nannie Fisher\\",
 -                   \\"id\\": \\"28\\",
 -                 },
 -                 \\"content\\": \\"omnis sit et\\",
@@ -151,7 +151,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +               },
 +               \\"subjectPerson\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Kirk Ledner\\",
++                 \\"fullName\\": \\"Kirk Leffler\\",
 +                 \\"id\\": \\"36\\",
 +                 \\"picture\\": \\"voluptas molestiae fuga\\",
 +               },
@@ -244,7 +244,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +               },
 +               \\"subjectPerson\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Kirstin Graham\\",
++                 \\"fullName\\": \\"Kirstin Grant\\",
 +                 \\"id\\": \\"42\\",
 +                 \\"picture\\": \\"consequuntur quos hic\\",
 +               },
@@ -275,7 +275,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +               },
 +               \\"subjectPerson\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Amari Pagac\\",
++                 \\"fullName\\": \\"Amari Parisian\\",
 +                 \\"id\\": \\"44\\",
 +                 \\"picture\\": \\"in sint in\\",
 +               },
@@ -306,7 +306,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +               },
 +               \\"subjectPerson\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Patience Predovic\\",
++                 \\"fullName\\": \\"Patience Price\\",
 +                 \\"id\\": \\"46\\",
 +                 \\"picture\\": \\"ut et consequatur\\",
 +               },
@@ -337,7 +337,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +               },
 +               \\"subjectPerson\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Adeline Heaney\\",
++                 \\"fullName\\": \\"Adeline Heathcote\\",
 +                 \\"id\\": \\"48\\",
 +                 \\"picture\\": \\"eius quibusdam doloremque\\",
 +               },
@@ -368,7 +368,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +               },
 +               \\"subjectPerson\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Annalise Kohler\\",
++                 \\"fullName\\": \\"Annalise Konopelski\\",
 +                 \\"id\\": \\"50\\",
 +                 \\"picture\\": \\"vel nisi quidem\\",
 +               },
@@ -399,7 +399,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +               },
 +               \\"subjectPerson\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Rosella McLaughlin\\",
++                 \\"fullName\\": \\"Rosella Medhurst\\",
 +                 \\"id\\": \\"52\\",
 +                 \\"picture\\": \\"quo enim eos\\",
 +               },
@@ -528,7 +528,7 @@ exports[`handles refresh 1`] = `
                     \\"__typename\\": \\"Person\\",
 -                   \\"fullName\\": \\"Viva Hessel\\",
 -                   \\"id\\": \\"23\\",
-+                   \\"fullName\\": \\"Lelah Feeney\\",
++                   \\"fullName\\": \\"Lelah Feest\\",
 +                   \\"id\\": \\"55\\",
                   },
 -                 \\"content\\": \\"adipisci itaque culpa\\",
@@ -563,7 +563,7 @@ exports[`handles refresh 1`] = `
 -                 \\"__typename\\": \\"Post\\",
 -                 \\"author\\": Object {
 -                   \\"__typename\\": \\"Person\\",
--                   \\"fullName\\": \\"Nannie Ferry\\",
+-                   \\"fullName\\": \\"Nannie Fisher\\",
 -                   \\"id\\": \\"28\\",
 -                 },
 -                 \\"content\\": \\"omnis sit et\\",
@@ -683,7 +683,7 @@ exports[`handles refresh 1`] = `
 -                 \\"fullName\\": \\"Keaton Keeling\\",
 -                 \\"id\\": \\"4\\",
 -                 \\"picture\\": \\"eos itaque velit\\",
-+                 \\"fullName\\": \\"Kirk Ledner\\",
++                 \\"fullName\\": \\"Kirk Leffler\\",
 +                 \\"id\\": \\"36\\",
 +                 \\"picture\\": \\"voluptas molestiae fuga\\",
                 },
@@ -812,10 +812,10 @@ exports[`handles refresh 1`] = `
                 },
                 \\"subjectPerson\\": Object {
                   \\"__typename\\": \\"Person\\",
--                 \\"fullName\\": \\"Maud Kulas\\",
+-                 \\"fullName\\": \\"Maud Kunde\\",
 -                 \\"id\\": \\"10\\",
 -                 \\"picture\\": \\"esse ut ab\\",
-+                 \\"fullName\\": \\"Kirstin Graham\\",
++                 \\"fullName\\": \\"Kirstin Grant\\",
 +                 \\"id\\": \\"42\\",
 +                 \\"picture\\": \\"consequuntur quos hic\\",
                 },
@@ -856,10 +856,10 @@ exports[`handles refresh 1`] = `
                 },
                 \\"subjectPerson\\": Object {
                   \\"__typename\\": \\"Person\\",
--                 \\"fullName\\": \\"Fanny Marks\\",
+-                 \\"fullName\\": \\"Fanny Marquardt\\",
 -                 \\"id\\": \\"12\\",
 -                 \\"picture\\": \\"placeat quidem est\\",
-+                 \\"fullName\\": \\"Amari Pagac\\",
++                 \\"fullName\\": \\"Amari Parisian\\",
 +                 \\"id\\": \\"44\\",
 +                 \\"picture\\": \\"in sint in\\",
                 },
@@ -900,10 +900,10 @@ exports[`handles refresh 1`] = `
                 },
                 \\"subjectPerson\\": Object {
                   \\"__typename\\": \\"Person\\",
--                 \\"fullName\\": \\"Isom Hermann\\",
+-                 \\"fullName\\": \\"Isom Hermiston\\",
 -                 \\"id\\": \\"14\\",
 -                 \\"picture\\": \\"culpa earum voluptate\\",
-+                 \\"fullName\\": \\"Patience Predovic\\",
++                 \\"fullName\\": \\"Patience Price\\",
 +                 \\"id\\": \\"46\\",
 +                 \\"picture\\": \\"ut et consequatur\\",
                 },
@@ -947,7 +947,7 @@ exports[`handles refresh 1`] = `
 -                 \\"fullName\\": \\"Tobin Sipes\\",
 -                 \\"id\\": \\"16\\",
 -                 \\"picture\\": \\"eligendi omnis repellat\\",
-+                 \\"fullName\\": \\"Adeline Heaney\\",
++                 \\"fullName\\": \\"Adeline Heathcote\\",
 +                 \\"id\\": \\"48\\",
 +                 \\"picture\\": \\"eius quibusdam doloremque\\",
                 },
@@ -988,10 +988,10 @@ exports[`handles refresh 1`] = `
                 },
                 \\"subjectPerson\\": Object {
                   \\"__typename\\": \\"Person\\",
--                 \\"fullName\\": \\"Alessandra Lang\\",
+-                 \\"fullName\\": \\"Alessandra Langosh\\",
 -                 \\"id\\": \\"18\\",
 -                 \\"picture\\": \\"dolore aut eos\\",
-+                 \\"fullName\\": \\"Annalise Kohler\\",
++                 \\"fullName\\": \\"Annalise Konopelski\\",
 +                 \\"id\\": \\"50\\",
 +                 \\"picture\\": \\"vel nisi quidem\\",
                 },
@@ -1035,7 +1035,7 @@ exports[`handles refresh 1`] = `
 -                 \\"fullName\\": \\"Gideon Kautzer\\",
 -                 \\"id\\": \\"20\\",
 -                 \\"picture\\": \\"et facere placeat\\",
-+                 \\"fullName\\": \\"Rosella McLaughlin\\",
++                 \\"fullName\\": \\"Rosella Medhurst\\",
 +                 \\"id\\": \\"52\\",
 +                 \\"picture\\": \\"quo enim eos\\",
                 },
@@ -1204,7 +1204,7 @@ exports[`handles refresh 1`] = `
                     },
                     Object {
 -                     \\"backgroundColor\\": \\"rgb(123, 155, 130)\\",
-+                     \\"backgroundColor\\": \\"rgb(154, 115, 115)\\",
++                     \\"backgroundColor\\": \\"rgb(155, 251, 115)\\",
                     },
                     undefined,
                   ]
@@ -1356,8 +1356,8 @@ exports[`handles refresh 1`] = `
                       \\"width\\": 48,
                     },
                     Object {
--                     \\"backgroundColor\\": \\"rgb(153, 123, 115)\\",
-+                     \\"backgroundColor\\": \\"rgb(109, 144, 115)\\",
+-                     \\"backgroundColor\\": \\"rgb(123, 127, 155)\\",
++                     \\"backgroundColor\\": \\"rgb(197, 62, 115)\\",
                     },
                     undefined,
                   ]
@@ -1391,7 +1391,7 @@ exports[`handles refresh 1`] = `
         </View>"
 `;
 
-exports[`renders Earlier section correctly  1`] = `
+exports[`renders Earlier section correctly 1`] = `
 <View
   style={
     Object {
@@ -2202,7 +2202,7 @@ exports[`renders Earlier section correctly  1`] = `
 </View>
 `;
 
-exports[`renders Today section correctly  1`] = `
+exports[`renders Today section correctly 1`] = `
 <View
   style={
     Object {
@@ -3201,7 +3201,7 @@ exports[`renders correctly 1`] = `
                 "__typename": "Post",
                 "author": Object {
                   "__typename": "Person",
-                  "fullName": "Nannie Ferry",
+                  "fullName": "Nannie Fisher",
                   "id": "28",
                 },
                 "content": "omnis sit et",
@@ -3375,7 +3375,7 @@ exports[`renders correctly 1`] = `
               },
               "subjectPerson": Object {
                 "__typename": "Person",
-                "fullName": "Maud Kulas",
+                "fullName": "Maud Kunde",
                 "id": "10",
                 "picture": "esse ut ab",
               },
@@ -3406,7 +3406,7 @@ exports[`renders correctly 1`] = `
               },
               "subjectPerson": Object {
                 "__typename": "Person",
-                "fullName": "Fanny Marks",
+                "fullName": "Fanny Marquardt",
                 "id": "12",
                 "picture": "placeat quidem est",
               },
@@ -3437,7 +3437,7 @@ exports[`renders correctly 1`] = `
               },
               "subjectPerson": Object {
                 "__typename": "Person",
-                "fullName": "Isom Hermann",
+                "fullName": "Isom Hermiston",
                 "id": "14",
                 "picture": "culpa earum voluptate",
               },
@@ -3499,7 +3499,7 @@ exports[`renders correctly 1`] = `
               },
               "subjectPerson": Object {
                 "__typename": "Person",
-                "fullName": "Alessandra Lang",
+                "fullName": "Alessandra Langosh",
                 "id": "18",
                 "picture": "dolore aut eos",
               },
@@ -4610,7 +4610,7 @@ exports[`renders correctly 1`] = `
                     "width": 48,
                   },
                   Object {
-                    "backgroundColor": "rgb(153, 123, 115)",
+                    "backgroundColor": "rgb(123, 127, 155)",
                   },
                   undefined,
                 ]
@@ -5085,15 +5085,13 @@ exports[`renders with no data 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 12,
                     "fontStyle": "normal",
-                    "lineHeight": 16,
+                    "lineHeight": undefined,
                     "textAlign": "center",
                     "textAlignVertical": "bottom",
                     "textTransform": "none",
                   },
                   Object {
                     "fontSize": 26,
-                    "height": 24,
-                    "lineHeight": 26,
                   },
                 ]
               }
@@ -5352,7 +5350,7 @@ exports[`renders with refresh button 1`] = `
                   "width": 42,
                 },
                 Object {
-                  "backgroundColor": "rgb(155, 123, 115)",
+                  "backgroundColor": "rgb(127, 152, 152)",
                 },
                 undefined,
               ]

@@ -20,7 +20,7 @@ Object {
 }
 `;
 
-exports[`should delete a person  1`] = `
+exports[`should delete a person 1`] = `
 Object {
   "1": Object {
     "id": "1",
@@ -46,7 +46,7 @@ Object {
 }
 `;
 
-exports[`should update attributes of a person  1`] = `
+exports[`should update attributes of a person 1`] = `
 Object {
   "1": Object {
     "id": "1",

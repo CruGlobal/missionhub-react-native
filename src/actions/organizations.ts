@@ -22,13 +22,6 @@ import { getMe, getPersonDetails } from './person';
 import callApi from './api';
 import { trackActionWithoutData } from './analytics';
 
-interface PersonInteractionReport {
-  person_id: string;
-  contact_count: number;
-  unassigned_count: number;
-  uncontacted_count: number;
-  contacts_with_interaction_count: number;
-}
 export interface ImageData {
   fileSize: number;
   fileName: string;

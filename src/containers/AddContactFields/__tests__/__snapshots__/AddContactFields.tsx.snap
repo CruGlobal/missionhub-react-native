@@ -162,15 +162,13 @@ exports[`render correctly | With Person | No Picture 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 12,
                     "fontStyle": "normal",
-                    "lineHeight": 16,
+                    "lineHeight": undefined,
                     "textAlign": "center",
                     "textAlignVertical": "bottom",
                     "textTransform": "none",
                   },
                   Object {
                     "fontSize": 64,
-                    "height": 56,
-                    "lineHeight": 64,
                   },
                 ]
               }

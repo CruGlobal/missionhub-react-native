@@ -5,7 +5,6 @@ import { useQuery, useMutation } from '@apollo/react-hooks';
 import { useDispatch } from 'react-redux';
 
 import { mapPostTypeToFeedType, orgIsGlobal } from '../../utils/common';
-import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import { COMMUNITY_FEED_WITH_TYPE_SCREEN } from '../CommunityFeedWithType';
 import { navigatePush } from '../../actions/navigation';
@@ -43,12 +42,6 @@ import {
 interface CommunityFeedPostCardsProps {
   communityId: string;
   feedRefetch: () => void;
-}
-
-interface CommunityFeedSection {
-  id: number;
-  date: string;
-  data: FeedItemFragment[];
 }
 
 type LimitedPostCardTypes =

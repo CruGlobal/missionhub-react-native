@@ -22,7 +22,7 @@ interface VideoFullScreenNavParams {
 
 export const VideoFullScreen = () => {
   const dispatch = useDispatch();
-  const uri: string = useNavigationParam('uri');
+  const uri: VideoFullScreenNavParams['uri'] = useNavigationParam('uri');
 
   const [paused, setPaused] = useState(false);
   const [muted, setMuted] = useState(false);

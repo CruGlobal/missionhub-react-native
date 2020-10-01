@@ -34,7 +34,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(122, 127, 130)",
+              "backgroundColor": "rgb(123, 52, 130)",
             },
             undefined,
           ]
@@ -8489,6 +8489,7 @@ Array [
     >
       <Video
         controls={false}
+        ignoreSilentSwitch="ignore"
         paused={true}
         source={
           Object {

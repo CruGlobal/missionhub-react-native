@@ -1,6 +1,7 @@
 import { LOGOUT, UPDATE_JOURNEY_ITEMS, LogoutAction } from '../constants';
 
 export interface JourneyItem {
+  _type: string;
   id: string;
 }
 

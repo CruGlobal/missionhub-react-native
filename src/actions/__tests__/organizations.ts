@@ -653,7 +653,7 @@ describe('joinCommunity', () => {
     ]);
   });
 
-  it('should pass on API error if the error is unrelated to preexisting membership ', async () => {
+  it('should pass on API error if the error is unrelated to preexisting membership', async () => {
     (callApi as jest.Mock).mockReturnValue(() =>
       Promise.reject({
         apiError: { errors: [{ detail: 'some error' }] },

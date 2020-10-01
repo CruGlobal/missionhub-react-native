@@ -1,36 +1,27 @@
 import React from 'react';
+import { fireEvent } from 'react-native-testing-library';
 
-import { renderShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { ReminderTypeEnum } from '../../../../__generated__/globalTypes';
 import ReminderRepeatButtons from '..';
 
 const onRecurrenceChange = jest.fn();
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-let component: any;
-
 describe('none selected', () => {
-  beforeEach(() => {
-    onRecurrenceChange.mockClear();
-    component = renderShallow(
-      <ReminderRepeatButtons onRecurrenceChange={onRecurrenceChange} />,
-    );
-  });
-
   it('renders with none highlighted', () => {
-    expect(component).toMatchSnapshot();
+    renderWithContext(
+      <ReminderRepeatButtons onRecurrenceChange={onRecurrenceChange} />,
+    ).snapshot();
   });
 
   describe('select daily button', () => {
-    beforeEach(() => {
-      component
-        .childAt(0)
-        .props()
-        .onPress();
-      component.update();
-    });
-
     it('calls onRecurrenceChange with DAILY', () => {
+      const { getByTestId } = renderWithContext(
+        <ReminderRepeatButtons onRecurrenceChange={onRecurrenceChange} />,
+      );
+
+      fireEvent.press(getByTestId('ReminderRepeatButtonDaily'));
+
       expect(onRecurrenceChange).toHaveBeenCalledTimes(1);
       expect(onRecurrenceChange).toHaveBeenCalledWith(ReminderTypeEnum.daily);
     });
@@ -38,45 +29,42 @@ describe('none selected', () => {
 });
 
 describe('starts with weekly selected', () => {
-  beforeEach(() => {
-    onRecurrenceChange.mockClear();
-    component = renderShallow(
+  it('renders with weekly highlighted', () => {
+    renderWithContext(
       <ReminderRepeatButtons
         recurrence={ReminderTypeEnum.weekly}
         onRecurrenceChange={onRecurrenceChange}
       />,
-    );
-  });
-
-  it('renders with weekly highlighted', () => {
-    expect(component).toMatchSnapshot();
+    ).snapshot();
   });
 
   describe('select weekly button', () => {
-    beforeEach(() => {
-      component
-        .childAt(1)
-        .props()
-        .onPress();
-      component.update();
-    });
-
     it('calls onRecurrenceChange with ONCE', () => {
+      const { getByTestId } = renderWithContext(
+        <ReminderRepeatButtons
+          recurrence={ReminderTypeEnum.weekly}
+          onRecurrenceChange={onRecurrenceChange}
+        />,
+      );
+
+      fireEvent.press(getByTestId('ReminderRepeatButtonWeekly'));
+
       expect(onRecurrenceChange).toHaveBeenCalledTimes(1);
       expect(onRecurrenceChange).toHaveBeenCalledWith(ReminderTypeEnum.once);
     });
   });
 
   describe('select other button', () => {
-    beforeEach(() => {
-      component
-        .childAt(2)
-        .props()
-        .onPress();
-      component.update();
-    });
-
     it('calls onRecurrenceChange with MONTHLY', () => {
+      const { getByTestId } = renderWithContext(
+        <ReminderRepeatButtons
+          recurrence={ReminderTypeEnum.weekly}
+          onRecurrenceChange={onRecurrenceChange}
+        />,
+      );
+
+      fireEvent.press(getByTestId('ReminderRepeatButtonMonthly'));
+
       expect(onRecurrenceChange).toHaveBeenCalledTimes(1);
       expect(onRecurrenceChange).toHaveBeenCalledWith(ReminderTypeEnum.monthly);
     });
@@ -84,33 +72,23 @@ describe('starts with weekly selected', () => {
 });
 
 describe('starts with daily selected', () => {
-  beforeEach(() => {
-    onRecurrenceChange.mockClear();
-    component = renderShallow(
+  it('renders with daily highlighted', () => {
+    renderWithContext(
       <ReminderRepeatButtons
         recurrence={ReminderTypeEnum.daily}
         onRecurrenceChange={onRecurrenceChange}
       />,
-    );
-  });
-
-  it('renders with daily highlighted', () => {
-    expect(component).toMatchSnapshot();
+    ).snapshot();
   });
 });
 
 describe('starts with monthly selected', () => {
-  beforeEach(() => {
-    onRecurrenceChange.mockClear();
-    component = renderShallow(
+  it('renders with monthly highlighted', () => {
+    renderWithContext(
       <ReminderRepeatButtons
         recurrence={ReminderTypeEnum.monthly}
         onRecurrenceChange={onRecurrenceChange}
       />,
-    );
-  });
-
-  it('renders with monthly highlighted', () => {
-    expect(component).toMatchSnapshot();
+    ).snapshot();
   });
 });

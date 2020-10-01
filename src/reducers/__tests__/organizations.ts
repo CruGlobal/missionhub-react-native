@@ -354,7 +354,7 @@ describe('update organization in line', () => {
 });
 
 describe('UPDATE_PERSON_ATTRIBUTES', () => {
-  it('should update attributes of a member in all orgs ', () => {
+  it('should update attributes of a member in all orgs', () => {
     const orgPermission1 = { id: '7777', permission_id: '1' };
     const orgPermission2 = { id: '8888', permission_id: '1' };
     const orgPermission3 = { id: '9999', permission_id: '1' };
@@ -410,7 +410,7 @@ describe('UPDATE_PERSON_ATTRIBUTES', () => {
 });
 
 describe('LOAD_PERSON_DETAILS', () => {
-  it('should update attributes of a member in all orgs ', () => {
+  it('should update attributes of a member in all orgs', () => {
     const orgPermission1 = { id: '7777', permission_id: '1' };
     const orgPermission2 = { id: '8888', permission_id: '1' };
     const orgPermission3 = { id: '9999', permission_id: '1' };
@@ -466,7 +466,7 @@ describe('LOAD_PERSON_DETAILS', () => {
 });
 
 describe('REQUESTS.GET_ME', () => {
-  it('should update attributes of a member in all orgs ', () => {
+  it('should update attributes of a member in all orgs', () => {
     const orgPermission1 = { id: '7777', permission_id: '1' };
     const orgPermission2 = { id: '8888', permission_id: '1' };
     const orgPermission3 = { id: '9999', permission_id: '1' };

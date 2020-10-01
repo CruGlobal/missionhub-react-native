@@ -16,6 +16,7 @@ exports[`renders correctly 1`] = `
 >
   <Video
     controls={false}
+    ignoreSilentSwitch="ignore"
     paused={true}
     source={
       Object {
@@ -90,6 +91,7 @@ exports[`renders with delete button 1`] = `
 >
   <Video
     controls={false}
+    ignoreSilentSwitch="ignore"
     paused={true}
     source={
       Object {
@@ -192,6 +194,7 @@ exports[`renders with style 1`] = `
 >
   <Video
     controls={false}
+    ignoreSilentSwitch="ignore"
     paused={true}
     source={
       Object {
@@ -264,6 +267,7 @@ exports[`renders with width 1`] = `
 >
   <Video
     controls={false}
+    ignoreSilentSwitch="ignore"
     paused={true}
     source={
       Object {
