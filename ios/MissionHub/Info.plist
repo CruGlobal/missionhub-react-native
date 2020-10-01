@@ -47,7 +47,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>20934</string>
+	<string>21061</string>
     <!-- We're setting the deployment key in JS so this is just a dummy value -->
 	<key>CodePushDeploymentKey</key>
 	<string>deployment-key-here</string>
