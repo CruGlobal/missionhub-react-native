@@ -3,7 +3,7 @@ import { Alert, FlatList } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useMutation } from '@apollo/react-hooks';
 
-import { keyExtractorId } from '../../utils/common';
+import { keyExtractorId, copyText } from '../../utils/common';
 import CommentItem from '../CommentItem';
 import { useMyId } from '../../utils/hooks/useIsMe';
 import { FeedItemCommentItem } from '../CommentItem/__generated__/FeedItemCommentItem';
@@ -110,12 +110,12 @@ const CommentsList = ({
     },
   });
 
-  const handleDelete = (comment: FeedItemCommentItem) => {
+  const handleDelete = (commentId: string) => {
     alert({
       title: 'deleteCommentHeader',
       message: 'deleteAreYouSure',
       actionText: 'deleteComment',
-      action: () => deleteComment({ variables: { id: comment.id } }),
+      action: () => deleteComment({ variables: { id: commentId } }),
     });
   };
 
@@ -124,14 +124,16 @@ const CommentsList = ({
     ReportFeedItemCommentVariables
   >(REPORT_FEED_ITEM_COMMENT_MUTATION);
 
-  const handleReport = (comment: FeedItemCommentItem) => {
+  const handleReport = (commentId: string) => {
     alert({
       title: 'reportToOwnerHeader',
       message: 'reportAreYouSure',
       actionText: 'reportComment',
-      action: () => reportComment({ variables: { id: comment.id } }),
+      action: () => reportComment({ variables: { id: commentId } }),
     });
   };
+
+  const handleCopyPost = (commentText: string) => copyText(commentText);
 
   const menuActions = (comment: FeedItemCommentItem) => {
     const actions: {
@@ -142,9 +144,14 @@ const CommentsList = ({
 
     const deleteAction = {
       text: t('deleteComment'),
-      onPress: () => handleDelete(comment),
+      onPress: () => handleDelete(comment.id),
       destructive: true,
     };
+
+    actions.push({
+      text: t('communityFeedItems:copy.buttonText'),
+      onPress: () => handleCopyPost(comment.content),
+    });
 
     if (myId === comment.person.id) {
       actions.push({
@@ -158,7 +165,7 @@ const CommentsList = ({
       } else {
         actions.push({
           text: t('reportToOwner'),
-          onPress: () => handleReport(comment),
+          onPress: () => handleReport(comment.id),
         });
       }
     }

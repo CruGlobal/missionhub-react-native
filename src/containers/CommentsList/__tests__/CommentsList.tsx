@@ -19,6 +19,7 @@ import {
   REPORT_FEED_ITEM_COMMENT_MUTATION,
   DELETE_FEED_ITEM_COMMENT_MUTATION,
 } from '../queries';
+import * as common from '../../../utils/common';
 import CommentsList from '..';
 
 jest.mock('../../../actions/navigation');
@@ -53,6 +54,7 @@ const initialState = { auth, organizations, celebrateComments };
 
 beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
+  (common.copyText as jest.Mock) = jest.fn();
 });
 
 describe('mounts with custom props', () => {
@@ -177,6 +179,10 @@ describe('with comments', () => {
       it('creates array', () => {
         testActionArray([
           {
+            text: i18n.t('communityFeedItems:copy.buttonText'),
+            onPress: expect.any(Function),
+          },
+          {
             text: i18n.t('commentsList:editComment'),
             onPress: expect.any(Function),
           },
@@ -188,8 +194,13 @@ describe('with comments', () => {
         ]);
       });
 
-      it('handleEdit', () => {
+      it('handleCopy', () => {
         testFireAction(0);
+        expect(common.copyText).toHaveBeenCalledWith(myComment.content);
+      });
+
+      it('handleEdit', () => {
+        testFireAction(1);
         expect(setEditingCommentId).toHaveBeenCalledWith(myComment.id);
       });
 
@@ -199,7 +210,7 @@ describe('with comments', () => {
             c && c[1] && c[1].onPress && c[1].onPress(),
         );
 
-        testFireAction(1);
+        testFireAction(2);
 
         expect(useMutation).toHaveBeenMutatedWith(
           DELETE_FEED_ITEM_COMMENT_MUTATION,
@@ -232,11 +243,20 @@ describe('with comments', () => {
       it('creates array', () => {
         testActionArray([
           {
+            text: i18n.t('communityFeedItems:copy.buttonText'),
+            onPress: expect.any(Function),
+          },
+          {
             text: i18n.t('commentsList:deleteComment'),
             onPress: expect.any(Function),
             destructive: true,
           },
         ]);
+      });
+
+      it('handleCopy', () => {
+        testFireAction(0);
+        expect(common.copyText).toHaveBeenCalledWith(comments[0].content);
       });
 
       it('handleDelete', () => {
@@ -245,7 +265,7 @@ describe('with comments', () => {
             c && c[1] && c[1].onPress && c[1].onPress(),
         );
 
-        testFireAction(0);
+        testFireAction(1);
 
         expect(useMutation).toHaveBeenMutatedWith(
           DELETE_FEED_ITEM_COMMENT_MUTATION,
@@ -278,10 +298,19 @@ describe('with comments', () => {
       it('creates array', () => {
         testActionArray([
           {
+            text: i18n.t('communityFeedItems:copy.buttonText'),
+            onPress: expect.any(Function),
+          },
+          {
             text: i18n.t('commentsList:reportToOwner'),
             onPress: expect.any(Function),
           },
         ]);
+      });
+
+      it('handleCopy', () => {
+        testFireAction(0);
+        expect(common.copyText).toHaveBeenCalledWith(comments[0].content);
       });
 
       it('handleReport', () => {
@@ -290,7 +319,7 @@ describe('with comments', () => {
             c && c[1] && c[1].onPress && c[1].onPress(),
         );
 
-        testFireAction(0);
+        testFireAction(1);
 
         expect(useMutation).toHaveBeenMutatedWith(
           REPORT_FEED_ITEM_COMMENT_MUTATION,
