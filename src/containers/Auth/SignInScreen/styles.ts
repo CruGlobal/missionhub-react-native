@@ -36,9 +36,6 @@ export default StyleSheet.create({
     ...theme.textRegular16,
     color: theme.white,
   },
-  forgotPasswordButton: {
-    width: 130,
-  },
   forgotPasswordText: {
     ...theme.textRegular16,
     paddingVertical: 10,
