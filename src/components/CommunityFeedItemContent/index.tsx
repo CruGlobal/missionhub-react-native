@@ -178,11 +178,13 @@ export const CommunityFeedItemContent = ({
 
   const renderNewMemberMessage = () => {
     return (
-      <Text style={styles.messageText}>
-        {t('newMemberMessage', {
-          personFirstName: subjectPerson?.firstName,
-        })}
-      </Text>
+      <View style={styles.messageWrap}>
+        <Text style={styles.messageText}>
+          {t('newMemberMessage', {
+            personFirstName: subjectPerson?.firstName,
+          })}
+        </Text>
+      </View>
     );
   };
 
@@ -238,7 +240,9 @@ export const CommunityFeedItemContent = ({
   };
 
   const renderText = (text: string) => (
-    <Text style={styles.messageText}>{text}</Text>
+    <View style={styles.messageWrap}>
+      <Text style={styles.messageText}>{text}</Text>
+    </View>
   );
 
   const renderPostMessage = (
@@ -369,7 +373,7 @@ export const CommunityFeedItemContent = ({
         {subject.__typename === 'AcceptedCommunityChallenge' &&
         (subjectEvent === FeedItemSubjectEventEnum.challengeCompleted ||
           subjectEvent === FeedItemSubjectEventEnum.challengeJoined) ? (
-          <Text style={styles.headerTextOnly}>
+          <Text style={[styles.headerTextOnly, { color: 'red' }]}>
             {subjectEvent === FeedItemSubjectEventEnum.challengeCompleted
               ? t('challengeCompletedHeader')
               : t('challengeAcceptedHeader')}

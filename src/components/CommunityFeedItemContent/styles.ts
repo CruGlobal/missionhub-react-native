@@ -42,7 +42,9 @@ export default StyleSheet.create({
   },
   postTextWrap: {
     paddingVertical: 8,
-    paddingHorizontal: 0,
+  },
+  messageWrap: {
+    paddingHorizontal: 32,
   },
   messageText: {
     ...theme.textRegular16,
