@@ -8,7 +8,7 @@ import Header from '../Header/index';
 import BottomButton, { BottomButtonProps } from '../BottomButton/index';
 import { Flex } from '../common';
 import Avatar from '../Avatar';
-import markdownStyles from '../../markdownStyles';
+import markdownStyles, { MarkdownRules } from '../../markdownStyles';
 import theme from '../../theme';
 import { isAndroid } from '../../utils/common';
 import { StepTypeEnum } from '../../../__generated__/globalTypes';
@@ -98,6 +98,7 @@ const StepDetailScreen = ({
             </Flex>
             <Flex style={{ paddingTop: 10 }}>
               <Markdown
+                rules={MarkdownRules}
                 style={{
                   ...markdownStyles,
                   body: {
@@ -132,7 +133,7 @@ const StepDetailScreen = ({
       {CenterContent}
       <View style={body}>
         {markdown ? (
-          <Markdown style={markdownStyles}>
+          <Markdown rules={MarkdownRules} style={markdownStyles}>
             {insertName(markdown, firstName)}
           </Markdown>
         ) : null}
