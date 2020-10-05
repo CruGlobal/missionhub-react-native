@@ -1,4 +1,6 @@
-import { Platform, StyleSheet } from 'react-native';
+import { createElement, ReactNode, isValidElement } from 'react';
+import { Platform, StyleSheet, View } from 'react-native';
+import { RenderRules } from 'react-native-markdown-display';
 
 import theme from './theme';
 
@@ -50,7 +52,6 @@ const blockQuoteStyle = {
   width: '100%',
   backgroundColor: theme.extraLightGrey,
   paddingVertical: 16,
-  paddingHorizontal: 32,
 };
 const horizontalLineStyle = {
   left: -32,
@@ -75,3 +76,32 @@ export default StyleSheet.create({
   blockquote: blockQuoteStyle,
   hr: horizontalLineStyle,
 });
+
+export const MarkdownRules: RenderRules = {
+  paragraph: (_, children) => {
+    const isImage = (n: ReactNode) => {
+      //Determine if child node is an image
+      if (isValidElement(n) && n.props.source) {
+        return true;
+      }
+      return false;
+    };
+
+    if (children.some(c => isImage(c))) {
+      return createElement(
+        View,
+        {
+          style: { ...paragraph, paddingHorizontal: 0 },
+        },
+        children,
+      );
+    }
+    return createElement(
+      View,
+      {
+        style: { ...paragraph, paddingHorizontal: 32 },
+      },
+      children,
+    );
+  },
+};

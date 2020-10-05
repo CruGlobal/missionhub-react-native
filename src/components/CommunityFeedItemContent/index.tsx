@@ -36,6 +36,7 @@ import ChallengesTarget from '../../../assets/images/challenge-target.svg';
 import theme from '../../theme';
 import { CardHorizontalMargin } from '../Card/styles';
 import { useFeatureFlags } from '../../utils/hooks/useFeatureFlags';
+import { MarkdownRules } from '../../markdownStyles';
 
 import {
   CommunityFeedItemContent as FeedItem,
@@ -242,7 +243,11 @@ export const CommunityFeedItemContent = ({
 
   const renderPostMessage = (
     subject: CommunityFeedItemContent_subject_Post,
-  ) => <Markdown style={markdown}>{subject.content}</Markdown>;
+  ) => (
+    <Markdown rules={MarkdownRules} style={markdown}>
+      {subject.content}
+    </Markdown>
+  );
 
   const renderHeader = () => (
     <View style={styles.headerWrap}>
