@@ -4,7 +4,7 @@ import { RenderRules } from 'react-native-markdown-display';
 
 import theme from './theme';
 
-const bodyStyles = { ...theme.textRegular16 };
+const textStyle = theme.textRegular16;
 const heading1Style = {
   ...theme.textLight32,
   marginVertical: 10,
@@ -63,8 +63,7 @@ const horizontalLineStyle = {
 };
 
 export default StyleSheet.create({
-  body: bodyStyles,
-  plainText: { color: 'red' },
+  body: textStyle,
   heading1: heading1Style,
   heading2: heading2Style,
   heading3: heading3Style,
