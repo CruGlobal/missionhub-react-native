@@ -440,7 +440,6 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
               "paddingVertical": 8,
             }
           }
@@ -451,14 +450,8 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
             <View
               style={
                 Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "row",
-                  "flexWrap": "wrap",
-                  "justifyContent": "flex-start",
-                  "marginBottom": 10,
-                  "marginTop": 10,
                   "marginVertical": 10,
-                  "width": "100%",
+                  "paddingHorizontal": 32,
                 }
               }
             >
@@ -1258,7 +1251,6 @@ exports[`edit/delete post edit and delete for my post 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
               "paddingVertical": 8,
             }
           }
@@ -1269,14 +1261,8 @@ exports[`edit/delete post edit and delete for my post 1`] = `
             <View
               style={
                 Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "row",
-                  "flexWrap": "wrap",
-                  "justifyContent": "flex-start",
-                  "marginBottom": 10,
-                  "marginTop": 10,
                   "marginVertical": 10,
-                  "width": "100%",
+                  "paddingHorizontal": 32,
                 }
               }
             >
@@ -2076,7 +2062,6 @@ exports[`edit/delete post no options for not my post 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
               "paddingVertical": 8,
             }
           }
@@ -2087,14 +2072,8 @@ exports[`edit/delete post no options for not my post 1`] = `
             <View
               style={
                 Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "row",
-                  "flexWrap": "wrap",
-                  "justifyContent": "flex-start",
-                  "marginBottom": 10,
-                  "marginTop": 10,
                   "marginVertical": 10,
-                  "width": "100%",
+                  "paddingHorizontal": 32,
                 }
               }
             >
@@ -2604,12 +2583,15 @@ exports[`refresh calls refreshComments 1`] = `
             </View>
           </View>
           <View
-@@ -347,10 +347,26 @@
+@@ -343,10 +343,26 @@
+              Object {
+                \\"paddingVertical\\": 8,
+              }
             }
           >
-            <Text
-              style={
-                Object {
++           <Text
++             style={
++               Object {
 +                 \\"color\\": \\"#3CC8E6\\",
 +                 \\"fontFamily\\": \\"SourceSansPro-Bold\\",
 +                 \\"fontSize\\": 16,
@@ -2623,28 +2605,25 @@ exports[`refresh calls refreshComments 1`] = `
 +           >
 +             Completed a Challenge!
 +           </Text>
-+           <Text
-+             style={
-+               Object {
-                  \\"color\\": \\"#505256\\",
-                  \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-                  \\"fontSize\\": 16,
-                  \\"fontStyle\\": \\"normal\\",
-                  \\"justifyContent\\": \\"flex-start\\",
-@@ -359,11 +375,11 @@
-                  \\"textAlignVertical\\": \\"center\\",
-                  \\"textTransform\\": \\"none\\",
+            <View
+              style={
+                Object {
+                  \\"paddingHorizontal\\": 32,
                 }
-              }
-            >
--             repellat ratione ut
-+             debitis libero aspernatur
-            </Text>
+@@ -365,11 +381,11 @@
+                    \\"textAlignVertical\\": \\"center\\",
+                    \\"textTransform\\": \\"none\\",
+                  }
+                }
+              >
+-               repellat ratione ut
++               debitis libero aspernatur
+              </Text>
+            </View>
           </View>
           <View
             style={
-              Array [
-@@ -513,11 +529,12 @@
+@@ -520,11 +536,12 @@
                       }
                     }
                     testID=\\"LikeIconButton\\"
@@ -2658,7 +2637,7 @@ exports[`refresh calls refreshComments 1`] = `
                 </View>
                 <View
                   style={
-@@ -544,11 +561,11 @@
+@@ -551,11 +568,11 @@
                         \\"textTransform\\": \\"none\\",
                         \\"width\\": 30,
                       }
@@ -2671,7 +2650,7 @@ exports[`refresh calls refreshComments 1`] = `
                     accessible={true}
                     focusable={true}
                     hitSlop={
-@@ -600,28 +617,29 @@
+@@ -607,28 +624,29 @@
         >
           <CommentItem
             comment={
@@ -2709,7 +2688,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -632,28 +650,29 @@
+@@ -639,28 +657,29 @@
         >
           <CommentItem
             comment={
@@ -2747,7 +2726,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -673,22 +692,22 @@
+@@ -680,22 +699,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
@@ -3180,7 +3159,6 @@ exports[`renders correctly 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
               "paddingVertical": 8,
             }
           }
@@ -3191,14 +3169,8 @@ exports[`renders correctly 1`] = `
             <View
               style={
                 Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "row",
-                  "flexWrap": "wrap",
-                  "justifyContent": "flex-start",
-                  "marginBottom": 10,
-                  "marginTop": 10,
                   "marginVertical": 10,
-                  "width": "100%",
+                  "paddingHorizontal": 32,
                 }
               }
             >
@@ -3998,7 +3970,6 @@ exports[`renders correctly with communityId passed in 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
               "paddingVertical": 8,
             }
           }
@@ -4009,14 +3980,8 @@ exports[`renders correctly with communityId passed in 1`] = `
             <View
               style={
                 Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "row",
-                  "flexWrap": "wrap",
-                  "justifyContent": "flex-start",
-                  "marginBottom": 10,
-                  "marginTop": 10,
                   "marginVertical": 10,
-                  "width": "100%",
+                  "paddingHorizontal": 32,
                 }
               }
             >

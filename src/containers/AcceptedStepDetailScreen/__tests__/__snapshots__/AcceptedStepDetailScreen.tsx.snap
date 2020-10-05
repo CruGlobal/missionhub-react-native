@@ -306,7 +306,7 @@ exports[`should render correctly post details 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
@@ -314,7 +314,7 @@ exports[`should render correctly post details 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
@@ -443,14 +443,8 @@ exports[`should render correctly post details 1`] = `
             <View
               style={
                 Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "row",
-                  "flexWrap": "wrap",
-                  "justifyContent": "flex-start",
-                  "marginBottom": 10,
-                  "marginTop": 10,
                   "marginVertical": 10,
-                  "width": "100%",
+                  "paddingHorizontal": 32,
                 }
               }
             >
@@ -775,7 +769,7 @@ exports[`should render correctly while loading 1`] = `
     <View
       style={
         Object {
-          "paddingHorizontal": 32,
+          "paddingHorizontal": 0,
           "paddingTop": 26,
         }
       }
@@ -1136,7 +1130,7 @@ exports[`should render correctly without description and without reminder for me
     <View
       style={
         Object {
-          "paddingHorizontal": 32,
+          "paddingHorizontal": 0,
           "paddingTop": 26,
         }
       }
@@ -1497,7 +1491,7 @@ exports[`should render correctly without description and without reminder for ot
     <View
       style={
         Object {
-          "paddingHorizontal": 32,
+          "paddingHorizontal": 0,
           "paddingTop": 26,
         }
       }
@@ -1943,7 +1937,7 @@ exports[`with description, with reminder should render correctly 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
@@ -1954,14 +1948,8 @@ exports[`with description, with reminder should render correctly 1`] = `
           <View
             style={
               Object {
-                "alignItems": "flex-start",
-                "flexDirection": "row",
-                "flexWrap": "wrap",
-                "justifyContent": "flex-start",
-                "marginBottom": 10,
-                "marginTop": 10,
                 "marginVertical": 10,
-                "width": "100%",
+                "paddingHorizontal": 32,
               }
             }
           >
@@ -2358,7 +2346,7 @@ exports[`with description, without reminder should render correctly 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
@@ -2369,14 +2357,8 @@ exports[`with description, without reminder should render correctly 1`] = `
           <View
             style={
               Object {
-                "alignItems": "flex-start",
-                "flexDirection": "row",
-                "flexWrap": "wrap",
-                "justifyContent": "flex-start",
-                "marginBottom": 10,
-                "marginTop": 10,
                 "marginVertical": 10,
-                "width": "100%",
+                "paddingHorizontal": 32,
               }
             }
           >

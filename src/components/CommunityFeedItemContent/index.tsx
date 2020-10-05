@@ -373,7 +373,7 @@ export const CommunityFeedItemContent = ({
         {subject.__typename === 'AcceptedCommunityChallenge' &&
         (subjectEvent === FeedItemSubjectEventEnum.challengeCompleted ||
           subjectEvent === FeedItemSubjectEventEnum.challengeJoined) ? (
-          <Text style={[styles.headerTextOnly, { color: 'red' }]}>
+          <Text style={styles.headerTextOnly}>
             {subjectEvent === FeedItemSubjectEventEnum.challengeCompleted
               ? t('challengeCompletedHeader')
               : t('challengeAcceptedHeader')}

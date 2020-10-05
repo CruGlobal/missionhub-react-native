@@ -443,7 +443,6 @@ exports[`should call navigateBack from community name press 1`] = `
             style={
               Array [
                 Object {
-                  "paddingHorizontal": 40,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -471,14 +470,8 @@ exports[`should call navigateBack from community name press 1`] = `
               <View
                 style={
                   Object {
-                    "alignItems": "flex-start",
-                    "flexDirection": "row",
-                    "flexWrap": "wrap",
-                    "justifyContent": "flex-start",
-                    "marginBottom": 10,
-                    "marginTop": 10,
                     "marginVertical": 10,
-                    "width": "100%",
+                    "paddingHorizontal": 32,
                   }
                 }
               >
@@ -1014,7 +1007,6 @@ exports[`should call navigateBack from press 1`] = `
             style={
               Array [
                 Object {
-                  "paddingHorizontal": 40,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -1042,14 +1034,8 @@ exports[`should call navigateBack from press 1`] = `
               <View
                 style={
                   Object {
-                    "alignItems": "flex-start",
-                    "flexDirection": "row",
-                    "flexWrap": "wrap",
-                    "justifyContent": "flex-start",
-                    "marginBottom": 10,
-                    "marginTop": 10,
                     "marginVertical": 10,
-                    "width": "100%",
+                    "paddingHorizontal": 32,
                   }
                 }
               >
@@ -1625,7 +1611,6 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
             style={
               Array [
                 Object {
-                  "paddingHorizontal": 40,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -1653,14 +1638,8 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
               <View
                 style={
                   Object {
-                    "alignItems": "flex-start",
-                    "flexDirection": "row",
-                    "flexWrap": "wrap",
-                    "justifyContent": "flex-start",
-                    "marginBottom": 10,
-                    "marginTop": 10,
                     "marginVertical": 10,
-                    "width": "100%",
+                    "paddingHorizontal": 32,
                   }
                 }
               >
@@ -2196,7 +2175,6 @@ exports[`should render completed challenge correctly 1`] = `
             style={
               Array [
                 Object {
-                  "paddingHorizontal": 40,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -2224,14 +2202,8 @@ exports[`should render completed challenge correctly 1`] = `
               <View
                 style={
                   Object {
-                    "alignItems": "flex-start",
-                    "flexDirection": "row",
-                    "flexWrap": "wrap",
-                    "justifyContent": "flex-start",
-                    "marginBottom": 10,
-                    "marginTop": 10,
                     "marginVertical": 10,
-                    "width": "100%",
+                    "paddingHorizontal": 32,
                   }
                 }
               >
@@ -2685,7 +2657,6 @@ exports[`should render joined challenge correctly 1`] = `
             style={
               Array [
                 Object {
-                  "paddingHorizontal": 40,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -2713,14 +2684,8 @@ exports[`should render joined challenge correctly 1`] = `
               <View
                 style={
                   Object {
-                    "alignItems": "flex-start",
-                    "flexDirection": "row",
-                    "flexWrap": "wrap",
-                    "justifyContent": "flex-start",
-                    "marginBottom": 10,
-                    "marginTop": 10,
                     "marginVertical": 10,
-                    "width": "100%",
+                    "paddingHorizontal": 32,
                   }
                 }
               >
@@ -3256,7 +3221,6 @@ exports[`should render unjoined challenge correctly 1`] = `
             style={
               Array [
                 Object {
-                  "paddingHorizontal": 40,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -3284,14 +3248,8 @@ exports[`should render unjoined challenge correctly 1`] = `
               <View
                 style={
                   Object {
-                    "alignItems": "flex-start",
-                    "flexDirection": "row",
-                    "flexWrap": "wrap",
-                    "justifyContent": "flex-start",
-                    "marginBottom": 10,
-                    "marginTop": 10,
                     "marginVertical": 10,
-                    "width": "100%",
+                    "paddingHorizontal": 32,
                   }
                 }
               >
@@ -3758,7 +3716,6 @@ exports[`should render without edit correctly 1`] = `
             style={
               Array [
                 Object {
-                  "paddingHorizontal": 40,
                   "paddingVertical": 14,
                 },
                 Object {},

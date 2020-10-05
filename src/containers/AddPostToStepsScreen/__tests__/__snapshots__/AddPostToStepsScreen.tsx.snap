@@ -211,7 +211,7 @@ exports[`should render correctly | Care Step 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
@@ -219,7 +219,7 @@ exports[`should render correctly | Care Step 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
@@ -348,14 +348,8 @@ exports[`should render correctly | Care Step 1`] = `
             <View
               style={
                 Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "row",
-                  "flexWrap": "wrap",
-                  "justifyContent": "flex-start",
-                  "marginBottom": 10,
-                  "marginTop": 10,
                   "marginVertical": 10,
-                  "width": "100%",
+                  "paddingHorizontal": 32,
                 }
               }
             >
@@ -659,7 +653,7 @@ exports[`should render correctly | Pray Step 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
@@ -667,7 +661,7 @@ exports[`should render correctly | Pray Step 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
@@ -796,14 +790,8 @@ exports[`should render correctly | Pray Step 1`] = `
             <View
               style={
                 Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "row",
-                  "flexWrap": "wrap",
-                  "justifyContent": "flex-start",
-                  "marginBottom": 10,
-                  "marginTop": 10,
                   "marginVertical": 10,
-                  "width": "100%",
+                  "paddingHorizontal": 32,
                 }
               }
             >
@@ -1108,7 +1096,7 @@ exports[`should render correctly | Share Step 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
@@ -1116,7 +1104,7 @@ exports[`should render correctly | Share Step 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
@@ -1245,14 +1233,8 @@ exports[`should render correctly | Share Step 1`] = `
             <View
               style={
                 Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "row",
-                  "flexWrap": "wrap",
-                  "justifyContent": "flex-start",
-                  "marginBottom": 10,
-                  "marginTop": 10,
                   "marginVertical": 10,
-                  "width": "100%",
+                  "paddingHorizontal": 32,
                 }
               }
             >

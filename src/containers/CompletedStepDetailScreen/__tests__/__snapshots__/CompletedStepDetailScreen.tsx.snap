@@ -231,7 +231,7 @@ exports[`post renders with post 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
@@ -242,14 +242,8 @@ exports[`post renders with post 1`] = `
           <View
             style={
               Object {
-                "alignItems": "flex-start",
-                "flexDirection": "row",
-                "flexWrap": "wrap",
-                "justifyContent": "flex-start",
-                "marginBottom": 10,
-                "marginTop": 10,
                 "marginVertical": 10,
-                "width": "100%",
+                "paddingHorizontal": 32,
               }
             }
           >
@@ -281,7 +275,7 @@ exports[`post renders with post 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
@@ -410,14 +404,8 @@ exports[`post renders with post 1`] = `
             <View
               style={
                 Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "row",
-                  "flexWrap": "wrap",
-                  "justifyContent": "flex-start",
-                  "marginBottom": 10,
-                  "marginTop": 10,
                   "marginVertical": 10,
-                  "width": "100%",
+                  "paddingHorizontal": 32,
                 }
               }
             >
@@ -705,7 +693,7 @@ exports[`post renders without post 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
@@ -716,14 +704,8 @@ exports[`post renders without post 1`] = `
           <View
             style={
               Object {
-                "alignItems": "flex-start",
-                "flexDirection": "row",
-                "flexWrap": "wrap",
-                "justifyContent": "flex-start",
-                "marginBottom": 10,
-                "marginTop": 10,
                 "marginVertical": 10,
-                "width": "100%",
+                "paddingHorizontal": 32,
               }
             }
           >
@@ -975,7 +957,7 @@ exports[`renders loading state correctly 1`] = `
     <View
       style={
         Object {
-          "paddingHorizontal": 32,
+          "paddingHorizontal": 0,
           "paddingTop": 26,
         }
       }
@@ -1215,7 +1197,7 @@ exports[`with challenge suggestion renders correctly 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
@@ -1226,14 +1208,8 @@ exports[`with challenge suggestion renders correctly 1`] = `
           <View
             style={
               Object {
-                "alignItems": "flex-start",
-                "flexDirection": "row",
-                "flexWrap": "wrap",
-                "justifyContent": "flex-start",
-                "marginBottom": 10,
-                "marginTop": 10,
                 "marginVertical": 10,
-                "width": "100%",
+                "paddingHorizontal": 32,
               }
             }
           >
@@ -1498,7 +1474,7 @@ exports[`without challenge suggestion renders correctly 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
@@ -1509,14 +1485,8 @@ exports[`without challenge suggestion renders correctly 1`] = `
           <View
             style={
               Object {
-                "alignItems": "flex-start",
-                "flexDirection": "row",
-                "flexWrap": "wrap",
-                "justifyContent": "flex-start",
-                "marginBottom": 10,
-                "marginTop": 10,
                 "marginVertical": 10,
-                "width": "100%",
+                "paddingHorizontal": 32,
               }
             }
           >

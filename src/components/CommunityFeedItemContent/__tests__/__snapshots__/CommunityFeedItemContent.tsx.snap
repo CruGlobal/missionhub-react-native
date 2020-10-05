@@ -115,7 +115,6 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
@@ -136,23 +135,31 @@ Array [
     >
       Joined a Challenge!
     </Text>
-    <Text
+    <View
       style={
         Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 16,
-          "fontStyle": "normal",
-          "justifyContent": "flex-start",
-          "lineHeight": 24,
-          "paddingBottom": 8,
-          "textAlignVertical": "center",
-          "textTransform": "none",
+          "paddingHorizontal": 32,
         }
       }
     >
-      quisquam recusandae alias
-    </Text>
+      <Text
+        style={
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
+        }
+      >
+        quisquam recusandae alias
+      </Text>
+    </View>
   </View>,
   <View
     style={
@@ -488,7 +495,6 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
@@ -509,23 +515,31 @@ Array [
     >
       Completed a Challenge!
     </Text>
-    <Text
+    <View
       style={
         Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 16,
-          "fontStyle": "normal",
-          "justifyContent": "flex-start",
-          "lineHeight": 24,
-          "paddingBottom": 8,
-          "textAlignVertical": "center",
-          "textTransform": "none",
+          "paddingHorizontal": 32,
         }
       }
     >
-      quisquam recusandae alias
-    </Text>
+      <Text
+        style={
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
+        }
+      >
+        quisquam recusandae alias
+      </Text>
+    </View>
   </View>,
   <View
     style={
@@ -840,7 +854,6 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
@@ -861,23 +874,31 @@ Array [
     >
       Joined a Challenge!
     </Text>
-    <Text
+    <View
       style={
         Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 16,
-          "fontStyle": "normal",
-          "justifyContent": "flex-start",
-          "lineHeight": 24,
-          "paddingBottom": 8,
-          "textAlignVertical": "center",
-          "textTransform": "none",
+          "paddingHorizontal": 32,
         }
       }
     >
-      quisquam recusandae alias
-    </Text>
+      <Text
+        style={
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
+        }
+      >
+        quisquam recusandae alias
+      </Text>
+    </View>
   </View>,
   <View
     style={
@@ -1192,7 +1213,6 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
@@ -1213,23 +1233,31 @@ Array [
     >
       Joined a Challenge!
     </Text>
-    <Text
+    <View
       style={
         Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 16,
-          "fontStyle": "normal",
-          "justifyContent": "flex-start",
-          "lineHeight": 24,
-          "paddingBottom": 8,
-          "textAlignVertical": "center",
-          "textTransform": "none",
+          "paddingHorizontal": 32,
         }
       }
     >
-      quisquam recusandae alias
-    </Text>
+      <Text
+        style={
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
+        }
+      >
+        quisquam recusandae alias
+      </Text>
+    </View>
   </View>,
   <View
     style={
@@ -1565,7 +1593,6 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
@@ -1586,23 +1613,31 @@ Array [
     >
       We have a new member!
     </Text>
-    <Text
+    <View
       style={
         Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 16,
-          "fontStyle": "normal",
-          "justifyContent": "flex-start",
-          "lineHeight": 24,
-          "paddingBottom": 8,
-          "textAlignVertical": "center",
-          "textTransform": "none",
+          "paddingHorizontal": 32,
         }
       }
     >
-      Help welcome Torey.
-    </Text>
+      <Text
+        style={
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
+        }
+      >
+        Help welcome Torey.
+      </Text>
+    </View>
   </View>,
   <View
     style={
@@ -1960,7 +1995,6 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
@@ -1971,14 +2005,8 @@ Array [
       <View
         style={
           Object {
-            "alignItems": "flex-start",
-            "flexDirection": "row",
-            "flexWrap": "wrap",
-            "justifyContent": "flex-start",
-            "marginBottom": 10,
-            "marginTop": 10,
             "marginVertical": 10,
-            "width": "100%",
+            "paddingHorizontal": 32,
           }
         }
       >
@@ -2362,7 +2390,6 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
@@ -2373,14 +2400,8 @@ Array [
       <View
         style={
           Object {
-            "alignItems": "flex-start",
-            "flexDirection": "row",
-            "flexWrap": "wrap",
-            "justifyContent": "flex-start",
-            "marginBottom": 10,
-            "marginTop": 10,
             "marginVertical": 10,
-            "width": "100%",
+            "paddingHorizontal": 32,
           }
         }
       >
@@ -2824,7 +2845,6 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
@@ -2835,14 +2855,8 @@ Array [
       <View
         style={
           Object {
-            "alignItems": "flex-start",
-            "flexDirection": "row",
-            "flexWrap": "wrap",
-            "justifyContent": "flex-start",
-            "marginBottom": 10,
-            "marginTop": 10,
             "marginVertical": 10,
-            "width": "100%",
+            "paddingHorizontal": 32,
           }
         }
       >
@@ -3226,7 +3240,6 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
@@ -3237,14 +3250,8 @@ Array [
       <View
         style={
           Object {
-            "alignItems": "flex-start",
-            "flexDirection": "row",
-            "flexWrap": "wrap",
-            "justifyContent": "flex-start",
-            "marginBottom": 10,
-            "marginTop": 10,
             "marginVertical": 10,
-            "width": "100%",
+            "paddingHorizontal": 32,
           }
         }
       >
@@ -3460,28 +3467,35 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
   >
-    <Text
+    <View
       style={
         Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 16,
-          "fontStyle": "normal",
-          "justifyContent": "flex-start",
-          "lineHeight": 24,
-          "paddingBottom": 8,
-          "textAlignVertical": "center",
-          "textTransform": "none",
+          "paddingHorizontal": 32,
         }
       }
     >
-      Torey A. completed a Step of Faith with a Uninterested person.
-    </Text>
+      <Text
+        style={
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
+        }
+      >
+        Torey A. completed a Step of Faith with a Uninterested person.
+      </Text>
+    </View>
   </View>,
   <View
     style={
@@ -3839,28 +3853,35 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
   >
-    <Text
+    <View
       style={
         Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 16,
-          "fontStyle": "normal",
-          "justifyContent": "flex-start",
-          "lineHeight": 24,
-          "paddingBottom": 8,
-          "textAlignVertical": "center",
-          "textTransform": "none",
+          "paddingHorizontal": 32,
         }
       }
     >
-      Torey A. completed a Step of Faith with a Curious person.
-    </Text>
+      <Text
+        style={
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
+        }
+      >
+        Torey A. completed a Step of Faith with a Curious person.
+      </Text>
+    </View>
   </View>,
   <View
     style={
@@ -4218,28 +4239,35 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
   >
-    <Text
+    <View
       style={
         Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 16,
-          "fontStyle": "normal",
-          "justifyContent": "flex-start",
-          "lineHeight": 24,
-          "paddingBottom": 8,
-          "textAlignVertical": "center",
-          "textTransform": "none",
+          "paddingHorizontal": 32,
         }
       }
     >
-      Torey A. completed a Step of Faith with a Forgiven person.
-    </Text>
+      <Text
+        style={
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
+        }
+      >
+        Torey A. completed a Step of Faith with a Forgiven person.
+      </Text>
+    </View>
   </View>,
   <View
     style={
@@ -4597,28 +4625,35 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
   >
-    <Text
+    <View
       style={
         Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 16,
-          "fontStyle": "normal",
-          "justifyContent": "flex-start",
-          "lineHeight": 24,
-          "paddingBottom": 8,
-          "textAlignVertical": "center",
-          "textTransform": "none",
+          "paddingHorizontal": 32,
         }
       }
     >
-      Torey A. completed a Step of Faith with a Growing person.
-    </Text>
+      <Text
+        style={
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
+        }
+      >
+        Torey A. completed a Step of Faith with a Growing person.
+      </Text>
+    </View>
   </View>,
   <View
     style={
@@ -4976,28 +5011,35 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
   >
-    <Text
+    <View
       style={
         Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 16,
-          "fontStyle": "normal",
-          "justifyContent": "flex-start",
-          "lineHeight": 24,
-          "paddingBottom": 8,
-          "textAlignVertical": "center",
-          "textTransform": "none",
+          "paddingHorizontal": 32,
         }
       }
     >
-      Torey A. completed a Step of Faith with a Guiding person.
-    </Text>
+      <Text
+        style={
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
+        }
+      >
+        Torey A. completed a Step of Faith with a Guiding person.
+      </Text>
+    </View>
   </View>,
   <View
     style={
@@ -5355,28 +5397,35 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
   >
-    <Text
+    <View
       style={
         Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 16,
-          "fontStyle": "normal",
-          "justifyContent": "flex-start",
-          "lineHeight": 24,
-          "paddingBottom": 8,
-          "textAlignVertical": "center",
-          "textTransform": "none",
+          "paddingHorizontal": 32,
         }
       }
     >
-      Torey A. completed a Step of Faith.
-    </Text>
+      <Text
+        style={
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
+        }
+      >
+        Torey A. completed a Step of Faith.
+      </Text>
+    </View>
   </View>,
   <View
     style={
@@ -5734,28 +5783,35 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
   >
-    <Text
+    <View
       style={
         Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 16,
-          "fontStyle": "normal",
-          "justifyContent": "flex-start",
-          "lineHeight": 24,
-          "paddingBottom": 8,
-          "textAlignVertical": "center",
-          "textTransform": "none",
+          "paddingHorizontal": 32,
         }
       }
     >
-      Torey A. completed a Step of Faith with someone.
-    </Text>
+      <Text
+        style={
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
+        }
+      >
+        Torey A. completed a Step of Faith with someone.
+      </Text>
+    </View>
   </View>,
   <View
     style={
@@ -6092,28 +6148,35 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
   >
-    <Text
+    <View
       style={
         Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 16,
-          "fontStyle": "normal",
-          "justifyContent": "flex-start",
-          "lineHeight": 24,
-          "paddingBottom": 8,
-          "textAlignVertical": "center",
-          "textTransform": "none",
+          "paddingHorizontal": 32,
         }
       }
     >
-      A MissionHub user completed a Step of Faith with a Forgiven person.
-    </Text>
+      <Text
+        style={
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
+        }
+      >
+        A MissionHub user completed a Step of Faith with a Forgiven person.
+      </Text>
+    </View>
   </View>,
   <View
     style={
@@ -6449,28 +6512,35 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
   >
-    <Text
+    <View
       style={
         Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 16,
-          "fontStyle": "normal",
-          "justifyContent": "flex-start",
-          "lineHeight": 24,
-          "paddingBottom": 8,
-          "textAlignVertical": "center",
-          "textTransform": "none",
+          "paddingHorizontal": 32,
         }
       }
     >
-      ut sunt qui completed a Step of Faith with a Forgiven person.
-    </Text>
+      <Text
+        style={
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
+        }
+      >
+        ut sunt qui completed a Step of Faith with a Forgiven person.
+      </Text>
+    </View>
   </View>,
   <View
     style={
@@ -6809,7 +6879,6 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
@@ -6820,14 +6889,8 @@ Array [
       <View
         style={
           Object {
-            "alignItems": "flex-start",
-            "flexDirection": "row",
-            "flexWrap": "wrap",
-            "justifyContent": "flex-start",
-            "marginBottom": 10,
-            "marginTop": 10,
             "marginVertical": 10,
-            "width": "100%",
+            "paddingHorizontal": 32,
           }
         }
       >
@@ -7179,7 +7242,6 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
@@ -7190,14 +7252,8 @@ Array [
       <View
         style={
           Object {
-            "alignItems": "flex-start",
-            "flexDirection": "row",
-            "flexWrap": "wrap",
-            "justifyContent": "flex-start",
-            "marginBottom": 10,
-            "marginTop": 10,
             "marginVertical": 10,
-            "width": "100%",
+            "paddingHorizontal": 32,
           }
         }
       >
@@ -7582,7 +7638,6 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
@@ -7593,14 +7648,8 @@ Array [
       <View
         style={
           Object {
-            "alignItems": "flex-start",
-            "flexDirection": "row",
-            "flexWrap": "wrap",
-            "justifyContent": "flex-start",
-            "marginBottom": 10,
-            "marginTop": 10,
             "marginVertical": 10,
-            "width": "100%",
+            "paddingHorizontal": 32,
           }
         }
       >
@@ -8031,28 +8080,35 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
   >
-    <Text
+    <View
       style={
         Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 16,
-          "fontStyle": "normal",
-          "justifyContent": "flex-start",
-          "lineHeight": 24,
-          "paddingBottom": 8,
-          "textAlignVertical": "center",
-          "textTransform": "none",
+          "paddingHorizontal": 32,
         }
       }
     >
-      Torey A. completed a Step of Faith with a Forgiven person.
-    </Text>
+      <Text
+        style={
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
+        }
+      >
+        Torey A. completed a Step of Faith with a Forgiven person.
+      </Text>
+    </View>
   </View>,
   <View
     style={
@@ -8410,7 +8466,6 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
@@ -8421,14 +8476,8 @@ Array [
       <View
         style={
           Object {
-            "alignItems": "flex-start",
-            "flexDirection": "row",
-            "flexWrap": "wrap",
-            "justifyContent": "flex-start",
-            "marginBottom": 10,
-            "marginTop": 10,
             "marginVertical": 10,
-            "width": "100%",
+            "paddingHorizontal": 32,
           }
         }
       >
@@ -8899,28 +8948,35 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
   >
-    <Text
+    <View
       style={
         Object {
-          "color": "#505256",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 16,
-          "fontStyle": "normal",
-          "justifyContent": "flex-start",
-          "lineHeight": 24,
-          "paddingBottom": 8,
-          "textAlignVertical": "center",
-          "textTransform": "none",
+          "paddingHorizontal": 32,
         }
       }
     >
-      Torey A. completed a Step of Faith with a Forgiven person.
-    </Text>
+      <Text
+        style={
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+            "textAlignVertical": "center",
+            "textTransform": "none",
+          }
+        }
+      >
+        Torey A. completed a Step of Faith with a Forgiven person.
+      </Text>
+    </View>
   </View>,
   <View
     style={
@@ -9278,7 +9334,6 @@ Array [
   <View
     style={
       Object {
-        "paddingHorizontal": 20,
         "paddingVertical": 8,
       }
     }
@@ -9289,14 +9344,8 @@ Array [
       <View
         style={
           Object {
-            "alignItems": "flex-start",
-            "flexDirection": "row",
-            "flexWrap": "wrap",
-            "justifyContent": "flex-start",
-            "marginBottom": 10,
-            "marginTop": 10,
             "marginVertical": 10,
-            "width": "100%",
+            "paddingHorizontal": 32,
           }
         }
       >
