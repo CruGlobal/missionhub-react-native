@@ -8538,6 +8538,7 @@ Array [
     >
       <Video
         controls={false}
+        ignoreSilentSwitch="ignore"
         paused={true}
         source={
           Object {

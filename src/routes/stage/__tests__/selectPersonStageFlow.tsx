@@ -1,9 +1,10 @@
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import { fireEvent } from 'react-native-testing-library';
 
-import { renderShallow } from '../../../../testUtils';
-import { personSelector } from '../../../selectors/people';
+import {
+  contactAssignmentSelector,
+  personSelector,
+} from '../../../selectors/people';
 import { SelectPersonStageFlowScreens } from '../selectPersonStageFlow';
 import {
   updatePersonAttributes,
@@ -14,20 +15,28 @@ import { navigatePush } from '../../../actions/navigation';
 import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
 import { SELECT_STEP_SCREEN } from '../../../containers/SelectStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen/index';
+import {
+  selectPersonStage,
+  updateUserStage,
+} from '../../../actions/selectStage';
+import { renderWithContext } from '../../../../testUtils';
+import { ANALYTICS_CONTEXT_CHANGED } from '../../../actions/analytics';
+import { ANALYTICS_PREVIOUS_SCREEN_NAME } from '../../../constants';
 
 jest.mock('../../../selectors/people');
 jest.mock('../../../actions/person');
 jest.mock('../../../actions/misc');
 jest.mock('../../../actions/journey');
 jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/selectStage');
+// jest.mock('../../../actions/stages');
 
 const otherId = '222';
-const otherName = 'Other';
 const orgId = '123';
 const contactAssignmentId = '22';
 const questionText = 'Text';
 
-const stage = { id: '1' };
+const stage = { id: '1', name: 'Stage 1' };
 const person = {
   id: otherId,
   reverse_contact_assignments: [{ id: contactAssignmentId }],
@@ -37,91 +46,81 @@ const people = { people: { [otherId]: person } };
 
 const initialState = {
   people,
-  stages: { stages: [stage] },
+  stages: { stages: [stage, { id: 2, name: 'Stage 2' }] },
   onboarding: { currentlyOnboarding: false },
+  drawer: {},
+  analytics: {},
 };
 
-const store = configureStore([thunk])(initialState);
-
-// @ts-ignore
-const buildAndCallNext = async (screen, navParams, nextProps) => {
-  // @ts-ignore
+const buildAndCallNext = (
+  screen: keyof typeof SelectPersonStageFlowScreens,
+  navParams: Record<string, unknown>,
+  newStateIndex = 0,
+) => {
+  jest.useFakeTimers();
   const Component = SelectPersonStageFlowScreens[screen];
 
-  await store.dispatch(
-    renderShallow(
-      <Component
-        navigation={{
-          state: {
-            params: navParams,
-          },
-        }}
-      />,
-      store,
-    )
-      .instance()
-      // @ts-ignore
-      .props.next(nextProps),
+  const renderResult = renderWithContext(<Component />, {
+    initialState,
+    navParams,
+  });
+
+  fireEvent.press(
+    renderResult.getAllByTestId('stageSelectButton')[newStateIndex],
   );
+  jest.runAllTimers();
+
+  return renderResult;
 };
 
+const analyticsAction = {
+  analyticsContext: {
+    [ANALYTICS_PREVIOUS_SCREEN_NAME]: 'mh : stage : stage 1',
+  },
+  type: ANALYTICS_CONTEXT_CHANGED,
+};
 const updatePersonResponse = { type: 'update person attributes' };
 const getPersonDetailsResponse = { type: 'get person details' };
 const loadStepsJourneyResponse = { type: 'load steps and journey' };
 const navigatePushResponse = { type: 'navigate push' };
+const selectPersonStageResponse = { type: 'selectPersonStage' };
+const updateUserStageResponse = { type: 'updateUserStage' };
 
 const screenParams = {
   section: 'people',
   subsection: 'person',
-  SelectedStageId: 0,
+  selectedStageId: 0,
   enableBackButton: false,
   questionText,
   orgId,
   personId: otherId,
 };
-const navParams = {
-  stage,
-  orgId,
-  isAlreadySelected: true,
-  personId: otherId,
-  firstName: otherName,
-};
 
 beforeEach(() => {
-  store.clearActions();
-  // @ts-ignore
-  personSelector.mockReturnValue(person);
-  // @ts-ignore
-  updatePersonAttributes.mockReturnValue(updatePersonResponse);
-  // @ts-ignore
-  getPersonDetails.mockReturnValue(getPersonDetailsResponse);
-  // @ts-ignore
-  reloadJourney.mockReturnValue(loadStepsJourneyResponse);
-  // @ts-ignore
-  navigatePush.mockReturnValue(navigatePushResponse);
+  ((personSelector as unknown) as jest.Mock).mockReturnValue(person);
+  ((contactAssignmentSelector as unknown) as jest.Mock).mockReturnValue(
+    person.reverse_contact_assignments[0],
+  );
+  (updatePersonAttributes as jest.Mock).mockReturnValue(updatePersonResponse);
+  (getPersonDetails as jest.Mock).mockReturnValue(getPersonDetailsResponse);
+  (reloadJourney as jest.Mock).mockReturnValue(loadStepsJourneyResponse);
+  (navigatePush as jest.Mock).mockReturnValue(navigatePushResponse);
+  (selectPersonStage as jest.Mock).mockReturnValue(selectPersonStageResponse);
+  (updateUserStage as jest.Mock).mockReturnValue(updateUserStageResponse);
 });
 
 describe('SelectStageScreen next', () => {
   describe('isAlreadySelected', () => {
     describe('with contactAssignmentId', () => {
-      beforeEach(async () => {
-        await buildAndCallNext(SELECT_STAGE_SCREEN, screenParams, {
-          ...navParams,
-          contactAssignmentId,
-        });
+      let renderResult: ReturnType<typeof renderWithContext>;
+
+      beforeEach(() => {
+        renderResult = buildAndCallNext(SELECT_STAGE_SCREEN, screenParams);
       });
 
       it('should select person', () => {
         expect(personSelector).toHaveBeenCalledWith(initialState, {
           personId: otherId,
-        });
-      });
-
-      it('should update person', () => {
-        expect(updatePersonAttributes).toHaveBeenCalledWith(otherId, {
-          reverse_contact_assignments: [
-            { id: contactAssignmentId, pathway_stage_id: stage.id },
-          ],
         });
       });
 
@@ -137,8 +136,9 @@ describe('SelectStageScreen next', () => {
       });
 
       it('fires correct actions', () => {
-        expect(store.getActions()).toEqual([
-          updatePersonResponse,
+        expect(renderResult.store.getActions()).toEqual([
+          analyticsAction,
+          getPersonDetailsResponse,
           loadStepsJourneyResponse,
           navigatePushResponse,
         ]);
@@ -146,10 +146,10 @@ describe('SelectStageScreen next', () => {
     });
 
     describe('without contactAssignmentId', () => {
-      beforeEach(async () => {
-        await buildAndCallNext(SELECT_STAGE_SCREEN, screenParams, {
-          ...navParams,
-        });
+      let renderResult: ReturnType<typeof renderWithContext>;
+
+      beforeEach(() => {
+        renderResult = buildAndCallNext(SELECT_STAGE_SCREEN, screenParams);
       });
 
       it('should select person', () => {
@@ -174,7 +174,8 @@ describe('SelectStageScreen next', () => {
       });
 
       it('fires correct actions', () => {
-        expect(store.getActions()).toEqual([
+        expect(renderResult.store.getActions()).toEqual([
+          analyticsAction,
           getPersonDetailsResponse,
           loadStepsJourneyResponse,
           navigatePushResponse,
@@ -185,25 +186,15 @@ describe('SelectStageScreen next', () => {
 
   describe('not isAlreadySelected', () => {
     describe('with contactAssignmentId', () => {
-      beforeEach(async () => {
-        await buildAndCallNext(SELECT_STAGE_SCREEN, screenParams, {
-          ...navParams,
-          contactAssignmentId,
-          isAlreadySelected: false,
-        });
+      let renderResult: ReturnType<typeof renderWithContext>;
+
+      beforeEach(() => {
+        renderResult = buildAndCallNext(SELECT_STAGE_SCREEN, screenParams, 1);
       });
 
       it('should select person', () => {
         expect(personSelector).toHaveBeenCalledWith(initialState, {
           personId: otherId,
-        });
-      });
-
-      it('should update person', () => {
-        expect(updatePersonAttributes).toHaveBeenCalledWith(otherId, {
-          reverse_contact_assignments: [
-            { id: contactAssignmentId, pathway_stage_id: stage.id },
-          ],
         });
       });
 
@@ -219,8 +210,10 @@ describe('SelectStageScreen next', () => {
       });
 
       it('fires correct actions', () => {
-        expect(store.getActions()).toEqual([
-          updatePersonResponse,
+        expect(renderResult.store.getActions()).toEqual([
+          analyticsAction,
+          updateUserStageResponse,
+          getPersonDetailsResponse,
           loadStepsJourneyResponse,
           navigatePushResponse,
         ]);
@@ -228,13 +221,8 @@ describe('SelectStageScreen next', () => {
     });
 
     describe('skipSelectSteps', () => {
-      beforeEach(async () => {
-        await buildAndCallNext(SELECT_STAGE_SCREEN, screenParams, {
-          ...navParams,
-          contactAssignmentId,
-          isAlreadySelected: false,
-          skipSelectSteps: true,
-        });
+      beforeEach(() => {
+        buildAndCallNext(SELECT_STAGE_SCREEN, screenParams);
       });
 
       it('should navigate to CelebrationScreen', () => {
@@ -246,11 +234,10 @@ describe('SelectStageScreen next', () => {
     });
 
     describe('without contactAssignmentId', () => {
-      beforeEach(async () => {
-        await buildAndCallNext(SELECT_STAGE_SCREEN, screenParams, {
-          ...navParams,
-          isAlreadySelected: false,
-        });
+      let renderResult: ReturnType<typeof renderWithContext>;
+
+      beforeEach(() => {
+        renderResult = buildAndCallNext(SELECT_STAGE_SCREEN, screenParams, 1);
       });
 
       it('should select person', () => {
@@ -275,7 +262,9 @@ describe('SelectStageScreen next', () => {
       });
 
       it('fires correct actions', () => {
-        expect(store.getActions()).toEqual([
+        expect(renderResult.store.getActions()).toEqual([
+          analyticsAction,
+          updateUserStageResponse,
           getPersonDetailsResponse,
           loadStepsJourneyResponse,
           navigatePushResponse,

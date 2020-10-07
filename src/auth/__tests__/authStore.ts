@@ -13,6 +13,8 @@ import {
   deleteAnonymousUid,
   getAppleUserId,
   setAppleUserId,
+  getMissionHubRefreshToken,
+  setMissionHubRefreshToken,
 } from '../authStore';
 
 jest.mock('expo-secure-store');
@@ -69,6 +71,32 @@ describe('auth token', () => {
 
         expect(isAuthenticated()).toEqual(false);
       });
+    });
+  });
+});
+
+describe('MissionHub refresh token', () => {
+  describe('getMissionHubRefreshToken', () => {
+    it('should return the refresh token', async () => {
+      const token = 'test token';
+      (SecureStore.getItemAsync as jest.Mock).mockResolvedValue(token);
+
+      expect(await getMissionHubRefreshToken()).toEqual(token);
+      expect(SecureStore.getItemAsync).toHaveBeenCalledWith(
+        'missionhubRefreshToken',
+      );
+    });
+  });
+
+  describe('setTheKeyRefreshToken', () => {
+    it('should set the refresh token', async () => {
+      const token = 'test token';
+
+      expect(await setMissionHubRefreshToken(token)).toEqual(undefined);
+      expect(SecureStore.setItemAsync).toHaveBeenCalledWith(
+        'missionhubRefreshToken',
+        token,
+      );
     });
   });
 });
@@ -159,6 +187,9 @@ describe('deleteAllAuthTokens', () => {
     await deleteAllAuthTokens();
 
     expect(SecureStore.deleteItemAsync).toHaveBeenCalledWith('authToken');
+    expect(SecureStore.deleteItemAsync).toHaveBeenCalledWith(
+      'missionhubRefreshToken',
+    );
     expect(SecureStore.deleteItemAsync).toHaveBeenCalledWith(
       'theKeyRefreshToken',
     );

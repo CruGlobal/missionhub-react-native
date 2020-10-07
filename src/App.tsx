@@ -196,6 +196,8 @@ export default class App extends Component {
         <ProviderLegacy store={store}>
           <Provider store={store}>
             <PersistGate
+              // @ts-ignore
+              testID="persistGate"
               loading={<LoadingScreen />}
               onBeforeLift={this.onBeforeLift}
               persistor={persistor}

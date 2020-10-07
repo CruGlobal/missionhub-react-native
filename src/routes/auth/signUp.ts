@@ -4,7 +4,7 @@ import { resetToInitialRoute } from '../../actions/navigationInit';
 
 import { authFlowGenerator } from './authFlowGenerator';
 
-export const SignUpFlowScreens = authFlowGenerator({
+const SignUpFlowScreens = authFlowGenerator({
   completeAction: resetToInitialRoute(true),
   includeSignUp: true,
 });

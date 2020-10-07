@@ -35,6 +35,7 @@ const VideoPlayer = ({ uri, style, onDelete, width }: VideoPlayerProps) => {
         controls={false}
         paused={true}
         style={styles.videoPlayer}
+        ignoreSilentSwitch="ignore"
       />
       <Touchable
         testID="ControlsWrap"

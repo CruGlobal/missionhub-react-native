@@ -27,7 +27,6 @@ module.exports = {
     '<rootDir>/__mock__/cleanup.ts',
   ],
   globalSetup: '<rootDir>/__mock__/globalSetup.ts',
-  snapshotSerializers: ['enzyme-to-json/serializer'],
   moduleNameMapper: {
     '\\.svg$': '<rootDir>/__mock__/svgMock.ts',
   },

@@ -101,11 +101,14 @@ class DeepLinkConfirmJoinGroupScreen extends Component {
 
     const group = {
       id,
+      __typename: 'Community' as const,
       name,
       owner: {
+        __typename: 'CommunityPersonConnection' as const,
         nodes: owner
           ? [
               {
+                __typename: 'Person' as const,
                 firstName: owner.first_name,
                 lastName: owner.last_name,
               },
@@ -113,6 +116,7 @@ class DeepLinkConfirmJoinGroupScreen extends Component {
           : [],
       },
       report: {
+        __typename: 'CommunitiesReport' as const,
         contactCount: contactReport.contactsCount || 0,
         unassignedCount: contactReport.unassignedCount || 0,
         memberCount: contactReport.memberCount || 0,
@@ -121,8 +125,13 @@ class DeepLinkConfirmJoinGroupScreen extends Component {
       unreadCommentsCount: unread_comments_count,
     };
 
-    // @ts-ignore
-    return <GroupCardItem group={group} onJoin={this.navigateNext} />;
+    return (
+      <GroupCardItem
+        testID="groupCardItem"
+        group={group}
+        onJoin={this.navigateNext}
+      />
+    );
   }
 
   render() {
@@ -136,6 +145,7 @@ class DeepLinkConfirmJoinGroupScreen extends Component {
         <Header
           left={
             <IconButton
+              testID="backButton"
               name="deleteIcon"
               type="MissionHub"
               onPress={this.navigateBack}
