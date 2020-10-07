@@ -1,4 +1,4 @@
-import { createElement, ReactNode, isValidElement } from 'react';
+import { createElement, isValidElement } from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import { RenderRules } from 'react-native-markdown-display';
 
@@ -77,30 +77,19 @@ export default StyleSheet.create({
 });
 
 export const MarkdownRules: RenderRules = {
-  paragraph: (_, children) => {
-    const isImage = (n: ReactNode) => {
-      //Determine if child node is an image
-      if (isValidElement(n) && n.props.source) {
-        return true;
-      }
-      return false;
-    };
-
-    if (children.some(c => isImage(c))) {
-      return createElement(
-        View,
-        {
-          style: { ...paragraph, paddingHorizontal: 0 },
-        },
-        children,
-      );
-    }
-    return createElement(
+  paragraph: (_, children) =>
+    createElement(
       View,
       {
-        style: { ...paragraph, paddingHorizontal: 32 },
+        style: {
+          ...paragraph,
+          paddingHorizontal: children.some(
+            c => isValidElement(c) && !!c.props.source,
+          )
+            ? 0
+            : 32,
+        },
       },
       children,
-    );
-  },
+    ),
 };
