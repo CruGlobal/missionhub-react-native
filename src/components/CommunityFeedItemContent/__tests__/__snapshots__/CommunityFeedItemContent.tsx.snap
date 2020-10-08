@@ -8481,7 +8481,8 @@ Array [
             "flex": 1,
           },
           Object {
-            "height": 1276.4444444444443,
+            "height": 0,
+            "width": 718,
           },
           undefined,
         ]
@@ -8490,6 +8491,7 @@ Array [
       <Video
         controls={false}
         ignoreSilentSwitch="ignore"
+        onLoad={[Function]}
         paused={true}
         source={
           Object {
@@ -8505,6 +8507,7 @@ Array [
             "top": 0,
           }
         }
+        testID="Video"
       />
       <View
         accessible={true}

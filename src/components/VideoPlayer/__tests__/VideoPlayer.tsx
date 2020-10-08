@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
@@ -15,24 +15,60 @@ beforeEach(() => {
 const uri = 'testVideo.mp4';
 const onDelete = jest.fn();
 
-it('renders correctly', () => {
-  renderWithContext(<VideoPlayer uri={'testVideo.mp4'} />).snapshot();
+it('renders correctly', async () => {
+  const { getByTestId, snapshot } = renderWithContext(
+    <VideoPlayer uri={uri} />,
+  );
+
+  fireEvent(getByTestId('Video'), 'onLoad', {
+    naturalSize: { width: 200, height: 100 },
+  });
+
+  await flushMicrotasksQueue();
+
+  snapshot();
 });
 
-it('renders with style', () => {
-  renderWithContext(
-    <VideoPlayer uri={uri} style={{ height: 1000 }} />,
-  ).snapshot();
+it('renders with style', async () => {
+  const { getByTestId, snapshot } = renderWithContext(
+    <VideoPlayer uri={uri} style={{ padding: 10 }} />,
+  );
+
+  fireEvent(getByTestId('Video'), 'onLoad', {
+    naturalSize: { width: 200, height: 100 },
+  });
+
+  await flushMicrotasksQueue();
+
+  snapshot();
 });
 
-it('renders with delete button', () => {
-  renderWithContext(
+it('renders with delete button', async () => {
+  const { getByTestId, snapshot } = renderWithContext(
     <VideoPlayer uri={uri} style={{ height: 1000 }} onDelete={onDelete} />,
-  ).snapshot();
+  );
+
+  fireEvent(getByTestId('Video'), 'onLoad', {
+    naturalSize: { width: 200, height: 100 },
+  });
+
+  await flushMicrotasksQueue();
+
+  snapshot();
 });
 
-it('renders with width', () => {
-  renderWithContext(<VideoPlayer uri={uri} width={900} />).snapshot();
+it('renders with width', async () => {
+  const { getByTestId, snapshot } = renderWithContext(
+    <VideoPlayer uri={uri} width={900} />,
+  );
+
+  fireEvent(getByTestId('Video'), 'onLoad', {
+    naturalSize: { width: 200, height: 100 },
+  });
+
+  await flushMicrotasksQueue();
+
+  snapshot();
 });
 
 it('calls onDelete', () => {
