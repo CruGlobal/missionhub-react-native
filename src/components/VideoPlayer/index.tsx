@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleProp, ViewStyle, View } from 'react-native';
 import Video from 'react-native-video';
 import { useDispatch } from 'react-redux';
@@ -21,21 +21,25 @@ interface VideoPlayerProps {
 const VideoPlayer = ({ uri, style, onDelete, width }: VideoPlayerProps) => {
   const dispatch = useDispatch();
 
+  const [height, setHeight] = useState(0);
+
   const openFullScreen = () => {
     dispatch(navigatePush(VIDEO_FULL_SCREEN, { uri }));
   };
 
-  const ratio = 16.0 / 9.0;
-  const height = (width && ratio * width) || 300;
-
   return (
-    <View style={[styles.videoContainer, { height }, style]}>
+    <View style={[styles.videoContainer, { width, height }, style]}>
       <Video
         source={{ uri }}
         controls={false}
         paused={true}
         style={styles.videoPlayer}
         ignoreSilentSwitch="ignore"
+        onLoad={response => {
+          //Not sure why, but it looks like width and height are the opposite of what they should be
+          const { width: _height, height: _width } = response.naturalSize;
+          setHeight(_height * ((width && width / _width) || 1));
+        }}
       />
       <Touchable
         testID="ControlsWrap"
