@@ -562,7 +562,7 @@ export default {
   },
   communityFeedItems: {
     copy: {
-      buttonText: 'Copy Post',
+      buttonText: 'Copy',
     },
     edit: {
       buttonText: 'Edit Post',

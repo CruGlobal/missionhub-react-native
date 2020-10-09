@@ -695,7 +695,7 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
             Array [
               Object {
                 "onPress": [Function],
-                "text": "Copy Post",
+                "text": "Copy",
               },
               Object {
                 "onPress": [Function],
@@ -731,7 +731,7 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
             Array [
               Object {
                 "onPress": [Function],
-                "text": "Copy Post",
+                "text": "Copy",
               },
               Object {
                 "onPress": [Function],
@@ -1555,7 +1555,7 @@ exports[`edit/delete post edit and delete for my post 1`] = `
             Array [
               Object {
                 "onPress": [Function],
-                "text": "Copy Post",
+                "text": "Copy",
               },
               Object {
                 "onPress": [Function],
@@ -1591,7 +1591,7 @@ exports[`edit/delete post edit and delete for my post 1`] = `
             Array [
               Object {
                 "onPress": [Function],
-                "text": "Copy Post",
+                "text": "Copy",
               },
               Object {
                 "onPress": [Function],
@@ -2415,7 +2415,7 @@ exports[`edit/delete post no options for not my post 1`] = `
             Array [
               Object {
                 "onPress": [Function],
-                "text": "Copy Post",
+                "text": "Copy",
               },
               Object {
                 "onPress": [Function],
@@ -2451,7 +2451,7 @@ exports[`edit/delete post no options for not my post 1`] = `
             Array [
               Object {
                 "onPress": [Function],
-                "text": "Copy Post",
+                "text": "Copy",
               },
               Object {
                 "onPress": [Function],
@@ -2793,7 +2793,7 @@ exports[`refresh calls refreshComments 1`] = `
 @@ -620,12 +637,13 @@
                 Object {
                   \\"onPress\\": [Function onPress],
-                  \\"text\\": \\"Copy Post\\",
+                  \\"text\\": \\"Copy\\",
                 },
                 Object {
 +                 \\"destructive\\": true,
@@ -2835,7 +2835,7 @@ exports[`refresh calls refreshComments 1`] = `
 @@ -656,12 +674,13 @@
                 Object {
                   \\"onPress\\": [Function onPress],
-                  \\"text\\": \\"Copy Post\\",
+                  \\"text\\": \\"Copy\\",
                 },
                 Object {
 +                 \\"destructive\\": true,
@@ -3569,7 +3569,7 @@ exports[`renders correctly 1`] = `
             Array [
               Object {
                 "onPress": [Function],
-                "text": "Copy Post",
+                "text": "Copy",
               },
               Object {
                 "onPress": [Function],
@@ -3605,7 +3605,7 @@ exports[`renders correctly 1`] = `
             Array [
               Object {
                 "onPress": [Function],
-                "text": "Copy Post",
+                "text": "Copy",
               },
               Object {
                 "onPress": [Function],
@@ -4429,7 +4429,7 @@ exports[`renders correctly with communityId passed in 1`] = `
             Array [
               Object {
                 "onPress": [Function],
-                "text": "Copy Post",
+                "text": "Copy",
               },
               Object {
                 "onPress": [Function],
@@ -4465,7 +4465,7 @@ exports[`renders correctly with communityId passed in 1`] = `
             Array [
               Object {
                 "onPress": [Function],
-                "text": "Copy Post",
+                "text": "Copy",
               },
               Object {
                 "onPress": [Function],
