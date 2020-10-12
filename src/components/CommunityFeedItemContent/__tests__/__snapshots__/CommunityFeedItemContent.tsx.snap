@@ -8480,10 +8480,6 @@ Array [
           Object {
             "flex": 1,
           },
-          Object {
-            "height": 0,
-            "width": 718,
-          },
           undefined,
         ]
       }
@@ -8491,8 +8487,8 @@ Array [
       <Video
         controls={false}
         ignoreSilentSwitch="ignore"
-        onLoad={[Function]}
         paused={true}
+        resizeMode="cover"
         source={
           Object {
             "uri": "corporis repellat ratione",
@@ -8500,11 +8496,8 @@ Array [
         }
         style={
           Object {
-            "bottom": 0,
-            "left": 0,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
+            "aspectRatio": 0.5625,
+            "width": "100%",
           }
         }
         testID="Video"
@@ -8522,9 +8515,11 @@ Array [
         style={
           Object {
             "alignItems": "center",
-            "flex": 1,
+            "height": "100%",
             "justifyContent": "center",
             "opacity": 1,
+            "position": "absolute",
+            "width": "100%",
           }
         }
         testID="ControlsWrap"

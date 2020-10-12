@@ -34,7 +34,6 @@ import VideoPlayer from '../VideoPlayer';
 import KebabIcon from '../../../assets/images/kebabIcon.svg';
 import ChallengesTarget from '../../../assets/images/challenge-target.svg';
 import theme from '../../theme';
-import { CardHorizontalMargin } from '../Card/styles';
 import { useFeatureFlags } from '../../utils/hooks/useFeatureFlags';
 
 import {
