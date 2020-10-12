@@ -7,9 +7,16 @@ export default StyleSheet.create({
     flex: 1,
   },
   videoPlayer: {
-    ...StyleSheet.absoluteFillObject,
+    aspectRatio: 9.0 / 16.0,
+    width: '100%',
   },
-  controlsWrap: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  controlsWrap: {
+    position: 'absolute',
+    height: '100%',
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   deleteButton: {
     position: 'absolute',
     top: 16,

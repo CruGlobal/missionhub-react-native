@@ -34,29 +34,15 @@ const VideoPlayer = ({
   };
 
   return (
-    <View
-      style={[
-        styles.videoContainer,
-        { width: videoWidth, height: videoHeight },
-        style,
-      ]}
-    >
+    <View style={[styles.videoContainer, style]}>
       <Video
         testID="Video"
+        resizeMode={'cover'}
         source={{ uri }}
         controls={false}
         paused={true}
         style={styles.videoPlayer}
         ignoreSilentSwitch="ignore"
-        onLoad={response => {
-          //Not sure why, but it looks like width and height are the opposite of what they should be
-          const { width: _height, height: _width } = response.naturalSize;
-
-          const width = videoWidth != 0 ? videoWidth : _width;
-          videoWidth === 0 && setVideoWidth(_width);
-
-          setVideoHeight(_height * (width / _width));
-        }}
       />
       <Touchable
         testID="ControlsWrap"
