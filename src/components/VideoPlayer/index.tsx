@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleProp, ViewStyle, View } from 'react-native';
 import Video from 'react-native-video';
 import { useDispatch } from 'react-redux';
@@ -15,19 +15,10 @@ interface VideoPlayerProps {
   uri: string;
   style?: StyleProp<ViewStyle>;
   onDelete?: () => void;
-  width?: number;
 }
 
-const VideoPlayer = ({
-  uri,
-  style,
-  onDelete,
-  width: startWidth,
-}: VideoPlayerProps) => {
+const VideoPlayer = ({ uri, style, onDelete }: VideoPlayerProps) => {
   const dispatch = useDispatch();
-
-  const [videoWidth, setVideoWidth] = useState(startWidth || 0);
-  const [videoHeight, setVideoHeight] = useState(0);
 
   const openFullScreen = () => {
     dispatch(navigatePush(VIDEO_FULL_SCREEN, { uri }));

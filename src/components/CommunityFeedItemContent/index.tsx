@@ -305,10 +305,7 @@ export const CommunityFeedItemContent = ({
         onPress={() => {}}
         testID="VideoTouchable"
       >
-        <VideoPlayer
-          uri={mediaData}
-          width={theme.fullWidth - CardHorizontalMargin * 2.0}
-        />
+        <VideoPlayer uri={mediaData} />
       </Touchable>
     ) : null;
 
