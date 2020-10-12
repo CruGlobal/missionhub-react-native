@@ -16,12 +16,12 @@ const uri = 'testVideo.mp4';
 const onDelete = jest.fn();
 
 it('renders correctly', () => {
-  renderWithContext(<VideoPlayer uri={'testVideo.mp4'} />).snapshot();
+  renderWithContext(<VideoPlayer uri={uri} />).snapshot();
 });
 
 it('renders with style', () => {
   renderWithContext(
-    <VideoPlayer uri={uri} style={{ height: 1000 }} />,
+    <VideoPlayer uri={uri} style={{ padding: 10 }} />,
   ).snapshot();
 });
 
@@ -29,10 +29,6 @@ it('renders with delete button', () => {
   renderWithContext(
     <VideoPlayer uri={uri} style={{ height: 1000 }} onDelete={onDelete} />,
   ).snapshot();
-});
-
-it('renders with width', () => {
-  renderWithContext(<VideoPlayer uri={uri} width={900} />).snapshot();
 });
 
 it('calls onDelete', () => {
