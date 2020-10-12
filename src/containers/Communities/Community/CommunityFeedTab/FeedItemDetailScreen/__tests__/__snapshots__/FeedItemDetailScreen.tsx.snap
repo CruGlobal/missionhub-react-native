@@ -234,7 +234,7 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
+              "paddingHorizontal": 32,
               "paddingTop": 12,
             }
           }
@@ -1087,7 +1087,7 @@ exports[`edit/delete post edit and delete for my post 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
+              "paddingHorizontal": 32,
               "paddingTop": 12,
             }
           }
@@ -1940,7 +1940,7 @@ exports[`edit/delete post no options for not my post 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
+              "paddingHorizontal": 32,
               "paddingTop": 12,
             }
           }
@@ -3087,7 +3087,7 @@ exports[`renders correctly 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
+              "paddingHorizontal": 32,
               "paddingTop": 12,
             }
           }
@@ -3940,7 +3940,7 @@ exports[`renders correctly with communityId passed in 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
+              "paddingHorizontal": 32,
               "paddingTop": 12,
             }
           }

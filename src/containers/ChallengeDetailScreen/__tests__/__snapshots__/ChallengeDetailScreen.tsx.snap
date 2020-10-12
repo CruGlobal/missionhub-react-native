@@ -246,7 +246,7 @@ exports[`should call navigateBack from community name press 1`] = `
                 Object {
                   "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
-                  "paddingHorizontal": 40,
+                  "paddingHorizontal": 32,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -275,7 +275,7 @@ exports[`should call navigateBack from community name press 1`] = `
                 Object {
                   "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
-                  "paddingHorizontal": 40,
+                  "paddingHorizontal": 32,
                   "paddingVertical": 14,
                 },
                 Object {
@@ -400,7 +400,7 @@ exports[`should call navigateBack from community name press 1`] = `
                 Object {
                   "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
-                  "paddingHorizontal": 40,
+                  "paddingHorizontal": 32,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -415,6 +415,7 @@ exports[`should call navigateBack from community name press 1`] = `
                   "fontSize": 12,
                   "fontStyle": "normal",
                   "lineHeight": 16,
+                  "paddingHorizontal": 32,
                   "textAlignVertical": "center",
                   "textTransform": "none",
                 }
@@ -443,6 +444,7 @@ exports[`should call navigateBack from community name press 1`] = `
             style={
               Array [
                 Object {
+                  "paddingHorizontal": 0,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -457,6 +459,7 @@ exports[`should call navigateBack from community name press 1`] = `
                   "fontSize": 12,
                   "fontStyle": "normal",
                   "lineHeight": 16,
+                  "paddingHorizontal": 32,
                   "textAlignVertical": "center",
                   "textTransform": "none",
                 }
@@ -810,7 +813,7 @@ exports[`should call navigateBack from press 1`] = `
                 Object {
                   "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
-                  "paddingHorizontal": 40,
+                  "paddingHorizontal": 32,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -839,7 +842,7 @@ exports[`should call navigateBack from press 1`] = `
                 Object {
                   "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
-                  "paddingHorizontal": 40,
+                  "paddingHorizontal": 32,
                   "paddingVertical": 14,
                 },
                 Object {
@@ -964,7 +967,7 @@ exports[`should call navigateBack from press 1`] = `
                 Object {
                   "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
-                  "paddingHorizontal": 40,
+                  "paddingHorizontal": 32,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -979,6 +982,7 @@ exports[`should call navigateBack from press 1`] = `
                   "fontSize": 12,
                   "fontStyle": "normal",
                   "lineHeight": 16,
+                  "paddingHorizontal": 32,
                   "textAlignVertical": "center",
                   "textTransform": "none",
                 }
@@ -1007,6 +1011,7 @@ exports[`should call navigateBack from press 1`] = `
             style={
               Array [
                 Object {
+                  "paddingHorizontal": 0,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -1021,6 +1026,7 @@ exports[`should call navigateBack from press 1`] = `
                   "fontSize": 12,
                   "fontStyle": "normal",
                   "lineHeight": 16,
+                  "paddingHorizontal": 32,
                   "textAlignVertical": "center",
                   "textTransform": "none",
                 }
@@ -1414,7 +1420,7 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
                 Object {
                   "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
-                  "paddingHorizontal": 40,
+                  "paddingHorizontal": 32,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -1443,7 +1449,7 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
                 Object {
                   "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
-                  "paddingHorizontal": 40,
+                  "paddingHorizontal": 32,
                   "paddingVertical": 14,
                 },
                 Object {
@@ -1568,7 +1574,7 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
                 Object {
                   "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
-                  "paddingHorizontal": 40,
+                  "paddingHorizontal": 32,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -1583,6 +1589,7 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
                   "fontSize": 12,
                   "fontStyle": "normal",
                   "lineHeight": 16,
+                  "paddingHorizontal": 32,
                   "textAlignVertical": "center",
                   "textTransform": "none",
                 }
@@ -1611,6 +1618,7 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
             style={
               Array [
                 Object {
+                  "paddingHorizontal": 0,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -1625,6 +1633,7 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
                   "fontSize": 12,
                   "fontStyle": "normal",
                   "lineHeight": 16,
+                  "paddingHorizontal": 32,
                   "textAlignVertical": "center",
                   "textTransform": "none",
                 }
@@ -1978,7 +1987,7 @@ exports[`should render completed challenge correctly 1`] = `
                 Object {
                   "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
-                  "paddingHorizontal": 40,
+                  "paddingHorizontal": 32,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -2007,7 +2016,7 @@ exports[`should render completed challenge correctly 1`] = `
                 Object {
                   "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
-                  "paddingHorizontal": 40,
+                  "paddingHorizontal": 32,
                   "paddingVertical": 14,
                 },
                 Object {
@@ -2132,7 +2141,7 @@ exports[`should render completed challenge correctly 1`] = `
                 Object {
                   "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
-                  "paddingHorizontal": 40,
+                  "paddingHorizontal": 32,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -2147,6 +2156,7 @@ exports[`should render completed challenge correctly 1`] = `
                   "fontSize": 12,
                   "fontStyle": "normal",
                   "lineHeight": 16,
+                  "paddingHorizontal": 32,
                   "textAlignVertical": "center",
                   "textTransform": "none",
                 }
@@ -2175,6 +2185,7 @@ exports[`should render completed challenge correctly 1`] = `
             style={
               Array [
                 Object {
+                  "paddingHorizontal": 0,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -2189,6 +2200,7 @@ exports[`should render completed challenge correctly 1`] = `
                   "fontSize": 12,
                   "fontStyle": "normal",
                   "lineHeight": 16,
+                  "paddingHorizontal": 32,
                   "textAlignVertical": "center",
                   "textTransform": "none",
                 }
@@ -2460,7 +2472,7 @@ exports[`should render joined challenge correctly 1`] = `
                 Object {
                   "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
-                  "paddingHorizontal": 40,
+                  "paddingHorizontal": 32,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -2489,7 +2501,7 @@ exports[`should render joined challenge correctly 1`] = `
                 Object {
                   "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
-                  "paddingHorizontal": 40,
+                  "paddingHorizontal": 32,
                   "paddingVertical": 14,
                 },
                 Object {
@@ -2614,7 +2626,7 @@ exports[`should render joined challenge correctly 1`] = `
                 Object {
                   "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
-                  "paddingHorizontal": 40,
+                  "paddingHorizontal": 32,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -2629,6 +2641,7 @@ exports[`should render joined challenge correctly 1`] = `
                   "fontSize": 12,
                   "fontStyle": "normal",
                   "lineHeight": 16,
+                  "paddingHorizontal": 32,
                   "textAlignVertical": "center",
                   "textTransform": "none",
                 }
@@ -2657,6 +2670,7 @@ exports[`should render joined challenge correctly 1`] = `
             style={
               Array [
                 Object {
+                  "paddingHorizontal": 0,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -2671,6 +2685,7 @@ exports[`should render joined challenge correctly 1`] = `
                   "fontSize": 12,
                   "fontStyle": "normal",
                   "lineHeight": 16,
+                  "paddingHorizontal": 32,
                   "textAlignVertical": "center",
                   "textTransform": "none",
                 }
@@ -3024,7 +3039,7 @@ exports[`should render unjoined challenge correctly 1`] = `
                 Object {
                   "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
-                  "paddingHorizontal": 40,
+                  "paddingHorizontal": 32,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -3053,7 +3068,7 @@ exports[`should render unjoined challenge correctly 1`] = `
                 Object {
                   "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
-                  "paddingHorizontal": 40,
+                  "paddingHorizontal": 32,
                   "paddingVertical": 14,
                 },
                 Object {
@@ -3178,7 +3193,7 @@ exports[`should render unjoined challenge correctly 1`] = `
                 Object {
                   "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
-                  "paddingHorizontal": 40,
+                  "paddingHorizontal": 32,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -3193,6 +3208,7 @@ exports[`should render unjoined challenge correctly 1`] = `
                   "fontSize": 12,
                   "fontStyle": "normal",
                   "lineHeight": 16,
+                  "paddingHorizontal": 32,
                   "textAlignVertical": "center",
                   "textTransform": "none",
                 }
@@ -3221,6 +3237,7 @@ exports[`should render unjoined challenge correctly 1`] = `
             style={
               Array [
                 Object {
+                  "paddingHorizontal": 0,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -3235,6 +3252,7 @@ exports[`should render unjoined challenge correctly 1`] = `
                   "fontSize": 12,
                   "fontStyle": "normal",
                   "lineHeight": 16,
+                  "paddingHorizontal": 32,
                   "textAlignVertical": "center",
                   "textTransform": "none",
                 }
@@ -3519,7 +3537,7 @@ exports[`should render without edit correctly 1`] = `
                 Object {
                   "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
-                  "paddingHorizontal": 40,
+                  "paddingHorizontal": 32,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -3548,7 +3566,7 @@ exports[`should render without edit correctly 1`] = `
                 Object {
                   "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
-                  "paddingHorizontal": 40,
+                  "paddingHorizontal": 32,
                   "paddingVertical": 14,
                 },
                 Object {
@@ -3673,7 +3691,7 @@ exports[`should render without edit correctly 1`] = `
                 Object {
                   "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
-                  "paddingHorizontal": 40,
+                  "paddingHorizontal": 32,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -3688,6 +3706,7 @@ exports[`should render without edit correctly 1`] = `
                   "fontSize": 12,
                   "fontStyle": "normal",
                   "lineHeight": 16,
+                  "paddingHorizontal": 32,
                   "textAlignVertical": "center",
                   "textTransform": "none",
                 }
@@ -3716,6 +3735,7 @@ exports[`should render without edit correctly 1`] = `
             style={
               Array [
                 Object {
+                  "paddingHorizontal": 0,
                   "paddingVertical": 14,
                 },
                 Object {},
@@ -3730,6 +3750,7 @@ exports[`should render without edit correctly 1`] = `
                   "fontSize": 12,
                   "fontStyle": "normal",
                   "lineHeight": 16,
+                  "paddingHorizontal": 32,
                   "textAlignVertical": "center",
                   "textTransform": "none",
                 }

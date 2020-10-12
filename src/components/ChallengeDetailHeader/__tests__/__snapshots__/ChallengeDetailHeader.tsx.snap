@@ -35,7 +35,7 @@ exports[`render for active challenge 1`] = `
               Object {
                 "borderBottomColor": "#ECEEF2",
                 "borderBottomWidth": 1,
-                "paddingHorizontal": 40,
+                "paddingHorizontal": 32,
                 "paddingVertical": 14,
               },
               Object {},
@@ -64,7 +64,7 @@ exports[`render for active challenge 1`] = `
               Object {
                 "borderBottomColor": "#ECEEF2",
                 "borderBottomWidth": 1,
-                "paddingHorizontal": 40,
+                "paddingHorizontal": 32,
                 "paddingVertical": 14,
               },
               Object {
@@ -189,7 +189,7 @@ exports[`render for active challenge 1`] = `
               Object {
                 "borderBottomColor": "#ECEEF2",
                 "borderBottomWidth": 1,
-                "paddingHorizontal": 40,
+                "paddingHorizontal": 32,
                 "paddingVertical": 14,
               },
               Object {},
@@ -204,6 +204,7 @@ exports[`render for active challenge 1`] = `
                 "fontSize": 12,
                 "fontStyle": "normal",
                 "lineHeight": 16,
+                "paddingHorizontal": 32,
                 "textAlignVertical": "center",
                 "textTransform": "none",
               }
@@ -232,6 +233,7 @@ exports[`render for active challenge 1`] = `
           style={
             Array [
               Object {
+                "paddingHorizontal": 0,
                 "paddingVertical": 14,
               },
               Object {},
@@ -246,6 +248,7 @@ exports[`render for active challenge 1`] = `
                 "fontSize": 12,
                 "fontStyle": "normal",
                 "lineHeight": 16,
+                "paddingHorizontal": 32,
                 "textAlignVertical": "center",
                 "textTransform": "none",
               }
@@ -330,7 +333,7 @@ exports[`render for past challenge 1`] = `
               Object {
                 "borderBottomColor": "#ECEEF2",
                 "borderBottomWidth": 1,
-                "paddingHorizontal": 40,
+                "paddingHorizontal": 32,
                 "paddingVertical": 14,
               },
               Object {},
@@ -359,7 +362,7 @@ exports[`render for past challenge 1`] = `
               Object {
                 "borderBottomColor": "#ECEEF2",
                 "borderBottomWidth": 1,
-                "paddingHorizontal": 40,
+                "paddingHorizontal": 32,
                 "paddingVertical": 14,
               },
               Object {
@@ -484,7 +487,7 @@ exports[`render for past challenge 1`] = `
               Object {
                 "borderBottomColor": "#ECEEF2",
                 "borderBottomWidth": 1,
-                "paddingHorizontal": 40,
+                "paddingHorizontal": 32,
                 "paddingVertical": 14,
               },
               Object {},
@@ -499,6 +502,7 @@ exports[`render for past challenge 1`] = `
                 "fontSize": 12,
                 "fontStyle": "normal",
                 "lineHeight": 16,
+                "paddingHorizontal": 32,
                 "textAlignVertical": "center",
                 "textTransform": "none",
               }
@@ -527,6 +531,7 @@ exports[`render for past challenge 1`] = `
           style={
             Array [
               Object {
+                "paddingHorizontal": 0,
                 "paddingVertical": 14,
               },
               Object {},
@@ -541,6 +546,7 @@ exports[`render for past challenge 1`] = `
                 "fontSize": 12,
                 "fontStyle": "normal",
                 "lineHeight": 16,
+                "paddingHorizontal": 32,
                 "textAlignVertical": "center",
                 "textTransform": "none",
               }
@@ -625,7 +631,7 @@ exports[`renders no text when no details and not an admin 1`] = `
               Object {
                 "borderBottomColor": "#ECEEF2",
                 "borderBottomWidth": 1,
-                "paddingHorizontal": 40,
+                "paddingHorizontal": 32,
                 "paddingVertical": 14,
               },
               Object {},
@@ -654,7 +660,7 @@ exports[`renders no text when no details and not an admin 1`] = `
               Object {
                 "borderBottomColor": "#ECEEF2",
                 "borderBottomWidth": 1,
-                "paddingHorizontal": 40,
+                "paddingHorizontal": 32,
                 "paddingVertical": 14,
               },
               Object {
@@ -779,7 +785,7 @@ exports[`renders no text when no details and not an admin 1`] = `
               Object {
                 "borderBottomColor": "#ECEEF2",
                 "borderBottomWidth": 1,
-                "paddingHorizontal": 40,
+                "paddingHorizontal": 32,
                 "paddingVertical": 14,
               },
               Object {},
@@ -794,6 +800,7 @@ exports[`renders no text when no details and not an admin 1`] = `
                 "fontSize": 12,
                 "fontStyle": "normal",
                 "lineHeight": 16,
+                "paddingHorizontal": 32,
                 "textAlignVertical": "center",
                 "textTransform": "none",
               }
@@ -822,6 +829,7 @@ exports[`renders no text when no details and not an admin 1`] = `
           style={
             Array [
               Object {
+                "paddingHorizontal": 0,
                 "paddingVertical": 14,
               },
               Object {},
@@ -836,6 +844,7 @@ exports[`renders no text when no details and not an admin 1`] = `
                 "fontSize": 12,
                 "fontStyle": "normal",
                 "lineHeight": 16,
+                "paddingHorizontal": 32,
                 "textAlignVertical": "center",
                 "textTransform": "none",
               }
@@ -888,7 +897,7 @@ exports[`renders with details 1`] = `
               Object {
                 "borderBottomColor": "#ECEEF2",
                 "borderBottomWidth": 1,
-                "paddingHorizontal": 40,
+                "paddingHorizontal": 32,
                 "paddingVertical": 14,
               },
               Object {},
@@ -917,7 +926,7 @@ exports[`renders with details 1`] = `
               Object {
                 "borderBottomColor": "#ECEEF2",
                 "borderBottomWidth": 1,
-                "paddingHorizontal": 40,
+                "paddingHorizontal": 32,
                 "paddingVertical": 14,
               },
               Object {
@@ -1042,7 +1051,7 @@ exports[`renders with details 1`] = `
               Object {
                 "borderBottomColor": "#ECEEF2",
                 "borderBottomWidth": 1,
-                "paddingHorizontal": 40,
+                "paddingHorizontal": 32,
                 "paddingVertical": 14,
               },
               Object {},
@@ -1057,6 +1066,7 @@ exports[`renders with details 1`] = `
                 "fontSize": 12,
                 "fontStyle": "normal",
                 "lineHeight": 16,
+                "paddingHorizontal": 32,
                 "textAlignVertical": "center",
                 "textTransform": "none",
               }
@@ -1085,6 +1095,7 @@ exports[`renders with details 1`] = `
           style={
             Array [
               Object {
+                "paddingHorizontal": 0,
                 "paddingVertical": 14,
               },
               Object {},
@@ -1099,6 +1110,7 @@ exports[`renders with details 1`] = `
                 "fontSize": 12,
                 "fontStyle": "normal",
                 "lineHeight": 16,
+                "paddingHorizontal": 32,
                 "textAlignVertical": "center",
                 "textTransform": "none",
               }

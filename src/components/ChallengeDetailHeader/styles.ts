@@ -10,17 +10,19 @@ export default StyleSheet.create({
   },
   section: {
     paddingVertical: 14,
-    paddingHorizontal: 40,
+    paddingHorizontal: 32,
     borderBottomColor: theme.extraLightGrey,
     borderBottomWidth: 1,
   },
   detailSection: {
     paddingVertical: 14,
+    paddingHorizontal: 0,
   },
   title: theme.textLight24,
   subHeader: {
     ...theme.textRegular12,
     color: theme.lightGrey,
+    paddingHorizontal: 32,
   },
   dateText: theme.textRegular16,
 });

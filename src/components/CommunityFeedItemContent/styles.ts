@@ -6,7 +6,7 @@ import markdownStyles from '../../markdownStyles';
 export default StyleSheet.create({
   headerWrap: {
     paddingTop: 12,
-    paddingHorizontal: 20,
+    paddingHorizontal: 32,
   },
   headerRow: {
     flexDirection: 'row',
