@@ -49,6 +49,7 @@ it('times out after 15 seconds, ends recording and navigates back', async () => 
 
   expect(getByType(RNCamera).instance.recordAsync).toHaveBeenCalledWith({
     maxDuration: 15,
+    orientation: 'portrait',
   });
   expect(onEndRecord).toHaveBeenCalledWith(videoResponse);
   expect(navigateBack).toHaveBeenCalledWith();

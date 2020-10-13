@@ -43,7 +43,10 @@ export const RecordVideoScreen = () => {
       return;
     }
 
-    const response = await camera.current.recordAsync({ maxDuration: 15 });
+    const response = await camera.current.recordAsync({
+      maxDuration: 15,
+      orientation: 'portrait',
+    });
     onEndRecord(response);
 
     handleClose();
