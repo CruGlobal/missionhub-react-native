@@ -138,7 +138,6 @@ const SignInScreen = ({
             testID="forgotPasswordButton"
             text={t('forgotPassword')}
             type="transparent"
-            style={styles.forgotPasswordButton}
             buttonTextStyle={styles.forgotPasswordText}
             onPress={handleForgotPassword}
           />
