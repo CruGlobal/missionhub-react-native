@@ -369,8 +369,8 @@ export const CommunityFeedItemContent = ({
         {subject.__typename === 'CommunityPermission' ? (
           <Text style={styles.headerTextOnly}>{t('newMemberHeader')}</Text>
         ) : null}
-        {renderMessage()}
       </View>
+      {renderMessage()}
       {renderMedia()}
       {showLikeAndComment ? (
         <>
