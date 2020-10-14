@@ -259,13 +259,12 @@ exports[`Select video should select a video 1`] = `
     <View
       style={
         Object {
-@@ -247,137 +277,14 @@
-            ]
+@@ -248,136 +278,12 @@
           }
           testID=\\"PostInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
--       />
+        />
 -       <View
 -         style={
 -           Object {
@@ -304,7 +303,7 @@ exports[`Select video should select a video 1`] = `
 -               \\"width\\": 24,
 -             }
 -           }
-        />
+-         />
 -         <Text
 -           style={
 -             Object {
@@ -396,7 +395,6 @@ exports[`Select video should select a video 1`] = `
 +       <VideoPlayer
 +         onDelete={[Function handleDeleteVideo]}
 +         uri=\\"file:/video.mov\\"
-+         width={750}
         />
       </View>
     </RCTScrollView>
@@ -1785,7 +1783,6 @@ exports[`renders correctly for update post with video 1`] = `
       <VideoPlayer
         onDelete={[Function]}
         uri="file:/video.mov"
-        width={750}
       />
     </View>
   </RCTScrollView>

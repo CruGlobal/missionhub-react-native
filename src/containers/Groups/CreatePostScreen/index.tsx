@@ -471,11 +471,7 @@ export const CreatePostScreen = () => {
         />
       </ImagePicker>
     ) : mediaData && hasVideo ? (
-      <VideoPlayer
-        uri={mediaData}
-        onDelete={handleDeleteVideo}
-        width={theme.fullWidth}
-      />
+      <VideoPlayer uri={mediaData} onDelete={handleDeleteVideo} />
     ) : (
       renderVideoPhotoButtons()
     );
