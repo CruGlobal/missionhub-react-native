@@ -6,7 +6,7 @@ import moment from 'moment';
 
 import { Flex, DateComponent } from '../common';
 import ChallengeStats, { ChallengeItem } from '../ChallengeStats';
-import markdownStyles, { MarkdownRules } from '../../markdownStyles';
+import markdownStyles from '../../markdownStyles';
 
 import styles from './styles';
 
@@ -49,7 +49,7 @@ const ChallengeDetailHeader = ({
           </Flex>
           <Flex style={styles.detailSection}>
             <Text style={styles.subHeader}>{t('details')}</Text>
-            <Markdown rules={MarkdownRules} style={markdownStyles}>
+            <Markdown style={markdownStyles}>
               {details_markdown
                 ? details_markdown
                 : isAdmin

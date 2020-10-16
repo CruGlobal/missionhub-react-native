@@ -4,16 +4,14 @@ import { RenderRules } from 'react-native-markdown-display';
 
 import theme from './theme';
 
-const textStyle = theme.textRegular16;
+const bodyStyle = { ...theme.textRegular16, marginHorizontal: 32 };
 const heading1Style = {
   ...theme.textLight32,
   marginVertical: 10,
-  paddingHorizontal: 32,
 };
 const heading2Style = {
   ...theme.textLight24,
   marginVertical: 10,
-  paddingHorizontal: 32,
 };
 const heading3Style = {
   ...theme.textBold16,
@@ -21,7 +19,6 @@ const heading3Style = {
   lineHeight: 22,
   letterSpacing: 0,
   marginVertical: 16,
-  paddingHorizontal: 32,
   textTransform: 'none',
 };
 const strongStyle = {
@@ -52,18 +49,23 @@ const blockQuoteStyle = {
   width: '100%',
   backgroundColor: theme.extraLightGrey,
   paddingVertical: 16,
+  marginHorizontal: -32,
 };
 const horizontalLineStyle = {
-  left: -32,
   height: 1,
-  width: theme.fullWidth,
+  width: '100%',
   backgroundColor: theme.separatorColor,
   marginVertical: 8,
   marginHorizontal: 0,
 };
+const imageStyle = {
+  height: 300,
+  width: '100%',
+  marginHorizontal: -32,
+};
 
 export default StyleSheet.create({
-  body: textStyle,
+  body: bodyStyle,
   heading1: heading1Style,
   heading2: heading2Style,
   heading3: heading3Style,
@@ -74,22 +76,5 @@ export default StyleSheet.create({
   link: linkStyle,
   blockquote: blockQuoteStyle,
   hr: horizontalLineStyle,
+  image: imageStyle,
 });
-
-export const MarkdownRules: RenderRules = {
-  paragraph: (_, children) =>
-    createElement(
-      View,
-      {
-        style: {
-          ...paragraph,
-          paddingHorizontal: children.some(
-            c => isValidElement(c) && !!c.props.source,
-          )
-            ? 0
-            : 32,
-        },
-      },
-      children,
-    ),
-};

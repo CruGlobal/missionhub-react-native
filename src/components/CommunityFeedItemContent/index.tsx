@@ -35,7 +35,6 @@ import KebabIcon from '../../../assets/images/kebabIcon.svg';
 import ChallengesTarget from '../../../assets/images/challenge-target.svg';
 import theme from '../../theme';
 import { useFeatureFlags } from '../../utils/hooks/useFeatureFlags';
-import { MarkdownRules } from '../../markdownStyles';
 
 import {
   CommunityFeedItemContent as FeedItem,
@@ -246,11 +245,7 @@ export const CommunityFeedItemContent = ({
 
   const renderPostMessage = (
     subject: CommunityFeedItemContent_subject_Post,
-  ) => (
-    <Markdown rules={MarkdownRules} style={markdown}>
-      {subject.content}
-    </Markdown>
-  );
+  ) => <Markdown style={markdown}>{subject.content}</Markdown>;
 
   const renderHeader = () => (
     <View style={styles.headerWrap}>
