@@ -1,6 +1,4 @@
-import { createElement, isValidElement } from 'react';
-import { Platform, StyleSheet, View } from 'react-native';
-import { RenderRules } from 'react-native-markdown-display';
+import { Platform, StyleSheet } from 'react-native';
 
 import theme from './theme';
 

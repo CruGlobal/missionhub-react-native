@@ -257,13 +257,23 @@ exports[`render for active challenge 1`] = `
             Details
           </Text>
           <View
-            style={Object {}}
+            style={
+              Object {
+                "marginHorizontal": 32,
+              }
+            }
           >
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
-                  "paddingHorizontal": 32,
+                  "width": "100%",
                 }
               }
             >
@@ -555,13 +565,23 @@ exports[`render for past challenge 1`] = `
             Details
           </Text>
           <View
-            style={Object {}}
+            style={
+              Object {
+                "marginHorizontal": 32,
+              }
+            }
           >
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
-                  "paddingHorizontal": 32,
+                  "width": "100%",
                 }
               }
             >
@@ -853,7 +873,11 @@ exports[`renders no text when no details and not an admin 1`] = `
             Details
           </Text>
           <View
-            style={Object {}}
+            style={
+              Object {
+                "marginHorizontal": 32,
+              }
+            }
           />
         </View>
       </View>
@@ -1119,13 +1143,23 @@ exports[`renders with details 1`] = `
             Details
           </Text>
           <View
-            style={Object {}}
+            style={
+              Object {
+                "marginHorizontal": 32,
+              }
+            }
           >
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
-                  "paddingHorizontal": 32,
+                  "width": "100%",
                 }
               }
             >

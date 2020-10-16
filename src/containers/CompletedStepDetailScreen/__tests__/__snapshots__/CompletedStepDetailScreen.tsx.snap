@@ -237,13 +237,23 @@ exports[`post renders with post 1`] = `
         }
       >
         <View
-          style={Object {}}
+          style={
+            Object {
+              "marginHorizontal": 32,
+            }
+          }
         >
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
-                "paddingHorizontal": 32,
+                "width": "100%",
               }
             }
           >
@@ -397,6 +407,7 @@ exports[`post renders with post 1`] = `
           <View
             style={
               Object {
+                "marginHorizontal": 32,
                 "paddingBottom": 20,
               }
             }
@@ -404,8 +415,14 @@ exports[`post renders with post 1`] = `
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
-                  "paddingHorizontal": 32,
+                  "width": "100%",
                 }
               }
             >
@@ -699,13 +716,23 @@ exports[`post renders without post 1`] = `
         }
       >
         <View
-          style={Object {}}
+          style={
+            Object {
+              "marginHorizontal": 32,
+            }
+          }
         >
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
-                "paddingHorizontal": 32,
+                "width": "100%",
               }
             }
           >
@@ -1203,13 +1230,23 @@ exports[`with challenge suggestion renders correctly 1`] = `
         }
       >
         <View
-          style={Object {}}
+          style={
+            Object {
+              "marginHorizontal": 32,
+            }
+          }
         >
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
-                "paddingHorizontal": 32,
+                "width": "100%",
               }
             }
           >
@@ -1480,13 +1517,23 @@ exports[`without challenge suggestion renders correctly 1`] = `
         }
       >
         <View
-          style={Object {}}
+          style={
+            Object {
+              "marginHorizontal": 32,
+            }
+          }
         >
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
-                "paddingHorizontal": 32,
+                "width": "100%",
               }
             }
           >

@@ -928,13 +928,23 @@ exports[`Community renders post correctly with add to steps button 1`] = `
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "marginHorizontal": 32,
+              }
+            }
           >
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
-                  "paddingHorizontal": 32,
+                  "width": "100%",
                 }
               }
             >
@@ -1409,13 +1419,23 @@ exports[`Community renders post correctly without add to steps button 1`] = `
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "marginHorizontal": 32,
+              }
+            }
           >
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
-                  "paddingHorizontal": 32,
+                  "width": "100%",
                 }
               }
             >
@@ -1830,13 +1850,23 @@ exports[`Community renders post correctly without image 1`] = `
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "marginHorizontal": 32,
+              }
+            }
           >
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
-                  "paddingHorizontal": 32,
+                  "width": "100%",
                 }
               }
             >
@@ -2270,13 +2300,23 @@ exports[`Community renders post created by me correctly without add to steps but
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "marginHorizontal": 32,
+              }
+            }
           >
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
-                  "paddingHorizontal": 32,
+                  "width": "100%",
                 }
               }
             >
@@ -3081,13 +3121,23 @@ exports[`Community renders with clear notification button correctly 1`] = `
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "marginHorizontal": 32,
+              }
+            }
           >
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
-                  "paddingHorizontal": 32,
+                  "width": "100%",
                 }
               }
             >
@@ -3857,13 +3907,23 @@ exports[`global community renders post item correctly 1`] = `
       }
     >
       <View
-        style={Object {}}
+        style={
+          Object {
+            "marginHorizontal": 32,
+          }
+        }
       >
         <View
           style={
             Object {
+              "alignItems": "flex-start",
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+              "justifyContent": "flex-start",
+              "marginBottom": 10,
+              "marginTop": 10,
               "marginVertical": 10,
-              "paddingHorizontal": 32,
+              "width": "100%",
             }
           }
         >
@@ -4625,13 +4685,23 @@ exports[`renders with name pressable correctly 1`] = `
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "marginHorizontal": 32,
+              }
+            }
           >
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
-                  "paddingHorizontal": 32,
+                  "width": "100%",
                 }
               }
             >

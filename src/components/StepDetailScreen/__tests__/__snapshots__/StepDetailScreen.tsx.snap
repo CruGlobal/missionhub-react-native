@@ -320,6 +320,7 @@ exports[`Post is not null renders correctly with post 1`] = `
           <View
             style={
               Object {
+                "marginHorizontal": 32,
                 "paddingBottom": 20,
               }
             }
@@ -327,8 +328,14 @@ exports[`Post is not null renders correctly with post 1`] = `
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
-                  "paddingHorizontal": 32,
+                  "width": "100%",
                 }
               }
             >
@@ -705,6 +712,7 @@ exports[`Post is not null renders correctly with post with image 1`] = `
           <View
             style={
               Object {
+                "marginHorizontal": 32,
                 "paddingBottom": 20,
               }
             }
@@ -712,8 +720,14 @@ exports[`Post is not null renders correctly with post with image 1`] = `
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
-                  "paddingHorizontal": 32,
+                  "width": "100%",
                 }
               }
             >
@@ -1090,6 +1104,7 @@ exports[`Post is not null renders post without image 1`] = `
           <View
             style={
               Object {
+                "marginHorizontal": 32,
                 "paddingBottom": 20,
               }
             }
@@ -1097,8 +1112,14 @@ exports[`Post is not null renders post without image 1`] = `
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
-                  "paddingHorizontal": 32,
+                  "width": "100%",
                 }
               }
             >
@@ -1439,6 +1460,7 @@ exports[`Post is not null renders with an input 1`] = `
           <View
             style={
               Object {
+                "marginHorizontal": 32,
                 "paddingBottom": 20,
               }
             }
@@ -1446,8 +1468,14 @@ exports[`Post is not null renders with an input 1`] = `
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
-                  "paddingHorizontal": 32,
+                  "width": "100%",
                 }
               }
             >
@@ -1888,13 +1916,23 @@ exports[`markdown is not null renders correctly 1`] = `
         }
       >
         <View
-          style={Object {}}
+          style={
+            Object {
+              "marginHorizontal": 32,
+            }
+          }
         >
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
-                "paddingHorizontal": 32,
+                "width": "100%",
               }
             }
           >
@@ -2124,13 +2162,23 @@ exports[`markdown is not null renders correctly on android 1`] = `
         }
       >
         <View
-          style={Object {}}
+          style={
+            Object {
+              "marginHorizontal": 32,
+            }
+          }
         >
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
-                "paddingHorizontal": 32,
+                "width": "100%",
               }
             }
           >
@@ -2360,13 +2408,23 @@ exports[`markdown is not null renders correctly on android with bottom button pr
         }
       >
         <View
-          style={Object {}}
+          style={
+            Object {
+              "marginHorizontal": 32,
+            }
+          }
         >
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
-                "paddingHorizontal": 32,
+                "width": "100%",
               }
             }
           >
@@ -2653,13 +2711,23 @@ exports[`markdown is not null renders correctly with bottom button props 1`] = `
         }
       >
         <View
-          style={Object {}}
+          style={
+            Object {
+              "marginHorizontal": 32,
+            }
+          }
         >
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
-                "paddingHorizontal": 32,
+                "width": "100%",
               }
             }
           >
@@ -3379,13 +3447,23 @@ exports[`markdown with <<name>> to change renders correctly 1`] = `
         }
       >
         <View
-          style={Object {}}
+          style={
+            Object {
+              "marginHorizontal": 32,
+            }
+          }
         >
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
-                "paddingHorizontal": 32,
+                "width": "100%",
               }
             }
           >

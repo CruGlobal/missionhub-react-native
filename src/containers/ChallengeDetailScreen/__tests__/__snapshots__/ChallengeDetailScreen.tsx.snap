@@ -468,13 +468,23 @@ exports[`should call navigateBack from community name press 1`] = `
               Details
             </Text>
             <View
-              style={Object {}}
+              style={
+                Object {
+                  "marginHorizontal": 32,
+                }
+              }
             >
               <View
                 style={
                   Object {
+                    "alignItems": "flex-start",
+                    "flexDirection": "row",
+                    "flexWrap": "wrap",
+                    "justifyContent": "flex-start",
+                    "marginBottom": 10,
+                    "marginTop": 10,
                     "marginVertical": 10,
-                    "paddingHorizontal": 32,
+                    "width": "100%",
                   }
                 }
               >
@@ -1035,13 +1045,23 @@ exports[`should call navigateBack from press 1`] = `
               Details
             </Text>
             <View
-              style={Object {}}
+              style={
+                Object {
+                  "marginHorizontal": 32,
+                }
+              }
             >
               <View
                 style={
                   Object {
+                    "alignItems": "flex-start",
+                    "flexDirection": "row",
+                    "flexWrap": "wrap",
+                    "justifyContent": "flex-start",
+                    "marginBottom": 10,
+                    "marginTop": 10,
                     "marginVertical": 10,
-                    "paddingHorizontal": 32,
+                    "width": "100%",
                   }
                 }
               >
@@ -1642,13 +1662,23 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
               Details
             </Text>
             <View
-              style={Object {}}
+              style={
+                Object {
+                  "marginHorizontal": 32,
+                }
+              }
             >
               <View
                 style={
                   Object {
+                    "alignItems": "flex-start",
+                    "flexDirection": "row",
+                    "flexWrap": "wrap",
+                    "justifyContent": "flex-start",
+                    "marginBottom": 10,
+                    "marginTop": 10,
                     "marginVertical": 10,
-                    "paddingHorizontal": 32,
+                    "width": "100%",
                   }
                 }
               >
@@ -2209,13 +2239,23 @@ exports[`should render completed challenge correctly 1`] = `
               Details
             </Text>
             <View
-              style={Object {}}
+              style={
+                Object {
+                  "marginHorizontal": 32,
+                }
+              }
             >
               <View
                 style={
                   Object {
+                    "alignItems": "flex-start",
+                    "flexDirection": "row",
+                    "flexWrap": "wrap",
+                    "justifyContent": "flex-start",
+                    "marginBottom": 10,
+                    "marginTop": 10,
                     "marginVertical": 10,
-                    "paddingHorizontal": 32,
+                    "width": "100%",
                   }
                 }
               >
@@ -2694,13 +2734,23 @@ exports[`should render joined challenge correctly 1`] = `
               Details
             </Text>
             <View
-              style={Object {}}
+              style={
+                Object {
+                  "marginHorizontal": 32,
+                }
+              }
             >
               <View
                 style={
                   Object {
+                    "alignItems": "flex-start",
+                    "flexDirection": "row",
+                    "flexWrap": "wrap",
+                    "justifyContent": "flex-start",
+                    "marginBottom": 10,
+                    "marginTop": 10,
                     "marginVertical": 10,
-                    "paddingHorizontal": 32,
+                    "width": "100%",
                   }
                 }
               >
@@ -3261,13 +3311,23 @@ exports[`should render unjoined challenge correctly 1`] = `
               Details
             </Text>
             <View
-              style={Object {}}
+              style={
+                Object {
+                  "marginHorizontal": 32,
+                }
+              }
             >
               <View
                 style={
                   Object {
+                    "alignItems": "flex-start",
+                    "flexDirection": "row",
+                    "flexWrap": "wrap",
+                    "justifyContent": "flex-start",
+                    "marginBottom": 10,
+                    "marginTop": 10,
                     "marginVertical": 10,
-                    "paddingHorizontal": 32,
+                    "width": "100%",
                   }
                 }
               >
@@ -3759,7 +3819,11 @@ exports[`should render without edit correctly 1`] = `
               Details
             </Text>
             <View
-              style={Object {}}
+              style={
+                Object {
+                  "marginHorizontal": 32,
+                }
+              }
             />
           </View>
         </View>

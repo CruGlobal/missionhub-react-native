@@ -2000,13 +2000,23 @@ Array [
     }
   >
     <View
-      style={Object {}}
+      style={
+        Object {
+          "marginHorizontal": 32,
+        }
+      }
     >
       <View
         style={
           Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "marginBottom": 10,
+            "marginTop": 10,
             "marginVertical": 10,
-            "paddingHorizontal": 32,
+            "width": "100%",
           }
         }
       >
@@ -2395,13 +2405,23 @@ Array [
     }
   >
     <View
-      style={Object {}}
+      style={
+        Object {
+          "marginHorizontal": 32,
+        }
+      }
     >
       <View
         style={
           Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "marginBottom": 10,
+            "marginTop": 10,
             "marginVertical": 10,
-            "paddingHorizontal": 32,
+            "width": "100%",
           }
         }
       >
@@ -2850,13 +2870,23 @@ Array [
     }
   >
     <View
-      style={Object {}}
+      style={
+        Object {
+          "marginHorizontal": 32,
+        }
+      }
     >
       <View
         style={
           Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "marginBottom": 10,
+            "marginTop": 10,
             "marginVertical": 10,
-            "paddingHorizontal": 0,
+            "width": "100%",
           }
         }
       >
@@ -2888,12 +2918,15 @@ Array [
             Array [
               Object {
                 "flex": 1,
+                "height": 300,
+                "marginHorizontal": -32,
+                "width": "100%",
               },
               Object {
-                "flexGrow": 1,
+                "width": "100%",
               },
               Object {
-                "height": 0,
+                "height": 300,
               },
               Object {
                 "alignItems": "center",
@@ -3297,13 +3330,23 @@ Array [
     }
   >
     <View
-      style={Object {}}
+      style={
+        Object {
+          "marginHorizontal": 32,
+        }
+      }
     >
       <View
         style={
           Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "marginBottom": 10,
+            "marginTop": 10,
             "marginVertical": 10,
-            "paddingHorizontal": 32,
+            "width": "100%",
           }
         }
       >
@@ -3692,13 +3735,23 @@ Array [
     }
   >
     <View
-      style={Object {}}
+      style={
+        Object {
+          "marginHorizontal": 32,
+        }
+      }
     >
       <View
         style={
           Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "marginBottom": 10,
+            "marginTop": 10,
             "marginVertical": 10,
-            "paddingHorizontal": 32,
+            "width": "100%",
           }
         }
       >
@@ -7331,13 +7384,23 @@ Array [
     }
   >
     <View
-      style={Object {}}
+      style={
+        Object {
+          "marginHorizontal": 32,
+        }
+      }
     >
       <View
         style={
           Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "marginBottom": 10,
+            "marginTop": 10,
             "marginVertical": 10,
-            "paddingHorizontal": 32,
+            "width": "100%",
           }
         }
       >
@@ -7694,13 +7757,23 @@ Array [
     }
   >
     <View
-      style={Object {}}
+      style={
+        Object {
+          "marginHorizontal": 32,
+        }
+      }
     >
       <View
         style={
           Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "marginBottom": 10,
+            "marginTop": 10,
             "marginVertical": 10,
-            "paddingHorizontal": 32,
+            "width": "100%",
           }
         }
       >
@@ -8090,13 +8163,23 @@ Array [
     }
   >
     <View
-      style={Object {}}
+      style={
+        Object {
+          "marginHorizontal": 32,
+        }
+      }
     >
       <View
         style={
           Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "marginBottom": 10,
+            "marginTop": 10,
             "marginVertical": 10,
-            "paddingHorizontal": 32,
+            "width": "100%",
           }
         }
       >
@@ -8918,13 +9001,23 @@ Array [
     }
   >
     <View
-      style={Object {}}
+      style={
+        Object {
+          "marginHorizontal": 32,
+        }
+      }
     >
       <View
         style={
           Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "marginBottom": 10,
+            "marginTop": 10,
             "marginVertical": 10,
-            "paddingHorizontal": 32,
+            "width": "100%",
           }
         }
       >
@@ -9785,13 +9878,23 @@ Array [
     }
   >
     <View
-      style={Object {}}
+      style={
+        Object {
+          "marginHorizontal": 32,
+        }
+      }
     >
       <View
         style={
           Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "marginBottom": 10,
+            "marginTop": 10,
             "marginVertical": 10,
-            "paddingHorizontal": 32,
+            "width": "100%",
           }
         }
       >

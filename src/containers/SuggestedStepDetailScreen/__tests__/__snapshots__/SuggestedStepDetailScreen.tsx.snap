@@ -186,13 +186,23 @@ exports[`renders correctly 1`] = `
         }
       >
         <View
-          style={Object {}}
+          style={
+            Object {
+              "marginHorizontal": 32,
+            }
+          }
         >
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
-                "paddingHorizontal": 32,
+                "width": "100%",
               }
             }
           >
@@ -469,13 +479,23 @@ exports[`renders correctly for me 1`] = `
         }
       >
         <View
-          style={Object {}}
+          style={
+            Object {
+              "marginHorizontal": 32,
+            }
+          }
         >
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
-                "paddingHorizontal": 32,
+                "width": "100%",
               }
             }
           >
@@ -752,13 +772,23 @@ exports[`renders correctly in onboarding 1`] = `
         }
       >
         <View
-          style={Object {}}
+          style={
+            Object {
+              "marginHorizontal": 32,
+            }
+          }
         >
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
-                "paddingHorizontal": 32,
+                "width": "100%",
               }
             }
           >
