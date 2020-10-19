@@ -17,6 +17,7 @@ import {
 } from '../../../../../../actions/navigation';
 import FeedItemDetailScreen from '../FeedItemDetailScreen';
 import FeedCommentBox from '../FeedCommentBox';
+import * as common from '../../../../../../utils/common';
 import { PermissionEnum } from '../../../../../../../__generated__/globalTypes';
 
 jest.mock('../../../../../../utils/hooks/useKeyboardListeners');
@@ -54,6 +55,7 @@ beforeEach(() => {
   (navigateToCommunityFeed as jest.Mock).mockReturnValue({
     type: 'navigateToCommunityFeed',
   });
+  (common.copyText as jest.Mock) = jest.fn();
 });
 
 it('renders loading', () => {

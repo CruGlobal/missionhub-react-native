@@ -197,7 +197,7 @@ class MemberOptionsMenu extends Component<{
       buttonProps: { style: styles.container },
     };
 
-    return <PopupMenu {...props} />;
+    return <PopupMenu testID="popupMenu" {...props} />;
   }
 }
 

@@ -7,16 +7,15 @@ exports[`renders correctly 1`] = `
       Object {
         "flex": 1,
       },
-      Object {
-        "height": 300,
-      },
       undefined,
     ]
   }
 >
   <Video
     controls={false}
+    ignoreSilentSwitch="ignore"
     paused={true}
+    resizeMode="cover"
     source={
       Object {
         "uri": "testVideo.mp4",
@@ -24,13 +23,11 @@ exports[`renders correctly 1`] = `
     }
     style={
       Object {
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
+        "aspectRatio": 0.5625,
+        "width": "100%",
       }
     }
+    testID="Video"
   />
   <View
     accessible={true}
@@ -45,9 +42,11 @@ exports[`renders correctly 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "flex": 1,
+        "height": "100%",
         "justifyContent": "center",
         "opacity": 1,
+        "position": "absolute",
+        "width": "100%",
       }
     }
     testID="ControlsWrap"
@@ -80,9 +79,6 @@ exports[`renders with delete button 1`] = `
         "flex": 1,
       },
       Object {
-        "height": 300,
-      },
-      Object {
         "height": 1000,
       },
     ]
@@ -90,7 +86,9 @@ exports[`renders with delete button 1`] = `
 >
   <Video
     controls={false}
+    ignoreSilentSwitch="ignore"
     paused={true}
+    resizeMode="cover"
     source={
       Object {
         "uri": "testVideo.mp4",
@@ -98,13 +96,11 @@ exports[`renders with delete button 1`] = `
     }
     style={
       Object {
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
+        "aspectRatio": 0.5625,
+        "width": "100%",
       }
     }
+    testID="Video"
   />
   <View
     accessible={true}
@@ -119,9 +115,11 @@ exports[`renders with delete button 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "flex": 1,
+        "height": "100%",
         "justifyContent": "center",
         "opacity": 1,
+        "position": "absolute",
+        "width": "100%",
       }
     }
     testID="ControlsWrap"
@@ -182,17 +180,16 @@ exports[`renders with style 1`] = `
         "flex": 1,
       },
       Object {
-        "height": 300,
-      },
-      Object {
-        "height": 1000,
+        "padding": 10,
       },
     ]
   }
 >
   <Video
     controls={false}
+    ignoreSilentSwitch="ignore"
     paused={true}
+    resizeMode="cover"
     source={
       Object {
         "uri": "testVideo.mp4",
@@ -200,13 +197,11 @@ exports[`renders with style 1`] = `
     }
     style={
       Object {
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
+        "aspectRatio": 0.5625,
+        "width": "100%",
       }
     }
+    testID="Video"
   />
   <View
     accessible={true}
@@ -221,81 +216,11 @@ exports[`renders with style 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "flex": 1,
+        "height": "100%",
         "justifyContent": "center",
         "opacity": 1,
-      }
-    }
-    testID="ControlsWrap"
-  >
-    <View
-      style={
-        Object {
-          "alignItems": "flex-start",
-          "backgroundColor": "#00000066",
-          "borderRadius": 32,
-          "height": 64,
-          "justifyContent": "center",
-          "margin": 16,
-          "paddingLeft": 24,
-          "width": 64,
-        }
-      }
-    >
-      <SvgMock />
-    </View>
-  </View>
-</View>
-`;
-
-exports[`renders with width 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "flex": 1,
-      },
-      Object {
-        "height": 1600,
-      },
-      undefined,
-    ]
-  }
->
-  <Video
-    controls={false}
-    paused={true}
-    source={
-      Object {
-        "uri": "testVideo.mp4",
-      }
-    }
-    style={
-      Object {
-        "bottom": 0,
-        "left": 0,
         "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
-  />
-  <View
-    accessible={true}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "flex": 1,
-        "justifyContent": "center",
-        "opacity": 1,
+        "width": "100%",
       }
     }
     testID="ControlsWrap"

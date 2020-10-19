@@ -1,9 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`wrapProps should add extra props to component 1`] = `
-<Component
-  dispatch={[Function]}
+<TestWrapProps
   extraProp1={true}
   extraProp2={false}
+  navigation={
+    Object {
+      "actions": Object {
+        "goBack": [Function],
+        "navigate": [Function],
+        "setParams": [Function],
+      },
+      "addListener": [Function],
+      "dangerouslyGetParent": [Function],
+      "dispatch": [Function],
+      "emit": [Function],
+      "getChildNavigation": [Function],
+      "getParam": [Function],
+      "getScreenProps": [Function],
+      "goBack": [Function],
+      "isFirstRouteInParent": [Function],
+      "isFocused": [Function],
+      "navigate": [Function],
+      "router": undefined,
+      "setParams": [Function],
+      "state": Object {
+        "key": "TestScreen",
+        "params": undefined,
+        "routeName": "TestScreen",
+      },
+    }
+  }
 />
 `;

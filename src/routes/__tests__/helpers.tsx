@@ -1,7 +1,5 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { connect } from 'react-redux-legacy';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import { StackActions, NavigationScreenComponent } from 'react-navigation';
 
 import {
@@ -11,27 +9,23 @@ import {
   wrapProps,
   buildTrackedScreen,
 } from '../helpers';
-import { renderShallow, testSnapshotShallow } from '../../../testUtils';
-
-const store = configureStore([thunk])();
+import { renderWithContext } from '../../../testUtils';
 
 const nextScreenName = 'testNextScreenName';
 const routeParams = { testKey: 'testValue' };
 
-const TestComponent = connect()(({ next, dispatch }) =>
+const TestComponent = connect()(({ next, dispatch }) => {
   // @ts-ignore
-  dispatch(next(routeParams)),
-);
+  dispatch(next(routeParams));
 
-beforeEach(() => {
-  store.clearActions();
+  return null;
 });
 
 describe('wrapNextScreen', () => {
   it('should pass the next prop and fire a navigatePush action with the provided screen name', () => {
     const WrappedTestComponent = wrapNextScreen(TestComponent, nextScreenName);
 
-    renderShallow(<WrappedTestComponent />, store).dive();
+    const { store } = renderWithContext(<WrappedTestComponent />);
 
     expect(store.getActions()).toEqual([
       StackActions.push({
@@ -49,7 +43,7 @@ describe('wrapNextScreenFn', () => {
       () => nextScreenName,
     );
 
-    renderShallow(<WrappedTestComponent />, store).dive();
+    const { store } = renderWithContext(<WrappedTestComponent />);
 
     expect(store.getActions()).toEqual([
       StackActions.push({
@@ -67,7 +61,7 @@ describe('wrapNextAction', () => {
       props => dispatch => dispatch({ type: 'test', nextScreenName, props }),
     );
 
-    renderShallow(<WrappedTestComponent />, store).dive();
+    const { store } = renderWithContext(<WrappedTestComponent />);
 
     expect(store.getActions()).toEqual([
       {
@@ -81,12 +75,15 @@ describe('wrapNextAction', () => {
 
 describe('wrapProps', () => {
   it('should add extra props to component', () => {
-    const WrappedTestComponent = wrapProps(TestComponent, {
-      extraProp1: true,
-      extraProp2: false,
-    });
+    const WrappedTestComponent = wrapProps(
+      ('TestWrapProps' as unknown) as FunctionComponent,
+      {
+        extraProp1: true,
+        extraProp2: false,
+      },
+    );
 
-    testSnapshotShallow(<WrappedTestComponent />, store);
+    renderWithContext(<WrappedTestComponent />).snapshot();
   });
 });
 

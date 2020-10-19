@@ -1,38 +1,27 @@
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import i18next from 'i18next';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
-import {
-  renderShallow,
-  createMockNavState,
-  testSnapshotShallow,
-} from '../../../../../testUtils';
+import { renderWithContext } from '../../../../../testUtils';
 import { navigateBack } from '../../../../actions/navigation';
-import JoinGroupScreen from '..';
+import DeepLinkConfirmJoinGroupScreen from '..';
+import { lookupOrgCommunityUrl } from '../../../../actions/organizations';
 
 jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'back' })),
   navigateReset: jest.fn(() => ({ type: 'reset' })),
 }));
 jest.mock('../../../../actions/organizations', () => ({
-  lookupOrgCommunityCode: jest.fn(() => ({
-    type: 'lookup',
-    name: 'test',
-  })),
+  lookupOrgCommunityUrl: jest.fn(),
   joinCommunity: jest.fn(() => ({
     type: 'join',
     name: 'test',
   })),
 }));
 jest.mock('../../../../actions/analytics', () => ({
-  trackActionWithoutData: jest.fn(() => ({ type: 'track' })),
+  trackActionWithoutData: jest.fn(() => ({ type: 'trackActionWithoutData' })),
+  trackScreenChange: jest.fn(() => ({ type: 'trackScreenChange' })),
 }));
-
-// @ts-ignore
-global.setTimeout = jest.fn();
-
-const mockStore = configureStore([thunk]);
-let store = mockStore();
 
 const mockCommunity = {
   id: '123',
@@ -46,73 +35,82 @@ const mockCommunity = {
 
 const mockNext = jest.fn(() => ({ type: 'nextTest' }));
 
-// @ts-ignore
-function buildScreen(props) {
-  const component = renderShallow(
-    <JoinGroupScreen
-      navigation={createMockNavState()}
-      {...props}
-      next={mockNext}
-    />,
-    store,
-  );
-  // @ts-ignore
-  component.instance().codeInput = { focus: jest.fn() };
-  return component;
-}
-
-beforeEach(() => {
-  store = mockStore();
-});
+const initialState = {
+  onboarding: {},
+  drawer: {},
+};
 
 describe('DeepLinkConfirmJoinGroupScreen', () => {
   it('renders start correctly', () => {
-    testSnapshotShallow(
+    renderWithContext(
       // @ts-ignore
-      <JoinGroupScreen navigation={createMockNavState()} next={mockNext} />,
-      store,
+      <DeepLinkConfirmJoinGroupScreen next={mockNext} />,
+      { initialState },
+    ).snapshot();
+  });
+
+  it('renders group card correctly', async () => {
+    (lookupOrgCommunityUrl as jest.Mock).mockReturnValue(() =>
+      Promise.resolve(mockCommunity),
     );
+
+    const { snapshot, getByText } = renderWithContext(
+      // @ts-ignore
+      <DeepLinkConfirmJoinGroupScreen next={mockNext} />,
+      { initialState },
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
+
+    expect(() => getByText(mockCommunity.name.toUpperCase())).not.toThrow();
   });
 
-  it('renders group card correctly', () => {
-    // @ts-ignore
-    const component = buildScreen();
-    component.setState({ community: mockCommunity });
-    component.update();
+  it('renders error correctly', async () => {
+    (lookupOrgCommunityUrl as jest.Mock).mockReturnValue(() =>
+      Promise.reject(),
+    );
 
-    expect(component).toMatchSnapshot();
-  });
+    const { getByText } = renderWithContext(
+      // @ts-ignore
+      <DeepLinkConfirmJoinGroupScreen next={mockNext} />,
+      { initialState },
+    );
 
-  it('renders error correctly', () => {
-    // @ts-ignore
-    const component = buildScreen();
-    component.setState({ error: 'error message' });
-    component.update();
+    await flushMicrotasksQueue();
 
-    expect(component).toMatchSnapshot();
+    expect(() =>
+      getByText(i18next.t('groupsJoinGroup:communityNotFoundLink')),
+    ).not.toThrow();
   });
 
   it('should join community', async () => {
-    // @ts-ignore
-    const component = buildScreen();
+    (lookupOrgCommunityUrl as jest.Mock).mockReturnValue(() =>
+      Promise.resolve(mockCommunity),
+    );
 
-    component.setState({ community: mockCommunity, errorMessage: '' });
-    component.update();
+    const { getByTestId } = renderWithContext(
+      // @ts-ignore
+      <DeepLinkConfirmJoinGroupScreen next={mockNext} />,
+      { initialState },
+    );
 
-    await component
-      .childAt(2)
-      .childAt(0)
-      .props()
-      .onJoin();
+    await flushMicrotasksQueue();
+
+    fireEvent(getByTestId('groupCardItem'), 'onJoin');
 
     expect(mockNext).toHaveBeenCalledWith({ community: mockCommunity });
   });
 
   it('should call navigate back', () => {
-    // @ts-ignore
-    const component = buildScreen();
-    const backButton = component.childAt(1).props().left;
-    backButton.props.onPress();
+    const { getByTestId } = renderWithContext(
+      // @ts-ignore
+      <DeepLinkConfirmJoinGroupScreen next={mockNext} />,
+      { initialState },
+    );
+
+    fireEvent.press(getByTestId('backButton'));
 
     expect(navigateBack).toHaveBeenCalled();
   });

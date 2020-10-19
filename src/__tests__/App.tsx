@@ -1,13 +1,6 @@
 import React from 'react';
 import ReactNative from 'react-native';
-// @ts-ignore
-import Adapter from 'enzyme-adapter-react-16/build/index';
-// @ts-ignore
-import Enzyme, { shallow } from 'enzyme/build/index';
-
-jest.mock('react-native-vector-icons/MaterialIcons', () => ({
-  loadFont: jest.fn(),
-}));
+import { fireEvent } from 'react-native-testing-library';
 
 import App from '../App';
 import {
@@ -23,21 +16,18 @@ import { setupFirebaseDynamicLinks } from '../actions/deepLink';
 import { getFeatureFlags } from '../actions/misc';
 import locale from '../i18n/locales/en-US';
 import { rollbar } from '../utils/rollbar.config';
+import { renderWithContext } from '../../testUtils';
 
-Enzyme.configure({ adapter: new Adapter() });
-
-jest.mock('../AppNavigator', () => ({ AppNavigator: 'mockAppNavigator' }));
+jest.mock('react-native-vector-icons/MaterialIcons', () => ({
+  loadFont: jest.fn(),
+}));
+jest.mock('../AppNavigator', () => 'AppWithNavigationState');
 jest.mock('../actions/misc');
 jest.mock('../actions/navigationInit');
 jest.mock('../actions/notifications');
 jest.mock('../actions/deepLink');
 
-// @ts-ignore
-global.window = {};
-
-const logoutResponse = { type: 'logged out' };
-// @ts-ignore
-auth.logout = jest.fn().mockReturnValue(logoutResponse);
+jest.spyOn(auth, 'logout').mockReturnValue(() => Promise.resolve());
 
 jest.mock('react-navigation-redux-helpers', () => ({
   createReactNavigationReduxMiddleware: jest.fn(),
@@ -47,7 +37,7 @@ jest.mock('../store', () => ({
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   store: require('../../testUtils').createThunkStore(),
 
-  persistor: {},
+  persistor: { subscribe: jest.fn(), getState: jest.fn().mockReturnValue({}) },
 }));
 
 const { youreOffline, connectToInternet } = locale.offline;
@@ -78,19 +68,16 @@ beforeEach(() => {
     .mockImplementation((_, __, buttons) => buttons[0].onPress());
 });
 
-// @ts-ignore
-const testApp = async response => {
-  const shallowScreen = shallow(<App />);
+const testApp = (response: Parameters<typeof App.prototype.handleError>[0]) => {
+  renderWithContext(<App />);
 
-  await shallowScreen.instance().handleError(response);
-
-  return shallowScreen;
+  window.onunhandledrejection?.({ reason: response } as PromiseRejectionEvent);
 };
 
 it('calls actions onBeforeLift', async () => {
-  const shallowScreen = shallow(<App />);
+  const { getByTestId } = renderWithContext(<App />);
 
-  await shallowScreen.instance().onBeforeLift();
+  await fireEvent(getByTestId('persistGate'), 'onBeforeLift');
 
   expect(configureNotificationHandler).toHaveBeenCalledWith();
   expect(setupFirebaseDynamicLinks).toHaveBeenCalledWith();
@@ -128,7 +115,12 @@ it('should not show alert for invalid grant', () => {
 it('should not show alert if not ApiError', () => {
   const message = 'some message\nwith break';
 
-  testApp({ key: 'test', method: '', message });
+  testApp({
+    key: 'test',
+    method: '',
+    // @ts-ignore // Would be better to test this with ErrorUtils.setGlobalHandler instead of window.onunhandledrejection
+    message,
+  });
 
   expect(ReactNative.Alert.alert).not.toHaveBeenCalled();
 });
@@ -155,7 +147,7 @@ describe('__DEV__ === false', () => {
     __DEV__ = dev;
   });
 
-  it('Sends Rollbar report for API error', async () => {
+  it('Sends Rollbar report for API error', () => {
     const apiError = {
       apiError: { message: 'Error Text' },
       key: 'ADD_NEW_PERSON',
@@ -164,7 +156,7 @@ describe('__DEV__ === false', () => {
       query: { filters: { organization_ids: '1' } },
     };
 
-    await testApp(apiError);
+    testApp(apiError);
 
     expect(rollbar.error).toHaveBeenCalledWith(
       Error(
@@ -179,20 +171,21 @@ describe('__DEV__ === false', () => {
     );
   });
 
-  it('Sends Rollbar report for JS Error', async () => {
+  it('Sends Rollbar report for JS Error', () => {
     const errorName = 'Error Name';
     const errorDetails = 'Error Details';
     const error = Error(`${errorName}\n${errorDetails}`);
 
-    await testApp(error);
+    // @ts-ignore // Would be better to test this with ErrorUtils.setGlobalHandler instead of window.onunhandledrejection
+    testApp(error);
 
     expect(rollbar.error).toHaveBeenCalledWith(error);
   });
 
-  it('Sends Rollbar report for unknown error', async () => {
+  it('Sends Rollbar report for unknown error', () => {
     const unknownError = { key: 'test', method: '' };
 
-    await testApp(unknownError);
+    testApp(unknownError);
 
     expect(rollbar.error).toHaveBeenCalledWith(
       Error(`Unknown Error:\n${JSON.stringify(unknownError, null, 2)}`),

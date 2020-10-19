@@ -8,6 +8,7 @@ import {
   getTheKeyRefreshToken,
   getAppleUserId,
   getAnonymousUid,
+  getMissionHubRefreshToken,
 } from '../authStore';
 import { useSignInWithTheKey } from '../providers/useSignInWithTheKey';
 import { useSignInWithAnonymous } from '../providers/useSignInWithAnonymous';
@@ -16,6 +17,7 @@ import { useSignInWithGoogle } from '../providers/useSignInWithGoogle';
 import { useSignInWithApple } from '../providers/useSignInWithApple';
 import { logout } from '../../actions/auth/auth';
 import { useAuthSuccess } from '../authHooks';
+import { useSignInWithRefreshToken } from '../providers/useSignInWithRefreshToken';
 
 jest.mock('../authStore');
 jest.mock('../providers/useSignInWithTheKey');
@@ -23,6 +25,7 @@ jest.mock('../providers/useSignInWithAnonymous');
 jest.mock('../providers/useSignInWithFacebook');
 jest.mock('../providers/useSignInWithGoogle');
 jest.mock('../providers/useSignInWithApple');
+jest.mock('../providers/useSignInWithRefreshToken');
 jest.mock('react-native-fbsdk', () => ({
   AccessToken: { getCurrentAccessToken: jest.fn() },
 }));
@@ -43,12 +46,17 @@ const signInWithGoogle = jest.fn();
 (useSignInWithGoogle as jest.Mock).mockReturnValue({ signInWithGoogle });
 const signInWithApple = jest.fn();
 (useSignInWithApple as jest.Mock).mockReturnValue({ signInWithApple });
+const signInWithRefreshToken = jest.fn();
+(useSignInWithRefreshToken as jest.Mock).mockReturnValue({
+  signInWithRefreshToken,
+});
 const authSuccess = jest.fn();
 (useAuthSuccess as jest.Mock).mockReturnValue(authSuccess);
 
 beforeEach(() => {
   (isAuthenticated as jest.Mock).mockReturnValue(true);
   (getTheKeyRefreshToken as jest.Mock).mockResolvedValue(null);
+  (getMissionHubRefreshToken as jest.Mock).mockResolvedValue(null);
   (getAnonymousUid as jest.Mock).mockResolvedValue(null);
   (AccessToken.getCurrentAccessToken as jest.Mock).mockResolvedValue(null);
   (GoogleSignin.isSignedIn as jest.Mock).mockResolvedValue(false);
@@ -62,6 +70,25 @@ it('should return false for unauthenticated users', async () => {
 
   expect(await authRefresh()).toEqual(false);
   expect(authSuccess).not.toHaveBeenCalled();
+});
+
+it('should return true if a refresh token exists', async () => {
+  (getMissionHubRefreshToken as jest.Mock).mockResolvedValue(token);
+
+  expect(await authRefresh()).toEqual(true);
+  expect(signInWithRefreshToken).toHaveBeenCalled();
+  expect(authSuccess).toHaveBeenCalled();
+});
+
+it("should try refreshing with an auth provider if there's an error using the refresh token", async () => {
+  (getMissionHubRefreshToken as jest.Mock).mockResolvedValue(token);
+  (getAppleUserId as jest.Mock).mockResolvedValue(token);
+  signInWithRefreshToken.mockRejectedValue('some api error');
+
+  expect(await authRefresh()).toEqual(true);
+  expect(signInWithRefreshToken).toHaveBeenCalled();
+  expect(signInWithApple).toHaveBeenCalledWith(token);
+  expect(authSuccess).toHaveBeenCalled();
 });
 
 it('should return true if a key refresh token exists', async () => {

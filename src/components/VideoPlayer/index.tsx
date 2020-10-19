@@ -15,26 +15,25 @@ interface VideoPlayerProps {
   uri: string;
   style?: StyleProp<ViewStyle>;
   onDelete?: () => void;
-  width?: number;
 }
 
-const VideoPlayer = ({ uri, style, onDelete, width }: VideoPlayerProps) => {
+const VideoPlayer = ({ uri, style, onDelete }: VideoPlayerProps) => {
   const dispatch = useDispatch();
 
   const openFullScreen = () => {
     dispatch(navigatePush(VIDEO_FULL_SCREEN, { uri }));
   };
 
-  const ratio = 16.0 / 9.0;
-  const height = (width && ratio * width) || 300;
-
   return (
-    <View style={[styles.videoContainer, { height }, style]}>
+    <View style={[styles.videoContainer, style]}>
       <Video
+        testID="Video"
+        resizeMode={'cover'}
         source={{ uri }}
         controls={false}
         paused={true}
         style={styles.videoPlayer}
+        ignoreSilentSwitch="ignore"
       />
       <Touchable
         testID="ControlsWrap"

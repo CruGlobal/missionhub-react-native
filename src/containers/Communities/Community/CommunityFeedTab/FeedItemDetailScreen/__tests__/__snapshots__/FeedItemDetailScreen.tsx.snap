@@ -695,6 +695,10 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
             Array [
               Object {
                 "onPress": [Function],
+                "text": "Copy",
+              },
+              Object {
+                "onPress": [Function],
                 "text": "Report to Owner",
               },
             ]
@@ -725,6 +729,10 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
           isEditing={false}
           menuActions={
             Array [
+              Object {
+                "onPress": [Function],
+                "text": "Copy",
+              },
               Object {
                 "onPress": [Function],
                 "text": "Report to Owner",
@@ -1152,6 +1160,40 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                 What's on Your Mind
               </Text>
             </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "flex-end",
+                  "flex": 1,
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                    "paddingLeft": 30,
+                    "paddingRight": 12,
+                    "paddingVertical": 5,
+                  }
+                }
+                testID="popupMenuButton"
+              >
+                <SvgMock
+                  color="#B4B6BA"
+                />
+              </View>
+            </View>
           </View>
           <View
             style={
@@ -1513,6 +1555,10 @@ exports[`edit/delete post edit and delete for my post 1`] = `
             Array [
               Object {
                 "onPress": [Function],
+                "text": "Copy",
+              },
+              Object {
+                "onPress": [Function],
                 "text": "Report to Owner",
               },
             ]
@@ -1543,6 +1589,10 @@ exports[`edit/delete post edit and delete for my post 1`] = `
           isEditing={false}
           menuActions={
             Array [
+              Object {
+                "onPress": [Function],
+                "text": "Copy",
+              },
               Object {
                 "onPress": [Function],
                 "text": "Report to Owner",
@@ -1970,6 +2020,40 @@ exports[`edit/delete post no options for not my post 1`] = `
                 What's on Your Mind
               </Text>
             </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "flex-end",
+                  "flex": 1,
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                    "paddingLeft": 30,
+                    "paddingRight": 12,
+                    "paddingVertical": 5,
+                  }
+                }
+                testID="popupMenuButton"
+              >
+                <SvgMock
+                  color="#B4B6BA"
+                />
+              </View>
+            </View>
           </View>
           <View
             style={
@@ -2331,6 +2415,10 @@ exports[`edit/delete post no options for not my post 1`] = `
             Array [
               Object {
                 "onPress": [Function],
+                "text": "Copy",
+              },
+              Object {
+                "onPress": [Function],
                 "text": "Report to Owner",
               },
             ]
@@ -2361,6 +2449,10 @@ exports[`edit/delete post no options for not my post 1`] = `
           isEditing={false}
           menuActions={
             Array [
+              Object {
+                "onPress": [Function],
+                "text": "Copy",
+              },
               Object {
                 "onPress": [Function],
                 "text": "Report to Owner",
@@ -2698,7 +2790,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             isEditing={false}
             menuActions={
-@@ -632,19 +649,19 @@
+@@ -636,19 +653,19 @@
         >
           <CommentItem
             comment={
@@ -2725,7 +2817,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             isEditing={false}
             menuActions={
-@@ -673,22 +690,22 @@
+@@ -681,22 +698,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
@@ -3446,6 +3538,10 @@ exports[`renders correctly 1`] = `
           menuActions={
             Array [
               Object {
+                "onPress": [Function],
+                "text": "Copy",
+              },
+              Object {
                 "destructive": true,
                 "onPress": [Function],
                 "text": "Delete Comment",
@@ -3478,6 +3574,10 @@ exports[`renders correctly 1`] = `
           isEditing={false}
           menuActions={
             Array [
+              Object {
+                "onPress": [Function],
+                "text": "Copy",
+              },
               Object {
                 "destructive": true,
                 "onPress": [Function],
@@ -4300,6 +4400,10 @@ exports[`renders correctly with communityId passed in 1`] = `
           menuActions={
             Array [
               Object {
+                "onPress": [Function],
+                "text": "Copy",
+              },
+              Object {
                 "destructive": true,
                 "onPress": [Function],
                 "text": "Delete Comment",
@@ -4332,6 +4436,10 @@ exports[`renders correctly with communityId passed in 1`] = `
           isEditing={false}
           menuActions={
             Array [
+              Object {
+                "onPress": [Function],
+                "text": "Copy",
+              },
               Object {
                 "destructive": true,
                 "onPress": [Function],

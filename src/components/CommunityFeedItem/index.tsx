@@ -17,10 +17,10 @@ import { useIsMe } from '../../utils/hooks/useIsMe';
 import {
   CommunityFeedItem as FeedItemFragment,
   CommunityFeedItem_subject,
-  CommunityFeedItem_subject_Post,
+  CommunityFeedItem_subject_Post as PostSubject,
 } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
 import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
-import { canModifyFeedItemSubject } from '../../utils/common';
+import { canModifyFeedItemSubject, copyText } from '../../utils/common';
 
 import styles from './styles';
 import { DeletePost, DeletePostVariables } from './__generated__/DeletePost';
@@ -116,15 +116,13 @@ export const CommunityFeedItem = ({
     );
   }
   const deleteFeedItem = useDeleteFeedItem(feedItem, onEditPost);
-  const editFeedItem = useEditFeedItem(
-    feedItem.subject,
-    community?.id,
-    onEditPost,
-  );
+  const editFeedItem = useEditFeedItem(subject, community?.id, onEditPost);
 
-  const isPost = (
-    subject: CommunityFeedItem_subject,
-  ): subject is CommunityFeedItem_subject_Post => subject.__typename === 'Post';
+  const isPost = (subject: CommunityFeedItem_subject): subject is PostSubject =>
+    subject.__typename === 'Post';
+  const canModify = canModifyFeedItemSubject(subject);
+  const hasSubjectContent =
+    isPost(subject) && (subject as PostSubject).content != '';
 
   const handlePress = () =>
     dispatch(
@@ -145,27 +143,28 @@ export const CommunityFeedItem = ({
       },
     ]);
 
-  const canModify = canModifyFeedItemSubject(subject);
+  const handleCopyPost = () =>
+    isPost(subject) && hasSubjectContent && copyText(subject.content);
+
+  const copyAction = [{ text: t('copy.buttonText'), onPress: handleCopyPost }];
+  const meActions = [
+    { text: t('edit.buttonText'), onPress: editFeedItem },
+    {
+      text: t('delete.buttonText'),
+      onPress: () => deleteFeedItem(),
+      destructive: true,
+    },
+  ];
+  const notMeActions = [
+    { text: t('report.buttonText'), onPress: handleReport },
+  ];
+
   const menuActions =
     !isGlobal && isPost(subject)
-      ? isMe && canModify
-        ? [
-            {
-              text: t('edit.buttonText'),
-              onPress: () => editFeedItem(),
-            },
-            {
-              text: t('delete.buttonText'),
-              onPress: () => deleteFeedItem(),
-              destructive: true,
-            },
-          ]
-        : [
-            {
-              text: t('report.buttonText'),
-              onPress: () => handleReport(),
-            },
-          ]
+      ? [
+          ...(hasSubjectContent ? copyAction : []),
+          ...(isMe && canModify ? meActions : notMeActions),
+        ]
       : [];
 
   const renderClearNotificationButton = () => (

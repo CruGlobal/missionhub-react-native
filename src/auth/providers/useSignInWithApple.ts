@@ -8,6 +8,7 @@ import { useMutation } from '@apollo/react-hooks';
 
 import {
   setAuthToken,
+  setMissionHubRefreshToken,
   getAnonymousUid,
   setAppleUserId,
   deleteAnonymousUid,
@@ -151,6 +152,8 @@ export const useSignInWithApple = () => {
 
       if (data?.loginWithApple?.token) {
         await setAuthToken(data.loginWithApple.token);
+        data.loginWithApple.refreshToken &&
+          (await setMissionHubRefreshToken(data.loginWithApple.refreshToken));
         await setAppleUserId(userId);
         await deleteAnonymousUid();
       } else {

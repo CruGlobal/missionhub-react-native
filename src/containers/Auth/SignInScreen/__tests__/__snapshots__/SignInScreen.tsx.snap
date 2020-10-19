@@ -31,7 +31,7 @@ exports[`key login button is pressed key login is called 1`] = `
           buttonTextStyle={
             Object {
               \\"color\\": \\"#3CC8E6\\",
-@@ -158,136 +158,44 @@
+@@ -153,136 +153,44 @@
           text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
@@ -209,7 +209,7 @@ exports[`key login button is pressed mfa_required is returned from the Key shoul
       <View
         style={
           Object {
-@@ -158,136 +158,44 @@
+@@ -153,136 +153,44 @@
           text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
@@ -400,7 +400,7 @@ exports[`key login button is pressed should not call next when an auth error is 
           buttonTextStyle={
             Object {
               \\"color\\": \\"#3CC8E6\\",
-@@ -158,136 +158,44 @@
+@@ -153,136 +153,44 @@
           text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
@@ -790,11 +790,6 @@ exports[`renders correctly 1`] = `
           }
         }
         onPress={[Function]}
-        style={
-          Object {
-            "width": 130,
-          }
-        }
         testID="forgotPasswordButton"
         text="Forgot Password?"
         type="transparent"
@@ -1089,11 +1084,6 @@ Please sign in so we know it's you.
           }
         }
         onPress={[Function]}
-        style={
-          Object {
-            "width": 130,
-          }
-        }
         testID="forgotPasswordButton"
         text="Forgot Password?"
         type="transparent"

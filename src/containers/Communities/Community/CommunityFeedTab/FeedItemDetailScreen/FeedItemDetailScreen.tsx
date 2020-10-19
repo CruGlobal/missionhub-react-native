@@ -36,6 +36,7 @@ import {
   isAdminOrOwner,
   canModifyFeedItemSubject,
   orgIsGlobal,
+  copyText,
 } from '../../../../../utils/common';
 import theme from '../../../../../theme';
 
@@ -45,6 +46,8 @@ import { FEED_ITEM_DETAIL_QUERY } from './queries';
 import {
   FeedItemDetail,
   FeedItemDetailVariables,
+  FeedItemDetail_feedItem_subject_Post as PostSubject,
+  FeedItemDetail_feedItem_subject,
 } from './__generated__/FeedItemDetail';
 
 const FeedItemDetailScreen = () => {
@@ -81,6 +84,14 @@ const FeedItemDetailScreen = () => {
   });
 
   const isGlobal = orgIsGlobal({ id: communityId || GLOBAL_COMMUNITY_ID });
+  const isPost = (
+    subject: FeedItemDetail_feedItem_subject,
+  ): subject is PostSubject => subject.__typename === 'Post';
+  const canModify = canModifyFeedItemSubject(data?.feedItem.subject);
+  const hasSubjectContent =
+    data &&
+    isPost(data.feedItem.subject) &&
+    data.feedItem.subject.content != '';
 
   const [editingCommentId, setEditingCommentId] = useState<string>();
 
@@ -149,6 +160,40 @@ const FeedItemDetailScreen = () => {
       : dispatch(navigateBack());
   };
 
+  const handleCopyPost = () =>
+    data &&
+    isPost(data.feedItem.subject) &&
+    hasSubjectContent &&
+    copyText(data.feedItem.subject.content);
+
+  const copyAction = [
+    {
+      text: t('communityFeedItems:copy.buttonText'),
+      onPress: handleCopyPost,
+    },
+  ];
+  const editAction = [
+    {
+      text: t('communityFeedItems:edit.buttonText'),
+      onPress: editFeedItem,
+    },
+  ];
+  const deleteAction = [
+    {
+      text: t('communityFeedItems:delete.buttonText'),
+      onPress: () => deleteFeedItem(() => dispatch(navigateBack())),
+      destructive: true,
+    },
+  ];
+
+  const menuActions = !canModify
+    ? []
+    : [
+        ...(hasSubjectContent ? copyAction : []),
+        ...(isMe ? editAction : []),
+        ...(isMe || isAdminOrOwner(communityPermission) ? deleteAction : []),
+      ];
+
   const renderHeader = () => (
     <SafeAreaView>
       <Header
@@ -174,29 +219,6 @@ const FeedItemDetailScreen = () => {
       />
     </SafeAreaView>
   );
-
-  const canModify = canModifyFeedItemSubject(data?.feedItem.subject);
-  const menuActions = !canModify
-    ? []
-    : [
-        ...(isMe
-          ? [
-              {
-                text: t('communityFeedItems:edit.buttonText'),
-                onPress: editFeedItem,
-              },
-            ]
-          : []),
-        ...(isMe || isAdminOrOwner(communityPermission)
-          ? [
-              {
-                text: t('communityFeedItems:delete.buttonText'),
-                onPress: () => deleteFeedItem(() => dispatch(navigateBack())),
-                destructive: true,
-              },
-            ]
-          : []),
-      ];
 
   const renderCommentsList = () =>
     data ? (

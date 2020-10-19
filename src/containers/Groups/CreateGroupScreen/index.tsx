@@ -19,7 +19,9 @@ import {
   navigateToMainTabs,
   navigateNestedReset,
 } from '../../../actions/navigation';
-import ImagePicker from '../../../components/ImagePicker';
+import ImagePicker, {
+  SelectImageParams,
+} from '../../../components/ImagePicker';
 import { addNewOrganization } from '../../../actions/organizations';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { organizationSelector } from '../../../selectors/organizations';
@@ -41,8 +43,7 @@ class CreateGroupScreen extends Component {
     imageData: null,
   };
 
-  // @ts-ignore
-  onChangeText = text => this.setState({ name: text });
+  onChangeText = (text: string) => this.setState({ name: text });
 
   createCommunity = async () => {
     // @ts-ignore
@@ -113,20 +114,18 @@ class CreateGroupScreen extends Component {
     dispatch(navigateToMainTabs(COMMUNITIES_TAB));
   };
 
-  // @ts-ignore
-  handleImageChange = data => this.setState({ imageData: data });
+  handleImageChange = (data: SelectImageParams) =>
+    this.setState({ imageData: data });
 
   // @ts-ignore
   navigateBack = () => this.props.dispatch(navigateBack());
-
-  // @ts-ignore
-  ref = c => (this.nameInput = c);
 
   renderImage() {
     const { imageData } = this.state;
     if (imageData) {
       return (
         <Image
+          testID="createCommunityImageDisplay"
           resizeMode="cover"
           // @ts-ignore
           source={{ uri: imageData.uri }}
@@ -148,6 +147,7 @@ class CreateGroupScreen extends Component {
         <Header
           left={
             <IconButton
+              testID="backButton"
               name="deleteIcon"
               type="MissionHub"
               onPress={this.navigateBack}
@@ -156,9 +156,10 @@ class CreateGroupScreen extends Component {
           title={t('createCommunity')}
         />
         <ScrollView keyboardShouldPersistTaps="handled" style={styles.flex}>
-          {/* 
-          // @ts-ignore */}
-          <ImagePicker onSelectImage={this.handleImageChange}>
+          <ImagePicker
+            testID="createCommunityImagePicker"
+            onSelectImage={this.handleImageChange}
+          >
             <Flex align="center" justify="center" style={styles.imageWrap}>
               {this.renderImage()}
             </Flex>
@@ -170,7 +171,7 @@ class CreateGroupScreen extends Component {
             <Flex style={styles.fieldWrap}>
               <Text style={styles.label}>{t('name')}</Text>
               <Input
-                ref={this.ref}
+                testID="communityName"
                 onChangeText={this.onChangeText}
                 value={name}
                 autoFocus={true}
@@ -186,6 +187,7 @@ class CreateGroupScreen extends Component {
           </KeyboardAvoidingView>
         </ScrollView>
         <BottomButton
+          testID="createCommunityButton"
           disabled={!name || isCreatingCommunity}
           onPress={this.createCommunity}
           text={t('createCommunity')}

@@ -1,213 +1,88 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders contact_assignment correctly 1`] = `
-<Flex
-  align="center"
-  direction="row"
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "paddingRight": 24,
-      "paddingVertical": 19,
-      "width": 750,
-    }
-  }
->
-  <Flex
-    value={1}
-  >
-    <Icon
-      name="statusIcon"
-      size={32}
-      style={
-        Array [
-          Object {
-            "alignSelf": "center",
-            "color": "#007398",
-            "fontSize": 40,
-            "textAlign": "center",
-          },
-          Object {},
-        ]
-      }
-      type="MissionHub"
-    />
-  </Flex>
-  <Flex
-    direction="column"
-    style={
-      Object {
-        "borderLeftColor": "#ECEEF2",
-        "borderLeftWidth": 1,
-        "paddingBottom": 5,
-        "paddingLeft": 20,
-      }
-    }
-    value={3.5}
-  >
-    <DateComponent
-      date="2017-12-06T14:24:52Z"
-      format="LL"
-      style={
-        Object {
-          "color": "#B4B6BA",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 10,
-          "fontStyle": "normal",
-          "lineHeight": 14,
-          "textAlignVertical": "center",
-          "textTransform": "none",
-        }
-      }
-    />
-    <Text
-      style={
-        Object {
-          "color": "#007398",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 16,
-          "fontStyle": "normal",
-          "lineHeight": 24,
-          "textAlignVertical": "center",
-          "textTransform": "none",
-        }
-      }
-    >
-      Test Person was assigned to RogerBilly
-    </Text>
-  </Flex>
-</Flex>
-`;
-
-exports[`renders contact_unassignment correctly 1`] = `
-<Flex
-  align="center"
-  direction="row"
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "paddingRight": 24,
-      "paddingVertical": 19,
-      "width": 750,
-    }
-  }
->
-  <Flex
-    value={1}
-  >
-    <Icon
-      name="statusIcon"
-      size={32}
-      style={
-        Array [
-          Object {
-            "alignSelf": "center",
-            "color": "#007398",
-            "fontSize": 40,
-            "textAlign": "center",
-          },
-          Object {},
-        ]
-      }
-      type="MissionHub"
-    />
-  </Flex>
-  <Flex
-    direction="column"
-    style={
-      Object {
-        "borderLeftColor": "#ECEEF2",
-        "borderLeftWidth": 1,
-        "paddingBottom": 5,
-        "paddingLeft": 20,
-      }
-    }
-    value={3.5}
-  >
-    <DateComponent
-      date="2017-12-06T14:24:52Z"
-      format="LL"
-      style={
-        Object {
-          "color": "#B4B6BA",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 10,
-          "fontStyle": "normal",
-          "lineHeight": 14,
-          "textAlignVertical": "center",
-          "textTransform": "none",
-        }
-      }
-    />
-    <Text
-      style={
-        Object {
-          "color": "#007398",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 16,
-          "fontStyle": "normal",
-          "lineHeight": 24,
-          "textAlignVertical": "center",
-          "textTransform": "none",
-        }
-      }
-    >
-      Test Person was unassigned from Roger
-    </Text>
-  </Flex>
-</Flex>
-`;
-
 exports[`renders interaction correctly 1`] = `
-<Flex
-  align="center"
-  direction="row"
+<View
   style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "paddingRight": 24,
-      "paddingVertical": 19,
-      "width": 750,
-    }
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
   }
 >
-  <Flex
-    value={1}
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
   >
-    <Icon
-      name="commentIcon"
-      size={32}
+    <Text
+      allowFontScaling={false}
       style={
         Array [
           Object {
-            "alignSelf": "center",
-            "color": "#007398",
-            "fontSize": 40,
-            "textAlign": "center",
+            "color": undefined,
+            "fontSize": 12,
           },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {
+                "fontSize": 32,
+              },
+            ],
+          ],
           Object {
-            "fontSize": 32,
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
           },
+          Object {},
         ]
       }
-      type="MissionHub"
-    />
-  </Flex>
-  <Flex
-    direction="column"
+    >
+      
+    </Text>
+  </View>
+  <View
     style={
-      Object {
-        "borderLeftColor": "#ECEEF2",
-        "borderLeftWidth": 1,
-        "paddingBottom": 5,
-        "paddingLeft": 20,
-      }
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
     }
-    value={3.5}
   >
-    <DateComponent
-      date="2017-12-06T14:24:52Z"
-      format="LL"
+    <Text
       style={
         Object {
           "color": "#B4B6BA",
@@ -219,7 +94,10 @@ exports[`renders interaction correctly 1`] = `
           "textTransform": "none",
         }
       }
-    />
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
     <Text
       style={
         Object {
@@ -250,58 +128,91 @@ exports[`renders interaction correctly 1`] = `
     >
       Test Interaction
     </Text>
-  </Flex>
-</Flex>
+  </View>
+</View>
 `;
 
 exports[`renders survey correctly 1`] = `
-<Flex
-  align="center"
-  direction="row"
+<View
   style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "paddingRight": 24,
-      "paddingVertical": 19,
-      "width": 750,
-    }
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
   }
 >
-  <Flex
-    value={1}
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
   >
-    <Icon
-      name="surveyIcon"
-      size={32}
+    <Text
+      allowFontScaling={false}
       style={
         Array [
           Object {
-            "alignSelf": "center",
-            "color": "#007398",
-            "fontSize": 40,
-            "textAlign": "center",
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
           },
           Object {},
         ]
       }
-      type="MissionHub"
-    />
-  </Flex>
-  <Flex
-    direction="column"
+    >
+      
+    </Text>
+  </View>
+  <View
     style={
-      Object {
-        "borderLeftColor": "#ECEEF2",
-        "borderLeftWidth": 1,
-        "paddingBottom": 5,
-        "paddingLeft": 20,
-      }
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
     }
-    value={3.5}
   >
-    <DateComponent
-      date="2017-12-06T14:24:52Z"
-      format="LL"
+    <Text
       style={
         Object {
           "color": "#B4B6BA",
@@ -313,7 +224,10 @@ exports[`renders survey correctly 1`] = `
           "textTransform": "none",
         }
       }
-    />
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
     <Text
       style={
         Object {
@@ -329,9 +243,15 @@ exports[`renders survey correctly 1`] = `
     >
       Test Survey
     </Text>
-    <Flex
-      direction="column"
-      key="1"
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flexDirection": "column",
+          },
+        ]
+      }
     >
       <Text
         style={
@@ -364,10 +284,16 @@ exports[`renders survey correctly 1`] = `
       >
         Answer 1
       </Text>
-    </Flex>
-    <Flex
-      direction="column"
-      key="2"
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flexDirection": "column",
+          },
+        ]
+      }
     >
       <Text
         style={
@@ -400,10 +326,16 @@ exports[`renders survey correctly 1`] = `
       >
         Answer 2
       </Text>
-    </Flex>
-    <Flex
-      direction="column"
-      key="3"
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flexDirection": "column",
+          },
+        ]
+      }
     >
       <Text
         style={
@@ -436,59 +368,92 @@ exports[`renders survey correctly 1`] = `
       >
         Answer 3
       </Text>
-    </Flex>
-  </Flex>
-</Flex>
+    </View>
+  </View>
+</View>
 `;
 
 exports[`stage is rendered correctly with old stage for a contact 1`] = `
-<Flex
-  align="center"
-  direction="row"
+<View
   style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "paddingRight": 24,
-      "paddingVertical": 19,
-      "width": 750,
-    }
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
   }
 >
-  <Flex
-    value={1}
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
   >
-    <Icon
-      name="journeyIcon"
-      size={32}
+    <Text
+      allowFontScaling={false}
       style={
         Array [
           Object {
-            "alignSelf": "center",
-            "color": "#007398",
-            "fontSize": 40,
-            "textAlign": "center",
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
           },
           Object {},
         ]
       }
-      type="MissionHub"
-    />
-  </Flex>
-  <Flex
-    direction="column"
+    >
+      
+    </Text>
+  </View>
+  <View
     style={
-      Object {
-        "borderLeftColor": "#ECEEF2",
-        "borderLeftWidth": 1,
-        "paddingBottom": 5,
-        "paddingLeft": 20,
-      }
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
     }
-    value={3.5}
   >
-    <DateComponent
-      date="2017-12-06T14:24:52Z"
-      format="LL"
+    <Text
       style={
         Object {
           "color": "#B4B6BA",
@@ -500,7 +465,10 @@ exports[`stage is rendered correctly with old stage for a contact 1`] = `
           "textTransform": "none",
         }
       }
-    />
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
     <Text
       style={
         Object {
@@ -531,58 +499,91 @@ exports[`stage is rendered correctly with old stage for a contact 1`] = `
     >
       Test Person changed from Uninterested to Curious
     </Text>
-  </Flex>
-</Flex>
+  </View>
+</View>
 `;
 
 exports[`stage is rendered correctly with old stage for self 1`] = `
-<Flex
-  align="center"
-  direction="row"
+<View
   style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "paddingRight": 24,
-      "paddingVertical": 19,
-      "width": 750,
-    }
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
   }
 >
-  <Flex
-    value={1}
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
   >
-    <Icon
-      name="journeyIcon"
-      size={32}
+    <Text
+      allowFontScaling={false}
       style={
         Array [
           Object {
-            "alignSelf": "center",
-            "color": "#007398",
-            "fontSize": 40,
-            "textAlign": "center",
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
           },
           Object {},
         ]
       }
-      type="MissionHub"
-    />
-  </Flex>
-  <Flex
-    direction="column"
+    >
+      
+    </Text>
+  </View>
+  <View
     style={
-      Object {
-        "borderLeftColor": "#ECEEF2",
-        "borderLeftWidth": 1,
-        "paddingBottom": 5,
-        "paddingLeft": 20,
-      }
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
     }
-    value={3.5}
   >
-    <DateComponent
-      date="2017-12-06T14:24:52Z"
-      format="LL"
+    <Text
       style={
         Object {
           "color": "#B4B6BA",
@@ -594,7 +595,10 @@ exports[`stage is rendered correctly with old stage for self 1`] = `
           "textTransform": "none",
         }
       }
-    />
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
     <Text
       style={
         Object {
@@ -625,58 +629,91 @@ exports[`stage is rendered correctly with old stage for self 1`] = `
     >
       You changed from Uninterested to Curious
     </Text>
-  </Flex>
-</Flex>
+  </View>
+</View>
 `;
 
 exports[`stage is rendered correctly without old stage for a contact 1`] = `
-<Flex
-  align="center"
-  direction="row"
+<View
   style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "paddingRight": 24,
-      "paddingVertical": 19,
-      "width": 750,
-    }
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
   }
 >
-  <Flex
-    value={1}
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
   >
-    <Icon
-      name="journeyIcon"
-      size={32}
+    <Text
+      allowFontScaling={false}
       style={
         Array [
           Object {
-            "alignSelf": "center",
-            "color": "#007398",
-            "fontSize": 40,
-            "textAlign": "center",
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
           },
           Object {},
         ]
       }
-      type="MissionHub"
-    />
-  </Flex>
-  <Flex
-    direction="column"
+    >
+      
+    </Text>
+  </View>
+  <View
     style={
-      Object {
-        "borderLeftColor": "#ECEEF2",
-        "borderLeftWidth": 1,
-        "paddingBottom": 5,
-        "paddingLeft": 20,
-      }
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
     }
-    value={3.5}
   >
-    <DateComponent
-      date="2017-12-06T14:24:52Z"
-      format="LL"
+    <Text
       style={
         Object {
           "color": "#B4B6BA",
@@ -688,7 +725,10 @@ exports[`stage is rendered correctly without old stage for a contact 1`] = `
           "textTransform": "none",
         }
       }
-    />
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
     <Text
       style={
         Object {
@@ -719,58 +759,91 @@ exports[`stage is rendered correctly without old stage for a contact 1`] = `
     >
       You added Test Person to MissionHub as Curious
     </Text>
-  </Flex>
-</Flex>
+  </View>
+</View>
 `;
 
 exports[`stage is rendered correctly without old stage for self 1`] = `
-<Flex
-  align="center"
-  direction="row"
+<View
   style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "paddingRight": 24,
-      "paddingVertical": 19,
-      "width": 750,
-    }
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
   }
 >
-  <Flex
-    value={1}
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
   >
-    <Icon
-      name="journeyIcon"
-      size={32}
+    <Text
+      allowFontScaling={false}
       style={
         Array [
           Object {
-            "alignSelf": "center",
-            "color": "#007398",
-            "fontSize": 40,
-            "textAlign": "center",
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
           },
           Object {},
         ]
       }
-      type="MissionHub"
-    />
-  </Flex>
-  <Flex
-    direction="column"
+    >
+      
+    </Text>
+  </View>
+  <View
     style={
-      Object {
-        "borderLeftColor": "#ECEEF2",
-        "borderLeftWidth": 1,
-        "paddingBottom": 5,
-        "paddingLeft": 20,
-      }
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
     }
-    value={3.5}
   >
-    <DateComponent
-      date="2017-12-06T14:24:52Z"
-      format="LL"
+    <Text
       style={
         Object {
           "color": "#B4B6BA",
@@ -782,7 +855,10 @@ exports[`stage is rendered correctly without old stage for self 1`] = `
           "textTransform": "none",
         }
       }
-    />
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
     <Text
       style={
         Object {
@@ -813,58 +889,91 @@ exports[`stage is rendered correctly without old stage for self 1`] = `
     >
       You added yourself to MissionHub as Curious
     </Text>
-  </Flex>
-</Flex>
+  </View>
+</View>
 `;
 
 exports[`step is rendered correctly with comment 1`] = `
-<Flex
-  align="center"
-  direction="row"
+<View
   style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "paddingRight": 24,
-      "paddingVertical": 19,
-      "width": 750,
-    }
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
   }
 >
-  <Flex
-    value={1}
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
   >
-    <Icon
-      name="stepsIcon"
-      size={32}
+    <Text
+      allowFontScaling={false}
       style={
         Array [
           Object {
-            "alignSelf": "center",
-            "color": "#007398",
-            "fontSize": 40,
-            "textAlign": "center",
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
           },
           Object {},
         ]
       }
-      type="MissionHub"
-    />
-  </Flex>
-  <Flex
-    direction="column"
+    >
+      
+    </Text>
+  </View>
+  <View
     style={
-      Object {
-        "borderLeftColor": "#ECEEF2",
-        "borderLeftWidth": 1,
-        "paddingBottom": 5,
-        "paddingLeft": 20,
-      }
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
     }
-    value={3.5}
   >
-    <DateComponent
-      date="2017-12-06T14:24:52Z"
-      format="LL"
+    <Text
       style={
         Object {
           "color": "#B4B6BA",
@@ -876,7 +985,10 @@ exports[`step is rendered correctly with comment 1`] = `
           "textTransform": "none",
         }
       }
-    />
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
     <Text
       style={
         Object {
@@ -909,58 +1021,91 @@ exports[`step is rendered correctly with comment 1`] = `
 
 test comment on completed step
     </Text>
-  </Flex>
-</Flex>
+  </View>
+</View>
 `;
 
 exports[`step is rendered correctly with pathway stage 1`] = `
-<Flex
-  align="center"
-  direction="row"
+<View
   style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "paddingRight": 24,
-      "paddingVertical": 19,
-      "width": 750,
-    }
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
   }
 >
-  <Flex
-    value={1}
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
   >
-    <Icon
-      name="stepsIcon"
-      size={32}
+    <Text
+      allowFontScaling={false}
       style={
         Array [
           Object {
-            "alignSelf": "center",
-            "color": "#007398",
-            "fontSize": 40,
-            "textAlign": "center",
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
           },
           Object {},
         ]
       }
-      type="MissionHub"
-    />
-  </Flex>
-  <Flex
-    direction="column"
+    >
+      
+    </Text>
+  </View>
+  <View
     style={
-      Object {
-        "borderLeftColor": "#ECEEF2",
-        "borderLeftWidth": 1,
-        "paddingBottom": 5,
-        "paddingLeft": 20,
-      }
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
     }
-    value={3.5}
   >
-    <DateComponent
-      date="2017-12-06T14:24:52Z"
-      format="LL"
+    <Text
       style={
         Object {
           "color": "#B4B6BA",
@@ -972,7 +1117,10 @@ exports[`step is rendered correctly with pathway stage 1`] = `
           "textTransform": "none",
         }
       }
-    />
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
     <Text
       style={
         Object {
@@ -1003,58 +1151,91 @@ exports[`step is rendered correctly with pathway stage 1`] = `
     >
       Test Step
     </Text>
-  </Flex>
-</Flex>
+  </View>
+</View>
 `;
 
 exports[`step is rendered correctly without comment 1`] = `
-<Flex
-  align="center"
-  direction="row"
+<View
   style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "paddingRight": 24,
-      "paddingVertical": 19,
-      "width": 750,
-    }
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
   }
 >
-  <Flex
-    value={1}
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
   >
-    <Icon
-      name="stepsIcon"
-      size={32}
+    <Text
+      allowFontScaling={false}
       style={
         Array [
           Object {
-            "alignSelf": "center",
-            "color": "#007398",
-            "fontSize": 40,
-            "textAlign": "center",
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
           },
           Object {},
         ]
       }
-      type="MissionHub"
-    />
-  </Flex>
-  <Flex
-    direction="column"
+    >
+      
+    </Text>
+  </View>
+  <View
     style={
-      Object {
-        "borderLeftColor": "#ECEEF2",
-        "borderLeftWidth": 1,
-        "paddingBottom": 5,
-        "paddingLeft": 20,
-      }
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
     }
-    value={3.5}
   >
-    <DateComponent
-      date="2017-12-06T14:24:52Z"
-      format="LL"
+    <Text
       style={
         Object {
           "color": "#B4B6BA",
@@ -1066,7 +1247,10 @@ exports[`step is rendered correctly without comment 1`] = `
           "textTransform": "none",
         }
       }
-    />
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
     <Text
       style={
         Object {
@@ -1097,6 +1281,6 @@ exports[`step is rendered correctly without comment 1`] = `
     >
       Test Step
     </Text>
-  </Flex>
-</Flex>
+  </View>
+</View>
 `;
