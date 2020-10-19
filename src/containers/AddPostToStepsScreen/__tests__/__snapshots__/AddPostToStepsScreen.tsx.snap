@@ -211,7 +211,7 @@ exports[`should render correctly | Care Step 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
@@ -219,7 +219,7 @@ exports[`should render correctly | Care Step 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
@@ -341,6 +341,7 @@ exports[`should render correctly | Care Step 1`] = `
           <View
             style={
               Object {
+                "marginHorizontal": 32,
                 "paddingBottom": 20,
               }
             }
@@ -659,7 +660,7 @@ exports[`should render correctly | Pray Step 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
@@ -667,7 +668,7 @@ exports[`should render correctly | Pray Step 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
@@ -789,6 +790,7 @@ exports[`should render correctly | Pray Step 1`] = `
           <View
             style={
               Object {
+                "marginHorizontal": 32,
                 "paddingBottom": 20,
               }
             }
@@ -1108,7 +1110,7 @@ exports[`should render correctly | Share Step 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
@@ -1116,7 +1118,7 @@ exports[`should render correctly | Share Step 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
@@ -1238,6 +1240,7 @@ exports[`should render correctly | Share Step 1`] = `
           <View
             style={
               Object {
+                "marginHorizontal": 32,
                 "paddingBottom": 20,
               }
             }

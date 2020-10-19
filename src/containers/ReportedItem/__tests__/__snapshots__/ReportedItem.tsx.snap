@@ -65,34 +65,26 @@ exports[`Reported Post call handleDelete 1`] = `
 -             \\"lineHeight\\": 20,
 -             \\"textAlignVertical\\": \\"center\\",
 -             \\"textTransform\\": \\"none\\",
-+       \\"justifyContent\\": \\"center\\",
-+       \\"marginTop\\": \\"50%\\",
-      }
-    }
-  >
+-           }
+-         }
+-       >
 -         Reported By
 -         :
 -       </Text>
-+   <SvgMock />
-    <Text
+-       <Text
 -         numberOfLines={1}
-      style={
-        Object {
+-         style={
+-           Object {
 -             \\"color\\": \\"#ffffff\\",
 -             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -             \\"fontSize\\": 16,
-+         \\"color\\": \\"#B4B6BA\\",
-+         \\"fontFamily\\": \\"SourceSansPro-Light\\",
-+         \\"fontSize\\": 24,
-          \\"fontStyle\\": \\"normal\\",
+-             \\"fontStyle\\": \\"normal\\",
 -             \\"lineHeight\\": 24,
-+         \\"lineHeight\\": 30,
-+         \\"paddingVertical\\": 20,
-          \\"textAlignVertical\\": \\"center\\",
-          \\"textTransform\\": \\"none\\",
-        }
-      }
-    >
+-             \\"textAlignVertical\\": \\"center\\",
+-             \\"textTransform\\": \\"none\\",
+-           }
+-         }
+-       >
 -         Roscoe Johnston
 -       </Text>
 -       <Text
@@ -127,7 +119,7 @@ exports[`Reported Post call handleDelete 1`] = `
 -   <View
 -     style={
 -       Object {
--         \\"paddingHorizontal\\": 20,
+-         \\"paddingHorizontal\\": 32,
 -         \\"paddingTop\\": 12,
 -       }
 -     }
@@ -169,12 +161,13 @@ exports[`Reported Post call handleDelete 1`] = `
 -               \\"alignItems\\": \\"flex-start\\",
 -               \\"flex\\": 1,
 -               \\"flexDirection\\": \\"column\\",
--               \\"justifyContent\\": \\"center\\",
+        \\"justifyContent\\": \\"center\\",
 -               \\"paddingHorizontal\\": 8,
 -             },
 -             undefined,
 -           ]
--         }
++       \\"marginTop\\": \\"50%\\",
+      }
 -       >
 -         <Text
 -           numberOfLines={2}
@@ -200,11 +193,11 @@ exports[`Reported Post call handleDelete 1`] = `
 -                 \\"textTransform\\": \\"none\\",
 -               },
 -             ]
--           }
--         >
+    }
+  >
 -           Keaton Keeling
-+     Hurray
-    </Text>
+-         </Text>
++   <SvgMock />
     <Text
       style={
 -             Array [
@@ -212,10 +205,14 @@ exports[`Reported Post call handleDelete 1`] = `
           \\"color\\": \\"#B4B6BA\\",
 -                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                 \\"fontSize\\": 12,
--                 \\"fontStyle\\": \\"normal\\",
++         \\"fontFamily\\": \\"SourceSansPro-Light\\",
++         \\"fontSize\\": 24,
+          \\"fontStyle\\": \\"normal\\",
 -                 \\"lineHeight\\": 16,
--                 \\"textAlignVertical\\": \\"center\\",
--                 \\"textTransform\\": \\"none\\",
++         \\"lineHeight\\": 30,
++         \\"paddingVertical\\": 20,
+          \\"textAlignVertical\\": \\"center\\",
+          \\"textTransform\\": \\"none\\",
 -               },
 -               Object {
 -                 \\"color\\": \\"#B4B6BA\\",
@@ -227,39 +224,49 @@ exports[`Reported Post call handleDelete 1`] = `
 -                 \\"textTransform\\": \\"none\\",
 -               },
 -             ]
--           }
++       }
+      }
 -           testID=\\"Text\\"
--         >
+    >
 -           August 19, 2018 @ 2:06 PM
--         </Text>
++     Hurray
+    </Text>
 -       </View>
 -     </View>
 -   </View>
 -   <View
 -     style={
 -       Object {
--         \\"paddingHorizontal\\": 20,
 -         \\"paddingVertical\\": 8,
 -       }
 -     }
 -   >
--     <Text
+-     <View
 -       style={
 -         Object {
--           \\"color\\": \\"#505256\\",
+-           \\"paddingHorizontal\\": 32,
+-         }
+-       }
+-     >
+    <Text
+      style={
+        Object {
+-             \\"color\\": \\"#505256\\",
++         \\"color\\": \\"#B4B6BA\\",
           \\"fontFamily\\": \\"SourceSansPro-Regular\\",
           \\"fontSize\\": 16,
           \\"fontStyle\\": \\"normal\\",
--           \\"justifyContent\\": \\"flex-start\\",
+-             \\"justifyContent\\": \\"flex-start\\",
           \\"lineHeight\\": 24,
--           \\"paddingBottom\\": 8,
+-             \\"paddingBottom\\": 8,
           \\"textAlignVertical\\": \\"center\\",
           \\"textTransform\\": \\"none\\",
+-           }
         }
--       }
--     >
--       porro ut et
--     </Text>
+-       >
+-         porro ut et
+-       </Text>
+-     </View>
 -   </View>
 -   <View
 -     style={
@@ -271,8 +278,8 @@ exports[`Reported Post call handleDelete 1`] = `
 -           \\"flexDirection\\": \\"row\\",
 -         },
 -       ]
--     }
--   >
+      }
+    >
 -     <View
 -       style={
 -         Array [
@@ -281,8 +288,8 @@ exports[`Reported Post call handleDelete 1`] = `
 -             \\"flex\\": 1,
 -           },
 -         ]
-      }
-    >
+-       }
+-     >
 -       <View
 -         accessible={true}
 -         focusable={true}
@@ -453,34 +460,26 @@ exports[`Reported Post call handleIgnore 1`] = `
 -             \\"lineHeight\\": 20,
 -             \\"textAlignVertical\\": \\"center\\",
 -             \\"textTransform\\": \\"none\\",
-+       \\"justifyContent\\": \\"center\\",
-+       \\"marginTop\\": \\"50%\\",
-      }
-    }
-  >
+-           }
+-         }
+-       >
 -         Reported By
 -         :
 -       </Text>
-+   <SvgMock />
-    <Text
+-       <Text
 -         numberOfLines={1}
-      style={
-        Object {
+-         style={
+-           Object {
 -             \\"color\\": \\"#ffffff\\",
 -             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -             \\"fontSize\\": 16,
-+         \\"color\\": \\"#B4B6BA\\",
-+         \\"fontFamily\\": \\"SourceSansPro-Light\\",
-+         \\"fontSize\\": 24,
-          \\"fontStyle\\": \\"normal\\",
+-             \\"fontStyle\\": \\"normal\\",
 -             \\"lineHeight\\": 24,
-+         \\"lineHeight\\": 30,
-+         \\"paddingVertical\\": 20,
-          \\"textAlignVertical\\": \\"center\\",
-          \\"textTransform\\": \\"none\\",
-        }
-      }
-    >
+-             \\"textAlignVertical\\": \\"center\\",
+-             \\"textTransform\\": \\"none\\",
+-           }
+-         }
+-       >
 -         Roscoe Johnston
 -       </Text>
 -       <Text
@@ -515,7 +514,7 @@ exports[`Reported Post call handleIgnore 1`] = `
 -   <View
 -     style={
 -       Object {
--         \\"paddingHorizontal\\": 20,
+-         \\"paddingHorizontal\\": 32,
 -         \\"paddingTop\\": 12,
 -       }
 -     }
@@ -557,12 +556,13 @@ exports[`Reported Post call handleIgnore 1`] = `
 -               \\"alignItems\\": \\"flex-start\\",
 -               \\"flex\\": 1,
 -               \\"flexDirection\\": \\"column\\",
--               \\"justifyContent\\": \\"center\\",
+        \\"justifyContent\\": \\"center\\",
 -               \\"paddingHorizontal\\": 8,
 -             },
 -             undefined,
 -           ]
--         }
++       \\"marginTop\\": \\"50%\\",
+      }
 -       >
 -         <Text
 -           numberOfLines={2}
@@ -588,11 +588,11 @@ exports[`Reported Post call handleIgnore 1`] = `
 -                 \\"textTransform\\": \\"none\\",
 -               },
 -             ]
--           }
--         >
+    }
+  >
 -           Keaton Keeling
-+     Hurray
-    </Text>
+-         </Text>
++   <SvgMock />
     <Text
       style={
 -             Array [
@@ -600,10 +600,14 @@ exports[`Reported Post call handleIgnore 1`] = `
           \\"color\\": \\"#B4B6BA\\",
 -                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                 \\"fontSize\\": 12,
--                 \\"fontStyle\\": \\"normal\\",
++         \\"fontFamily\\": \\"SourceSansPro-Light\\",
++         \\"fontSize\\": 24,
+          \\"fontStyle\\": \\"normal\\",
 -                 \\"lineHeight\\": 16,
--                 \\"textAlignVertical\\": \\"center\\",
--                 \\"textTransform\\": \\"none\\",
++         \\"lineHeight\\": 30,
++         \\"paddingVertical\\": 20,
+          \\"textAlignVertical\\": \\"center\\",
+          \\"textTransform\\": \\"none\\",
 -               },
 -               Object {
 -                 \\"color\\": \\"#B4B6BA\\",
@@ -615,39 +619,49 @@ exports[`Reported Post call handleIgnore 1`] = `
 -                 \\"textTransform\\": \\"none\\",
 -               },
 -             ]
--           }
++       }
+      }
 -           testID=\\"Text\\"
--         >
+    >
 -           August 19, 2018 @ 2:06 PM
--         </Text>
++     Hurray
+    </Text>
 -       </View>
 -     </View>
 -   </View>
 -   <View
 -     style={
 -       Object {
--         \\"paddingHorizontal\\": 20,
 -         \\"paddingVertical\\": 8,
 -       }
 -     }
 -   >
--     <Text
+-     <View
 -       style={
 -         Object {
--           \\"color\\": \\"#505256\\",
+-           \\"paddingHorizontal\\": 32,
+-         }
+-       }
+-     >
+    <Text
+      style={
+        Object {
+-             \\"color\\": \\"#505256\\",
++         \\"color\\": \\"#B4B6BA\\",
           \\"fontFamily\\": \\"SourceSansPro-Regular\\",
           \\"fontSize\\": 16,
           \\"fontStyle\\": \\"normal\\",
--           \\"justifyContent\\": \\"flex-start\\",
+-             \\"justifyContent\\": \\"flex-start\\",
           \\"lineHeight\\": 24,
--           \\"paddingBottom\\": 8,
+-             \\"paddingBottom\\": 8,
           \\"textAlignVertical\\": \\"center\\",
           \\"textTransform\\": \\"none\\",
+-           }
         }
--       }
--     >
--       porro ut et
--     </Text>
+-       >
+-         porro ut et
+-       </Text>
+-     </View>
 -   </View>
 -   <View
 -     style={
@@ -659,8 +673,8 @@ exports[`Reported Post call handleIgnore 1`] = `
 -           \\"flexDirection\\": \\"row\\",
 -         },
 -       ]
--     }
--   >
+      }
+    >
 -     <View
 -       style={
 -         Array [
@@ -669,8 +683,8 @@ exports[`Reported Post call handleIgnore 1`] = `
 -             \\"flex\\": 1,
 -           },
 -         ]
-      }
-    >
+-       }
+-     >
 -       <View
 -         accessible={true}
 -         focusable={true}

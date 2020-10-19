@@ -15,7 +15,7 @@ exports[`Community renders challenge correctly 1`] = `
     <View
       style={
         Object {
-          "paddingHorizontal": 20,
+          "paddingHorizontal": 32,
           "paddingTop": 12,
         }
       }
@@ -116,7 +116,6 @@ exports[`Community renders challenge correctly 1`] = `
     <View
       style={
         Object {
-          "paddingHorizontal": 20,
           "paddingVertical": 8,
         }
       }
@@ -137,23 +136,31 @@ exports[`Community renders challenge correctly 1`] = `
       >
         Joined a Challenge!
       </Text>
-      <Text
+      <View
         style={
           Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 16,
-            "fontStyle": "normal",
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
-            "paddingBottom": 8,
-            "textAlignVertical": "center",
-            "textTransform": "none",
+            "paddingHorizontal": 32,
           }
         }
       >
-        qui illo error
-      </Text>
+        <Text
+          style={
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "justifyContent": "flex-start",
+              "lineHeight": 24,
+              "paddingBottom": 8,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
+        >
+          qui illo error
+        </Text>
+      </View>
     </View>
     <View
       style={
@@ -390,7 +397,7 @@ exports[`Community renders new member item correctly 1`] = `
     <View
       style={
         Object {
-          "paddingHorizontal": 20,
+          "paddingHorizontal": 32,
           "paddingTop": 12,
         }
       }
@@ -491,7 +498,6 @@ exports[`Community renders new member item correctly 1`] = `
     <View
       style={
         Object {
-          "paddingHorizontal": 20,
           "paddingVertical": 8,
         }
       }
@@ -512,23 +518,31 @@ exports[`Community renders new member item correctly 1`] = `
       >
         We have a new member!
       </Text>
-      <Text
+      <View
         style={
           Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 16,
-            "fontStyle": "normal",
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
-            "paddingBottom": 8,
-            "textAlignVertical": "center",
-            "textTransform": "none",
+            "paddingHorizontal": 32,
           }
         }
       >
-        Help welcome Malcolm.
-      </Text>
+        <Text
+          style={
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "justifyContent": "flex-start",
+              "lineHeight": 24,
+              "paddingBottom": 8,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
+        >
+          Help welcome Malcolm.
+        </Text>
+      </View>
     </View>
     <View
       style={
@@ -739,7 +753,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
+              "paddingHorizontal": 32,
               "paddingTop": 12,
             }
           }
@@ -909,13 +923,16 @@ exports[`Community renders post correctly with add to steps button 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
               "paddingVertical": 8,
             }
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "marginHorizontal": 32,
+              }
+            }
           >
             <View
               style={
@@ -1227,7 +1244,7 @@ exports[`Community renders post correctly without add to steps button 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
+              "paddingHorizontal": 32,
               "paddingTop": 12,
             }
           }
@@ -1397,13 +1414,16 @@ exports[`Community renders post correctly without add to steps button 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
               "paddingVertical": 8,
             }
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "marginHorizontal": 32,
+              }
+            }
           >
             <View
               style={
@@ -1655,7 +1675,7 @@ exports[`Community renders post correctly without image 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
+              "paddingHorizontal": 32,
               "paddingTop": 12,
             }
           }
@@ -1825,13 +1845,16 @@ exports[`Community renders post correctly without image 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
               "paddingVertical": 8,
             }
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "marginHorizontal": 32,
+              }
+            }
           >
             <View
               style={
@@ -2083,7 +2106,7 @@ exports[`Community renders post created by me correctly without add to steps but
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
+              "paddingHorizontal": 32,
               "paddingTop": 12,
             }
           }
@@ -2272,13 +2295,16 @@ exports[`Community renders post created by me correctly without add to steps but
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
               "paddingVertical": 8,
             }
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "marginHorizontal": 32,
+              }
+            }
           >
             <View
               style={
@@ -2510,7 +2536,7 @@ exports[`Community renders step correctly 1`] = `
     <View
       style={
         Object {
-          "paddingHorizontal": 20,
+          "paddingHorizontal": 32,
           "paddingTop": 12,
         }
       }
@@ -2680,28 +2706,35 @@ exports[`Community renders step correctly 1`] = `
     <View
       style={
         Object {
-          "paddingHorizontal": 20,
           "paddingVertical": 8,
         }
       }
     >
-      <Text
+      <View
         style={
           Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 16,
-            "fontStyle": "normal",
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
-            "paddingBottom": 8,
-            "textAlignVertical": "center",
-            "textTransform": "none",
+            "paddingHorizontal": 32,
           }
         }
       >
-        Antwon K. completed a Step of Faith with a  person.
-      </Text>
+        <Text
+          style={
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "justifyContent": "flex-start",
+              "lineHeight": 24,
+              "paddingBottom": 8,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
+        >
+          Antwon K. completed a Step of Faith with a  person.
+        </Text>
+      </View>
     </View>
     <View
       style={
@@ -2913,7 +2946,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
+              "paddingHorizontal": 32,
               "paddingTop": 12,
             }
           }
@@ -3083,13 +3116,16 @@ exports[`Community renders with clear notification button correctly 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
               "paddingVertical": 8,
             }
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "marginHorizontal": 32,
+              }
+            }
           >
             <View
               style={
@@ -3387,7 +3423,7 @@ exports[`global community renders correctly 1`] = `
     <View
       style={
         Object {
-          "paddingHorizontal": 20,
+          "paddingHorizontal": 32,
           "paddingTop": 12,
         }
       }
@@ -3547,28 +3583,35 @@ exports[`global community renders correctly 1`] = `
     <View
       style={
         Object {
-          "paddingHorizontal": 20,
           "paddingVertical": 8,
         }
       }
     >
-      <Text
+      <View
         style={
           Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 16,
-            "fontStyle": "normal",
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
-            "paddingBottom": 8,
-            "textAlignVertical": "center",
-            "textTransform": "none",
+            "paddingHorizontal": 32,
           }
         }
       >
-        Antwon K. completed a Step of Faith with a  person.
-      </Text>
+        <Text
+          style={
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "justifyContent": "flex-start",
+              "lineHeight": 24,
+              "paddingBottom": 8,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
+        >
+          Antwon K. completed a Step of Faith with a  person.
+        </Text>
+      </View>
     </View>
     <View
       style={
@@ -3699,7 +3742,7 @@ exports[`global community renders post item correctly 1`] = `
     <View
       style={
         Object {
-          "paddingHorizontal": 20,
+          "paddingHorizontal": 32,
           "paddingTop": 12,
         }
       }
@@ -3859,13 +3902,16 @@ exports[`global community renders post item correctly 1`] = `
     <View
       style={
         Object {
-          "paddingHorizontal": 20,
           "paddingVertical": 8,
         }
       }
     >
       <View
-        style={Object {}}
+        style={
+          Object {
+            "marginHorizontal": 32,
+          }
+        }
       >
         <View
           style={
@@ -4034,7 +4080,7 @@ exports[`global community renders with clear notification button correctly 1`] =
     <View
       style={
         Object {
-          "paddingHorizontal": 20,
+          "paddingHorizontal": 32,
           "paddingTop": 12,
         }
       }
@@ -4194,28 +4240,35 @@ exports[`global community renders with clear notification button correctly 1`] =
     <View
       style={
         Object {
-          "paddingHorizontal": 20,
           "paddingVertical": 8,
         }
       }
     >
-      <Text
+      <View
         style={
           Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 16,
-            "fontStyle": "normal",
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
-            "paddingBottom": 8,
-            "textAlignVertical": "center",
-            "textTransform": "none",
+            "paddingHorizontal": 32,
           }
         }
       >
-        Antwon K. completed a Step of Faith with a  person.
-      </Text>
+        <Text
+          style={
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "justifyContent": "flex-start",
+              "lineHeight": 24,
+              "paddingBottom": 8,
+              "textAlignVertical": "center",
+              "textTransform": "none",
+            }
+          }
+        >
+          Antwon K. completed a Step of Faith with a  person.
+        </Text>
+      </View>
     </View>
     <View
       style={
@@ -4438,7 +4491,7 @@ exports[`renders with name pressable correctly 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
+              "paddingHorizontal": 32,
               "paddingTop": 12,
             }
           }
@@ -4627,13 +4680,16 @@ exports[`renders with name pressable correctly 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
               "paddingVertical": 8,
             }
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "marginHorizontal": 32,
+              }
+            }
           >
             <View
               style={

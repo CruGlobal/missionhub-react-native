@@ -222,6 +222,22 @@ describe('CommunityFeedItemContent', () => {
       );
       expect.hasAssertions();
     });
+    it('renders post with Markdown', () => {
+      testEvent(
+        mockFrag({
+          FeedItem: () => ({
+            subject: () => ({
+              __typename: 'Post',
+              postType: PostTypeEnum.story,
+              content: 'asdf ![Image](image.png)',
+              mediaContentType: null,
+              mediaExpiringUrl: null,
+            }),
+          }),
+        }),
+      );
+      expect.hasAssertions();
+    });
     it('renders post with AddToMySteps', () => {
       testEvent(
         mockFrag({
