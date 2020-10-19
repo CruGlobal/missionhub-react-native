@@ -47,16 +47,13 @@ const linkStyle = {
   textDecorationColor: theme.secondaryColor,
 };
 const blockQuoteStyle = {
-  width: '100%',
   backgroundColor: theme.extraLightGrey,
   paddingVertical: 16,
   paddingHorizontal: 32,
   marginHorizontal: -32,
-  left: 0,
 };
 const horizontalLineStyle = {
   height: 1,
-  width: '100%',
   backgroundColor: theme.separatorColor,
   marginVertical: 8,
   marginHorizontal: -32,
