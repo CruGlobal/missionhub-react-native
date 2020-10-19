@@ -1688,7 +1688,7 @@ exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
     <View
       style={
         Object {
-          "paddingHorizontal": 32,
+          "paddingHorizontal": 0,
           "paddingTop": 26,
         }
       }

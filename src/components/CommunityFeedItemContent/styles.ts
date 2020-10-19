@@ -6,7 +6,7 @@ import markdownStyles from '../../markdownStyles';
 export default StyleSheet.create({
   headerWrap: {
     paddingTop: 12,
-    paddingHorizontal: 20,
+    paddingHorizontal: 32,
   },
   headerRow: {
     flexDirection: 'row',
@@ -42,7 +42,9 @@ export default StyleSheet.create({
   },
   postTextWrap: {
     paddingVertical: 8,
-    paddingHorizontal: 20,
+  },
+  messageWrap: {
+    paddingHorizontal: 32,
   },
   messageText: {
     ...theme.textRegular16,

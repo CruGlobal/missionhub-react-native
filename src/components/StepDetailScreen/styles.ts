@@ -9,7 +9,7 @@ export default StyleSheet.create({
   },
   body: {
     paddingTop: 26,
-    paddingHorizontal: 32,
+    paddingHorizontal: 0,
   },
   stepTypeBadge: {
     paddingTop: 13,

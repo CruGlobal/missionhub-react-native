@@ -2,9 +2,18 @@ import { Platform, StyleSheet } from 'react-native';
 
 import theme from './theme';
 
-const textStyle = theme.textRegular16;
-const heading1Style = { ...theme.textLight32, marginVertical: 10 };
-const heading2Style = { ...theme.textLight24, marginVertical: 10 };
+const bodyStyle = {
+  ...theme.textRegular16,
+  marginHorizontal: 32,
+};
+const heading1Style = {
+  ...theme.textLight32,
+  marginVertical: 10,
+};
+const heading2Style = {
+  ...theme.textLight24,
+  marginVertical: 10,
+};
 const heading3Style = {
   ...theme.textBold16,
   fontSize: 20,
@@ -38,28 +47,25 @@ const linkStyle = {
   textDecorationColor: theme.secondaryColor,
 };
 const blockQuoteStyle = {
-  left: -32,
-  width: theme.fullWidth,
   backgroundColor: theme.extraLightGrey,
   paddingVertical: 16,
   paddingHorizontal: 32,
+  marginHorizontal: -32,
 };
 const horizontalLineStyle = {
-  left: -32,
   height: 1,
-  width: theme.fullWidth,
   backgroundColor: theme.separatorColor,
   marginVertical: 8,
-  marginHorizontal: 0,
+  marginHorizontal: -32,
 };
 const imageStyle = {
-  left: -32,
-  height: 200,
-  width: theme.fullWidth,
+  height: 300,
+  width: '100%',
+  marginHorizontal: -32,
 };
 
 export default StyleSheet.create({
-  body: textStyle,
+  body: bodyStyle,
   heading1: heading1Style,
   heading2: heading2Style,
   heading3: heading3Style,
