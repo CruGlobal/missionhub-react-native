@@ -2,7 +2,10 @@ import { Platform, StyleSheet } from 'react-native';
 
 import theme from './theme';
 
-const bodyStyle = { ...theme.textRegular16, marginHorizontal: 32 };
+const bodyStyle = {
+  ...theme.textRegular16,
+  marginHorizontal: 32,
+};
 const heading1Style = {
   ...theme.textLight32,
   marginVertical: 10,
@@ -47,14 +50,16 @@ const blockQuoteStyle = {
   width: '100%',
   backgroundColor: theme.extraLightGrey,
   paddingVertical: 16,
+  paddingHorizontal: 32,
   marginHorizontal: -32,
+  left: 0,
 };
 const horizontalLineStyle = {
   height: 1,
   width: '100%',
   backgroundColor: theme.separatorColor,
   marginVertical: 8,
-  marginHorizontal: 0,
+  marginHorizontal: -32,
 };
 const imageStyle = {
   height: 300,
