@@ -180,13 +180,17 @@ exports[`renders correctly 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
       >
         <View
-          style={Object {}}
+          style={
+            Object {
+              "marginHorizontal": 32,
+            }
+          }
         >
           <View
             style={
@@ -469,13 +473,17 @@ exports[`renders correctly for me 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
       >
         <View
-          style={Object {}}
+          style={
+            Object {
+              "marginHorizontal": 32,
+            }
+          }
         >
           <View
             style={
@@ -758,13 +766,17 @@ exports[`renders correctly in onboarding 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
       >
         <View
-          style={Object {}}
+          style={
+            Object {
+              "marginHorizontal": 32,
+            }
+          }
         >
           <View
             style={

@@ -176,11 +176,13 @@ export const CommunityFeedItemContent = ({
 
   const renderNewMemberMessage = () => {
     return (
-      <Text style={styles.messageText}>
-        {t('newMemberMessage', {
-          personFirstName: subjectPerson?.firstName,
-        })}
-      </Text>
+      <View style={styles.messageWrap}>
+        <Text style={styles.messageText}>
+          {t('newMemberMessage', {
+            personFirstName: subjectPerson?.firstName,
+          })}
+        </Text>
+      </View>
     );
   };
 
@@ -236,7 +238,9 @@ export const CommunityFeedItemContent = ({
   };
 
   const renderText = (text: string) => (
-    <Text style={styles.messageText}>{text}</Text>
+    <View style={styles.messageWrap}>
+      <Text style={styles.messageText}>{text}</Text>
+    </View>
   );
 
   const renderPostMessage = (
