@@ -2692,7 +2692,7 @@ exports[`refresh calls refreshComments 1`] = `
                   style={
                     Array [
                       Object {
-@@ -331,11 +331,11 @@
+@@ -331,22 +331,39 @@
                       },
                     ]
                   }
@@ -2705,12 +2705,12 @@ exports[`refresh calls refreshComments 1`] = `
             </View>
           </View>
           <View
-@@ -343,10 +343,26 @@
+            style={
               Object {
                 \\"paddingVertical\\": 8,
-              }
-            }
-          >
++             }
++           }
++         >
 +           <Text
 +             style={
 +               Object {
@@ -2720,11 +2720,12 @@ exports[`refresh calls refreshComments 1`] = `
 +                 \\"fontStyle\\": \\"normal\\",
 +                 \\"letterSpacing\\": 1,
 +                 \\"lineHeight\\": 20,
++                 \\"paddingHorizontal\\": 32,
 +                 \\"textAlignVertical\\": \\"center\\",
 +                 \\"textTransform\\": \\"uppercase\\",
-+               }
-+             }
-+           >
+                }
+              }
+            >
 +             Completed a Challenge!
 +           </Text>
             <View
@@ -2732,7 +2733,7 @@ exports[`refresh calls refreshComments 1`] = `
                 Object {
                   \\"paddingHorizontal\\": 32,
                 }
-@@ -365,11 +381,11 @@
+@@ -365,11 +382,11 @@
                     \\"textAlignVertical\\": \\"center\\",
                     \\"textTransform\\": \\"none\\",
                   }
@@ -2745,7 +2746,7 @@ exports[`refresh calls refreshComments 1`] = `
           </View>
           <View
             style={
-@@ -520,11 +536,12 @@
+@@ -520,11 +537,12 @@
                       }
                     }
                     testID=\\"LikeIconButton\\"
@@ -2759,7 +2760,7 @@ exports[`refresh calls refreshComments 1`] = `
                 </View>
                 <View
                   style={
-@@ -551,11 +568,11 @@
+@@ -551,11 +569,11 @@
                         \\"textTransform\\": \\"none\\",
                         \\"width\\": 30,
                       }
@@ -2772,7 +2773,7 @@ exports[`refresh calls refreshComments 1`] = `
                     accessible={true}
                     focusable={true}
                     hitSlop={
-@@ -607,19 +624,19 @@
+@@ -607,19 +625,19 @@
         >
           <CommentItem
             comment={
@@ -2799,7 +2800,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             isEditing={false}
             menuActions={
-@@ -627,12 +644,13 @@
+@@ -627,12 +645,13 @@
                 Object {
                   \\"onPress\\": [Function onPress],
                   \\"text\\": \\"Copy\\",
@@ -2814,7 +2815,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -643,19 +661,19 @@
+@@ -643,19 +662,19 @@
         >
           <CommentItem
             comment={
@@ -2841,7 +2842,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             isEditing={false}
             menuActions={
-@@ -663,12 +681,13 @@
+@@ -663,12 +682,13 @@
                 Object {
                   \\"onPress\\": [Function onPress],
                   \\"text\\": \\"Copy\\",
@@ -2856,7 +2857,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -688,22 +707,22 @@
+@@ -688,22 +708,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
