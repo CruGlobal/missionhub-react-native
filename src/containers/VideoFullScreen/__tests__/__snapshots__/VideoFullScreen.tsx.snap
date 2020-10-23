@@ -5,12 +5,12 @@ exports[`mutes video 1`] = `
 - First value
 + Second value
 
-@@ -5,11 +5,11 @@
-      }
+@@ -6,11 +6,11 @@
     }
   >
     <Video
       controls={false}
+      ignoreSilentSwitch=\\"ignore\\"
 -     muted={false}
 +     muted={true}
       onEnd={[Function handleClose]}
@@ -18,7 +18,7 @@ exports[`mutes video 1`] = `
       paused={false}
       resizeMode=\\"cover\\"
       source={
-@@ -170,11 +170,11 @@
+@@ -171,11 +171,11 @@
               }
             }
             testID=\\"MutedButton\\"
@@ -38,9 +38,9 @@ exports[`pauses video 1`] = `
 - First value
 + Second value
 
-@@ -8,11 +8,11 @@
-    <Video
+@@ -9,11 +9,11 @@
       controls={false}
+      ignoreSilentSwitch=\\"ignore\\"
       muted={false}
       onEnd={[Function handleClose]}
       onProgress={[Function handleProgress]}
@@ -51,7 +51,7 @@ exports[`pauses video 1`] = `
         Object {
           \\"uri\\": \\"file:/video.mov\\",
         }
-@@ -136,24 +136,25 @@
+@@ -137,24 +137,25 @@
             onResponderTerminate={[Function onResponderTerminate]}
             onResponderTerminationRequest={[Function onResponderTerminationRequest]}
             onStartShouldSetResponder={[Function onStartShouldSetResponder]}
@@ -91,6 +91,7 @@ exports[`renders correctly 1`] = `
 >
   <Video
     controls={false}
+    ignoreSilentSwitch="ignore"
     muted={false}
     onEnd={[Function]}
     onProgress={[Function]}
@@ -270,7 +271,7 @@ exports[`sets video progress time 1`] = `
 - First value
 + Second value
 
-@@ -121,11 +121,11 @@
+@@ -122,11 +122,11 @@
                   \\"textAlignVertical\\": \\"center\\",
                   \\"textTransform\\": \\"none\\",
                 }

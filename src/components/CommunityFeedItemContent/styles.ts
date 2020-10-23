@@ -35,6 +35,7 @@ export default StyleSheet.create({
   },
   headerTextOnly: {
     ...theme.textBold16,
+    paddingHorizontal: 32,
     color: theme.secondaryColor,
   },
   row: {
