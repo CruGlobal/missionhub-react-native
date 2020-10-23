@@ -128,6 +128,7 @@ Array [
           "fontStyle": "normal",
           "letterSpacing": 1,
           "lineHeight": 20,
+          "paddingHorizontal": 32,
           "textAlignVertical": "center",
           "textTransform": "uppercase",
         }
@@ -508,6 +509,7 @@ Array [
           "fontStyle": "normal",
           "letterSpacing": 1,
           "lineHeight": 20,
+          "paddingHorizontal": 32,
           "textAlignVertical": "center",
           "textTransform": "uppercase",
         }
@@ -867,6 +869,7 @@ Array [
           "fontStyle": "normal",
           "letterSpacing": 1,
           "lineHeight": 20,
+          "paddingHorizontal": 32,
           "textAlignVertical": "center",
           "textTransform": "uppercase",
         }
@@ -1226,6 +1229,7 @@ Array [
           "fontStyle": "normal",
           "letterSpacing": 1,
           "lineHeight": 20,
+          "paddingHorizontal": 32,
           "textAlignVertical": "center",
           "textTransform": "uppercase",
         }
@@ -1606,6 +1610,7 @@ Array [
           "fontStyle": "normal",
           "letterSpacing": 1,
           "lineHeight": 20,
+          "paddingHorizontal": 32,
           "textAlignVertical": "center",
           "textTransform": "uppercase",
         }
