@@ -174,17 +174,10 @@ export const CommunityFeedItemContent = ({
     );
   };
 
-  const renderNewMemberMessage = () => {
-    return (
-      <View style={styles.messageWrap}>
-        <Text style={styles.messageText}>
-          {t('newMemberMessage', {
-            personFirstName: subjectPerson?.firstName,
-          })}
-        </Text>
-      </View>
-    );
-  };
+  const renderNewMemberMessage = () =>
+    t('newMemberMessage', {
+      personFirstName: subjectPerson?.firstName,
+    });
 
   const renderStage = (
     stage: CommunityFeedItemContent_subject_Step_receiverStageAtCompletion | null,
@@ -214,7 +207,7 @@ export const CommunityFeedItemContent = ({
       case 'Post':
         return renderPostMessage(subject);
       case 'CommunityPermission':
-        return renderNewMemberMessage();
+        return renderText(renderNewMemberMessage());
     }
   };
 

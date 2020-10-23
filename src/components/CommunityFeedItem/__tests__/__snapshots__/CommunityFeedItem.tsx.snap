@@ -129,6 +129,7 @@ exports[`Community renders challenge correctly 1`] = `
             "fontStyle": "normal",
             "letterSpacing": 1,
             "lineHeight": 20,
+            "paddingHorizontal": 32,
             "textAlignVertical": "center",
             "textTransform": "uppercase",
           }
@@ -511,6 +512,7 @@ exports[`Community renders new member item correctly 1`] = `
             "fontStyle": "normal",
             "letterSpacing": 1,
             "lineHeight": 20,
+            "paddingHorizontal": 32,
             "textAlignVertical": "center",
             "textTransform": "uppercase",
           }
