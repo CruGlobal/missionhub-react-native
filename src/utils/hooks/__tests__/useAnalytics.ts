@@ -738,32 +738,5 @@ describe('useAnalytics', () => {
         [ANALYTICS_PERMISSION_TYPE]: 'member',
       });
     });
-
-    it('set to ""', async () => {
-      const { rerender } = renderHookWithContext(
-        () =>
-          useAnalytics(screenFragments, {
-            permissionType: { communityId },
-          }),
-        {
-          initialState,
-          mocks: {
-            CommunityPermission: () => ({
-              permission: PermissionEnum.no_permissions,
-            }),
-          },
-        },
-      );
-
-      await flushMicrotasksQueue();
-
-      expect(trackScreenChange).not.toHaveBeenCalled();
-
-      fireFocus(true, rerender);
-
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {
-        [ANALYTICS_PERMISSION_TYPE]: '',
-      });
-    });
   });
 });

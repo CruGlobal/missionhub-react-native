@@ -2800,22 +2800,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             isEditing={false}
             menuActions={
-@@ -627,12 +645,13 @@
-                Object {
-                  \\"onPress\\": [Function onPress],
-                  \\"text\\": \\"Copy\\",
-                },
-                Object {
-+                 \\"destructive\\": true,
-                  \\"onPress\\": [Function onPress],
--                 \\"text\\": \\"Report to Owner\\",
-+                 \\"text\\": \\"Delete Comment\\",
-                },
-              ]
-            }
-            testID=\\"CommentItem\\"
-          />
-@@ -643,19 +662,19 @@
+@@ -643,19 +661,19 @@
         >
           <CommentItem
             comment={
@@ -2842,22 +2827,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             isEditing={false}
             menuActions={
-@@ -663,12 +682,13 @@
-                Object {
-                  \\"onPress\\": [Function onPress],
-                  \\"text\\": \\"Copy\\",
-                },
-                Object {
-+                 \\"destructive\\": true,
-                  \\"onPress\\": [Function onPress],
--                 \\"text\\": \\"Report to Owner\\",
-+                 \\"text\\": \\"Delete Comment\\",
-                },
-              ]
-            }
-            testID=\\"CommentItem\\"
-          />
-@@ -688,22 +708,22 @@
+@@ -688,22 +706,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
@@ -3585,8 +3555,9 @@ exports[`renders correctly 1`] = `
                 "text": "Copy",
               },
               Object {
+                "destructive": true,
                 "onPress": [Function],
-                "text": "Report to Owner",
+                "text": "Delete Comment",
               },
             ]
           }
@@ -3621,8 +3592,9 @@ exports[`renders correctly 1`] = `
                 "text": "Copy",
               },
               Object {
+                "destructive": true,
                 "onPress": [Function],
-                "text": "Report to Owner",
+                "text": "Delete Comment",
               },
             ]
           }
@@ -4448,8 +4420,9 @@ exports[`renders correctly with communityId passed in 1`] = `
                 "text": "Copy",
               },
               Object {
+                "destructive": true,
                 "onPress": [Function],
-                "text": "Report to Owner",
+                "text": "Delete Comment",
               },
             ]
           }
@@ -4484,8 +4457,9 @@ exports[`renders correctly with communityId passed in 1`] = `
                 "text": "Copy",
               },
               Object {
+                "destructive": true,
                 "onPress": [Function],
-                "text": "Report to Owner",
+                "text": "Delete Comment",
               },
             ]
           }
