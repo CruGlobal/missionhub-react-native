@@ -454,7 +454,7 @@ exports[`AddStepScreen next renders correctly 1`] = `
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",
