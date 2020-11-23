@@ -11,5 +11,6 @@ export default StyleSheet.create({
     paddingVertical: 5,
     color: theme.white,
     letterSpacing: 0.25,
+    lineHeight: undefined,
   },
 });
