@@ -11959,10 +11959,10 @@ react-native-animatable@^1.3.2:
   dependencies:
     prop-types "^15.7.2"
 
-react-native-appsflyer@^5.1.3:
-  version "5.4.1"
-  resolved "https://registry.yarnpkg.com/react-native-appsflyer/-/react-native-appsflyer-5.4.1.tgz#d2ad12a3c1d01c2b6b36478b7c6c6aedc13aa0cb"
-  integrity sha512-+lllndbUDCZ3XqeRJYYzSvdTkc37SX00nEGJbYycXcEqD9yGk1bGoHSZmpbxyMgOHe71fLsrqp0RYCefOTgg3A==
+react-native-appsflyer@^6.1.10:
+  version "6.1.10"
+  resolved "https://registry.yarnpkg.com/react-native-appsflyer/-/react-native-appsflyer-6.1.10.tgz#958abe7cc592775da6cdd384898430f08bb8279d"
+  integrity sha512-3PxnX3iNzYurk10Y8fNRsBvB5Gx4ip8Tj9GO7RGnOJ+qmObDMSZ7+DSt2/+kBjZiE9+2NEkVGM/NBrOpthksMQ==
 
 react-native-camera@^3.24.1:
   version "3.33.0"
