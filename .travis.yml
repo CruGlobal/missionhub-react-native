@@ -62,6 +62,8 @@ matrix:
         - brew update
         - brew upgrade node
         - brew install yarn watchman
+        # Add github.com to known hosts
+        - echo "|1|k558lsi/DjLSDmo7uuIkNh044tk=|5+j2j24lzaSraqO8s9cHHdk/vvI= ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==" >> ~/.ssh/known_hosts
       install:
         - yarn
         - echo -e "machine github.com\n login $CI_USER_TOKEN" >> ~/.netrc
@@ -116,6 +118,8 @@ matrix:
         - echo yes | sdkmanager "build-tools;28.0.3" # Android platform required by app
         - echo yes | sdkmanager "build-tools;25.0.3" # Android platform required by some dependency
         - echo yes | sdkmanager "build-tools;23.0.1" # Android platform required by some dependency
+        # Add github.com to known hosts
+        - echo "|1|k558lsi/DjLSDmo7uuIkNh044tk=|5+j2j24lzaSraqO8s9cHHdk/vvI= ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==" >> ~/.ssh/known_hosts
 
       install:
         - yarn install
