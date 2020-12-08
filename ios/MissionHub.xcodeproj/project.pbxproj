@@ -19,6 +19,7 @@
 		A6AC66FDFEB3980C07A49518 /* libPods-MissionHub-MissionHubTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE64CD90C5C9B1C073BD7C37 /* libPods-MissionHub-MissionHubTests.a */; };
 		AECAC0531FF553550063D8AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AECAC02A1FF553550063D8AE /* LaunchScreen.storyboard */; };
 		B264100755DB6F3F8458C1A7 /* libPods-MissionHub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 969468032B85EBDB76068564 /* libPods-MissionHub.a */; };
+		B8B5996F25801D01000D7FAA /* GTM-MTJLLLQ.json in Resources */ = {isa = PBXBuildFile; fileRef = B8B5996E25801D01000D7FAA /* GTM-MTJLLLQ.json */; };
 		C94332D1FCF94D2F8593997B /* SourceSansPro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7072D8285274B48B52A3361 /* SourceSansPro-Italic.ttf */; };
 		D151858121E94E760052EF4C /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D151858021E94E760052EF4C /* icomoon.ttf */; };
 		D151858221E94E760052EF4C /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D151858021E94E760052EF4C /* icomoon.ttf */; };
@@ -71,6 +72,7 @@
 		AA78B082B3D220AA9BB3535D /* Pods-MissionHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MissionHub.release.xcconfig"; path = "Pods/Target Support Files/Pods-MissionHub/Pods-MissionHub.release.xcconfig"; sourceTree = "<group>"; };
 		AE849B662013A4C900890136 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		AECAC02A1FF553550063D8AE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B8B5996E25801D01000D7FAA /* GTM-MTJLLLQ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "GTM-MTJLLLQ.json"; sourceTree = "<group>"; };
 		BE64CD90C5C9B1C073BD7C37 /* libPods-MissionHub-MissionHubTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MissionHub-MissionHubTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C23C5D26FAD84794B4657E73 /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AmaticSC-Bold.ttf"; path = "../assets/fonts/AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
 		D151858021E94E760052EF4C /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icomoon.ttf; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 		13B07FAE1A68108700A75B9A /* MissionHub */ = {
 			isa = PBXGroup;
 			children = (
+				B8B5996D25801CE4000D7FAA /* container */,
 				93DE338F21B196A00057B6A7 /* GoogleService-Info.plist */,
 				FA45FFBC1FFE7D9600153E56 /* AdobeMobileLibrary */,
 				937F2BAD1FD9930100915D3A /* MissionHub.entitlements */,
@@ -225,6 +228,14 @@
 				BE64CD90C5C9B1C073BD7C37 /* libPods-MissionHub-MissionHubTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B8B5996D25801CE4000D7FAA /* container */ = {
+			isa = PBXGroup;
+			children = (
+				B8B5996E25801D01000D7FAA /* GTM-MTJLLLQ.json */,
+			);
+			path = container;
 			sourceTree = "<group>";
 		};
 		F7A69B701C35CDBE00558A66 /* Pods */ = {
@@ -366,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				B8B5996F25801D01000D7FAA /* GTM-MTJLLLQ.json in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				AECAC0531FF553550063D8AE /* LaunchScreen.storyboard in Resources */,
 				D151858121E94E760052EF4C /* icomoon.ttf in Resources */,

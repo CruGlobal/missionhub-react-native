@@ -1,6 +1,7 @@
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import * as RNOmniture from 'react-native-omniture';
+import FBAnalytics from '@react-native-firebase/analytics';
 import i18next from 'i18next';
 import appsFlyer from 'react-native-appsflyer';
 //import { Tracker } from '@ringierag/snowplow-reactjs-native-tracker';
@@ -109,6 +110,8 @@ export const trackScreenChange = (
       appsFlyer.setAdditionalData({ ECID: result }, () => {});
     });
   }
+
+  FBAnalytics().logScreenView({ screen_name: screen });
 };
 
 export function updateAnalyticsContext(
@@ -171,7 +174,18 @@ export function trackAction(action: string, data: Record<string, unknown>) {
     (acc, key) => ({ ...acc, [key]: data[key] ? data[key] : '1' }),
     {},
   );
-
+  // Format event data to correct firebase format
+  const firebaseContextData = Object.keys(data).reduce(
+    (acc, key) => ({
+      ...acc,
+      [key.replace(/[. ]/g, '_').toLowerCase()]: data[key] ? data[key] : '1',
+    }),
+    {},
+  );
+  // Format the event names to firebase format
+  const firebaseEventName = action.replace(/[. ]/g, '_').toLowerCase();
+  // Log event to firebase
+  FBAnalytics().logEvent(firebaseEventName, firebaseContextData);
   return () => RNOmniture.trackAction(action, newData);
 }
 
