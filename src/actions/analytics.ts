@@ -71,8 +71,8 @@ export const trackScreenChange = (
 ) => {
   const { analytics } = getState();
   const { [ANALYTICS_MCID]: mcid } = analytics;
-  // If in debug mode, set user property 'debug' to true, if prod set to false
-  FBAnalytics().setUserProperties({ debug: __DEV__ ? 'true' : 'false' });
+
+  FBAnalytics().setUserProperties({ debug: __DEV__.toString() });
   const screenFragments = Array.isArray(screenName) ? screenName : [screenName];
   const screen = screenFragments.reduce(
     (name, current) => `${name} : ${current}`,
@@ -175,10 +175,10 @@ export function trackAction(action: string, data: Record<string, unknown>) {
     {},
   );
   // Format event data to correct firebase format
-  const firebaseContextData = Object.keys(data).reduce(
-    (acc, key) => ({
+  const firebaseContextData = Object.entries(data).reduce(
+    (acc, [key, value]) => ({
       ...acc,
-      [formatFirebaseEvent(key)]: data[key] || '1',
+      [formatFirebaseEvent(key)]: value || '1',
     }),
     {},
   );
