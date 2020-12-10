@@ -13,14 +13,14 @@ import { setScrollGroups } from '../../../actions/swipe';
 import { DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN } from '../../../containers/Groups/DeepLinkConfirmJoinGroupScreen';
 import { navigatePush } from '../../../actions/navigation';
 import { COMMUNITY_TABS } from '../../../containers/Communities/Community/constants';
-import { trackScreenChange } from '../../../actions/analytics';
+import { ANALYTICS_CONTEXT_CHANGED } from '../../../actions/analytics';
+import { ANALYTICS_PREVIOUS_SCREEN_NAME } from '../../../constants';
 
 jest.mock('../../../actions/api');
 jest.mock('../../../actions/auth/userData');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/organizations');
 jest.mock('../../../actions/swipe');
-jest.mock('../../../actions/analytics');
 
 const community = {
   id: '1',
@@ -40,7 +40,6 @@ const loadHomeResponse = { type: 'load home' };
 const joinCommunityResponse = { type: 'join community' };
 const setScrollGroupsResponse = { type: 'set scroll groups' };
 const navigatePushResponse = { type: 'navigatePush' };
-const trackScreenChangeResponse = { type: 'track screen change' };
 
 beforeEach(() => {
   (callApi as jest.Mock).mockReturnValue(() => Promise.resolve());
@@ -48,7 +47,6 @@ beforeEach(() => {
   (joinCommunity as jest.Mock).mockReturnValue(joinCommunityResponse);
   (setScrollGroups as jest.Mock).mockReturnValue(setScrollGroupsResponse);
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResponse);
-  (trackScreenChange as jest.Mock).mockReturnValue(trackScreenChangeResponse);
 });
 
 describe('JoinGroupScreen next', () => {
@@ -78,8 +76,14 @@ describe('JoinGroupScreen next', () => {
     });
 
     expect(store.getActions()).toEqual([
-      trackScreenChangeResponse,
+      {
+        analyticsContext: {
+          [ANALYTICS_PREVIOUS_SCREEN_NAME]: 'mh : deep link : community',
+        },
+        type: ANALYTICS_CONTEXT_CHANGED,
+      },
       joinCommunityResponse,
+
       loadHomeResponse,
       setScrollGroupsResponse,
       navigatePushResponse,
