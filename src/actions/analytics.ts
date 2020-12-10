@@ -71,7 +71,8 @@ export const trackScreenChange = (
 ) => {
   const { analytics } = getState();
   const { [ANALYTICS_MCID]: mcid } = analytics;
-
+  // If in debug mode, set user property 'debug' to true, if prod set to false
+  FBAnalytics().setUserProperties({ debug: __DEV__ ? 'true' : 'false' });
   const screenFragments = Array.isArray(screenName) ? screenName : [screenName];
   const screen = screenFragments.reduce(
     (name, current) => `${name} : ${current}`,
@@ -100,6 +101,7 @@ export const trackScreenChange = (
         [ANALYTICS_PREVIOUS_SCREEN_NAME]: screen,
       }),
     );
+    FBAnalytics().logScreenView({ screen_name: screen });
   };
 
   if (mcid !== '') {
@@ -110,8 +112,6 @@ export const trackScreenChange = (
       appsFlyer.setAdditionalData({ ECID: result }, () => {});
     });
   }
-
-  FBAnalytics().logScreenView({ screen_name: screen });
 };
 
 export function updateAnalyticsContext(
@@ -178,17 +178,20 @@ export function trackAction(action: string, data: Record<string, unknown>) {
   const firebaseContextData = Object.keys(data).reduce(
     (acc, key) => ({
       ...acc,
-      [key.replace(/[. ]/g, '_').toLowerCase()]: data[key] ? data[key] : '1',
+      [formatFirebaseEvent(key)]: data[key] || '1',
     }),
     {},
   );
   // Format the event names to firebase format
-  const firebaseEventName = action.replace(/[. ]/g, '_').toLowerCase();
+  const firebaseEventName = formatFirebaseEvent(action);
   // Log event to firebase
   FBAnalytics().logEvent(firebaseEventName, firebaseContextData);
   return () => RNOmniture.trackAction(action, newData);
 }
 
+export function formatFirebaseEvent(event: string) {
+  return event.replace(/[-. ]/g, '_').toLowerCase();
+}
 /*
 function sendStateToSnowplow(context: { [key: string]: string }) {
   const idData = {

@@ -26,7 +26,6 @@ target 'MissionHub' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
   pod 'FBSDKShareKit'
-  pod 'Firebase/Analytics'
   pod 'GoogleTagManager'
   pod 'AdobeMobileLibrary', :path => 'AdobeMobileLibrary'
 

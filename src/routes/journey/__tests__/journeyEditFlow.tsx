@@ -9,11 +9,13 @@ import { getJourney } from '../../../actions/journey';
 import { updateChallengeNote } from '../../../actions/steps';
 import { editComment } from '../../../actions/interactions';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
+import { trackScreenChange } from '../../../actions/analytics';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/journey');
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/interactions');
+jest.mock('../../../actions/analytics');
 
 const personId = '111';
 const orgId = '222';
@@ -24,6 +26,7 @@ const navigateBackResult = { type: 'navigated back' };
 const updateChallengeNoteResult = { type: 'update challenge note' };
 const editCommentResult = { type: 'edit comment' };
 const getJourneyResult = { type: 'get journey' };
+const trackScreenChangeResult = { type: 'track screen change' };
 
 const initialState = {
   drawer: {},
@@ -36,6 +39,7 @@ beforeEach(() => {
   (updateChallengeNote as jest.Mock).mockReturnValue(updateChallengeNoteResult);
   (editComment as jest.Mock).mockReturnValue(editCommentResult);
   (getJourney as jest.Mock).mockReturnValue(getJourneyResult);
+  (trackScreenChange as jest.Mock).mockReturnValue(trackScreenChangeResult);
 });
 
 // eslint-disable-next-line  @typescript-eslint/no-explicit-any
