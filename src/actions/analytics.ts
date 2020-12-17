@@ -1,6 +1,7 @@
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import * as RNOmniture from 'react-native-omniture';
+import FBAnalytics from '@react-native-firebase/analytics';
 import i18next from 'i18next';
 import appsFlyer from 'react-native-appsflyer';
 //import { Tracker } from '@ringierag/snowplow-reactjs-native-tracker';
@@ -71,6 +72,13 @@ export const trackScreenChange = (
   const { analytics } = getState();
   const { [ANALYTICS_MCID]: mcid } = analytics;
 
+  FBAnalytics().setUserProperties({
+    debug: __DEV__.toString(),
+    cru_grmasterpersonid: analytics[ANALYTICS_GR_MASTER_PERSON_ID],
+    cru_loggedinstatus:
+      analytics[ANALYTICS_LOGGED_IN_STATUS] === 'logged in' ? 'true' : 'false',
+    cru_ssoguid: analytics[ANALYTICS_SSO_GUID],
+  });
   const screenFragments = Array.isArray(screenName) ? screenName : [screenName];
   const screen = screenFragments.reduce(
     (name, current) => `${name} : ${current}`,
@@ -99,6 +107,7 @@ export const trackScreenChange = (
         [ANALYTICS_PREVIOUS_SCREEN_NAME]: screen,
       }),
     );
+    FBAnalytics().logScreenView({ screen_name: screen });
   };
 
   if (mcid !== '') {
@@ -171,10 +180,24 @@ export function trackAction(action: string, data: Record<string, unknown>) {
     (acc, key) => ({ ...acc, [key]: data[key] ? data[key] : '1' }),
     {},
   );
-
+  // Format event data to correct firebase format
+  const firebaseContextData = Object.entries(data).reduce(
+    (acc, [key, value]) => ({
+      ...acc,
+      [formatFirebaseEvent(key)]: value || '1',
+    }),
+    {},
+  );
+  // Format the event names to firebase format
+  const firebaseEventName = formatFirebaseEvent(action);
+  // Log event to firebase
+  FBAnalytics().logEvent(firebaseEventName, firebaseContextData);
   return () => RNOmniture.trackAction(action, newData);
 }
 
+export function formatFirebaseEvent(event: string) {
+  return event.replace(/[-. ]/g, '_').toLowerCase();
+}
 /*
 function sendStateToSnowplow(context: { [key: string]: string }) {
   const idData = {
