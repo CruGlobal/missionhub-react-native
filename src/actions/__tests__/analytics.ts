@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable max-lines */
 
 import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as RNOmniture from 'react-native-omniture';
+import FBAnalytics from '@react-native-firebase/analytics';
 import i18next from 'i18next';
 
 import {
@@ -15,6 +17,7 @@ import {
   ANALYTICS_CONTEXT_CHANGED,
   ScreenContext,
   trackStepDeleted,
+  formatFirebaseEvent,
 } from '../analytics';
 import { STEP_ADDED_ANALYTICS_FRAGMENT } from '../analyticsQueries';
 import {
@@ -49,6 +52,12 @@ jest.mock('react-native-omniture', () => ({
   loadMarketingCloudId: jest.fn(),
 }));
 jest.mock('../../auth/authUtilities');
+
+((FBAnalytics as unknown) as jest.Mock).mockReturnValue({
+  logEvent: jest.fn(),
+  logScreenView: jest.fn(),
+  setUserProperties: jest.fn(),
+});
 
 const mockStore = configureStore([thunk]);
 
@@ -106,6 +115,9 @@ describe('trackScreenChange', () => {
         analyticsContext: { [ANALYTICS_PREVIOUS_SCREEN_NAME]: screenName },
       },
     ]);
+    expect(FBAnalytics().logScreenView).toHaveBeenCalledWith({
+      screen_name: 'mh : section : subsection : subsection 3',
+    });
   });
 
   it('tracks screen change with string', () => {
@@ -128,6 +140,9 @@ describe('trackScreenChange', () => {
         analyticsContext: { [ANALYTICS_PREVIOUS_SCREEN_NAME]: shortScreenName },
       },
     ]);
+    expect(FBAnalytics().logScreenView).toHaveBeenCalledWith({
+      screen_name: 'mh : section',
+    });
   });
 
   it('tracks screen change with string and screen context', () => {
@@ -158,6 +173,9 @@ describe('trackScreenChange', () => {
         },
       },
     ]);
+    expect(FBAnalytics().logScreenView).toHaveBeenCalledWith({
+      screen_name: 'mh : section',
+    });
   });
 
   it('fetches new MCID, then tracks screen change', () => {
@@ -211,6 +229,9 @@ describe('trackActionWithoutData', () => {
     expect(RNOmniture.trackAction).toHaveBeenCalledWith(action.name, {
       [action.key]: '1',
     });
+    expect(FBAnalytics().logEvent).toHaveBeenCalledWith('hello_world', {
+      cru_helloworld: '1',
+    });
   });
 });
 
@@ -222,6 +243,7 @@ describe('trackAction', () => {
     store.dispatch<any>(trackAction(action, data));
 
     expect(RNOmniture.trackAction).toHaveBeenCalledWith(action, data);
+    expect(FBAnalytics().logEvent).toHaveBeenCalledWith('test_action', data);
   });
 
   it('should convert null values to 1', () => {
@@ -231,6 +253,11 @@ describe('trackAction', () => {
     store.dispatch<any>(trackAction(action, data));
 
     expect(RNOmniture.trackAction).toHaveBeenCalledWith(action, {
+      property1: '1',
+      property2: 'hello',
+      property3: '1',
+    });
+    expect(FBAnalytics().logEvent).toHaveBeenCalledWith('test_action', {
       property1: '1',
       property2: 'hello',
       property3: '1',
@@ -268,6 +295,14 @@ describe('trackStepAdded', () => {
       ACTIONS.STEPS_ADDED.name,
       { [ACTIONS.STEPS_ADDED.key]: 1 },
     );
+    expect(FBAnalytics().logEvent).toHaveBeenCalledTimes(2);
+    expect(FBAnalytics().logEvent).toHaveBeenCalledWith(
+      'step_of_faith_detail',
+      { cru_stepoffaithdetail: 'share | N | en-TEST | 2 | 3' },
+    );
+    expect(FBAnalytics().logEvent).toHaveBeenCalledWith('step_of_faith_added', {
+      cru_stepoffaithadded: 1,
+    });
   });
 
   it('should track custom steps', async () => {
@@ -303,6 +338,18 @@ describe('trackStepAdded', () => {
       ACTIONS.STEPS_ADDED.name,
       { [ACTIONS.STEPS_ADDED.key]: 1 },
     );
+    expect(FBAnalytics().logEvent).toHaveBeenCalledTimes(3);
+    expect(FBAnalytics().logEvent).toHaveBeenCalledWith(
+      'step_of_faith_created',
+      { cru_stepoffaithcreated: '1' },
+    );
+    expect(FBAnalytics().logEvent).toHaveBeenCalledWith(
+      'step_of_faith_detail',
+      { cru_stepoffaithdetail: 'share | Y | en-TEST' },
+    );
+    expect(FBAnalytics().logEvent).toHaveBeenCalledWith('step_of_faith_added', {
+      cru_stepoffaithadded: 1,
+    });
   });
 });
 
@@ -317,6 +364,20 @@ it('should track step deletion', async () => {
       [ACTIONS.STEP_REMOVED.key]: '1',
     },
   );
+  expect(FBAnalytics().logEvent).toHaveBeenCalledTimes(1);
+  expect(FBAnalytics().logEvent).toHaveBeenCalledWith(
+    'step_removed_on_step_detail_screen',
+    {
+      cru_stepremoved: '1',
+    },
+  );
+});
+
+describe('formatFirebaseEvent', () => {
+  it('should format the event name', () => {
+    const event = formatFirebaseEvent('Unformated.fire-base Event');
+    expect(event).toEqual('unformated_fire_base_event');
+  });
 });
 
 describe('logInAnalytics', () => {
