@@ -308,7 +308,7 @@ export const ACTIONS = {
     key: 'cru.membersleave',
   },
   COMMUNITY_EDIT: {
-    name: 'Editting Community',
+    name: 'Editing Community',
     key: 'cru.communityedit',
   },
   COPY_CODE: {
