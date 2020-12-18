@@ -1,3 +1,8 @@
+branches:
+  only:
+    - develop
+    - master
+
 matrix:
   include:
     - name: 'JS lint, test, i18n, and Codepush'
@@ -19,7 +24,7 @@ matrix:
       script:
         - yarn gql:codegen
         - yarn gql:schema
-        - yarn test:coverage --maxWorkers=4 --ci --silent
+        - travis_wait yarn test:coverage --maxWorkers=4 --ci --silent
         - yarn lint
         - yarn lint:ts
         - yarn prettier:check
@@ -74,7 +79,7 @@ matrix:
         - yarn gql:codegen
         - yarn gql:schema
       script:
-        - (cd ios && fastlane ios beta)
+        - (cd ios && travis_wait 30 fastlane ios beta)
       before_cache:
         - brew cleanup
       cache:
