@@ -135,9 +135,10 @@ const AddChallengeScreen = () => {
 
   const renderDateInput = () => {
     const today = new Date();
+    const selectedDate = date === '' ? today : date;
     return (
       <DatePicker
-        date={moment(date).toDate()}
+        date={moment(selectedDate).format('YYYY-MM-DDTHH:mm:ss')}
         mode="date"
         minimumDate={today}
         onDateChange={onChangeDate}

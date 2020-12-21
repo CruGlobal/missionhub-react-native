@@ -645,6 +645,7 @@ exports[`should render correctly | Pray Step 1`] = `
         }
         testID="stepTitleInput"
         underlineColorAndroid="transparent"
+        value="Pray for Hayden's request."
       />
       <View
         style={
