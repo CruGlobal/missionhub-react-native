@@ -75,7 +75,7 @@ const NSString *MH_ADOBE_ANAYLYTICS_FILENAME_KEY = @"ADB Mobile Config";
   #if FB_SONARKIT_ENABLED
     InitializeFlipper(application);
   #endif
-  GAI.sharedInstance.dispatchInterval = 1;
+  [GAI sharedInstance].dispatchInterval = 1;
   // Expo react-native-unimodules
   self.moduleRegistryAdapter = [[UMModuleRegistryAdapter alloc] initWithModuleRegistryProvider:[[UMModuleRegistryProvider alloc] init]];
 
