@@ -55,13 +55,17 @@ matrix:
         - yarn
 
     - name: 'iOS Testflight Build'
-      language: objective-c
       if: branch = master and type = push
-      xcode_workspace: ios/MissionHub.xcworkspace
+
+      language: objective-c
       os: osx
       osx_image: xcode11.4
+      gemfile: ios/Gemfile
+      podfile: ios/Podfile
+      xcode_workspace: ios/MissionHub.xcworkspace
       env:
         - ENVFILE=.env.production
+
       before_install:
         - rm -rf ~/.nvm # remove nvm in favor of node from brew
         # - brew update
