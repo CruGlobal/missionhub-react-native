@@ -3,7 +3,9 @@ import Config from 'react-native-config';
 import { Platform } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 
-const codeVersion = `${Config.TRAVIS_COMMIT || 'development'}.${Platform.OS}`;
+const codeVersion = `${Config.TRAVIS_COMMIT ||
+  Config.COMMIT_SHA ||
+  'development'}.${Platform.OS}`;
 
 const config = new Configuration(Config.ROLLBAR_ACCESS_TOKEN, {
   enabled: !__DEV__,
