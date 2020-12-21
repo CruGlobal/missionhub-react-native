@@ -228,7 +228,6 @@ jobs:
           TRAVIS_TAG: ${{ github.ref }}
           TRAVIS_COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
           TRAVIS_BUILD_NUMBER: ${{ github.run_id }}
-          MATCH_KEYCHAIN_NAME: ${{ secrets.MATCH_KEYCHAIN_NAME }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           SLACK_URL: ${{ secrets.SLACK_URL }}
         working-directory: ./ios
