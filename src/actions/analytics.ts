@@ -74,10 +74,10 @@ export const trackScreenChange = (
 
   FBAnalytics().setUserProperties({
     debug: __DEV__.toString(),
-    cru_grmasterpersonid: analytics[ANALYTICS_GR_MASTER_PERSON_ID],
+    cru_grmasterpersonid: analytics[ANALYTICS_GR_MASTER_PERSON_ID] || null,
     cru_loggedinstatus:
       analytics[ANALYTICS_LOGGED_IN_STATUS] === 'logged in' ? 'true' : 'false',
-    cru_ssoguid: analytics[ANALYTICS_SSO_GUID],
+    cru_ssoguid: analytics[ANALYTICS_SSO_GUID] || null,
   });
   const screenFragments = Array.isArray(screenName) ? screenName : [screenName];
   const screen = screenFragments.reduce(
