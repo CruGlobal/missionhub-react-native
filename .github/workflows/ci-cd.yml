@@ -111,7 +111,7 @@ jobs:
   onesky-upload:
     runs-on: ubuntu-latest
     needs: [test, eslint, typescript, prettier]
-    if: github.env.SHOULD_DEPLOY
+    if: ${{ github.env.SHOULD_DEPLOY }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -129,7 +129,7 @@ jobs:
   ios-codepush:
     runs-on: ubuntu-latest
     needs: [test, eslint, typescript, prettier]
-    if: github.env.SHOULD_DEPLOY
+    if: ${{ github.env.SHOULD_DEPLOY }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -165,7 +165,7 @@ jobs:
   android-codepush:
     runs-on: ubuntu-latest
     needs: [test, eslint, typescript, prettier]
-    if: github.env.SHOULD_DEPLOY
+    if: ${{ github.env.SHOULD_DEPLOY }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -200,7 +200,7 @@ jobs:
   ios-deploy:
     runs-on: macos-11.0
     needs: [test, eslint, typescript, prettier]
-    if: github.env.SHOULD_DEPLOY
+    if: ${{ github.env.SHOULD_DEPLOY }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -236,7 +236,7 @@ jobs:
   android-deploy:
     runs-on: ubuntu-latest
     needs: [test, eslint, typescript, prettier]
-    if: github.env.SHOULD_DEPLOY
+    if: ${{ github.env.SHOULD_DEPLOY }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
