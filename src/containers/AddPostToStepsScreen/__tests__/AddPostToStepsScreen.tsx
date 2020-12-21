@@ -55,6 +55,7 @@ it('should render correctly | Pray Step', async () => {
     },
   });
   await flushMicrotasksQueue();
+  await flushMicrotasksQueue();
   snapshot();
   expect(useAnalytics).toHaveBeenCalledWith(['add steps', 'step detail']);
 });
