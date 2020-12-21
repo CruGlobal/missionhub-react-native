@@ -1,4 +1,5 @@
-name: JavaScript CI and iOS, Android, and Codepush deployment
+name: CI/CD
+# JavaScript CI and iOS, Android, and Codepush deployment
 
 on:
   push:
