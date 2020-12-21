@@ -83,7 +83,8 @@ matrix:
         - yarn gql:codegen
         - yarn gql:schema
       script:
-        - (cd ios && travis_wait 30 fastlane ios beta)
+        - (cd ios && fastlane ios beta)
+      # - (cd ios && travis_wait 30 fastlane ios beta)
       before_cache:
         - brew cleanup
       cache:
