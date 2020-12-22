@@ -197,7 +197,7 @@ jobs:
             -F source_map=@sourcemap.android.js
 
   ios-deploy:
-    runs-on: macos-11.0
+    runs-on: macos-latest
     needs: [test, eslint, typescript, prettier]
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     steps:
