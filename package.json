@@ -145,7 +145,7 @@
     "apollo": "^2.30.3",
     "apollo-client": "^2.6.8",
     "apollo-link-schema": "^1.2.5",
-    "appcenter-cli": "^2.7.0",
+    "appcenter-cli": "^2.7.3",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.3.0",
     "dotenv": "^8.1.0",
