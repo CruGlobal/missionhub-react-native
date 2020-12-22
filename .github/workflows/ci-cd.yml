@@ -217,14 +217,19 @@ jobs:
           ONESKY_API_KEY: ${{ secrets.ONESKY_API_KEY }}
           ONESKY_SECRET_KEY: ${{ secrets.ONESKY_SECRET_KEY }}
         run: yarn onesky:download
-      - name: 📦💎 Bundle install
-        working-directory: ./ios
-        run: bundler install
+      - name: 💎 Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
       - name: ➕ Add Commit SHA to ENVFILE
         run: echo "COMMIT_SHA=$GITHUB_SHA" >> ./.env.production
       - name: 🗝 Configure GitHub login
         run: echo -e "machine github.com\n login $CI_USER_TOKEN" >> ~/.netrc
       - name: 🏗️🚀🍏 Build and push to Testflight
+        uses: maierj/fastlane-action@v2.0.0
+        with:
+          lane: ios beta
+          subdirectory: ios
         env:
           TRAVIS_BRANCH: ${{ github.ref }}
           TRAVIS_TAG: ${{ github.ref }}
@@ -232,8 +237,6 @@ jobs:
           TRAVIS_BUILD_NUMBER: ${{ github.run_id }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           SLACK_URL: ${{ secrets.SLACK_URL }}
-        working-directory: ./ios
-        run: fastlane ios beta
 
   android-deploy:
     runs-on: ubuntu-latest
@@ -265,6 +268,10 @@ jobs:
           java-version: 1.8
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
+      - name: 💎 Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
       - name: ➕ Add Commit SHA to ENVFILE
         run: echo "COMMIT_SHA=$GITHUB_SHA" >> ./.env.production
       - name: 🔓 Decrypt GooglePlayAPI.json
@@ -272,6 +279,10 @@ jobs:
           GOOGLE_PLAY_API_FILE_PASSWORD: ${{ secrets.GOOGLE_PLAY_API_FILE_PASSWORD }}
         run: openssl aes-256-cbc -pass "pass:$GOOGLE_PLAY_API_FILE_PASSWORD" -in ./android/fastlane/GooglePlayAPI.enc -out ./android/fastlane/GooglePlayAPI.json -d -a
       - name: 🏗️🚀🤖 Build and push to Android Beta
+        uses: maierj/fastlane-action@v2.0.0
+        with:
+          lane: android beta
+          subdirectory: android
         env:
           TRAVIS_BRANCH: ${{ github.ref }}
           TRAVIS_TAG: ${{ github.ref }}
@@ -279,5 +290,3 @@ jobs:
           TRAVIS_BUILD_NUMBER: ${{ github.run_id }}
           GOOGLE_PLAY_UPLOAD_KEY_PASSWORD: ${{ secrets.GOOGLE_PLAY_UPLOAD_KEY_PASSWORD }}
           SLACK_URL: ${{ secrets.SLACK_URL }}
-        working-directory: ./android
-        run: fastlane android beta
