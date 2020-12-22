@@ -213,6 +213,9 @@ jobs:
           yarn gql:codegen
           yarn gql:schema
       - name: ⛅ OneSky Download
+        env:
+          ONESKY_API_KEY: ${{ secrets.ONESKY_API_KEY }}
+          ONESKY_SECRET_KEY: ${{ secrets.ONESKY_SECRET_KEY }}
         run: yarn onesky:download
       - name: 📦💎 Bundle install
         working-directory: ./ios
@@ -249,6 +252,9 @@ jobs:
           yarn gql:codegen
           yarn gql:schema
       - name: ⛅ OneSky Download
+        env:
+          ONESKY_API_KEY: ${{ secrets.ONESKY_API_KEY }}
+          ONESKY_SECRET_KEY: ${{ secrets.ONESKY_SECRET_KEY }}
         run: yarn onesky:download
       - name: 📦💎 Bundle install
         working-directory: ./android
