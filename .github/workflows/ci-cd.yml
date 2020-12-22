@@ -9,7 +9,6 @@ on:
 
 env:
   ENVFILE: ${{ (github.ref == 'refs/heads/master' || github.base_ref == 'refs/heads/master') && '.env.production' || '.env.staging' }}
-  SHOULD_DEPLOY: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
 
 jobs:
   split-tests:
