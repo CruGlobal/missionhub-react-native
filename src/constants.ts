@@ -178,11 +178,11 @@ export const ACTIONS = {
     key: 'cru.stepposttype',
   },
   ALLOW: {
-    name: 'Notification Permissions',
+    name: 'Notification Permissions Allowed',
     key: 'cru.notificationsallowed',
   },
   NOT_NOW: {
-    name: 'Notification Permissions',
+    name: 'Notification Permissions Not Allowed',
     key: 'cru.notificationsnotallowed',
   },
   NO_REMINDERS: {
