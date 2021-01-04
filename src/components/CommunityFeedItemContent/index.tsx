@@ -34,7 +34,6 @@ import VideoPlayer from '../VideoPlayer';
 import KebabIcon from '../../../assets/images/kebabIcon.svg';
 import ChallengesTarget from '../../../assets/images/challenge-target.svg';
 import theme from '../../theme';
-import { CardHorizontalMargin } from '../Card/styles';
 import { useFeatureFlags } from '../../utils/hooks/useFeatureFlags';
 
 import {
@@ -175,15 +174,10 @@ export const CommunityFeedItemContent = ({
     );
   };
 
-  const renderNewMemberMessage = () => {
-    return (
-      <Text style={styles.messageText}>
-        {t('newMemberMessage', {
-          personFirstName: subjectPerson?.firstName,
-        })}
-      </Text>
-    );
-  };
+  const renderNewMemberMessage = () =>
+    t('newMemberMessage', {
+      personFirstName: subjectPerson?.firstName,
+    });
 
   const renderStage = (
     stage: CommunityFeedItemContent_subject_Step_receiverStageAtCompletion | null,
@@ -213,7 +207,7 @@ export const CommunityFeedItemContent = ({
       case 'Post':
         return renderPostMessage(subject);
       case 'CommunityPermission':
-        return renderNewMemberMessage();
+        return renderText(renderNewMemberMessage());
     }
   };
 
@@ -237,7 +231,9 @@ export const CommunityFeedItemContent = ({
   };
 
   const renderText = (text: string) => (
-    <Text style={styles.messageText}>{text}</Text>
+    <View style={styles.messageWrap}>
+      <Text style={styles.messageText}>{text}</Text>
+    </View>
   );
 
   const renderPostMessage = (
@@ -305,10 +301,7 @@ export const CommunityFeedItemContent = ({
         onPress={() => {}}
         testID="VideoTouchable"
       >
-        <VideoPlayer
-          uri={mediaData}
-          width={theme.fullWidth - CardHorizontalMargin * 2.0}
-        />
+        <VideoPlayer uri={mediaData} />
       </Touchable>
     ) : null;
 

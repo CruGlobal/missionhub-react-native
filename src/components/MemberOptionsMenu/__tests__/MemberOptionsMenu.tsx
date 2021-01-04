@@ -3,10 +3,8 @@
 import React from 'react';
 import { Alert } from 'react-native';
 import i18next from 'i18next';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 
-import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { transferOrgOwnership } from '../../../actions/organizations';
 import {
   makeAdmin,
@@ -29,18 +27,16 @@ const organization = { name: "Roge's org", id: '08747283423' };
 const personOrgPermission = { id: '25234234', permission: PermissionEnum.user };
 
 const person = { id: '1', full_name: 'Test Person' };
-const mockStore = configureStore([thunk]);
 
-// @ts-ignore
-let props;
-// @ts-ignore
-let store;
+let props: unknown;
 const onActionTaken = jest.fn();
 const defaultProps = { t: i18next.t, dispatch: () => {}, myId, onActionTaken };
 
 const testMembersOptionsMenu = () => {
-  // @ts-ignore
-  testSnapshotShallow(<MemberOptionsMenu {...props} />);
+  renderWithContext(
+    // @ts-ignore
+    <MemberOptionsMenu {...props} />,
+  ).snapshot();
 };
 
 describe('MemberOptionsMenu', () => {
@@ -67,11 +63,12 @@ describe('MemberOptionsMenu', () => {
 
     it('shows an alert message if I attempt to leave', () => {
       Alert.alert = jest.fn();
-      // @ts-ignore
-      const screen = renderShallow(<MemberOptionsMenu {...props} />);
+      const { getByTestId } = renderWithContext(
+        // @ts-ignore
+        <MemberOptionsMenu {...props} />,
+      );
 
-      // @ts-ignore
-      screen.props().actions[0].onPress();
+      getByTestId('popupMenu').props.actions[0].onPress();
 
       expect(Alert.alert).toHaveBeenCalledWith(
         i18next.t('groupMemberOptions:ownerLeaveCommunityErrorMessage', {
@@ -137,13 +134,16 @@ describe('MemberOptionsMenu', () => {
     });
 
     it('transfers ownership', () => {
-      // @ts-ignore
-      transferOrgOwnership.mockReturnValue({ type: 'transferred ownership' });
-      // @ts-ignore
-      const screen = renderShallow(<MemberOptionsMenu {...props} />);
+      (transferOrgOwnership as jest.Mock).mockReturnValue({
+        type: 'transferred ownership',
+      });
+      const { getByTestId } = renderWithContext(
+        // @ts-ignore
+        <MemberOptionsMenu {...props} />,
+      );
 
-      // @ts-ignore
-      screen.instance().makeOwner();
+      getByTestId('popupMenu').props.actions[1].onPress();
+      (Alert.alert as jest.Mock).mock.calls[0][2][1].onPress();
 
       expect(transferOrgOwnership).toHaveBeenCalledWith(
         organization.id,
@@ -152,8 +152,7 @@ describe('MemberOptionsMenu', () => {
     });
 
     it('shows error message for Try It Now users', async () => {
-      // @ts-ignore
-      transferOrgOwnership.mockReturnValue(() =>
+      (transferOrgOwnership as jest.Mock).mockReturnValue(() =>
         Promise.reject({
           apiError: {
             errors: [
@@ -165,11 +164,13 @@ describe('MemberOptionsMenu', () => {
         }),
       );
 
-      // @ts-ignore
-      await renderShallow(<MemberOptionsMenu {...props} />)
-        .instance()
+      const { getByTestId } = renderWithContext(
         // @ts-ignore
-        .makeOwner();
+        <MemberOptionsMenu {...props} />,
+      );
+
+      getByTestId('popupMenu').props.actions[1].onPress();
+      await (Alert.alert as jest.Mock).mock.calls[0][2][1].onPress();
 
       expect(Alert.alert).toHaveBeenCalledWith(
         i18next.t('groupMemberOptions:tryItNowAdminOwnerErrorMessage'),
@@ -187,15 +188,18 @@ describe('MemberOptionsMenu', () => {
           ],
         },
       };
-      // @ts-ignore
-      transferOrgOwnership.mockReturnValue(() => Promise.reject(error));
+      (transferOrgOwnership as jest.Mock).mockReturnValue(() =>
+        Promise.reject(error),
+      );
 
-      await expect(
+      const { getByTestId } = renderWithContext(
         // @ts-ignore
-        renderShallow(<MemberOptionsMenu {...props} />)
-          .instance()
-          // @ts-ignore
-          .makeOwner(),
+        <MemberOptionsMenu {...props} />,
+      );
+
+      getByTestId('popupMenu').props.actions[1].onPress();
+      await expect(
+        (Alert.alert as jest.Mock).mock.calls[0][2][1].onPress(),
       ).rejects.toEqual(error);
     });
   });
@@ -220,9 +224,6 @@ describe('MemberOptionsMenu', () => {
 describe('confirm screen', () => {
   Alert.alert = jest.fn();
 
-  // @ts-ignore
-  let screen;
-
   describe('Make Admin', () => {
     const makeAdminResponse = { type: 'make admin' };
 
@@ -239,17 +240,17 @@ describe('confirm screen', () => {
         organization,
         personOrgPermission,
       };
-
-      store = mockStore();
-      screen = renderShallow(<MemberOptionsMenu {...props} />, store);
     });
 
     it('displays confirm screen', () => {
-      // @ts-ignore
-      makeAdmin.mockReturnValue(makeAdminResponse);
+      (makeAdmin as jest.Mock).mockReturnValue(makeAdminResponse);
 
-      // @ts-ignore
-      screen.props().actions[0].onPress();
+      const { getByTestId } = renderWithContext(
+        // @ts-ignore
+        <MemberOptionsMenu {...props} />,
+      );
+
+      getByTestId('popupMenu').props.actions[0].onPress();
 
       expect(Alert.alert).toHaveBeenCalledWith(
         i18next.t('groupMemberOptions:makeAdmin:modalTitle', {
@@ -270,21 +271,23 @@ describe('confirm screen', () => {
       );
     });
 
-    it('calls makeAdmin action', async () => {
-      // @ts-ignore
-      makeAdmin.mockReturnValue(makeAdminResponse);
+    it('calls makeAdmin action', () => {
+      (makeAdmin as jest.Mock).mockReturnValue(makeAdminResponse);
 
-      // @ts-ignore
-      await screen.instance().makeAdmin();
+      const { store, getByTestId } = renderWithContext(
+        // @ts-ignore
+        <MemberOptionsMenu {...props} />,
+      );
 
-      // @ts-ignore
+      getByTestId('popupMenu').props.actions[0].onPress();
+      (Alert.alert as jest.Mock).mock.calls[0][2][1].onPress();
+
       expect(store.getActions()).toEqual([makeAdminResponse]);
       expect(makeAdmin).toHaveBeenCalledWith(otherId, personOrgPermission.id);
     });
 
     it('shows error message for Try It Now users', async () => {
-      // @ts-ignore
-      makeAdmin.mockReturnValue(() =>
+      (makeAdmin as jest.Mock).mockReturnValue(() =>
         Promise.reject({
           apiError: {
             errors: [
@@ -298,8 +301,13 @@ describe('confirm screen', () => {
         }),
       );
 
-      // @ts-ignore
-      await screen.instance().makeAdmin();
+      const { getByTestId } = renderWithContext(
+        // @ts-ignore
+        <MemberOptionsMenu {...props} />,
+      );
+
+      getByTestId('popupMenu').props.actions[0].onPress();
+      await (Alert.alert as jest.Mock).mock.calls[0][2][1].onPress();
 
       expect(Alert.alert).toHaveBeenCalledWith(
         i18next.t('groupMemberOptions:tryItNowAdminOwnerErrorMessage'),
@@ -307,7 +315,6 @@ describe('confirm screen', () => {
     });
 
     it('throws unexpected errors', async () => {
-      expect.assertions(1);
       const error = {
         apiError: {
           errors: [
@@ -317,20 +324,23 @@ describe('confirm screen', () => {
           ],
         },
       };
-      // @ts-ignore
-      makeAdmin.mockReturnValue(() => Promise.reject(error));
+      (makeAdmin as jest.Mock).mockReturnValue(() => Promise.reject(error));
 
-      await expect(
+      const { getByTestId } = renderWithContext(
         // @ts-ignore
-        screen.instance().makeAdmin(),
+        <MemberOptionsMenu {...props} />,
+      );
+
+      getByTestId('popupMenu').props.actions[0].onPress();
+      await expect(
+        (Alert.alert as jest.Mock).mock.calls[0][2][1].onPress(),
       ).rejects.toEqual(error);
     });
   });
 
   describe('Remove As Admin', () => {
     const removeAdminResponse = { type: 'remove admin' };
-    // @ts-ignore
-    removeAsAdmin.mockReturnValue(removeAdminResponse);
+    (removeAsAdmin as jest.Mock).mockReturnValue(removeAdminResponse);
 
     beforeEach(() => {
       props = {
@@ -345,14 +355,15 @@ describe('confirm screen', () => {
         organization,
         personOrgPermission,
       };
-
-      store = mockStore();
-      screen = renderShallow(<MemberOptionsMenu {...props} />, store);
     });
 
     it('displays confirm screen', () => {
-      // @ts-ignore
-      screen.props().actions[0].onPress();
+      const { getByTestId } = renderWithContext(
+        // @ts-ignore
+        <MemberOptionsMenu {...props} />,
+      );
+
+      getByTestId('popupMenu').props.actions[0].onPress();
 
       expect(Alert.alert).toHaveBeenCalledWith(
         i18next.t('groupMemberOptions:removeAdmin:modalTitle', {
@@ -374,10 +385,14 @@ describe('confirm screen', () => {
     });
 
     it('calls removeAdmin action', async () => {
-      // @ts-ignore
-      await screen.instance().removeAsAdmin();
+      const { store, getByTestId } = renderWithContext(
+        // @ts-ignore
+        <MemberOptionsMenu {...props} />,
+      );
 
-      // @ts-ignore
+      getByTestId('popupMenu').props.actions[0].onPress();
+      await (Alert.alert as jest.Mock).mock.calls[0][2][1].onPress();
+
       expect(store.getActions()).toEqual([removeAdminResponse]);
       expect(onActionTaken).toHaveBeenCalled();
       expect(removeAsAdmin).toHaveBeenCalledWith(
@@ -404,34 +419,34 @@ describe('Leave Community', () => {
       organization,
       personOrgPermission,
     };
-
-    store = mockStore();
   });
 
   it('sets flag to archive my permission on unmount', async () => {
-    // @ts-ignore
-    navigateToMainTabs.mockReturnValue(navigateToMainTabResults);
-    // @ts-ignore
-    const screen = renderShallow(<MemberOptionsMenu {...props} />, store);
+    (navigateToMainTabs as jest.Mock).mockReturnValue(navigateToMainTabResults);
+    const { store, getByTestId } = renderWithContext(
+      // @ts-ignore
+      <MemberOptionsMenu {...props} />,
+    );
 
-    // @ts-ignore
-    await screen.instance().leaveCommunity();
+    getByTestId('popupMenu').props.actions[0].onPress();
+    await (Alert.alert as jest.Mock).mock.calls[0][2][1].onPress();
 
     expect(onActionTaken).toHaveBeenCalled();
-    // @ts-ignore
     expect(store.getActions()).toEqual([navigateToMainTabResults]);
   });
 
   it('sends api request to archive my permission on unmount if leaveCommunityOnUnmount flag set', async () => {
-    // @ts-ignore
-    archiveOrgPermission.mockReturnValue(() => Promise.resolve());
-    // @ts-ignore
-    const screen = renderShallow(<MemberOptionsMenu {...props} />, store);
+    (archiveOrgPermission as jest.Mock).mockReturnValue(() =>
+      Promise.resolve(),
+    );
+    const { getByTestId, unmount } = renderWithContext(
+      // @ts-ignore
+      <MemberOptionsMenu {...props} />,
+    );
 
-    // @ts-ignore
-    screen.instance().leaveCommunityOnUnmount = true;
-    // @ts-ignore
-    await screen.instance().componentWillUnmount();
+    getByTestId('popupMenu').props.actions[0].onPress();
+    await (Alert.alert as jest.Mock).mock.calls[0][2][1].onPress();
+    unmount();
 
     expect(archiveOrgPermission).toHaveBeenCalledWith(
       myId,
@@ -439,14 +454,14 @@ describe('Leave Community', () => {
     );
   });
 
-  it('does nothing on unmount if leaveCommunityOnUnmount flag unset', async () => {
-    // @ts-ignore
-    const screen = renderShallow(<MemberOptionsMenu {...props} />, store);
+  it('does nothing on unmount if leaveCommunityOnUnmount flag unset', () => {
+    const { store, unmount } = renderWithContext(
+      // @ts-ignore
+      <MemberOptionsMenu {...props} />,
+    );
 
-    // @ts-ignore
-    await screen.instance().componentWillUnmount();
+    unmount();
 
-    // @ts-ignore
     expect(store.getActions()).toEqual([]);
     expect(archiveOrgPermission).not.toHaveBeenCalled();
   });
@@ -468,18 +483,20 @@ describe('Remove from Community', () => {
       organization,
       personOrgPermission,
     };
-
-    store = mockStore();
   });
 
   it("sends api request to archive person's permission", async () => {
-    // @ts-ignore
-    archiveOrgPermission.mockReturnValue(archiveOrgPermissionResult);
-    // @ts-ignore
-    const screen = renderShallow(<MemberOptionsMenu {...props} />, store);
-    // @ts-ignore
-    await screen.instance().removeFromCommunity();
-    // @ts-ignore
+    (archiveOrgPermission as jest.Mock).mockReturnValue(
+      archiveOrgPermissionResult,
+    );
+    const { store, getByTestId } = renderWithContext(
+      // @ts-ignore
+      <MemberOptionsMenu {...props} />,
+    );
+
+    getByTestId('popupMenu').props.actions[1].onPress();
+    await (Alert.alert as jest.Mock).mock.calls[0][2][1].onPress();
+
     expect(store.getActions()).toEqual([archiveOrgPermissionResult]);
     expect(archiveOrgPermission).toHaveBeenCalledWith(
       otherId,

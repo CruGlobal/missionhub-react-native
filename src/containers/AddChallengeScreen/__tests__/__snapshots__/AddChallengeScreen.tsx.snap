@@ -154,7 +154,7 @@ exports[`create methods calls onComplete 1`] = `
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -178,7 +178,7 @@ exports[`create methods calls onComplete 1`] = `
         value="New Title"
       />
       <DatePicker
-        date={2020-02-13T00:00:00.000Z}
+        date="2020-02-13T00:00:00"
         minimumDate={2020-02-13T00:00:00.000Z}
         mode="date"
         onDateChange={[Function]}
@@ -276,7 +276,7 @@ exports[`create methods calls onComplete 1`] = `
                 "fontSize": 16,
                 "fontStyle": "normal",
                 "letterSpacing": 0.25,
-                "lineHeight": 24,
+                "lineHeight": undefined,
                 "paddingVertical": 5,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -382,19 +382,6 @@ exports[`create methods changes date 1`] = `
 - First value
 + Second value
 
-@@ -173,11 +173,11 @@
-          testID=\\"titleInput\\"
-          underlineColorAndroid=\\"rgba(0,0,0,0)\\"
-          value=\\"\\"
-        />
-        <DatePicker
--         date={Date { NaN }}
-+         date={2020-02-13T00:00:00.000Z}
-          minimumDate={2020-02-13T00:00:00.000Z}
-          mode=\\"date\\"
-          onDateChange={[Function onChangeDate]}
-          testID=\\"datePicker\\"
-        >
 @@ -218,11 +218,11 @@
                   \\"textAlignVertical\\": \\"center\\",
                   \\"textTransform\\": \\"none\\",
@@ -445,7 +432,7 @@ exports[`create methods changes title 1`] = `
 +         value=\\"New Title For My Challenge\\"
         />
         <DatePicker
-          date={Date { NaN }}
+          date=\\"2020-02-13T00:00:00\\"
           minimumDate={2020-02-13T00:00:00.000Z}
           mode=\\"date\\""
 `;
@@ -455,19 +442,6 @@ exports[`create methods clears date 1`] = `
 - First value
 + Second value
 
-@@ -173,11 +173,11 @@
-          testID=\\"titleInput\\"
-          underlineColorAndroid=\\"rgba(0,0,0,0)\\"
-          value=\\"\\"
-        />
-        <DatePicker
--         date={2020-02-13T00:00:00.000Z}
-+         date={Date { NaN }}
-          minimumDate={2020-02-13T00:00:00.000Z}
-          mode=\\"date\\"
-          onDateChange={[Function onChangeDate]}
-          testID=\\"datePicker\\"
-        >
 @@ -218,11 +218,11 @@
                   \\"textAlignVertical\\": \\"center\\",
                   \\"textTransform\\": \\"none\\",
@@ -568,7 +542,7 @@ exports[`create methods sets disable false 1`] = `
 - First value
 + Second value
 
-@@ -170,14 +170,14 @@
+@@ -170,11 +170,11 @@
               },
             ]
           }
@@ -578,13 +552,9 @@ exports[`create methods sets disable false 1`] = `
 +         value=\\"New Title\\"
         />
         <DatePicker
--         date={Date { NaN }}
-+         date={2020-02-13T00:00:00.000Z}
+          date=\\"2020-02-13T00:00:00\\"
           minimumDate={2020-02-13T00:00:00.000Z}
           mode=\\"date\\"
-          onDateChange={[Function onChangeDate]}
-          testID=\\"datePicker\\"
-        >
 @@ -218,11 +218,11 @@
                   \\"textAlignVertical\\": \\"center\\",
                   \\"textTransform\\": \\"none\\",
@@ -866,7 +836,7 @@ exports[`edit methods calls onComplete 1`] = `
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -890,7 +860,7 @@ exports[`edit methods calls onComplete 1`] = `
         value="Old Title"
       />
       <DatePicker
-        date={2020-02-13T23:59:59.999Z}
+        date="2020-02-13T23:59:59"
         minimumDate={2020-02-13T00:00:00.000Z}
         mode="date"
         onDateChange={[Function]}
@@ -988,7 +958,7 @@ exports[`edit methods calls onComplete 1`] = `
                 "fontSize": 16,
                 "fontStyle": "normal",
                 "letterSpacing": 0.25,
-                "lineHeight": 24,
+                "lineHeight": undefined,
                 "paddingVertical": 5,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -1047,7 +1017,7 @@ exports[`edit methods disables button if user deletes title 1`] = `
 +         value=\\"\\"
         />
         <DatePicker
-          date={2020-02-13T23:59:59.999Z}
+          date=\\"2020-02-13T23:59:59\\"
           minimumDate={2020-02-13T00:00:00.000Z}
           mode=\\"date\\""
 `;
@@ -1206,7 +1176,7 @@ exports[`renders correctly 1`] = `
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -1230,7 +1200,7 @@ exports[`renders correctly 1`] = `
         value=""
       />
       <DatePicker
-        date={Date { NaN }}
+        date="2020-02-13T00:00:00"
         minimumDate={2020-02-13T00:00:00.000Z}
         mode="date"
         onDateChange={[Function]}
@@ -1328,7 +1298,7 @@ exports[`renders correctly 1`] = `
                 "fontSize": 16,
                 "fontStyle": "normal",
                 "letterSpacing": 0.25,
-                "lineHeight": 24,
+                "lineHeight": undefined,
                 "paddingVertical": 5,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -1585,7 +1555,7 @@ exports[`renders correctly on android 1`] = `
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -1609,7 +1579,7 @@ exports[`renders correctly on android 1`] = `
         value=""
       />
       <DatePicker
-        date={Date { NaN }}
+        date="2020-02-13T00:00:00"
         minimumDate={2020-02-13T00:00:00.000Z}
         mode="date"
         onDateChange={[Function]}
@@ -1707,7 +1677,7 @@ exports[`renders correctly on android 1`] = `
                 "fontSize": 16,
                 "fontStyle": "normal",
                 "letterSpacing": 0.25,
-                "lineHeight": 24,
+                "lineHeight": undefined,
                 "paddingVertical": 5,
                 "textAlignVertical": "center",
                 "textTransform": "none",
@@ -2028,7 +1998,7 @@ exports[`renders edit challenge correctly 1`] = `
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -2052,7 +2022,7 @@ exports[`renders edit challenge correctly 1`] = `
         value="Test Title"
       />
       <DatePicker
-        date={2020-02-29T23:59:59.999Z}
+        date="2020-02-29T23:59:59"
         minimumDate={2020-02-13T00:00:00.000Z}
         mode="date"
         onDateChange={[Function]}
@@ -2150,7 +2120,7 @@ exports[`renders edit challenge correctly 1`] = `
                 "fontSize": 16,
                 "fontStyle": "normal",
                 "letterSpacing": 0.25,
-                "lineHeight": 24,
+                "lineHeight": undefined,
                 "paddingVertical": 5,
                 "textAlignVertical": "center",
                 "textTransform": "none",

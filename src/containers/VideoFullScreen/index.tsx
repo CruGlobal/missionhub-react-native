@@ -76,6 +76,7 @@ export const VideoFullScreen = () => {
         style={styles.videoPlayer}
         onEnd={handleClose}
         onProgress={handleProgress}
+        ignoreSilentSwitch="ignore"
       />
       <View style={styles.controlsContainer}>
         <SafeAreaView style={styles.closeWrap}>

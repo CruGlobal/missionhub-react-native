@@ -48,6 +48,10 @@
             </intent-filter>
         </activity>
         <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+        <!-- Disable Automatic Screenviews -->
+        <meta-data
+            android:name="google_analytics_automatic_screen_reporting_enabled"
+            android:value="false" />
 
         <!-- Adobe in-app messages -->
         <activity android:name="com.adobe.mobile.MessageFullScreenActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" />

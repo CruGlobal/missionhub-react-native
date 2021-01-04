@@ -231,13 +231,17 @@ exports[`post renders with post 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
       >
         <View
-          style={Object {}}
+          style={
+            Object {
+              "marginHorizontal": 32,
+            }
+          }
         >
           <View
             style={
@@ -281,7 +285,7 @@ exports[`post renders with post 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
@@ -403,6 +407,7 @@ exports[`post renders with post 1`] = `
           <View
             style={
               Object {
+                "marginHorizontal": 32,
                 "paddingBottom": 20,
               }
             }
@@ -705,13 +710,17 @@ exports[`post renders without post 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
       >
         <View
-          style={Object {}}
+          style={
+            Object {
+              "marginHorizontal": 32,
+            }
+          }
         >
           <View
             style={
@@ -975,7 +984,7 @@ exports[`renders loading state correctly 1`] = `
     <View
       style={
         Object {
-          "paddingHorizontal": 32,
+          "paddingHorizontal": 0,
           "paddingTop": 26,
         }
       }
@@ -1215,13 +1224,17 @@ exports[`with challenge suggestion renders correctly 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
       >
         <View
-          style={Object {}}
+          style={
+            Object {
+              "marginHorizontal": 32,
+            }
+          }
         >
           <View
             style={
@@ -1498,13 +1511,17 @@ exports[`without challenge suggestion renders correctly 1`] = `
       <View
         style={
           Object {
-            "paddingHorizontal": 32,
+            "paddingHorizontal": 0,
             "paddingTop": 26,
           }
         }
       >
         <View
-          style={Object {}}
+          style={
+            Object {
+              "marginHorizontal": 32,
+            }
+          }
         >
           <View
             style={

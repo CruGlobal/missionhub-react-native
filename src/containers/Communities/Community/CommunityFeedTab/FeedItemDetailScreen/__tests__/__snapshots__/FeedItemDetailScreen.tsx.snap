@@ -234,7 +234,7 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
+              "paddingHorizontal": 32,
               "paddingTop": 12,
             }
           }
@@ -440,13 +440,16 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
               "paddingVertical": 8,
             }
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "marginHorizontal": 32,
+              }
+            }
           >
             <View
               style={
@@ -695,6 +698,10 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
             Array [
               Object {
                 "onPress": [Function],
+                "text": "Copy",
+              },
+              Object {
+                "onPress": [Function],
                 "text": "Report to Owner",
               },
             ]
@@ -725,6 +732,10 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
           isEditing={false}
           menuActions={
             Array [
+              Object {
+                "onPress": [Function],
+                "text": "Copy",
+              },
               Object {
                 "onPress": [Function],
                 "text": "Report to Owner",
@@ -803,7 +814,7 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -1086,7 +1097,7 @@ exports[`edit/delete post edit and delete for my post 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
+              "paddingHorizontal": 32,
               "paddingTop": 12,
             }
           }
@@ -1151,6 +1162,40 @@ exports[`edit/delete post edit and delete for my post 1`] = `
               >
                 What's on Your Mind
               </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "flex-end",
+                  "flex": 1,
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                    "paddingLeft": 30,
+                    "paddingRight": 12,
+                    "paddingVertical": 5,
+                  }
+                }
+                testID="popupMenuButton"
+              >
+                <SvgMock
+                  color="#B4B6BA"
+                />
+              </View>
             </View>
           </View>
           <View
@@ -1258,13 +1303,16 @@ exports[`edit/delete post edit and delete for my post 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
               "paddingVertical": 8,
             }
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "marginHorizontal": 32,
+              }
+            }
           >
             <View
               style={
@@ -1513,6 +1561,10 @@ exports[`edit/delete post edit and delete for my post 1`] = `
             Array [
               Object {
                 "onPress": [Function],
+                "text": "Copy",
+              },
+              Object {
+                "onPress": [Function],
                 "text": "Report to Owner",
               },
             ]
@@ -1543,6 +1595,10 @@ exports[`edit/delete post edit and delete for my post 1`] = `
           isEditing={false}
           menuActions={
             Array [
+              Object {
+                "onPress": [Function],
+                "text": "Copy",
+              },
               Object {
                 "onPress": [Function],
                 "text": "Report to Owner",
@@ -1621,7 +1677,7 @@ exports[`edit/delete post edit and delete for my post 1`] = `
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -1904,7 +1960,7 @@ exports[`edit/delete post no options for not my post 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
+              "paddingHorizontal": 32,
               "paddingTop": 12,
             }
           }
@@ -1969,6 +2025,40 @@ exports[`edit/delete post no options for not my post 1`] = `
               >
                 What's on Your Mind
               </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "flex-end",
+                  "flex": 1,
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                    "paddingLeft": 30,
+                    "paddingRight": 12,
+                    "paddingVertical": 5,
+                  }
+                }
+                testID="popupMenuButton"
+              >
+                <SvgMock
+                  color="#B4B6BA"
+                />
+              </View>
             </View>
           </View>
           <View
@@ -2076,13 +2166,16 @@ exports[`edit/delete post no options for not my post 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
               "paddingVertical": 8,
             }
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "marginHorizontal": 32,
+              }
+            }
           >
             <View
               style={
@@ -2331,6 +2424,10 @@ exports[`edit/delete post no options for not my post 1`] = `
             Array [
               Object {
                 "onPress": [Function],
+                "text": "Copy",
+              },
+              Object {
+                "onPress": [Function],
                 "text": "Report to Owner",
               },
             ]
@@ -2361,6 +2458,10 @@ exports[`edit/delete post no options for not my post 1`] = `
           isEditing={false}
           menuActions={
             Array [
+              Object {
+                "onPress": [Function],
+                "text": "Copy",
+              },
               Object {
                 "onPress": [Function],
                 "text": "Report to Owner",
@@ -2439,7 +2540,7 @@ exports[`edit/delete post no options for not my post 1`] = `
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -2591,7 +2692,7 @@ exports[`refresh calls refreshComments 1`] = `
                   style={
                     Array [
                       Object {
-@@ -331,11 +331,11 @@
+@@ -331,22 +331,39 @@
                       },
                     ]
                   }
@@ -2604,47 +2705,48 @@ exports[`refresh calls refreshComments 1`] = `
             </View>
           </View>
           <View
-@@ -347,10 +347,26 @@
-            }
-          >
-            <Text
-              style={
-                Object {
+            style={
+              Object {
+                \\"paddingVertical\\": 8,
++             }
++           }
++         >
++           <Text
++             style={
++               Object {
 +                 \\"color\\": \\"#3CC8E6\\",
 +                 \\"fontFamily\\": \\"SourceSansPro-Bold\\",
 +                 \\"fontSize\\": 16,
 +                 \\"fontStyle\\": \\"normal\\",
 +                 \\"letterSpacing\\": 1,
 +                 \\"lineHeight\\": 20,
++                 \\"paddingHorizontal\\": 32,
 +                 \\"textAlignVertical\\": \\"center\\",
 +                 \\"textTransform\\": \\"uppercase\\",
-+               }
-+             }
-+           >
-+             Completed a Challenge!
-+           </Text>
-+           <Text
-+             style={
-+               Object {
-                  \\"color\\": \\"#505256\\",
-                  \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-                  \\"fontSize\\": 16,
-                  \\"fontStyle\\": \\"normal\\",
-                  \\"justifyContent\\": \\"flex-start\\",
-@@ -359,11 +375,11 @@
-                  \\"textAlignVertical\\": \\"center\\",
-                  \\"textTransform\\": \\"none\\",
                 }
               }
             >
--             repellat ratione ut
-+             debitis libero aspernatur
-            </Text>
++             Completed a Challenge!
++           </Text>
+            <View
+              style={
+                Object {
+                  \\"paddingHorizontal\\": 32,
+                }
+@@ -365,11 +382,11 @@
+                    \\"textAlignVertical\\": \\"center\\",
+                    \\"textTransform\\": \\"none\\",
+                  }
+                }
+              >
+-               repellat ratione ut
++               debitis libero aspernatur
+              </Text>
+            </View>
           </View>
           <View
             style={
-              Array [
-@@ -513,11 +529,12 @@
+@@ -520,11 +537,12 @@
                       }
                     }
                     testID=\\"LikeIconButton\\"
@@ -2658,7 +2760,7 @@ exports[`refresh calls refreshComments 1`] = `
                 </View>
                 <View
                   style={
-@@ -544,11 +561,11 @@
+@@ -551,11 +569,11 @@
                         \\"textTransform\\": \\"none\\",
                         \\"width\\": 30,
                       }
@@ -2671,7 +2773,7 @@ exports[`refresh calls refreshComments 1`] = `
                     accessible={true}
                     focusable={true}
                     hitSlop={
-@@ -600,28 +617,29 @@
+@@ -607,19 +625,19 @@
         >
           <CommentItem
             comment={
@@ -2698,18 +2800,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             isEditing={false}
             menuActions={
-              Array [
-                Object {
-+                 \\"destructive\\": true,
-                  \\"onPress\\": [Function onPress],
--                 \\"text\\": \\"Report to Owner\\",
-+                 \\"text\\": \\"Delete Comment\\",
-                },
-              ]
-            }
-            testID=\\"CommentItem\\"
-          />
-@@ -632,28 +650,29 @@
+@@ -643,19 +661,19 @@
         >
           <CommentItem
             comment={
@@ -2736,18 +2827,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             isEditing={false}
             menuActions={
-              Array [
-                Object {
-+                 \\"destructive\\": true,
-                  \\"onPress\\": [Function onPress],
--                 \\"text\\": \\"Report to Owner\\",
-+                 \\"text\\": \\"Delete Comment\\",
-                },
-              ]
-            }
-            testID=\\"CommentItem\\"
-          />
-@@ -673,22 +692,22 @@
+@@ -688,22 +706,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
@@ -3008,7 +3088,7 @@ exports[`renders correctly 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
+              "paddingHorizontal": 32,
               "paddingTop": 12,
             }
           }
@@ -3073,6 +3153,40 @@ exports[`renders correctly 1`] = `
               >
                 What's on Your Mind
               </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "flex-end",
+                  "flex": 1,
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                    "paddingLeft": 30,
+                    "paddingRight": 12,
+                    "paddingVertical": 5,
+                  }
+                }
+                testID="popupMenuButton"
+              >
+                <SvgMock
+                  color="#B4B6BA"
+                />
+              </View>
             </View>
           </View>
           <View
@@ -3180,13 +3294,16 @@ exports[`renders correctly 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
               "paddingVertical": 8,
             }
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "marginHorizontal": 32,
+              }
+            }
           >
             <View
               style={
@@ -3435,7 +3552,12 @@ exports[`renders correctly 1`] = `
             Array [
               Object {
                 "onPress": [Function],
-                "text": "Report to Owner",
+                "text": "Copy",
+              },
+              Object {
+                "destructive": true,
+                "onPress": [Function],
+                "text": "Delete Comment",
               },
             ]
           }
@@ -3467,7 +3589,12 @@ exports[`renders correctly 1`] = `
             Array [
               Object {
                 "onPress": [Function],
-                "text": "Report to Owner",
+                "text": "Copy",
+              },
+              Object {
+                "destructive": true,
+                "onPress": [Function],
+                "text": "Delete Comment",
               },
             ]
           }
@@ -3543,7 +3670,7 @@ exports[`renders correctly 1`] = `
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -3826,7 +3953,7 @@ exports[`renders correctly with communityId passed in 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
+              "paddingHorizontal": 32,
               "paddingTop": 12,
             }
           }
@@ -3891,6 +4018,40 @@ exports[`renders correctly with communityId passed in 1`] = `
               >
                 What's on Your Mind
               </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "flex-end",
+                  "flex": 1,
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                    "paddingLeft": 30,
+                    "paddingRight": 12,
+                    "paddingVertical": 5,
+                  }
+                }
+                testID="popupMenuButton"
+              >
+                <SvgMock
+                  color="#B4B6BA"
+                />
+              </View>
             </View>
           </View>
           <View
@@ -3998,13 +4159,16 @@ exports[`renders correctly with communityId passed in 1`] = `
         <View
           style={
             Object {
-              "paddingHorizontal": 20,
               "paddingVertical": 8,
             }
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "marginHorizontal": 32,
+              }
+            }
           >
             <View
               style={
@@ -4253,7 +4417,12 @@ exports[`renders correctly with communityId passed in 1`] = `
             Array [
               Object {
                 "onPress": [Function],
-                "text": "Report to Owner",
+                "text": "Copy",
+              },
+              Object {
+                "destructive": true,
+                "onPress": [Function],
+                "text": "Delete Comment",
               },
             ]
           }
@@ -4285,7 +4454,12 @@ exports[`renders correctly with communityId passed in 1`] = `
             Array [
               Object {
                 "onPress": [Function],
-                "text": "Report to Owner",
+                "text": "Copy",
+              },
+              Object {
+                "destructive": true,
+                "onPress": [Function],
+                "text": "Delete Comment",
               },
             ]
           }
@@ -4361,7 +4535,7 @@ exports[`renders correctly with communityId passed in 1`] = `
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",

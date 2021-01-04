@@ -2,7 +2,7 @@ import 'react-native';
 import React from 'react';
 
 import { getAssignedByName, getAssignedToName } from '../../../utils/common';
-import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { ACCEPTED_STEP } from '../../../constants';
 import JourneyItem from '..';
 
@@ -37,36 +37,39 @@ describe('step', () => {
   };
 
   it('is rendered correctly without comment', () => {
-    testSnapshotShallow(
+    renderWithContext(
       <JourneyItem
         // @ts-ignore
         item={mockStep}
         myId={myId}
         personFirstName={person.first_name}
       />,
-    );
+      { noWrappers: true },
+    ).snapshot();
   });
 
   it('is rendered correctly with comment', () => {
-    testSnapshotShallow(
+    renderWithContext(
       <JourneyItem
         // @ts-ignore
         item={{ ...mockStep, note: 'test comment on completed step' }}
         myId={myId}
         personFirstName={person.first_name}
       />,
-    );
+      { noWrappers: true },
+    ).snapshot();
   });
 
   it('is rendered correctly with pathway stage', () => {
-    testSnapshotShallow(
+    renderWithContext(
       <JourneyItem
         // @ts-ignore
         item={{ ...mockStep, challenge_suggestion }}
         myId={myId}
         personFirstName={person.first_name}
       />,
-    );
+      { noWrappers: true },
+    ).snapshot();
   });
 });
 
@@ -86,29 +89,31 @@ describe('stage', () => {
   };
 
   it('is rendered correctly with old stage for a contact', () => {
-    testSnapshotShallow(
+    renderWithContext(
       <JourneyItem
         // @ts-ignore
         item={mockStageProgression}
         myId={myId}
         personFirstName={person.first_name}
       />,
-    );
+      { noWrappers: true },
+    ).snapshot();
   });
 
   it('is rendered correctly with old stage for self', () => {
-    testSnapshotShallow(
+    renderWithContext(
       <JourneyItem
         // @ts-ignore
         item={mockStageProgression}
         myId={person.id}
         personFirstName={person.first_name}
       />,
-    );
+      { noWrappers: true },
+    ).snapshot();
   });
 
   it('is rendered correctly without old stage for a contact', () => {
-    testSnapshotShallow(
+    renderWithContext(
       <JourneyItem
         // @ts-ignore
         item={{
@@ -118,11 +123,12 @@ describe('stage', () => {
         myId={myId}
         personFirstName={person.first_name}
       />,
-    );
+      { noWrappers: true },
+    ).snapshot();
   });
 
   it('is rendered correctly without old stage for self', () => {
-    testSnapshotShallow(
+    renderWithContext(
       <JourneyItem
         // @ts-ignore
         item={{
@@ -132,12 +138,13 @@ describe('stage', () => {
         myId={person.id}
         personFirstName={person.first_name}
       />,
-    );
+      { noWrappers: true },
+    ).snapshot();
   });
 });
 
 it('renders survey correctly', () => {
-  testSnapshotShallow(
+  renderWithContext(
     <JourneyItem
       // @ts-ignore
       item={{
@@ -154,11 +161,12 @@ it('renders survey correctly', () => {
       myId={myId}
       personFirstName={person.first_name}
     />,
-  );
+    { noWrappers: true },
+  ).snapshot();
 });
 
 it('renders interaction correctly', () => {
-  testSnapshotShallow(
+  renderWithContext(
     <JourneyItem
       // @ts-ignore
       item={{
@@ -173,7 +181,8 @@ it('renders interaction correctly', () => {
       myId={myId}
       personFirstName={person.first_name}
     />,
-  );
+    { noWrappers: true },
+  ).snapshot();
 });
 
 it('renders contact_assignment correctly', () => {
@@ -183,7 +192,7 @@ it('renders contact_assignment correctly', () => {
     created_at: date,
   };
 
-  testSnapshotShallow(
+  renderWithContext(
     // @ts-ignore
     <JourneyItem item={item} myId={myId} personFirstName={person.first_name} />,
   );
@@ -199,28 +208,10 @@ it('renders contact_unassignment correctly', () => {
     created_at: date,
   };
 
-  testSnapshotShallow(
+  renderWithContext(
     // @ts-ignore
     <JourneyItem item={item} myId={myId} personFirstName={person.first_name} />,
   );
 
   expect(getAssignedToName).toHaveBeenCalledWith(myId, item);
-});
-
-it('should call ref', () => {
-  const item = {
-    id: '6',
-    _type: 'contact_unassignment',
-    created_at: date,
-  };
-
-  const instance = renderShallow(
-    // @ts-ignore
-    <JourneyItem item={item} myId={myId} personFirstName={person.first_name} />,
-  ).instance();
-  const ref = 'test';
-  // @ts-ignore
-  instance.ref(ref);
-  // @ts-ignore
-  expect(instance._view).toEqual(ref);
 });

@@ -10,14 +10,10 @@ import { ReactTestRendererJSON } from 'react-test-renderer';
 import { render } from 'react-native-testing-library';
 import { renderHook } from '@testing-library/react-hooks';
 import snapshotDiff from 'snapshot-diff';
-import Enzyme, { shallow as enzymeShallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import { IMocks } from 'graphql-tools';
 
 import { createApolloMockClient } from './apolloMockClient';
 import { createNavigationProp } from './navigationHelpers';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 export const createThunkStore = configureStore([thunk]);
 
@@ -106,47 +102,4 @@ export const renderHookWithContext = <P, R>(
     }),
     store,
   };
-};
-
-// TODO: Remove all legacy rendering functions below
-
-export const createMockNavState = (params = {}) => {
-  return { state: { params } };
-};
-
-export const testSnapshot = (component: ReactElement) => {
-  const { toJSON } = render(component);
-  expect(toJSON()).toMatchSnapshot();
-};
-
-export const renderShallow = (
-  component: ReactElement,
-  store = createThunkStore(),
-) => {
-  let renderedComponent = enzymeShallow(
-    <ProviderLegacy store={store}>{component}</ProviderLegacy>,
-  ).dive();
-
-  // If component has translation wrappers, dive deeper
-  while (
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
-    ((renderedComponent.type() as any).displayName || '').startsWith(
-      'withI18nextTranslation(',
-    )
-  ) {
-    renderedComponent = renderedComponent.dive();
-  }
-
-  // Render contents of component
-  renderedComponent = renderedComponent.dive();
-  return renderedComponent;
-};
-
-export const testSnapshotShallow = (
-  component: ReactElement,
-  store = createThunkStore(),
-) => {
-  const renderedComponent = renderShallow(component, store);
-  expect(renderedComponent).toMatchSnapshot();
-  return renderedComponent;
 };

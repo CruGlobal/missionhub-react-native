@@ -1,12 +1,14 @@
 import React from 'react';
 
-import { testSnapshotShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import Dot from '..';
 
 it('render dot', () => {
-  testSnapshotShallow(<Dot />);
+  renderWithContext(<Dot />, { noWrappers: true }).snapshot();
 });
 
 it('render dot with style', () => {
-  testSnapshotShallow(<Dot style={{ color: 'blue' }} />);
+  renderWithContext(<Dot style={{ color: 'blue' }} />, {
+    noWrappers: true,
+  }).snapshot();
 });

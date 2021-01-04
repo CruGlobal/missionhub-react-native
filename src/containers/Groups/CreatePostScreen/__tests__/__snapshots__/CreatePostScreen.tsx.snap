@@ -259,13 +259,12 @@ exports[`Select video should select a video 1`] = `
     <View
       style={
         Object {
-@@ -247,137 +277,14 @@
-            ]
+@@ -248,136 +278,12 @@
           }
           testID=\\"PostInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
--       />
+        />
 -       <View
 -         style={
 -           Object {
@@ -304,7 +303,7 @@ exports[`Select video should select a video 1`] = `
 -               \\"width\\": 24,
 -             }
 -           }
-        />
+-         />
 -         <Text
 -           style={
 -             Object {
@@ -396,7 +395,6 @@ exports[`Select video should select a video 1`] = `
 +       <VideoPlayer
 +         onDelete={[Function handleDeleteVideo]}
 +         uri=\\"file:/video.mov\\"
-+         width={750}
         />
       </View>
     </RCTScrollView>
@@ -652,7 +650,7 @@ exports[`renders correctly for new post 1`] = `
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -1038,7 +1036,7 @@ exports[`renders correctly for new post and feature flag false 1`] = `
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -1418,7 +1416,7 @@ exports[`renders correctly for update post with image 1`] = `
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -1758,7 +1756,7 @@ exports[`renders correctly for update post with video 1`] = `
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -1785,7 +1783,6 @@ exports[`renders correctly for update post with video 1`] = `
       <VideoPlayer
         onDelete={[Function]}
         uri="file:/video.mov"
-        width={750}
       />
     </View>
   </RCTScrollView>
@@ -2071,7 +2068,7 @@ exports[`renders correctly for update post without media 1`] = `
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -2507,7 +2504,7 @@ exports[`renders correctly for update post without media and feature flag false 
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -2887,7 +2884,7 @@ exports[`renders correctly for update post without video if feature flag is fals
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -3217,7 +3214,7 @@ exports[`renders for post types renders for announcement 1`] = `
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -3603,7 +3600,7 @@ exports[`renders for post types renders for help request 1`] = `
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -3989,7 +3986,7 @@ exports[`renders for post types renders for prayer request 1`] = `
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -4375,7 +4372,7 @@ exports[`renders for post types renders for spiritual question 1`] = `
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -4761,7 +4758,7 @@ exports[`renders for post types renders for story 1`] = `
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",
@@ -5147,7 +5144,7 @@ exports[`renders for post types renders for thought 1`] = `
               "fontSize": 16,
               "fontStyle": "normal",
               "letterSpacing": 0.25,
-              "lineHeight": 24,
+              "lineHeight": undefined,
               "paddingVertical": 5,
               "textAlignVertical": "center",
               "textTransform": "none",

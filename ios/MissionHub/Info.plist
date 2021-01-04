@@ -47,7 +47,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>20934</string>
+	<string>21417</string>
     <!-- We're setting the deployment key in JS so this is just a dummy value -->
 	<key>CodePushDeploymentKey</key>
 	<string>deployment-key-here</string>
@@ -122,6 +122,8 @@
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	<key>FirebaseAutomaticScreenReportingEnabled</key>
 	<false/>
 </dict>
 </plist>

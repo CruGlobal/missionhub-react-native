@@ -51,7 +51,7 @@ it('should sign in wih Google', async () => {
   expect(GoogleSignin.signIn).toHaveBeenCalled();
   expect(useMutation).toHaveBeenMutatedWith(SIGN_IN_WITH_GOOGLE_MUTATION, {
     variables: {
-      authorizationCode: mockUserInfo.serverAuthCode,
+      idToken: mockUserInfo.idToken,
       anonymousUid,
     },
   });
@@ -81,7 +81,7 @@ it('should refresh Google auth', async () => {
   expect(GoogleSignin.signIn).not.toHaveBeenCalled();
   expect(useMutation).toHaveBeenMutatedWith(SIGN_IN_WITH_GOOGLE_MUTATION, {
     variables: {
-      authorizationCode: mockUserInfo.serverAuthCode,
+      idToken: mockUserInfo.idToken,
       anonymousUid,
     },
   });
@@ -117,7 +117,7 @@ it('should handle missing token from API', async () => {
   expect(GoogleSignin.signIn).toHaveBeenCalled();
   expect(useMutation).toHaveBeenMutatedWith(SIGN_IN_WITH_GOOGLE_MUTATION, {
     variables: {
-      authorizationCode: mockUserInfo.serverAuthCode,
+      idToken: mockUserInfo.idToken,
       anonymousUid,
     },
   });

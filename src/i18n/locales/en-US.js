@@ -561,6 +561,9 @@ export default {
     errorLoadingCommunityFeed: 'Error loading community feed',
   },
   communityFeedItems: {
+    copy: {
+      buttonText: 'Copy',
+    },
     edit: {
       buttonText: 'Edit Post',
     },

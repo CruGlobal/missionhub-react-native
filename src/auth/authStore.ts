@@ -18,6 +18,14 @@ const deleteAuthToken = () => {
 };
 export const isAuthenticated = () => cachedAuthToken !== null;
 
+const MISSIONHUB_REFRESH_TOKEN_KEY = 'missionhubRefreshToken';
+export const getMissionHubRefreshToken = () =>
+  SecureStore.getItemAsync(MISSIONHUB_REFRESH_TOKEN_KEY);
+export const setMissionHubRefreshToken = (newRefreshToken: string) =>
+  SecureStore.setItemAsync(MISSIONHUB_REFRESH_TOKEN_KEY, newRefreshToken);
+const deleteMissionHubRefreshToken = () =>
+  SecureStore.deleteItemAsync(MISSIONHUB_REFRESH_TOKEN_KEY);
+
 const The_KEY_REFRESH_TOKEN_KEY = 'theKeyRefreshToken';
 export const getTheKeyRefreshToken = () =>
   SecureStore.getItemAsync(The_KEY_REFRESH_TOKEN_KEY);
@@ -43,6 +51,7 @@ const deleteAppleUserId = () => SecureStore.deleteItemAsync(APPLE_USER_ID_KEY);
 export const deleteAllAuthTokens = () =>
   Promise.all([
     deleteAuthToken(),
+    deleteMissionHubRefreshToken(),
     deleteTheKeyRefreshToken(),
     deleteAnonymousUid(),
     deleteAppleUserId(),

@@ -93,7 +93,7 @@ PODS:
     - GoogleUtilities/Environment (~> 6.7)
     - GoogleUtilities/UserDefaults (~> 6.7)
     - PromisesObjC (~> 1.2)
-  - FirebasePerformance (3.3.0):
+  - FirebasePerformance (3.3.2):
     - FirebaseCore (~> 6.9)
     - FirebaseInstallations (~> 1.5)
     - FirebaseRemoteConfig (~> 4.7)
@@ -105,7 +105,7 @@ PODS:
     - GoogleUtilities/MethodSwizzler (~> 6.2)
     - GTMSessionFetcher/Core (~> 1.1)
     - Protobuf (~> 3.12)
-  - FirebaseRemoteConfig (4.9.0):
+  - FirebaseRemoteConfig (4.9.1):
     - FirebaseABTesting (~> 4.2)
     - FirebaseCore (~> 6.10)
     - FirebaseInstallations (~> 1.6)
@@ -167,6 +167,7 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
+  - GoogleAnalytics (3.17.0)
   - GoogleAppMeasurement (6.7.2):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
     - GoogleUtilities/MethodSwizzler (~> 6.7)
@@ -179,11 +180,16 @@ PODS:
     - AppAuth (~> 1.2)
     - GTMAppAuth (~> 1.0)
     - GTMSessionFetcher/Core (~> 1.1)
-  - GoogleToolboxForMac/Defines (2.2.2)
-  - GoogleToolboxForMac/Logger (2.2.2):
-    - GoogleToolboxForMac/Defines (= 2.2.2)
-  - "GoogleToolboxForMac/NSData+zlib (2.2.2)":
-    - GoogleToolboxForMac/Defines (= 2.2.2)
+  - GoogleSymbolUtilities (1.1.2)
+  - GoogleTagManager (7.1.4):
+    - FirebaseAnalytics (~> 6.7)
+    - GoogleAnalytics (~> 3.17)
+    - GoogleUtilitiesLegacy (~> 1.3)
+  - GoogleToolboxForMac/Defines (2.3.0)
+  - GoogleToolboxForMac/Logger (2.3.0):
+    - GoogleToolboxForMac/Defines (= 2.3.0)
+  - "GoogleToolboxForMac/NSData+zlib (2.3.0)":
+    - GoogleToolboxForMac/Defines (= 2.3.0)
   - GoogleUtilities/AppDelegateSwizzler (6.7.2):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -204,6 +210,8 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (6.7.2):
     - GoogleUtilities/Logger
+  - GoogleUtilitiesLegacy (1.3.2):
+    - GoogleSymbolUtilities (~> 1.1)
   - GTMAppAuth (1.0.0):
     - AppAuth/Core (~> 1.0)
     - GTMSessionFetcher (~> 1.1)
@@ -223,7 +231,7 @@ PODS:
     - OpenSSL-Universal/Static (= 1.0.2.19)
   - OpenSSL-Universal/Static (1.0.2.19)
   - PromisesObjC (1.2.10)
-  - Protobuf (3.13.0)
+  - Protobuf (3.14.0)
   - QBImagePickerController (3.4.0)
   - RCTRequired (0.63.2)
   - RCTTypeSafety (0.63.2):
@@ -593,6 +601,7 @@ DEPENDENCIES:
   - FlipperKit/SKIOSNetworkPlugin (~> 0.41.1)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - GoogleTagManager
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
   - React (from `../node_modules/react-native/`)
@@ -681,11 +690,15 @@ SPEC REPOS:
     - Flipper-PeerTalk
     - Flipper-RSocket
     - FlipperKit
+    - GoogleAnalytics
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleSignIn
+    - GoogleSymbolUtilities
+    - GoogleTagManager
     - GoogleToolboxForMac
     - GoogleUtilities
+    - GoogleUtilitiesLegacy
     - GTMAppAuth
     - GTMSessionFetcher
     - JWT
@@ -868,8 +881,8 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnostics: 7535fe695737f8c5b350584292a70b7f8ff0357b
   FirebaseDynamicLinks: 9a77759e598e3a8fd45124bd040c5c03e52174d5
   FirebaseInstallations: 466c7b4d1f58fe16707693091da253726a731ed2
-  FirebasePerformance: 269607f1dcf37bb1f21e3b3ae0ab5b2691644c54
-  FirebaseRemoteConfig: e40f9e084658210c4d9c341cfa9f6cab6ad4f67e
+  FirebasePerformance: 34de2b03ddfddbca26a716468a50877fd065fbe5
+  FirebaseRemoteConfig: 35a729305f254fb15a2e541d4b36f3a379da7fdc
   Flipper: 33585e2d9810fe5528346be33bcf71b37bb7ae13
   Flipper-DoubleConversion: 38631e41ef4f9b12861c67d17cb5518d06badc41
   Flipper-Folly: c12092ea368353b58e992843a990a3225d4533c3
@@ -879,18 +892,22 @@ SPEC CHECKSUMS:
   FlipperKit: bc68102cd4952a258a23c9c1b316c7bec1fecf83
   Folly: b73c3869541e86821df3c387eb0af5f65addfab4
   glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
+  GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
   GoogleAppMeasurement: 3def7652b1f5b5a576178dc332e2a36a260fbef6
   GoogleDataTransport: 672fb0ce96fe7f7f31d43672fca62ad2c9c86f7b
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
-  GoogleToolboxForMac: 800648f8b3127618c1b59c7f97684427630c5ea3
+  GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
+  GoogleTagManager: 9e7aa92603b3101fcc86f761c927ddd6f4c26c0e
+  GoogleToolboxForMac: 1350d40e86a76f7863928d63bcb0b89c84c521c5
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
+  GoogleUtilitiesLegacy: 5501bedec1646bd284286eb5fc9453f7e23a12f4
   GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
   JWT: 9b5c05abbcc1a0e69c3c91e1655b3387fc7e581d
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   OpenSSL-Universal: 8b48cc0d10c1b2923617dfe5c178aa9ed2689355
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
-  Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
+  Protobuf: 0cde852566359049847168e51bd1c690e0f70056
   QBImagePickerController: d54cf93db6decf26baf6ed3472f336ef35cae022
   RCTRequired: f13f25e7b12f925f1f6a6a8c69d929a03c0129fe
   RCTTypeSafety: 44982c5c8e43ff4141eb519a8ddc88059acd1f3a
@@ -955,6 +972,6 @@ SPEC CHECKSUMS:
   Yoga: 7740b94929bbacbddda59bf115b5317e9a161598
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: ae0fc7dbd6bd99e6c9d86b53ebe6b2cebf110f84
+PODFILE CHECKSUM: edd9ba3d48a66ad0405fcff7ff7c86dc6a33f839
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0
