@@ -14,7 +14,6 @@ import {
   logInAnalytics,
   trackActionWithoutData,
   ANALYTICS_CONTEXT_CHANGED,
-  ScreenContext,
   trackStepDeleted,
   formatFirebaseEvent,
 } from '../analytics';
@@ -26,10 +25,6 @@ import {
   ANALYTICS_GR_MASTER_PERSON_ID,
   ANALYTICS_PREVIOUS_SCREEN_NAME,
   ANALYTICS_LOGGED_IN_STATUS,
-  ANALYTICS_ASSIGNMENT_TYPE,
-  ANALYTICS_EDIT_MODE,
-  ANALYTICS_SECTION_TYPE,
-  ANALYTICS_PERMISSION_TYPE,
 } from '../../constants';
 import {
   initialAnalyticsState,
@@ -40,11 +35,6 @@ import { mockFragment } from '../../../testUtils/apolloMockClient';
 import { StepAddedAnalytics } from '../__generated__/StepAddedAnalytics';
 import { getAuthPerson } from '../../auth/authUtilities';
 
-jest.mock('react-native-omniture', () => ({
-  trackState: jest.fn(),
-  trackAction: jest.fn(),
-  loadMarketingCloudId: jest.fn(),
-}));
 jest.mock('../../auth/authUtilities');
 
 ((FBAnalytics as unknown) as jest.Mock).mockReturnValue({
@@ -61,7 +51,6 @@ const ssoGuid = '74ba3670-b624-429c-8223-919b94e668fb';
 const grMasterPersonId = '686fb90b-0ae8-4b0a-8e62-f7437f425c59';
 
 let analyticsContext: AnalyticsState;
-let screenContext: ScreenContext;
 let store: MockStore;
 
 beforeEach(() => {
@@ -70,12 +59,6 @@ beforeEach(() => {
     [ANALYTICS_SSO_GUID]: ssoGuid,
     [ANALYTICS_GR_MASTER_PERSON_ID]: grMasterPersonId,
   } as AnalyticsState;
-  screenContext = {
-    [ANALYTICS_ASSIGNMENT_TYPE]: '',
-    [ANALYTICS_EDIT_MODE]: '',
-    [ANALYTICS_PERMISSION_TYPE]: '',
-    [ANALYTICS_SECTION_TYPE]: '',
-  };
   store = mockStore({
     analytics: analyticsContext,
   });

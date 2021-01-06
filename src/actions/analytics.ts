@@ -50,13 +50,6 @@ export interface TrackStateContext {
   [ANALYTICS_PERMISSION_TYPE]: 'owner' | 'member' | 'admin' | '';
 }
 
-export interface ScreenContext {
-  [ANALYTICS_SECTION_TYPE]: TrackStateContext[typeof ANALYTICS_SECTION_TYPE];
-  [ANALYTICS_ASSIGNMENT_TYPE]: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
-  [ANALYTICS_EDIT_MODE]: TrackStateContext[typeof ANALYTICS_EDIT_MODE];
-  [ANALYTICS_PERMISSION_TYPE]: TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
-}
-
 export const ANALYTICS_CONTEXT_CHANGED = 'ANALYTICS_CONTEXT_CHANGED';
 
 export const trackScreenChange = (screenName: string | string[]) => (

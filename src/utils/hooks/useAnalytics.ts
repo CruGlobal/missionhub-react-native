@@ -6,18 +6,6 @@ import { useQuery } from '@apollo/react-hooks';
 import { trackScreenChange } from '../../actions/analytics';
 import { GET_MY_COMMUNITY_PERMISSION_QUERY } from '../../containers/Groups/CreatePostButton/queries';
 import { getMyCommunityPermission } from '../../containers/Groups/CreatePostButton/__generated__/getMyCommunityPermission';
-import {
-  getAnalyticsPermissionType,
-  getAnalyticsAssignmentType,
-  getAnalyticsSectionType,
-  getAnalyticsEditMode,
-} from '../analytics';
-import {
-  ANALYTICS_ASSIGNMENT_TYPE,
-  ANALYTICS_SECTION_TYPE,
-  ANALYTICS_EDIT_MODE,
-  ANALYTICS_PERMISSION_TYPE,
-} from '../../constants';
 
 import { useIsMe, useMyId } from './useIsMe';
 import { useIsOnboarding } from './useIsOnboarding';
@@ -69,37 +57,8 @@ export const useAnalytics = (
     skip: !(permissionType?.communityId && triggerTracking),
   });
 
-  const buildScreenContext = () => ({
-    ...(assignmentType
-      ? {
-          [ANALYTICS_ASSIGNMENT_TYPE]: getAnalyticsAssignmentType(
-            isMe,
-            !!assignmentType?.communityId,
-          ),
-        }
-      : {}),
-    ...(sectionType
-      ? {
-          [ANALYTICS_SECTION_TYPE]: getAnalyticsSectionType(isOnboarding),
-        }
-      : {}),
-    ...(editMode
-      ? {
-          [ANALYTICS_EDIT_MODE]: getAnalyticsEditMode(editMode.isEdit),
-        }
-      : {}),
-    ...(permissionType
-      ? {
-          [ANALYTICS_PERMISSION_TYPE]: getAnalyticsPermissionType(
-            edges[0]?.communityPermission.permission,
-          ),
-        }
-      : {}),
-  });
-
   const handleScreenChange = (name: string | string[]) => {
-    const screenContext = buildScreenContext();
-    dispatch(trackScreenChange(name, screenContext));
+    dispatch(trackScreenChange(name));
   };
 
   //normally screens should only respond to focus events

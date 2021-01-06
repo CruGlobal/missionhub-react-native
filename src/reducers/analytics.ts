@@ -1,7 +1,6 @@
 import i18next from 'i18next';
 
 import {
-  ANALYTICS_MCID,
   ANALYTICS_PREVIOUS_SCREEN_NAME,
   ANALYTICS_APP_NAME,
   ANALYTICS_LOGGED_IN_STATUS,
@@ -24,7 +23,6 @@ import {
 } from '../actions/notifications';
 
 export interface AnalyticsState {
-  [ANALYTICS_MCID]: TrackStateContext[typeof ANALYTICS_MCID];
   [ANALYTICS_PREVIOUS_SCREEN_NAME]: TrackStateContext[typeof ANALYTICS_PREVIOUS_SCREEN_NAME];
   [ANALYTICS_APP_NAME]: TrackStateContext[typeof ANALYTICS_APP_NAME];
   [ANALYTICS_LOGGED_IN_STATUS]: TrackStateContext[typeof ANALYTICS_LOGGED_IN_STATUS];
@@ -35,7 +33,6 @@ export interface AnalyticsState {
 }
 
 export const initialAnalyticsState = {
-  [ANALYTICS_MCID]: '',
   [ANALYTICS_PREVIOUS_SCREEN_NAME]: '',
   [ANALYTICS_APP_NAME]: 'MissionHub App',
   [ANALYTICS_LOGGED_IN_STATUS]: 'NOT_LOGGED_IN',
