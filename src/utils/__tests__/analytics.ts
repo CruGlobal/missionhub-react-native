@@ -24,8 +24,8 @@ describe('getAnalyticsAssignmentType', () => {
     expect(getAnalyticsAssignmentType(false, false)).toEqual('contact');
   });
 
-  it('returns community member', () => {
-    expect(getAnalyticsAssignmentType(false, true)).toEqual('community member');
+  it('returns community_member', () => {
+    expect(getAnalyticsAssignmentType(false, true)).toEqual('community_member');
   });
 });
 
@@ -64,49 +64,49 @@ describe('getAnalyticsPermissionType', () => {
 });
 
 describe('getPostTypeAnalytics', () => {
-  it('returns "god story" for story post type', () => {
-    expect(getPostTypeAnalytics(PostTypeEnum.story)).toEqual('god story');
+  it('returns "god_story" for story post type', () => {
+    expect(getPostTypeAnalytics(PostTypeEnum.story)).toEqual('god_story');
   });
 
-  it('returns "god story" for story feed type', () => {
+  it('returns "god_story" for story feed type', () => {
     expect(getPostTypeAnalytics(FeedItemSubjectTypeEnum.STORY)).toEqual(
-      'god story',
+      'god_story',
     );
   });
 
-  it('returns "prayer request" for prayer post type', () => {
+  it('returns "prayer_request" for prayer post type', () => {
     expect(getPostTypeAnalytics(PostTypeEnum.prayer_request)).toEqual(
-      'prayer request',
+      'prayer_request',
     );
   });
 
-  it('returns "prayer request" for prayer feed type', () => {
+  it('returns "prayer_request" for prayer feed type', () => {
     expect(
       getPostTypeAnalytics(FeedItemSubjectTypeEnum.PRAYER_REQUEST),
-    ).toEqual('prayer request');
+    ).toEqual('prayer_request');
   });
 
-  it('returns "spiritual question" for question post type', () => {
+  it('returns "spiritual_question" for question post type', () => {
     expect(getPostTypeAnalytics(PostTypeEnum.question)).toEqual(
-      'spiritual question',
+      'spiritual_question',
     );
   });
 
-  it('returns "spiritual question" for question feed type', () => {
+  it('returns "spiritual_question" for question feed type', () => {
     expect(getPostTypeAnalytics(FeedItemSubjectTypeEnum.QUESTION)).toEqual(
-      'spiritual question',
+      'spiritual_question',
     );
   });
 
-  it('returns "care request" for help post type', () => {
+  it('returns "care_request" for help post type', () => {
     expect(getPostTypeAnalytics(PostTypeEnum.help_request)).toEqual(
-      'care request',
+      'care_request',
     );
   });
 
-  it('returns "care request" for help feed type', () => {
+  it('returns "care_request" for help feed type', () => {
     expect(getPostTypeAnalytics(FeedItemSubjectTypeEnum.HELP_REQUEST)).toEqual(
-      'care request',
+      'care_request',
     );
   });
 
@@ -132,9 +132,9 @@ describe('getPostTypeAnalytics', () => {
     );
   });
 
-  it('returns "steps of faith" for step feed type', () => {
+  it('returns "steps_of_faith" for step feed type', () => {
     expect(getPostTypeAnalytics(FeedItemSubjectTypeEnum.STEP)).toEqual(
-      'steps of faith',
+      'steps_of_faith',
     );
   });
 

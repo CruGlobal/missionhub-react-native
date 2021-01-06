@@ -1,6 +1,5 @@
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
-import * as RNOmniture from 'react-native-omniture';
 import FBAnalytics from '@react-native-firebase/analytics';
 import i18next from 'i18next';
 import appsFlyer from 'react-native-appsflyer';
@@ -8,7 +7,6 @@ import appsFlyer from 'react-native-appsflyer';
 
 import {
   ACTIONS,
-  ANALYTICS_MCID,
   ANALYTICS_SCREEN_NAME,
   ANALYTICS_SITE_SECTION,
   ANALYTICS_SITE_SUBSECTION,
@@ -35,7 +33,6 @@ import { getAuthPerson } from '../auth/authUtilities';
 import { StepAddedAnalytics } from './__generated__/StepAddedAnalytics';
 
 export interface TrackStateContext {
-  [ANALYTICS_MCID]: string;
   [ANALYTICS_SCREEN_NAME]: string;
   [ANALYTICS_SITE_SECTION]: string;
   [ANALYTICS_SITE_SUBSECTION]: string;
@@ -48,7 +45,7 @@ export interface TrackStateContext {
   [ANALYTICS_FACEBOOK_ID]: string;
   [ANALYTICS_CONTENT_LANGUAGE]: string;
   [ANALYTICS_SECTION_TYPE]: 'onboarding' | '';
-  [ANALYTICS_ASSIGNMENT_TYPE]: 'self' | 'contact' | 'community member' | '';
+  [ANALYTICS_ASSIGNMENT_TYPE]: 'self' | 'contact' | 'community_member' | '';
   [ANALYTICS_EDIT_MODE]: 'set' | 'update' | '';
   [ANALYTICS_PERMISSION_TYPE]: 'owner' | 'member' | 'admin' | '';
 }
@@ -62,21 +59,17 @@ export interface ScreenContext {
 
 export const ANALYTICS_CONTEXT_CHANGED = 'ANALYTICS_CONTEXT_CHANGED';
 
-export const trackScreenChange = (
-  screenName: string | string[],
-  screenContext: Partial<ScreenContext> = {},
-) => (
+export const trackScreenChange = (screenName: string | string[]) => (
   dispatch: ThunkDispatch<RootState, never, AnyAction>,
   getState: () => { analytics: AnalyticsState },
 ) => {
   const { analytics } = getState();
-  const { [ANALYTICS_MCID]: mcid } = analytics;
 
   FBAnalytics().setUserProperties({
     debug: __DEV__.toString(),
     cru_grmasterpersonid: analytics[ANALYTICS_GR_MASTER_PERSON_ID] || null,
     cru_loggedinstatus:
-      analytics[ANALYTICS_LOGGED_IN_STATUS] === 'logged in' ? 'true' : 'false',
+      analytics[ANALYTICS_LOGGED_IN_STATUS] === 'logged_in' ? 'true' : 'false',
     cru_ssoguid: analytics[ANALYTICS_SSO_GUID] || null,
   });
   const screenFragments = Array.isArray(screenName) ? screenName : [screenName];
@@ -85,22 +78,7 @@ export const trackScreenChange = (
     'mh',
   );
 
-  const sendScreenChange = (MCID: string) => {
-    const context: TrackStateContext = {
-      ...analytics,
-      [ANALYTICS_SECTION_TYPE]: '',
-      [ANALYTICS_ASSIGNMENT_TYPE]: '',
-      [ANALYTICS_EDIT_MODE]: '',
-      [ANALYTICS_PERMISSION_TYPE]: '',
-      ...screenContext,
-      [ANALYTICS_MCID]: MCID,
-      [ANALYTICS_SCREEN_NAME]: screen,
-      [ANALYTICS_SITE_SECTION]: screenFragments[0],
-      [ANALYTICS_SITE_SUBSECTION]: screenFragments[1],
-      [ANALYTICS_SITE_SUBSECTION_3]: screenFragments[2],
-    };
-
-    RNOmniture.trackState(screen, context);
+  const sendScreenChange = () => {
     //sendStateToSnowplow(context);
     dispatch(
       updateAnalyticsContext({
@@ -109,15 +87,7 @@ export const trackScreenChange = (
     );
     FBAnalytics().logScreenView({ screen_name: screen });
   };
-
-  if (mcid !== '') {
-    sendScreenChange(mcid);
-  } else {
-    RNOmniture.loadMarketingCloudId(result => {
-      sendScreenChange(result);
-      appsFlyer.setAdditionalData({ ECID: result }, () => {});
-    });
-  }
+  sendScreenChange();
 };
 
 export function updateAnalyticsContext(
@@ -180,19 +150,8 @@ export function trackAction(action: string, data: Record<string, unknown>) {
     (acc, key) => ({ ...acc, [key]: data[key] ? data[key] : '1' }),
     {},
   );
-  // Format event data to correct firebase format
-  const firebaseContextData = Object.entries(data).reduce(
-    (acc, [key, value]) => ({
-      ...acc,
-      [formatFirebaseEvent(key)]: value || '1',
-    }),
-    {},
-  );
-  // Format the event names to firebase format
-  const firebaseEventName = formatFirebaseEvent(action);
-  // Log event to firebase
-  FBAnalytics().logEvent(firebaseEventName, firebaseContextData);
-  return () => RNOmniture.trackAction(action, newData);
+
+  return () => FBAnalytics().logEvent(formatFirebaseEvent(action), newData);
 }
 
 export function formatFirebaseEvent(event: string) {

@@ -24,7 +24,7 @@ it('renders correctly', () => {
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(
-    ['feed', 'card', 'steps of faith'],
+    ['feed', 'card', 'steps_of_faith'],
     {
       permissionType: { communityId },
     },

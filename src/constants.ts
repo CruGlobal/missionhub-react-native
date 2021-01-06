@@ -83,53 +83,29 @@ export const ORG_PERMISSIONS = {
 export const GCM_SENDER_ID = Config.GCM_SENDER_ID;
 
 //parameter names for the data we send to Analytics
-export const ANALYTICS_MCID = 'cru.mcid';
-export const ANALYTICS_SCREEN_NAME = 'cru.screenname';
-export const ANALYTICS_SITE_SECTION = 'cru.sitesection';
-export const ANALYTICS_SITE_SUBSECTION = 'cru.sitesubsection';
-export const ANALYTICS_SITE_SUBSECTION_3 = 'cru.subsectionlevel3';
-export const ANALYTICS_PREVIOUS_SCREEN_NAME = 'cru.previousscreenname';
-export const ANALYTICS_APP_NAME = 'cru.appname';
-export const ANALYTICS_LOGGED_IN_STATUS = 'cru.loggedinstatus';
-export const ANALYTICS_SSO_GUID = 'cru.ssoguid';
-export const ANALYTICS_GR_MASTER_PERSON_ID = 'cru.grmasterpersonid';
-export const ANALYTICS_FACEBOOK_ID = 'cru.facebookid';
-export const ANALYTICS_CONTENT_LANGUAGE = 'cru.contentlanguage';
-export const ANALYTICS_SECTION_TYPE = 'cru.section-type';
-export const ANALYTICS_ASSIGNMENT_TYPE = 'cru.assignment-type';
-export const ANALYTICS_EDIT_MODE = 'cru.edit-mode';
-export const ANALYTICS_PERMISSION_TYPE = 'cru.permission-type';
+export const ANALYTICS_SCREEN_NAME = 'cru_screenname';
+export const ANALYTICS_SITE_SECTION = 'cru_sitesection';
+export const ANALYTICS_SITE_SUBSECTION = 'cru_sitesubsection';
+export const ANALYTICS_SITE_SUBSECTION_3 = 'cru_subsectionlevel3';
+export const ANALYTICS_PREVIOUS_SCREEN_NAME = 'cru_previousscreenname';
+export const ANALYTICS_APP_NAME = 'cru_appname';
+export const ANALYTICS_LOGGED_IN_STATUS = 'cru_loggedinstatus';
+export const ANALYTICS_SSO_GUID = 'cru_ssoguid';
+export const ANALYTICS_GR_MASTER_PERSON_ID = 'cru_grmasterpersonid';
+export const ANALYTICS_FACEBOOK_ID = 'cru_facebookid';
+export const ANALYTICS_CONTENT_LANGUAGE = 'cru_contentlanguage';
+export const ANALYTICS_SECTION_TYPE = 'cru_section-type';
+export const ANALYTICS_ASSIGNMENT_TYPE = 'cru_assignment_type';
+export const ANALYTICS_EDIT_MODE = 'cru_edit_mode';
+export const ANALYTICS_PERMISSION_TYPE = 'cru_permission_type';
 
-export const LOGGED_IN = 'logged in';
-export const NOT_LOGGED_IN = 'not logged in';
+export const LOGGED_IN = 'logged_in';
+export const NOT_LOGGED_IN = 'not_logged_in';
 
 export const ACTIONS = {
   PERSON_ADDED: {
-    name: 'Person Added',
-    key: 'cru.personadded',
-  },
-  STATUS_CHANGED: {
-    name: 'Contact Status Changed',
-    key: 'cru.contactstatuschanged',
-  },
-  EMAIL_ENGAGED: {
-    name: 'Contact Engaged by Email',
-    key: 'cru.emailiconengaged',
-  },
-  CALL_ENGAGED: {
-    name: 'Contact Engaged by Phone',
-    key: 'cru.calliconengaged',
-  },
-  TEXT_ENGAGED: {
-    name: 'Contact Engaged by Text',
-    key: 'cru.texticonengaged',
-  },
-  FILTER_ENGAGED: {
-    name: 'Search Filter Engaged',
-    key: 'cru.searchfilterengaged',
-  },
-  SEARCH_FILTER: {
-    key: 'cru.searchfilter',
+    name: 'person_added',
+    key: 'cru_personadded',
   },
   USER_ERROR: {
     name: 'User Signin Error',
@@ -140,234 +116,188 @@ export const ACTIONS = {
     key: 'cru.systemsigninerror',
   },
   ONBOARDING_STARTED: {
-    name: 'Onboarding Started',
-    key: 'cru.onboardingstarted',
+    name: 'onboarding_started',
+    key: 'cru_onboardingstarted',
   },
   ONBOARDING_COMPLETE: {
-    name: 'Onboarding Complete',
-    key: 'cru.onboardingcomplete',
+    name: 'onboarding_complete',
+    key: 'cru_onboardingcomplete',
   },
   SELF_STAGE_SELECTED: {
-    name: 'Self Stage Selected',
-    key: 'cru.selfselectedstage',
+    name: 'self_stage_selected',
+    key: 'cru_selfselectedstage',
   },
   PERSON_STAGE_SELECTED: {
-    name: 'Person Stage Selected',
-    key: 'cru.personselectedstage',
+    name: 'person_stage_selected',
+    key: 'cru_personselectedstage',
   },
   STAGE_SELECTED: {
-    key: 'cru.stageselected',
+    key: 'cru_stageselected',
   },
   STEP_DETAIL: {
-    name: 'Step of Faith Detail',
-    key: 'cru.stepoffaithdetail',
+    name: 'step_of_faith_detail',
+    key: 'cru_stepoffaithdetail',
   },
   STEPS_ADDED: {
-    name: 'Step of Faith Added',
-    key: 'cru.stepoffaithadded',
+    name: 'step_of_faith_added',
+    key: 'cru_stepoffaithadded',
   },
   STEP_CREATED: {
-    name: 'Step of Faith Created',
-    key: 'cru.stepoffaithcreated',
+    name: 'step_of_faith_created',
+    key: 'cru_stepoffaithcreated',
   },
   POST_STEP_ADDED: {
-    name: 'Add to My Steps',
-    key: 'cru.addtomysteps',
+    name: 'add_to_my_steps',
+    key: 'cru_addtomysteps',
   },
   STEP_POST_TYPE: {
-    key: 'cru.stepposttype',
+    key: 'cru_stepposttype',
   },
   ALLOW: {
-    name: 'Notification Permissions Allowed',
-    key: 'cru.notificationsallowed',
+    name: 'notification_permissions_allowed',
+    key: 'cru_notificationsallowed',
   },
   NOT_NOW: {
-    name: 'Notification Permissions Not Allowed',
-    key: 'cru.notificationsnotallowed',
+    name: 'notification_permissions_not_allowed',
+    key: 'cru_notificationsnotallowed',
   },
   NO_REMINDERS: {
-    name: 'Notification Reminders',
-    key: 'cru.notoreminders',
-  },
-  STEP_PRIORITIZED: {
-    name: 'Step Prioritized',
-    key: 'cru.stepprioritized',
-  },
-  STEP_DEPRIORITIZED: {
-    name: 'Step Deprioritized',
-    key: 'cru.stepdeprioritized',
+    name: 'notification_reminders',
+    key: 'cru_notoreminders',
   },
   STEP_REMOVED: {
-    name: 'Step Removed',
-    key: 'cru.stepremoved',
+    name: 'step_removed',
+    key: 'cru_stepremoved',
   },
   STEP_COMPLETED: {
-    name: 'Step Completed',
-    key: 'cru.stepcompleted',
+    name: 'step_completed',
+    key: 'cru_stepcompleted',
   },
   JOURNEY_EDITED: {
-    name: 'Edit on Person Journey',
-    key: 'cru.journeyedit',
+    name: 'edit_on_person_journey',
+    key: 'cru_journeyedit',
   },
   INTERACTION: {
-    name: 'Action Taken on Person',
-    COMMENT: 'cru.commentadded',
-    SOMETHING_COOL_HAPPENED: 'cru.somethingcoolhappenedadded',
-    SPIRITUAL_CONVERSATION: 'cru.initiatinggospelconversations',
-    GOSPEL_PRESENTATION: 'cru.presentingthegospel',
-    PERSONAL_DECISION: 'cru.newprofessingbelievers',
-    HOLY_SPIRIT_PRESENTATION: 'cru.presentingtheholyspirit',
-    DISCIPLESHIP: 'cru.discipleshipconversation',
+    name: 'action_taken_on_person',
+    COMMENT: 'cru_commentadded',
   },
   ITEM_LIKED: {
-    name: 'Celebrate Item Liked',
-    key: 'cru.celebrateitemliked',
-  },
-  CELEBRATE_COMMENT_ADDED: {
-    name: 'Celebrate Comment Added',
-    key: 'cru.sendcelebratecomment',
-  },
-  CELEBRATE_COMMENT_EDITED: {
-    name: 'Celebrate Comment Edited',
-    key: 'cru.editcelebratecomment',
-  },
-  CELEBRATE_COMMENT_DELETED: {
-    name: 'Celebrate Comment Deleted',
-    key: 'cru.deletecelebratecomment',
-  },
-  CELEBRATE_COMMENT_REPORTED: {
-    name: 'Celebrate Comment Reported',
-    key: 'cru.reportcelebratecomment',
-  },
-  ASSIGNED_TO_ME: {
-    name: 'Assigned to Me',
-    key: 'cru.assignedtome',
+    name: 'celebrate_item_liked',
+    key: 'cru_celebrateitemliked',
   },
   SELECT_COMMUNITY: {
-    name: 'Community Selected',
-    key: 'cru.selectcommunities',
+    name: 'community_selected',
+    key: 'cru_selectcommunities',
   },
   SELECT_CREATED_COMMUNITY: {
-    name: 'Community Selected After Create',
-    key: 'cru.createcommunities',
+    name: 'community_selected_after_create',
+    key: 'cru_createcommunities',
   },
   SELECT_JOINED_COMMUNITY: {
-    name: 'Community Selected After Join',
-    key: 'cru.joincommunities',
+    name: 'community_selected_after_join',
+    key: 'cru_joincommunities',
   },
   SEARCH_COMMUNITY_WITH_CODE: {
-    name: 'Search for Community With Code',
-    key: 'cru.codesearch',
+    name: 'search_for_community_with_code',
+    key: 'cru_codesearch',
   },
   JOIN_COMMUNITY_WITH_CODE: {
-    name: 'Join Community With Code',
-    key: 'cru.codejoin',
+    name: 'join_community_with_code',
+    key: 'cru_codejoin',
   },
   ADD_COMMUNITY_PHOTO: {
-    name: 'Add Photo for Community',
-    key: 'cru.communityphoto',
+    name: 'add_photo_for_community',
+    key: 'cru_communityphoto',
   },
   CREATE_COMMUNITY: {
-    name: 'Create Community',
-    key: 'cru.communitycreate',
+    name: 'create_community',
+    key: 'cru_communitycreate',
   },
   CHALLENGE_CREATED: {
-    name: 'Challenge Created',
-    key: 'cru.challengecreated',
+    name: 'challenge_created',
+    key: 'cru_challengecreated',
   },
   CHALLENGE_JOINED: {
-    name: 'Challenge Joined',
-    key: 'cru.challengejoined',
+    name: 'challenge_joined',
+    key: 'cru_challengejoined',
   },
   CHALLENGE_COMPLETED: {
-    name: 'Challenge Completed',
-    key: 'cru.challengecompleted',
+    name: 'challenge_completed',
+    key: 'cru_challengecompleted',
   },
   CHALLENGE_DETAIL: {
-    name: 'Challenge Detail View',
-    key: 'cru.challengedetail',
+    name: 'challenge_detail_view',
+    key: 'cru_challengedetail',
   },
   MANAGE_MAKE_ADMIN: {
-    name: 'Make Admin',
-    key: 'cru.membersmakeadmin',
+    name: 'make_admin',
+    key: 'cru_membersmakeadmin',
   },
   MANAGE_MAKE_OWNER: {
-    name: 'Make Owner',
-    key: 'cru.membersmakeowner',
+    name: 'make_owner',
+    key: 'cru_membersmakeowner',
   },
   MANAGE_REMOVE_ADMIN: {
-    name: 'Remove Admin',
-    key: 'cru.membersremoveadmin',
+    name: 'remove_admin',
+    key: 'cru_membersremoveadmin',
   },
   MANAGE_REMOVE_MEMBER: {
-    name: 'Remove Member',
-    key: 'cru.membersremovemember',
+    name: 'remove_member',
+    key: 'cru_membersremovemember',
   },
   MANAGE_LEAVE_COMMUNITY: {
-    name: 'Leave Community',
-    key: 'cru.membersleave',
+    name: 'leave_community',
+    key: 'cru_membersleave',
   },
   COMMUNITY_EDIT: {
-    name: 'Editing Community',
-    key: 'cru.communityedit',
+    name: 'editing_community',
+    key: 'cru_communityedit',
   },
   COPY_CODE: {
-    name: 'Copy Community Code',
-    key: 'cru.copycode',
+    name: 'copy_community_code',
+    key: 'cru_copycode',
   },
   COPY_INVITE_URL: {
-    name: 'Copy Community Invite URL',
-    key: 'cru.copyinviteurl',
+    name: 'copy_community_invite_url',
+    key: 'cru_copyinviteurl',
   },
   SEND_COMMUNITY_INVITE: {
-    name: 'Send Community Invite',
-    key: 'cru.sendcommunityinvite',
+    name: 'send_community_invite',
+    key: 'cru_sendcommunityinvite',
   },
   NEW_CODE: {
-    name: 'New Community Code',
-    key: 'cru.newcode',
+    name: 'new_community_code',
+    key: 'cru_newcode',
   },
   NEW_INVITE_URL: {
-    name: 'New Community Invite URL',
-    key: 'cru.newinviteurl',
+    name: 'new_community_invite_url',
+    key: 'cru_newinviteurl',
   },
   COMMUNITY_DELETE: {
-    name: 'Delete Community',
-    key: 'cru.communitydelete',
+    name: 'delete_community',
+    key: 'cru_communitydelete',
   },
   CREATE_POST: {
-    name: 'Create Post',
-    key: 'cru.posttype',
+    name: 'create_post',
+    key: 'cru_posttype',
   },
   PHOTO_ADDED: {
-    name: 'Add Photo to Post',
-    key: 'cru.addphototopost',
+    name: 'add_photo_to_post',
+    key: 'cru_addphototopost',
   },
   VIDEO_ADDED: {
-    name: 'Add Video to Post',
-    key: 'cru.addvideotopost',
+    name: 'add_video_to_post',
+    key: 'cru_addvideotopost',
   },
   POST_TYPE_SELECTED: {
-    name: 'Post Type Selected',
-    key: 'cru.posttype',
+    name: 'post_type_selected',
+    key: 'cru_posttype',
   },
 };
 
-export const CONTACT_STEPS = 'Contact Steps';
+export const CONTACT_STEPS = 'contact_steps';
 
 export const INTERACTION_TYPES = {
-  MHInteractionTypeAssignedContacts: {
-    id: '100',
-    requestFieldName: 'contact_count',
-    iconName: 'peopleIcon',
-    translationKey: 'interactionAssignedContacts',
-  },
-  MHInteractionTypeUncontacted: {
-    id: '101',
-    requestFieldName: 'uncontacted_count',
-    iconName: 'uncontactedIcon',
-    translationKey: 'interactionUncontacted',
-  },
   MHInteractionTypeNote: {
     id: '1',
     iconName: 'commentIcon',
@@ -375,48 +305,6 @@ export const INTERACTION_TYPES = {
     hideReport: true,
     isOnAction: true,
     tracking: ACTIONS.INTERACTION.COMMENT,
-  },
-  MHInteractionTypeSomethingCoolHappened: {
-    id: '11',
-    iconName: 'celebrateIcon',
-    translationKey: 'interactionSomethingCoolHappened',
-    hideReport: true,
-    tracking: ACTIONS.INTERACTION.SOMETHING_COOL_HAPPENED,
-  },
-  MHInteractionTypeSpiritualConversation: {
-    id: '2',
-    iconName: 'spiritualConversationIcon',
-    translationKey: 'interactionSpiritualConversation',
-    isOnAction: true,
-    tracking: ACTIONS.INTERACTION.SPIRITUAL_CONVERSATION,
-  },
-  MHInteractionTypeGospelPresentation: {
-    id: '3',
-    iconName: 'gospelIcon',
-    translationKey: 'interactionGospel',
-    isOnAction: true,
-    tracking: ACTIONS.INTERACTION.GOSPEL_PRESENTATION,
-  },
-  MHInteractionTypePersonalDecision: {
-    id: '4',
-    iconName: 'decisionIcon',
-    translationKey: 'interactionDecision',
-    isOnAction: true,
-    tracking: ACTIONS.INTERACTION.PERSONAL_DECISION,
-  },
-  MHInteractionTypeHolySpiritConversation: {
-    id: '5',
-    iconName: 'spiritIcon',
-    translationKey: 'interactionSpirit',
-    isOnAction: true,
-    tracking: ACTIONS.INTERACTION.HOLY_SPIRIT_PRESENTATION,
-  },
-  MHInteractionTypeDiscipleshipConversation: {
-    id: '9',
-    iconName: 'discipleshipConversationIcon',
-    translationKey: 'interactionDiscipleshipConversation',
-    isOnAction: true,
-    tracking: ACTIONS.INTERACTION.DISCIPLESHIP,
   },
 };
 

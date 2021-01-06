@@ -556,7 +556,7 @@ describe('useAnalytics', () => {
         fireFocus(true, rerender);
 
         expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {
-          [ANALYTICS_ASSIGNMENT_TYPE]: 'community member',
+          [ANALYTICS_ASSIGNMENT_TYPE]: 'community_member',
         });
       });
 

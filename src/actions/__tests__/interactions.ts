@@ -44,7 +44,7 @@ beforeEach(
 const comment = 'new comment';
 const personId = 1;
 const orgId = 2;
-const interaction = INTERACTION_TYPES.MHInteractionTypeGospelPresentation;
+const interaction = INTERACTION_TYPES.MHInteractionTypeNote;
 const trackActionResult = { type: 'tracked action' };
 const refreshImpactResult = { type: 'refreshed impact' };
 const reloadJourneyResult = { type: 'reloaded journey' };
