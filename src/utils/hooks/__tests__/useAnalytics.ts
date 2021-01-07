@@ -8,12 +8,6 @@ import { renderHookWithContext } from '../../../../testUtils';
 import { trackScreenChange } from '../../../actions/analytics';
 import { useAnalytics, ANALYTICS_SCREEN_TYPES } from '../useAnalytics';
 import { useIsDrawerOpen } from '../useIsDrawerOpen';
-import {
-  ANALYTICS_ASSIGNMENT_TYPE,
-  ANALYTICS_SECTION_TYPE,
-  ANALYTICS_EDIT_MODE,
-  ANALYTICS_PERMISSION_TYPE,
-} from '../../../constants';
 import { PermissionEnum } from '../../../../__generated__/globalTypes';
 
 jest.mock('react-navigation-hooks');
@@ -62,7 +56,7 @@ describe('useAnalytics', () => {
 
       fireFocus(true, rerender);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('tracks screen change on focus with drawer already closed', () => {
@@ -78,7 +72,7 @@ describe('useAnalytics', () => {
 
       fireFocus(true, rerender);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('does not track screen change on drawer open', () => {
@@ -128,7 +122,7 @@ describe('useAnalytics', () => {
 
       result.current(screenFragments);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('delays track screen change', () => {
@@ -155,7 +149,7 @@ describe('useAnalytics', () => {
 
       rerender({ triggerTracking: true });
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('delays track screen change', () => {
@@ -182,7 +176,7 @@ describe('useAnalytics', () => {
 
       rerender({ triggerTracking: true });
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
   });
 
@@ -222,7 +216,7 @@ describe('useAnalytics', () => {
 
       fireFocus(true, rerender);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('does not track screen change on drawer open', () => {
@@ -264,7 +258,7 @@ describe('useAnalytics', () => {
 
       fireDrawer(false, rerender);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('tracks screen change with callback', () => {
@@ -281,7 +275,7 @@ describe('useAnalytics', () => {
 
       result.current(screenFragments);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('delays track screen change', () => {
@@ -311,7 +305,7 @@ describe('useAnalytics', () => {
 
       rerender({ triggerTracking: true });
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('delays track screen change', () => {
@@ -341,7 +335,7 @@ describe('useAnalytics', () => {
 
       rerender({ triggerTracking: true });
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
   });
 
@@ -362,7 +356,7 @@ describe('useAnalytics', () => {
 
       fireFocus(true, rerender);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('does not track screen change on focus with drawer already closed', () => {
@@ -402,7 +396,7 @@ describe('useAnalytics', () => {
 
       fireDrawer(true, rerender);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('does not track screen change on drawer close', () => {
@@ -440,7 +434,7 @@ describe('useAnalytics', () => {
 
       result.current(screenFragments);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('delays track screen change', () => {
@@ -474,7 +468,7 @@ describe('useAnalytics', () => {
 
       rerender({ triggerTracking: true });
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('delays track screen change', () => {
@@ -508,7 +502,7 @@ describe('useAnalytics', () => {
 
       rerender({ triggerTracking: true });
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
   });
 
@@ -537,9 +531,7 @@ describe('useAnalytics', () => {
 
         fireFocus(true, rerender);
 
-        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {
-          [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
-        });
+        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
       });
 
       it('set to "community members"', () => {
@@ -555,9 +547,7 @@ describe('useAnalytics', () => {
 
         fireFocus(true, rerender);
 
-        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {
-          [ANALYTICS_ASSIGNMENT_TYPE]: 'community_member',
-        });
+        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
       });
 
       it('set to "contact"', () => {
@@ -573,9 +563,7 @@ describe('useAnalytics', () => {
 
         fireFocus(true, rerender);
 
-        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {
-          [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-        });
+        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
       });
     });
 
@@ -593,9 +581,7 @@ describe('useAnalytics', () => {
 
         fireFocus(true, rerender);
 
-        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {
-          [ANALYTICS_SECTION_TYPE]: 'onboarding',
-        });
+        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
       });
 
       it('set to ""', () => {
@@ -616,9 +602,7 @@ describe('useAnalytics', () => {
 
         fireFocus(true, rerender);
 
-        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {
-          [ANALYTICS_SECTION_TYPE]: '',
-        });
+        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
       });
     });
 
@@ -636,9 +620,7 @@ describe('useAnalytics', () => {
 
         fireFocus(true, rerender);
 
-        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {
-          [ANALYTICS_EDIT_MODE]: 'update',
-        });
+        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
       });
 
       it('set to "set"', () => {
@@ -656,9 +638,7 @@ describe('useAnalytics', () => {
 
         fireFocus(true, rerender);
 
-        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {
-          [ANALYTICS_EDIT_MODE]: 'set',
-        });
+        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
       });
     });
 
@@ -683,9 +663,7 @@ describe('useAnalytics', () => {
 
         fireFocus(true, rerender);
 
-        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {
-          [ANALYTICS_PERMISSION_TYPE]: 'owner',
-        });
+        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
       });
     });
 
@@ -709,9 +687,7 @@ describe('useAnalytics', () => {
 
       fireFocus(true, rerender);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {
-        [ANALYTICS_PERMISSION_TYPE]: 'admin',
-      });
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('set to "member"', async () => {
@@ -734,9 +710,7 @@ describe('useAnalytics', () => {
 
       fireFocus(true, rerender);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {
-        [ANALYTICS_PERMISSION_TYPE]: 'member',
-      });
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
   });
 });

@@ -7,8 +7,7 @@ import { trackScreenChange } from '../../actions/analytics';
 import { GET_MY_COMMUNITY_PERMISSION_QUERY } from '../../containers/Groups/CreatePostButton/queries';
 import { getMyCommunityPermission } from '../../containers/Groups/CreatePostButton/__generated__/getMyCommunityPermission';
 
-import { useIsMe, useMyId } from './useIsMe';
-import { useIsOnboarding } from './useIsOnboarding';
+import { useMyId } from './useIsMe';
 import { useIsDrawerOpen } from './useIsDrawerOpen';
 
 export enum ANALYTICS_SCREEN_TYPES {
@@ -31,15 +30,10 @@ export const useAnalytics = (
   {
     triggerTracking = true,
     screenType = ANALYTICS_SCREEN_TYPES.screen,
-    assignmentType,
-    sectionType,
-    editMode,
     permissionType,
   }: UseAnalyticsOptions = {},
 ) => {
   const myId = useMyId();
-  const isMe = useIsMe(assignmentType?.personId || '');
-  const isOnboarding = useIsOnboarding();
   const dispatch = useDispatch();
   const isFocused = useIsFocused();
   const isDrawerOpen = useIsDrawerOpen();
