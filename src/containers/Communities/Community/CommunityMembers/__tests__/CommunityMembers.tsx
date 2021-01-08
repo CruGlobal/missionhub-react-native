@@ -81,9 +81,7 @@ describe('CommunityMembers', () => {
       navParams: { communityId },
     }).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['community', 'members'], {
-      permissionType: { communityId },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(['community', 'members']);
   });
 
   it('should render empty state', () => {
@@ -97,9 +95,7 @@ describe('CommunityMembers', () => {
       navParams: { communityId },
     }).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['community', 'members'], {
-      permissionType: { communityId },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(['community', 'members']);
   });
 
   it('renders with content', async () => {
@@ -123,9 +119,7 @@ describe('CommunityMembers', () => {
       },
     });
 
-    expect(useAnalytics).toHaveBeenCalledWith(['community', 'members'], {
-      permissionType: { communityId },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(['community', 'members']);
 
     await flushMicrotasksQueue();
 

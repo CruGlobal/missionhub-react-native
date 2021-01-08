@@ -46,9 +46,7 @@ const CreatePostModal = ({
   const { t } = useTranslation('createPostScreen');
   const dispatch = useDispatch();
 
-  useAnalytics(['post', 'choose type'], {
-    permissionType: { communityId },
-  });
+  useAnalytics(['post', 'choose type']);
 
   const navigateToCreatePostScreen = (postType: PostTypeEnum) => {
     closeModal();

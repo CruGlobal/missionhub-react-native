@@ -331,10 +331,7 @@ export const CreatePostScreen = () => {
 
   const imageAspectRatio = useAspectRatio(hasImage ? mediaData : null);
 
-  useAnalytics(['post', getPostTypeAnalytics(postType)], {
-    permissionType: { communityId },
-    editMode: { isEdit: !!post },
-  });
+  useAnalytics(['post', getPostTypeAnalytics(postType)]);
 
   const createPost = useCreatePost({
     media: mediaData,

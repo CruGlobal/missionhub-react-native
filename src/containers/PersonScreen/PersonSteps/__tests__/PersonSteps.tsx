@@ -113,9 +113,7 @@ it('renders correctly when no steps', async () => {
 
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps'], {
-    assignmentType: { personId: person.id },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
 });
 
 it('renders correctly when me and no steps', async () => {
@@ -140,9 +138,7 @@ it('renders correctly when me and no steps', async () => {
 
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps'], {
-    assignmentType: { personId: mePerson.id },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
   expect(getByText('Your Steps of Faith will appear here.')).toBeTruthy();
 });
 
@@ -167,9 +163,7 @@ it('renders correctly with steps', async () => {
     },
   );
 
-  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps'], {
-    assignmentType: { personId: person.id },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
 
   await flushMicrotasksQueue();
 
@@ -201,9 +195,7 @@ it('should paginate', async () => {
 
   recordSnapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps'], {
-    assignmentType: { personId: person.id },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
 
   fireEvent(getByType(SectionList), 'onEndReached');
 

@@ -33,10 +33,10 @@ it('renders correctly', async () => {
 
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(
-    ['onboarding', 'personal greeting'],
-    { sectionType: true },
-  );
+  expect(useAnalytics).toHaveBeenCalledWith([
+    'onboarding',
+    'personal greeting',
+  ]);
 });
 
 it('renders without back button correctly', async () => {
@@ -53,10 +53,10 @@ it('renders without back button correctly', async () => {
 
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(
-    ['onboarding', 'personal greeting'],
-    { sectionType: true },
-  );
+  expect(useAnalytics).toHaveBeenCalledWith([
+    'onboarding',
+    'personal greeting',
+  ]);
 });
 
 it('navigates to next screen', () => {

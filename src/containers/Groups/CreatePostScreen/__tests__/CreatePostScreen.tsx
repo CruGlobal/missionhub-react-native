@@ -88,10 +88,7 @@ it('renders correctly for new post', () => {
     navParams: { communityId, postType },
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer_request'], {
-    permissionType: { communityId },
-    editMode: { isEdit: false },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer_request']);
 });
 
 it('renders correctly for new post and feature flag false', () => {
@@ -102,10 +99,7 @@ it('renders correctly for new post and feature flag false', () => {
     navParams: { communityId, postType, onComplete },
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer_request'], {
-    permissionType: { communityId },
-    editMode: { isEdit: false },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer_request']);
 });
 
 it('renders correctly for update post without media', () => {
@@ -123,10 +117,7 @@ it('renders correctly for update post without media', () => {
     },
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer_request'], {
-    permissionType: { communityId },
-    editMode: { isEdit: true },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer_request']);
 });
 
 it('renders correctly for update post without media and feature flag false', () => {
@@ -146,10 +137,7 @@ it('renders correctly for update post without media and feature flag false', () 
     },
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer_request'], {
-    permissionType: { communityId },
-    editMode: { isEdit: true },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer_request']);
 });
 
 it('renders correctly for update post with image', () => {
@@ -167,10 +155,7 @@ it('renders correctly for update post with image', () => {
     },
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer_request'], {
-    permissionType: { communityId },
-    editMode: { isEdit: true },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer_request']);
 });
 
 it('renders correctly for update post with video', () => {
@@ -188,10 +173,7 @@ it('renders correctly for update post with video', () => {
     },
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer_request'], {
-    permissionType: { communityId },
-    editMode: { isEdit: true },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer_request']);
 });
 
 it('renders correctly for update post without video if feature flag is false', () => {
@@ -211,10 +193,7 @@ it('renders correctly for update post without video if feature flag is false', (
     },
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer_request'], {
-    permissionType: { communityId },
-    editMode: { isEdit: true },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer_request']);
 });
 
 describe('renders for post types', () => {

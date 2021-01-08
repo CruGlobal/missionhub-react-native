@@ -90,9 +90,7 @@ describe('CommunityProfile', () => {
     await flushMicrotasksQueue();
     diffSnapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['community', 'detail'], {
-      permissionType: { communityId },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(['community', 'detail']);
   });
 
   it('renders without edit button', async () => {

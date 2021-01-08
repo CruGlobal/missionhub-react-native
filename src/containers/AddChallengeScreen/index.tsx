@@ -42,7 +42,6 @@ const AddChallengeScreen = () => {
     details?: string;
   }) => void = useNavigationParam('onComplete');
   const challenge: ChallengeInterface = useNavigationParam('challenge');
-  const communityId: string = useNavigationParam('communityId');
   const [title, changeTitle] = useState(isEdit ? challenge.title : '');
   const [detail, changeDetail] = useState(
     isEdit ? challenge.details_markdown : '',
@@ -59,9 +58,7 @@ const AddChallengeScreen = () => {
       : changeDisableBtn(true);
   }, [date, title, detail]);
 
-  useAnalytics(['challenge', isEdit ? 'edit' : 'create'], {
-    permissionType: { communityId },
-  });
+  useAnalytics(['challenge', isEdit ? 'edit' : 'create']);
 
   const {
     container,

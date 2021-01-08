@@ -55,9 +55,7 @@ const GroupChallenges = () => {
     variables: { id: organization.id, myId },
   });
 
-  useAnalytics(['community', 'challenges'], {
-    permissionType: { communityId: organization.id },
-  });
+  useAnalytics(['community', 'challenges']);
 
   const challengeItems = useSelector(() =>
     challengesSelector(

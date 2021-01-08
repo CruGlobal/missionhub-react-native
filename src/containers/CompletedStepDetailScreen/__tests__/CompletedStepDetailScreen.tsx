@@ -25,9 +25,7 @@ it('renders loading state correctly', () => {
 
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'completed step'], {
-    assignmentType: { personId },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'completed step']);
 });
 
 describe('with challenge suggestion', () => {
@@ -45,12 +43,10 @@ describe('with challenge suggestion', () => {
     await flushMicrotasksQueue();
     snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(
-      ['step detail', 'completed step'],
-      {
-        assignmentType: { personId },
-      },
-    );
+    expect(useAnalytics).toHaveBeenCalledWith([
+      'step detail',
+      'completed step',
+    ]);
   });
 });
 
@@ -69,12 +65,10 @@ describe('without challenge suggestion', () => {
     await flushMicrotasksQueue();
     snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(
-      ['step detail', 'completed step'],
-      {
-        assignmentType: { personId },
-      },
-    );
+    expect(useAnalytics).toHaveBeenCalledWith([
+      'step detail',
+      'completed step',
+    ]);
   });
 });
 
@@ -93,12 +87,10 @@ describe('post', () => {
     await flushMicrotasksQueue();
     snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(
-      ['step detail', 'completed step'],
-      {
-        assignmentType: { personId },
-      },
-    );
+    expect(useAnalytics).toHaveBeenCalledWith([
+      'step detail',
+      'completed step',
+    ]);
   });
 
   it('renders with post', async () => {
@@ -110,11 +102,9 @@ describe('post', () => {
     await flushMicrotasksQueue();
     snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(
-      ['step detail', 'completed step'],
-      {
-        assignmentType: { personId },
-      },
-    );
+    expect(useAnalytics).toHaveBeenCalledWith([
+      'step detail',
+      'completed step',
+    ]);
   });
 });

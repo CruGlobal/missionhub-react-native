@@ -2,13 +2,11 @@
 
 import * as Redux from 'react-redux';
 import { useIsFocused } from 'react-navigation-hooks';
-import { flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderHookWithContext } from '../../../../testUtils';
 import { trackScreenChange } from '../../../actions/analytics';
 import { useAnalytics, ANALYTICS_SCREEN_TYPES } from '../useAnalytics';
 import { useIsDrawerOpen } from '../useIsDrawerOpen';
-import { PermissionEnum } from '../../../../__generated__/globalTypes';
 
 jest.mock('react-navigation-hooks');
 jest.mock('../../../actions/analytics');
@@ -18,9 +16,6 @@ jest.mock('../../../auth/authStore', () => ({ isAuthenticated: () => true }));
 const trackScreenChangeResult = { type: 'track screen change' };
 
 const screenFragments = ['screen name', 'subsection'];
-const myId = '123';
-const personId = '321';
-const communityId = '444';
 
 const initialState = {
   onboarding: { currentlyOnboarding: true },

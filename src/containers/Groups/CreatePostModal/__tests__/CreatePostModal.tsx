@@ -41,9 +41,7 @@ it('renders correctly', async () => {
   const { snapshot } = renderWithContext(<CreatePostModal {...props} />);
   await flushMicrotasksQueue();
   snapshot();
-  expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
-    permissionType: { communityId: mockCommunityId },
-  });
+  expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type']);
 });
 
 it('renders correctly for admin', async () => {
@@ -53,9 +51,7 @@ it('renders correctly for admin', async () => {
   );
   await flushMicrotasksQueue();
   snapshot();
-  expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
-    permissionType: { communityId: mockCommunityId },
-  });
+  expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type']);
 });
 
 it('renders correctly for owner', async () => {
@@ -65,9 +61,7 @@ it('renders correctly for owner', async () => {
   );
   await flushMicrotasksQueue();
   snapshot();
-  expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
-    permissionType: { communityId: mockCommunityId },
-  });
+  expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type']);
 });
 
 it('fires onPress and navigates | member', async () => {
@@ -84,9 +78,7 @@ it('fires onPress and navigates | member', async () => {
     postType: PostTypeEnum.story,
     onComplete,
   });
-  expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
-    permissionType: { communityId: mockCommunityId },
-  });
+  expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type']);
 });
 
 it('fires onPress and navigates | owner', async () => {
@@ -106,9 +98,7 @@ it('fires onPress and navigates | owner', async () => {
     postType: PostTypeEnum.announcement,
     onComplete,
   });
-  expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
-    permissionType: { communityId: mockCommunityId },
-  });
+  expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type']);
 });
 
 it('closes modal when close button is pressed', async () => {
@@ -117,7 +107,5 @@ it('closes modal when close button is pressed', async () => {
 
   fireEvent.press(getByTestId('CloseButton'));
   expect(closeModal).toHaveBeenCalledWith();
-  expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
-    permissionType: { communityId: mockCommunityId },
-  });
+  expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type']);
 });

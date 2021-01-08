@@ -108,9 +108,6 @@ const SelectStageScreen = ({
   const isMe = useIsMe(personId);
 
   const handleScreenChange = useAnalytics('', {
-    sectionType: true,
-    assignmentType: { personId },
-    editMode: { isEdit: !!selectedStageId },
     triggerTracking: false,
   });
 

@@ -47,9 +47,7 @@ const AcceptedStepDetailScreen = () => {
   const dispatch = useDispatch();
   const personId: string = useNavigationParam('personId');
 
-  useAnalytics(['step detail', 'active step'], {
-    assignmentType: { personId },
-  });
+  useAnalytics(['step detail', 'active step']);
 
   const { data: { step } = { step: undefined }, error, refetch } = useQuery<
     AcceptedStepDetail,
