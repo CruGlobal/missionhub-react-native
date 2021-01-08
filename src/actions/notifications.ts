@@ -255,8 +255,8 @@ export function configureNotificationHandler() {
         !__DEV__ && rollbar.error(error);
       },
 
-      // we manually call this after to have access to a promise for the iOS prompt
-      requestPermissions: false,
+      // we manually call this after on iOS to have access to a promise for the iOS prompt
+      requestPermissions: isAndroid,
     });
   };
 }
