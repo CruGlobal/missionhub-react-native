@@ -2778,13 +2778,6 @@
   dependencies:
     invariant "^2.2.4"
 
-"@react-native-community/push-notification-ios@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@react-native-community/push-notification-ios/-/push-notification-ios-1.4.0.tgz#e1781e60fb8a2569547e3f1613c62e1c3b46960c"
-  integrity sha512-YnfxtAuHkiuvprh1d9npGZVwOrso6sys8+w8XY6RQAs8kD2LHZg0C8rA5gfX4jW/GrQV7m14Y6ngciE6Rpd91w==
-  dependencies:
-    invariant "^2.2.4"
-
 "@react-native-firebase/analytics@^7.2.1":
   version "7.6.1"
   resolved "https://registry.yarnpkg.com/@react-native-firebase/analytics/-/analytics-7.6.1.tgz#0c0cc0173810a8bedbef1288ac3ce16a28e85f77"
@@ -3202,10 +3195,10 @@
     "@types/react" "*"
     "@types/react-native" "*"
 
-"@types/react-native-push-notification@^5.0.2":
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/@types/react-native-push-notification/-/react-native-push-notification-5.0.2.tgz#9d33357b8a0a2173624d890ddd5e9de3ecc8ae7e"
-  integrity sha512-izEQCjBm2nCBopjoe9agBwk8rS+MDymoEQ3QXeV2kE5UdMoStd8IIdnBl4FuH2jK+aHPa2ICCVNZt7sXame8+A==
+"@types/react-native-push-notification@^5.0.5":
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/@types/react-native-push-notification/-/react-native-push-notification-5.0.5.tgz#a84efdeb15af414a89b1291f4df631266d6a4330"
+  integrity sha512-rdpEb+YZtTmGJ7qEhwENjNkICU6pnwlCV2U+kvU6cAhuQxeQFgxFTKijN3kqOWL9SW8l0PeW29QREx6mvdeurg==
 
 "@types/react-native-snap-carousel@^3.7.4":
   version "3.8.2"
@@ -12062,12 +12055,10 @@ react-native-material-menu@^1.1.3:
   version "0.0.1"
   resolved "https://github.com/CruGlobal/react-native-omniture#906dc83bc8115fd7448d97938c9719c910df26de"
 
-react-native-push-notification@^5.1.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/react-native-push-notification/-/react-native-push-notification-5.1.1.tgz#104572ddc8c73b1a3a95c90e26d05800c51b12c5"
-  integrity sha512-CJmKqzM2P/s+a9PImoaiUN4TP1+K4YfmG1B0uUbavgFdGhTtRPTLLwDfFk2h3J6VmTXNak82rUz2iGwyptHm5w==
-  dependencies:
-    "@react-native-community/push-notification-ios" "^1.4.0"
+react-native-push-notification@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-push-notification/-/react-native-push-notification-7.0.0.tgz#9c0fe01f087aa0f55885af0f5d140308fd9e529e"
+  integrity sha512-csFXvao1ugQAP5ajwVtIfylom4x0LE7OpKcsXbDuqLDE9RLm0tTxTVF3i0drgGOTGxqwlEDK28eGiUO0J9gUQg==
 
 react-native-reanimated@^1.4.0:
   version "1.4.0"
