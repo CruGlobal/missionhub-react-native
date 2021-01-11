@@ -87,9 +87,7 @@ it('should render correctly without description and without reminder for me', as
   });
   await flushMicrotasksQueue();
   snapshot();
-  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'active step'], {
-    assignmentType: { personId: myId },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'active step']);
 });
 
 it('should render correctly without description and without reminder for other', async () => {
@@ -106,9 +104,7 @@ it('should render correctly without description and without reminder for other',
   });
   await flushMicrotasksQueue();
   snapshot();
-  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'active step'], {
-    assignmentType: { personId: otherId },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'active step']);
 });
 
 it('should render correctly post details', async () => {
@@ -124,9 +120,7 @@ it('should render correctly post details', async () => {
   });
   await flushMicrotasksQueue();
   snapshot();
-  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'active step'], {
-    assignmentType: { personId: otherId },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'active step']);
 });
 
 describe('with description, without reminder', () => {

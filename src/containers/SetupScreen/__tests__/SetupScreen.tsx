@@ -61,9 +61,7 @@ it('renders isMe version correctly', async () => {
 
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'self name'], {
-    sectionType: true,
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'self name']);
 });
 
 it('renders other person version correctly', async () => {
@@ -78,9 +76,7 @@ it('renders other person version correctly', async () => {
 
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'contact name'], {
-    sectionType: true,
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'contact name']);
 });
 
 describe('setup screen methods', () => {

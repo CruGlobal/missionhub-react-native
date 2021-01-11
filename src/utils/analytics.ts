@@ -15,7 +15,7 @@ export const getAnalyticsAssignmentType = (
   isMe: boolean,
   isInCommunity: boolean,
 ): TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE] =>
-  isMe ? 'self' : isInCommunity ? 'community member' : 'contact';
+  isMe ? 'self' : isInCommunity ? 'community_member' : 'contact';
 
 export const getAnalyticsSectionType = (
   isOnboarding: boolean,
@@ -47,16 +47,16 @@ export const getPostTypeAnalytics = (
   switch (postType) {
     case PostTypeEnum.story:
     case FeedItemSubjectTypeEnum.STORY:
-      return 'god story';
+      return 'god_story';
     case PostTypeEnum.prayer_request:
     case FeedItemSubjectTypeEnum.PRAYER_REQUEST:
-      return 'prayer request';
+      return 'prayer_request';
     case PostTypeEnum.question:
     case FeedItemSubjectTypeEnum.QUESTION:
-      return 'spiritual question';
+      return 'spiritual_question';
     case PostTypeEnum.help_request:
     case FeedItemSubjectTypeEnum.HELP_REQUEST:
-      return 'care request';
+      return 'care_request';
     case PostTypeEnum.thought:
     case FeedItemSubjectTypeEnum.THOUGHT:
       return 'thoughts';
@@ -64,7 +64,7 @@ export const getPostTypeAnalytics = (
     case FeedItemSubjectTypeEnum.ANNOUNCEMENT:
       return 'announcement';
     case FeedItemSubjectTypeEnum.STEP:
-      return 'steps of faith';
+      return 'steps_of_faith';
     default:
       return '';
   }

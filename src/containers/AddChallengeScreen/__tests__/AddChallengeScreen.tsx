@@ -44,9 +44,7 @@ it('renders correctly', () => {
       isEdit: false,
     },
   }).snapshot();
-  expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'create'], {
-    permissionType: { communityId },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'create']);
 });
 
 it('renders correctly on android', () => {
@@ -69,9 +67,7 @@ it('renders edit challenge correctly', () => {
       isEdit: true,
     },
   }).snapshot();
-  expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'edit'], {
-    permissionType: { communityId },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'edit']);
 });
 
 describe('create methods', () => {

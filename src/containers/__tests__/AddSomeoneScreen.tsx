@@ -46,9 +46,7 @@ it('tracks screen change on mount', () => {
     initialState,
   });
 
-  expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'add someone'], {
-    sectionType: true,
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'add someone']);
 });
 
 describe('onComplete', () => {

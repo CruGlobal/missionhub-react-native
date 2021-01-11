@@ -16,9 +16,7 @@ export const CommunityFeedTab = ({
   const communityId: string = useNavigationParam('communityId');
   const personId: string | undefined = useNavigationParam('personId');
 
-  useAnalytics('community feed', {
-    permissionType: { communityId },
-  });
+  useAnalytics('community feed');
 
   const { collapsibleScrollViewProps } = useContext(collapsibleHeaderContext);
 

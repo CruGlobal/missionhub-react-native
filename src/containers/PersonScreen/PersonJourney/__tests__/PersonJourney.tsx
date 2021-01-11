@@ -13,6 +13,7 @@ import { renderWithContext } from '../../../../../testUtils';
 import { PersonCollapsibleHeaderContext } from '../../PersonTabs';
 import { navigatePush } from '../../../../actions/navigation';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
+import { useMyId } from '../../../../utils/hooks/useIsMe';
 import { PersonJourney } from '..';
 
 const mockAddComment = jest.fn(() => Promise.resolve());
@@ -31,12 +32,15 @@ jest.mock('../../../../actions/navigation');
 jest.mock('../../../../auth/authStore', () => ({
   isAuthenticated: () => true,
 }));
+jest.mock('../../../../utils/hooks/useIsMe');
 
 (navigatePush as jest.Mock).mockReturnValue({ type: 'navigatePush' });
 
 const myId = '111';
 const personId = '123';
 const orgId = '222';
+
+(useMyId as jest.Mock).mockReturnValue(myId);
 
 const mockMePerson = {
   id: myId,
@@ -79,9 +83,7 @@ describe('PersonJourney', () => {
       },
     ).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['person', 'our journey'], {
-      assignmentType: { personId },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(['person', 'our journey']);
   });
 
   it('renders null screen correctly', () => {
@@ -131,7 +133,6 @@ describe('PersonJourney', () => {
             personal: { [myId]: mockJourneyList },
           },
         },
-        mocks: { User: () => ({ person: () => ({ id: myId }) }) },
       },
     );
 
@@ -139,9 +140,7 @@ describe('PersonJourney', () => {
 
     snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my journey'], {
-      assignmentType: { personId: myId },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my journey']);
   });
 });
 

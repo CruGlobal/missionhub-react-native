@@ -60,9 +60,7 @@ export const CommunityMembers = () => {
     p => p.node.id === myId,
   )?.communityPermission;
 
-  useAnalytics(['community', 'members'], {
-    permissionType: { communityId },
-  });
+  useAnalytics(['community', 'members']);
   const { t } = useTranslation('groupsMembers');
 
   const loadNextPage = async () => {

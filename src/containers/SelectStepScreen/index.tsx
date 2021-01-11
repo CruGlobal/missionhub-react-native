@@ -84,10 +84,7 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
     !isMe && !viewedData?.viewedState.stepExplainerModal,
   );
 
-  useAnalytics('add step', {
-    sectionType: true,
-    assignmentType: { personId },
-  });
+  useAnalytics('add step');
 
   const enableStepTypeFilters =
     !isMe &&

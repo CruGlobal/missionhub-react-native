@@ -80,8 +80,6 @@ it('renders correctly', async () => {
   });
 
   expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
-    assignmentType: { personId: undefined, communityId: undefined },
-    permissionType: { communityId: undefined },
     triggerTracking: false,
   });
 
@@ -90,8 +88,6 @@ it('renders correctly', async () => {
   snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
-    assignmentType: { personId, communityId },
-    permissionType: { communityId },
     triggerTracking: true,
   });
   expect(navigateBack).not.toHaveBeenCalled();
@@ -110,8 +106,6 @@ it('renders correctly with communityId passed in', async () => {
   });
 
   expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
-    assignmentType: { personId: undefined, communityId },
-    permissionType: { communityId },
     triggerTracking: false,
   });
 
@@ -120,8 +114,6 @@ it('renders correctly with communityId passed in', async () => {
   snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
-    assignmentType: { personId, communityId },
-    permissionType: { communityId },
     triggerTracking: true,
   });
   expect(navigateBack).not.toHaveBeenCalled();

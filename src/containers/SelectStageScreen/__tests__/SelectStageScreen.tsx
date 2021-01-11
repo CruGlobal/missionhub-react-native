@@ -158,9 +158,6 @@ describe('renders', () => {
     }).snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('', {
-      sectionType: true,
-      assignmentType: { personId: assignedPersonId },
-      editMode: { isEdit: false },
       triggerTracking: false,
     });
   });
@@ -175,9 +172,6 @@ describe('renders', () => {
     }).snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('', {
-      sectionType: true,
-      assignmentType: { personId: assignedPersonId },
-      editMode: { isEdit: false },
       triggerTracking: false,
     });
   });
@@ -192,9 +186,6 @@ describe('renders', () => {
     }).snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('', {
-      sectionType: true,
-      assignmentType: { personId: assignedPersonId },
-      editMode: { isEdit: false },
       triggerTracking: false,
     });
   });
@@ -218,9 +209,6 @@ describe('renders for me', () => {
     snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('', {
-      sectionType: true,
-      assignmentType: { personId: myId },
-      editMode: { isEdit: false },
       triggerTracking: false,
     });
 
@@ -239,9 +227,6 @@ describe('renders for me', () => {
     snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('', {
-      sectionType: true,
-      assignmentType: { personId: myId },
-      editMode: { isEdit: true },
       triggerTracking: false,
     });
 
@@ -262,9 +247,6 @@ describe('renders for other', () => {
     }).snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('', {
-      sectionType: true,
-      assignmentType: { personId: assignedPersonId },
-      editMode: { isEdit: false },
       triggerTracking: false,
     });
 
@@ -278,9 +260,6 @@ describe('renders for other', () => {
     }).snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('', {
-      sectionType: true,
-      assignmentType: { personId: assignedPersonId },
-      editMode: { isEdit: true },
       triggerTracking: false,
     });
 

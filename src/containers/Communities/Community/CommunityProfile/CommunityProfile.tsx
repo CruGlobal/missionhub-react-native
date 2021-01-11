@@ -75,9 +75,7 @@ export const CommunityProfile = () => {
   const permission =
     data?.community.people.edges[0].communityPermission.permission;
 
-  useAnalytics(['community', 'detail'], {
-    permissionType: { communityId },
-  });
+  useAnalytics(['community', 'detail']);
 
   const save = async () => {
     const didNameChange = name !== data?.community.name;

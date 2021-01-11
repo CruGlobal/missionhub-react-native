@@ -42,9 +42,7 @@ const CommunityFeedWithType = () => {
     ? t('missionhubCommunity')
     : navParamName || '';
 
-  useAnalytics(['feed', 'card', getPostTypeAnalytics(type)], {
-    permissionType: { communityId },
-  });
+  useAnalytics(['feed', 'card', getPostTypeAnalytics(type)]);
 
   return (
     <View style={{ height: '100%' }}>

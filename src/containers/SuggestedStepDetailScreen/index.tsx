@@ -47,10 +47,7 @@ const SuggestedStepDetailScreen = ({
   const personId: string = useNavigationParam('personId');
   const orgId: string | undefined = useNavigationParam('orgId');
 
-  useAnalytics(['step detail', 'add step'], {
-    sectionType: true,
-    assignmentType: { personId },
-  });
+  useAnalytics(['step detail', 'add step']);
 
   const { data, error, refetch } = useQuery<
     StepSuggestion,

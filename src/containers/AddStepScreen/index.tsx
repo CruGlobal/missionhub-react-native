@@ -83,10 +83,7 @@ const AddStepScreen = ({ next }: AddStepScreenProps) => {
     : '';
   const screenSubsection = isEdit ? 'edit' : 'add';
 
-  useAnalytics([screenSection, screenSubsection], {
-    sectionType: true,
-    assignmentType: { personId },
-  });
+  useAnalytics([screenSection, screenSubsection]);
 
   const [savedText, setSavedText] = useState((isEdit && initialText) || '');
   const [hasSkipped, changeHasSkipped] = useState(false);

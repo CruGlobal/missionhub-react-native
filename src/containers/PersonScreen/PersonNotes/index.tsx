@@ -35,9 +35,7 @@ export const PersonNotes = ({ collapsibleHeaderContext }: PersonNotesProps) => {
       },
   );
 
-  useAnalytics(['person', 'my notes'], {
-    assignmentType: { personId },
-  });
+  useAnalytics(['person', 'my notes']);
   const { t } = useTranslation('notes');
   const dispatch = useDispatch<ThunkDispatch<RootState, never, AnyAction>>();
   const [text, setText] = useState<string | undefined>(undefined);

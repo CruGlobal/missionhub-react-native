@@ -10,7 +10,6 @@ module.exports = {
     '<rootDir>/__mock__/react-native-localize.ts',
     '<rootDir>/node_modules/react-native-gesture-handler/jestSetup.js',
     '<rootDir>/__mock__/rollbar-react-native.js',
-    '<rootDir>/__mock__/react-native-omniture.js',
     '<rootDir>/__mock__/react-native-reanimated.ts',
     '<rootDir>/__mock__/react-native-push-notification.ts',
     '<rootDir>/__mock__/push-notification-ios.ts',

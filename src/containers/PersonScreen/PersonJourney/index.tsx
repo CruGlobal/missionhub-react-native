@@ -49,9 +49,7 @@ export const PersonJourney = ({
   const journeyItems = useSelector(
     ({ journey }: RootState) => journey['personal'][personId] || undefined,
   );
-  useAnalytics(['person', person.id === myId ? 'my journey' : 'our journey'], {
-    assignmentType: { personId },
-  });
+  useAnalytics(['person', person.id === myId ? 'my journey' : 'our journey']);
 
   useEffect(() => {
     dispatch(getJourney(person.id));

@@ -12043,10 +12043,6 @@ react-native-material-menu@^1.1.3:
   resolved "https://registry.yarnpkg.com/react-native-material-menu/-/react-native-material-menu-1.1.3.tgz#67b8760999104ffee2cc5aa78877de6b1bd73654"
   integrity sha512-/4j47dWP7x0laIYKkbKxgaG2663u8o02+OrNe4Qpdmmt9KrBAuAaU3wMpry1WC/ECh6ZjnACJYx0s06mSvdOlA==
 
-"react-native-omniture@https://github.com/CruGlobal/react-native-omniture":
-  version "0.0.1"
-  resolved "https://github.com/CruGlobal/react-native-omniture#906dc83bc8115fd7448d97938c9719c910df26de"
-
 react-native-push-notification@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/react-native-push-notification/-/react-native-push-notification-7.0.0.tgz#9c0fe01f087aa0f55885af0f5d140308fd9e529e"

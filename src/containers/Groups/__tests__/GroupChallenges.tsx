@@ -84,9 +84,7 @@ it('should render correctly', () => {
     },
   ).snapshot;
 
-  expect(useAnalytics).toHaveBeenCalledWith(['community', 'challenges'], {
-    permissionType: { communityId: orgId },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['community', 'challenges']);
 });
 
 it('should render correctly for basic member', () => {

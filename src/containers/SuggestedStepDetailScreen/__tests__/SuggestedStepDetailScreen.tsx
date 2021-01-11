@@ -53,10 +53,7 @@ it('renders correctly', async () => {
 
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'add step'], {
-    sectionType: true,
-    assignmentType: { personId },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'add step']);
 });
 
 it('renders correctly for me', async () => {
@@ -72,10 +69,7 @@ it('renders correctly for me', async () => {
 
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'add step'], {
-    sectionType: true,
-    assignmentType: { personId: myId },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'add step']);
 });
 
 it('renders correctly in onboarding', async () => {
@@ -93,10 +87,7 @@ it('renders correctly in onboarding', async () => {
 
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'add step'], {
-    sectionType: true,
-    assignmentType: { personId },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'add step']);
 });
 
 describe('bottomButtonProps', () => {

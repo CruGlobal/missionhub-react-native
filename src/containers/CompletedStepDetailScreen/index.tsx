@@ -19,11 +19,8 @@ import {
 
 const CompletedStepDetailScreen = () => {
   const stepId = useNavigationParam('stepId');
-  const personId = useNavigationParam('personId');
 
-  useAnalytics(['step detail', 'completed step'], {
-    assignmentType: { personId },
-  });
+  useAnalytics(['step detail', 'completed step']);
   const { t } = useTranslation('completedStepDetail');
   const { data, error, refetch } = useQuery<
     CompletedStepDetail,
