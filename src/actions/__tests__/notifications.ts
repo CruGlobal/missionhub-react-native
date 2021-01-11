@@ -22,7 +22,6 @@ import {
   PushNotificationPayloadIos,
 } from '../notifications';
 import {
-  GCM_SENDER_ID,
   LOAD_PERSON_DETAILS,
   GLOBAL_COMMUNITY_ID,
   NOTIFICATION_PROMPT_TYPES,
@@ -415,7 +414,6 @@ describe('configureNotificationHandler', () => {
       onRegister: expect.any(Function),
       onNotification: expect.any(Function),
       onRegistrationError: expect.any(Function),
-      senderID: GCM_SENDER_ID,
       requestPermissions: false,
     });
   });
