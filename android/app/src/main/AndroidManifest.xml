@@ -51,10 +51,6 @@
         <!-- Disable Automatic Screenviews -->
         <meta-data android:name="google_analytics_automatic_screen_reporting_enabled" android:value="false" />
 
-        <!-- Adobe in-app messages -->
-        <activity android:name="com.adobe.mobile.MessageFullScreenActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <receiver android:name="com.adobe.mobile.MessageNotificationHandler" />
-
         <!-- Config for react-native-push-notification -->
         <meta-data android:name="com.dieam.reactnativepushnotification.notification_channel_name" android:value="General"/>
         <meta-data android:name="com.dieam.reactnativepushnotification.notification_channel_description" android:value="This channel is used for general notifications."/>
@@ -82,12 +78,6 @@
         </service>
         <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@mipmap/ic_notification" />
         <!-- End config for react-native-push-notification -->
-
-        <receiver android:name="com.missionhub.GPBroadcastReceiver" android:exported="true">
-            <intent-filter>
-                <action android:name="com.android.vending.INSTALL_REFERRER" />
-            </intent-filter>
-        </receiver>
 
     </application>
 
