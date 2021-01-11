@@ -3187,10 +3187,10 @@
   resolved "https://registry.yarnpkg.com/@types/random-string/-/random-string-0.0.28.tgz#b87171d173a49332ec0e843d9c2d740ad70ef902"
   integrity sha1-uHFx0XOkkzLsDoQ9nC10CtcO+QI=
 
-"@types/react-native-fbsdk@^1.0.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@types/react-native-fbsdk/-/react-native-fbsdk-1.1.0.tgz#93ec4e31602620ddf2f58f2e3f0aab0c86e1b8e8"
-  integrity sha512-NI0LNdbXaJDLJeZGrIViYWPztriOM6IbiZwAbTrMY2ptA3s1zmYBk28hc5phg/yO9bEimb0id651NJebDvxkCQ==
+"@types/react-native-fbsdk@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@types/react-native-fbsdk/-/react-native-fbsdk-3.0.0.tgz#612a89a54ea5ab75f8e4edb39c89748f70b2251f"
+  integrity sha512-QTTL4vcKf74PSfjDYt7OCxT/71FFP5NQxG4L/oQMT1dASzOVLlkWDtmfGy2bti5kiVIUaL1YfVDCjoYn2eELGA==
   dependencies:
     "@types/react" "*"
     "@types/react-native" "*"
@@ -3231,15 +3231,7 @@
     "@types/react" "*"
     "@types/react-native" "*"
 
-"@types/react-native@*":
-  version "0.60.22"
-  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.60.22.tgz#ba199a441cb0612514244ffb1d0fe6f04c878575"
-  integrity sha512-LTXMKEyGA+x4kadmjujX6yAgpcaZutJ01lC7zLJWCULaZg7Qw5/3iOQpwIJRUcOc+a8A2RR7rSxplehVf9IuhA==
-  dependencies:
-    "@types/prop-types" "*"
-    "@types/react" "*"
-
-"@types/react-native@0.63.18":
+"@types/react-native@*", "@types/react-native@0.63.18":
   version "0.63.18"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.63.18.tgz#748d82c6453befe97285393ad9530472d8de56af"
   integrity sha512-WwEWqmHiqFn61M1FZR/+frj+E8e2o8i5cPqu9mjbjtZS/gBfCKVESF2ai/KAlaQECkkWkx/nMJeCc5eHMmLQgw==
