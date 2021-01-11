@@ -80,7 +80,6 @@ export const ORG_PERMISSIONS = {
   CONTACT: '2',
   OWNER: '3',
 };
-export const GCM_SENDER_ID = Config.GCM_SENDER_ID;
 
 //parameter names for the data we send to Analytics
 export const ANALYTICS_SCREEN_NAME = 'cru_screenname';

@@ -225,6 +225,8 @@ jobs:
         run: echo "COMMIT_SHA=$GITHUB_SHA" >> ./.env.production
       - name: 🗝 Configure GitHub login
         run: echo -e "machine github.com\n login $CI_USER_TOKEN" >> ~/.netrc
+        env:
+          CI_USER_TOKEN: ${{ secrets.CI_USER_TOKEN}}
       - name: 🏗️🚀🍏 Build and push to Testflight
         uses: maierj/fastlane-action@v2.0.0
         with:
@@ -236,6 +238,7 @@ jobs:
           TRAVIS_COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
           TRAVIS_BUILD_NUMBER: ${{ github.run_id }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
           SLACK_URL: ${{ secrets.SLACK_URL }}
 
   android-deploy:
@@ -272,9 +275,9 @@ jobs:
       - name: ➕ Add Commit SHA to ENVFILE
         run: echo "COMMIT_SHA=$GITHUB_SHA" >> ./.env.production
       - name: 🔓 Decrypt GooglePlayAPI.json
+        run: openssl aes-256-cbc -pass "pass:$GOOGLE_PLAY_API_FILE_PASSWORD" -in ./android/fastlane/GooglePlayAPI.enc -out ./android/fastlane/GooglePlayAPI.json -d -a
         env:
           GOOGLE_PLAY_API_FILE_PASSWORD: ${{ secrets.GOOGLE_PLAY_API_FILE_PASSWORD }}
-        run: openssl aes-256-cbc -pass "pass:$GOOGLE_PLAY_API_FILE_PASSWORD" -in ./android/fastlane/GooglePlayAPI.enc -out ./android/fastlane/GooglePlayAPI.json -d -a
       - name: 🏗️🚀🤖 Build and push to Android Beta
         uses: maierj/fastlane-action@v2.0.0
         with:
