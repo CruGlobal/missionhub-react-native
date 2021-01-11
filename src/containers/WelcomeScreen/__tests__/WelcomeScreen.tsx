@@ -38,9 +38,7 @@ describe('WelcomeScreen', () => {
       initialState,
     }).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'welcome'], {
-      sectionType: true,
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'welcome']);
   });
 
   it('should render correctly with sign in button', () => {
@@ -49,9 +47,7 @@ describe('WelcomeScreen', () => {
       allowSignInVariantConfig,
     ).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'welcome'], {
-      sectionType: true,
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'welcome']);
   });
 
   it('getStarted btn should call next', () => {

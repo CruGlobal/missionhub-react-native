@@ -25,7 +25,7 @@ const AddSomeoneScreen = ({
   enableBackButton = true,
   logoutOnBack = false,
 }: AddSomeoneScreenProps) => {
-  useAnalytics(['onboarding', 'add someone'], { sectionType: true });
+  useAnalytics(['onboarding', 'add someone']);
   const { t } = useTranslation('addContact');
   const dispatch = useDispatch();
 

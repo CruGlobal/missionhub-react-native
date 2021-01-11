@@ -50,9 +50,7 @@ interface SetupScreenProps {
 }
 
 const SetupScreen = ({ next, isMe, hideSkipBtn = false }: SetupScreenProps) => {
-  useAnalytics(['onboarding', `${isMe ? 'self' : 'contact'} name`], {
-    sectionType: true,
-  });
+  useAnalytics(['onboarding', `${isMe ? 'self' : 'contact'} name`]);
   const { t } = useTranslation('onboardingCreatePerson');
   const relationshipType: RelationshipTypeEnum = useNavigationParam(
     'relationshipType',

@@ -47,10 +47,7 @@ describe('loading', () => {
   it('should render correctly', () => {
     screen.snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith('add step', {
-      sectionType: true,
-      assignmentType: { personId },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith('add step');
   });
 
   it('should render for self steps correctly', async () => {
@@ -64,10 +61,7 @@ describe('loading', () => {
 
     snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith('add step', {
-      sectionType: true,
-      assignmentType: { personId: me.id },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith('add step');
   });
 
   describe('skip button', () => {
@@ -78,10 +72,7 @@ describe('loading', () => {
     it('should render skip button correctly', () => {
       screen.snapshot();
 
-      expect(useAnalytics).toHaveBeenCalledWith('add step', {
-        sectionType: true,
-        assignmentType: { personId },
-      });
+      expect(useAnalytics).toHaveBeenCalledWith('add step');
     });
 
     it('should call next when pressed', () => {
@@ -104,10 +95,7 @@ describe('loading', () => {
     screen.rerender(<SelectStepScreen next={next} />);
     screen.diffSnapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith('add step', {
-      sectionType: true,
-      assignmentType: { personId },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith('add step');
 
     i18next.language = originalLanguage;
   });
@@ -119,10 +107,7 @@ describe('loading', () => {
     screen.rerender(<SelectStepScreen next={next} />);
     screen.diffSnapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith('add step', {
-      sectionType: true,
-      assignmentType: { personId },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith('add step');
 
     i18next.language = originalLanguage;
   });
@@ -134,10 +119,7 @@ describe('loading', () => {
     screen.rerender(<SelectStepScreen next={next} />);
     screen.diffSnapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith('add step', {
-      sectionType: true,
-      assignmentType: { personId },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith('add step');
 
     i18next.language = originalLanguage;
   });
@@ -158,10 +140,7 @@ describe('in onboarding', () => {
       initialApolloState,
     }).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith('add step', {
-      sectionType: true,
-      assignmentType: { personId },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith('add step');
   });
 });
 

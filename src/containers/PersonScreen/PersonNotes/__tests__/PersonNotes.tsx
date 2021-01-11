@@ -69,9 +69,7 @@ describe('contact notes', () => {
 
     snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes'], {
-      assignmentType: { personId },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes']);
   });
 
   it('icon and prompt are shown if no notes as me', async () => {
@@ -91,9 +89,7 @@ describe('contact notes', () => {
 
     snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes'], {
-      assignmentType: { personId: myPersonId },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes']);
   });
 
   it('notes are shown', async () => {
@@ -112,9 +108,7 @@ describe('contact notes', () => {
 
     snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes'], {
-      assignmentType: { personId },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes']);
     expect(getPersonNote).toHaveBeenCalledWith(person.id, myUserId);
   });
 

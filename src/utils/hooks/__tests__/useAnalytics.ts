@@ -2,19 +2,11 @@
 
 import * as Redux from 'react-redux';
 import { useIsFocused } from 'react-navigation-hooks';
-import { flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderHookWithContext } from '../../../../testUtils';
 import { trackScreenChange } from '../../../actions/analytics';
 import { useAnalytics, ANALYTICS_SCREEN_TYPES } from '../useAnalytics';
 import { useIsDrawerOpen } from '../useIsDrawerOpen';
-import {
-  ANALYTICS_ASSIGNMENT_TYPE,
-  ANALYTICS_SECTION_TYPE,
-  ANALYTICS_EDIT_MODE,
-  ANALYTICS_PERMISSION_TYPE,
-} from '../../../constants';
-import { PermissionEnum } from '../../../../__generated__/globalTypes';
 
 jest.mock('react-navigation-hooks');
 jest.mock('../../../actions/analytics');
@@ -24,9 +16,6 @@ jest.mock('../../../auth/authStore', () => ({ isAuthenticated: () => true }));
 const trackScreenChangeResult = { type: 'track screen change' };
 
 const screenFragments = ['screen name', 'subsection'];
-const myId = '123';
-const personId = '321';
-const communityId = '444';
 
 const initialState = {
   onboarding: { currentlyOnboarding: true },
@@ -62,7 +51,7 @@ describe('useAnalytics', () => {
 
       fireFocus(true, rerender);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('tracks screen change on focus with drawer already closed', () => {
@@ -78,7 +67,7 @@ describe('useAnalytics', () => {
 
       fireFocus(true, rerender);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('does not track screen change on drawer open', () => {
@@ -128,7 +117,7 @@ describe('useAnalytics', () => {
 
       result.current(screenFragments);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('delays track screen change', () => {
@@ -155,7 +144,7 @@ describe('useAnalytics', () => {
 
       rerender({ triggerTracking: true });
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('delays track screen change', () => {
@@ -182,7 +171,7 @@ describe('useAnalytics', () => {
 
       rerender({ triggerTracking: true });
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
   });
 
@@ -222,7 +211,7 @@ describe('useAnalytics', () => {
 
       fireFocus(true, rerender);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('does not track screen change on drawer open', () => {
@@ -264,7 +253,7 @@ describe('useAnalytics', () => {
 
       fireDrawer(false, rerender);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('tracks screen change with callback', () => {
@@ -281,7 +270,7 @@ describe('useAnalytics', () => {
 
       result.current(screenFragments);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('delays track screen change', () => {
@@ -311,7 +300,7 @@ describe('useAnalytics', () => {
 
       rerender({ triggerTracking: true });
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('delays track screen change', () => {
@@ -341,7 +330,7 @@ describe('useAnalytics', () => {
 
       rerender({ triggerTracking: true });
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
   });
 
@@ -362,7 +351,7 @@ describe('useAnalytics', () => {
 
       fireFocus(true, rerender);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('does not track screen change on focus with drawer already closed', () => {
@@ -402,7 +391,7 @@ describe('useAnalytics', () => {
 
       fireDrawer(true, rerender);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('does not track screen change on drawer close', () => {
@@ -440,7 +429,7 @@ describe('useAnalytics', () => {
 
       result.current(screenFragments);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('delays track screen change', () => {
@@ -474,7 +463,7 @@ describe('useAnalytics', () => {
 
       rerender({ triggerTracking: true });
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
 
     it('delays track screen change', () => {
@@ -508,235 +497,7 @@ describe('useAnalytics', () => {
 
       rerender({ triggerTracking: true });
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
-    });
-  });
-
-  describe('analytics context', () => {
-    beforeEach(() => {
-      (useIsFocused as jest.Mock).mockReturnValue(false);
-      (useIsDrawerOpen as jest.Mock).mockReturnValue(true);
-    });
-
-    describe('assignment type', () => {
-      it('set to "self"', async () => {
-        const { rerender } = renderHookWithContext(
-          () =>
-            useAnalytics(screenFragments, {
-              assignmentType: { personId: myId, communityId },
-            }),
-          {
-            initialState,
-            mocks: { User: () => ({ person: () => ({ id: myId }) }) },
-          },
-        );
-
-        await flushMicrotasksQueue();
-
-        expect(trackScreenChange).not.toHaveBeenCalled();
-
-        fireFocus(true, rerender);
-
-        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {
-          [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
-        });
-      });
-
-      it('set to "community members"', () => {
-        const { rerender } = renderHookWithContext(
-          () =>
-            useAnalytics(screenFragments, {
-              assignmentType: { personId, communityId },
-            }),
-          { initialState },
-        );
-
-        expect(trackScreenChange).not.toHaveBeenCalled();
-
-        fireFocus(true, rerender);
-
-        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {
-          [ANALYTICS_ASSIGNMENT_TYPE]: 'community member',
-        });
-      });
-
-      it('set to "contact"', () => {
-        const { rerender } = renderHookWithContext(
-          () =>
-            useAnalytics(screenFragments, {
-              assignmentType: { personId, communityId: '' },
-            }),
-          { initialState },
-        );
-
-        expect(trackScreenChange).not.toHaveBeenCalled();
-
-        fireFocus(true, rerender);
-
-        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {
-          [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-        });
-      });
-    });
-
-    describe('section type', () => {
-      it('set to "onboarding"', () => {
-        const { rerender } = renderHookWithContext(
-          () =>
-            useAnalytics(screenFragments, {
-              sectionType: true,
-            }),
-          { initialState },
-        );
-
-        expect(trackScreenChange).not.toHaveBeenCalled();
-
-        fireFocus(true, rerender);
-
-        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {
-          [ANALYTICS_SECTION_TYPE]: 'onboarding',
-        });
-      });
-
-      it('set to ""', () => {
-        const { rerender } = renderHookWithContext(
-          () =>
-            useAnalytics(screenFragments, {
-              sectionType: true,
-            }),
-          {
-            initialState: {
-              ...initialState,
-              onboarding: { currentlyOnboarding: false },
-            },
-          },
-        );
-
-        expect(trackScreenChange).not.toHaveBeenCalled();
-
-        fireFocus(true, rerender);
-
-        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {
-          [ANALYTICS_SECTION_TYPE]: '',
-        });
-      });
-    });
-
-    describe('edit mode', () => {
-      it('set to "update"', () => {
-        const { rerender } = renderHookWithContext(
-          () =>
-            useAnalytics(screenFragments, {
-              editMode: { isEdit: true },
-            }),
-          { initialState },
-        );
-
-        expect(trackScreenChange).not.toHaveBeenCalled();
-
-        fireFocus(true, rerender);
-
-        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {
-          [ANALYTICS_EDIT_MODE]: 'update',
-        });
-      });
-
-      it('set to "set"', () => {
-        const { rerender } = renderHookWithContext(
-          () =>
-            useAnalytics(screenFragments, {
-              editMode: { isEdit: false },
-            }),
-          {
-            initialState,
-          },
-        );
-
-        expect(trackScreenChange).not.toHaveBeenCalled();
-
-        fireFocus(true, rerender);
-
-        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {
-          [ANALYTICS_EDIT_MODE]: 'set',
-        });
-      });
-    });
-
-    describe('permission type', () => {
-      it('set to "owner"', async () => {
-        const { rerender } = renderHookWithContext(
-          () =>
-            useAnalytics(screenFragments, {
-              permissionType: { communityId },
-            }),
-          {
-            initialState,
-            mocks: {
-              CommunityPermission: () => ({ permission: PermissionEnum.owner }),
-            },
-          },
-        );
-
-        await flushMicrotasksQueue();
-
-        expect(trackScreenChange).not.toHaveBeenCalled();
-
-        fireFocus(true, rerender);
-
-        expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {
-          [ANALYTICS_PERMISSION_TYPE]: 'owner',
-        });
-      });
-    });
-
-    it('set to "admin"', async () => {
-      const { rerender } = renderHookWithContext(
-        () =>
-          useAnalytics(screenFragments, {
-            permissionType: { communityId },
-          }),
-        {
-          initialState,
-          mocks: {
-            CommunityPermission: () => ({ permission: PermissionEnum.admin }),
-          },
-        },
-      );
-
-      await flushMicrotasksQueue();
-
-      expect(trackScreenChange).not.toHaveBeenCalled();
-
-      fireFocus(true, rerender);
-
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {
-        [ANALYTICS_PERMISSION_TYPE]: 'admin',
-      });
-    });
-
-    it('set to "member"', async () => {
-      const { rerender } = renderHookWithContext(
-        () =>
-          useAnalytics(screenFragments, {
-            permissionType: { communityId },
-          }),
-        {
-          initialState,
-          mocks: {
-            CommunityPermission: () => ({ permission: PermissionEnum.user }),
-          },
-        },
-      );
-
-      await flushMicrotasksQueue();
-
-      expect(trackScreenChange).not.toHaveBeenCalled();
-
-      fireFocus(true, rerender);
-
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {
-        [ANALYTICS_PERMISSION_TYPE]: 'member',
-      });
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
     });
   });
 });

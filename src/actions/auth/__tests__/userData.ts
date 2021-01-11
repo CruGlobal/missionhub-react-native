@@ -21,7 +21,6 @@ const getPeopleResult = { type: 'get my people' };
 const getStagesResult = { type: 'got stages' };
 const updateUserResult = { type: 'updated locale and TZ' };
 
-jest.mock('react-native-omniture');
 jest.mock('../../misc');
 jest.mock('../../notifications');
 jest.mock('../../onboarding');

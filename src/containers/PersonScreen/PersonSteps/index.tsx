@@ -48,9 +48,7 @@ export const PersonSteps = ({ collapsibleHeaderContext }: PersonStepsProps) => {
       },
   );
 
-  useAnalytics(['person', 'my steps'], {
-    assignmentType: { personId },
-  });
+  useAnalytics(['person', 'my steps']);
   const { t } = useTranslation('contactSteps');
   const [hideCompleted, setHideCompleted] = useState(true);
   const dispatch = useDispatch();

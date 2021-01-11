@@ -31,7 +31,5 @@ it('should render correctly', () => {
     { initialState, navParams: { communityId, personId } },
   ).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith('community feed', {
-    permissionType: { communityId },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith('community feed');
 });

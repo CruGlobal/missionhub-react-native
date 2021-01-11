@@ -56,10 +56,7 @@ const ImpactView = ({
 
   const screenSection = isOrgImpact ? 'community' : 'person';
   const screenSubsection = isMe ? 'my impact' : 'impact';
-  useAnalytics([screenSection, screenSubsection], {
-    assignmentType: (personId && { personId, communityId }) || undefined,
-    permissionType: (!personId && { communityId }) || undefined,
-  });
+  useAnalytics([screenSection, screenSubsection]);
 
   useEffect(() => {
     // We don't scope summary sentence by org unless we are only scoping by org (person is not specified)

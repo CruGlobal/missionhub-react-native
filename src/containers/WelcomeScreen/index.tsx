@@ -24,9 +24,7 @@ interface WelcomeScreenProps {
 const WelcomeScreen = ({ next }: WelcomeScreenProps) => {
   const dispatch = useDispatch();
 
-  useAnalytics(['onboarding', 'welcome'], {
-    sectionType: true,
-  });
+  useAnalytics(['onboarding', 'welcome']);
 
   const navigateToNext = (signin = false) => {
     dispatch(next({ signin }));

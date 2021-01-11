@@ -5,7 +5,6 @@ import { Provider as ProviderLegacy } from 'react-redux-legacy';
 import { PersistGate } from 'redux-persist/integration/react';
 import { ApolloProvider } from '@apollo/react-hooks';
 import i18n from 'i18next';
-import * as RNOmniture from 'react-native-omniture';
 import codePush from 'react-native-code-push';
 import Config from 'react-native-config';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -85,7 +84,6 @@ export default class App extends Component {
     store.dispatch(setupFirebaseDynamicLinks());
     isAuthenticated() && getFeatureFlags();
     moment.locale(i18n.language.split('-')[0]);
-    this.collectLifecycleData();
     AppState.addEventListener('change', this.handleAppStateChange);
   };
 
@@ -175,7 +173,6 @@ export default class App extends Component {
       this.state.appState.match(/inactive|background/) &&
       nextAppState === 'active'
     ) {
-      this.collectLifecycleData();
       // https://github.com/AppsFlyerSDK/react-native-appsflyer/blob/master/Docs/API.md#trackAppLaunch
       if (!isAndroid) {
         appsFlyer.trackAppLaunch();
@@ -184,10 +181,6 @@ export default class App extends Component {
 
     this.setState({ appState: nextAppState });
   };
-
-  collectLifecycleData() {
-    RNOmniture.collectLifecycleData(store.getState().analytics);
-  }
 
   render() {
     return (

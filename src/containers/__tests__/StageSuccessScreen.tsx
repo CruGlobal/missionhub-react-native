@@ -38,10 +38,10 @@ it('renders correctly', async () => {
 
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(
-    ['onboarding', 'stage confirmation'],
-    { sectionType: true },
-  );
+  expect(useAnalytics).toHaveBeenCalledWith([
+    'onboarding',
+    'stage confirmation',
+  ]);
 });
 
 it('calls next with selected stage', () => {

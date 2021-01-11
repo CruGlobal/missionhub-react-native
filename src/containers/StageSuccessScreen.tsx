@@ -20,7 +20,7 @@ interface StageSuccessScreenProps {
 }
 
 const StageSuccessScreen = ({ next }: StageSuccessScreenProps) => {
-  useAnalytics(['onboarding', 'stage confirmation'], { sectionType: true });
+  useAnalytics(['onboarding', 'stage confirmation']);
   const dispatch = useDispatch();
   const { t } = useTranslation('stageSuccess');
   const { firstName, stage } = useAuthPerson();

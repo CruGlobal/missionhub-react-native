@@ -85,10 +85,7 @@ it('renders create step correctly', () => {
     navParams: createStepParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['custom step', 'add'], {
-    sectionType: true,
-    assignmentType: { personId },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['custom step', 'add']);
 });
 
 it('renders create step correctly on android', () => {
@@ -105,10 +102,7 @@ it('renders create step in onboarding correctly', () => {
     navParams: createStepParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['custom step', 'add'], {
-    sectionType: true,
-    assignmentType: { personId },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['custom step', 'add']);
 });
 
 it('renders edit journey step correctly', () => {
@@ -117,10 +111,7 @@ it('renders edit journey step correctly', () => {
     navParams: editJourneyStepParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['our journey', 'edit'], {
-    sectionType: true,
-    assignmentType: { personId },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['our journey', 'edit']);
 });
 
 it('renders edit journey step for me correctly', async () => {
@@ -134,10 +125,7 @@ it('renders edit journey step for me correctly', async () => {
 
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['my journey', 'edit'], {
-    sectionType: true,
-    assignmentType: { personId: myId },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['my journey', 'edit']);
 });
 
 it('renders edit journey item correctly', () => {
@@ -146,10 +134,7 @@ it('renders edit journey item correctly', () => {
     navParams: editJourneyItemParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['our journey', 'edit'], {
-    sectionType: true,
-    assignmentType: { personId },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['our journey', 'edit']);
 });
 
 it('renders edit journey item for me correctly', async () => {
@@ -163,10 +148,7 @@ it('renders edit journey item for me correctly', async () => {
 
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['my journey', 'edit'], {
-    sectionType: true,
-    assignmentType: { personId: myId },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['my journey', 'edit']);
 });
 
 it('renders step note correctly', () => {
@@ -175,10 +157,7 @@ it('renders step note correctly', () => {
     navParams: stepNoteParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['step note', 'add'], {
-    sectionType: true,
-    assignmentType: { personId },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['step note', 'add']);
 });
 
 it('renders step note correctly for me', async () => {
@@ -192,10 +171,7 @@ it('renders step note correctly for me', async () => {
 
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['step note', 'add'], {
-    sectionType: true,
-    assignmentType: { personId: myId },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['step note', 'add']);
 });
 
 it('updates text', () => {
