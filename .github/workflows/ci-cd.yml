@@ -275,7 +275,7 @@ jobs:
       - name: ➕ Add Commit SHA to ENVFILE
         run: echo "COMMIT_SHA=$GITHUB_SHA" >> ./.env.production
       - name: 🔓 Decrypt GooglePlayAPI.json
-        run: openssl aes-256-cbc -pass "pass:$GOOGLE_PLAY_API_FILE_PASSWORD" -in ./android/fastlane/GooglePlayAPI.enc -out ./android/fastlane/GooglePlayAPI.json -d -a
+        run: openssl aes-256-cbc -pass "pass:$GOOGLE_PLAY_API_FILE_PASSWORD" -in ./android/fastlane/GooglePlayAPI.enc -out ./android/fastlane/GooglePlayAPI.json -d -a -md md5
         env:
           GOOGLE_PLAY_API_FILE_PASSWORD: ${{ secrets.GOOGLE_PLAY_API_FILE_PASSWORD }}
       - name: 🏗️🚀🤖 Build and push to Android Beta
