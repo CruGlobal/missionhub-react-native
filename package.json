@@ -50,7 +50,7 @@
     "@types/base64-url": "^2.2.0",
     "@types/qs": "^6.9.5",
     "@types/random-string": "^0.0.28",
-    "@types/react-native-fbsdk": "^1.0.0",
+    "@types/react-native-fbsdk": "^3.0.0",
     "@types/react-native-push-notification": "^5.0.5",
     "apollo-cache-inmemory": "^1.6.5",
     "apollo-cache-persist": "^0.1.1",
