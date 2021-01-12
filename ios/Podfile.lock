@@ -1,5 +1,4 @@
 PODS:
-  - AdobeMobileLibrary (4.13.8)
   - AppAuth (1.4.0):
     - AppAuth/Core (= 1.4.0)
     - AppAuth/ExternalUserAgent (= 1.4.0)
@@ -565,7 +564,6 @@ PODS:
     - Yoga (~> 1.14)
 
 DEPENDENCIES:
-  - AdobeMobileLibrary (from `AdobeMobileLibrary`)
   - CodePush (from `../node_modules/react-native-code-push`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - EXConstants (from `../node_modules/expo-constants/ios`)
@@ -710,8 +708,6 @@ SPEC REPOS:
     - YogaKit
 
 EXTERNAL SOURCES:
-  AdobeMobileLibrary:
-    :path: AdobeMobileLibrary
   CodePush:
     :path: "../node_modules/react-native-code-push"
   DoubleConversion:
@@ -850,7 +846,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  AdobeMobileLibrary: 067db283616af75ff813711d6e0039a6f4c5a1a9
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   AppsFlyerFramework: a511099f7bedbb1d5804d733c6152d6f8092c4fa
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
@@ -966,6 +961,6 @@ SPEC CHECKSUMS:
   Yoga: 7740b94929bbacbddda59bf115b5317e9a161598
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: edd9ba3d48a66ad0405fcff7ff7c86dc6a33f839
+PODFILE CHECKSUM: 851bbe24966adee62b73c23572ac827e97545580
 
 COCOAPODS: 1.10.1

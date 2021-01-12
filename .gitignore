@@ -22,8 +22,6 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 ios/Pods
-# Symlink created by ios/AdobeMobileLibrary/AdobeMobileLibrary.podspec
-ios/AdobeMobileLibrary/libAdobeMobileLibrary.a
 
 # Android/IntelliJ
 #

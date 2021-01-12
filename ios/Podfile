@@ -27,7 +27,6 @@ target 'MissionHub' do
   pod 'FBSDKLoginKit'
   pod 'FBSDKShareKit'
   pod 'GoogleTagManager'
-  pod 'AdobeMobileLibrary', :path => 'AdobeMobileLibrary'
 
   target 'MissionHubTests' do
     inherit! :complete
