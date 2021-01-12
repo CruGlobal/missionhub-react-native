@@ -51,10 +51,7 @@ static void InitializeFlipper(UIApplication *application) {
 #import <UserNotifications/UserNotifications.h>
 #import <RNCPushNotificationIOS.h>
 
-#import "ADBMobile.h"
 #import <Firebase.h>
-
-const NSString *MH_ADOBE_ANAYLYTICS_FILENAME_KEY = @"ADB Mobile Config";
 
 @implementation AppDelegate
 
@@ -103,9 +100,6 @@ const NSString *MH_ADOBE_ANAYLYTICS_FILENAME_KEY = @"ADB Mobile Config";
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   
-  [self configureAdobeAnalytics];
-  [ADBMobile collectLifecycleData];
-  
   // Rollbar config
 #if TARGET_OS_SIMULATOR
   NSString *environment = @"development";
@@ -142,14 +136,6 @@ const NSString *MH_ADOBE_ANAYLYTICS_FILENAME_KEY = @"ADB Mobile Config";
 #endif
 }
 
-
-- (void)configureAdobeAnalytics {
-  NSBundle *bundle = [NSBundle mainBundle];
-  NSString *filename = [bundle objectForInfoDictionaryKey:MH_ADOBE_ANAYLYTICS_FILENAME_KEY];
-  NSString *filepath = [bundle pathForResource:filename ofType:@"json"];
-  
-  [ADBMobile overrideConfigPath:filepath];
-}
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
   [FBSDKAppEvents activateApp];

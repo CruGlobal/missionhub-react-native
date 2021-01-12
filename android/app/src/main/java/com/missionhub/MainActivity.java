@@ -5,7 +5,6 @@ import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
 import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
-import com.adobe.mobile.Config;
 
 public class MainActivity extends ReactActivity {
 
@@ -18,17 +17,6 @@ public class MainActivity extends ReactActivity {
         return "MissionHub";
     }
     
-    public void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-
-        Config.pauseCollectingLifecycleData();
-    }
-
     @Override
     protected ReactActivityDelegate createReactActivityDelegate() {
         return new ReactActivityDelegate(this, getMainComponentName()) {
