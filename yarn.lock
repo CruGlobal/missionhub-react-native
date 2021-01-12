@@ -4692,7 +4692,7 @@ buffer-fill@^1.0.0:
   resolved "https://registry.yarnpkg.com/buffer-fill/-/buffer-fill-1.0.0.tgz#f8f78b76789888ef39f205cd637f68e702122b2c"
   integrity sha1-+PeLdniYiO858gXNY39o5wISKyw=
 
-buffer-from@^1.0.0, buffer-from@~1.1.1:
+buffer-from@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
   integrity sha512-MQcXEUbCKtEo7bhqEs6560Hyd4XaovZlO/k9V3hjVUF/zwW7KBVdSK4gIt/bzwS9MbR5qob+F5jusZsb0YQK2A==
@@ -4702,18 +4702,10 @@ buffer-indexof-polyfill@~1.0.0:
   resolved "https://registry.yarnpkg.com/buffer-indexof-polyfill/-/buffer-indexof-polyfill-1.0.1.tgz#a9fb806ce8145d5428510ce72f278bb363a638bf"
   integrity sha1-qfuAbOgUXVQoUQznLyeLs2OmOL8=
 
-"buffer@^4.9.1 || ^5.0.7", buffer@^5.2.0:
+"buffer@^4.9.1 || ^5.0.7", buffer@^5.2.0, buffer@^5.4.0:
   version "5.6.0"
   resolved "https://registry.yarnpkg.com/buffer/-/buffer-5.6.0.tgz#a31749dc7d81d84db08abf937b6b8c4033f62786"
   integrity sha512-/gDYp/UtU0eA1ys8bOs9J6a+E/KWIY+DZ+Q2WESNUA0jFRsJOc0SNUO6xJ5SGA1xueg3NL65W6s+NY5l9cunuw==
-  dependencies:
-    base64-js "^1.0.2"
-    ieee754 "^1.1.4"
-
-buffer@^5.4.0:
-  version "5.4.3"
-  resolved "https://registry.yarnpkg.com/buffer/-/buffer-5.4.3.tgz#3fbc9c69eb713d323e3fc1a895eee0710c072115"
-  integrity sha512-zvj65TkFeIt3i6aj5bIvJDzjjQQGs4o/sNoezg1F1kYap9Nu2jcUdpwzRSJTHMMzG0H7bZkn4rNQpImhuxWX2A==
   dependencies:
     base64-js "^1.0.2"
     ieee754 "^1.1.4"
@@ -12752,24 +12744,22 @@ rimraf@~2.2.6:
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
   integrity sha1-5Dm+Kq7jJzIZUnMPmaiSnk/FBYI=
 
-rollbar-react-native@^0.7.2:
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/rollbar-react-native/-/rollbar-react-native-0.7.2.tgz#7e5ce5532e363f32a9a3152b9f243ad059a79ec8"
-  integrity sha512-YmRwx4UaTtHfMFsHYVL37aXc1MDHabaOhT9xOy7O0MQWOeZ/qAfyK3a3tzcMMw2CBQXdBGJe+ZVjEe1UsbjyvA==
+rollbar-react-native@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/rollbar-react-native/-/rollbar-react-native-0.9.1.tgz#d16561fe4a5a1949efa857ae660751deab93d7e8"
+  integrity sha512-0DvFuUPKgwsqqAdEm90aQ/lVSytD36AvMq7f/3rejpVPREUmUI+4vLRY1NeD6nWFZ8jl8QZfDC05N5moX0eVYA==
   dependencies:
     buffer "^4.9.1 || ^5.0.7"
-    rollbar "^2.14.0"
+    rollbar "^2.19.3"
     url "^0.11.0"
 
-rollbar@^2.14.0:
-  version "2.15.2"
-  resolved "https://registry.yarnpkg.com/rollbar/-/rollbar-2.15.2.tgz#06ee93f8bd9b7c38e1fb16cff381ca24b591dcd9"
-  integrity sha512-73eq3iy5mCZPhaxYiQhhji2VxTiD8l+PV1VGkyArqjyzAnLqRLXX2xut5P7Ll5A59cC0lZmIV9ZasF1mTzbx8Q==
+rollbar@^2.19.3:
+  version "2.19.4"
+  resolved "https://registry.yarnpkg.com/rollbar/-/rollbar-2.19.4.tgz#eda4145cb459203bd3e9ccd885bfb5c5c3f6f2a2"
+  integrity sha512-8ErcMfJE2zkhgrFtpGRyejHBhyO0hU7dZ3EvG2ylNZ7qSu4yw5PZfhGx+Qyq3ksKshLFeQh9Y/Bh2S1TOPIhvw==
   dependencies:
     async "~1.2.1"
-    buffer-from "~1.1.1"
     console-polyfill "0.3.0"
-    debug "2.6.9"
     error-stack-parser "^2.0.4"
     json-stringify-safe "~5.0.0"
     lru-cache "~2.2.1"
