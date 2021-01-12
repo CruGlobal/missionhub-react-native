@@ -724,7 +724,7 @@
 					"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)",
 					"$(inherited)",
 				);
-				MARKETING_VERSION = 5.4.3;
+				MARKETING_VERSION = 5.4.4;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.missionhub;
 				PRODUCT_NAME = MissionHub;
@@ -831,7 +831,7 @@
 					"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)",
 					"$(inherited)",
 				);
-				MARKETING_VERSION = 5.4.3;
+				MARKETING_VERSION = 5.4.4;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.missionhub;
 				PRODUCT_NAME = MissionHub;
