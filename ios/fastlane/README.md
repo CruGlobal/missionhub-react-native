@@ -36,11 +36,6 @@ Download latest localization files from Onesky
 fastlane ios cru_commit_localization_files
 ```
 Commit downloaded localization files to default branch and push to remote
-### ios cru_set_build_number
-```
-fastlane ios cru_set_build_number
-```
-
 ### ios cru_build_app
 ```
 fastlane ios cru_build_app
