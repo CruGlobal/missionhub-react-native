@@ -149,7 +149,7 @@ const SetupScreen = ({ next, isMe, hideSkipBtn = false }: SetupScreenProps) => {
         });
 
         dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
-        appsFlyer.trackEvent(ACTIONS.PERSON_ADDED.name, ACTIONS.PERSON_ADDED);
+        appsFlyer.logEvent(ACTIONS.PERSON_ADDED.name, ACTIONS.PERSON_ADDED);
         data?.createPerson?.person &&
           dispatch({
             type: LOAD_PERSON_DETAILS,

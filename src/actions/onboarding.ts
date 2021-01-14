@@ -71,7 +71,7 @@ export const startOnboarding = () => (
 ) => {
   dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   dispatch({ type: START_ONBOARDING });
-  appsFlyer.trackEvent(
+  appsFlyer.logEvent(
     ACTIONS.ONBOARDING_STARTED.name,
     ACTIONS.ONBOARDING_STARTED,
   );

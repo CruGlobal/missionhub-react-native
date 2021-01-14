@@ -223,7 +223,7 @@ export const onboardingFlowGenerator = ({
     CelebrationScreen,
     () => (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
       dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
-      appsFlyer.trackEvent(
+      appsFlyer.logEvent(
         ACTIONS.ONBOARDING_COMPLETE.name,
         ACTIONS.ONBOARDING_COMPLETE,
       );
