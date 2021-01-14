@@ -536,10 +536,10 @@ PODS:
     - React
   - RNVectorIcons (6.6.0):
     - React
-  - Rollbar (1.5.2)
-  - RollbarReactNative (0.7.2):
+  - Rollbar (1.12.14)
+  - RollbarReactNative (0.9.1):
     - React
-    - Rollbar (~> 1.5.0)
+    - Rollbar (~> 1.12.8)
   - RSKImageCropper (2.3.0)
   - SSZipArchive (2.2.3)
   - UMAppLoader (1.2.0)
@@ -941,8 +941,8 @@ SPEC CHECKSUMS:
   RNScreens: c526239bbe0e957b988dacc8d75ac94ec9cb19da
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
-  Rollbar: 5060e3fc9fa28ae75e70c61e95b1b31b2b22710c
-  RollbarReactNative: 6a9f248d2cd1a767056e1ee1ef1061be2be50c5f
+  Rollbar: 58f315609433558a82af5a54d7888bb020bec561
+  RollbarReactNative: fbc7ed0742dbf94c257dff82340dd26d45c447a0
   RSKImageCropper: c337eacdcbed50e695e5153ff0c2b861b6ebfa84
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   UMAppLoader: 61049c8d55590b74e9ae1d5429bf68d96b4a2528
@@ -961,6 +961,6 @@ SPEC CHECKSUMS:
   Yoga: 7740b94929bbacbddda59bf115b5317e9a161598
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 851bbe24966adee62b73c23572ac827e97545580
+PODFILE CHECKSUM: 00510dbd115100efdd90b3d43868c6388cf58867
 
 COCOAPODS: 1.10.1

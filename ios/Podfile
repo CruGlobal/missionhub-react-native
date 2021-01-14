@@ -6,17 +6,6 @@ platform :ios, '10.0'
 
 inhibit_all_warnings!
 
-# Post Install processing for Rollbar
-def rollbar_post_install(installer)
-  installer.pods_project.targets.each do |target|
-    if target.name == 'Rollbar'
-      target.build_configurations.each do |config|
-        config.build_settings['USE_HEADERMAP'] = 'NO'
-      end
-    end
-  end
-end
-
 target 'MissionHub' do
   use_unimodules!
   config = use_native_modules!
@@ -42,7 +31,6 @@ target 'MissionHub' do
 
   post_install do |installer|
     flipper_post_install(installer)
-    rollbar_post_install(installer) # https://github.com/rollbar/rollbar-react-native/issues/108#issuecomment-615433786
     
     installer.pods_project.targets.each do |target|
       if target.name == 'react-native-config' # https://github.com/luggit/react-native-config/issues/357#issuecomment-508649128
