@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppState, StatusBar, AppStateStatus, Alert } from 'react-native';
+import { StatusBar, Alert } from 'react-native';
 import { Provider } from 'react-redux';
 import { Provider as ProviderLegacy } from 'react-redux-legacy';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -63,10 +63,8 @@ const RunAppHooks = () => {
 export default class App extends Component {
   showingErrorModal = false;
   state: {
-    appState: AppStateStatus;
     apolloClient?: ApolloClient<NormalizedCacheObject>;
   } = {
-    appState: AppState.currentState,
     apolloClient: undefined,
   };
 
@@ -84,7 +82,6 @@ export default class App extends Component {
     store.dispatch(setupFirebaseDynamicLinks());
     isAuthenticated() && getFeatureFlags();
     moment.locale(i18n.language.split('-')[0]);
-    AppState.addEventListener('change', this.handleAppStateChange);
   };
 
   initializeErrorHandling() {
@@ -162,24 +159,6 @@ export default class App extends Component {
         onDismiss: () => (this.showingErrorModal = false),
       });
     }
-  };
-
-  componentWillUnmount() {
-    AppState.removeEventListener('change', this.handleAppStateChange);
-  }
-
-  handleAppStateChange = (nextAppState: AppStateStatus) => {
-    if (
-      this.state.appState.match(/inactive|background/) &&
-      nextAppState === 'active'
-    ) {
-      // https://github.com/AppsFlyerSDK/react-native-appsflyer/blob/master/Docs/API.md#trackAppLaunch
-      if (!isAndroid) {
-        appsFlyer.trackAppLaunch();
-      }
-    }
-
-    this.setState({ appState: nextAppState });
   };
 
   render() {
