@@ -89,7 +89,7 @@ export function handleAfterCompleteStep(
         [ACTIONS.STEP_COMPLETED.key]: null,
       }),
     );
-    appsFlyer.trackEvent(ACTIONS.STEP_COMPLETED.name, ACTIONS.STEP_COMPLETED);
+    appsFlyer.logEvent(ACTIONS.STEP_COMPLETED.name, ACTIONS.STEP_COMPLETED);
   };
 }
 

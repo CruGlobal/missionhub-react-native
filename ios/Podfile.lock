@@ -4,7 +4,9 @@ PODS:
     - AppAuth/ExternalUserAgent (= 1.4.0)
   - AppAuth/Core (1.4.0)
   - AppAuth/ExternalUserAgent (1.4.0)
-  - AppsFlyerFramework (5.4.4)
+  - AppsFlyerFramework (6.1.3):
+    - AppsFlyerFramework/Main (= 6.1.3)
+  - AppsFlyerFramework/Main (6.1.3)
   - Base64 (1.1.2)
   - boost-for-react-native (1.63.0)
   - CocoaAsyncSocket (7.6.4)
@@ -398,8 +400,8 @@ PODS:
     - React-cxxreact (= 0.63.2)
     - React-jsi (= 0.63.2)
   - React-jsinspector (0.63.2)
-  - react-native-appsflyer (5.4.1):
-    - AppsFlyerFramework (~> 5.4.1)
+  - react-native-appsflyer (6.1.30):
+    - AppsFlyerFramework (= 6.1.3)
     - React
   - react-native-camera (3.33.0):
     - React
@@ -536,10 +538,10 @@ PODS:
     - React
   - RNVectorIcons (6.6.0):
     - React
-  - Rollbar (1.5.2)
-  - RollbarReactNative (0.7.2):
+  - Rollbar (1.12.14)
+  - RollbarReactNative (0.9.1):
     - React
-    - Rollbar (~> 1.5.0)
+    - Rollbar (~> 1.12.8)
   - RSKImageCropper (2.3.0)
   - SSZipArchive (2.2.3)
   - UMAppLoader (1.2.0)
@@ -847,7 +849,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
-  AppsFlyerFramework: a511099f7bedbb1d5804d733c6152d6f8092c4fa
+  AppsFlyerFramework: 4c735cfe40cd4dd809eba4e288e80f5fbde39d02
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
@@ -909,7 +911,7 @@ SPEC CHECKSUMS:
   React-jsi: 54245e1d5f4b690dec614a73a3795964eeef13a8
   React-jsiexecutor: 8ca588cc921e70590820ce72b8789b02c67cce38
   React-jsinspector: b14e62ebe7a66e9231e9581279909f2fc3db6606
-  react-native-appsflyer: a6e25627ac28bcc5c576b9207237996e2c6c69a1
+  react-native-appsflyer: 0fc0a27bcb4462fcba0d1d64b90aabf493f64174
   react-native-camera: 55e1afb6d585314ca96ea5504e6b1ba7583c1d21
   react-native-config: 55548054279d92e0e4566ea15a8b9b81028ec342
   react-native-fbsdk: 00c15d138bba6d4efa628670886fc58cec858c19
@@ -941,8 +943,8 @@ SPEC CHECKSUMS:
   RNScreens: c526239bbe0e957b988dacc8d75ac94ec9cb19da
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
-  Rollbar: 5060e3fc9fa28ae75e70c61e95b1b31b2b22710c
-  RollbarReactNative: 6a9f248d2cd1a767056e1ee1ef1061be2be50c5f
+  Rollbar: 58f315609433558a82af5a54d7888bb020bec561
+  RollbarReactNative: fbc7ed0742dbf94c257dff82340dd26d45c447a0
   RSKImageCropper: c337eacdcbed50e695e5153ff0c2b861b6ebfa84
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   UMAppLoader: 61049c8d55590b74e9ae1d5429bf68d96b4a2528
@@ -961,6 +963,6 @@ SPEC CHECKSUMS:
   Yoga: 7740b94929bbacbddda59bf115b5317e9a161598
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 851bbe24966adee62b73c23572ac827e97545580
+PODFILE CHECKSUM: 00510dbd115100efdd90b3d43868c6388cf58867
 
 COCOAPODS: 1.10.1

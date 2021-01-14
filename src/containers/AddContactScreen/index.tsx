@@ -177,7 +177,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
       results && setPerson({ ...person, id: results.id });
       if (!isEdit) {
         dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
-        appsFlyer.trackEvent(ACTIONS.PERSON_ADDED.name, ACTIONS.PERSON_ADDED);
+        appsFlyer.logEvent(ACTIONS.PERSON_ADDED.name, ACTIONS.PERSON_ADDED);
       }
 
       complete(true, results ?? undefined);

@@ -4,6 +4,6 @@ jest.mock('react-native-appsflyer', () => ({
     initSdk: jest.fn(),
     setCustomerUserId: jest.fn(),
     setAdditionalData: jest.fn(),
-    trackEvent: jest.fn(),
+    logEvent: jest.fn(),
   },
 }));
