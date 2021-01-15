@@ -61,7 +61,7 @@
     "base64-url": "^2.3.2",
     "buffer": "^5.4.0",
     "color": "^3.1.2",
-    "core-js": "^3.6.5",
+    "core-js": "^3.8.2",
     "eslint-import-resolver-typescript": "^2.3.0",
     "expo-secure-store": "^9.1.0",
     "graphql-tag": "^2.11.0",
