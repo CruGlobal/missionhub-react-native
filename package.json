@@ -132,7 +132,7 @@
     "@types/react": "^16.9.49",
     "@types/react-native": "0.63.18",
     "@types/react-native-snap-carousel": "^3.7.4",
-    "@types/react-native-vector-icons": "^6.4.4",
+    "@types/react-native-vector-icons": "^6.4.6",
     "@types/react-native-version-check": "^3.4.0",
     "@types/react-native-video": "^5.0.3",
     "@types/react-redux": "npm:@types/react-redux@^7.1.5",
