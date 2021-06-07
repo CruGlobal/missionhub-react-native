@@ -11982,10 +11982,10 @@ react-native-appsflyer@^6.1.30:
   resolved "https://registry.yarnpkg.com/react-native-appsflyer/-/react-native-appsflyer-6.1.30.tgz#33b81469ad59d8806600cf5d74d0460639ab8058"
   integrity sha512-iOfXH1lbvsiQ9L9HJmKcpM/FY6+OBpEHRKg+nE8mp+1HiBYvjBO9wZnsrEm81yHsQBZV2FrdJVu2isxmsMJzfA==
 
-react-native-camera@^3.24.1:
-  version "3.33.0"
-  resolved "https://registry.yarnpkg.com/react-native-camera/-/react-native-camera-3.33.0.tgz#7c098051533cf2401e2511bfc42a949d23aa2356"
-  integrity sha512-fl2mTSLcpqHcI3ydXYpvxdZUCJDmf4pRCDySISrUKCV40VCv2QEriyxekjA1GMWXgVUu3Kb45LJZ0ZxhJ86/SA==
+react-native-camera@^3.44.1:
+  version "3.44.1"
+  resolved "https://registry.yarnpkg.com/react-native-camera/-/react-native-camera-3.44.1.tgz#60e7d60fe778c1fc59d0579b64c63c3c1a59865a"
+  integrity sha512-B95RL3laK2v8R7L/37v28MYcEcwsM/mS94h6EZuRMLH5HFolkAwh7zJo+UAn7FG9eFtAdBwIM6s9OqYudTVO4Q==
   dependencies:
     prop-types "^15.6.2"
 
