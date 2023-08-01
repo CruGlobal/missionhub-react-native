@@ -135,7 +135,7 @@ jobs:
         with:
           parameterPairs: |
             /shared/onesky/PUBLIC_KEY = ONESKY_API_KEY,
-            /shared/onesky/SECRET_KEY = ONESKY_API_SECRET
+            /shared/onesky/SECRET_KEY = ONESKY_SECRET_KEY
       - name: ⛅🔼 OneSky Upload
         run: yarn onesky:upload
 
@@ -165,7 +165,7 @@ jobs:
         with:
           parameterPairs: |
             /shared/onesky/PUBLIC_KEY = ONESKY_API_KEY,
-            /shared/onesky/SECRET_KEY = ONESKY_API_SECRET
+            /shared/onesky/SECRET_KEY = ONESKY_SECRET_KEY
       - name: ⛅ OneSky Download
         run: yarn onesky:download
       - name: 🏗️🚀🍏 Build and Codepush iOS
@@ -209,7 +209,7 @@ jobs:
         with:
           parameterPairs: |
             /shared/onesky/PUBLIC_KEY = ONESKY_API_KEY,
-            /shared/onesky/SECRET_KEY = ONESKY_API_SECRET
+            /shared/onesky/SECRET_KEY = ONESKY_SECRET_KEY
       - name: ⛅ OneSky Download
         run: yarn onesky:download
       - name: 🏗️🚀🤖 Build and Codepush Android
@@ -252,7 +252,7 @@ jobs:
         with:
           parameterPairs: |
             /shared/onesky/PUBLIC_KEY = ONESKY_API_KEY,
-            /shared/onesky/SECRET_KEY = ONESKY_API_SECRET
+            /shared/onesky/SECRET_KEY = ONESKY_SECRET_KEY
       - name: ⛅ OneSky Download
         run: yarn onesky:download
       - name: 💎 Setup Ruby
@@ -308,7 +308,7 @@ jobs:
         with:
           parameterPairs: |
             /shared/onesky/PUBLIC_KEY = ONESKY_API_KEY,
-            /shared/onesky/SECRET_KEY = ONESKY_API_SECRET
+            /shared/onesky/SECRET_KEY = ONESKY_SECRET_KEY
       - name: ⛅ OneSky Download
         run: yarn onesky:download
       - name: ☕ Set up JDK 1.8
