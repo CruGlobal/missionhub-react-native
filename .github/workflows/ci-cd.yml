@@ -121,10 +121,18 @@ jobs:
       - uses: egordm/gha-yarn-node-cache@v1
       - name: 📦 Install Dependencies
         run: yarn
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_IAM_ONESKY_ROLE_ARN }}
+          aws-region: us-east-1
+      - name: Import OneSky Keys
+        uses: dkershner6/aws-ssm-getparameters-action@v1
+        with:
+          parameterPairs: |
+            /shared/onesky/PUBLIC_KEY = ONESKY_API_KEY,
+            /shared/onesky/SECRET_KEY = ONESKY_API_SECRET
       - name: ⛅🔼 OneSky Upload
-        env:
-          ONESKY_API_KEY: ${{ secrets.ONESKY_API_KEY }}
-          ONESKY_SECRET_KEY: ${{ secrets.ONESKY_SECRET_KEY }}
         run: yarn onesky:upload
 
   ios-codepush:
@@ -143,10 +151,18 @@ jobs:
         run: |
           yarn gql:codegen
           yarn gql:schema
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_IAM_ONESKY_ROLE_ARN }}
+          aws-region: us-east-1
+      - name: Import OneSky Keys
+        uses: dkershner6/aws-ssm-getparameters-action@v1
+        with:
+          parameterPairs: |
+            /shared/onesky/PUBLIC_KEY = ONESKY_API_KEY,
+            /shared/onesky/SECRET_KEY = ONESKY_API_SECRET
       - name: ⛅ OneSky Download
-        env:
-          ONESKY_API_KEY: ${{ secrets.ONESKY_API_KEY }}
-          ONESKY_SECRET_KEY: ${{ secrets.ONESKY_SECRET_KEY }}
         run: yarn onesky:download
       - name: 🏗️🚀🍏 Build and Codepush iOS
         env:
@@ -179,10 +195,18 @@ jobs:
         run: |
           yarn gql:codegen
           yarn gql:schema
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_IAM_ONESKY_ROLE_ARN }}
+          aws-region: us-east-1
+      - name: Import OneSky Keys
+        uses: dkershner6/aws-ssm-getparameters-action@v1
+        with:
+          parameterPairs: |
+            /shared/onesky/PUBLIC_KEY = ONESKY_API_KEY,
+            /shared/onesky/SECRET_KEY = ONESKY_API_SECRET
       - name: ⛅ OneSky Download
-        env:
-          ONESKY_API_KEY: ${{ secrets.ONESKY_API_KEY }}
-          ONESKY_SECRET_KEY: ${{ secrets.ONESKY_SECRET_KEY }}
         run: yarn onesky:download
       - name: 🏗️🚀🤖 Build and Codepush Android
         env:
@@ -214,10 +238,18 @@ jobs:
         run: |
           yarn gql:codegen
           yarn gql:schema
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_IAM_ONESKY_ROLE_ARN }}
+          aws-region: us-east-1
+      - name: Import OneSky Keys
+        uses: dkershner6/aws-ssm-getparameters-action@v1
+        with:
+          parameterPairs: |
+            /shared/onesky/PUBLIC_KEY = ONESKY_API_KEY,
+            /shared/onesky/SECRET_KEY = ONESKY_API_SECRET
       - name: ⛅ OneSky Download
-        env:
-          ONESKY_API_KEY: ${{ secrets.ONESKY_API_KEY }}
-          ONESKY_SECRET_KEY: ${{ secrets.ONESKY_SECRET_KEY }}
         run: yarn onesky:download
       - name: 💎 Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -262,10 +294,18 @@ jobs:
         run: |
           yarn gql:codegen
           yarn gql:schema
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_IAM_ONESKY_ROLE_ARN }}
+          aws-region: us-east-1
+      - name: Import OneSky Keys
+        uses: dkershner6/aws-ssm-getparameters-action@v1
+        with:
+          parameterPairs: |
+            /shared/onesky/PUBLIC_KEY = ONESKY_API_KEY,
+            /shared/onesky/SECRET_KEY = ONESKY_API_SECRET
       - name: ⛅ OneSky Download
-        env:
-          ONESKY_API_KEY: ${{ secrets.ONESKY_API_KEY }}
-          ONESKY_SECRET_KEY: ${{ secrets.ONESKY_SECRET_KEY }}
         run: yarn onesky:download
       - name: ☕ Set up JDK 1.8
         uses: actions/setup-java@v1
