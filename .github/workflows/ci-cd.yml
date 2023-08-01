@@ -324,11 +324,10 @@ jobs:
           ruby-version: 2.7
       - name: ➕ Add Commit SHA to ENVFILE
         run: echo "COMMIT_SHA=$GITHUB_SHA" >> ./.env.production
-      - name: 🔓 Decrypt GooglePlayAPI.json
-        # Using "-md md5" to support old file from previous version of OpenSSL https://www.openssl.org/docs/faq.html#USER3
-        run: openssl aes-256-cbc -pass "pass:$GOOGLE_PLAY_API_FILE_PASSWORD" -in ./android/fastlane/GooglePlayAPI.enc -out ./android/fastlane/GooglePlayAPI.json -d -a -md md5
+      - name: 🔓 Import GooglePlayAPI.json
         env:
-          GOOGLE_PLAY_API_FILE_PASSWORD: ${{ secrets.GOOGLE_PLAY_API_FILE_PASSWORD }}
+          GOOGLE_PLAY_API_KEY: ${{ secrets.GOOGLE_PLAY_API_KEY }}
+        run: echo $GOOGLE_PLAY_API_KEY > ./android/fastlane/GooglePlayAPI.json
       - name: 🏗️🚀🤖 Build and push to Android Beta
         uses: maierj/fastlane-action@v2.0.0
         with:
