@@ -1,5 +1,4 @@
 import { ThunkDispatch } from 'redux-thunk';
-import appsFlyer from 'react-native-appsflyer';
 import { AnyAction } from 'redux';
 
 import { STEP_NOTE, ACTIONS, ACCEPTED_STEP } from '../constants';
@@ -89,7 +88,6 @@ export function handleAfterCompleteStep(
         [ACTIONS.STEP_COMPLETED.key]: null,
       }),
     );
-    appsFlyer.logEvent(ACTIONS.STEP_COMPLETED.name, ACTIONS.STEP_COMPLETED);
   };
 }
 

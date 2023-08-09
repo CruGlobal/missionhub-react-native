@@ -13,7 +13,6 @@ import 'moment/locale/es';
 import 'moment/locale/tr';
 import 'moment/locale/pt';
 import 'moment/locale/nb';
-import appsFlyer from 'react-native-appsflyer';
 import ApolloClient from 'apollo-client';
 import { NormalizedCacheObject } from 'apollo-cache-inmemory';
 
@@ -41,12 +40,6 @@ import { createApolloClient } from './apolloClient';
 import { warmAuthCache } from './auth/authUtilities';
 import { isAuthenticated } from './auth/authStore';
 import { useProvideAuthRefresh } from './auth/provideAuthRefresh';
-
-appsFlyer.initSdk({
-  devKey: 'QdbVaVHi9bHRchUTWtoaij',
-  isDebug: __DEV__,
-  appId: '447869440',
-});
 
 const RunAppHooks = () => {
   useProvideAuthRefresh();

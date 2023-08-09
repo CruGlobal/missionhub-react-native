@@ -2,7 +2,6 @@ module.exports = {
   preset: 'react-native',
   setupFiles: [
     '<rootDir>/__mock__/react-native-device-info.ts',
-    '<rootDir>/__mock__/react-native-appsflyer.ts',
     '<rootDir>/__mock__/react-native-code-push.js',
     '<rootDir>/__mock__/react-native-datetimepicker.ts',
     '<rootDir>/__mock__/react-native-firebase.ts',
