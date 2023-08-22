@@ -73,20 +73,6 @@ describe('wrapNextAction', () => {
   });
 });
 
-describe('wrapProps', () => {
-  it('should add extra props to component', () => {
-    const WrappedTestComponent = wrapProps(
-      ('TestWrapProps' as unknown) as FunctionComponent,
-      {
-        extraProp1: true,
-        extraProp2: false,
-      },
-    );
-
-    renderWithContext(<WrappedTestComponent />).snapshot();
-  });
-});
-
 describe('buildTrackedScreen', () => {
   it('should convert function params into an object', () => {
     expect(
