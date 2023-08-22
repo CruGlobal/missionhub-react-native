@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { connect } from 'react-redux-legacy';
 import { StackActions, NavigationScreenComponent } from 'react-navigation';
 
@@ -6,7 +6,6 @@ import {
   wrapNextScreen,
   wrapNextScreenFn,
   wrapNextAction,
-  wrapProps,
   buildTrackedScreen,
 } from '../helpers';
 import { renderWithContext } from '../../../testUtils';
