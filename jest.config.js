@@ -31,7 +31,8 @@ module.exports = {
   transformIgnorePatterns: [
     'node_modules/(?!(jest-)?react-native|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg|react-navigation-redux-helpers|@invertase/react-native-apple-authentication)',
   ],
+  testPathIgnorePatterns: ['src/components/Touchable/__tests__/index.d.ts'],
   coverageDirectory: './coverage/',
-  collectCoverageFrom: ['src/**/*.{js,ts,tsx}'],
+  collectCoverageFrom: ['src/**/*.{js,ts,tsx}', '!src/**/*.d.ts'],
   clearMocks: true,
 };
