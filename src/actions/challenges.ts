@@ -105,8 +105,8 @@ export function joinChallenge(item: { id: string }, orgId: string) {
 
 // @ts-ignore
 export function createChallenge(challenge, orgId) {
-  const query = {};
-  const bodyData = {
+  const queryCreate = {};
+  const bodyDataCreate = {
     data: {
       attributes: {
         title: challenge.title,
@@ -118,7 +118,9 @@ export function createChallenge(challenge, orgId) {
   };
   // @ts-ignore
   return async dispatch => {
-    await dispatch(callApi(REQUESTS.CREATE_GROUP_CHALLENGE, query, bodyData));
+    await dispatch(
+      callApi(REQUESTS.CREATE_GROUP_CHALLENGE, queryCreate, bodyDataCreate),
+    );
     await dispatch(
       navigatePush(CELEBRATION_SCREEN, {
         onComplete: () => {

@@ -1,6 +1,5 @@
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
-import appsFlyer from 'react-native-appsflyer';
 
 import { OnboardingState } from '../reducers/onboarding';
 import { OrganizationsState } from '../reducers/organizations';
@@ -71,10 +70,6 @@ export const startOnboarding = () => (
 ) => {
   dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   dispatch({ type: START_ONBOARDING });
-  appsFlyer.logEvent(
-    ACTIONS.ONBOARDING_STARTED.name,
-    ACTIONS.ONBOARDING_STARTED,
-  );
 };
 
 export const skipAddPersonAndCompleteOnboarding = () => (
