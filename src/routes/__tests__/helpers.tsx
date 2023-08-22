@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { connect } from 'react-redux-legacy';
 import { StackActions, NavigationScreenComponent } from 'react-navigation';
 
@@ -6,6 +6,7 @@ import {
   wrapNextScreen,
   wrapNextScreenFn,
   wrapNextAction,
+  wrapProps,
   buildTrackedScreen,
 } from '../helpers';
 import { renderWithContext } from '../../../testUtils';
@@ -69,6 +70,19 @@ describe('wrapNextAction', () => {
         props: routeParams,
       },
     ]);
+  });
+});
+
+describe('wrapProps', () => {
+  it('should add extra props to component', () => {
+    const WrappedTestComponent = wrapProps(
+      ('TestWrapProps' as unknown) as FunctionComponent,
+      {
+        extraProp1: true,
+        extraProp2: false,
+      },
+    );
+    expect(WrappedTestComponent).toBeDefined();
   });
 });
 
