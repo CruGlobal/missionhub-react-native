@@ -1,7 +1,6 @@
 import { useQuery } from '@apollo/react-hooks';
 import { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import appsFlyer from 'react-native-appsflyer';
 
 import { logInAnalytics } from '../actions/analytics';
 import { rollbar } from '../utils/rollbar.config';
@@ -51,15 +50,11 @@ export const useAuthSuccess = () => {
   const dispatch = useDispatch();
 
   return useCallback(async () => {
-    const { id, globalRegistryMdmId } = await loadAuthPerson('network-only');
+    const { id } = await loadAuthPerson('network-only');
 
     dispatch(logInAnalytics());
 
     rollbar.setPerson(id);
-
-    if (globalRegistryMdmId) {
-      appsFlyer.setCustomerUserId(globalRegistryMdmId, () => {});
-    }
 
     getFeatureFlags();
     dispatch(updateLocaleAndTimezone());

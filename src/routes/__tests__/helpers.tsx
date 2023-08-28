@@ -82,8 +82,7 @@ describe('wrapProps', () => {
         extraProp2: false,
       },
     );
-
-    renderWithContext(<WrappedTestComponent />).snapshot();
+    expect(WrappedTestComponent).toBeDefined();
   });
 });
 

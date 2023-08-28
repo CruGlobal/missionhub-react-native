@@ -2,7 +2,6 @@ import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import FBAnalytics from '@react-native-firebase/analytics';
 import i18next from 'i18next';
-import appsFlyer from 'react-native-appsflyer';
 //import { Tracker } from '@ringierag/snowplow-reactjs-native-tracker';
 
 import {
@@ -120,7 +119,6 @@ export function trackStepAdded(step?: StepAddedAnalytics | null) {
         [ACTIONS.STEPS_ADDED.key]: 1, // One step of faith added. Historically multiple could be added at once and needed to be tracked.
       }),
     );
-    appsFlyer.logEvent(ACTIONS.STEPS_ADDED.name, ACTIONS.STEPS_ADDED);
   };
 }
 

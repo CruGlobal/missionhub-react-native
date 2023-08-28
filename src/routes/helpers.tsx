@@ -44,6 +44,7 @@ export const wrapNextAction = (
     next: nextAction,
   });
 
+// eslint-disable-next-line import/no-unused-modules
 export const wrapProps = (
   WrappedComponent: NavigationScreenComponent<any, any>,
   extraProps: AnyProps & { next?: NextAction } = {},
