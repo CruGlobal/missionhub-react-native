@@ -10,6 +10,9 @@ on:
 env:
   ENVFILE: ${{ (github.ref == 'refs/heads/master' || github.base_ref == 'refs/heads/master') && '.env.production' || '.env.staging' }}
 
+# Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 permissions:
   id-token: write
   contents: read
@@ -265,6 +268,12 @@ jobs:
         run: echo -e "machine github.com\n login $CI_USER_TOKEN" >> ~/.netrc
         env:
           CI_USER_TOKEN: ${{ secrets.CI_USER_TOKEN}}
+      - name: Import App Store Connect API Key
+        env:
+          APP_STORE_CONNECT_API_JSON_PAYLOAD: ${{ secrets.APP_STORE_CONNECT_API_JSON_PAYLOAD }}
+        run: echo $APP_STORE_CONNECT_API_JSON_PAYLOAD > ios/fastlane/AppleAppStoreApi.json
+      - name: Increment Xcode Project Build Number
+        run: bundle exec fastlane cru_shared_lane_increment_xcode_project_build_number
       - name: 🏗️🚀🍏 Build and push to Testflight
         uses: maierj/fastlane-action@v2.0.0
         with:
