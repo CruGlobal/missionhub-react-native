@@ -273,7 +273,10 @@ jobs:
           APP_STORE_CONNECT_API_JSON_PAYLOAD: ${{ secrets.APP_STORE_CONNECT_API_JSON_PAYLOAD }}
         run: echo $APP_STORE_CONNECT_API_JSON_PAYLOAD > ios/fastlane/AppleAppStoreApi.json
       - name: Increment Xcode Project Build Number
-        run: bundle exec fastlane cru_shared_lane_increment_xcode_project_build_number
+        uses: maierj/fastlane-action@v2.0.0
+        with:
+          lane: ios cru_shared_lane_increment_xcode_project_build_number
+          subdirectory: ios
       - name: 🏗️🚀🍏 Build and push to Testflight
         uses: maierj/fastlane-action@v2.0.0
         with:
