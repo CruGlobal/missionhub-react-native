@@ -272,19 +272,19 @@ jobs:
         env:
           APP_STORE_CONNECT_API_JSON_PAYLOAD: ${{ secrets.APP_STORE_CONNECT_API_JSON_PAYLOAD }}
         run: echo $APP_STORE_CONNECT_API_JSON_PAYLOAD > ios/fastlane/AppleAppStoreApi.json
-      - name: Increment Xcode Project Build Number
-        uses: maierj/fastlane-action@v2.0.0
-        with:
-          lane: ios cru_shared_lane_increment_xcode_project_build_number
-          subdirectory: ios
       - name: 🏗️🚀🍏 Build and push to Testflight
         uses: maierj/fastlane-action@v2.0.0
         with:
-          lane: ios cru_shared_lane_build_and_deploy_for_testflight_release is_running_in_ci:true
+          lane: ios beta
           subdirectory: ios
         env:
-          MATCH_GIT_BASIC_AUTHORIZATION_PAT: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION_PAT }}
+          TRAVIS_BRANCH: ${{ github.ref }}
+          TRAVIS_TAG: ${{ github.ref }}
+          TRAVIS_COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+          TRAVIS_BUILD_NUMBER: ${{ github.run_id }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
+          SLACK_URL: ${{ secrets.SLACK_URL }}
 
   android-deploy:
     runs-on: ubuntu-latest
