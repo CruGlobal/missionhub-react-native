@@ -271,6 +271,9 @@ jobs:
       - name: Bundle Install
         working-directory: ios
         run: bundle install
+      - name: Bundle Update Fastlane
+        working-directory: ios
+        run: bundle update fastlane
       - name: Import App Store Connect API Key
         env:
           APP_STORE_CONNECT_API_JSON_PAYLOAD: ${{ secrets.APP_STORE_CONNECT_API_JSON_PAYLOAD }}
