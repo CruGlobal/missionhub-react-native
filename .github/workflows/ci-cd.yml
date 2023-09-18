@@ -9,7 +9,7 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-  
+
 env:
   ENVFILE: ${{ (github.ref == 'refs/heads/master' || github.base_ref == 'refs/heads/master') && '.env.production' || '.env.staging' }}
 
@@ -261,7 +261,7 @@ jobs:
       - name: 💎 Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7
+          bundler-cache: true
       - name: ➕ Add Commit SHA to ENVFILE
         run: echo "COMMIT_SHA=$GITHUB_SHA" >> ./.env.production
       - name: 🗝 Configure GitHub login
@@ -331,7 +331,7 @@ jobs:
       - name: 💎 Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7
+          bundler-cache: true
       - name: ➕ Add Commit SHA to ENVFILE
         run: echo "COMMIT_SHA=$GITHUB_SHA" >> ./.env.production
       - name: 🔓 Decrypt GooglePlayAPI.json
