@@ -268,9 +268,6 @@ jobs:
         run: echo -e "machine github.com\n login $CI_USER_TOKEN" >> ~/.netrc
         env:
           CI_USER_TOKEN: ${{ secrets.CI_USER_TOKEN}}
-      - name: Bundle Install
-        working-directory: ios
-        run: bundle install
       - name: Import App Store Connect API Key
         env:
           APP_STORE_CONNECT_API_JSON_PAYLOAD: ${{ secrets.APP_STORE_CONNECT_API_JSON_PAYLOAD }}
@@ -288,6 +285,12 @@ jobs:
         env:
           MATCH_GIT_BASIC_AUTHORIZATION_PAT: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION_PAT }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+      - name: Archive Fastlane Gym Logs
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: fastlane-gym-logs
+          path: "/Users/runner/Library/Logs/gym/MissionHub-MissionHub.log"
 
   android-deploy:
     runs-on: ubuntu-latest
