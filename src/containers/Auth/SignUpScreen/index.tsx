@@ -31,6 +31,7 @@ import styles from './styles';
 
 export const SIGNUP_TYPES = {
   CREATE_COMMUNITY: 'login/CREATE_COMMUNITY',
+  JOIN_COMMUNITY: 'login/JOIN_COMMUNITY',
   SETTINGS_MENU: 'login/SIDE_MENU',
 };
 
@@ -47,6 +48,11 @@ const headerContentOptions: {
     image: PEOPLE,
     title: i18Next.t('loginOptions:createCommunityTitle'),
     description: i18Next.t('loginOptions:createCommunityDescription'),
+  },
+  [SIGNUP_TYPES.JOIN_COMMUNITY]: {
+    image: PEOPLE,
+    title: i18Next.t('loginOptions:joinCommunityTitle'),
+    description: i18Next.t('loginOptions:joinCommunityDescription'),
   },
 };
 

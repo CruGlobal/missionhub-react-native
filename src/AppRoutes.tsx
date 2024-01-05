@@ -78,6 +78,7 @@ import {
   SIGN_IN_FLOW,
   SIGN_UP_FLOW,
   CREATE_COMMUNITY_UNAUTHENTICATED_FLOW,
+  JOIN_COMMUNITY_UNAUTHENTICATED_FLOW,
   COMPLETE_STEP_FLOW_NAVIGATE_BACK,
   ADD_MY_STEP_FLOW,
   ADD_PERSON_STEP_FLOW,
@@ -138,6 +139,7 @@ import {
   VideoFullScreen,
   VIDEO_FULL_SCREEN,
 } from './containers/VideoFullScreen';
+import { JoinCommunityUnauthenticatedFlowNavigator } from './routes/groups/joinCommunityUnauthenticatedFlow';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -283,6 +285,7 @@ const screens = {
   [SIGN_IN_FLOW]: SignInFlowNavigator,
   [SIGN_UP_FLOW]: SignUpFlowNavigator,
   [CREATE_COMMUNITY_UNAUTHENTICATED_FLOW]: CreateCommunityUnauthenticatedFlowNavigator,
+  [JOIN_COMMUNITY_UNAUTHENTICATED_FLOW]: JoinCommunityUnauthenticatedFlowNavigator,
   [JOIN_BY_CODE_FLOW]: JoinByCodeFlowNavigator,
   [JOIN_BY_CODE_ONBOARDING_FLOW]: JoinByCodeOnboardingFlowNavigator,
   [ADD_SOMEONE_ONBOARDING_FLOW]: AddSomeoneOnboardingFlowNavigator,
