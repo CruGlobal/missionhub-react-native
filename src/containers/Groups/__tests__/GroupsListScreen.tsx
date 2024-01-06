@@ -216,6 +216,8 @@ describe('GroupsListScreen', () => {
 
   describe('create community button press', () => {
     it('navigates to create community screen if signed', () => {
+      (useIsAnonymousUser as jest.Mock).mockReturnValue(false);
+
       const { getByTestId, store } = renderWithContext(<GroupsListScreen />, {
         initialState,
       });
