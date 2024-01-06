@@ -9,7 +9,7 @@ import { Button } from '../../components/common';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import {
   FULL_ONBOARDING_FLOW,
-  JOIN_BY_CODE_ONBOARDING_FLOW,
+  JOIN_COMMUNITY_UNAUTHENTICATED_FLOW,
   SIGN_IN_FLOW,
 } from '../../routes/constants';
 import { startOnboarding } from '../../actions/onboarding';
@@ -40,7 +40,7 @@ const LandingScreen = () => {
 
   const communityCode = () => {
     dispatch(startOnboarding());
-    dispatch(navigatePush(JOIN_BY_CODE_ONBOARDING_FLOW));
+    dispatch(navigatePush(JOIN_COMMUNITY_UNAUTHENTICATED_FLOW));
   };
 
   const signIn = () => {
