@@ -22,6 +22,7 @@ import { resetScrollGroups } from '../../actions/swipe';
 import { ACTIONS, GLOBAL_COMMUNITY_ID } from '../../constants';
 import {
   CREATE_COMMUNITY_UNAUTHENTICATED_FLOW,
+  JOIN_COMMUNITY_UNAUTHENTICATED_FLOW,
   JOIN_BY_CODE_FLOW,
 } from '../../routes/constants';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
@@ -195,7 +196,13 @@ const GroupsListScreen = () => {
   };
 
   const join = () => {
-    dispatch(navigatePush(JOIN_BY_CODE_FLOW));
+    dispatch(
+      navigatePush(
+        isAnonymousUser
+          ? JOIN_COMMUNITY_UNAUTHENTICATED_FLOW
+          : JOIN_BY_CODE_FLOW,
+      ),
+    );
   };
 
   const create = () => {

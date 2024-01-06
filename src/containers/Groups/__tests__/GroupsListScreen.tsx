@@ -15,6 +15,7 @@ import { resetScrollGroups } from '../../../actions/swipe';
 import { ACTIONS } from '../../../constants';
 import {
   CREATE_COMMUNITY_UNAUTHENTICATED_FLOW,
+  JOIN_COMMUNITY_UNAUTHENTICATED_FLOW,
   JOIN_BY_CODE_FLOW,
 } from '../../../routes/constants';
 import {
@@ -194,10 +195,29 @@ describe('GroupsListScreen', () => {
       expect(navigatePush).toHaveBeenCalledWith(JOIN_BY_CODE_FLOW);
       expect(store.getActions()).toEqual([navigatePushResponse]);
     });
+
+    it('navigates to Upgrade Account Screen if not signed in', () => {
+      (useIsAnonymousUser as jest.Mock).mockReturnValue(true);
+
+      const { getByTestId, store } = renderWithContext(<GroupsListScreen />, {
+        initialState: {
+          ...initialState,
+        },
+      });
+
+      fireEvent.press(getByTestId('joinCommunity'));
+
+      expect(navigatePush).toHaveBeenCalledWith(
+        JOIN_COMMUNITY_UNAUTHENTICATED_FLOW,
+      );
+      expect(store.getActions()).toEqual([navigatePushResponse]);
+    });
   });
 
   describe('create community button press', () => {
     it('navigates to create community screen if signed', () => {
+      (useIsAnonymousUser as jest.Mock).mockReturnValue(false);
+
       const { getByTestId, store } = renderWithContext(<GroupsListScreen />, {
         initialState,
       });
