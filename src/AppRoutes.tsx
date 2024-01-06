@@ -197,6 +197,7 @@ const MainTabBar = createBottomTabNavigator(tabs, {
       backgroundColor: theme.white,
       paddingTop: 4,
     },
+    safeAreaInset: { vertical: 'always' },
     activeTintColor: theme.primaryColor,
     inactiveTintColor: theme.lightGrey,
     // @ts-ignore
