@@ -7,7 +7,7 @@ import { navigatePush } from '../../../actions/navigation';
 import { startOnboarding } from '../../../actions/onboarding';
 import {
   FULL_ONBOARDING_FLOW,
-  JOIN_BY_CODE_ONBOARDING_FLOW,
+  JOIN_COMMUNITY_UNAUTHENTICATED_FLOW,
   SIGN_IN_FLOW,
 } from '../../../routes/constants';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
@@ -54,7 +54,9 @@ describe('a button is clicked', () => {
     fireEvent.press(getByTestId('communityCodeButton'));
 
     expect(startOnboarding).toHaveBeenCalledWith();
-    expect(navigatePush).toHaveBeenCalledWith(JOIN_BY_CODE_ONBOARDING_FLOW);
+    expect(navigatePush).toHaveBeenCalledWith(
+      JOIN_COMMUNITY_UNAUTHENTICATED_FLOW,
+    );
     expect(store.getActions()).toEqual([
       startOnboardingResult,
       navigatePushResult,

@@ -176,6 +176,8 @@ export default {
     member: 'Already a Member?',
     createCommunityTitle: 'Create a Community',
     createCommunityDescription: 'Sign Up to create a MissionHub community.',
+    joinCommunityTitle: 'Join a Community',
+    joinCommunityDescription: 'Sign Up to join a MissionHub community.',
   },
   keyLogin: {
     emailLabel: 'Email',
