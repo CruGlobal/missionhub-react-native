@@ -44,6 +44,10 @@ target 'MissionHub' do
         target.build_phases << phase
         target.build_phases.move(phase,0)
       end
+
+      target.build_configurations.each do |config|
+        config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+      end
     end
   end
 end
