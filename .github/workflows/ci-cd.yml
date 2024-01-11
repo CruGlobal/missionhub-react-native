@@ -187,47 +187,47 @@ jobs:
             -F source_map=@sourcemap.ios.js
 
   android-codepush:
-  #   runs-on: ubuntu-latest
-  #   needs: [test, eslint, typescript, prettier]
-  #   if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v2
-  #       with:
-  #         node-version: 14
-  #     - uses: egordm/gha-yarn-node-cache@v1
-  #     - name: 📦 Install Dependencies
-  #       run: yarn
-  #     - name: 📈 Run GraphQL Codegen
-  #       run: |
-  #         yarn gql:codegen
-  #         yarn gql:schema
-  #     - name: Configure AWS credentials
-  #       uses: aws-actions/configure-aws-credentials@v2
-  #       with:
-  #         role-to-assume: ${{ secrets.AWS_IAM_ONESKY_ROLE_ARN }}
-  #         aws-region: us-east-1
-  #     - name: Import OneSky Keys
-  #       uses: dkershner6/aws-ssm-getparameters-action@v1
-  #       with:
-  #         parameterPairs: |
-  #           /shared/onesky/PUBLIC_KEY = ONESKY_API_KEY,
-  #           /shared/onesky/SECRET_KEY = ONESKY_SECRET_KEY
-  #     - name: ⛅ OneSky Download
-  #       run: yarn onesky:download
-  #     - name: 🏗️🚀🤖 Build and Codepush Android
-  #       env:
-  #         APPCENTER_TOKEN: ${{ secrets.APPCENTER_TOKEN }}
-  #       run: yarn codepush-android-staging --token "$APPCENTER_TOKEN" --sourcemap-output sourcemap.android.js --extra-bundler-option="--sourcemap-sources-root" --extra-bundler-option="./" --description "#${{ github.run_id }} ${{ github.sha }} | ${{ github.event.head_commit.message }}"
-  #     - name: 🔼🤖🗺️ Upload Android sourcemaps to Rollbar
-  #       env:
-  #         ROLLBAR_POST_SERVER_ITEM_TOKEN: ${{ secrets.ROLLBAR_POST_SERVER_ITEM_TOKEN }}
-  #       run: |
-  #         curl https://api.rollbar.com/api/1/sourcemap \
-  #           -F access_token=$ROLLBAR_POST_SERVER_ITEM_TOKEN \
-  #           -F version=${{ github.sha }}.android \
-  #           -F minified_url=http://reactnativehost/main.jsbundle \
-  #           -F source_map=@sourcemap.android.js
+    runs-on: ubuntu-latest
+    needs: [test, eslint, typescript, prettier]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - uses: egordm/gha-yarn-node-cache@v1
+      - name: 📦 Install Dependencies
+        run: yarn
+      - name: 📈 Run GraphQL Codegen
+        run: |
+          yarn gql:codegen
+          yarn gql:schema
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_IAM_ONESKY_ROLE_ARN }}
+          aws-region: us-east-1
+      - name: Import OneSky Keys
+        uses: dkershner6/aws-ssm-getparameters-action@v1
+        with:
+          parameterPairs: |
+            /shared/onesky/PUBLIC_KEY = ONESKY_API_KEY,
+            /shared/onesky/SECRET_KEY = ONESKY_SECRET_KEY
+      - name: ⛅ OneSky Download
+        run: yarn onesky:download
+      - name: 🏗️🚀🤖 Build and Codepush Android
+        env:
+          APPCENTER_TOKEN: ${{ secrets.APPCENTER_TOKEN }}
+        run: yarn codepush-android-staging --token "$APPCENTER_TOKEN" --sourcemap-output sourcemap.android.js --extra-bundler-option="--sourcemap-sources-root" --extra-bundler-option="./" --description "#${{ github.run_id }} ${{ github.sha }} | ${{ github.event.head_commit.message }}"
+      - name: 🔼🤖🗺️ Upload Android sourcemaps to Rollbar
+        env:
+          ROLLBAR_POST_SERVER_ITEM_TOKEN: ${{ secrets.ROLLBAR_POST_SERVER_ITEM_TOKEN }}
+        run: |
+          curl https://api.rollbar.com/api/1/sourcemap \
+            -F access_token=$ROLLBAR_POST_SERVER_ITEM_TOKEN \
+            -F version=${{ github.sha }}.android \
+            -F minified_url=http://reactnativehost/main.jsbundle \
+            -F source_map=@sourcemap.android.js
 
   ios-deploy:
     runs-on: macos-latest
