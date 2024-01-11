@@ -2,7 +2,10 @@ name: CI/CD
 # JavaScript CI and iOS, Android, and Codepush deployment
 
 on:
+  push:
+    branches: [develop, master]
   pull_request:
+    # branches: [develop, master]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -15,216 +18,216 @@ permissions:
   contents: read
 
 jobs:
-  split-tests:
-    runs-on: ubuntu-latest
-    outputs:
-      test-chunks: ${{ steps['set-test-chunks'].outputs['test-chunks'] }}
-      test-chunk-ids: ${{ steps['set-test-chunk-ids'].outputs['test-chunk-ids'] }}
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 14
-      - uses: egordm/gha-yarn-node-cache@v1
-      - name: 📦 Install Dependencies
-        run: yarn
-      - id: set-test-chunks
-        name: Set Chunks
-        run: echo "::set-output name=test-chunks::$(yarn --silent test --listTests --json | jq -cM '[_nwise(length / 4 | floor)]')"
-      - id: set-test-chunk-ids
-        name: Set Chunk IDs
-        run: echo "::set-output name=test-chunk-ids::$(echo $CHUNKS | jq -cM 'to_entries | map(.key)')"
-        env:
-          CHUNKS: ${{ steps['set-test-chunks'].outputs['test-chunks'] }}
+  # split-tests:
+  #   runs-on: ubuntu-latest
+  #   outputs:
+  #     test-chunks: ${{ steps['set-test-chunks'].outputs['test-chunks'] }}
+  #     test-chunk-ids: ${{ steps['set-test-chunk-ids'].outputs['test-chunk-ids'] }}
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 14
+  #     - uses: egordm/gha-yarn-node-cache@v1
+  #     - name: 📦 Install Dependencies
+  #       run: yarn
+  #     - id: set-test-chunks
+  #       name: Set Chunks
+  #       run: echo "::set-output name=test-chunks::$(yarn --silent test --listTests --json | jq -cM '[_nwise(length / 4 | floor)]')"
+  #     - id: set-test-chunk-ids
+  #       name: Set Chunk IDs
+  #       run: echo "::set-output name=test-chunk-ids::$(echo $CHUNKS | jq -cM 'to_entries | map(.key)')"
+  #       env:
+  #         CHUNKS: ${{ steps['set-test-chunks'].outputs['test-chunks'] }}
 
-  test:
-    runs-on: ubuntu-latest
-    name: test (chunk ${{ matrix.chunk }})
-    needs:
-      - split-tests
-    strategy:
-      matrix:
-        chunk: ${{ fromJson(needs.split-tests.outputs['test-chunk-ids']) }}
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 14
-      - uses: egordm/gha-yarn-node-cache@v1
-      - name: 📦 Install Dependencies
-        run: yarn
-      - name: 📈 Run GraphQL Codegen
-        run: |
-          yarn gql:codegen
-          yarn gql:schema
-      - name: 🧪 Test (chunk ${{ matrix.chunk }})
-        run: echo $CHUNKS | jq '.[${{ matrix.chunk }}] | .[] | @text' | xargs yarn test:coverage --ci
-        env:
-          CHUNKS: ${{ needs.split-tests.outputs['test-chunks'] }}
-      - name: Codecov
-        run: bash <(curl -s https://codecov.io/bash)
+  # test:
+  #   runs-on: ubuntu-latest
+  #   name: test (chunk ${{ matrix.chunk }})
+  #   needs:
+  #     - split-tests
+  #   strategy:
+  #     matrix:
+  #       chunk: ${{ fromJson(needs.split-tests.outputs['test-chunk-ids']) }}
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         fetch-depth: 2
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 14
+  #     - uses: egordm/gha-yarn-node-cache@v1
+  #     - name: 📦 Install Dependencies
+  #       run: yarn
+  #     - name: 📈 Run GraphQL Codegen
+  #       run: |
+  #         yarn gql:codegen
+  #         yarn gql:schema
+  #     - name: 🧪 Test (chunk ${{ matrix.chunk }})
+  #       run: echo $CHUNKS | jq '.[${{ matrix.chunk }}] | .[] | @text' | xargs yarn test:coverage --ci
+  #       env:
+  #         CHUNKS: ${{ needs.split-tests.outputs['test-chunks'] }}
+  #     - name: Codecov
+  #       run: bash <(curl -s https://codecov.io/bash)
 
-  eslint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 14
-      - uses: egordm/gha-yarn-node-cache@v1
-      - name: 📦 Install Dependencies
-        run: yarn
-      - name: 📈 Run GraphQL Codegen
-        run: |
-          yarn gql:codegen
-          yarn gql:schema
-      - name: 💨 ESLint
-        run: yarn lint
+  # eslint:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 14
+  #     - uses: egordm/gha-yarn-node-cache@v1
+  #     - name: 📦 Install Dependencies
+  #       run: yarn
+  #     - name: 📈 Run GraphQL Codegen
+  #       run: |
+  #         yarn gql:codegen
+  #         yarn gql:schema
+  #     - name: 💨 ESLint
+  #       run: yarn lint
 
-  typescript:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 14
-      - uses: egordm/gha-yarn-node-cache@v1
-      - name: 📦 Install Dependencies
-        run: yarn
-      - name: 📈 Run GraphQL Codegen
-        run: |
-          yarn gql:codegen
-          yarn gql:schema
-      - name: ✅ TypeScript lint
-        run: yarn lint:ts
+  # typescript:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 14
+  #     - uses: egordm/gha-yarn-node-cache@v1
+  #     - name: 📦 Install Dependencies
+  #       run: yarn
+  #     - name: 📈 Run GraphQL Codegen
+  #       run: |
+  #         yarn gql:codegen
+  #         yarn gql:schema
+  #     - name: ✅ TypeScript lint
+  #       run: yarn lint:ts
 
-  prettier:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 14
-      - uses: egordm/gha-yarn-node-cache@v1
-      - name: 📦 Install Dependencies
-        run: yarn
-      - name: 💅 Prettier Check
-        run: yarn prettier:check
+  # prettier:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 14
+  #     - uses: egordm/gha-yarn-node-cache@v1
+  #     - name: 📦 Install Dependencies
+  #       run: yarn
+  #     - name: 💅 Prettier Check
+  #       run: yarn prettier:check
 
-  onesky-upload:
-    runs-on: ubuntu-latest
-    needs: [test, eslint, typescript, prettier]
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 14
-      - uses: egordm/gha-yarn-node-cache@v1
-      - name: 📦 Install Dependencies
-        run: yarn
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: ${{ secrets.AWS_IAM_ONESKY_ROLE_ARN }}
-          aws-region: us-east-1
-      - name: Import OneSky Keys
-        uses: dkershner6/aws-ssm-getparameters-action@v1
-        with:
-          parameterPairs: |
-            /shared/onesky/PUBLIC_KEY = ONESKY_API_KEY,
-            /shared/onesky/SECRET_KEY = ONESKY_SECRET_KEY
-      - name: ⛅🔼 OneSky Upload
-        run: yarn onesky:upload
+  # onesky-upload:
+  #   runs-on: ubuntu-latest
+  #   needs: [test, eslint, typescript, prettier]
+  #   if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 14
+  #     - uses: egordm/gha-yarn-node-cache@v1
+  #     - name: 📦 Install Dependencies
+  #       run: yarn
+  #     - name: Configure AWS credentials
+  #       uses: aws-actions/configure-aws-credentials@v2
+  #       with:
+  #         role-to-assume: ${{ secrets.AWS_IAM_ONESKY_ROLE_ARN }}
+  #         aws-region: us-east-1
+  #     - name: Import OneSky Keys
+  #       uses: dkershner6/aws-ssm-getparameters-action@v1
+  #       with:
+  #         parameterPairs: |
+  #           /shared/onesky/PUBLIC_KEY = ONESKY_API_KEY,
+  #           /shared/onesky/SECRET_KEY = ONESKY_SECRET_KEY
+  #     - name: ⛅🔼 OneSky Upload
+  #       run: yarn onesky:upload
 
-  ios-codepush:
-    runs-on: ubuntu-latest
-    needs: [test, eslint, typescript, prettier]
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 14
-      - uses: egordm/gha-yarn-node-cache@v1
-      - name: 📦 Install Dependencies
-        run: yarn
-      - name: 📈 Run GraphQL Codegen
-        run: |
-          yarn gql:codegen
-          yarn gql:schema
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: ${{ secrets.AWS_IAM_ONESKY_ROLE_ARN }}
-          aws-region: us-east-1
-      - name: Import OneSky Keys
-        uses: dkershner6/aws-ssm-getparameters-action@v1
-        with:
-          parameterPairs: |
-            /shared/onesky/PUBLIC_KEY = ONESKY_API_KEY,
-            /shared/onesky/SECRET_KEY = ONESKY_SECRET_KEY
-      - name: ⛅ OneSky Download
-        run: yarn onesky:download
-      - name: 🏗️🚀🍏 Build and Codepush iOS
-        env:
-          APPCENTER_TOKEN: ${{ secrets.APPCENTER_TOKEN }}
-        # Codepush can't figure out how to parse MARKETING_VERSION https://github.com/microsoft/react-native-code-push/issues/1665 https://stackoverflow.com/a/58769925/665224
-        run: yarn codepush-ios-staging --token "$APPCENTER_TOKEN" --sourcemap-output sourcemap.ios.js --extra-bundler-option="--sourcemap-sources-root" --extra-bundler-option="./" --description "#${{ github.run_id }} ${{ github.sha }} | ${{ github.event.head_commit.message }}" -t `sed -n '/MARKETING_VERSION/{s/MARKETING_VERSION = //;s/;//;s/^[[:space:]]*//;p;q;}' ./ios/MissionHub.xcodeproj/project.pbxproj`
-      - name: 🔼🍏🗺️ Upload iOS sourcemaps to Rollbar
-        env:
-          ROLLBAR_POST_SERVER_ITEM_TOKEN: ${{ secrets.ROLLBAR_POST_SERVER_ITEM_TOKEN }}
-        run: |
-          curl https://api.rollbar.com/api/1/sourcemap \
-            -F access_token=$ROLLBAR_POST_SERVER_ITEM_TOKEN \
-            -F version=${{ github.sha }}.ios \
-            -F minified_url=http://reactnativehost/main.jsbundle \
-            -F source_map=@sourcemap.ios.js
+  # ios-codepush:
+  #   runs-on: ubuntu-latest
+  #   needs: [test, eslint, typescript, prettier]
+  #   if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 14
+  #     - uses: egordm/gha-yarn-node-cache@v1
+  #     - name: 📦 Install Dependencies
+  #       run: yarn
+  #     - name: 📈 Run GraphQL Codegen
+  #       run: |
+  #         yarn gql:codegen
+  #         yarn gql:schema
+  #     - name: Configure AWS credentials
+  #       uses: aws-actions/configure-aws-credentials@v2
+  #       with:
+  #         role-to-assume: ${{ secrets.AWS_IAM_ONESKY_ROLE_ARN }}
+  #         aws-region: us-east-1
+  #     - name: Import OneSky Keys
+  #       uses: dkershner6/aws-ssm-getparameters-action@v1
+  #       with:
+  #         parameterPairs: |
+  #           /shared/onesky/PUBLIC_KEY = ONESKY_API_KEY,
+  #           /shared/onesky/SECRET_KEY = ONESKY_SECRET_KEY
+  #     - name: ⛅ OneSky Download
+  #       run: yarn onesky:download
+  #     - name: 🏗️🚀🍏 Build and Codepush iOS
+  #       env:
+  #         APPCENTER_TOKEN: ${{ secrets.APPCENTER_TOKEN }}
+  #       # Codepush can't figure out how to parse MARKETING_VERSION https://github.com/microsoft/react-native-code-push/issues/1665 https://stackoverflow.com/a/58769925/665224
+  #       run: yarn codepush-ios-staging --token "$APPCENTER_TOKEN" --sourcemap-output sourcemap.ios.js --extra-bundler-option="--sourcemap-sources-root" --extra-bundler-option="./" --description "#${{ github.run_id }} ${{ github.sha }} | ${{ github.event.head_commit.message }}" -t `sed -n '/MARKETING_VERSION/{s/MARKETING_VERSION = //;s/;//;s/^[[:space:]]*//;p;q;}' ./ios/MissionHub.xcodeproj/project.pbxproj`
+  #     - name: 🔼🍏🗺️ Upload iOS sourcemaps to Rollbar
+  #       env:
+  #         ROLLBAR_POST_SERVER_ITEM_TOKEN: ${{ secrets.ROLLBAR_POST_SERVER_ITEM_TOKEN }}
+  #       run: |
+  #         curl https://api.rollbar.com/api/1/sourcemap \
+  #           -F access_token=$ROLLBAR_POST_SERVER_ITEM_TOKEN \
+  #           -F version=${{ github.sha }}.ios \
+  #           -F minified_url=http://reactnativehost/main.jsbundle \
+  #           -F source_map=@sourcemap.ios.js
 
-  android-codepush:
-    runs-on: ubuntu-latest
-    needs: [test, eslint, typescript, prettier]
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 14
-      - uses: egordm/gha-yarn-node-cache@v1
-      - name: 📦 Install Dependencies
-        run: yarn
-      - name: 📈 Run GraphQL Codegen
-        run: |
-          yarn gql:codegen
-          yarn gql:schema
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: ${{ secrets.AWS_IAM_ONESKY_ROLE_ARN }}
-          aws-region: us-east-1
-      - name: Import OneSky Keys
-        uses: dkershner6/aws-ssm-getparameters-action@v1
-        with:
-          parameterPairs: |
-            /shared/onesky/PUBLIC_KEY = ONESKY_API_KEY,
-            /shared/onesky/SECRET_KEY = ONESKY_SECRET_KEY
-      - name: ⛅ OneSky Download
-        run: yarn onesky:download
-      - name: 🏗️🚀🤖 Build and Codepush Android
-        env:
-          APPCENTER_TOKEN: ${{ secrets.APPCENTER_TOKEN }}
-        run: yarn codepush-android-staging --token "$APPCENTER_TOKEN" --sourcemap-output sourcemap.android.js --extra-bundler-option="--sourcemap-sources-root" --extra-bundler-option="./" --description "#${{ github.run_id }} ${{ github.sha }} | ${{ github.event.head_commit.message }}"
-      - name: 🔼🤖🗺️ Upload Android sourcemaps to Rollbar
-        env:
-          ROLLBAR_POST_SERVER_ITEM_TOKEN: ${{ secrets.ROLLBAR_POST_SERVER_ITEM_TOKEN }}
-        run: |
-          curl https://api.rollbar.com/api/1/sourcemap \
-            -F access_token=$ROLLBAR_POST_SERVER_ITEM_TOKEN \
-            -F version=${{ github.sha }}.android \
-            -F minified_url=http://reactnativehost/main.jsbundle \
-            -F source_map=@sourcemap.android.js
+  # android-codepush:
+  #   runs-on: ubuntu-latest
+  #   needs: [test, eslint, typescript, prettier]
+  #   if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 14
+  #     - uses: egordm/gha-yarn-node-cache@v1
+  #     - name: 📦 Install Dependencies
+  #       run: yarn
+  #     - name: 📈 Run GraphQL Codegen
+  #       run: |
+  #         yarn gql:codegen
+  #         yarn gql:schema
+  #     - name: Configure AWS credentials
+  #       uses: aws-actions/configure-aws-credentials@v2
+  #       with:
+  #         role-to-assume: ${{ secrets.AWS_IAM_ONESKY_ROLE_ARN }}
+  #         aws-region: us-east-1
+  #     - name: Import OneSky Keys
+  #       uses: dkershner6/aws-ssm-getparameters-action@v1
+  #       with:
+  #         parameterPairs: |
+  #           /shared/onesky/PUBLIC_KEY = ONESKY_API_KEY,
+  #           /shared/onesky/SECRET_KEY = ONESKY_SECRET_KEY
+  #     - name: ⛅ OneSky Download
+  #       run: yarn onesky:download
+  #     - name: 🏗️🚀🤖 Build and Codepush Android
+  #       env:
+  #         APPCENTER_TOKEN: ${{ secrets.APPCENTER_TOKEN }}
+  #       run: yarn codepush-android-staging --token "$APPCENTER_TOKEN" --sourcemap-output sourcemap.android.js --extra-bundler-option="--sourcemap-sources-root" --extra-bundler-option="./" --description "#${{ github.run_id }} ${{ github.sha }} | ${{ github.event.head_commit.message }}"
+  #     - name: 🔼🤖🗺️ Upload Android sourcemaps to Rollbar
+  #       env:
+  #         ROLLBAR_POST_SERVER_ITEM_TOKEN: ${{ secrets.ROLLBAR_POST_SERVER_ITEM_TOKEN }}
+  #       run: |
+  #         curl https://api.rollbar.com/api/1/sourcemap \
+  #           -F access_token=$ROLLBAR_POST_SERVER_ITEM_TOKEN \
+  #           -F version=${{ github.sha }}.android \
+  #           -F minified_url=http://reactnativehost/main.jsbundle \
+  #           -F source_map=@sourcemap.android.js
 
   ios-deploy:
     runs-on: macos-latest
@@ -261,6 +264,8 @@ jobs:
         run: echo "COMMIT_SHA=$GITHUB_SHA" >> ./.env.production
       - name: 🗝 Configure GitHub login
         run: echo -e "machine github.com\n login $CI_USER_TOKEN" >> ~/.netrc
+      - name: 🔒 Set correct permissions for .netrc
+        run: chmod 0600 ~/.netrc
         env:
           CI_USER_TOKEN: ${{ secrets.CI_USER_TOKEN}}
       - name: Import App Store Connect API Key
