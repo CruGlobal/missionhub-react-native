@@ -264,10 +264,10 @@ jobs:
         run: echo "COMMIT_SHA=$GITHUB_SHA" >> ./.env.production
       - name: 🗝 Configure GitHub login
         run: echo -e "machine github.com\n login $CI_USER_TOKEN" >> ~/.netrc
-      - name: 🔒 Set correct permissions for .netrc
-        run: chmod 0600 ~/.netrc
         env:
           CI_USER_TOKEN: ${{ secrets.CI_USER_TOKEN}}
+      - name: 🔒 Set correct permissions for .netrc
+        run: chmod 0600 ~/.netrc
       - name: Import App Store Connect API Key
         env:
           APP_STORE_CONNECT_API_JSON_PAYLOAD: ${{ secrets.APP_STORE_CONNECT_API_JSON_PAYLOAD }}
