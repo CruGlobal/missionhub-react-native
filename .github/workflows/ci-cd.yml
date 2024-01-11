@@ -232,9 +232,8 @@ jobs:
   ios-deploy:
     runs-on: macos-latest
     needs: [test, eslint, typescript, prettier]
-    if: |
-      github.event_name == 'push' && github.ref == 'refs/heads/master' ||
-      github.event_name == 'pull_request' && contains(['develop', 'master'], github.base_ref)
+    # if: |
+    #   github.event_name == 'push' && github.ref == 'refs/heads/master' || github.event_name == 'pull_request'
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
