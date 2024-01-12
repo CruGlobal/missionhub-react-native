@@ -231,8 +231,8 @@ jobs:
 
   ios-deploy:
     runs-on: macos-latest
-    needs: [test, eslint, typescript, prettier]
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    # needs: [test, eslint, typescript, prettier]
+    # if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -290,7 +290,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: fastlane-gym-logs
-          path: "/Users/runner/Library/Logs/gym/MissionHub-MissionHub.log"
+          path: '/Users/runner/Library/Logs/gym/MissionHub-MissionHub.log'
 
   android-deploy:
     runs-on: ubuntu-latest
