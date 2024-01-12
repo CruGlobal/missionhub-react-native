@@ -37,9 +37,9 @@ target 'MissionHub' do
     #     phase = target.project.new(Xcodeproj::Project::Object::PBXShellScriptBuildPhase)
     #     phase.shell_script = "cd ../../"\
     #                          " && RNC_ROOT=./node_modules/react-native-config/"\
-    #                          " && export SYMROOT=$RNC_ROOT/ios/ReactNativeConfig"\
-    #                          " && export BUILD_DIR=$RNC_ROOT/ios/ReactNativeConfig"\
-    #                          " && ruby $RNC_ROOT/ios/ReactNativeConfig/BuildDotenvConfig.ruby"
+    #                          " && export SYMROOT=$RNC_ROOT/ios/RNCConfig"\
+    #                          " && export BUILD_DIR=$RNC_ROOT/ios/RNCConfig"\
+    #                          " && ruby $RNC_ROOT/ios/RNCConfig/BuildDotenvConfig.ruby"
   
     #     target.build_phases << phase
     #     target.build_phases.move(phase,0)
