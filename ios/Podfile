@@ -29,26 +29,22 @@ target 'MissionHub' do
   # you should disable these next few lines.
   use_flipper!({ 'Flipper-Folly' => '2.5.3', 'Flipper' => '0.87.0', 'Flipper-RSocket' => '1.3.1' })
 
-  ENVFILES = {
-    'Release' => '$(PODS_ROOT)/../../.env.production',
-  }
-
   post_install do |installer|
     flipper_post_install(installer)
     
-    # installer.pods_project.targets.each do |target|
-    #   if target.name == 'react-native-config' # https://github.com/luggit/react-native-config/issues/357#issuecomment-508649128
-    #     phase = target.project.new(Xcodeproj::Project::Object::PBXShellScriptBuildPhase)
-    #     phase.shell_script = "cd ../../"\
-    #                          " && RNC_ROOT=./node_modules/react-native-config/"\
-    #                          " && export SYMROOT=$RNC_ROOT/ios/ReactNativeConfig"\
-    #                          " && export BUILD_DIR=$RNC_ROOT/ios/ReactNativeConfig"\
-    #                          " && ruby $RNC_ROOT/ios/ReactNativeConfig/BuildDotenvConfig.ruby"
+    installer.pods_project.targets.each do |target|
+      if target.name == 'react-native-config' # https://github.com/luggit/react-native-config/issues/357#issuecomment-508649128
+        phase = target.project.new(Xcodeproj::Project::Object::PBXShellScriptBuildPhase)
+        phase.shell_script = "cd ../../"\
+                             " && RNC_ROOT=./node_modules/react-native-config/"\
+                             " && export SYMROOT=$RNC_ROOT/ios/ReactNativeConfig"\
+                             " && export BUILD_DIR=$RNC_ROOT/ios/ReactNativeConfig"\
+                             " && ruby $RNC_ROOT/ios/ReactNativeConfig/BuildDotenvConfig.ruby"
   
-    #     target.build_phases << phase
-    #     target.build_phases.move(phase,0)
-    #   end
-    # end
+        target.build_phases << phase
+        target.build_phases.move(phase,0)
+      end
+    end
 
     installer.pods_project.targets.each do |target|
       if target.respond_to?(:product_type) and target.product_type == "com.apple.product-type.bundle"
