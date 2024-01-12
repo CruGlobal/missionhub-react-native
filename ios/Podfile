@@ -52,5 +52,6 @@ target 'MissionHub' do
             config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
         end
       end
+    end
   end
 end
