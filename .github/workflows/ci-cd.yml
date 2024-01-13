@@ -290,7 +290,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: fastlane-gym-logs
-          path: "/Users/runner/Library/Logs/gym/MissionHub-MissionHub.log"
+          path: '/Users/runner/Library/Logs/gym/MissionHub-MissionHub.log'
 
   android-deploy:
     runs-on: ubuntu-latest
