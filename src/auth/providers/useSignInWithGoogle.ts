@@ -9,6 +9,7 @@ import {
   setAuthToken,
   getAnonymousUid,
   deleteAnonymousUid,
+  setMissionHubRefreshToken,
 } from '../authStore';
 import { AuthError } from '../constants';
 import { rollbar } from '../../utils/rollbar.config';
@@ -90,6 +91,9 @@ export const useSignInWithGoogle = () => {
 
       if (data?.loginWithGoogle?.token) {
         await setAuthToken(data.loginWithGoogle.token);
+        await setMissionHubRefreshToken(
+          data.loginWithGoogle?.refreshToken || '',
+        );
         await deleteAnonymousUid();
       } else {
         throw new Error('apiSignInWithGoogle did not return an access token');
