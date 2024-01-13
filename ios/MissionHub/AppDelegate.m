@@ -43,7 +43,7 @@ static void InitializeFlipper(UIApplication *application) {
 #import <CodePush/CodePush.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #include "TargetConditionals.h"
-#import "ReactNativeConfig.h"
+#import "RNCConfig.h"
 #import <RollbarReactNative/RollbarReactNative.h>
 #import <React/RCTLinkingManager.h>
 
@@ -113,7 +113,7 @@ static void InitializeFlipper(UIApplication *application) {
   RollbarConfiguration *config = [RollbarConfiguration configuration];
   config.environment = environment;
   
-  NSString *rollbarAccessToken = [ReactNativeConfig envFor:@"ROLLBAR_ACCESS_TOKEN"];
+  NSString *rollbarAccessToken = [RNCConfig envFor:@"ROLLBAR_ACCESS_TOKEN"];
   [RollbarReactNative initWithAccessToken:rollbarAccessToken configuration:config];
   
   return YES;
