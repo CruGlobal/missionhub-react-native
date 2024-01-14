@@ -191,8 +191,7 @@ export const useSignInWithTheKey = () => {
             anonymousUid,
           },
         });
-        // @ts-ignore
-
+        
         if (data?.loginWithTheKey?.token) {
           await setAuthToken(data.loginWithTheKey.token);
           await setMissionHubRefreshToken(
