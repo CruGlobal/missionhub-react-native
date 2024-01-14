@@ -106,11 +106,9 @@ export const useSignInWithTheKey = () => {
 
   const makeAccessTokenRequest = useCallback(
     async (request: ApiRouteConfigEntry, params: string) => {
-      console.log('request', request);
       const { access_token, refresh_token } = ((await dispatch(
         callApi(request, {}, params),
       )) as unknown) as { access_token: string; refresh_token?: string };
-      console.log(`refresh_token from the key`, refresh_token);
       refresh_token && setTheKeyRefreshToken(refresh_token);
       return access_token;
     },
@@ -184,12 +182,9 @@ export const useSignInWithTheKey = () => {
 
       try {
         const accessToken = await getAccessToken(options);
-        console.log('accessToken', accessToken);
         const ticket = await getTicket(accessToken);
-        console.log('ticket', ticket);
 
         const anonymousUid = await getAnonymousUid();
-        console.log('anonymousUid', anonymousUid);
         const { data } = await apiSignInWithTheKey({
           variables: {
             accessToken: ticket,
@@ -197,7 +192,6 @@ export const useSignInWithTheKey = () => {
           },
         });
         // @ts-ignore
-        console.log(`refresh_token from graphql`, data);
 
         if (data?.loginWithTheKey?.token) {
           await setAuthToken(data.loginWithTheKey.token);
