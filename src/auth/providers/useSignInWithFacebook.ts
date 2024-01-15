@@ -6,6 +6,7 @@ import {
   setAuthToken,
   getAnonymousUid,
   deleteAnonymousUid,
+  setMissionHubRefreshToken,
 } from '../authStore';
 import { AuthError } from '../constants';
 import { rollbar } from '../../utils/rollbar.config';
@@ -69,6 +70,9 @@ export const useSignInWithFacebook = () => {
 
       if (data?.loginWithFacebook?.token) {
         await setAuthToken(data.loginWithFacebook.token);
+        await setMissionHubRefreshToken(
+          data.loginWithFacebook?.refreshToken || '',
+        );
         await deleteAnonymousUid();
       } else {
         throw new Error('apiSignInWithFacebook did not return an access token');

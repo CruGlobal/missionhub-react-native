@@ -19,6 +19,7 @@ import {
   getTheKeyRefreshToken,
   setTheKeyRefreshToken,
   deleteAnonymousUid,
+  setMissionHubRefreshToken,
 } from '../authStore';
 import { AuthError } from '../constants';
 import { rollbar } from '../../utils/rollbar.config';
@@ -193,6 +194,9 @@ export const useSignInWithTheKey = () => {
 
         if (data?.loginWithTheKey?.token) {
           await setAuthToken(data.loginWithTheKey.token);
+          await setMissionHubRefreshToken(
+            data.loginWithTheKey?.refreshToken || '',
+          );
           await deleteAnonymousUid();
         } else {
           throw new Error('apiSignInWithTheKey did not return an access token');
