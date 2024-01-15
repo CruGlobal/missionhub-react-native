@@ -2358,18 +2358,18 @@
     superstruct "^0.6.2"
 
 "@react-native-firebase/dynamic-links@^7.3.1":
-  version "7.5.2"
-  resolved "https://registry.npmjs.org/@react-native-firebase/dynamic-links/-/dynamic-links-7.5.2.tgz"
-  integrity sha512-fVMyrGsQbB9Jlpe1vT4pmzCA1hLl0bYrFxJWo1xrlR/ZkhnCMgucY+bQp41uEtw4/+epMnPaeYtOahDLhojOqQ==
+  version "7.5.13"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/dynamic-links/-/dynamic-links-7.5.13.tgz#4cb7eb300914071fb773672a0ca4d37f754279c9"
+  integrity sha512-GcUgQYgnHqeoYYDNTHvwMTplklkYsS89ETC7X8UkBInXKEqKxUHMUbxxCbyHmCTDlQnxyTXj0xlqIo355TLgTg==
 
 "@react-native-firebase/perf@^7.2.3":
-  version "7.4.2"
-  resolved "https://registry.npmjs.org/@react-native-firebase/perf/-/perf-7.4.2.tgz"
-  integrity sha512-RnHyEKZUw5NJPXYP/AlAbvTohuuxRg98M+TBAPMjiO9hoYhxBUII7korei4NjSdLkqWitQKhPCiZ/OuUyPIGMg==
+  version "7.4.12"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/perf/-/perf-7.4.12.tgz#23af2ef2db0b38bc9ef176378d351c34bf98c6b6"
+  integrity sha512-e84DY8seSs2hHTCgJBgfI9YsYBgk5h0q1bLm1WxsN16iIeGZh0rkruRJ65/n0h37ZqS/1Or/UqnkGePfdhhJRg==
 
 "@react-navigation/core@^3.7.6":
   version "3.7.9"
-  resolved "https://registry.npmjs.org/@react-navigation/core/-/core-3.7.9.tgz"
+  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-3.7.9.tgz#3f7ba0fcb6c8d74a77a057382af198d84c7c4e3b"
   integrity sha512-EknbzM8OI9A5alRxXtQRV5Awle68B+z1QAxNty5DxmlS3BNfmduWNGnim159ROyqxkuDffK9L/U/Tbd45mx+Jg==
   dependencies:
     hoist-non-react-statics "^3.3.2"
