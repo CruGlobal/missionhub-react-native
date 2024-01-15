@@ -1,6 +1,6 @@
 import { createStackNavigator } from 'react-navigation-stack';
-import { navigateNestedReset } from '../../actions/navigation';
 
+import { navigateNestedReset } from '../../actions/navigation';
 import { COMMUNITIES_TAB, MAIN_TABS } from '../../constants';
 import { authFlowGenerator } from '../auth/authFlowGenerator';
 import { SIGNUP_TYPES } from '../../containers/Auth/SignUpScreen';
