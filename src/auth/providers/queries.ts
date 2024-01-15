@@ -6,6 +6,7 @@ export const SIGN_IN_WITH_THE_KEY_MUTATION = gql`
       input: { keyAccessToken: $accessToken, anonymousUid: $anonymousUid }
     ) {
       token
+      refreshToken
     }
   }
 `;
@@ -16,6 +17,7 @@ export const SIGN_IN_WITH_FACEBOOK_MUTATION = gql`
       input: { fbAccessToken: $accessToken, anonymousUid: $anonymousUid }
     ) {
       token
+      refreshToken
     }
   }
 `;
@@ -24,6 +26,7 @@ export const SIGN_IN_WITH_GOOGLE_MUTATION = gql`
   mutation SignInWithGoogle($idToken: String!, $anonymousUid: String) {
     loginWithGoogle(input: { idToken: $idToken, anonymousUid: $anonymousUid }) {
       token
+      refreshToken
     }
   }
 `;
