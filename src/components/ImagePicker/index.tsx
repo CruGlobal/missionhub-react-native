@@ -9,7 +9,6 @@ import { LOG } from '../../utils/logging';
 
 // See all options: https://github.com/ivpusic/react-native-image-crop-picker
 const DEFAULT_OPTIONS = {
-  mediaType: 'photo',
   width: theme.fullWidth,
   height: theme.fullWidth * theme.communityImageAspectRatio,
   compressImageQuality: 0.75, // 0 to 1
@@ -62,11 +61,13 @@ const ImagePicker = ({
             ...DEFAULT_OPTIONS,
             cropperCircleOverlay: circleOverlay,
             cropping: showCropper,
+            mediaType: 'photo',
           })
         : ImageCropPicker.openPicker({
             ...DEFAULT_OPTIONS,
             cropperCircleOverlay: circleOverlay,
             cropping: showCropper,
+            mediaType: 'photo',
           }));
 
       const image = Array.isArray(response) ? response[0] : response;
